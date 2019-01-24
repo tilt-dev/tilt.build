@@ -1,0 +1,18 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: tilt-site
+spec:
+  selector:
+    matchLabels:
+      app: tilt-site
+  template:
+    metadata:
+      labels:
+        app: tilt-site
+    spec:
+      containers:
+      - name: tilt-site
+        image: gcr.io/windmill-public-containers/tilt-site
+        ports:
+        - containerPort: 4000
