@@ -13,6 +13,9 @@ markdown: kramdown
 plugins:
   - jekyll-feed
 
+gems:
+  - jekyll-inline-svg
+
 # Exclude from processing.
 # The following items will not be processed, by default. Create a custom list
 # to override the default setting.
