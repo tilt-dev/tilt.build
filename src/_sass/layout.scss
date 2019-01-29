@@ -153,12 +153,14 @@ h1 {
   font-size: 32px;
   line-height: normal;
   font-weight: 800;
+  margin-bottom: $spacing-unit / 4;
 }
 
 h2 {
   font-size: 32px;
   line-height: 40px;
   font-weight: 200;
+  margin-bottom: $spacing-unit;
 }
 
 h3 {
@@ -166,6 +168,7 @@ h3 {
   line-height: normal;
   color: $color-blue;
   font-weight: 700;
+  margin-bottom: $spacing-unit / 2;
 }
 
 h4 {
@@ -175,8 +178,69 @@ h4 {
   font-weight: 700;
 }
 
-label {
+label, .fontLabel {
   font-size: 18px;
   line-height: normal;
+  font-weight: 700;
   color: $color-grey;
+  letter-spacing: 0.05em;
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: $spacing-unit * 2.5;
+}
+
+.col-1of3 {
+  display: block;
+  width: $col-1of3-width;
+}
+
+.col-2of3 {
+  display: block;
+  width: $col-2of3-width;
+}
+
+.block {
+  display: block;
+  margin: $spacing-unit * 1.5 0;
+  text-align: center;
+}
+
+.u-blockTwoThirds {
+  display: block;
+  max-width: $col-2of3-width;
+}
+
+.svgButton {
+  display: inline-block;
+  margin: auto;
+  position: relative;
+}
+
+.svgButton a {
+  display: block;
+}
+
+.svgButton svg {
+  fill: $brand-color;
+  opacity: $opacity-light;
+  width: 144px;
+  height: 40px;
+}
+
+.svgButton:hover svg {
+  opacity: 1;
+}
+
+.svgButton-text {
+  color: white;
+  display: block;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  line-height: 40px;
+  text-align: center;
 }
