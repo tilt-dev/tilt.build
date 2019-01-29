@@ -28,11 +28,11 @@ of your system, from building to deploying to logging to crashing.
   TODO(nick): add video
 </div>
 
-<div class="row">
-  <div class="col-1of3">
+<div class="row row--bottom2_5">
+  <div class="col-1of4">
     {% svg assets/svg/local.svg %}
   </div>
-  <div class="col-2of3">
+  <div class="col-3of4">
   <h3>Keep your local development tools</h3>
 
   <div>
@@ -43,11 +43,11 @@ of your system, from building to deploying to logging to crashing.
   </div>
 </div>
 
-<div class="row">
-  <div class="col-1of3">
+<div class="row row--bottom2_5">
+  <div class="col-1of4">
     <div>{% svg assets/svg/observable.svg %}</div>
   </div>
-  <div class="col-2of3">
+  <div class="col-3of4">
   <h3>Find your way in a maze of microservices</h3>
 
   <div>
@@ -58,11 +58,11 @@ of your system, from building to deploying to logging to crashing.
   </div>
 </div>
 
-<div class="row">
-  <div class="col-1of3">
+<div class="row row--bottom1_5">
+  <div class="col-1of4">
     {% svg assets/svg/shareable.svg %}
   </div>
-  <div class="col-2of3">
+  <div class="col-3of4">
   <h3>Share the workflow that keeps you in-flow</h3>
 
   <div>
@@ -74,13 +74,38 @@ of your system, from building to deploying to logging to crashing.
   </div>
 </div>
 
-### Try Tilt Now
+<div class="row row--bottom1_5">
+  <div class="col-1of4">&nbsp;</div>
+  <div class="col-3of4">
+    <h3>
+      <a href="https://github.com/windmilleng/tilt">
+      &hairsp;&gt; Try Tilt&hairsp;
+      </a>
+    </h3>
+  </div>
+</div>
 
-#### Already have a Dockerfile and a Kubernetes config?
+<div class="row row--bottom2_5">
+  <div class="col-1of2">
+    <h4>
+      {% svg assets/svg/kubernetes.svg class="h4-icon" %}
+      Already have a Dockerfile and a Kubernetes config?
+    </h4>
 
-You’ll be able to setup Tilt
-quickly and start getting things done. Check out the docs!
+    <div>
+    You’ll be able to setup Tilt
+    quickly and start getting things done.&thinsp;<a class="bleedingLink" href="https://docs.tilt.build/">&thinsp;<span class="bleedingLink-text">Check out the docs</span>!&hairsp;</a>
+    </div>
+  </div>
 
-#### Having trouble developing your servers in Kubernetes?
+  <div class="col-1of2">
+    <h4>
+      {% svg assets/svg/contact.svg class="h4-icon" %}
+      Having trouble developing your servers in Kubernetes?
+    </h4>
 
-We’d love to chat.
+    <div>
+    We’d&thinsp;<a class="bleedingLink" href="/contact">&thinsp;<span class="bleedingLink-text">love to chat</span>.&hairsp;</a>
+    </div>
+  </div>
+</div>
