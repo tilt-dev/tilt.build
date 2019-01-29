@@ -9,103 +9,18 @@
 
 .site-nav {
   position: absolute;
-  top: 9px;
+  top: 0;
   right: $spacing-unit / 2;
-  background-color: $background-color;
-  border: 1px solid $color-grey-light;
-  border-radius: 5px;
+  display: flex;
   text-align: right;
-
-  .nav-trigger {
-      display: none;
-  }
-
-  .menu-icon {
-    float: right;
-    width: 36px;
-    height: 26px;
-    line-height: 0;
-    padding-top: 10px;
-    text-align: center;
-
-    > svg path {
-      fill: $color-grey-dark;
-    }
-  }
-
-  label[for="nav-trigger"] {
-    display: block;
-    float: right;
-    width: 36px;
-    height: 36px;
-    z-index: 2;
-    cursor: pointer;
-  }
-
-  input ~ .trigger {
-    clear: both;
-    display: none;
-  }
-
-  input:checked ~ .trigger {
-    display: block;
-    padding-bottom: 5px;
-  }
-
-  .page-link {
-    color: $text-color;
-    line-height: $body-line-height;
-    display: block;
-    padding: 5px 10px;
-
-    // Gaps between nav items, but not on the last one
-    &:not(:last-child) {
-      margin-right: 0;
-    }
-    margin-left: 20px;
-  }
-
-  @media screen and (min-width: $on-medium) {
-    position: static;
-    float: right;
-    border: none;
-    background-color: inherit;
-
-    label[for="nav-trigger"] {
-      display: none;
-    }
-
-    .menu-icon {
-      display: none;
-    }
-
-    input ~ .trigger {
-      display: block;
-    }
-
-    .page-link {
-      display: inline;
-      padding: 0;
-
-      &:not(:last-child) {
-        margin-right: 20px;
-      }
-      margin-left: auto;
-    }
-  }
 }
 
 .site-footer {
   margin: auto;
-  padding: $spacing-unit 0;
   font-size: $small-font-size;
   line-height: $small-line-height;
 }
 
-
-/**
- * Page content
- */
 .page-content {
   padding: $spacing-unit 0;
   flex: 1 0 auto;
@@ -165,7 +80,7 @@ h2 {
 
 h3 {
   font-size: 24px;
-  line-height: normal;
+  line-height: 20px;
   color: $color-blue;
   font-weight: 700;
   margin-bottom: $spacing-unit / 2;
@@ -189,14 +104,6 @@ label, .fontLabel {
 .row {
   display: flex;
   justify-content: space-between;
-}
-
-.row--bottom2_5 {
-  margin-bottom: $spacing-unit * 2.5;
-}
-
-.row--bottom1_5 {
-  margin-bottom: $spacing-unit * 1.5;
 }
 
 .col-1of4 {
@@ -225,6 +132,60 @@ label, .fontLabel {
   max-width: $col-3of4-width;
 }
 
+.imageLink,
+.imageLink:hover {
+  background-color: transparent;
+}
+
+.imageLink:hover svg,
+.imageLink:hover svg path {
+  opacity: 1;
+}
+
+.headerLink {
+  color: $color-grey;
+  margin-left: 25px;
+  display: block;
+  font-size: 12px;
+  text-align: center;
+}
+
+.headerLink-text {
+  display: block;
+  margin: auto;
+}
+
+.headerLink:first-child {
+  margin-left: 0;
+}
+
+.headerLink:hover {
+  color: $color-red;
+}
+
+.headerLink,
+.headerLink:hover {
+  background-color: transparent;
+}
+
+.headerLink svg {
+  display: block;
+  opacity: 0;
+  width: 22px;
+  height: 22px;
+  margin: auto;
+}
+
+.headerLink:not(.headerLink--logo-imagemark) svg,
+.headerLink:not(.headerLink--logo-imagemark) svg path {
+  fill: $color-red;
+}
+
+.headerLink:hover svg,
+.headerLink:hover svg path {
+  opacity: 1;
+}
+
 .svgButton {
   display: inline-block;
   margin: auto;
@@ -240,10 +201,6 @@ label, .fontLabel {
   opacity: $opacity-light;
   width: 144px;
   height: 40px;
-}
-
-.svgButton:hover svg {
-  opacity: 1;
 }
 
 .svgButton-text {
@@ -276,4 +233,45 @@ label, .fontLabel {
   text-decoration: none;
   color: white;
   background-color: $color-red;
+}
+
+.footerIcon,
+.footerIcon svg {
+  width: 24px;
+  height: 24px;
+  display: inline-block;
+  fill: $color-grey;
+}
+
+.footerIcon + .footerIcon {
+  margin-left: $spacing-unit * 1/2;
+}
+
+.footerIcon:hover {
+  background-color: transparent;
+}
+
+.footerIcon svg path {
+  fill: $color-grey;
+}
+
+.footerIcon:hover svg,
+.footerIcon:hover svg path {
+  fill: $color-red;
+}
+
+.u-marginBottomUnit {
+  margin-bottom: $spacing-unit !important;
+}
+
+.u-marginBottom2_5 {
+  margin-bottom: $spacing-unit * 2.5 !important;
+}
+
+.u-marginBottom1_5 {
+  margin-bottom: $spacing-unit * 1.5 !important;
+}
+
+.u-textAlignCenter {
+  text-align: center;
 }
