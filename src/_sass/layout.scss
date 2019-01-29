@@ -189,17 +189,29 @@ label, .fontLabel {
 .row {
   display: flex;
   justify-content: space-between;
+}
+
+.row--bottom2_5 {
   margin-bottom: $spacing-unit * 2.5;
 }
 
-.col-1of3 {
-  display: block;
-  width: $col-1of3-width;
+.row--bottom1_5 {
+  margin-bottom: $spacing-unit * 1.5;
 }
 
-.col-2of3 {
+.col-1of4 {
   display: block;
-  width: $col-2of3-width;
+  width: $col-1of4-width;
+}
+
+.col-3of4 {
+  display: block;
+  width: $col-3of4-width;
+}
+
+.col-1of2 {
+  display: block;
+  width: $col-1of2-width;
 }
 
 .block {
@@ -210,7 +222,7 @@ label, .fontLabel {
 
 .u-blockTwoThirds {
   display: block;
-  max-width: $col-2of3-width;
+  max-width: $col-3of4-width;
 }
 
 .svgButton {
@@ -243,4 +255,25 @@ label, .fontLabel {
   height: 100%;
   line-height: 40px;
   text-align: center;
+}
+
+.h4-icon {
+  margin-right: $spacing-unit/2;
+  float: left;
+}
+
+.bleedingLink {
+  color: $text-color;
+  text-decoration: none;
+}
+
+.bleedingLink-text {
+  color: $color-red;
+}
+
+.bleedingLink:hover,
+.bleedingLink:hover .bleedingLink-text {
+  text-decoration: none;
+  color: white;
+  background-color: $color-red;
 }
