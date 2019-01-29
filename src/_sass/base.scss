@@ -8,6 +8,13 @@ dl, dd, ol, ul, figure {
   padding: 0;
 }
 
+/**
+ * Make the scrollbar always visible
+ * so that the header doesn't shift on pagenav
+ */
+html {
+  overflow-y:scroll;
+}
 
 
 /**
@@ -173,6 +180,7 @@ pre {
   max-width: $content-width;
   margin-right: auto;
   margin-left: auto;
+  position: relative;
   @extend %clearfix;
 }
 

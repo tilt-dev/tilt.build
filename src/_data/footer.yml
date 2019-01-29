@@ -1,0 +1,15 @@
+- name: Twitter
+  icon: twitter
+  href: https://twitter.com/windmill_eng
+- name: Blog
+  icon: medium
+  href: https://medium.com/windmill-engineering
+- name: GitHub
+  icon: github
+  href: https://github.com/windmilleng/tilt
+- name: Docs
+  icon: docs
+  href: https://docs.tilt.build/
+- name: Contact
+  icon: contact
+  href: /contact

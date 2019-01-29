@@ -1,5 +1,14 @@
 <footer class="site-footer h-card">
   <div class="wrapper">
-    Built with 💖 at Windmill Engineering in NYC
+    <div class="u-marginBottomUnit u-textAlignCenter">
+      Built with 💖 at Windmill Engineering in NYC
+    </div>
+    <div class="u-marginBottomUnit u-textAlignCenter">
+      {% for link in site.data.footer %}
+      <a class="footerIcon" href="{{link.href}}">
+        {% svg assets/svg/{{link.icon}}.svg alt="{{link.name}}" %}
+      </a>
+      {% endfor %}
+    </div>
   </div>
 </footer>

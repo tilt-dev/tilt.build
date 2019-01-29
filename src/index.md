@@ -15,7 +15,7 @@ of your system, from building to deploying to logging to crashing.
 
 <div class="block">
 <div class="svgButton">
-  <a href="https://github.com/windmilleng/tilt">
+  <a class="imageLink" href="https://github.com/windmilleng/tilt">
     {% svg assets/svg/button.svg class="svgButton" %}
     <div class="fontLabel svgButton-text">
       Get Tilt
@@ -28,7 +28,7 @@ of your system, from building to deploying to logging to crashing.
   TODO(nick): add video
 </div>
 
-<div class="row row--bottom2_5">
+<div class="row u-marginBottom2_5">
   <div class="col-1of4">
     {% svg assets/svg/local.svg %}
   </div>
@@ -43,7 +43,7 @@ of your system, from building to deploying to logging to crashing.
   </div>
 </div>
 
-<div class="row row--bottom2_5">
+<div class="row u-marginBottom2_5">
   <div class="col-1of4">
     <div>{% svg assets/svg/observable.svg %}</div>
   </div>
@@ -58,7 +58,7 @@ of your system, from building to deploying to logging to crashing.
   </div>
 </div>
 
-<div class="row row--bottom1_5">
+<div class="row u-marginBottom1_5">
   <div class="col-1of4">
     {% svg assets/svg/shareable.svg %}
   </div>
@@ -74,7 +74,7 @@ of your system, from building to deploying to logging to crashing.
   </div>
 </div>
 
-<div class="row row--bottom1_5">
+<div class="row u-marginBottom1_5">
   <div class="col-1of4">&nbsp;</div>
   <div class="col-3of4">
     <h3>
@@ -85,7 +85,7 @@ of your system, from building to deploying to logging to crashing.
   </div>
 </div>
 
-<div class="row row--bottom2_5">
+<div class="row u-marginBottom2_5">
   <div class="col-1of2">
     <h4>
       {% svg assets/svg/kubernetes.svg class="h4-icon" %}
