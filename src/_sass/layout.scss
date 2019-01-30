@@ -53,15 +53,6 @@
   @include relative-font-size(1.5);
 }
 
-
-
-/**
- * Posts
- */
-.post-header {
-  margin-bottom: $spacing-unit;
-}
-
 .post-title,
 h1 {
   color: $color-blue;
@@ -104,11 +95,17 @@ label, .fontLabel {
 .row {
   display: flex;
   justify-content: space-between;
+  flex-wrap: wrap;
 }
 
 .col-1of4 {
   display: block;
   width: $col-1of4-width;
+}
+
+.col-1of3 {
+  display: block;
+  width: 224px;
 }
 
 .col-3of4 {
@@ -272,6 +269,32 @@ label, .fontLabel {
   margin-bottom: $spacing-unit * 1.5 !important;
 }
 
+.u-marginBottom1_25 {
+  margin-bottom: $spacing-unit * 1.25 !important;
+}
+
 .u-textAlignCenter {
   text-align: center;
+}
+
+.u-boxShadow {
+  box-shadow: 8px 10px 16px 16px $color-grey-lightest;
+}
+
+.u-padding16 {
+  padding: 16px;
+}
+
+.bio {
+  line-height: 17px;
+  font-size: 13px;
+  letter-spacing: 0.02em;
+}
+
+.bio-image {
+  width: 224px;
+  height: 176px;
+  clip-path: url(#mask);
+  background-size: cover;
+  margin-bottom: $spacing-unit/2;
 }
