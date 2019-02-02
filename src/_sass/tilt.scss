@@ -2,10 +2,12 @@
 
 // Define defaults for each variable.
 
-$body-font-family: "attribute-text";
-$body-font-size:   18px;
-$body-font-weight: 400;
-$body-line-height: 25px;
+$body-font-family: upgrade, sans-serif;
+$body-font-size:   20px;
+$body-font-weight: 200;
+$body-line-height: 26px;
+
+$header-font-family: attribute-mono, sans-serif;
 
 $small-font-size:  13px;
 $small-line-height: 18px;
@@ -19,9 +21,6 @@ $col-3of4-width: $spacing-unit * 17;
 $col-1of2-width: $spacing-unit * 11;
 $col-space-width: $spacing-unit;
 
-$text-color:       #434343;
-$background-color: #ffffff;
-
 $color-green: #25B352;
 $color-blue: #00B7C2;
 $color-purple: #6378BA;
@@ -32,7 +31,11 @@ $color-grey: #9a9a9a;
 $color-grey-light: #cacaca;
 $color-grey-lightest: #dcdcdc;
 $color-grey-dark: #606060;
+$color-grey-darkest: #434343;
 $opacity-light: 0.64;
+
+$text-color:       $color-grey-dark;
+$background-color: #ffffff;
 
 $brand-color: $color-green;
 
