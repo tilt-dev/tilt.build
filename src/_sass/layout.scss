@@ -17,8 +17,12 @@
 
 .site-footer {
   margin: auto;
+  font-family: $header-font-family;
   font-size: $small-font-size;
   line-height: $small-line-height;
+  letter-spacing: 0;
+  color: $color-grey-darkest;
+  font-weight: 200;
 }
 
 .page-content {
@@ -55,39 +59,48 @@
 
 .post-title,
 h1 {
-  color: $color-blue;
+  font-family: $header-font-family;
   font-size: 32px;
   line-height: normal;
-  font-weight: 800;
+  font-weight: 700;
+  letter-spacing: 0;
   margin-bottom: $spacing-unit / 4;
+  color: $color-grey-dark;
 }
 
 h2 {
+  font-family: $header-font-family;
   font-size: 32px;
   line-height: 40px;
   font-weight: 200;
+  letter-spacing: 0;
   margin-bottom: $spacing-unit;
+  color: $color-blue;
 }
 
 h3 {
+  font-family: $header-font-family;
   font-size: 24px;
-  line-height: 20px;
+  letter-spacing: 0;
   color: $color-blue;
-  font-weight: 700;
+  font-weight: 400;
   margin-bottom: $spacing-unit / 2;
+  letter-spacing: 0;
 }
 
 h4 {
+  font-family: $header-font-family;
   font-size: 18px;
   line-height: normal;
   color: $color-blue;
-  font-weight: 700;
+  font-weight: 400;
+  letter-spacing: 0;
 }
 
 label, .fontLabel {
   font-size: 18px;
   line-height: normal;
-  font-weight: 700;
+  font-weight: 400;
   color: $color-grey;
   letter-spacing: 0.05em;
 }
