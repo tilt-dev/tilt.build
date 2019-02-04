@@ -189,8 +189,9 @@ label, .fontLabel {
   margin: auto;
 }
 
-.headerLink:not(.headerLink--logo-imagemark) svg,
-.headerLink:not(.headerLink--logo-imagemark) svg path {
+.headerLink.headerLink--github path,
+.headerLink.headerLink--docs path,
+.headerLink.headerLink--medium path {
   fill: $color-red;
 }
 
@@ -290,15 +291,23 @@ label, .fontLabel {
 }
 
 .u-textAlignCenter {
-  text-align: center;
+  text-align: center !important;
 }
 
 .u-boxShadow {
-  box-shadow: 8px 10px 16px 16px $color-grey-lightest;
+  box-shadow: 8px 10px 16px 16px $color-grey-lightest !important;
 }
 
 .u-padding16 {
-  padding: 16px;
+  padding: 16px !important;
+}
+
+.u-fillRed {
+  fill: $color-red !important;
+}
+
+.u-fillWhite {
+  fill: white !important;
 }
 
 .bio {

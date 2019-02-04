@@ -1,0 +1,72 @@
+/* Animation effects */
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.headerLink svg,
+.headerLink path,
+.headerLink g {
+  animation-fill-mode: forwards;
+}
+
+.headerLink--logo-imagemark svg {
+  animation-timing-function: ease-in-out;
+  animation-duration: 2s;
+}
+.headerLink--logo-imagemark:hover svg {
+  animation-name: spin;
+}
+
+@keyframes dots-fade-in-3of3 {
+ 0% {fill: $color-red;}
+ 66.67% {fill: $color-red;}
+ 85.71% {fill: white; }
+ 100% {fill: white;}
+}
+@keyframes dots-fade-in-2of3 {
+  0% {fill: $color-red;}
+  38.10% {fill: $color-red;}
+  57.14% {fill: white;}
+  100% {fill: white;}
+}
+@keyframes dots-fade-in-1of3{
+  0% {fill: $color-red;}
+  4.76% {fill: $color-red;}
+ 28.57% {fill: white;}
+ 100% {fill: white;}
+}
+
+.headerLink--contact-anim path {
+  animation-duration: 0.7s;
+}
+.headerLink--contact-anim:hover .dot1 {
+  animation-name: dots-fade-in-1of3;
+}
+.headerLink--contact-anim:hover .dot2 {
+  animation-name: dots-fade-in-2of3;
+}
+.headerLink--contact-anim:hover .dot3 {
+  animation-name: dots-fade-in-3of3;
+}
+
+@keyframes wave {
+  0%{ transform: translate(10.00529956817627px, 19.26549530029297px) rotate(-20deg) translate(-10.00529956817627px, -19.26549530029297px); }
+  47.62% { transform: translate(10.00529956817627px, 19.26549530029297px) rotate(15deg) translate(-10.00529956817627px, -19.26549530029297px); }
+  100%{ transform: translate(10.00529956817627px, 19.26549530029297px) rotate(-20deg) translate(-10.00529956817627px, -19.26549530029297px);}
+}
+
+.headerLink--github-anim .limb {
+  animation-duration: 0.7s;
+  animation-iteration-count: infinite;
+  animation-timing-function: cubic-bezier(0.42, 0, 0.58, 1);
+}
+
+.headerLink--github-anim:hover .limb {
+  animation-name: wave;
+}

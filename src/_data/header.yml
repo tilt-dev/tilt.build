@@ -2,10 +2,10 @@
   icon: logo-imagemark
   href: /about
 - name: Contact
-  icon: contact
+  icon: contact-anim
   href: /contact
 - name: GitHub
-  icon: github
+  icon: github-anim
   href: https://github.com/windmilleng/tilt
 - name: Docs
   icon: docs
