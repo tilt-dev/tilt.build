@@ -17,12 +17,12 @@
 
 .site-footer {
   margin: auto;
-  font-family: $header-font-family;
-  font-size: $small-font-size;
-  line-height: $small-line-height;
+  font-family: $chrome-font-family;
+  font-size: $chrome-font-size;
+  line-height: $chrome-line-height;
+  font-weight: $chrome-font-weight;
   letter-spacing: 0;
   color: $color-grey-darkest;
-  font-weight: 200;
 }
 
 .page-content {
@@ -153,10 +153,13 @@ label, .fontLabel {
 }
 
 .headerLink {
+  font-family: $chrome-font-family;
+  font-size: $chrome-font-size;
+  line-height: $chrome-line-height;
+  font-weight: $chrome-font-weight;
   color: $color-grey;
   margin-left: 25px;
   display: block;
-  font-size: 12px;
   text-align: center;
 }
 
@@ -299,8 +302,8 @@ label, .fontLabel {
 }
 
 .bio {
-  line-height: 17px;
-  font-size: 13px;
+  line-height: 18px;
+  font-size: 14px;
   letter-spacing: 0.02em;
 }
 

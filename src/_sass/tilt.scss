@@ -12,6 +12,11 @@ $header-font-family: attribute-mono, sans-serif;
 $small-font-size:  13px;
 $small-line-height: 18px;
 
+$chrome-font-size: 12px;
+$chrome-font-family: $header-font-family;
+$chrome-line-height: 18px;
+$chrome-font-weight: 400;
+
 $spacing-unit:     32px;
 $content-width:    $spacing-unit * 23;
 $col-3-width: $spacing-unit * 7;
