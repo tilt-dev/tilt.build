@@ -12,8 +12,6 @@ google_analytics: UA-129150759-1
 markdown: kramdown
 plugins:
   - jekyll-feed
-
-gems:
   - jekyll-inline-svg
 
 # Exclude from processing.

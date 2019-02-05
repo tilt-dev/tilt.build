@@ -7,11 +7,11 @@
   mobileIcon: contact
   href: /contact
 - name: GitHub
-  icon: github-anim
+  icon: github
   mobileIcon: github
   href: https://github.com/windmilleng/tilt
 - name: Docs
-  icon: docs
+  icon: docs-anim
   mobileIcon: docs
   href: https://docs.tilt.build/
 - name: Blog
