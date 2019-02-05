@@ -7,11 +7,19 @@
 
     <nav class="site-nav">
       {% for link in site.data.header %}
-        <a class="headerLink headerLink--{{link.icon}}" href="{{link.href}}">
+        <a class="headerLink headerLink--{{link.icon}} u-hideOnMobile" href="{{link.href}}">
           {% svg assets/svg/{{link.icon}}.svg %}
           <span class="headerLink-text">{{link.name}}</span>
         </a>
       {% endfor %}
+      
+      <div class="u-showOnlyOnMobile">
+        <div class="svgButton svgButton--menu">
+          <button class="imageButton">
+            {% svg assets/svg/menu.svg %}
+          </button>
+        </div>
+      </div>
     </nav>
   </div>
 </header>
