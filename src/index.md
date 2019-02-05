@@ -28,12 +28,15 @@ of your system, from building to deploying to logging to crashing.
   <iframe class="u-boxShadow" width="560" height="315" src="https://www.youtube.com/embed/MGeUUmdtdKA" frameborder="0" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </div>
 
-<div class="row u-marginBottom2_5">
-  <div class="col-1of4">
+<div class="row u-marginBottom2_5 u-marginBottomUnitOnMobile">
+  <div class="col-1of4 u-hideOnMobile">
     {% svg assets/svg/local.svg %}
   </div>
   <div class="col-3of4">
-  <h3>Keep your local development tools</h3>
+  <h3 class="u-minHeight72OnMobile">
+    <div class="h3-icon u-showOnlyOnMobile">{% svg assets/svg/local.svg width="65" height="72" %}</div>
+    Keep your local development tools
+  </h3>
 
   <div>
   Edit in your IDE, save to your filesystem. No commit or push required. Tilt
@@ -43,12 +46,15 @@ of your system, from building to deploying to logging to crashing.
   </div>
 </div>
 
-<div class="row u-marginBottom2_5">
-  <div class="col-1of4">
+<div class="row u-marginBottom2_5 u-marginBottomUnitOnMobile">
+  <div class="col-1of4 u-hideOnMobile">
     <div>{% svg assets/svg/observable.svg %}</div>
   </div>
   <div class="col-3of4">
-  <h3>Find your way in a maze of microservices</h3>
+  <h3 class="u-minHeight72OnMobile">
+    <div class="h3-icon u-showOnlyOnMobile">{% svg assets/svg/observable.svg width="65" height="72" %}</div>
+    Find your way in a maze of microservices
+  </h3>
 
   <div>
   Stop playing 20 questions with kubectl each time your app misbehaves. Tilt
@@ -58,12 +64,15 @@ of your system, from building to deploying to logging to crashing.
   </div>
 </div>
 
-<div class="row u-marginBottom1_5">
-  <div class="col-1of4">
+<div class="row u-marginBottom1_5 u-marginBottom0_75OnMobile">
+  <div class="col-1of4 u-hideOnMobile">
     {% svg assets/svg/shareable.svg %}
   </div>
   <div class="col-3of4">
-  <h3>Share the workflow that keeps you in-flow</h3>
+  <h3 class="u-minHeight72OnMobile">
+    <div class="h3-icon u-showOnlyOnMobile">{% svg assets/svg/shareable.svg width="65" height="72" %}</div>
+    Share the workflow that keeps you in-flow
+  </h3>
 
   <div>
   Any engineer just runs ‘tilt up’ to see the app live at http://localhost/. No
@@ -85,8 +94,8 @@ of your system, from building to deploying to logging to crashing.
   </div>
 </div>
 
-<div class="row u-marginBottom2_5">
-  <div class="col-1of2">
+<div class="row u-marginBottom0_5">
+  <div class="col-1of2 u-marginBottomUnit">
     <h4>
       {% svg assets/svg/kubernetes.svg class="h4-icon" %}
       Already have a Dockerfile and a Kubernetes config?
@@ -98,7 +107,7 @@ of your system, from building to deploying to logging to crashing.
     </div>
   </div>
 
-  <div class="col-1of2">
+  <div class="col-1of2 u-marginBottomUnit">
     <h4>
       {% svg assets/svg/contact.svg class="h4-icon" %}
       Having trouble developing your servers in Kubernetes?

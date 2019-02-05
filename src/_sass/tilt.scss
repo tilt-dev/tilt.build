@@ -46,14 +46,16 @@ $brand-color: $color-green;
 
 $table-text-align: left;
 
-$on-palm:          600px;
-$on-laptop:        800px;
-
-$on-medium:        $on-palm;
-$on-large:         $on-laptop;
+$on-mobile:        800px;
 
 @mixin media-query($device) {
   @media screen and (max-width: $device) {
+    @content;
+  }
+}
+
+@mixin mobile {
+  @include media-query($on-mobile) {
     @content;
   }
 }
