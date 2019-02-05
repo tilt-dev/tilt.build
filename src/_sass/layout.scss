@@ -465,6 +465,14 @@ label, .formItem-label {
   fill: white !important;
 }
 
+.u-fillGreen {
+  fill: $color-green !important;
+}
+
+.u-fillGreenLightest {
+  fill: $color-green-lightest !important;
+}
+
 .u-hideOnMobile {
   @include mobile {
     display: none !important;
