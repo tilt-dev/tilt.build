@@ -109,3 +109,5 @@ of your system, from building to deploying to logging to crashing.
     </div>
   </div>
 </div>
+
+<div class="dotSpinner">&nbsp;</div>
