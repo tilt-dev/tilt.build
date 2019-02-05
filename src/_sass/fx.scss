@@ -99,6 +99,7 @@
   animation-name: dotSpinner;
   animation-duration: 2s;
   animation-iteration-count: infinite;
+  animation-fill-mode: forwards;
   content: " ";
 }
 
