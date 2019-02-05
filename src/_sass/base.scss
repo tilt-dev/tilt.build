@@ -216,3 +216,7 @@ pre {
   padding: 5px 3px 2px 5px;
   vertical-align: text-bottom;
 }
+
+input, textarea {
+  box-sizing: border-box;
+}
