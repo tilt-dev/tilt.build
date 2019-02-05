@@ -1,3 +1,5 @@
+@charset "utf-8";
+
 /**
  * Site header
  */
@@ -21,6 +23,7 @@
   font-size: $chrome-font-size;
   line-height: $chrome-line-height;
   font-weight: $chrome-font-weight;
+  font-variant-ligatures: none;
   letter-spacing: 0;
   color: $color-grey-darkest;
 }
@@ -60,6 +63,7 @@
 .post-title,
 h1 {
   font-family: $header-font-family;
+  font-variant-ligatures: none;
   font-size: 32px;
   line-height: normal;
   font-weight: 700;
@@ -70,6 +74,7 @@ h1 {
 
 h2 {
   font-family: $header-font-family;
+  font-variant-ligatures: none;
   font-size: 32px;
   line-height: 40px;
   font-weight: 200;
@@ -80,6 +85,7 @@ h2 {
 
 h3 {
   font-family: $header-font-family;
+  font-variant-ligatures: none;
   font-size: 24px;
   letter-spacing: 0;
   color: $color-blue;
@@ -90,6 +96,7 @@ h3 {
 
 h4 {
   font-family: $header-font-family;
+  font-variant-ligatures: none;
   font-size: 18px;
   line-height: normal;
   color: $color-blue;

@@ -1,3 +1,5 @@
+@charset "utf-8";
+
 /* Animation effects */
 
 @keyframes spin {
@@ -69,4 +71,41 @@
 
 .headerLink--github-anim:hover .limb {
   animation-name: wave;
+}
+
+@keyframes dotSpinner {
+  0% { content: "⠋"; }
+  10% { content: "⠙"; }
+  20% { content: "⠹"; }
+  30% { content: "⠸"; }
+  40% { content: "⠼"; }
+  50% { content: "⠴"; }
+  60% { content: "⠦"; }
+  70% { content: "⠧"; }
+  80% { content: "⠇"; }
+  90% { content: "⠏"; }
+  100% { content: "⠋"; }
+}
+
+.dotSpinner {
+  position: fixed;
+  right: $spacing-unit;
+  bottom: $spacing-unit;
+  font-size: 28px;
+  pointer-events: none;
+}
+
+.dotSpinner::before {
+  animation-name: dotSpinner;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+  content: " ";
+}
+
+.dotSpinner {
+  transition: opacity 0.2s ease-in-out;
+  opacity: 0;
+}
+.dotSpinner.is-active {
+  opacity: 1;
 }
