@@ -5,21 +5,41 @@
       {% svg assets/svg/logo-wordmark.svg %}
     </a>
 
-    <nav class="site-nav">
-      {% for link in site.data.header %}
+    <nav class="siteNav">
+      <div class="siteNav-float">
+        {% for link in site.data.header %}
         <a class="headerLink headerLink--{{link.icon}} u-hideOnMobile" href="{{link.href}}">
           {% svg assets/svg/{{link.icon}}.svg %}
           <span class="headerLink-text">{{link.name}}</span>
         </a>
-      {% endfor %}
-      
-      <div class="u-showOnlyOnMobile">
-        <div class="svgButton svgButton--menu">
-          <button class="imageButton">
-            {% svg assets/svg/menu.svg %}
-          </button>
+        {% endfor %}
+        
+        <div class="u-showOnlyOnMobile">
+          <div class="svgButton svgButton--menu">
+            <button class="imageButton" onclick="document.querySelector('.siteNav').classList.add('is-open')">
+              {% svg assets/svg/menu.svg %}
+            </button>
+          </div>
+          <div class="svgButton svgButton--x">
+            <button class="imageButton" onclick="document.querySelector('.siteNav').classList.remove('is-open')">
+              {% svg assets/svg/x.svg %}
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="siteNav-popout">
+        <div class="row row--flexStart">
+        {% for link in site.data.header %}
+        <a class="headerLink headerLink--{{link.mobileIcon}} headerLink--mobile" href="{{link.href}}">
+          {% svg assets/svg/{{link.mobileIcon}}.svg %}
+          <span class="headerLink-text">{{link.name}}</span>
+        </a>
+        {% endfor %}
         </div>
       </div>
     </nav>
+
+    
   </div>
 </header>
