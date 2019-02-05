@@ -17,7 +17,7 @@ of your system, from building to deploying to logging to crashing.
 <div class="svgButton">
   <a class="imageLink" href="https://github.com/windmilleng/tilt">
     {% svg assets/svg/button.svg class="svgButton" %}
-    <div class="fontLabel svgButton-text">
+    <div class="buttonLabel svgButton-text">
       Get Tilt
     </div>
   </a>
