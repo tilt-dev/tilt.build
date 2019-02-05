@@ -104,11 +104,20 @@ h4 {
   letter-spacing: 0;
 }
 
-label, .fontLabel {
+label, .formItem-label {
+  font-family: $body-font-family;
+  font-size: 18px;
+  line-height: normal;
+  font-weight: 200;
+  color: $color-grey;
+}
+
+.buttonLabel {
+  font-family: $header-font-family;
   font-size: 18px;
   line-height: normal;
   font-weight: 400;
-  color: $color-grey;
+  color: white;
   letter-spacing: 0.05em;
 }
 
@@ -155,7 +164,9 @@ label, .fontLabel {
 }
 
 .imageLink:hover svg,
-.imageLink:hover svg path {
+.imageLink:hover svg path,
+.imageButton:hover svg,
+.imageButton:hover svg path {
   opacity: 1;
 }
 
@@ -215,6 +226,12 @@ label, .fontLabel {
 
 .svgButton a {
   display: block;
+}
+
+.svgButton button {
+  border: none;
+  padding: 0;
+  cursor: pointer;
 }
 
 .svgButton svg {
@@ -329,4 +346,54 @@ label, .fontLabel {
   clip-path: url(#mask);
   background-size: cover;
   margin-bottom: $spacing-unit/2;
+}
+
+.formItem {
+  display: block;
+  position: relative;
+  padding-bottom: 1.25 * $spacing-unit;
+}
+.formItem label,
+.formItem .formItem-label {
+  display: block;
+  padding-bottom: 9px;
+}
+.formItem input,
+.formItem textarea {
+  font-size: 18px;
+  padding: 0 $spacing-unit/4;
+  background-color: $color-grey-lightest;
+  border: none;
+  line-height: 1.5 * $spacing-unit;
+  width: $col-3of4-width;
+}
+.formItem-option {
+  box-sizing: border-box;
+  position: relative;
+  padding-left: 2 * $spacing-unit;
+}
+.formItem-option label {
+  padding-top: 0.25 * $spacing-unit;
+  cursor: pointer;
+}
+input[type=checkbox] {
+  visibility: hidden;
+  cursor: pointer;
+  padding: 0;
+}
+input[type=checkbox]::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: inline-block;
+  width: $spacing-unit * 1.5;
+  height: $spacing-unit * 1.5;
+  background-color: $color-grey-lightest;
+  border-radius: $spacing-unit * 0.75;
+  content: " ";
+  visibility: visible;
+  transition: background-color 0.2s ease-in-out;
+}
+input[type=checkbox]:checked::before {
+  background-color: $color-green;
 }
