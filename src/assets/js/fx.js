@@ -17,10 +17,13 @@
     let curScrollY = window.scrollY
     let isDownwards = lastScrollY != -1 && curScrollY > lastScrollY
     if (isDownwards) {
-      $('.dotSpinner').classList.add('is-active')
-      lastScrollDownTime = Date.now()
-      clearTimeout(timer)
-      timer = setTimeout(onTimer, 200)
+      let dot = $('.dotSpinner')
+      if (dot) {
+        dot.classList.add('is-active')
+        lastScrollDownTime = Date.now()
+        clearTimeout(timer)
+        timer = setTimeout(onTimer, 200)
+      }
     }
     lastScrollY = curScrollY
   }, {'passive': true})
