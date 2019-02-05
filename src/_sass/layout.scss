@@ -272,8 +272,12 @@ label, .formItem-label {
 .svgButton svg {
   fill: $brand-color;
   opacity: $opacity-light;
-  width: 144px;
+  min-width: 144px;
   height: 40px;
+}
+
+.svgButton--menu svg {
+  min-width: 40px;
 }
 
 .svgButton-text {
