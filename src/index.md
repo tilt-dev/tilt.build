@@ -83,10 +83,10 @@ of your system, from building to deploying to logging to crashing.
   </div>
 </div>
 
-<div class="row u-marginBottom1_5">
+<div class="row u-marginBottom2_5 u-marginBottom1_75OnMobile">
   <div class="col-1of4">&nbsp;</div>
   <div class="col-3of4">
-    <h3>
+    <h3 class="u-marginBottom0">
       <a href="https://github.com/windmilleng/tilt">
       &hairsp;&gt; Try Tilt&hairsp;
       </a>
@@ -95,7 +95,7 @@ of your system, from building to deploying to logging to crashing.
 </div>
 
 <div class="row u-marginBottom0_5">
-  <div class="col-1of2 u-marginBottomUnit">
+  <div class="col-1of2 u-marginBottomUnit u-maxWidth100OnMobile">
     <h4>
       {% svg assets/svg/kubernetes.svg class="h4-icon" %}
       Already have a Dockerfile and a Kubernetes config?
@@ -107,7 +107,7 @@ of your system, from building to deploying to logging to crashing.
     </div>
   </div>
 
-  <div class="col-1of2 u-marginBottomUnit">
+  <div class="col-1of2 u-marginBottomUnit u-maxWidth100OnMobile">
     <h4>
       {% svg assets/svg/contact.svg class="h4-icon" %}
       Having trouble developing your servers in Kubernetes?
@@ -118,5 +118,3 @@ of your system, from building to deploying to logging to crashing.
     </div>
   </div>
 </div>
-
-<div class="dotSpinner">&nbsp;</div>

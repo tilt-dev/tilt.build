@@ -1,15 +1,20 @@
 - name: About
   icon: logo-imagemark
+  mobileIcon: logo-imagemark
   href: /about
 - name: Contact
   icon: contact-anim
+  mobileIcon: contact
   href: /contact
 - name: GitHub
   icon: github-anim
+  mobileIcon: github
   href: https://github.com/windmilleng/tilt
 - name: Docs
   icon: docs
+  mobileIcon: docs
   href: https://docs.tilt.build/
 - name: Blog
   icon: medium
+  mobileIcon: medium
   href: https://medium.com/windmill-engineering/
