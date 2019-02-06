@@ -13,7 +13,7 @@ We’re small (seven people, NYC-based, VC-backed). We’re based at Work-Bench 
 
 <div class="row">
   <div class="bio col-1of3 u-marginBottom1_25">
-    <div class="bio-image" style="background-image:url(/assets/img/dbentley.jpg)">&nbsp;</div>
+    <img class="bio-image" src="/assets/img/dbentley.jpg">
     <h4>Dan Bentley</h4>
 
     <div>
@@ -22,7 +22,7 @@ We’re small (seven people, NYC-based, VC-backed). We’re based at Work-Bench 
     </div>
   </div>
   <div class="bio col-1of3 u-marginBottom1_25">
-    <div class="bio-image" style="background-image:url(/assets/img/nick.jpg)">&nbsp;</div>
+    <img class="bio-image" src="/assets/img/nick.jpg">
     <h4>Nick Santos</h4>
 
     <div>
@@ -30,7 +30,7 @@ We’re small (seven people, NYC-based, VC-backed). We’re based at Work-Bench 
     </div>
   </div>
   <div class="bio col-1of3 u-marginBottom1_25">
-    <div class="bio-image" style="background-image:url(/assets/img/dmiller.jpg)">&nbsp;</div>
+    <img class="bio-image" src="/assets/img/dmiller.jpg">
     <h4>Dan Miller</h4>
 
     <div>
@@ -38,7 +38,7 @@ We’re small (seven people, NYC-based, VC-backed). We’re based at Work-Bench 
     </div>
   </div>
   <div class="bio col-1of3 u-marginBottom1_25">
-    <div class="bio-image" style="background-image:url(/assets/img/han.jpg)">&nbsp;</div>
+    <img class="bio-image" src="/assets/img/han.jpg">
     <h4>Han Yu</h4>
 
     <div>
@@ -46,7 +46,7 @@ We’re small (seven people, NYC-based, VC-backed). We’re based at Work-Bench 
     </div>
   </div>
   <div class="bio col-1of3 u-marginBottom1_25">
-    <div class="bio-image" style="background-image:url(/assets/img/maia.jpg)">&nbsp;</div>
+    <img class="bio-image" src="/assets/img/maia.jpg">
     <h4>Maia McCormick</h4>
 
     <div>
@@ -54,7 +54,7 @@ We’re small (seven people, NYC-based, VC-backed). We’re based at Work-Bench 
     </div>
   </div>
   <div class="bio col-1of3 u-marginBottom1_25">
-    <div class="bio-image" style="background-image:url(/assets/img/karina.jpg)">&nbsp;</div>
+    <img class="bio-image" src="/assets/img/karina.jpg">
     <h4>Karina Bernacki</h4>
 
     <div>
@@ -62,7 +62,7 @@ We’re small (seven people, NYC-based, VC-backed). We’re based at Work-Bench 
     </div>
   </div>
   <div class="bio col-1of3 u-marginBottom1_25">
-    <div class="bio-image" style="background-image:url(/assets/img/matt.jpg)">&nbsp;</div>
+    <img class="bio-image" src="/assets/img/matt.jpg">
     <h4>Matt Landis</h4>
 
     <div>
