@@ -222,15 +222,20 @@ label, .formItem-label {
   max-width: $col-3of4-width;
 }
 
+.imageLink svg,
+.imageLink path {
+  transition: opacity 0.2s;
+}
+
 .imageLink,
 .imageLink:hover {
   background-color: transparent;
 }
 
 .imageLink:hover svg,
-.imageLink:hover svg path,
+.imageLink:hover path,
 .imageButton:hover svg,
-.imageButton:hover svg path {
+.imageButton:hover path {
   opacity: 1;
 }
 
@@ -260,6 +265,12 @@ label, .formItem-label {
 
 .headerLink:first-child {
   margin-left: 0;
+}
+
+.headerLink,
+.headerLink svg,
+.headerLink path {
+  transition: color 0.2s, opacity 0.2s;
 }
 
 .headerLink:hover,
@@ -295,9 +306,9 @@ label, .formItem-label {
 }
 
 .headerLink:hover svg,
-.headerLink:hover svg path,
+.headerLink:hover path,
 .headerLink--mobile svg,
-.headerLink--mobile svg path {
+.headerLink--mobile path {
   opacity: 1;
 }
 
@@ -387,16 +398,21 @@ label, .formItem-label {
   margin-left: $spacing-unit * 1/2;
 }
 
+.footerIcon svg,
+.footerIcon path {
+  transition: background-color 0.2s;
+}
+
 .footerIcon:hover {
   background-color: transparent;
 }
 
-.footerIcon svg path {
+.footerIcon path {
   fill: $color-grey;
 }
 
 .footerIcon:hover svg,
-.footerIcon:hover svg path {
+.footerIcon:hover path {
   fill: $color-red;
 }
 
