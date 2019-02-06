@@ -535,6 +535,8 @@ label, .formItem-label {
 }
 .formItem input,
 .formItem textarea {
+  font-family: $body-font-family;
+  font-weight: 200;
   font-size: 18px;
   padding: 0 $spacing-unit/4;
   background-color: $color-grey-lightest;
