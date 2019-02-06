@@ -1,14 +1,20 @@
 <header class="site-header">
 
   <div class="wrapper">
-    <a class="imageLink imageLink--logo-wordmark-anim" href="/">
+    <a class="imageLink imageLink--logo-wordmark-anim" href="{{site.landingurl}}">
       {% svg assets/svg/logo-wordmark-anim.svg %}
     </a>
 
     <nav class="siteNav">
       <div class="siteNav-float">
         {% for link in site.data.header %}
-        <a class="headerLink headerLink--{{link.icon}} u-hideOnMobile" href="{{link.href}}">
+        {% assign href = link.href %}
+        {% if link.landingurl %}
+        {% assign href = (href | prepend: site.landingurl) %}
+        {% elsif link.docsurl %}
+        {% assign href = (href | prepend: site.docsurl) %}
+        {% endif %}
+        <a class="headerLink headerLink--{{link.icon}} u-hideOnMobile" href="{{href}}">
           {% svg assets/svg/{{link.icon}}.svg %}
           <span class="headerLink-text">{{link.name}}</span>
         </a>
@@ -30,8 +36,14 @@
 
       <div class="siteNav-popout">
         <div class="row row--flexStart">
-        {% for link in site.data.header %}
-        <a class="headerLink headerLink--{{link.mobileIcon}} headerLink--mobile" href="{{link.href}}">
+          {% for link in site.data.header %}
+          {% assign href = link.href %}
+          {% if link.landingurl %}
+          {% assign href = (href | prepend: site.landingurl) %}
+          {% elsif link.docsurl %}
+          {% assign href = (href | prepend: site.docsurl) %}
+          {% endif %}
+          <a class="headerLink headerLink--{{link.mobileIcon}} headerLink--mobile" href="{{href}}">
           {% svg assets/svg/{{link.mobileIcon}}.svg %}
           <span class="headerLink-text">{{link.name}}</span>
         </a>

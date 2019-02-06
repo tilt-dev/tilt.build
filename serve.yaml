@@ -16,3 +16,22 @@ spec:
         image: gcr.io/windmill-public-containers/tilt-site
         ports:
         - containerPort: 4000
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: docs-site
+spec:
+  selector:
+    matchLabels:
+      app: docs-site
+  template:
+    metadata:
+      labels:
+        app: docs-site
+    spec:
+      containers:
+      - name: docs-site
+        image: gcr.io/windmill-public-containers/docs-site
+        ports:
+        - containerPort: 4000

@@ -2,7 +2,7 @@
 
 Build for the Tilt landing page
 
-https://tilt.build/
+https://tilt.build/ and https://docs.tilt.build/
 
 ## Developing
 
@@ -12,7 +12,11 @@ https://tilt.build/
 
 The landing page will be running at http://localhost:4000/.
 
+The docs page will be running at http://localhost:4001/.
+
 Edits to the markdown will auto-update the HTML.
+The landing page lives under src and the docs page lives under docs.
+The docs directory has symlinks to share stuff with the landing page.
 
 When you're finished, merge to master and Netlify will auto-deploy the site.
 
