@@ -548,12 +548,12 @@ label, .formItem-label {
 .formItem-option {
   box-sizing: border-box;
   position: relative;
-  padding-left: 2 * $spacing-unit;
 }
 .formItem-option label {
   padding-top: 0.375 * $spacing-unit;
   cursor: pointer;
   color: $color-grey-dark;
+  padding-left: 2 * $spacing-unit;
 }
 input[type=checkbox] {
   visibility: hidden;
@@ -562,7 +562,7 @@ input[type=checkbox] {
   width: 0;
   height: 0;
 }
-input[type=checkbox]::before {
+.formItem-checkbox {
   position: absolute;
   top: 0;
   left: 0;
@@ -571,10 +571,9 @@ input[type=checkbox]::before {
   height: $spacing-unit * 1.5;
   background-color: $color-grey-lightest;
   border-radius: $spacing-unit * 0.75;
-  content: " ";
-  visibility: visible;
   transition: background-color 0.2s ease-in-out;
+  pointer-events: none;
 }
-input[type=checkbox]:checked::before {
+input[type=checkbox]:checked + .formItem-checkbox {
   background-color: $color-green;
 }
