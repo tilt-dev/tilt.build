@@ -189,7 +189,14 @@ label, .formItem-label {
 .col-1of3 {
   display: block;
   width: 100%;
-  max-width: 224px;
+  max-width: $col-1of3-width;
+
+  @include media-query($content-width) {
+    max-width: 45%;
+  }
+  @include media-query($col-2of3-width) {
+    max-width: 100%;
+  }
 }
 
 .col-3of4 {
@@ -502,9 +509,14 @@ label, .formItem-label {
 .bio-image {
   width: 224px;
   height: 176px;
-  clip-path: url(#mask);
-  background-size: cover;
+  clip-path: polygon(13.17% 0.88%, 1.50% 9.96%, 0.00% 13.38%, 0.00% 97.19%, 2.21% 100.00%, 84.38% 100.00%, 86.83% 99.12%, 98.50% 90.04%, 100.00% 86.62%, 100.00% 2.81%, 97.79% 0.00%, 15.62% 0.00%, 13.17% 0.88%);
+  object-fit: cover;
   margin-bottom: $spacing-unit/2;
+
+  @include media-query($col-2of3-width) {
+    width: auto;
+    height: auto;
+  }
 }
 
 .formItem {
@@ -539,6 +551,7 @@ label, .formItem-label {
 .formItem-option label {
   padding-top: 0.375 * $spacing-unit;
   cursor: pointer;
+  color: $color-grey-dark;
 }
 input[type=checkbox] {
   visibility: hidden;
