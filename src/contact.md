@@ -28,21 +28,25 @@ or fill out the form below.
   <div class="formItem-option col-1of2">
     <label for="interest-trying">trying out Tilt.</label>
     <input type="checkbox" id="interest-trying" name="interest" value="trying out Tilt">
+    <div class="formItem-checkbox"></div>
   </div>
 
   <div class="formItem-option col-1of2">
     <label for="interest-feedback">requesting Tilt features.</label>
     <input type="checkbox" id="interest-feedback" name="interest" value="requesting Tilt features">
+    <div class="formItem-checkbox"></div>
   </div>
 
   <div class="formItem-option col-1of2">
     <label for="interest-job">applying for a job to help build better local Kubernetes dev tools.</label>
     <input type="checkbox" id="interest-job" name="interest" value="applying for a job">
+    <div class="formItem-checkbox"></div>
   </div>
 
   <div class="formItem-option col-1of2">
     <label for="interest-other">learning more.</label>
     <input type="checkbox" id="interest-other" name="interest" value="learning more">
+    <div class="formItem-checkbox"></div>
   </div>
   </div>
 </div>
