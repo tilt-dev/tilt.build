@@ -105,7 +105,7 @@ h1 {
   font-variant-ligatures: none;
   font-size: 32px;
   line-height: normal;
-  font-weight: 700;
+  font-weight: 900;
   letter-spacing: 0;
   margin-bottom: $spacing-unit / 4;
   color: $color-grey-dark;
@@ -116,7 +116,7 @@ h2 {
   font-variant-ligatures: none;
   font-size: 32px;
   line-height: 40px;
-  font-weight: 200;
+  font-weight: 300;
   letter-spacing: 0;
   margin-bottom: $spacing-unit;
   color: $color-blue;
@@ -133,7 +133,7 @@ h3 {
   font-size: 24px;
   letter-spacing: 0;
   color: $color-blue;
-  font-weight: 400;
+  font-weight: 700;
   margin-bottom: $spacing-unit / 2;
   letter-spacing: 0;
 
@@ -149,7 +149,7 @@ h4 {
   font-size: 18px;
   line-height: normal;
   color: $color-blue;
-  font-weight: 400;
+  font-weight: 700;
   letter-spacing: 0;
 }
 
@@ -157,7 +157,7 @@ label, .formItem-label {
   font-family: $body-font-family;
   font-size: 18px;
   line-height: normal;
-  font-weight: 200;
+  font-weight: 500;
   color: $color-grey;
 }
 
@@ -165,7 +165,7 @@ label, .formItem-label {
   font-family: $header-font-family;
   font-size: 18px;
   line-height: normal;
-  font-weight: 400;
+  font-weight: 700;
   color: white;
   letter-spacing: 0.05em;
 }
@@ -373,10 +373,12 @@ label, .formItem-label {
 .bleedingLink {
   color: $text-color;
   text-decoration: none;
+  transition: color 0.2s, background-color 0.2s;
 }
 
 .bleedingLink-text {
   color: $color-red;
+  transition: color 0.2s, background-color 0.2s;
 }
 
 .bleedingLink:hover,
@@ -552,7 +554,7 @@ label, .formItem-label {
 .formItem input,
 .formItem textarea {
   font-family: $body-font-family;
-  font-weight: 200;
+  font-weight: 300;
   font-size: 18px;
   padding: 0 $spacing-unit/4;
   background-color: $color-grey-lightest;

@@ -121,6 +121,7 @@ h1, h2, h3, h4, h5, h6 {
 a {
   color: $color-red;
   text-decoration: none;
+  transition: color 0.2s, background-color 0.2s;
 }
 
 a:hover {
