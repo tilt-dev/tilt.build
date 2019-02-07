@@ -5,7 +5,13 @@
     </div>
     <div class="u-marginBottomUnit u-textAlignCenter">
       {% for link in site.data.footer %}
-      <a class="footerIcon" href="{{link.href}}">
+      {% assign href = link.href %}
+      {% if link.landingurl %}
+      {% assign href = (href | prepend: site.landingurl) %}
+      {% elsif link.docsurl %}
+      {% assign href = (href | prepend: site.docsurl) %}
+      {% endif %}
+      <a class="footerIcon" href="{{href}}">
         {% svg assets/svg/{{link.icon}}.svg alt="{{link.name}}" %}
       </a>
       {% endfor %}

@@ -1,11 +1,13 @@
 - name: About
   icon: logo-imagemark
   mobileIcon: logo-imagemark
-  href: /about
+  href: about
+  landingurl: true
 - name: Contact
   icon: contact-anim
   mobileIcon: contact
-  href: /contact
+  href: contact
+  landingurl: true
 - name: GitHub
   icon: github
   mobileIcon: github
@@ -13,7 +15,8 @@
 - name: Docs
   icon: docs-anim
   mobileIcon: docs
-  href: https://docs.tilt.build/
+  href:
+  docsurl: true
 - name: Blog
   icon: medium
   mobileIcon: medium

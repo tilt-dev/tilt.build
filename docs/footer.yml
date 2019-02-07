@@ -9,9 +9,7 @@
   href: https://github.com/windmilleng/tilt
 - name: Docs
   icon: docs
-  href:
-  docsurl: true
+  href: https://docs.tilt.build/
 - name: Contact
   icon: contact
-  href: contact
-  landingurl: true
+  href: https://tilt.build/contact
