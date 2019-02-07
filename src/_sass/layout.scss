@@ -213,7 +213,6 @@ label, .formItem-label {
 
 .block {
   display: block;
-  margin: $spacing-unit * 1.5 0;
   text-align: center;
 }
 
@@ -420,32 +419,44 @@ label, .formItem-label {
   fill: $color-red;
 }
 
-.u-marginBottomUnit {
-  margin-bottom: $spacing-unit !important;
-}
-
 .u-marginBottom0 {
-  margin-bottom: $spacing-unit !important;
-}
-
-.u-marginTopUnit {
-  margin-top: $spacing-unit !important;
-}
-
-.u-marginBottom2_5 {
-  margin-bottom: $spacing-unit * 2.5 !important;
+  margin-bottom: 0 !important;
 }
 
 .u-marginBottom0_5 {
   margin-bottom: $spacing-unit * 0.5 !important;
 }
 
-.u-marginBottom1_5 {
-  margin-bottom: $spacing-unit * 1.5 !important;
+.u-marginBottomUnit {
+  margin-bottom: $spacing-unit !important;
 }
 
 .u-marginBottom1_25 {
   margin-bottom: $spacing-unit * 1.25 !important;
+}
+
+.u-marginBottom1_5 {
+  margin-bottom: $spacing-unit * 1.5 !important;
+}
+
+.u-marginBottom2 {
+  margin-bottom: $spacing-unit * 2 !important;
+}
+
+.u-marginBottom2_5 {
+  margin-bottom: $spacing-unit * 2.5 !important;
+}
+
+.u-marginTopUnit {
+  margin-top: $spacing-unit !important;
+}
+
+.u-marginTop1_5 {
+  margin-top: $spacing-unit * 1.5 !important;
+}
+
+.u-marginTop2 {
+  margin-top: $spacing-unit * 2 !important;
 }
 
 .u-marginBottomUnitOnMobile {
@@ -556,6 +567,9 @@ label, .formItem-label {
 .formItem .formItem-label {
   display: block;
   padding-bottom: 9px;
+}
+.formItem-option label {
+  padding-bottom: 0;
 }
 .formItem input,
 .formItem textarea {
