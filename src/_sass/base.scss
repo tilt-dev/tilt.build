@@ -180,12 +180,23 @@ pre {
 /**
  * Wrapper
  */
+.headerWrapper,
 .wrapper {
-  max-width: $content-width;
   margin-right: auto;
   margin-left: auto;
   position: relative;
   @extend %clearfix;
+}
+
+.headerWrapper {
+  max-width: $header-width;
+
+  @include media-query($header-width + $spacing-unit) {
+    max-width: $content-width;
+  }
+}
+.wrapper {
+  max-width: $content-width;
 }
 
 
@@ -198,8 +209,6 @@ pre {
   display: table;
   clear: both;
 }
-
-
 
 /**
  * Icons

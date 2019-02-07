@@ -31,7 +31,7 @@ iframe {
 .siteNav-float {
   position: absolute;
   top: 0;
-  right: $spacing-unit / 2;
+  right: 0;
   display: flex;
   text-align: right;
 }
@@ -362,11 +362,13 @@ label, .formItem-label {
 
 .h3-icon {
   margin-right: $spacing-unit/2;
+  margin-bottom: $spacing-unit/4;
   float: left;
 }
 
 .h4-icon {
   margin-right: $spacing-unit/2;
+  margin-bottom: $spacing-unit/4;
   float: left;
 }
 
@@ -496,6 +498,10 @@ label, .formItem-label {
 
 .u-fillGreenLightest {
   fill: $color-green-lightest !important;
+}
+
+.u-clearBoth {
+  clear: both !important;
 }
 
 .u-hideOnMobile {
