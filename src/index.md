@@ -5,7 +5,7 @@ layout: home
 
 # Tilt Up and Ship
 
-## Tilt makes it possible to develop all your microservices locally in Kubernetes.
+## Tilt makes it possible to develop all your microservices locally in Kubernetes while collaborating with your team.
 
 <div class="u-blockTwoThirds">
 Write a Tiltfile script that describes how your services fit together. Share it
@@ -13,7 +13,7 @@ with your team so that any engineer can hack on any server. See a complete view
 of your system, from building to deploying to logging to crashing.
 </div>
 
-<div class="block">
+<div class="block u-marginTop2 u-marginBottom1_5">
 <div class="svgButton">
   <a class="imageLink" href="https://github.com/windmilleng/tilt">
     {% svg assets/svg/button.svg class="svgButton" %}
@@ -24,7 +24,7 @@ of your system, from building to deploying to logging to crashing.
 </div>
 </div>
 
-<div class="block u-padding16">
+<div class="block u-marginTop1_5 u-marginBottom2 u-padding16">
   <iframe class="u-boxShadow" width="560" height="315" src="https://www.youtube.com/embed/MGeUUmdtdKA" frameborder="0" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </div>
 
@@ -86,7 +86,7 @@ of your system, from building to deploying to logging to crashing.
 <div class="row u-marginBottom2_5 u-marginBottom1_75OnMobile">
   <div class="col-1of4">&nbsp;</div>
   <div class="col-3of4">
-    <h3 class="u-marginBottom0">
+    <h3 class="u-marginBottom1_5">
       <a href="https://github.com/windmilleng/tilt">
       &hairsp;&gt; Try Tilt&hairsp;
       </a>

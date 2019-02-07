@@ -4,7 +4,7 @@ title: Contact Us
 permalink: /contact
 ---
 
-<div class="col-3of4 u-marginBottom1_5">
+<div class="col-3of4 u-marginBottomUnit">
 If you'd like to learn more about what we're doing, you can either
 email <a href="mailto:dan@windmill.engineering">Dan</a> or <a href="mailto:nick@windmill.engineering">Nick</a>,
 or fill out the form below.
