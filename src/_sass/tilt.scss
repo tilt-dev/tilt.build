@@ -19,6 +19,8 @@ $chrome-font-weight: 400;
 
 $spacing-unit:     32px;
 $content-width:    $spacing-unit * 23;
+$header-width:     $content-width + 8.5 * $spacing-unit;
+
 $col-1of3-width: $spacing-unit * 7;
 $col-2of3-width: $spacing-unit * 15;
 $col-1of4-width: $spacing-unit * 5;
@@ -47,7 +49,7 @@ $brand-color: $color-green;
 
 $table-text-align: left;
 
-$on-mobile:        800px;
+$on-mobile:         $content-width + $spacing-unit;
 
 @mixin media-query($device) {
   @media screen and (max-width: $device) {

@@ -32,7 +32,7 @@ of your system, from building to deploying to logging to crashing.
   <div class="col-1of4 u-hideOnMobile">
     {% svg assets/svg/local.svg %}
   </div>
-  <div class="col-3of4">
+  <div class="col-3of4 u-maxWidth100OnMobile">
   <h3 class="u-minHeight72OnMobile">
     <div class="h3-icon u-showOnlyOnMobile">{% svg assets/svg/local.svg width="65" height="72" %}</div>
     Keep your local development tools
@@ -50,7 +50,7 @@ of your system, from building to deploying to logging to crashing.
   <div class="col-1of4 u-hideOnMobile">
     <div>{% svg assets/svg/observable.svg %}</div>
   </div>
-  <div class="col-3of4">
+  <div class="col-3of4 u-maxWidth100OnMobile">
   <h3 class="u-minHeight72OnMobile">
     <div class="h3-icon u-showOnlyOnMobile">{% svg assets/svg/observable.svg width="65" height="72" %}</div>
     Find your way in a maze of microservices
@@ -68,7 +68,7 @@ of your system, from building to deploying to logging to crashing.
   <div class="col-1of4 u-hideOnMobile">
     {% svg assets/svg/shareable.svg %}
   </div>
-  <div class="col-3of4">
+  <div class="col-3of4 u-maxWidth100OnMobile">
   <h3 class="u-minHeight72OnMobile">
     <div class="h3-icon u-showOnlyOnMobile">{% svg assets/svg/shareable.svg width="65" height="72" %}</div>
     Share the workflow that keeps you in-flow
@@ -101,7 +101,7 @@ of your system, from building to deploying to logging to crashing.
       Already have a Dockerfile and a Kubernetes config?
     </h4>
 
-    <div>
+    <div class="u-clearBoth">
     You’ll be able to setup Tilt
     quickly and start getting things done.&thinsp;<a class="bleedingLink" href="https://docs.tilt.build/">&thinsp;<span class="bleedingLink-text">Check out the docs</span>!&hairsp;</a>
     </div>
@@ -113,7 +113,7 @@ of your system, from building to deploying to logging to crashing.
       Having trouble developing your servers in Kubernetes?
     </h4>
 
-    <div>
+    <div class="u-clearBoth">
     We’d&thinsp;<a class="bleedingLink" href="/contact">&thinsp;<span class="bleedingLink-text">love to chat</span>.&hairsp;</a>
     </div>
   </div>
