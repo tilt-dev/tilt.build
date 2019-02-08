@@ -33,3 +33,6 @@ gem "wdm", "~> 0.1.0" if Gem.win_platform?
 # inline svg support
 # https://github.com/sdumetz/jekyll-inline-svg
 gem "jekyll-inline-svg"
+
+# syntax highlighting
+gem "rouge"

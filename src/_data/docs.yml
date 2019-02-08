@@ -1,0 +1,28 @@
+- title: Getting Started
+  items:
+  - title: Install
+    href: install.html
+  - title: "Tutorial: First 15 Minutes"
+    href: tutorial.html
+  - title: Skaffold
+    href: skaffold.html
+  - title: Helm
+    href: helm.html
+  - title: Docker Compose
+    href: docker_compose.html
+  - title: Example Projects
+    href: example_projects.html
+- title: Using Tilt
+  items:
+  - title: Tiltfile Concepts
+    href: tiltfile_concepts.html
+  - title: Optimizing a Tiltfile
+    href: fast_build.html
+  - title: Tiltfile API Reference
+    href: api.html
+- title: About
+  items:
+  - title: Code of Conduct
+    href: code_of_conduct.html
+  - title: Frequently Asked Questions
+    href: faq.html

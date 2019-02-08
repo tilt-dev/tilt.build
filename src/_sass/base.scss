@@ -154,10 +154,14 @@ blockquote {
  */
 pre,
 code {
-  @include relative-font-size(0.9375);
+  font-family: $mono-font-family;
+  font-size: $mono-font-size;
+  font-weight: $mono-font-weight;
+  line-height: $mono-line-height;
+  font-variant-ligatures: none;
   border: 1px solid $color-grey-light;
   border-radius: 3px;
-  background-color: #eef;
+  background-color: $color-grey-lightest;
 }
 
 code {
@@ -180,23 +184,26 @@ pre {
 /**
  * Wrapper
  */
-.headerWrapper,
 .wrapper {
   margin-right: auto;
   margin-left: auto;
   position: relative;
   @extend %clearfix;
 }
-
-.headerWrapper {
+.wrapper {
+  max-width: $content-width;
+}
+.wrapper--header {
   max-width: $header-width;
 
   @include media-query($header-width + $spacing-unit) {
     max-width: $content-width;
   }
 }
-.wrapper {
-  max-width: $content-width;
+.wrapper--docs {
+  max-width: $header-width;
+  display: flex;
+  justify-content: space-between;
 }
 
 
