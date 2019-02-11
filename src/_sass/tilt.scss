@@ -9,6 +9,11 @@ $body-line-height: 26px;
 
 $header-font-family: attribute-text, sans-serif;
 
+$mono-font-family: attribute-mono, monospace;
+$mono-font-size: 17px;
+$mono-font-weight: 400;
+$mono-line-height: $body-line-height;
+
 $small-font-size:  13px;
 $small-line-height: 18px;
 
@@ -20,6 +25,8 @@ $chrome-font-weight: 400;
 $spacing-unit:     32px;
 $content-width:    $spacing-unit * 23;
 $header-width:     $content-width + 8.5 * $spacing-unit;
+$sidebar-width:    $spacing-unit * 7.5;
+$docs-width:       $content-width + 0.5 * $spacing-unit;
 
 $col-1of3-width: $spacing-unit * 7;
 $col-2of3-width: $spacing-unit * 15;
@@ -70,5 +77,6 @@ $on-mobile:         $content-width + $spacing-unit;
 @import
   "base",
   "layout",
-  "fx"
+  "fx",
+  "syntax"
 ;

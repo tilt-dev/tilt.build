@@ -12,6 +12,7 @@ google_analytics: UA-129150759-1
 
 # Build settings
 markdown: kramdown
+highlighter: rouge
 plugins:
   - jekyll-feed
   - jekyll-inline-svg
