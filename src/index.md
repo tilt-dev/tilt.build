@@ -30,7 +30,7 @@ of your system, from building to deploying to logging to crashing.
 
 <div class="row u-marginBottom2_5 u-marginBottomUnitOnMobile">
   <div class="col-1of4 u-hideOnMobile">
-    {% svg assets/svg/local.svg %}
+    {% svg assets/svg/local.svg class="bigIcon" %}
   </div>
   <div class="col-3of4 u-maxWidth100OnMobile">
   <h3 class="u-minHeight72OnMobile">
@@ -48,7 +48,7 @@ of your system, from building to deploying to logging to crashing.
 
 <div class="row u-marginBottom2_5 u-marginBottomUnitOnMobile">
   <div class="col-1of4 u-hideOnMobile">
-    <div>{% svg assets/svg/observable.svg %}</div>
+    <div>{% svg assets/svg/observable.svg class="bigIcon" %}</div>
   </div>
   <div class="col-3of4 u-maxWidth100OnMobile">
   <h3 class="u-minHeight72OnMobile">
@@ -66,7 +66,7 @@ of your system, from building to deploying to logging to crashing.
 
 <div class="row u-marginBottom1_5 u-marginBottom0_75OnMobile">
   <div class="col-1of4 u-hideOnMobile">
-    {% svg assets/svg/shareable.svg %}
+    {% svg assets/svg/shareable.svg class="bigIcon" %}
   </div>
   <div class="col-3of4 u-maxWidth100OnMobile">
   <h3 class="u-minHeight72OnMobile">

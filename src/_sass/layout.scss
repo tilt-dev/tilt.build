@@ -360,10 +360,7 @@ label, .formItem-label {
   animation: none;
 }
 
-.headerLink.headerLink--github path,
-.headerLink.headerLink--docs path,
-.headerLink.headerLink--medium path,
-.headerLink.headerLink--contact path {
+.headerLink .fillStd {
   fill: $color-red;
 }
 
@@ -420,6 +417,17 @@ label, .formItem-label {
   height: 100%;
   line-height: 40px;
   text-align: center;
+}
+
+/** Use the standard color fill for the given icon */
+.fillStd {
+  fill: $color-grey;
+}
+
+.bigIcon .fillStd,
+h3 .fillStd,
+h4 .fillStd {
+  fill: $color-blue;
 }
 
 .h3-icon {
@@ -560,6 +568,10 @@ label, .formItem-label {
 
 .u-fillRed {
   fill: $color-red !important;
+}
+
+.u-fillBlue {
+  fill: $color-blue !important;
 }
 
 .u-fillWhite {
