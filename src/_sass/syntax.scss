@@ -5,14 +5,14 @@
   color: $color-grey;
 }
 .highlight .cp {
-  color: #999999;
+  color: $color-grey;
   font-weight: bold;
 }
 .highlight .c1 {
   color: $color-grey;
 }
 .highlight .cs {
-  color: #999999;
+  color: $color-grey;
   font-weight: bold;
 }
 .highlight .c, .highlight .cd {
@@ -31,7 +31,7 @@
   color: #aa0000;
 }
 .highlight .gh {
-  color: #999999;
+  color: $color-grey;
 }
 .highlight .gi {
   color: #000000;
@@ -76,26 +76,26 @@
   font-weight: bold;
 }
 .highlight .k, .highlight .kv {
-  color: #000000;
+  color: $color-blue;
   font-weight: bold;
 }
 .highlight .mf {
-  color: #009999;
+  color: $color-blue;
 }
 .highlight .mh {
-  color: #009999;
+  color: $color-blue;
 }
 .highlight .il {
-  color: #009999;
+  color: $color-blue;
 }
 .highlight .mi {
-  color: #009999;
+  color: $color-blue;
 }
 .highlight .mo {
-  color: #009999;
+  color: $color-blue;
 }
 .highlight .m, .highlight .mb, .highlight .mx {
-  color: #009999;
+  color: $color-blue;
 }
 .highlight .sb {
   color: #d14;
@@ -134,10 +134,10 @@
   color: $color-red;
 }
 .highlight .na {
-  color: #008080;
+  color: $color-blue;
 }
 .highlight .bp {
-  color: #999999;
+  color: $color-grey;
 }
 .highlight .nb {
   color: #0086B3;
@@ -157,11 +157,11 @@
   color: #800080;
 }
 .highlight .ne {
-  color: #990000;
+  color: $color-red;
   font-weight: bold;
 }
 .highlight .nf {
-  color: #990000;
+  color: $color-red;
   font-weight: bold;
 }
 .highlight .nl {
