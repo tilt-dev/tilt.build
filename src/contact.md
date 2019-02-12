@@ -56,10 +56,10 @@ or fill out the form below.
   <textarea id="message" name="message" rows="5"></textarea>
 </div>
 
-<div class="svgButton u-marginBottom2_5">
-  <button type="submit" class="imageButton">
-    {% svg assets/svg/button.svg class="svgButton" %}
-    <div class="buttonLabel svgButton-text">
+<div class="u-marginBottom2_5">
+  <button class="brandButton" type="submit">
+    {% svg assets/svg/button.svg %}
+    <div class="buttonLabel brandButton-text">
       Submit
     </div>
   </button>

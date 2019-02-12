@@ -14,10 +14,10 @@ of your system, from building to deploying to logging to crashing.
 </div>
 
 <div class="block u-marginTop2 u-marginBottom1_5">
-<div class="svgButton">
+<div class="brandButton">
   <a class="imageLink" href="https://github.com/windmilleng/tilt">
-    {% svg assets/svg/button.svg class="svgButton" %}
-    <div class="buttonLabel svgButton-text">
+    {% svg assets/svg/button.svg %}
+    <div class="buttonLabel brandButton-text">
       Get Tilt
     </div>
   </a>

@@ -57,6 +57,7 @@ $brand-color: $color-green;
 $table-text-align: left;
 
 $on-mobile:         $content-width + $spacing-unit;
+$on-docs-mobile:    $header-width + $spacing-unit;
 
 @mixin media-query($device) {
   @media screen and (max-width: $device) {
@@ -66,6 +67,12 @@ $on-mobile:         $content-width + $spacing-unit;
 
 @mixin mobile {
   @include media-query($on-mobile) {
+    @content;
+  }
+}
+
+@mixin docs-mobile {
+  @include media-query($on-docs-mobile) {
     @content;
   }
 }

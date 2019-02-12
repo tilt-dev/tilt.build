@@ -204,9 +204,11 @@ pre {
   max-width: $header-width;
   display: flex;
   justify-content: space-between;
+
+  @include docs-mobile {
+    display: block;
+  }
 }
-
-
 
 /**
  * Clearfix
