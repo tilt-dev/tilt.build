@@ -28,7 +28,6 @@ li {
  */
 .site-header {
   margin-top: $spacing-unit;
-  min-height: $spacing-unit * 1.865;
   position: relative;
 }
 
@@ -81,8 +80,12 @@ li {
 }
 
 .page-content {
-  padding: $spacing-unit 0;
+  padding: $spacing-unit * 2 0 $spacing-unit 0;
   flex: 1 0 auto;
+
+  @include mobile {
+    padding-top: $spacing-unit;
+  }
 }
 
 .page-heading {
@@ -118,7 +121,7 @@ li {
   width: 100%;
 
   @include docs-mobile {
-    max-width: 100%;
+    max-width: $col-2of3-width;
   }
 }
 

@@ -207,6 +207,7 @@ pre {
 
   @include docs-mobile {
     display: block;
+    max-width: $content-width;
   }
 }
 
@@ -225,6 +226,10 @@ pre {
 
 .grey {
   color: $color-grey;
+}
+
+svg {
+  overflow: visible;
 }
 
 .svg-icon {
