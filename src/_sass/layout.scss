@@ -41,11 +41,20 @@ li {
 }
 
 .siteNav-popout {
-  display: none;
+  visibility: hidden;
+  opacity: 0;
+  transform: translateY(-20%);
+  transition: opacity 0.3s, transform 0.3s;
+  transition-timing-function: ease-in-out;
+  overflow-y: hidden;
+  max-height: 0;
 }
 
 .siteNav.is-open .siteNav-popout {
-  display: block;
+  visibility: visible;
+  opacity: 1;
+  transform: translateY(0);
+  max-height: fit-content;
 }
 
 .siteNav .svgButton--x {
