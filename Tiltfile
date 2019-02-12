@@ -1,11 +1,15 @@
 # -*- mode: Python -*-
 
+# Generate the API docs.
+read_file('api/api.py')
+local('make api')
+
 k8s_yaml('serve.yaml')
 repo = local_git_repo('.')
 
 img = fast_build('gcr.io/windmill-public-containers/tilt-site',
                  'base.dockerfile',
-                 'bundle exec jekyll serve --config _config.yml,_config-dev.yml')
+                 'echo hi3 && bundle exec jekyll serve --config _config.yml,_config-dev.yml')
 img.add(repo.path('src'), '/src/')
 img.run('bundle update', trigger=['src/Gemfile', 'src/Gemfile.lock'])
 img.hot_reload()

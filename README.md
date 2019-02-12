@@ -20,6 +20,17 @@ The docs directory has symlinks to share stuff with the landing page.
 
 When you're finished, merge to master and Netlify will auto-deploy the site.
 
+### API docs
+
+The API docs are a little bit more complicated.
+
+We write the API docs as docstrings in a Python file (api/api.py),
+generate an HTML fragment with Sphinx (`make api`), and then
+serve that HTML fragment with Jekyll.
+
+You generally shouldn't need to run `make api` by hand. The Tiltfile
+will do it automatically whenever api/api.py changes.
+
 ## License
 
 Copyright 2019 Windmill Engineering
