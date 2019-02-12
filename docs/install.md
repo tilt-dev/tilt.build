@@ -18,9 +18,7 @@ On MacOS
 --------
 
 - Install [Docker For Mac](https://docs.docker.com/docker-for-mac/install/)
-
 - In the Docker For Mac preferences, click [Enable Kubernetes](https://docs.docker.com/docker-for-mac/#kubernetes)
-
 - Verify that it works by opening a terminal and running
 
 ```
@@ -46,13 +44,9 @@ On Linux
 --------
 
 - Install [Docker](https://docs.docker.com/install/)
-
 - Setup Docker as [a non-root user](https://docs.docker.com/install/linux/linux-postinstall/).
-
 - Install [kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/)
-
 - Install [Minikube](https://github.com/kubernetes/minikube#installation)
-
 - Start Minikube as
 
 ```
@@ -79,7 +73,6 @@ If you'd prefer to install `tilt` from source,
 
 - Install [go 1.11](https://golang.org/dl/). Make sure the Go install directory
 (usually `$HOME/go/bin`) is on your `$PATH`.
-
 - Run:
 
 ```

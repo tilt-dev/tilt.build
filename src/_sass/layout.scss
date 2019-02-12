@@ -19,6 +19,10 @@ iframe {
   }
 }
 
+li {
+  margin-bottom: $spacing-unit / 4;
+}
+
 /**
  * Site header
  */
@@ -184,7 +188,7 @@ h4, .docsContent h3 {
 
 .sidebar-sectionTitle {
   font-family: $body-font-family;
-  font-size: 15px;
+  font-size: 16px;
   line-height: 26px;
   color: $color-blue;
   font-weight: $body-font-weight;
@@ -201,8 +205,12 @@ h4, .docsContent h3 {
   font-family: $chrome-font-family;
   font-weight: $chrome-font-weight;
   font-variant-ligatures: none;
-  font-size: 13px;
-  line-height: 21px;
+  font-size: 14px;
+  line-height: 24px;
+}
+
+.sidebar-sectionList > li {
+  margin-bottom: 0;
 }
 
 .sidebar-link {

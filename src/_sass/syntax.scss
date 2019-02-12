@@ -22,10 +22,10 @@
   color: #a61717;
 }
 .highlight .gd {
-  color: #000000;
+  color: $color-grey-darkest;
 }
 .highlight .ge {
-  color: #000000;
+  color: $color-grey-darkest;
 }
 .highlight .gr {
   color: #aa0000;
@@ -34,7 +34,7 @@
   color: $color-grey;
 }
 .highlight .gi {
-  color: #000000;
+  color: $color-grey-darkest;
 }
 .highlight .go {
   color: #888888;
@@ -52,23 +52,23 @@
   color: #aa0000;
 }
 .highlight .kc {
-  color: #000000;
+  color: $color-grey-darkest;
   font-weight: bold;
 }
 .highlight .kd {
-  color: #000000;
+  color: $color-grey-darkest;
   font-weight: bold;
 }
 .highlight .kn {
-  color: #000000;
+  color: $color-grey-darkest;
   font-weight: bold;
 }
 .highlight .kp {
-  color: #000000;
+  color: $color-grey-darkest;
   font-weight: bold;
 }
 .highlight .kr {
-  color: #000000;
+  color: $color-grey-darkest;
   font-weight: bold;
 }
 .highlight .kt {
@@ -187,11 +187,11 @@
   color: #008080;
 }
 .highlight .ow {
-  color: #000000;
+  color: $color-grey-darkest;
   font-weight: bold;
 }
 .highlight .o {
-  color: #000000;
+  color: $color-grey-darkest;
   font-weight: bold;
 }
 .highlight .w {
