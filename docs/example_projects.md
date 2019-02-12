@@ -30,7 +30,9 @@ Your terminal will turn into a status box that lets you watch your server come u
 you will see the status icon turn green. The logs in the botton pane will display
 "Serving oneup on container port 8000."
 
-![oneup server logs](_static/oneup.png)
+<div class="block u-margin1_5">
+ <img src="assets/img/oneup.png">
+</div>
 
 Type `b` to open `oneup` in a browser window.
 Your browser will open `http://localhost:8100`.

@@ -13,7 +13,7 @@ body {
   }
 }
 
-iframe {
+iframe, .docsContent img {
   @include mobile {
     max-width: 100%;
   }
@@ -116,12 +116,20 @@ li {
   display: block;
   max-width: $sidebar-width;
   width: 100%;
+
+  @include docs-mobile {
+    max-width: 100%;
+  }
 }
 
 .docsContent {
   display: block;
   max-width: $docs-width;
   width: 100%;
+
+  @include docs-mobile {
+    max-width: 100%;
+  }
 }
 
 h1, .sidebar h2 {
@@ -193,6 +201,52 @@ h4, .docsContent h3 {
   color: $color-blue;
   font-weight: 700;
   letter-spacing: 0;
+}
+
+.sidebar-opener {
+  background-color: $color-green;
+  opacity: $opacity-light;
+  padding: 10px $spacing-unit / 2;
+  margin-bottom: $spacing-unit / 2;
+
+  font-family: $chrome-font-family;
+  font-variant-ligatures: none;
+  font-size: 22px;
+  font-weight: $chrome-font-weight;
+  line-height: 28px;
+  color: white;
+  cursor: pointer;
+  border: 0;
+  width: 100%;
+  text-align: left;
+  position: relative;
+}
+.sidebar-opener svg {
+  float: right;
+  display: block;
+  margin-top: 6px;
+  transition: transform 0.2s;
+}
+.sidebar.is-open .sidebar-opener svg {
+  transform: scaleY(-1);
+}
+.sidebar.is-open .sidebar-opener {
+  margin-bottom: 0;
+}
+
+.sidebar-contents {
+  @include docs-mobile {
+    display: none;
+    background-color: $color-grey-lightest;
+    padding: $spacing-unit / 2;
+    margin-bottom: 1.5 * $spacing-unit;
+  }
+}
+
+.sidebar.is-open .sidebar-contents {
+  @include docs-mobile {
+    display: block;
+  }
 }
 
 .sidebar-sectionTitle {
@@ -312,8 +366,8 @@ label, .formItem-label {
 
 .imageLink:hover svg,
 .imageLink:hover path,
-.imageButton:hover svg,
-.imageButton:hover path {
+.brandButton:hover svg,
+.brandButton:hover path {
   opacity: 1;
 }
 
@@ -388,24 +442,20 @@ label, .formItem-label {
   opacity: 1;
 }
 
-.svgButton {
+.svgButton, .brandButton {
   display: inline-block;
   margin: auto;
   position: relative;
 }
 
-.svgButton a {
-  display: block;
-}
-
-.svgButton button {
+button.svgButton, button.brandButton {
   border: none;
   padding: 0;
   cursor: pointer;
   background-color: transparent;
 }
 
-.svgButton svg {
+.brandButton svg {
   fill: $brand-color;
   opacity: $opacity-light;
   min-width: 144px;
@@ -414,10 +464,16 @@ label, .formItem-label {
 
 .svgButton--menu svg {
   min-width: 40px;
+  height: 40px;
+}
+.svgButton--menu .fillStd {
+  fill: $brand-color;
+  opacity: $opacity-light;
 }
 
 .svgButton--x svg {
   min-width: 0;
+  height: 40px;
 }
 
 .svgButton--x {
@@ -425,7 +481,7 @@ label, .formItem-label {
   width: 40px;
 }
 
-.svgButton-text {
+.brandButton-text {
   color: white;
   display: block;
   position: absolute;
@@ -507,6 +563,14 @@ h4 .fillStd {
   fill: $color-red;
 }
 
+.u-margin1 {
+  margin: $spacing-unit;
+}
+
+.u-margin1_5 {
+  margin: $spacing-unit * 1.5;
+}
+
 .u-marginBottom0 {
   margin-bottom: 0 !important;
 }
@@ -579,6 +643,10 @@ h4 .fillStd {
   box-shadow: 8px 10px 16px 16px $color-grey-lightest !important;
 }
 
+.docsContent img {
+  box-shadow: 8px 10px 16px 16px $color-grey-lightest;
+}
+
 .u-padding16 {
   padding: 16px !important;
 }
@@ -613,10 +681,24 @@ h4 .fillStd {
   }
 }
 
+.u-hideOnDocsMobile {
+  @include docs-mobile {
+    display: none !important;
+  }
+}
+
 .u-showOnlyOnMobile {
   display: none !important;
 
   @include mobile {
+    display: block !important;
+  }
+}
+
+.u-showOnlyOnDocsMobile {
+  display: none !important;
+
+  @include docs-mobile {
     display: block !important;
   }
 }

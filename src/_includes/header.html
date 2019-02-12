@@ -21,16 +21,12 @@
         {% endfor %}
         
         <div class="u-showOnlyOnMobile">
-          <div class="svgButton svgButton--menu">
-            <button class="imageButton" onclick="document.querySelector('.siteNav').classList.add('is-open')">
-              {% svg assets/svg/menu.svg %}
-            </button>
-          </div>
-          <div class="svgButton svgButton--x">
-            <button class="imageButton" onclick="document.querySelector('.siteNav').classList.remove('is-open')">
-              {% svg assets/svg/x.svg %}
-            </button>
-          </div>
+          <button class="svgButton svgButton--menu" onclick="document.querySelector('.siteNav').classList.add('is-open')">
+            {% svg assets/svg/menu.svg %}
+          </button>
+          <button class="svgButton svgButton--x" onclick="document.querySelector('.siteNav').classList.remove('is-open')">
+            {% svg assets/svg/x.svg %}
+          </button>
         </div>
       </div>
 
