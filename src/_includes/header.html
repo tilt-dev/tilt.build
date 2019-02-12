@@ -1,7 +1,11 @@
 <header class="site-header">
 
   <div class="wrapper wrapper--header">
-    <a class="imageLink imageLink--logo-wordmark-anim" href="{{site.landingurl}}">
+    {% assign extraClass = "" %}
+    {% if page.url == "/" %}
+    {% assign extraClasses = "fixedLink" %}
+    {% endif %}
+    <a class="imageLink imageLink--logo-wordmark-anim {{extraClasses}}" href="{{site.landingurl}}">
       {% svg assets/svg/logo-wordmark-anim.svg %}
     </a>
 
@@ -14,7 +18,8 @@
         {% elsif link.docsurl %}
         {% assign href = (href | prepend: site.docsurl) %}
         {% endif %}
-        <a class="headerLink headerLink--{{link.icon}} u-hideOnMobile" href="{{href}}">
+
+        <a class="headerLink headerLink--{{link.icon}} u-hideOnMobile {{extraClass}}" href="{{href}}">
           {% svg assets/svg/{{link.icon}}.svg %}
           <span class="headerLink-text">{{link.name}}</span>
         </a>

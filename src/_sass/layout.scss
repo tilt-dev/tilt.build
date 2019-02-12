@@ -300,6 +300,10 @@ label, .formItem-label {
   opacity: 1;
 }
 
+.fixedLink {
+  position: fixed;
+}
+
 .headerLink {
   font-family: $chrome-font-family;
   font-size: $chrome-font-size;
