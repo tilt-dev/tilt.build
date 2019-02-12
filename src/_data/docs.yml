@@ -1,5 +1,7 @@
 - title: Getting Started
   items:
+  - title: Tilt User Guide
+    href: /
   - title: Install
     href: install.html
   - title: "Tutorial: First 15 Minutes"
