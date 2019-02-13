@@ -1,0 +1,51 @@
+@charset "utf-8";
+
+/** search overrides */
+
+.docsContent {
+  .gsc-control-cse {
+    padding: 0;
+    margin: 0;
+   }
+  .gsc-control-cse, .gsc-control-cse .gsc-table-result {
+    font-weight: $body-font-weight;
+    font-family: $body-font-family;
+    font-size: $body-font-size;
+    line-height: $body-line-height;
+    letter-spacing: 0.02em;
+    color: $text-color;
+  }
+  .gsc-table-result, .gsc-thumbnail-inside, .gsc-url-top, .gsc-result-info {
+    padding-left: 0;
+  }
+  .gs-webResult .gs-visibleUrl {
+    color: $color-green;
+  }
+  .gsc-control-cse .gs-webResult.gs-result .gs-title * {
+    font-size: 18px;
+    text-decoration: none;
+  }
+  .gs-webResult.gs-result .gs-title,
+  .gs-webResult.gs-result a.gs-title:link {
+    height: auto;
+    text-decoration: none;
+    font-family: $header-font-family;
+    font-variant-ligatures: none;
+    font-size: 18px;
+    line-height: normal;
+    font-weight: 700;
+    letter-spacing: 0;
+  }
+}
+
+a.gs-title:hover {
+  background-color: $color-blue;
+}
+a.gcsc-branding-clickable,
+a.gcsc-branding-clickable:hover, {
+  color: $text-color;
+  background-color: white;
+}
+.gcsc-branding img {
+  box-shadow: none;
+}

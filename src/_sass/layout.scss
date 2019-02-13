@@ -119,6 +119,7 @@ li {
   display: block;
   max-width: $sidebar-width;
   width: 100%;
+  margin-right: $spacing-unit;
 
   @include docs-mobile {
     max-width: $col-2of3-width;
@@ -766,6 +767,9 @@ h4 .fillStd {
   @include mobile {
     padding-bottom: $spacing-unit;
   }
+}
+.sidebar .formItem {
+  padding-bottom: $spacing-unit / 2;
 }
 .formItem label,
 .formItem .formItem-label {
