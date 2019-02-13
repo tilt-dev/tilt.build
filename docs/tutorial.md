@@ -10,7 +10,7 @@ Start by `cd`'ing into a project you can already build and deploy to Kubernetes.
 ## Example Tiltfile
 At the end of this guide, your Tiltfile will look something like this:
 ```python
-# Deploy: tell Tilt what yaml to deploy
+# Deploy: tell Tilt what YAML to deploy
 k8s_yaml('app.yaml')
 
 # Build: tell Tilt what images to build from which directories
@@ -41,10 +41,10 @@ k8s_yaml('app.yaml')
 
 Tilt supports many deployment configuration practices (for more details, check out the [Deploy](tiltfile_concepts.html#deploy) section of "Tiltfile Concepts"):
 ```python
-# multiple yaml files; can be either a list or multiple calls
+# multiple YAML files; can be either a list or multiple calls
 k8s_yaml(['foo.yaml', 'bar.yaml'])
 
-# run a command to generate yaml
+# run a command to generate YAML
 k8s_yaml(local('gen_k8s_yaml.py')) # a custom script
 k8s_yaml(kustomize('config_dir')) # built-in support for popular tools
 k8s_yaml(helm('chart_dir'))
@@ -67,6 +67,8 @@ Tilt can give you consistent port forwards to running pods (whether they're runn
 ```python
 k8s_resource('frontend', port_forwards='9000')
 ```
+
+(Note that the first parameter of `k8s_resource` must match the name of an image that was built. If you'd like to name it something else you can use the [`image` parameter](api.html#api.k8s_resource) to manually specify an image to group by)
 
 You can also use `k8s_resource` to change the resource grouping, or forward multiple ports. Cf. the [Resources](tiltfile_concepts.html#resources) section of `Tiltfile Concepts`.
 
