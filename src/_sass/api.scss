@@ -1,0 +1,99 @@
+@charset "utf-8";
+
+/** Styling for sphinx-generated APIs */
+em.property, dt > em, dd cite {
+  font-family: $mono-font-family;
+  font-size: 14px;
+  font-weight: $mono-font-weight;
+  line-height: $mono-line-height;
+  font-variant-ligatures: none;
+  font-style: normal;
+}
+dl {
+  margin-bottom: $spacing-unit;
+}
+dd {
+  margin-top: $spacing-unit / 4;
+  margin-left: $spacing-unit / 2;
+}
+dl.class > dt {
+  border-top: solid 3px $color-blue-light;
+  padding: 5px 8px 8px 8px;
+  display: inline-block;
+  background-color: $color-blue-lightest;
+}
+dl.method > dt,
+dl.function > dt {
+  border-top: solid 3px $color-grey-light;
+  padding: 5px 8px 8px 8px;
+  display: inline-block;
+  background-color: $color-grey-lightest;
+}
+.field-name {
+  font-family: $header-font-family;
+  font-variant-ligatures: none;
+  font-size: 18px;
+  line-height: normal;
+  font-weight: 700;
+  letter-spacing: 0;
+  white-space: nowrap;
+  padding-right: $spacing-unit / 4;
+  text-align: left;
+}
+
+.descclassname {
+  display: none;
+}
+
+.descname, .xref {
+  border: none;
+  background-color: transparent;
+}
+
+.descname {
+  padding: 0;
+}
+
+.headerlink {
+  margin-right: 1em;
+  visibility: hidden;
+}
+.headerlink:hover {
+  background-color: transparent;
+}
+.headerlink::after {
+  content: "🔗";
+  transition: opacity 0.3s;
+  color: $text-color;
+  opacity: 0;
+  visibility: visible;
+  margin-left: -4px;
+}
+
+dt:hover .headerlink::after {
+  opacity: 1;
+}
+
+h1 + dl.class::before,
+dl.class + dl.function::before {
+  content: "Functions";
+
+  display: block;
+  font-family: $header-font-family;
+  font-variant-ligatures: none;
+  font-size: 24px;
+  letter-spacing: 0;
+  color: $color-blue;
+  font-weight: 700;
+  letter-spacing: 0;
+  margin-bottom: $spacing-unit / 2;
+
+  @include mobile {
+    font-size: 22px;
+    line-height: 28px;
+  }
+}
+
+h1 + dl.class::before {
+  content: "Classes";
+}
