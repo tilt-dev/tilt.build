@@ -468,6 +468,30 @@ button.svgButton, button.brandButton {
   height: 40px;
 }
 
+.editOnGitHub {
+  font-family: $chrome-font-family;
+  font-size: 16px;
+  line-height: normal;
+  font-weight: $chrome-font-weight;
+  float: right;
+  display: block;
+  padding: $spacing-unit / 4;
+}
+.editOnGitHub svg {
+  padding-top: 2px;
+}
+.editOnGitHub-text {
+  float: right;
+  padding-left: $spacing-unit / 4;
+}
+.editOnGitHub .fillStd {
+  fill: $color-red;
+  transition: fill 0.2s;
+}
+.editOnGitHub:hover .fillStd {
+  fill: white;
+}
+
 .svgButton--menu svg {
   min-width: 40px;
   height: 40px;

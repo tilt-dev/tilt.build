@@ -31,6 +31,15 @@ layout: default
 
   </nav>
   <article class="docsContent">
+    <a class="editOnGitHub u-hideOnMobile" 
+       href="https://github.com/windmilleng/tilt.build/tree/master/docs/{{page.name}}">
+      {% svg assets/svg/github.svg width=16 height=16 %}
+
+      <span class="editOnGitHub-text">
+        Edit on GitHub
+      </span>
+    </a>
+    
     <h1>{{ page.title | escape }}</h1>
     
     {{ content }}
