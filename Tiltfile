@@ -9,7 +9,7 @@ repo = local_git_repo('.')
 
 img = fast_build('gcr.io/windmill-public-containers/tilt-site',
                  'base.dockerfile',
-                 'echo hi3 && bundle exec jekyll serve --config _config.yml,_config-dev.yml')
+                 'bundle exec jekyll serve --config _config.yml,_config-dev.yml')
 img.add(repo.path('src'), '/src/')
 img.run('bundle update', trigger=['src/Gemfile', 'src/Gemfile.lock'])
 img.hot_reload()
