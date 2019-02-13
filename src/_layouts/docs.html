@@ -15,11 +15,13 @@ layout: default
     <div class="sidebar-contents">
 
     {% for section in site.data.docs %}
+      {% if section.title %}
       <h3 class="sidebar-sectionTitle">{{ section.title | escape }}</h3>
+      {% endif %}
 
       <ul class="sidebar-sectionList">
         {% for page in section.items %}
-        <li><a class="sidebar-link" href="{{page.href | escape}}">{{page.title | escape}}</a>
+          <li><a class="sidebar-link" href="{{page.href | escape}}">{{page.title | escape}}</a>
         {% endfor %}
       </ul>
 

@@ -274,6 +274,9 @@ h4, .docsContent h3 {
   font-size: 14px;
   line-height: 24px;
 }
+.sidebar-sectionList:first-child {
+  margin-bottom: $spacing-unit / 4;
+}
 
 .sidebar-sectionList > li {
   margin-bottom: 0;
