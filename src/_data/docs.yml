@@ -23,6 +23,10 @@
     href: fast_build.html
   - title: Tiltfile API Reference
     href: api.html
+- title: Guides
+  items:
+  - title: Frontend Microservice with Hot Reloading
+    href: frontend_guide.html
 - title: About
   items:
   - title: Code of Conduct
