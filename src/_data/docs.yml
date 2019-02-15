@@ -23,6 +23,10 @@
     href: fast_build.html
   - title: Tiltfile API Reference
     href: api.html
+- title: Guides
+  items:
+  - title: Node.js Microservice with Hot Reloading
+    href: nodejs_microservice_hotreloading.html
 - title: About
   items:
   - title: Code of Conduct
