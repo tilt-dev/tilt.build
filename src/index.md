@@ -15,7 +15,7 @@ of your system, from building to deploying to logging to crashing.
 
 <div class="block u-marginTop2 u-marginBottom1_5">
 <div class="brandButton">
-  <a class="imageLink" href="https://github.com/windmilleng/tilt">
+  <a class="imageLink" href="https://docs.tilt.build/install.html">
     {% svg assets/svg/button.svg %}
     <div class="buttonLabel brandButton-text">
       Get Tilt
@@ -87,7 +87,7 @@ of your system, from building to deploying to logging to crashing.
   <div class="col-1of4">&nbsp;</div>
   <div class="col-3of4">
     <h3 class="u-marginBottom1_5">
-      <a href="https://github.com/windmilleng/tilt">
+      <a href="https://docs.tilt.build/install.html">
       &hairsp;&gt; Try Tilt&hairsp;
       </a>
     </h3>
