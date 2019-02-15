@@ -1,5 +1,5 @@
 ---
-title: Frontend Microservices with Hot Reloading
+title: Node.js Microservice with Hot Reloading
 layout: docs
 ---
 

@@ -25,8 +25,8 @@
     href: api.html
 - title: Guides
   items:
-  - title: Frontend Microservice with Hot Reloading
-    href: frontend_guide.html
+  - title: Node.js Microservice with Hot Reloading
+    href: nodejs_microservice_hotreloading.html
 - title: About
   items:
   - title: Code of Conduct
