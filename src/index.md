@@ -15,7 +15,7 @@ of your system, from building to deploying to logging to crashing.
 
 <div class="block u-marginTop2 u-marginBottom1_5">
 <div class="brandButton">
-  <a class="imageLink" href="https://docs.tilt.build/install.html">
+  <a class="imageLink" href="{{site.docsurl}}install.html">
     {% svg assets/svg/button.svg %}
     <div class="buttonLabel brandButton-text">
       Get Tilt
@@ -87,7 +87,7 @@ of your system, from building to deploying to logging to crashing.
   <div class="col-1of4">&nbsp;</div>
   <div class="col-3of4">
     <h3 class="u-marginBottom1_5">
-      <a href="https://docs.tilt.build/install.html">
+      <a href="{{site.docsurl}}install.html">
       &hairsp;&gt; Try Tilt&hairsp;
       </a>
     </h3>
@@ -103,7 +103,7 @@ of your system, from building to deploying to logging to crashing.
 
     <div class="u-clearBoth">
     You’ll be able to setup Tilt
-    quickly and start getting things done.&thinsp;<a class="bleedingLink" href="https://docs.tilt.build/">&thinsp;<span class="bleedingLink-text">Check out the docs</span>!&hairsp;</a>
+    quickly and start getting things done.&thinsp;<a class="bleedingLink" href="{{site.docsurl}}">&thinsp;<span class="bleedingLink-text">Check out the docs</span>!&hairsp;</a>
     </div>
   </div>
 
