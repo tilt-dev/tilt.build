@@ -65,5 +65,5 @@ or fill out the form below.
   </button>
 </div>
 
-<input type="hidden" name="_next" value="https://tilt.build/thanks"/>
+<input type="hidden" name="_next" value="{{site.landingurl}}thanks"/>
 </form>

@@ -3,9 +3,9 @@ email: hi@windmill.engineering
 description: >-
   Local Kubernetes development with no stress
 baseurl: ""
-url: "https://docs.tilt.build/"
-docsurl: "https://docs.tilt.build/"
-landingurl: "https://tilt.build/"
+url: "https://docs.tilt.dev/"
+docsurl: "https://docs.tilt.dev/"
+landingurl: "https://tilt.dev/"
 twitter_username: windmill_eng
 github_username:  windmilleng
 google_analytics: UA-129150759-2
