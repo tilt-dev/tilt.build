@@ -1,0 +1,2 @@
+# For SEO, recommended by netlify
+https://docs.tilt.build/* https://docs.tilt.dev/:splat 301!
