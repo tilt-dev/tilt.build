@@ -9,6 +9,8 @@ landingurl: "https://tilt.dev/"
 twitter_username: windmill_eng
 github_username:  windmilleng
 google_analytics: UA-129150759-1
+include:
+  - _redirects
 
 # Build settings
 markdown: kramdown
