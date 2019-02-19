@@ -9,6 +9,10 @@ Tilt enables you to do frontend development with microservices development in a 
 
 _Note: before diving in to this guide you should brush up on Tilt’s Getting Started Guide, namely the [tutorial](tutorial.html). This guide also assumes that you already have a Docker image that runs your frontend service, and a set of Kubernetes objects that deploys that service._
 
+## The Node Service
+
+The [node service](https://github.com/windmilleng/tilt-frontend-demo) we'll be setting up on Tilt was created using [create-react-app](https://github.com/facebook/create-react-app). The [start script](https://github.com/windmilleng/tilt-frontend-demo/blob/master/scripts/start.js) uses [`webpack-dev-server`](https://github.com/webpack/webpack-dev-server) to provide live reloading.
+
 ## Tiltfile Walkthrough
 
 This Tiltfile is going to start out looking like any other. We’re first going to grab the YAML that defines the Kubernetes service.
