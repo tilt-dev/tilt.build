@@ -142,3 +142,6 @@ def fail(msg: str) -> None:
 
 def yaml(contents: str) -> Yaml:
   """Creates a Yaml object that wraps the provided string. Useful for passing strings in to functions that expect YAML like ``k8s_yaml``"""
+
+def listdir(directory: str) -> List[str]:
+  """Returns all the files at the top level of the provided directory"""
