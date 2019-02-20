@@ -1,2 +1,3 @@
 # For SEO, recommended by netlify
 https://tilt.build/* https://tilt.dev/:splat 301!
+https://windmill.engineering/* https://tilt.dev/:splat 301!
