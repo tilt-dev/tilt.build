@@ -6,6 +6,13 @@ layout: docs
 Troubleshooting
 ----------------------------
 
+### Q: How do I get help with Tilt?
+
+For real-time support, find us on the Kubernetes slack. Get an invite at [slack.k8s.io](http://slack.k8s.io) and find
+us in [the **#tilt** channel](https://kubernetes.slack.com/messages/CESBL84MV/).
+
+You can also file an issue in [our GitHub repo](https://github.com/windmilleng/tilt/issues/new).
+
 ### Q: When I run `tilt version`, I see "template engine not found for: version". What do I do?
 
 There is another project called Tilt for
@@ -45,6 +52,24 @@ environment. `minikube delete` will reset the cluster state.
 Building Container Images
 -------------------------
 
+### Q: Tilt says it's building images. But I can't find them with the Docker CLI. What's going on?
+
+If you are using Minikube or MicroK8s, Tilt will automatically connect to the
+Docker server inside the cluster. This helps performance because Tilt doesn't need to waste time
+copying Docker images around.
+
+To check which Docker server Tilt is connecting to, run:
+
+```
+tilt doctor
+```
+
+Tilt will print the Docker host. You can then run commands against that Docker host:
+
+```
+DOCKER_HOST=tcp://my-url/ docker images
+```
+
 ### Q: All the Tilt examples store the image at `gcr.io`. Isn't it really slow to push images up to Google's remote repository for local development?
 
 You're right, that would be slow!
@@ -80,10 +105,6 @@ server. Specifically:
 
 This is helpful if you have a more powerful machine in the cloud that you want
 to build your images.
-
-If you are using Minikube, Tilt will automatically connect to the Docker server
-inside Minikube.  This helps performance because Tilt doesn't need to waste time
-copying Docker images around.
 
 
 Deploying Containers

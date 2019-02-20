@@ -207,6 +207,10 @@ h4, .docsContent h3 {
   letter-spacing: 0;
 }
 
+.docsContent h3 {
+  color: $text-color;
+}
+
 .sidebar-opener {
   background-color: $color-green;
   opacity: $opacity-light;
