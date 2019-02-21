@@ -107,11 +107,11 @@ def k8s_yaml(yaml: Union[str, List[str], LocalPath, Yaml]) -> None:
 
     # LocalPath
     repo = local_git_repo('./my_proj')
-    k8s_yaml(repo.path('deploy/foo.yaml')
+    k8s_yaml(repo.path('deploy/foo.yaml'))
 
     # Yaml object (in this case, script output)
     templated_yaml = local('./template_yaml.sh')
-    k8s_yaml = (yaml(templated_yaml))
+    k8s_yaml(yaml(templated_yaml))
 
   Args:
     yaml: Path(s) to YAML, or YAML as a ``Yaml`` object.
