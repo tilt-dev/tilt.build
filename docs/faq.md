@@ -146,3 +146,5 @@ $ KUBECONFIG="$(kind get kubeconfig-path)" tilt up
 
 Tilt reads the same `KUBECONFIG` environment variable that `kubectl` uses. This variable
 sets the path to a Kubernetes config.
+
+<script src="/assets/js/links.js" async></script>

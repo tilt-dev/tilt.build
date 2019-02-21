@@ -206,9 +206,25 @@ h4, .docsContent h3 {
   font-weight: 700;
   letter-spacing: 0;
 }
-
 .docsContent h3 {
   color: $text-color;
+}
+.permalink {
+  transition: opacity 0.3s;
+  opacity: 0;
+  position: absolute;
+  margin-left: -1em;
+}
+h3 > .permalink,
+h3 > .permalink:hover {
+  color: $text-color;
+}
+h3:hover > .permalink {
+  opacity: 1;
+}
+.permalink:hover {
+  color: $text-color;
+  background-color: transparent;
 }
 
 .sidebar-opener {
