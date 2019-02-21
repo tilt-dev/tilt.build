@@ -94,7 +94,8 @@ path must be a relative path.</p>
 </dd></dl><dl class="class">
 <dt id="api.Yaml">
 <em class="property">class </em><code class="descclassname">api.</code><code class="descname">Yaml</code><a class="headerlink" href="#api.Yaml" title="Permalink to this definition">&#xB6;</a></dt>
-<dd><p>A string that represents YAML that can be parsed</p>
+<dd><p>A string that represents YAML that can be parsed.</p>
+<p>To wrap a string or <code class="docutils literal notranslate"><span class="pre">Blob</span></code> as YAML: <code class="docutils literal notranslate"><span class="pre">yaml(yaml_str)</span></code></p>
 </dd></dl><dl class="function">
 <dt id="api.docker_build">
 <code class="descclassname">api.</code><code class="descname">docker_build</code><span class="sig-paren">(</span><em>ref</em>, <em>context</em>, <em>build_args={}</em>, <em>dockerfile=&apos;Dockerfile&apos;</em>, <em>dockerfile_contents=&apos;&apos;</em><span class="sig-paren">)</span><a class="headerlink" href="#api.docker_build" title="Permalink to this definition">&#xB6;</a></dt>
@@ -147,12 +148,12 @@ path must be a relative path.</p>
 </dd></dl><dl class="function">
 <dt id="api.helm">
 <code class="descclassname">api.</code><code class="descname">helm</code><span class="sig-paren">(</span><em>pathToChartDir</em><span class="sig-paren">)</span><a class="headerlink" href="#api.helm" title="Permalink to this definition">&#xB6;</a></dt>
-<dd><p>Run <a class="reference external" href="https://docs.helm.sh/helm/#helm-template">helm template</a> on a given directory that contains a chart and return the fully rendered YAML as a Blob</p>
+<dd><p>Run <a class="reference external" href="https://docs.helm.sh/helm/#helm-template">helm template</a> on a given directory that contains a chart and return the fully rendered YAML</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name">
 <col class="field-body">
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#api.Blob" title="api.Blob"><code class="xref py py-class docutils literal notranslate"><span class="pre">Blob</span></code></a></td>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#api.Yaml" title="api.Yaml"><code class="xref py py-class docutils literal notranslate"><span class="pre">Yaml</span></code></a></td>
 </tr>
 </tbody>
 </table>
@@ -166,9 +167,9 @@ path must be a relative path.</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
 <li><strong>name</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) &#x2013; What call this resource in the UI. If <code class="docutils literal notranslate"><span class="pre">image</span></code> is not specified <code class="docutils literal notranslate"><span class="pre">name</span></code> will be used as the image to group by.</li>
-<li><strong>yaml</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <a class="reference internal" href="#api.Blob" title="api.Blob"><code class="xref py py-class docutils literal notranslate"><span class="pre">Blob</span></code></a>]) &#x2013; Optional YAML. If YAML, as a string or Blob is
-not passed we expect to be able to extract it from an
-existing resource.</li>
+<li><strong>yaml</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <a class="reference internal" href="#api.Yaml" title="api.Yaml"><code class="xref py py-class docutils literal notranslate"><span class="pre">Yaml</span></code></a>]) &#x2013; Optional YAML. If this arg is not passed, we
+expect to be able to extract it from an existing resource
+(by looking for a k8s container running the specified <code class="docutils literal notranslate"><span class="pre">image</span></code>).</li>
 <li><strong>image</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <a class="reference internal" href="#api.FastBuild" title="api.FastBuild"><code class="xref py py-class docutils literal notranslate"><span class="pre">FastBuild</span></code></a>]) &#x2013; An optional Image. If the image is not passed,
 we expect to be able to extract it from an existing resource.</li>
 <li><strong>port_forwards</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>]]) &#x2013; Local ports to connect to the pod. If no
@@ -194,16 +195,32 @@ Tilt&#x2019;s usual mechanisms).</li>
 </dd></dl><dl class="function">
 <dt id="api.k8s_yaml">
 <code class="descclassname">api.</code><code class="descname">k8s_yaml</code><span class="sig-paren">(</span><em>yaml</em><span class="sig-paren">)</span><a class="headerlink" href="#api.k8s_yaml" title="Permalink to this definition">&#xB6;</a></dt>
-<dd><p>Call this with a path to a file that contains YAML, or with a <code class="docutils literal notranslate"><span class="pre">Blob</span></code> of YAML.</p>
+<dd><p>Call this with a path to a file that contains YAML, or with a <code class="docutils literal notranslate"><span class="pre">Yaml</span></code> object.</p>
 <p>We will infer what (if any) of the k8s resources defined in your YAML
 correspond to Images defined elsewhere in your <code class="docutils literal notranslate"><span class="pre">Tiltfile</span></code> (matching based on
 the DockerImage ref and on pod selectors). Any remaining YAML is YAML that Tilt
 applies to your k8s cluster independently.</p>
+<p>Examples:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># path to file</span>
+<span class="n">k8s_yaml</span><span class="p">(</span><span class="s1">&apos;foo.yaml&apos;</span><span class="p">)</span>
+
+<span class="c1"># list of paths</span>
+<span class="n">k8s_yaml</span><span class="p">([</span><span class="s1">&apos;foo.yaml&apos;</span><span class="p">,</span> <span class="s1">&apos;bar.yaml&apos;</span><span class="p">])</span>
+
+<span class="c1"># LocalPath</span>
+<span class="n">repo</span> <span class="o">=</span> <span class="n">local_git_repo</span><span class="p">(</span><span class="s1">&apos;./my_proj&apos;</span><span class="p">)</span>
+<span class="n">k8s_yaml</span><span class="p">(</span><span class="n">repo</span><span class="o">.</span><span class="n">path</span><span class="p">(</span><span class="s1">&apos;deploy/foo.yaml&apos;</span><span class="p">)</span>
+
+<span class="c1"># Yaml object (in this case, script output)</span>
+<span class="n">templated_yaml</span> <span class="o">=</span> <span class="n">local</span><span class="p">(</span><span class="s1">&apos;./template_yaml.sh&apos;</span><span class="p">)</span>
+<span class="n">k8s_yaml</span> <span class="o">=</span> <span class="p">(</span><span class="n">yaml</span><span class="p">(</span><span class="n">templated_yaml</span><span class="p">))</span>
+</pre></div>
+</div>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name">
 <col class="field-body">
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>yaml</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>], <a class="reference internal" href="#api.LocalPath" title="api.LocalPath"><code class="xref py py-class docutils literal notranslate"><span class="pre">LocalPath</span></code></a>, <a class="reference internal" href="#api.Blob" title="api.Blob"><code class="xref py py-class docutils literal notranslate"><span class="pre">Blob</span></code></a>]) &#x2013; Path(s) to YAML or YAML as a <code class="docutils literal notranslate"><span class="pre">Blob</span></code>.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>yaml</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>], <a class="reference internal" href="#api.LocalPath" title="api.LocalPath"><code class="xref py py-class docutils literal notranslate"><span class="pre">LocalPath</span></code></a>, <a class="reference internal" href="#api.Yaml" title="api.Yaml"><code class="xref py py-class docutils literal notranslate"><span class="pre">Yaml</span></code></a>]) &#x2013; Path(s) to YAML, or YAML as a <code class="docutils literal notranslate"><span class="pre">Yaml</span></code> object.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><code class="docutils literal notranslate"><span class="pre">None</span></code></td>
 </tr>
@@ -212,12 +229,12 @@ applies to your k8s cluster independently.</p>
 </dd></dl><dl class="function">
 <dt id="api.kustomize">
 <code class="descclassname">api.</code><code class="descname">kustomize</code><span class="sig-paren">(</span><em>pathToDir</em><span class="sig-paren">)</span><a class="headerlink" href="#api.kustomize" title="Permalink to this definition">&#xB6;</a></dt>
-<dd><p>Run <a class="reference external" href="https://github.com/kubernetes-sigs/kustomize">kustomize</a> on a given directory and return the resulting YAML as a Blob</p>
+<dd><p>Run <a class="reference external" href="https://github.com/kubernetes-sigs/kustomize">kustomize</a> on a given directory and return the resulting YAML</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name">
 <col class="field-body">
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#api.Blob" title="api.Blob"><code class="xref py py-class docutils literal notranslate"><span class="pre">Blob</span></code></a></td>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#api.Yaml" title="api.Yaml"><code class="xref py py-class docutils literal notranslate"><span class="pre">Yaml</span></code></a></td>
 </tr>
 </tbody>
 </table>
@@ -274,7 +291,8 @@ applies to your k8s cluster independently.</p>
 </dd></dl><dl class="function">
 <dt id="api.yaml">
 <code class="descclassname">api.</code><code class="descname">yaml</code><span class="sig-paren">(</span><em>contents</em><span class="sig-paren">)</span><a class="headerlink" href="#api.yaml" title="Permalink to this definition">&#xB6;</a></dt>
-<dd><p>Creates a Yaml object that wraps the provided string. Useful for passing strings in to functions that expect YAML like <code class="docutils literal notranslate"><span class="pre">k8s_yaml</span></code></p>
+<dd><p>Creates a Yaml object that wraps the provided string or Blob. Useful for
+passing strings in to functions that expect YAML (e.g.: <code class="docutils literal notranslate"><span class="pre">k8s_yaml</span></code>)</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name">
 <col class="field-body">
