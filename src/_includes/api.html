@@ -210,11 +210,11 @@ applies to your k8s cluster independently.</p>
 
 <span class="c1"># LocalPath</span>
 <span class="n">repo</span> <span class="o">=</span> <span class="n">local_git_repo</span><span class="p">(</span><span class="s1">&apos;./my_proj&apos;</span><span class="p">)</span>
-<span class="n">k8s_yaml</span><span class="p">(</span><span class="n">repo</span><span class="o">.</span><span class="n">path</span><span class="p">(</span><span class="s1">&apos;deploy/foo.yaml&apos;</span><span class="p">)</span>
+<span class="n">k8s_yaml</span><span class="p">(</span><span class="n">repo</span><span class="o">.</span><span class="n">path</span><span class="p">(</span><span class="s1">&apos;deploy/foo.yaml&apos;</span><span class="p">))</span>
 
 <span class="c1"># Yaml object (in this case, script output)</span>
 <span class="n">templated_yaml</span> <span class="o">=</span> <span class="n">local</span><span class="p">(</span><span class="s1">&apos;./template_yaml.sh&apos;</span><span class="p">)</span>
-<span class="n">k8s_yaml</span> <span class="o">=</span> <span class="p">(</span><span class="n">yaml</span><span class="p">(</span><span class="n">templated_yaml</span><span class="p">))</span>
+<span class="n">k8s_yaml</span><span class="p">(</span><span class="n">yaml</span><span class="p">(</span><span class="n">templated_yaml</span><span class="p">))</span>
 </pre></div>
 </div>
 <table class="docutils field-list" frame="void" rules="none">
