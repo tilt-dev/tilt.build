@@ -271,7 +271,7 @@ h4, .docsContent h3 {
 .sidebar-sectionList {
   list-style-type: none;
   margin-bottom: $spacing-unit / 2;
-  margin-left: 0;
+  margin-left: 1.5em;  /* balanced out by text-indent -1.5em below */
 
   font-family: $chrome-font-family;
   font-weight: $chrome-font-weight;
@@ -285,6 +285,7 @@ h4, .docsContent h3 {
 
 .sidebar-sectionList > li {
   margin-bottom: 0;
+  text-indent: -1.5em;
 }
 
 .sidebar-link {
