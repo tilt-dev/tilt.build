@@ -45,9 +45,9 @@ Tilt supports many deployment configuration practices (for more details, check o
 k8s_yaml(['foo.yaml', 'bar.yaml'])
 
 # run a command to generate YAML
-k8s_yaml(local('gen_k8s_yaml.py')) # a custom script
 k8s_yaml(kustomize('config_dir')) # built-in support for popular tools
 k8s_yaml(helm('chart_dir'))
+k8s_yaml(yaml(local('gen_k8s_yaml.py'))) # a custom script
 ```
 
 Use the pattern that matches your project (if you're not sure, feel free to ask in [Slack](index.html#community)). You can see when it works because Tilt will display the registered objects.

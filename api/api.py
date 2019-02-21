@@ -4,7 +4,9 @@ class LocalPath:
   """A path on disk"""
 
 class Blob:
-  """The result of executing a command on your local system"""
+  """The result of executing a command on your local system.
+
+  Under the hood, a `Blob` is just a string, but we wrap it this way so Tilt knows the difference between a string meant to convey content and a string indicating, say, a filepath"""
 
 class Yaml:
   """A string that represents YAML that can be parsed.
