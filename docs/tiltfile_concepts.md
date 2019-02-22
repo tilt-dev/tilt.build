@@ -34,19 +34,19 @@ k8s_yaml(helm('chart_dir'))
 Tilt has built-in functions to generate Kubernetes YAML with `kustomize` or `helm`. (If you think we're overlooking a popular tool, let us know so we can add it.)
 
 ## Custom Commands
-If your project uses a custom tool to generate Kubernetes YAML, you can still use Tilt. You don't have to wait for us to add support or fork Tilt and implement it yourself. Run a custom command with the `local` function (and wrap the result as`Yaml`):
+If your project uses a custom tool to generate Kubernetes YAML, you can still use Tilt. You don't have to wait for us to add support or fork Tilt and implement it yourself. Run a custom command with the `local` function:
 ```python
 text = local('./foo.py') # runs command foo.py
-k8s_yaml(yaml(text))
+k8s_yaml(text)
 ```
 
-`local` runs a command, and returns its `stdout` as a `Blob`. (A Blob is a special kind of string that Tilt knows to interpret distinctly from filepaths. However, you _do_ need to indicate that the Blob contains YAML by wrapping it as a `Yaml` object.) Note: Tilt doesn't know what files a command accesses, so you need to use the function `read_file` to record accesses. If you don't call `read_file`, Tilt won't re-execute the `Tiltfile` when those files change. For example, if `foo.py` depends on the files `config/base.yaml` and `data/versions.txt`:
+`local` runs a command, and returns its `stdout` as a ``Blob``. (A Blob is a special kind of string that Tilt knows to interpret distinctly from filepaths.) Note: Tilt doesn't know what files a command accesses, so you need to use the function `read_file` to record accesses. If you don't call `read_file`, Tilt won't reexecute the `Tiltfile` when those files change. For example, if `foo.py` depends on the files `config/base.yaml` and `data/versions.txt`:
 
 ```python
 read_file('config/base.yaml')
 read_file('data/versions.txt')
 text = local('./foo.py')
-k8s_yaml(yaml(text))
+k8s_yaml(text)
 ```
 
 You can also use Python features like list comprehensions. For example, if you have a script that generates YAML for one microservice at a time, you could do:
@@ -57,7 +57,7 @@ def microservice_yaml(name):
   # record file access, using Python string substitution to generate filename
   read_file('config/%s.yaml' % name)
   # run the script with an argument
-  return yaml(local('./config/generate.py %s' % name))
+  return local('./config/generate.py %s' % name)
 
 # define the service names
 services = ['frontend', 'backend', 'users', 'graphql']

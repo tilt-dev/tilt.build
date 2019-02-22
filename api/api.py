@@ -6,16 +6,9 @@ class LocalPath:
 class Blob:
   """The result of executing a command on your local system.
 
-  Under the hood, a `Blob` is just a string, but we wrap it this way so Tilt knows the difference between a string meant to convey content and a string indicating, say, a filepath"""
+   Under the hood, a `Blob` is just a string, but we wrap it this way so Tilt knows the difference between a string meant to convey content and a string indicating, say, a filepath.
 
-class Yaml:
-  """A string that represents YAML that can be parsed.
-
-  To wrap a string or ``Blob`` as YAML: ``yaml(yaml_str)``"""
-
-def yaml(contents: Union[str, Blob]) -> Yaml:
-  """Creates a Yaml object that wraps the provided string or Blob. Useful for
-  passing strings in to functions that expect YAML (e.g.: ``k8s_yaml``)"""
+   To wrap a string as a blob, call ``blob(my_str)``"""
 
 class Repo:
   """Represents a version control repository"""
@@ -87,8 +80,8 @@ def fast_build(img_name: str, dockerfile_path: str, entrypoint: str = "") -> Fas
   """
   pass
 
-def k8s_yaml(yaml: Union[str, List[str], LocalPath, Yaml]) -> None:
-  """Call this with a path to a file that contains YAML, or with a ``Yaml`` object.
+def k8s_yaml(yaml: Union[str, List[str], LocalPath, Blob]) -> None:
+  """Call this with a path to a file that contains YAML, or with a ``Blob`` of YAML.
 
   We will infer what (if any) of the k8s resources defined in your YAML
   correspond to Images defined elsewhere in your ``Tiltfile`` (matching based on
@@ -109,16 +102,16 @@ def k8s_yaml(yaml: Union[str, List[str], LocalPath, Yaml]) -> None:
     repo = local_git_repo('./my_proj')
     k8s_yaml(repo.path('deploy/foo.yaml'))
 
-    # Yaml object (in this case, script output)
+    # Blob, i.e. `local` output (in this case, script output)
     templated_yaml = local('./template_yaml.sh')
-    k8s_yaml(yaml(templated_yaml))
+    k8s_yaml(templated_yaml)
 
   Args:
-    yaml: Path(s) to YAML, or YAML as a ``Yaml`` object.
+    yaml: Path(s) to YAML, or YAML as a ``Blob``.
   """
   pass
 
-def k8s_resource(name: str, yaml: Union[str, Yaml] = "", image: Union[str, FastBuild] = "",
+def k8s_resource(name: str, yaml: Union[str, Blob] = "", image: Union[str, FastBuild] = "",
     port_forwards: Union[str, int, List[int]] = [], extra_pod_selectors: Union[Dict[str, str], List[Dict[str, str]]] = []) -> None:
   """Creates a kubernetes resource that tilt can deploy using the specified image.
 
@@ -145,7 +138,7 @@ def k8s_resource(name: str, yaml: Union[str, Yaml] = "", image: Union[str, FastB
   pass
 
 def local(cmd: str) -> Blob:
-  """Runs cmd, waits for it to finish, and returns its stdout as a Blob"""
+  """Runs cmd, waits for it to finish, and returns its stdout as a ``Blob``"""
   pass
 
 def read_file(file_path: Union[str, LocalPath]) -> Blob:
@@ -156,15 +149,18 @@ def read_file(file_path: Union[str, LocalPath]) -> Blob:
   pass
 
 
-def kustomize(pathToDir: str) -> Yaml:
-  """Run `kustomize <https://github.com/kubernetes-sigs/kustomize>`_ on a given directory and return the resulting YAML"""
+def kustomize(pathToDir: str) -> Blob:
+  """Run `kustomize <https://github.com/kubernetes-sigs/kustomize>`_ on a given directory and return the resulting YAML as a Blob"""
   pass
 
-def helm(pathToChartDir: Union[str, LocalPath]) -> Yaml:
-  """Run `helm template <https://docs.helm.sh/helm/#helm-template>`_ on a given directory that contains a chart and return the fully rendered YAML"""
+def helm(pathToChartDir: Union[str, LocalPath]) -> Blob:
+  """Run `helm template <https://docs.helm.sh/helm/#helm-template>`_ on a given directory that contains a chart and return the fully rendered YAML as a Blob"""
 
 def fail(msg: str) -> None:
   """Raises an error that cannot be intercepted. Can be used anywhere in a Tiltfile."""
+
+def blob(contents: str) -> Blob:
+  """Creates a Blob object that wraps the provided string. Useful for passing strings in to functions that expect a `Blob`, e.g. ``k8s_yaml``"""
 
 def listdir(directory: str) -> List[str]:
   """Returns all the files at the top level of the provided directory"""
