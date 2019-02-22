@@ -34,19 +34,19 @@ k8s_yaml(helm('chart_dir'))
 Tilt has built-in functions to generate Kubernetes YAML with `kustomize` or `helm`. (If you think we're overlooking a popular tool, let us know so we can add it.)
 
 ## Custom Commands
-If your project uses a custom tool to generate Kubernetes YAML, you can still use Tilt. You don't have to wait for us to add support or fork Tilt and implement it yourself. Run a custom command with the `local` function (and wrap the result as`Yaml`):
+If your project uses a custom tool to generate Kubernetes YAML, you can still use Tilt. You don't have to wait for us to add support or fork Tilt and implement it yourself. Run a custom command with the `local` function:
 ```python
 text = local('./foo.py') # runs command foo.py
-k8s_yaml(yaml(text))
+k8s_yaml(text)
 ```
 
-`local` runs a command, and returns its `stdout` as a `Blob`. (A Blob is a special kind of string that Tilt knows to interpret distinctly from filepaths. However, you _do_ need to indicate that the Blob contains YAML by wrapping it as a `Yaml` object.) Note: Tilt doesn't know what files a command accesses, so you need to use the function `read_file` to record accesses. If you don't call `read_file`, Tilt won't re-execute the `Tiltfile` when those files change. For example, if `foo.py` depends on the files `config/base.yaml` and `data/versions.txt`:
+`local` runs a command, and returns its `stdout` as a ``Blob`` (see notes on the [Blob type](#blob-type), below). Note: Tilt doesn't know what files a command accesses, so you need to use the function `read_file` to record accesses. If you don't call `read_file`, Tilt won't reexecute the `Tiltfile` when those files change. For example, if `foo.py` depends on the files `config/base.yaml` and `data/versions.txt`:
 
 ```python
 read_file('config/base.yaml')
 read_file('data/versions.txt')
 text = local('./foo.py')
-k8s_yaml(yaml(text))
+k8s_yaml(text)
 ```
 
 You can also use Python features like list comprehensions. For example, if you have a script that generates YAML for one microservice at a time, you could do:
@@ -57,7 +57,7 @@ def microservice_yaml(name):
   # record file access, using Python string substitution to generate filename
   read_file('config/%s.yaml' % name)
   # run the script with an argument
-  return yaml(local('./config/generate.py %s' % name))
+  return local('./config/generate.py %s' % name)
 
 # define the service names
 services = ['frontend', 'backend', 'users', 'graphql']
@@ -67,6 +67,47 @@ services = ['frontend', 'backend', 'users', 'graphql']
 ```
 
 Using `local` judiciously can let you use existing tools with Tilt, without having to rewrite or abandon them immediately.
+
+## ``Blob`` type
+Broadly speaking, there are two types of strings that might pass around in your Tiltfile:
+raw configuration files/data (e.g. the text of your Dockerfile, a string of YAML), or strings
+indicating how to _find_ config data (i.e. a file path, though in future this category may include other things).
+
+For functions that can accept both types of strings -- e.g. ``k8s_yaml``, which can accept either path(s)
+to YAML files or the YAML itself -- we make use of typing to indicate whether a given string is _data_ or
+a _pointer to data_.
+
+Specifically, we wrap data-strings as ``Blob``s to distinguish them from plain strings, which we assume are filepaths.
+
+Commands executed on your local system (via ``local`` or ``read_file``) return their results as a ``Blob`` because
+in the most common case, they contain _data_; e.g. ``read_file('config.yaml')`` or ``local('generate_yaml.sh')`` both
+return YAML.
+
+Consider the following:
+```python
+# pass filepaths as regular strings
+k8s_yaml([
+    'foo.yaml',  # Type: str
+    'bar.yaml',  # Type: str
+])
+
+k8s_yaml([
+    read_file('foo.yaml')  # Type: Blob
+])
+
+# If for some reason you have YAML as a string, wrap it as a
+# Blob so we know to treat it as DATA and not as a filepath
+yaml_str = """
+apiVersion: v1
+kind: Pod
+  metadata:
+    name: nginx
+    labels:
+      app: nginx"""
+k8s_yaml([
+    blob(yaml_str)  # Type: Blob
+])
+```
 
 ## Build
 The `docker_build` function aims to support most usages of docker. Here's a cheat-sheet that maps docker command lines to a `docker_build` call:
