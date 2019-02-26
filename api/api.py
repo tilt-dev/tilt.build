@@ -1,4 +1,4 @@
-from typing import Dict, Union, List, Callable, Tuple
+from typing import Dict, Union, List, Callable
 
 class LocalPath:
   """A path on disk"""
@@ -137,7 +137,7 @@ def k8s_resource(name: str, yaml: Union[str, Blob] = "", image: Union[str, FastB
   """
   pass
 
-def filter_yaml(yaml: Union[str, List[str], LocalPath, Blob], labels={}, name='', kind='') -> Tuple[Blob, Blob]:
+def filter_yaml(yaml: Union[str, List[str], LocalPath, Blob], labels={}, name='', kind=''):
   """Call this with a path to a file that contains YAML, or with a ``Blob`` of YAML.
   (E.g. it can be called on the output of ``kustomize`` or ``helm``.)
 
@@ -169,8 +169,8 @@ def filter_yaml(yaml: Union[str, List[str], LocalPath, Blob], labels={}, name=''
   Returns:
     2-element tuple containing
 
-    - **matching** (``Blob``): blob of YAML entities matching given filters
-    - **rest** (``Blob``): the rest of the YAML entities
+    - **matching** (:class:`~api.Blob`): blob of YAML entities matching given filters
+    - **rest** (:class:`~api.Blob`): the rest of the YAML entities
   """
   pass
 
