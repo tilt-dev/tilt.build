@@ -1,4 +1,4 @@
-from typing import Dict, Union, List, Callable
+from typing import Dict, Union, List, Callable, Tuple
 
 class LocalPath:
   """A path on disk"""
@@ -134,6 +134,43 @@ def k8s_resource(name: str, yaml: Union[str, Blob] = "", image: Union[str, FastB
       will be associated with this resource if it has all of the labels in at
       least one of the entries specified (but still also if it meets any of
       Tilt's usual mechanisms).
+  """
+  pass
+
+def filter_yaml(yaml: Union[str, List[str], LocalPath, Blob], labels={}, name='', kind='') -> Tuple[Blob, Blob]:
+  """Call this with a path to a file that contains YAML, or with a ``Blob`` of YAML.
+  (E.g. it can be called on the output of ``kustomize`` or ``helm``.)
+
+  Captures the YAML entities that meet the filter criteria and returns them as a blob;
+  returns the non-matching YAML as the second return value. Example usage: ::
+
+    # extract all YAMLs matching labels "app=foobar"
+    foobar_yaml, rest = filter_yaml('all.yaml', labels={'app': 'foobar'}
+    k8s_resource('foobar', yaml=foobar_yaml)
+
+    # extract YAMLs of kind "deployment" with metadata.name "baz"
+    baz_yaml, rest = filter_yaml(rest, name='baz', kind='deployment')
+    k8s_resource('baz', yaml=baz_yaml)
+
+    # apply the rest of the YAML as free-floating k8s entities
+    # (i.e., not attached to a Tilt resource)
+    k8s_yaml(rest)
+
+  Args:
+    yaml: Path(s) to YAML, or YAML as a ``Blob``.
+    labels (dict): (optional) return only entities matching these labels. (Matching entities
+      must satisfy all of the specified label constraints, though they may have additional
+      labels as well: see the `Kubernetes docs <https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/>`_
+      for more info.)
+    name (str): (optional) the ``metadata.name`` property of entities to match
+    kind (str): (optional) the kind of entities to match (e.g. "service", "deployment", etc.).
+      Case-insensitive. NOTE: doesn't support abbreviations like "svc", "deploy".
+
+  Returns:
+    2-element tuple containing
+
+    - **matching** (``Blob``): blob of YAML entities matching given filters
+    - **rest** (``Blob``): the rest of the YAML entities
   """
   pass
 

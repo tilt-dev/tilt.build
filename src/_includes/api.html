@@ -155,6 +155,55 @@ path must be a relative path.</p>
 </tbody>
 </table>
 </dd></dl><dl class="function">
+<dt id="api.filter_yaml">
+<code class="descclassname">api.</code><code class="descname">filter_yaml</code><span class="sig-paren">(</span><em>yaml</em>, <em>labels={}</em>, <em>name=&apos;&apos;</em>, <em>kind=&apos;&apos;</em><span class="sig-paren">)</span><a class="headerlink" href="#api.filter_yaml" title="Permalink to this definition">&#xB6;</a></dt>
+<dd><p>Call this with a path to a file that contains YAML, or with a <code class="docutils literal notranslate"><span class="pre">Blob</span></code> of YAML.
+(E.g. it can be called on the output of <code class="docutils literal notranslate"><span class="pre">kustomize</span></code> or <code class="docutils literal notranslate"><span class="pre">helm</span></code>.)</p>
+<p>Captures the YAML entities that meet the filter criteria and returns them as a blob;
+returns the non-matching YAML as the second return value. Example usage:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># extract all YAMLs matching labels &quot;app=foobar&quot;</span>
+<span class="n">foobar_yaml</span><span class="p">,</span> <span class="n">rest</span> <span class="o">=</span> <span class="n">filter_yaml</span><span class="p">(</span><span class="s1">&apos;all.yaml&apos;</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="p">{</span><span class="s1">&apos;app&apos;</span><span class="p">:</span> <span class="s1">&apos;foobar&apos;</span><span class="p">}</span>
+<span class="n">k8s_resource</span><span class="p">(</span><span class="s1">&apos;foobar&apos;</span><span class="p">,</span> <span class="n">yaml</span><span class="o">=</span><span class="n">foobar_yaml</span><span class="p">)</span>
+
+<span class="c1"># extract YAMLs of kind &quot;deployment&quot; with metadata.name &quot;baz&quot;</span>
+<span class="n">baz_yaml</span><span class="p">,</span> <span class="n">rest</span> <span class="o">=</span> <span class="n">filter_yaml</span><span class="p">(</span><span class="n">rest</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&apos;baz&apos;</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s1">&apos;deployment&apos;</span><span class="p">)</span>
+<span class="n">k8s_resource</span><span class="p">(</span><span class="s1">&apos;baz&apos;</span><span class="p">,</span> <span class="n">yaml</span><span class="o">=</span><span class="n">baz_yaml</span><span class="p">)</span>
+
+<span class="c1"># apply the rest of the YAML as free-floating k8s entities</span>
+<span class="c1"># (i.e., not attached to a Tilt resource)</span>
+<span class="n">k8s_yaml</span><span class="p">(</span><span class="n">rest</span><span class="p">)</span>
+</pre></div>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name">
+<col class="field-body">
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>yaml</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>], <a class="reference internal" href="#api.LocalPath" title="api.LocalPath"><code class="xref py py-class docutils literal notranslate"><span class="pre">LocalPath</span></code></a>, <a class="reference internal" href="#api.Blob" title="api.Blob"><code class="xref py py-class docutils literal notranslate"><span class="pre">Blob</span></code></a>]) &#x2013; Path(s) to YAML, or YAML as a <code class="docutils literal notranslate"><span class="pre">Blob</span></code>.</li>
+<li><strong>labels</strong> (<em>dict</em>) &#x2013; (optional) return only entities matching these labels. (Matching entities
+must satisfy all of the specified label constraints, though they may have additional
+labels as well: see the <a class="reference external" href="https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/">Kubernetes docs</a>
+for more info.)</li>
+<li><strong>name</strong> (<em>str</em>) &#x2013; (optional) the <code class="docutils literal notranslate"><span class="pre">metadata.name</span></code> property of entities to match</li>
+<li><strong>kind</strong> (<em>str</em>) &#x2013; (optional) the kind of entities to match (e.g. &#x201C;service&#x201D;, &#x201C;deployment&#x201D;, etc.).
+Case-insensitive. NOTE: doesn&#x2019;t support abbreviations like &#x201C;svc&#x201D;, &#x201C;deploy&#x201D;.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first"><code class="xref py py-class docutils literal notranslate"><span class="pre">Tuple</span></code>[<a class="reference internal" href="#api.Blob" title="api.Blob"><code class="xref py py-class docutils literal notranslate"><span class="pre">Blob</span></code></a>, <a class="reference internal" href="#api.Blob" title="api.Blob"><code class="xref py py-class docutils literal notranslate"><span class="pre">Blob</span></code></a>]</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"></p><p>2-element tuple containing</p>
+<ul class="simple">
+<li><strong>matching</strong> (<code class="docutils literal notranslate"><span class="pre">Blob</span></code>): blob of YAML entities matching given filters</li>
+<li><strong>rest</strong> (<code class="docutils literal notranslate"><span class="pre">Blob</span></code>): the rest of the YAML entities</li>
+</ul>
+<p></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl><dl class="function">
 <dt id="api.helm">
 <code class="descclassname">api.</code><code class="descname">helm</code><span class="sig-paren">(</span><em>pathToChartDir</em><span class="sig-paren">)</span><a class="headerlink" href="#api.helm" title="Permalink to this definition">&#xB6;</a></dt>
 <dd><p>Run <a class="reference external" href="https://docs.helm.sh/helm/#helm-template">helm template</a> on a given directory that contains a chart and return the fully rendered YAML as a Blob</p>
