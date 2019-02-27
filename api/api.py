@@ -190,12 +190,17 @@ def kustomize(pathToDir: str) -> Blob:
 
 def helm(pathToChartDir: Union[str, LocalPath]) -> Blob:
   """Run `helm template <https://docs.helm.sh/helm/#helm-template>`_ on a given directory that contains a chart and return the fully rendered YAML as a Blob"""
+  pass
 
 def fail(msg: str) -> None:
   """Raises an error that cannot be intercepted. Can be used anywhere in a Tiltfile."""
+  pass
 
 def blob(contents: str) -> Blob:
   """Creates a Blob object that wraps the provided string. Useful for passing strings in to functions that expect a `Blob`, e.g. ``k8s_yaml``"""
+  pass
 
-def listdir(directory: str) -> List[str]:
-  """Returns all the files at the top level of the provided directory"""
+def listdir(directory: str, recursive: bool = False) -> List[str]:
+  """Returns all the files at the top level of the provided directory. If ``recursive`` is set to True then all files are returned that are inside of the provided directory, recursively."""
+  pass
+
