@@ -27,13 +27,11 @@ cd tiltdemo
 The `Tiltfile` at the root of the repo contains this example:
 
 ```python
-repo = local_git_repo('.')
-
 # tiltdemo1
 k8s_yaml('deployments/demoserver1.yaml')
 dm1_img_name = 'gcr.io/windmill-test-containers/tiltdemo/demoserver1'
 (fast_build(dm1_img_name, 'Dockerfile', '/go/bin/demoserver1')
-  .add(repo.path('cmd/demoserver1'),
+  .add('./cmd/demoserver1',
       '/go/src/github.com/windmilleng/tiltdemo/cmd/demoserver1')
   .run('go install github.com/windmilleng/tiltdemo/cmd/demoserver1'))
 ```
@@ -45,7 +43,7 @@ in on that part of the function.
 
 ```python
 (fast_build(dm1_img_name, 'Dockerfile', '/go/bin/demoserver1')
-  .add(repo.path('cmd/demoserver1'),
+  .add('./cmd/demoserver1',
       '/go/src/github.com/windmilleng/tiltdemo/cmd/demoserver1')
   .run('go install github.com/windmilleng/tiltdemo/cmd/demoserver1'))
 ```
@@ -71,14 +69,14 @@ Fast build Dockerfiles cannot contain any ADD or COPY lines.
 It's only for setting up the environment, not for adding your code.
 So this Dockerfile might look different than most.
 
-* `add(repo.path('cmd/demoserver1'), '/go/src/github.com/windmilleng/tiltdemo/cmd/demoserver1')`
+* `add('./cmd/demoserver1', '/go/src/github.com/windmilleng/tiltdemo/cmd/demoserver1')`
 
 The `add` method copies a directory from outside your container to inside of your container.
 
-In this case, we copy the directory `cmd/demoserver` inside of our Git repo into
+In this case, we copy the directory `./cmd/demoserver` (relative to the Tiltfile) into
 the container filesystem.
 
-While Tilt is running, it watches all files in cmd/demoserver. If they change, it copies the file
+While Tilt is running, it watches all files in `./cmd/demoserver`. If they change, it copies the file
 into the container.
 
 * `run('go install github.com/windmilleng/tiltdemo/cmd/demoserver1')`

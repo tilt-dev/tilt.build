@@ -17,7 +17,7 @@
 <col class="field-body">
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>src</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<a class="reference internal" href="#api.LocalPath" title="api.LocalPath"><code class="xref py py-class docutils literal notranslate"><span class="pre">LocalPath</span></code></a>, <a class="reference internal" href="#api.Repo" title="api.Repo"><code class="xref py py-class docutils literal notranslate"><span class="pre">Repo</span></code></a>]) &#x2013; The content to be added to the image.</li>
+<li><strong>src</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <a class="reference internal" href="#api.LocalPath" title="api.LocalPath"><code class="xref py py-class docutils literal notranslate"><span class="pre">LocalPath</span></code></a>, <a class="reference internal" href="#api.Repo" title="api.Repo"><code class="xref py py-class docutils literal notranslate"><span class="pre">Repo</span></code></a>]) &#x2013; The path to content to be added to the image.</li>
 <li><strong>dest</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) &#x2013; The path in the image where the content should be added.</li>
 </ul>
 </td>
@@ -293,7 +293,7 @@ applies to your k8s cluster independently.</p>
 </dd></dl><dl class="function">
 <dt id="api.listdir">
 <code class="descclassname">api.</code><code class="descname">listdir</code><span class="sig-paren">(</span><em>directory</em>, <em>recursive=False</em><span class="sig-paren">)</span><a class="headerlink" href="#api.listdir" title="Permalink to this definition">&#xB6;</a></dt>
-<dd><p>Returns all the files at the top level of the provided directory. If <code class="docutils literal notranslate"><span class="pre">recursive</span></code> is set to True, then all files are returned that are inside of the provided directory, recursively.</p>
+<dd><p>Returns all the files at the top level of the provided directory. If <code class="docutils literal notranslate"><span class="pre">recursive</span></code> is set to True, returns all files that are inside of the provided directory, recursively.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name">
 <col class="field-body">

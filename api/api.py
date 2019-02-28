@@ -47,11 +47,11 @@ def docker_build(ref: str, context: str, build_args: Dict[str, str] = {}, docker
 
 class FastBuild:
   """An image that was created with ``fast_build``"""
-  def add(self, src: Union[LocalPath, Repo], dest: str) -> 'FastBuild':
+  def add(self, src: Union[str, LocalPath, Repo], dest: str) -> 'FastBuild':
     """Adds the content from ``src`` into the image at path ``dest``.
 
     Args:
-      src: The content to be added to the image.
+      src: The path to content to be added to the image.
       dest: The path in the image where the content should be added.
 
     """
