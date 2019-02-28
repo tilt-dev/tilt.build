@@ -292,8 +292,8 @@ applies to your k8s cluster independently.</p>
 </table>
 </dd></dl><dl class="function">
 <dt id="api.listdir">
-<code class="descclassname">api.</code><code class="descname">listdir</code><span class="sig-paren">(</span><em>directory</em><span class="sig-paren">)</span><a class="headerlink" href="#api.listdir" title="Permalink to this definition">&#xB6;</a></dt>
-<dd><p>Returns all the files at the top level of the provided directory</p>
+<code class="descclassname">api.</code><code class="descname">listdir</code><span class="sig-paren">(</span><em>directory</em>, <em>recursive=False</em><span class="sig-paren">)</span><a class="headerlink" href="#api.listdir" title="Permalink to this definition">&#xB6;</a></dt>
+<dd><p>Returns all the files at the top level of the provided directory. If <code class="docutils literal notranslate"><span class="pre">recursive</span></code> is set to True, then all files are returned that are inside of the provided directory, recursively.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name">
 <col class="field-body">
