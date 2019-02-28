@@ -156,7 +156,7 @@ path must be a relative path.</p>
 </table>
 </dd></dl><dl class="function">
 <dt id="api.filter_yaml">
-<code class="descclassname">api.</code><code class="descname">filter_yaml</code><span class="sig-paren">(</span><em>yaml</em>, <em>labels=None</em>, <em>name=None</em>, <em>kind=None</em><span class="sig-paren">)</span><a class="headerlink" href="#api.filter_yaml" title="Permalink to this definition">&#xB6;</a></dt>
+<code class="descclassname">api.</code><code class="descname">filter_yaml</code><span class="sig-paren">(</span><em>yaml</em>, <em>labels=None</em>, <em>name=None</em>, <em>namespace=None</em>, <em>kind=None</em><span class="sig-paren">)</span><a class="headerlink" href="#api.filter_yaml" title="Permalink to this definition">&#xB6;</a></dt>
 <dd><p>Call this with a path to a file that contains YAML, or with a <code class="docutils literal notranslate"><span class="pre">Blob</span></code> of YAML.
 (E.g. it can be called on the output of <code class="docutils literal notranslate"><span class="pre">kustomize</span></code> or <code class="docutils literal notranslate"><span class="pre">helm</span></code>.)</p>
 <p>Captures the YAML entities that meet the filter criteria and returns them as a blob;
@@ -182,6 +182,7 @@ must satisfy all of the specified label constraints, though they may have additi
 labels as well: see the <a class="reference external" href="https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/">Kubernetes docs</a>
 for more info.)</li>
 <li><strong>name</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]) &#x2013; (optional) the <code class="docutils literal notranslate"><span class="pre">metadata.name</span></code> property of entities to match</li>
+<li><strong>namespace</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]) &#x2013; (optional) the <code class="docutils literal notranslate"><span class="pre">metadata.namespace</span></code> property of entities to match</li>
 <li><strong>kind</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]) &#x2013; (optional) the kind of entities to match (e.g. &#x201C;service&#x201D;, &#x201C;deployment&#x201D;, etc.).
 Case-insensitive. NOTE: doesn&#x2019;t support abbreviations like &#x201C;svc&#x201D;, &#x201C;deploy&#x201D;.</li>
 </ul>
@@ -293,7 +294,7 @@ applies to your k8s cluster independently.</p>
 </dd></dl><dl class="function">
 <dt id="api.listdir">
 <code class="descclassname">api.</code><code class="descname">listdir</code><span class="sig-paren">(</span><em>directory</em>, <em>recursive=False</em><span class="sig-paren">)</span><a class="headerlink" href="#api.listdir" title="Permalink to this definition">&#xB6;</a></dt>
-<dd><p>Returns all the files at the top level of the provided directory. If <code class="docutils literal notranslate"><span class="pre">recursive</span></code> is set to True, then all files are returned that are inside of the provided directory, recursively.</p>
+<dd><p>Returns all the files at the top level of the provided directory. If <code class="docutils literal notranslate"><span class="pre">recursive</span></code> is set to True, returns all files that are inside of the provided directory, recursively.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name">
 <col class="field-body">
