@@ -137,7 +137,7 @@ def k8s_resource(name: str, yaml: Union[str, Blob] = "", image: Union[str, FastB
   """
   pass
 
-def filter_yaml(yaml: Union[str, List[str], LocalPath, Blob], labels: dict=None, name: str=None, kind: str=None):
+def filter_yaml(yaml: Union[str, List[str], LocalPath, Blob], labels: dict=None, name: str=None, namespace: str=None, kind: str=None):
   """Call this with a path to a file that contains YAML, or with a ``Blob`` of YAML.
   (E.g. it can be called on the output of ``kustomize`` or ``helm``.)
 
@@ -161,6 +161,7 @@ def filter_yaml(yaml: Union[str, List[str], LocalPath, Blob], labels: dict=None,
       labels as well: see the `Kubernetes docs <https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/>`_
       for more info.)
     name: (optional) the ``metadata.name`` property of entities to match
+    namespace: (optional) the ``metadata.namespace`` property of entities to match
     kind: (optional) the kind of entities to match (e.g. "service", "deployment", etc.).
       Case-insensitive. NOTE: doesn't support abbreviations like "svc", "deploy".
 
