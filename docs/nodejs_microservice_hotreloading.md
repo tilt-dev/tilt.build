@@ -25,7 +25,7 @@ Now we need to tell Tilt about the Docker image that is used in the provided Kub
 
 ```python
 img = fast_build('tilt-frontend-demo', 'Dockerfile', 'npm start')
-img.add(repo.path('.'), '/src')
+img.add('.', '/src')
 img.run('npm install')
 ```
 

@@ -12,6 +12,8 @@ Functions like `k8s_yaml` and `docker_build` register information. At the end of
 
 Because your Tiltfile is a program, you can configure it with familiar constructs like loops, functions, arrays, etc. This makes Tilt more extensible than a configuration that requires hard-coding all possible options up-front.
 
+Any relative paths in your Tiltfile are evaluated relative to the location of the Tiltfile.
+
 ## Deploy
 The first function in a `Tiltfile` is generally a call to `k8s_yaml`. You can call `k8s_yaml` in a variety of ways, depending on how your project organizes or generates YAML. Let's look at some alternatives:
 
