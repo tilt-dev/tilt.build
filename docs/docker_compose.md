@@ -3,27 +3,65 @@ title: Docker Compose
 layout: docs
 ---
 
-Tilt can use `docker-compose` to orchestrate your services (instead of Kubernetes). This doc describes how you can get Tilt's UX for your Docker Compose project using the same config and tools plus a one-line Tiltfile. (This is simpler than the config for Kubernetes projects described in the [Tutorial](tutorial.html).)
+Most of our documentation describes using Tilt to deploy to Kubernetes.
 
+But if you already use Docker Compose, don't worry! Tilt can use `docker-compose` to orchestrate your services instead.
+
+This doc describes how you can get Tilt's UX for your Docker Compose project using the same config and tools plus a
+one-line Tiltfile. (This is simpler than the config for Kubernetes projects
+described in the [Tutorial](tutorial.html).)
 
 ## Comparison
-Tilt provides a better User Experience in two ways:
-* Tilt's UI shows you status at a glance, so errors can't scroll off-screen. You can navigate the UI in your terminal and dig into the logs for just one service. (Tilt also has a global log if you do want the full firehose).
-* Tilt handles filesystem watching and updating without requiring manual actions or hand-rolled scripting.
 
-Most of our documentation describes using Tilt to deploy to Kubernetes, but it's not worth switching to Kubernetes just for Tilt's UX. For Docker Compose projects, Tilt uses Docker Compose as a backend. This allows you to use your existing configuration, debugging tricks, and muscle memory while getting a better UX.
+Tilt helps you manage your Docker Compose environment:
 
-## Tiltfile for Docker Compose
+* The UI shows you status at a glance, so errors can't scroll off-screen.
+* You can navigate the combined log stream, or dig into the logs for just one service.
+* Tilt handles filesystem watching and updating containers in-place.
+
+If you decide to move to Kubernetes later, your Tilt workflow will be the same.
+
+## Getting Started
+
+Create a Tiltfile in the root of your repo:
+
 ```python
 # point Tilt at the existing docker-compose configuration.
 docker_compose("./docker-compose.yml")
 ```
 
-## Caveats
-Our Docker Compose support is newer than (and largely separate from) Tilt's Kubernetes support. You may hit more/different bugs, which we want to fix -- please file issues or tell us in Slack.
+That's it! Then run:
 
-## Docker Compose Under The Hood
+```
+$ tilt up
+```
+
+Tilt will pick up your Docker Compose file and start running your srvices.
+
+## Making Changes
+
+Tilt has two functions for building container images.
+
+With `docker_build`, Tilt builds an image from your existing Dockerfile. Every time the files change,
+Tilt will re-build the image and update the container.
+
+With `fast_build`, Tilt knows how to copy files directly to your container. When you build for the first
+time, Tilt builds the image. When you change a file, Tilt will try to be smarter and only sync the files
+it needs.
+
+When you declare either `docker_build` or `fast_build`,
+Tilt will find the image name in your `docker-compose.yml`,
+and use its own container-updating strategy instead of the one in the `docker-compose.yml` file.
+
+For more details on Tilt's image-building strategies, see the [fast build
+documentation](fast_build.html) or the [api reference](api.html).
+
+## Debugging
+
 Tilt uses Docker Compose to run your services, so you can also use `docker-compose` to examine state outside Tilt.
 
-## Use the Tutorial
-Now the [Tutorial](tutorial.html) should take 5 minutes to see your project in Tilt's UX.
+## Troubleshooting
+
+Our Docker Compose support is not as widely used as Tilt's Kubernetes support.
+
+You may hit more/different bugs, which we want to fix -- please file issues or tell us in Slack.
