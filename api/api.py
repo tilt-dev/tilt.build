@@ -201,6 +201,6 @@ def blob(contents: str) -> Blob:
   pass
 
 def listdir(directory: str, recursive: bool = False) -> List[str]:
-  """Returns all the files at the top level of the provided directory. If ``recursive`` is set to True then all files are returned that are inside of the provided directory, recursively."""
+  """Returns all the files at the top level of the provided directory. If ``recursive`` is set to True, returns all files that are inside of the provided directory, recursively."""
   pass
 
