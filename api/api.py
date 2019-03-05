@@ -205,3 +205,22 @@ def listdir(directory: str, recursive: bool = False) -> List[str]:
   """Returns all the files at the top level of the provided directory. If ``recursive`` is set to True, returns all files that are inside of the provided directory, recursively."""
   pass
 
+def k8s_kind(kind: str, *, image_json_path: Union[str, List[str]]):
+  """Tells Tilt about a k8s kind. Primarily intended for defining where your CRD specifies image names.
+
+  (Note the `*` in the signature means `image_json_path` must be passed as a keyword, e.g., `image_json_path="{.spec.image}"`)
+
+  Example ::
+
+    # Fission has a CRD named "Environment"
+    k8s_yaml('deploy/fission.yaml')
+    k8s_kind('Environment', image_json_path='{.spec.runtime.image}')
+
+  Args:
+    kind: The value of the `kind` field in the k8s object definition (e.g., `"Deployment"`)
+    image_json_path: Either a string or a list of string containing json path(s) within that kind's definition
+      specifying images deployed with k8s objects of that type.
+      This uses the k8s json path template syntax, described `here <https://kubernetes.io/docs/reference/kubectl/jsonpath/>`_.
+  """
+  pass
+
