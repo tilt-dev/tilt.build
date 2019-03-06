@@ -1,8 +1,5 @@
 from typing import Dict, Union, List, Callable
 
-class LocalPath:
-  """A path on disk"""
-
 class Blob:
   """The result of executing a command on your local system.
 
@@ -10,26 +7,7 @@ class Blob:
 
    To wrap a string as a blob, call ``blob(my_str)``"""
 
-class Repo:
-  """Represents a version control repository"""
-  def path(self, path: str) -> LocalPath:
-    """Returns the absolute path to the file specified at ``path`` in the repo.
-    path must be a relative path.
-
-    Respects ``.gitignore``.
-
-    Args:
-      path: relative path in repository
-    Returns:
-      A LocalPath resource, representing a local path on disk.
-    """
-    pass
-
-def local_git_repo(path: str) -> Repo:
-  """Creates a ``repo`` from the git repo at ``path``."""
-  pass
-
-def docker_build(ref: str, context: str, build_args: Dict[str, str] = {}, dockerfile: Union[str, LocalPath] = "Dockerfile", dockerfile_contents: Union[str, Blob] = "") -> None:
+def docker_build(ref: str, context: str, build_args: Dict[str, str] = {}, dockerfile: str = "Dockerfile", dockerfile_contents: Union[str, Blob] = "") -> None:
   """Builds a docker image.
 
   Note that you can't set both the `dockerfile` and `dockerfile_contents` arguments (will throw an error).
@@ -40,18 +18,18 @@ def docker_build(ref: str, context: str, build_args: Dict[str, str] = {}, docker
     ref: name for this image (e.g. 'myproj/backend' or 'myregistry/myproj/backend'). If this image will be used in a k8s resource(s), this ref must match the ``spec.container.image`` param for that resource(s).
     context: path to use as the Docker build context.
     build_args: build-time variables that are accessed like regular environment variables in the ``RUN`` instruction of the Dockerfile. See `the Docker Build Arg documentation <https://docs.docker.com/engine/reference/commandline/build/#set-build-time-variables---build-arg>`_
-    dockerfile: path to the Dockerfile to build (may be absolute, or relative to cwd)
+    dockerfile: path to the Dockerfile to build
     dockerfile_contents: raw contents of the Dockerfile to use for this build
   """
   pass
 
 class FastBuild:
   """An image that was created with ``fast_build``"""
-  def add(self, src: Union[str, LocalPath, Repo], dest: str) -> 'FastBuild':
+  def add(self, src: str, dest: str) -> 'FastBuild':
     """Adds the content from ``src`` into the image at path ``dest``.
 
     Args:
-      src: The path to content to be added to the image.
+      src: The path to content to be added to the image (absolute, or relative to the location of the Tiltfile).
       dest: The path in the image where the content should be added.
 
     """
@@ -80,7 +58,7 @@ def fast_build(img_name: str, dockerfile_path: str, entrypoint: str = "") -> Fas
   """
   pass
 
-def k8s_yaml(yaml: Union[str, List[str], LocalPath, Blob]) -> None:
+def k8s_yaml(yaml: Union[str, List[str], Blob]) -> None:
   """Call this with a path to a file that contains YAML, or with a ``Blob`` of YAML.
 
   We will infer what (if any) of the k8s resources defined in your YAML
@@ -97,10 +75,6 @@ def k8s_yaml(yaml: Union[str, List[str], LocalPath, Blob]) -> None:
 
     # list of paths
     k8s_yaml(['foo.yaml', 'bar.yaml'])
-
-    # LocalPath
-    repo = local_git_repo('./my_proj')
-    k8s_yaml(repo.path('deploy/foo.yaml'))
 
     # Blob, i.e. `local` output (in this case, script output)
     templated_yaml = local('./template_yaml.sh')
@@ -137,7 +111,7 @@ def k8s_resource(name: str, yaml: Union[str, Blob] = "", image: Union[str, FastB
   """
   pass
 
-def filter_yaml(yaml: Union[str, List[str], LocalPath, Blob], labels: dict=None, name: str=None, namespace: str=None, kind: str=None):
+def filter_yaml(yaml: Union[str, List[str], Blob], labels: dict=None, name: str=None, namespace: str=None, kind: str=None):
   """Call this with a path to a file that contains YAML, or with a ``Blob`` of YAML.
   (E.g. it can be called on the output of ``kustomize`` or ``helm``.)
 
@@ -177,20 +151,26 @@ def local(cmd: str) -> Blob:
   """Runs cmd, waits for it to finish, and returns its stdout as a ``Blob``"""
   pass
 
-def read_file(file_path: Union[str, LocalPath]) -> Blob:
+def read_file(file_path: str) -> Blob:
   """Reads file and returns its contents.
 
   Args:
-    file_path: Path to the file locally"""
+    file_path: Path to the file locally (absolute, or relative to the location of the Tiltfile)."""
   pass
 
 
 def kustomize(pathToDir: str) -> Blob:
-  """Run `kustomize <https://github.com/kubernetes-sigs/kustomize>`_ on a given directory and return the resulting YAML as a Blob"""
+  """Run `kustomize <https://github.com/kubernetes-sigs/kustomize>`_ on a given directory and return the resulting YAML as a Blob
+
+  Args:
+    pathToDir: Path to the directory locally (absolute, or relative to the location of the Tiltfile)."""
   pass
 
-def helm(pathToChartDir: Union[str, LocalPath]) -> Blob:
-  """Run `helm template <https://docs.helm.sh/helm/#helm-template>`_ on a given directory that contains a chart and return the fully rendered YAML as a Blob"""
+def helm(pathToChartDir: str) -> Blob:
+  """Run `helm template <https://docs.helm.sh/helm/#helm-template>`_ on a given directory that contains a chart and return the fully rendered YAML as a Blob
+
+  Args:
+    pathToChartDir: Path to the directory locally (absolute, or relative to the location of the Tiltfile)."""
   pass
 
 def fail(msg: str) -> None:
