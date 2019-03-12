@@ -24,7 +24,7 @@ k8s_yaml('serve.yaml')
 Now we need to tell Tilt about the Docker image that is used in the provided Kubernetes YAML. But rather than use a standard `docker_build` we’re going to use `fast_build` to provide the lightning fast reload times that frontend developers have come to expect.
 
 ```python
-img = fast_build('tilt-frontend-demo', 'Dockerfile', 'npm start')
+img = fast_build('tilt-frontend-demo', 'Dockerfile', 'node scripts/start.js')
 img.add('.', '/src')
 img.run('npm install')
 ```
