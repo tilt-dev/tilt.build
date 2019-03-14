@@ -111,7 +111,7 @@ def k8s_resource(name: str, yaml: Union[str, Blob] = "", image: Union[str, FastB
   """
   pass
 
-def filter_yaml(yaml: Union[str, List[str], Blob], labels: dict=None, name: str=None, namespace: str=None, kind: str=None):
+def filter_yaml(yaml: Union[str, List[str], Blob], labels: dict=None, name: str=None, namespace: str=None, kind: str=None, api_version: str=None):
   """Call this with a path to a file that contains YAML, or with a ``Blob`` of YAML.
   (E.g. it can be called on the output of ``kustomize`` or ``helm``.)
 
@@ -130,14 +130,14 @@ def filter_yaml(yaml: Union[str, List[str], Blob], labels: dict=None, name: str=
 
   Args:
     yaml: Path(s) to YAML, or YAML as a ``Blob``.
-    labels: (optional) return only entities matching these labels. (Matching entities
+    labels: return only entities matching these labels. (Matching entities
       must satisfy all of the specified label constraints, though they may have additional
       labels as well: see the `Kubernetes docs <https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/>`_
       for more info.)
-    name: (optional) the ``metadata.name`` property of entities to match
-    namespace: (optional) the ``metadata.namespace`` property of entities to match
-    kind: (optional) the kind of entities to match (e.g. "service", "deployment", etc.).
-      Case-insensitive. NOTE: doesn't support abbreviations like "svc", "deploy".
+    name: Case-insensitive regexp specifying the ``metadata.name`` property of entities to match
+    namespace: Case-insensitive regexp specifying the ``metadata.namespace`` property of entities to match
+    kind: Case-insensitive regexp specifying the kind of entities to match (e.g. "Service", "Deployment", etc.).
+    api_version: Case-insensitive regexp specifying the apiVersion for `kind`, (e.g., "apps/v1")
 
   Returns:
     2-element tuple containing
@@ -185,7 +185,7 @@ def listdir(directory: str, recursive: bool = False) -> List[str]:
   """Returns all the files at the top level of the provided directory. If ``recursive`` is set to True, returns all files that are inside of the provided directory, recursively."""
   pass
 
-def k8s_kind(kind: str, *, image_json_path: Union[str, List[str]]):
+def k8s_kind(kind: str, api_version: str=None, *, image_json_path: Union[str, List[str]]):
   """Tells Tilt about a k8s kind. Primarily intended for defining where your CRD specifies image names.
 
   (Note the `*` in the signature means `image_json_path` must be passed as a keyword, e.g., `image_json_path="{.spec.image}"`)
@@ -197,7 +197,8 @@ def k8s_kind(kind: str, *, image_json_path: Union[str, List[str]]):
     k8s_kind('Environment', image_json_path='{.spec.runtime.image}')
 
   Args:
-    kind: The value of the `kind` field in the k8s object definition (e.g., `"Deployment"`)
+    kind: Case-insensitive regexp specifying he value of the `kind` field in the k8s object definition (e.g., `"Deployment"`)
+    api_version: Case-insensitive regexp specifying the apiVersion for `kind`, (e.g., "apps/v1")
     image_json_path: Either a string or a list of string containing json path(s) within that kind's definition
       specifying images deployed with k8s objects of that type.
       This uses the k8s json path template syntax, described `here <https://kubernetes.io/docs/reference/kubectl/jsonpath/>`_.
