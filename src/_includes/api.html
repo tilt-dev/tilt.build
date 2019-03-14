@@ -128,7 +128,7 @@
 </table>
 </dd></dl><dl class="function">
 <dt id="api.filter_yaml">
-<code class="descclassname">api.</code><code class="descname">filter_yaml</code><span class="sig-paren">(</span><em>yaml</em>, <em>labels=None</em>, <em>name=None</em>, <em>namespace=None</em>, <em>kind=None</em><span class="sig-paren">)</span><a class="headerlink" href="#api.filter_yaml" title="Permalink to this definition">&#xB6;</a></dt>
+<code class="descclassname">api.</code><code class="descname">filter_yaml</code><span class="sig-paren">(</span><em>yaml</em>, <em>labels=None</em>, <em>name=None</em>, <em>namespace=None</em>, <em>kind=None</em>, <em>api_version=None</em><span class="sig-paren">)</span><a class="headerlink" href="#api.filter_yaml" title="Permalink to this definition">&#xB6;</a></dt>
 <dd><p>Call this with a path to a file that contains YAML, or with a <code class="docutils literal notranslate"><span class="pre">Blob</span></code> of YAML.
 (E.g. it can be called on the output of <code class="docutils literal notranslate"><span class="pre">kustomize</span></code> or <code class="docutils literal notranslate"><span class="pre">helm</span></code>.)</p>
 <p>Captures the YAML entities that meet the filter criteria and returns them as a blob;
@@ -149,14 +149,14 @@ returns the non-matching YAML as the second return value.</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
 <li><strong>yaml</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>], <a class="reference internal" href="#api.Blob" title="api.Blob"><code class="xref py py-class docutils literal notranslate"><span class="pre">Blob</span></code></a>]) &#x2013; Path(s) to YAML, or YAML as a <code class="docutils literal notranslate"><span class="pre">Blob</span></code>.</li>
-<li><strong>labels</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code>]) &#x2013; (optional) return only entities matching these labels. (Matching entities
+<li><strong>labels</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code>]) &#x2013; return only entities matching these labels. (Matching entities
 must satisfy all of the specified label constraints, though they may have additional
 labels as well: see the <a class="reference external" href="https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/">Kubernetes docs</a>
 for more info.)</li>
-<li><strong>name</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]) &#x2013; (optional) the <code class="docutils literal notranslate"><span class="pre">metadata.name</span></code> property of entities to match</li>
-<li><strong>namespace</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]) &#x2013; (optional) the <code class="docutils literal notranslate"><span class="pre">metadata.namespace</span></code> property of entities to match</li>
-<li><strong>kind</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]) &#x2013; (optional) the kind of entities to match (e.g. &#x201C;service&#x201D;, &#x201C;deployment&#x201D;, etc.).
-Case-insensitive. NOTE: doesn&#x2019;t support abbreviations like &#x201C;svc&#x201D;, &#x201C;deploy&#x201D;.</li>
+<li><strong>name</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]) &#x2013; Regexp specifying the <code class="docutils literal notranslate"><span class="pre">metadata.name</span></code> property of entities to match</li>
+<li><strong>namespace</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]) &#x2013; Regexp specifying the <code class="docutils literal notranslate"><span class="pre">metadata.namespace</span></code> property of entities to match</li>
+<li><strong>kind</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]) &#x2013; Regexp specifying the kind of entities to match (e.g. &#x201C;Service&#x201D;, &#x201C;Deployment&#x201D;, etc.).</li>
+<li><strong>api_version</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]) &#x2013; Regexp specifying the apiVersion for <cite>kind</cite>, (e.g., &#x201C;apps/v1&#x201D;)</li>
 </ul>
 </td>
 </tr>
@@ -186,7 +186,7 @@ Case-insensitive. NOTE: doesn&#x2019;t support abbreviations like &#x201C;svc&#x
 </table>
 </dd></dl><dl class="function">
 <dt id="api.k8s_kind">
-<code class="descclassname">api.</code><code class="descname">k8s_kind</code><span class="sig-paren">(</span><em>kind</em>, <em>*</em>, <em>image_json_path</em><span class="sig-paren">)</span><a class="headerlink" href="#api.k8s_kind" title="Permalink to this definition">&#xB6;</a></dt>
+<code class="descclassname">api.</code><code class="descname">k8s_kind</code><span class="sig-paren">(</span><em>kind</em>, <em>api_version=None</em>, <em>*</em>, <em>image_json_path</em><span class="sig-paren">)</span><a class="headerlink" href="#api.k8s_kind" title="Permalink to this definition">&#xB6;</a></dt>
 <dd><p>Tells Tilt about a k8s kind. Primarily intended for defining where your CRD specifies image names.</p>
 <p>(Note the <cite>*</cite> in the signature means <cite>image_json_path</cite> must be passed as a keyword, e.g., <cite>image_json_path=&#x201D;{.spec.image}&#x201D;</cite>)</p>
 <p>Example</p>
@@ -200,7 +200,8 @@ Case-insensitive. NOTE: doesn&#x2019;t support abbreviations like &#x201C;svc&#x
 <col class="field-body">
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>kind</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) &#x2013; The value of the <cite>kind</cite> field in the k8s object definition (e.g., <cite>&#x201C;Deployment&#x201D;</cite>)</li>
+<li><strong>kind</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) &#x2013; Regexp specifying he value of the <cite>kind</cite> field in the k8s object definition (e.g., <cite>&#x201C;Deployment&#x201D;</cite>)</li>
+<li><strong>api_version</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]) &#x2013; Regexp specifying the apiVersion for <cite>kind</cite>, (e.g., &#x201C;apps/v1&#x201D;)</li>
 <li><strong>image_json_path</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]]) &#x2013; Either a string or a list of string containing json path(s) within that kind&#x2019;s definition
 specifying images deployed with k8s objects of that type.
 This uses the k8s json path template syntax, described <a class="reference external" href="https://kubernetes.io/docs/reference/kubectl/jsonpath/">here</a>.</li>
