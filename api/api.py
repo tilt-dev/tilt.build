@@ -134,10 +134,10 @@ def filter_yaml(yaml: Union[str, List[str], Blob], labels: dict=None, name: str=
       must satisfy all of the specified label constraints, though they may have additional
       labels as well: see the `Kubernetes docs <https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/>`_
       for more info.)
-    name: Regexp specifying the ``metadata.name`` property of entities to match
-    namespace: Regexp specifying the ``metadata.namespace`` property of entities to match
-    kind: Regexp specifying the kind of entities to match (e.g. "Service", "Deployment", etc.).
-    api_version: Regexp specifying the apiVersion for `kind`, (e.g., "apps/v1")
+    name: Case-insensitive regexp specifying the ``metadata.name`` property of entities to match
+    namespace: Case-insensitive regexp specifying the ``metadata.namespace`` property of entities to match
+    kind: Case-insensitive regexp specifying the kind of entities to match (e.g. "Service", "Deployment", etc.).
+    api_version: Case-insensitive regexp specifying the apiVersion for `kind`, (e.g., "apps/v1")
 
   Returns:
     2-element tuple containing
@@ -197,8 +197,8 @@ def k8s_kind(kind: str, api_version: str=None, *, image_json_path: Union[str, Li
     k8s_kind('Environment', image_json_path='{.spec.runtime.image}')
 
   Args:
-    kind: Regexp specifying he value of the `kind` field in the k8s object definition (e.g., `"Deployment"`)
-    api_version: Regexp specifying the apiVersion for `kind`, (e.g., "apps/v1")
+    kind: Case-insensitive regexp specifying he value of the `kind` field in the k8s object definition (e.g., `"Deployment"`)
+    api_version: Case-insensitive regexp specifying the apiVersion for `kind`, (e.g., "apps/v1")
     image_json_path: Either a string or a list of string containing json path(s) within that kind's definition
       specifying images deployed with k8s objects of that type.
       This uses the k8s json path template syntax, described `here <https://kubernetes.io/docs/reference/kubectl/jsonpath/>`_.
