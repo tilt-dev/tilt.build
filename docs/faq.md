@@ -36,8 +36,9 @@ The Kubernetes server that you're trying to deploy to is misbehaving.
 
 Two common things to try are:
 
-1) Turn it off and turn it back on again (really!).
-2) Reset the cluster state.
+1. Turn it off and turn it back on again (really!).
+
+2. Reset the cluster state.
 
 But the specific way to do these depend on your environment.
 
