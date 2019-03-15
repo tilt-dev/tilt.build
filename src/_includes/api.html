@@ -78,6 +78,18 @@
 </tbody>
 </table>
 </dd></dl><dl class="function">
+<dt id="api.decode_json">
+<code class="descclassname">api.</code><code class="descname">decode_json</code><span class="sig-paren">(</span><em>json</em><span class="sig-paren">)</span><a class="headerlink" href="#api.decode_json" title="Permalink to this definition">&#xB6;</a></dt>
+<dd><p>Deserializes a given string from JSON to Starlark. Fails if the string can&#x2019;t be parsed as JSON</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name">
+<col class="field-body">
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">Dict</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-data docutils literal notranslate"><span class="pre">Any</span></code>], <code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[~T]]</td>
+</tr>
+</tbody>
+</table>
+</dd></dl><dl class="function">
 <dt id="api.docker_build">
 <code class="descclassname">api.</code><code class="descname">docker_build</code><span class="sig-paren">(</span><em>ref</em>, <em>context</em>, <em>build_args={}</em>, <em>dockerfile=&apos;Dockerfile&apos;</em>, <em>dockerfile_contents=&apos;&apos;</em><span class="sig-paren">)</span><a class="headerlink" href="#api.docker_build" title="Permalink to this definition">&#xB6;</a></dt>
 <dd><p>Builds a docker image.</p>
@@ -324,6 +336,18 @@ applies to your k8s cluster independently.</p>
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>file_path</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) &#x2013; Path to the file locally (absolute, or relative to the location of the Tiltfile).</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#api.Blob" title="api.Blob"><code class="xref py py-class docutils literal notranslate"><span class="pre">Blob</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl><dl class="function">
+<dt id="api.read_json">
+<code class="descclassname">api.</code><code class="descname">read_json</code><span class="sig-paren">(</span><em>path</em><span class="sig-paren">)</span><a class="headerlink" href="#api.read_json" title="Permalink to this definition">&#xB6;</a></dt>
+<dd><p>Reads the file at <cite>path</cite> and deserializes its contents as JSON</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name">
+<col class="field-body">
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">Dict</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-data docutils literal notranslate"><span class="pre">Any</span></code>], <code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[~T]]</td>
 </tr>
 </tbody>
 </table>
