@@ -27,6 +27,8 @@
   items:
   - title: Node.js Microservice with Hot Reloading
     href: nodejs_microservice_hotreloading.html
+  - title: Building on a Base Image
+    href: dependent_images.html
 - title: About
   items:
   - title: Code of Conduct
