@@ -207,7 +207,7 @@ def k8s_kind(kind: str, api_version: str=None, *, image_json_path: Union[str, Li
 
 JSONType = Union[
     Dict[str, Any],
-    List,
+    List[Any],
 ]
 
 def decode_json(json: str) -> JSONType:
