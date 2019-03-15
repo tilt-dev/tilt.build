@@ -1,4 +1,4 @@
-from typing import Dict, Union, List, Callable
+from typing import Dict, Union, List, Callable, Any
 
 class Blob:
   """The result of executing a command on your local system.
@@ -205,3 +205,14 @@ def k8s_kind(kind: str, api_version: str=None, *, image_json_path: Union[str, Li
   """
   pass
 
+JSONType = Union[
+    Dict[str, Any],
+    List[Any],
+]
+
+def decode_json(json: str) -> JSONType:
+  """Deserializes a given string from JSON to Starlark. Fails if the string can't be parsed as JSON"""
+  pass
+
+def read_json(path: str) -> JSONType:
+  """Reads the file at `path` and deserializes its contents as JSON"""
