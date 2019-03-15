@@ -17,7 +17,7 @@ Well, good news: you can now specify steps for (1) and (2) separately! That is, 
 img_name = 'myproject/server'
 
 # (1) use your existing Dockerfile for image builds
-server = docker_build(img_name, ',/server')
+server = docker_build(img_name, './server')
 
 # (2) specify how to update the image in place
 server.add('./server/static', '/server/static')  # copy over static files
