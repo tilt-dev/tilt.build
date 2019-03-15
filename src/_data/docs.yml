@@ -23,6 +23,8 @@
     href: fast_build.html
   - title: Tiltfile API Reference
     href: api.html
+  - title: Other Tilt Features
+    href: other_tilt_features.html
 - title: Guides
   items:
   - title: Node.js Microservice with Hot Reloading
