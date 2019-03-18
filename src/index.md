@@ -25,7 +25,7 @@ of your system, from building to deploying to logging to crashing.
 </div>
 
 <div class="block u-marginTop1_5 u-marginBottom2 u-padding16">
-  <iframe class="u-boxShadow" width="560" height="315" src="https://www.youtube.com/embed/MGeUUmdtdKA" frameborder="0" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  <iframe class="u-boxShadow" width="560" height="315" src="https://www.youtube.com/embed/1fS8K_Kn7yQ" frameborder="0" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </div>
 
 <div class="row u-marginBottom2_5 u-marginBottomUnitOnMobile">
