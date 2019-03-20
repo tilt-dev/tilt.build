@@ -90,6 +90,32 @@
 </tbody>
 </table>
 </dd></dl><dl class="function">
+<dt id="api.default_registry">
+<code class="descclassname">api.</code><code class="descname">default_registry</code><span class="sig-paren">(</span><em>registry</em><span class="sig-paren">)</span><a class="headerlink" href="#api.default_registry" title="Permalink to this definition">&#xB6;</a></dt>
+<dd><p>Specifies that any images that Tilt builds should be renamed so that they have the specified docker registry.</p>
+<p>This is useful if, e.g., a repo is configured to push to Google Container Registry, but you want to use Amazon Container Registry instead, without having to edit a bunch of configs. For example, <cite>default_registry(&#x201C;gcr.io/myrepo&#x201D;)</cite> would cause <cite>docker.io/alpine</cite> to be rewritten to <cite>gcr.io/myrepo/docker.io_alpine</cite></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name">
+<col class="field-body">
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>registry</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) &#x2013; The registry that all built images should be renamed to use.</td>
+</tr>
+</tbody>
+</table>
+<p>Images are renamed following these rules:
+1. Replace <cite>/</cite> and <cite>@</cite> with <cite>_</cite>.
+2. Prepend the value of <cite>registry</cite> and a <cite>/</cite>.</p>
+<p>e.g., with <cite>default_registry(&#x2018;gcr.io/myorg&#x2019;)</cite>, <cite>docker.io/busybox</cite> becomes <cite>gcr.io/myorg/docker.io_busybox</cite>.</p>
+<p>(Note: this logic is currently crude, on the assumption that development image names are ephemeral and unimportant. <a class="reference external" href="https://github.com/windmilleng/tilt/issues">Please let us know</a> if they don&#x2019;t suit you!)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name">
+<col class="field-body">
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><code class="docutils literal notranslate"><span class="pre">None</span></code></td>
+</tr>
+</tbody>
+</table>
+</dd></dl><dl class="function">
 <dt id="api.docker_build">
 <code class="descclassname">api.</code><code class="descname">docker_build</code><span class="sig-paren">(</span><em>ref</em>, <em>context</em>, <em>build_args={}</em>, <em>dockerfile=&apos;Dockerfile&apos;</em>, <em>dockerfile_contents=&apos;&apos;</em><span class="sig-paren">)</span><a class="headerlink" href="#api.docker_build" title="Permalink to this definition">&#xB6;</a></dt>
 <dd><p>Builds a docker image.</p>
