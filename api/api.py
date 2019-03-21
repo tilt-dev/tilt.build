@@ -235,3 +235,35 @@ def default_registry(registry: str) -> None:
   (Note: this logic is currently crude, on the assumption that development image names are ephemeral and unimportant. `Please let us know <https://github.com/windmilleng/tilt/issues>`_ if they don't suit you!)
   """
   pass
+
+def custom_build(ref: str, command: str, deps: List[str], disable_push: bool = False) -> CustomBuild:
+  """Provide a custom command that will build an image.
+
+  Returns an object which can be used to create a FastBuild.
+
+  It will raise an error if the specified ref is not published in the registry with the tag that is provided via the ``$TAG`` environment variable.
+
+  Example ::
+
+    k8s_yaml('deploy/fission.yaml')
+    k8s_kind('Environment', image_json_path='{.spec.runtime.image}')
+    custom_build(
+      'gcr.io/foo',
+      'docker build -t $TAG .',
+      ['.'],
+    )
+
+  Args:
+    ref: name for this image (e.g. 'myproj/backend' or 'myregistry/myproj/backend'). If this image will be used in a k8s resource(s), this ref must match the ``spec.container.image`` param for that resource(s).
+    command: a command that, when run in the shell, builds an image puts it in the registry as ``ref``. Must respect the ``$TAG`` environment variable and tag the image it produces with that tag.
+    deps: a list of files or directories to be added as dependencies to this image. Tilt will watch those files and will rerun the command when they change.
+    disable_push: whether Tilt should push the image in to the registry that the Kubernetes cluster has access to. Set this to true if your command handles pushing as well.
+  """
+  pass
+
+class CustomBuild:
+  """An image that was created with ``custom_build``"""
+  def add_fast_build() -> 'FastBuild':
+    """Returns a FastBuild that is associated with the image that was built from a ``custom__build``."""
+    pass
+
