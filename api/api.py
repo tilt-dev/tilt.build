@@ -236,6 +236,12 @@ def default_registry(registry: str) -> None:
   """
   pass
 
+class CustomBuild:
+  """An image that was created with ``custom_build``"""
+  def add_fast_build() -> 'FastBuild':
+    """Returns a FastBuild that is associated with the image that was built from a ``custom__build``."""
+    pass
+
 def custom_build(ref: str, command: str, deps: List[str], disable_push: bool = False) -> CustomBuild:
   """Provide a custom command that will build an image.
 
@@ -260,10 +266,3 @@ def custom_build(ref: str, command: str, deps: List[str], disable_push: bool = F
     disable_push: whether Tilt should push the image in to the registry that the Kubernetes cluster has access to. Set this to true if your command handles pushing as well.
   """
   pass
-
-class CustomBuild:
-  """An image that was created with ``custom_build``"""
-  def add_fast_build() -> 'FastBuild':
-    """Returns a FastBuild that is associated with the image that was built from a ``custom__build``."""
-    pass
-
