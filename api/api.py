@@ -247,7 +247,7 @@ def custom_build(ref: str, command: str, deps: List[str], tag: str = "", disable
 
   Returns an object which can be used to create a FastBuild.
 
-  It will raise an error if the specified ref is not published in the registry with the tag that is provided via the ``$TAG`` environment variable.
+  It will raise an error if the specified ref is not published in the registry with the name+tag that is provided via the ``$EXPECTED_REF`` environment variable.
 
   Example ::
 
