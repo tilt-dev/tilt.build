@@ -14,7 +14,7 @@ You've cloned a repo, run `tilt up`, and see push errors saying you lack permiss
 default_registry('gcr.io/my-personal-project')
 ```
 
-Tilt will rewrite an image like `user-service` to `gcr.io/my-personal-project/user-service`. You can learn more details in the [api reference](api.html).
+Tilt will rewrite an image like `user-service` to `gcr.io/my-personal-project/user-service`. You can learn more details in the [api reference](api.html#api.default_registry).
 
 ## Configure a Project to support Personal Registries
 The above solution isn't a good long-term solution: users have to make sure to not commit their personal registry. It's especially frustrating if the user is trying to change other lines in the `Tiltfile`. A better solution is to read the option from a personal settings file that is `.gitignore`'d.
