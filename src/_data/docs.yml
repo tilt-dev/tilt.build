@@ -31,6 +31,8 @@
     href: nodejs_microservice_hotreloading.html
   - title: Building on a Base Image
     href: dependent_images.html
+  - title: Using a Personal Registry
+    href: personal_registry.html
 - title: About
   items:
   - title: Code of Conduct

@@ -221,7 +221,7 @@ def read_json(path: str) -> JSONType:
 def default_registry(registry: str) -> None:
   """Specifies that any images that Tilt builds should be renamed so that they have the specified docker registry.
 
-  This is useful if, e.g., a repo is configured to push to Google Container Registry, but you want to use Amazon Container Registry instead, without having to edit a bunch of configs. For example, `default_registry("gcr.io/myrepo")` would cause `docker.io/alpine` to be rewritten to `gcr.io/myrepo/docker.io_alpine`
+  This is useful if, e.g., a repo is configured to push to Google Container Registry, but you want to use Elastic Container Registry instead, without having to edit a bunch of configs. For example, `default_registry("gcr.io/myrepo")` would cause `docker.io/alpine` to be rewritten to `gcr.io/myrepo/docker.io_alpine`
 
   Args:
     registry: The registry that all built images should be renamed to use.
@@ -230,9 +230,11 @@ def default_registry(registry: str) -> None:
   1. Replace `/` and `@` with `_`.
   2. Prepend the value of `registry` and a `/`.
 
-  e.g., with `default_registry('gcr.io/myorg')`, `docker.io/busybox` becomes `gcr.io/myorg/docker.io_busybox`.
+  e.g., with `default_registry('gcr.io/myorg')`, `user-service` becomes `gcr.io/myorg/user-service`.
 
   (Note: this logic is currently crude, on the assumption that development image names are ephemeral and unimportant. `Please let us know <https://github.com/windmilleng/tilt/issues>`_ if they don't suit you!)
+
+  Cf. our `using a personal registry guide <https://docs.tilt.dev/personal_registry.html>`_
   """
   pass
 
