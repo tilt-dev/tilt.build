@@ -261,7 +261,7 @@ def custom_build(ref: str, command: str, deps: List[str], tag: str = "", disable
 
   Args:
     ref: name for this image (e.g. 'myproj/backend' or 'myregistry/myproj/backend'). If this image will be used in a k8s resource(s), this ref must match the ``spec.container.image`` param for that resource(s).
-    command: a command that, when run in the shell, builds an image puts it in the registry as ``ref``. Must respect the ``$TAG`` environment variable and tag the image it produces with that tag.
+    command: a command that, when run in the shell, builds an image puts it in the registry as ``ref``. Must produce an image named ``$EXPECTED_REF``
     deps: a list of files or directories to be added as dependencies to this image. Tilt will watch those files and will rebuild the image when they change.
     tag: the tag you expect the resulting image to have; we set ``$EXPECTED_REF=imagename:tag`` and use this value to verify that the command produced the correct image. (If ``tag`` is not specified, Tilt will set the expected ref to ``imagename:<tilt-generated temporary tag>``.)
     disable_push: whether Tilt should push the image in to the registry that the Kubernetes cluster has access to. Set this to true if your command handles pushing as well.
