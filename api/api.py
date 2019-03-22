@@ -242,7 +242,7 @@ class CustomBuild:
     """Returns a FastBuild that is associated with the image that was built from a ``custom_build``."""
     pass
 
-def custom_build(ref: str, command: str, deps: List[str], disable_push: bool = False) -> CustomBuild:
+def custom_build(ref: str, command: str, deps: List[str], tag: str = "", disable_push: bool = False) -> CustomBuild:
   """Provide a custom command that will build an image.
 
   Returns an object which can be used to create a FastBuild.
