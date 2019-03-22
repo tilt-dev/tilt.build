@@ -238,8 +238,8 @@ def default_registry(registry: str) -> None:
 
 class CustomBuild:
   """An image that was created with ``custom_build``"""
-  def add_fast_build() -> 'FastBuild':
-    """Returns a FastBuild that is associated with the image that was built from a ``custom__build``."""
+  def add_fast_build() -> 'CustomBuild':
+    """Returns a FastBuild that is associated with the image that was built from a ``custom_build``."""
     pass
 
 def custom_build(ref: str, command: str, deps: List[str], disable_push: bool = False) -> CustomBuild:
