@@ -13,6 +13,9 @@ us in [the **#tilt** channel](https://kubernetes.slack.com/messages/CESBL84MV/).
 
 You can also file an issue in [our GitHub repo](https://github.com/windmilleng/tilt/issues/new).
 
+For help with private issues (like security vulnerabilities or just concerning non-public code),
+please email [help@windmill.engineering](mailto:help@windmill.engineering).
+
 ### Q: When I run `tilt version`, I see "template engine not found for: version". What do I do?
 
 There is another project called Tilt for
@@ -49,6 +52,27 @@ corner of your screen. Choose "Preferences..." to open a dialog. The
 
 If you're using Minikube, `minikube stop` and `minikube start` will restart the
 environment. `minikube delete` will reset the cluster state.
+
+### Q: Tilt is using a lot of CPU. What is it doing?
+
+We're always working to improve Tilt performance.
+
+If you send us a CPU profile, that can help us to narrow down and fix any performance issues you're having.
+
+To collect a CPU profile:
+
+1. Run `tilt`
+
+2. Press `ctrl-p` in the terminal to start recording. You should see a message like "starting pprof profile to tilt.profile"
+
+3. Interact with Tilt normally
+
+4. Press `ctrl-p` again to stop recording
+
+Tilt will create a file `tilt.profile` with CPU statistics. It shouldn't contain
+any personally identifiable info, but just to be safe, email the file to
+[help@windmill.engineering](mailto:help@windmill.engineering). We will do our
+best to figure it out!
 
 Building Container Images
 -------------------------
