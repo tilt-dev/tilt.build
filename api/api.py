@@ -235,3 +235,35 @@ def default_registry(registry: str) -> None:
   (Note: this logic is currently crude, on the assumption that development image names are ephemeral and unimportant. `Please let us know <https://github.com/windmilleng/tilt/issues>`_ if they don't suit you!)
   """
   pass
+
+class CustomBuild:
+  """An image that was created with ``custom_build``"""
+  def add_fast_build() -> FastBuild:
+    """Returns a FastBuild that is associated with the image that was built from a ``custom_build``. When the container needs to be rebuilt it will be built using the ``CustomBuild``. Otherwise update will be done with the ``FastBuild`` instructions. """
+    pass
+
+def custom_build(ref: str, command: str, deps: List[str], tag: str = "", disable_push: bool = False) -> CustomBuild:
+  """Provide a custom command that will build an image.
+
+  Returns an object which can be used to create a FastBuild.
+
+  It will raise an error if the specified ref is not published in the registry with the name+tag that is provided via the ``$EXPECTED_REF`` environment variable.
+
+  Example ::
+
+    k8s_yaml('deploy/fission.yaml')
+    k8s_kind('Environment', image_json_path='{.spec.runtime.image}')
+    custom_build(
+      'gcr.io/foo',
+      'docker build -t $EXPECTED_REF .',
+      ['.'],
+    )
+
+  Args:
+    ref: name for this image (e.g. 'myproj/backend' or 'myregistry/myproj/backend'). If this image will be used in a k8s resource(s), this ref must match the ``spec.container.image`` param for that resource(s).
+    command: a command that, when run in the shell, builds an image puts it in the registry as ``ref``. Must produce an image named ``$EXPECTED_REF``
+    deps: a list of files or directories to be added as dependencies to this image. Tilt will watch those files and will rebuild the image when they change.
+    tag: the tag you expect the resulting image to have; we set ``$EXPECTED_REF=imagename:tag`` and use this value to verify that the command produced the correct image. (If ``tag`` is not specified, Tilt will set the expected ref to ``imagename:<tilt-generated temporary tag>``.)
+    disable_push: whether Tilt should push the image in to the registry that the Kubernetes cluster has access to. Set this to true if your command handles pushing as well.
+  """
+  pass

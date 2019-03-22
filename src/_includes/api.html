@@ -5,6 +5,24 @@
 <p>Under the hood, a <cite>Blob</cite> is just a string, but we wrap it this way so Tilt knows the difference between a string meant to convey content and a string indicating, say, a filepath.</p>
 <p>To wrap a string as a blob, call <code class="docutils literal notranslate"><span class="pre">blob(my_str)</span></code></p>
 </dd></dl><dl class="class">
+<dt id="api.CustomBuild">
+<em class="property">class </em><code class="descclassname">api.</code><code class="descname">CustomBuild</code><a class="headerlink" href="#api.CustomBuild" title="Permalink to this definition">&#xB6;</a></dt>
+<dd><p>An image that was created with <code class="docutils literal notranslate"><span class="pre">custom_build</span></code></p>
+<dl class="method">
+<dt id="api.CustomBuild.add_fast_build">
+<code class="descname">add_fast_build</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#api.CustomBuild.add_fast_build" title="Permalink to this definition">&#xB6;</a></dt>
+<dd><p>Returns a FastBuild that is associated with the image that was built from a <code class="docutils literal notranslate"><span class="pre">custom_build</span></code>. When the container needs to be rebuilt it will be built using the <code class="docutils literal notranslate"><span class="pre">CustomBuild</span></code>. Otherwise update will be done with the <code class="docutils literal notranslate"><span class="pre">FastBuild</span></code> instructions.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name">
+<col class="field-body">
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#api.FastBuild" title="api.FastBuild"><code class="xref py py-class docutils literal notranslate"><span class="pre">FastBuild</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl><dl class="class">
 <dt id="api.FastBuild">
 <em class="property">class </em><code class="descclassname">api.</code><code class="descname">FastBuild</code><a class="headerlink" href="#api.FastBuild" title="Permalink to this definition">&#xB6;</a></dt>
 <dd><p>An image that was created with <code class="docutils literal notranslate"><span class="pre">fast_build</span></code></p>
@@ -74,6 +92,40 @@
 <col class="field-body">
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#api.Blob" title="api.Blob"><code class="xref py py-class docutils literal notranslate"><span class="pre">Blob</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl><dl class="function">
+<dt id="api.custom_build">
+<code class="descclassname">api.</code><code class="descname">custom_build</code><span class="sig-paren">(</span><em>ref</em>, <em>command</em>, <em>deps</em>, <em>tag=&apos;&apos;</em>, <em>disable_push=False</em><span class="sig-paren">)</span><a class="headerlink" href="#api.custom_build" title="Permalink to this definition">&#xB6;</a></dt>
+<dd><p>Provide a custom command that will build an image.</p>
+<p>Returns an object which can be used to create a FastBuild.</p>
+<p>It will raise an error if the specified ref is not published in the registry with the name+tag that is provided via the <code class="docutils literal notranslate"><span class="pre">$EXPECTED_REF</span></code> environment variable.</p>
+<p>Example</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">k8s_yaml</span><span class="p">(</span><span class="s1">&apos;deploy/fission.yaml&apos;</span><span class="p">)</span>
+<span class="n">k8s_kind</span><span class="p">(</span><span class="s1">&apos;Environment&apos;</span><span class="p">,</span> <span class="n">image_json_path</span><span class="o">=</span><span class="s1">&apos;{.spec.runtime.image}&apos;</span><span class="p">)</span>
+<span class="n">custom_build</span><span class="p">(</span>
+  <span class="s1">&apos;gcr.io/foo&apos;</span><span class="p">,</span>
+  <span class="s1">&apos;docker build -t $EXPECTED_REF .&apos;</span><span class="p">,</span>
+  <span class="p">[</span><span class="s1">&apos;.&apos;</span><span class="p">],</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name">
+<col class="field-body">
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>ref</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) &#x2013; name for this image (e.g. &#x2018;myproj/backend&#x2019; or &#x2018;myregistry/myproj/backend&#x2019;). If this image will be used in a k8s resource(s), this ref must match the <code class="docutils literal notranslate"><span class="pre">spec.container.image</span></code> param for that resource(s).</li>
+<li><strong>command</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) &#x2013; a command that, when run in the shell, builds an image puts it in the registry as <code class="docutils literal notranslate"><span class="pre">ref</span></code>. Must produce an image named <code class="docutils literal notranslate"><span class="pre">$EXPECTED_REF</span></code></li>
+<li><strong>deps</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]) &#x2013; a list of files or directories to be added as dependencies to this image. Tilt will watch those files and will rebuild the image when they change.</li>
+<li><strong>tag</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) &#x2013; the tag you expect the resulting image to have; we set <code class="docutils literal notranslate"><span class="pre">$EXPECTED_REF=imagename:tag</span></code> and use this value to verify that the command produced the correct image. (If <code class="docutils literal notranslate"><span class="pre">tag</span></code> is not specified, Tilt will set the expected ref to <code class="docutils literal notranslate"><span class="pre">imagename:&lt;tilt-generated</span> <span class="pre">temporary</span> <span class="pre">tag&gt;</span></code>.)</li>
+<li><strong>disable_push</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>) &#x2013; whether Tilt should push the image in to the registry that the Kubernetes cluster has access to. Set this to true if your command handles pushing as well.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference internal" href="#api.CustomBuild" title="api.CustomBuild"><code class="xref py py-class docutils literal notranslate"><span class="pre">CustomBuild</span></code></a></p>
+</td>
 </tr>
 </tbody>
 </table>
