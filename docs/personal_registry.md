@@ -19,7 +19,7 @@ Tilt will rewrite an image like `user-service` to `gcr.io/my-personal-project/us
 ## Configure a Project to support Personal Registries
 The above solution isn't a good long-term solution: users have to make sure to not commit their personal registry. It's especially frustrating if the user is trying to change other lines in the `Tiltfile`. A better solution is to read the option from a personal settings file that is `.gitignore`'d.
 
-We're going to modify the `Tiltfile` to look for a file called `tilt_option.json` next to the Tiltfile. You can add more settings here (do different team members want different services to behave differently? Put it in `tilt_option.json`). For now, we'll expect the file to either be nonexistent, or json like
+We're going to modify the `Tiltfile` to look for a file called `tilt_option.json` next to the Tiltfile. You can add more settings here (do different team members want different services to behave differently? Put it in `tilt_option.json`). For now, we'll expect the file to either be nonexistent, or JSON like
 
 ```json
 {
