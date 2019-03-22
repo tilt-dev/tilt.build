@@ -3,12 +3,12 @@ title: Setting a Personal Registry with a shared Tiltfile
 layout: docs
 ---
 
-You should be able to start an app on Kubernetes from just the source code. One stumbling block is YAL and scripts that hard-code the image repository (the `gcr.io/windmill` in `gcr.io/windmill/user-service`). Tilt's `default_registry` function lets you change the image repository so you don't have to ask permission to get started. This guide walks you through two cases:
-*) for users, how to experiment with an existing Tilt project by adding one line to the `Tiltfile`
-*) for maintainers, how to configure your project so users don't need to modify the `Tiltfile` at all
+You should be able to start an app on Kubernetes from just the source code. One stumbling block is when YAML and scripts hard-code the image repository (the `gcr.io/windmill` in `gcr.io/windmill/user-service`). Tilt's `default_registry` function lets you change the image repository so you don't have to ask permission to get started. This guide walks you through two cases:
+* for users, how to experiment with an existing Tilt project by adding one line to the Tiltfile
+* for maintainers, how to configure your project so users don't need to modify the Tiltfile at all
 
 ## Experiment with an existing Tilt project
-You've cloned a repo, run `tilt up`, and see push errors saying you lack permission. Pick a registry that you can push to, like `gcr.io/my-personal-project` or `aws_account_id.dkr.ecr.region.amazonaws.com/my-web-app`.
+You've cloned a repo, run `tilt up`, and see push errors saying you lack permission. Pick a registry that you can push to, like `gcr.io/my-personal-project`.
 
 Add the following line to the `Tiltfile`:
 
