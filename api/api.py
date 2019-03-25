@@ -66,6 +66,8 @@ def k8s_yaml(yaml: Union[str, List[str], Blob]) -> None:
   the DockerImage ref and on pod selectors). Any remaining YAML is YAML that Tilt
   applies to your k8s cluster independently.
 
+  Any YAML files are watched (See ``watch_file``).
+
   Examples:
 
   .. code-block:: python
@@ -148,7 +150,7 @@ def filter_yaml(yaml: Union[str, List[str], Blob], labels: dict=None, name: str=
   pass
 
 def local(cmd: str) -> Blob:
-  """Runs cmd, waits for it to finish, and returns its stdout as a ``Blob``"""
+  """Runs cmd, waits for it to finish, and returns its stdout as a ``Blob``."""
   pass
 
 def read_file(file_path: str, default: str = None) -> Blob:
@@ -163,9 +165,16 @@ def read_file(file_path: str, default: str = None) -> Blob:
     default: If not `None` and the file at `file_path` does not exist, this value will be returned."""
   pass
 
+def watch_file(file_path: str) -> None:
+  """Watches a file. If the file is changed a re-exectution of the Tiltfile is triggered.
+
+  Args:
+    file_path: Path to the file locally (absolute, or relative to the location of the Tiltfile)."""
+
 
 def kustomize(pathToDir: str) -> Blob:
   """Run `kustomize <https://github.com/kubernetes-sigs/kustomize>`_ on a given directory and return the resulting YAML as a Blob
+  Directory is watched (See ``watch_file``).
 
   Args:
     pathToDir: Path to the directory locally (absolute, or relative to the location of the Tiltfile)."""
@@ -173,6 +182,7 @@ def kustomize(pathToDir: str) -> Blob:
 
 def helm(pathToChartDir: str) -> Blob:
   """Run `helm template <https://docs.helm.sh/helm/#helm-template>`_ on a given directory that contains a chart and return the fully rendered YAML as a Blob
+  Chart directory is watched (See ``watch_file``).
 
   Args:
     pathToChartDir: Path to the directory locally (absolute, or relative to the location of the Tiltfile)."""
@@ -183,11 +193,13 @@ def fail(msg: str) -> None:
   pass
 
 def blob(contents: str) -> Blob:
-  """Creates a Blob object that wraps the provided string. Useful for passing strings in to functions that expect a `Blob`, e.g. ``k8s_yaml``"""
+  """Creates a Blob object that wraps the provided string. Useful for passing strings in to functions that expect a `Blob`, e.g. ``k8s_yaml``."""
   pass
 
 def listdir(directory: str, recursive: bool = False) -> List[str]:
-  """Returns all the files at the top level of the provided directory. If ``recursive`` is set to True, returns all files that are inside of the provided directory, recursively."""
+  """Returns all the files at the top level of the provided directory. If ``recursive`` is set to True, returns all files that are inside of the provided directory, recursively.
+
+  Directory is watched (See ``watch_file``)."""
   pass
 
 def k8s_kind(kind: str, api_version: str=None, *, image_json_path: Union[str, List[str]]):
@@ -216,7 +228,7 @@ JSONType = Union[
 ]
 
 def decode_json(json: str) -> JSONType:
-  """Deserializes a given string from JSON to Starlark. Fails if the string can't be parsed as JSON"""
+  """Deserializes a given string from JSON to Starlark. Fails if the string can't be parsed as JSON."""
   pass
 
 def read_json(path: str, default: str = None) -> JSONType:

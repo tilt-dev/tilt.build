@@ -86,7 +86,7 @@
 </dd></dl><dl class="function">
 <dt id="api.blob">
 <code class="descclassname">api.</code><code class="descname">blob</code><span class="sig-paren">(</span><em>contents</em><span class="sig-paren">)</span><a class="headerlink" href="#api.blob" title="Permalink to this definition">&#xB6;</a></dt>
-<dd><p>Creates a Blob object that wraps the provided string. Useful for passing strings in to functions that expect a <cite>Blob</cite>, e.g. <code class="docutils literal notranslate"><span class="pre">k8s_yaml</span></code></p>
+<dd><p>Creates a Blob object that wraps the provided string. Useful for passing strings in to functions that expect a <cite>Blob</cite>, e.g. <code class="docutils literal notranslate"><span class="pre">k8s_yaml</span></code>.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name">
 <col class="field-body">
@@ -132,7 +132,7 @@
 </dd></dl><dl class="function">
 <dt id="api.decode_json">
 <code class="descclassname">api.</code><code class="descname">decode_json</code><span class="sig-paren">(</span><em>json</em><span class="sig-paren">)</span><a class="headerlink" href="#api.decode_json" title="Permalink to this definition">&#xB6;</a></dt>
-<dd><p>Deserializes a given string from JSON to Starlark. Fails if the string can&#x2019;t be parsed as JSON</p>
+<dd><p>Deserializes a given string from JSON to Starlark. Fails if the string can&#x2019;t be parsed as JSON.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name">
 <col class="field-body">
@@ -264,7 +264,8 @@ for more info.)</li>
 </dd></dl><dl class="function">
 <dt id="api.helm">
 <code class="descclassname">api.</code><code class="descname">helm</code><span class="sig-paren">(</span><em>pathToChartDir</em><span class="sig-paren">)</span><a class="headerlink" href="#api.helm" title="Permalink to this definition">&#xB6;</a></dt>
-<dd><p>Run <a class="reference external" href="https://docs.helm.sh/helm/#helm-template">helm template</a> on a given directory that contains a chart and return the fully rendered YAML as a Blob</p>
+<dd><p>Run <a class="reference external" href="https://docs.helm.sh/helm/#helm-template">helm template</a> on a given directory that contains a chart and return the fully rendered YAML as a Blob
+Chart directory is watched (See <code class="docutils literal notranslate"><span class="pre">watch_file</span></code>).</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name">
 <col class="field-body">
@@ -344,6 +345,7 @@ Tilt&#x2019;s usual mechanisms).</li>
 correspond to Images defined elsewhere in your <code class="docutils literal notranslate"><span class="pre">Tiltfile</span></code> (matching based on
 the DockerImage ref and on pod selectors). Any remaining YAML is YAML that Tilt
 applies to your k8s cluster independently.</p>
+<p>Any YAML files are watched (See <code class="docutils literal notranslate"><span class="pre">watch_file</span></code>).</p>
 <p>Examples:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># path to file</span>
 <span class="n">k8s_yaml</span><span class="p">(</span><span class="s1">&apos;foo.yaml&apos;</span><span class="p">)</span>
@@ -369,7 +371,8 @@ applies to your k8s cluster independently.</p>
 </dd></dl><dl class="function">
 <dt id="api.kustomize">
 <code class="descclassname">api.</code><code class="descname">kustomize</code><span class="sig-paren">(</span><em>pathToDir</em><span class="sig-paren">)</span><a class="headerlink" href="#api.kustomize" title="Permalink to this definition">&#xB6;</a></dt>
-<dd><p>Run <a class="reference external" href="https://github.com/kubernetes-sigs/kustomize">kustomize</a> on a given directory and return the resulting YAML as a Blob</p>
+<dd><p>Run <a class="reference external" href="https://github.com/kubernetes-sigs/kustomize">kustomize</a> on a given directory and return the resulting YAML as a Blob
+Directory is watched (See <code class="docutils literal notranslate"><span class="pre">watch_file</span></code>).</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name">
 <col class="field-body">
@@ -384,6 +387,7 @@ applies to your k8s cluster independently.</p>
 <dt id="api.listdir">
 <code class="descclassname">api.</code><code class="descname">listdir</code><span class="sig-paren">(</span><em>directory</em>, <em>recursive=False</em><span class="sig-paren">)</span><a class="headerlink" href="#api.listdir" title="Permalink to this definition">&#xB6;</a></dt>
 <dd><p>Returns all the files at the top level of the provided directory. If <code class="docutils literal notranslate"><span class="pre">recursive</span></code> is set to True, returns all files that are inside of the provided directory, recursively.</p>
+<p>Directory is watched (See <code class="docutils literal notranslate"><span class="pre">watch_file</span></code>).</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name">
 <col class="field-body">
@@ -395,7 +399,7 @@ applies to your k8s cluster independently.</p>
 </dd></dl><dl class="function">
 <dt id="api.local">
 <code class="descclassname">api.</code><code class="descname">local</code><span class="sig-paren">(</span><em>cmd</em><span class="sig-paren">)</span><a class="headerlink" href="#api.local" title="Permalink to this definition">&#xB6;</a></dt>
-<dd><p>Runs cmd, waits for it to finish, and returns its stdout as a <code class="docutils literal notranslate"><span class="pre">Blob</span></code></p>
+<dd><p>Runs cmd, waits for it to finish, and returns its stdout as a <code class="docutils literal notranslate"><span class="pre">Blob</span></code>.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name">
 <col class="field-body">
@@ -443,6 +447,20 @@ In any other case, an error reading <cite>path</cite> will be a Tiltfile load er
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">Dict</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-data docutils literal notranslate"><span class="pre">Any</span></code>], <code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-data docutils literal notranslate"><span class="pre">Any</span></code>]]</p>
 </td>
+</tr>
+</tbody>
+</table>
+</dd></dl><dl class="function">
+<dt id="api.watch_file">
+<code class="descclassname">api.</code><code class="descname">watch_file</code><span class="sig-paren">(</span><em>file_path</em><span class="sig-paren">)</span><a class="headerlink" href="#api.watch_file" title="Permalink to this definition">&#xB6;</a></dt>
+<dd><p>Watches a file. If the file is changed a re-exectution of the Tiltfile is triggered.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name">
+<col class="field-body">
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>file_path</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) &#x2013; Path to the file locally (absolute, or relative to the location of the Tiltfile).</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><code class="docutils literal notranslate"><span class="pre">None</span></code></td>
 </tr>
 </tbody>
 </table>
