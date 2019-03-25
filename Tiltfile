@@ -10,7 +10,7 @@ img = fast_build('gcr.io/windmill-public-containers/tilt-site',
                  'base.dockerfile',
                  'bundle exec jekyll serve --config _config.yml,_config-dev.yml')
 img.add('./src', '/src/')
-img.run('bundle update', trigger=['src/Gemfile', 'src/Gemfile.lock'])
+img.run('bundle install', trigger=['src/Gemfile', 'src/Gemfile.lock'])
 img.hot_reload()
 
 img = fast_build('gcr.io/windmill-public-containers/docs-site',
@@ -18,7 +18,7 @@ img = fast_build('gcr.io/windmill-public-containers/docs-site',
                  'bundle exec jekyll serve --config _config.yml,_config-dev.yml')
 img.add('./src', '/src/')
 img.add('./docs', '/docs/')
-img.run('bundle update', trigger=['src/Gemfile', 'src/Gemfile.lock', 'docs/Gemfile', 'docs/Gemfile.lock'])
+img.run('bundle install', trigger=['src/Gemfile', 'src/Gemfile.lock', 'docs/Gemfile', 'docs/Gemfile.lock'])
 img.hot_reload()
 
 k8s_resource('tilt-site', port_forwards=4000)
