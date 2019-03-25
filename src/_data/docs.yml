@@ -33,6 +33,8 @@
     href: dependent_images.html
   - title: Using a Personal Registry
     href: personal_registry.html
+  - title: Adding Bazel Support to Tilt
+    href: extending_tilt_with_bazel_support.html
 - title: About
   items:
   - title: Code of Conduct
