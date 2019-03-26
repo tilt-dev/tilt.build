@@ -1,9 +1,9 @@
 ---
-tilt: Extending Tilt With No Pull Requests
+tilt: Building Images with Bazel
 layout: docs
 ---
 
-# Extending Tilt with No Pull Requests
+# Building Images with Bazel
 
 There's nothing more frustrating than using a tool that works perfectly except for _one_ small thing. Even if the tool is open source it can be a daunting task to get a change accepted to it.
 
@@ -17,9 +17,7 @@ _Note: Before diving in to this guide you should have run through [Tilt's Gettin
 Here's an [example repository](https://github.com/windmilleng/bazel_example) that contains two services (snack and vigoda) that are built with Bazel. The current development workflow is to make some changes to the code (contained in the `snack` or `vigoda` directories) then run the appopriate bazel rule to put the service in to my Kubernetes cluster. For example if I made a change to `snack/main.go` I would then run `bazel run //:snack-server.apply`. This command will build my Go code, put it in to an image, put that image in to my YAML, and run `kubectl apply` to update my Kubernetes cluster with the new YAML. That's a lot of stuff but Bazel handles it all by understanding the transitive dependencies of `snack-server`.
 
 ## Writing the Tiltfile
-So how can we take this sophisticated workflow and combine its reproducability and dependency tracking with Tilt's lightning fast updates and heads up display?
-
-Let's remember that Tiltfiles only need two things in order to provide a great experience: Kubernetes YAML and Docker Images. To get our service up in running Tilt we just need to figure out how to ask Bazel for those two things separately.
+Tiltfiles only need two things in order to provide a great experience: Kubernetes YAML and Docker Images. To get our service up in running Tilt we just need to figure out how to ask Bazel for those two things separately.
 
 ### Getting YAML
 So when we run `bazel run //:snack-server.apply` what does Bazel actually do? To find out let's look at the `:snack-server` rule definition.
@@ -87,7 +85,7 @@ Easy enough, now in the main body of our Tiltfile we can call it like so:
 k8s_yaml(bazel_k8s(":snack-server"))
 ```
 
-And if we Tilt up we should see that Tilt calls Bazel to build the YAML, and by extension its image and then Tilt takes that YAML and deploys it to the cluster. We get all the awesomeness of the HUD with three lines of code in a Tiltfile.
+And if we Tilt up we should see that Tilt calls Bazel to build the YAML, and by extension its image and then Tilt takes that YAML and deploys it to the cluster.
 
 ### Building Images
 Now for the second component: images. Let's follow the same strategy and figure out the Bazel command that will just build an image and then integrate it in to the Tiltfile.
@@ -112,14 +110,27 @@ We know what the image will be ahead of time because of Bazel's deterministic na
 The third argument, the empty list, is a list of dependencies. We'll fill that in later. For now let's wrap this in a function called `bazel_build` and add it to the main section of our Tiltfile
 
 ```python
+def bazel_build(image, target):
+  custom_build(
+    image,
+    'bazel run ' + target,
+    [],
+    tag="image",
+  )
 k8s_yaml(bazel_k8s(":snack-server"))
-bazel_image('bazel/snack', '//snack:image')
+bazel_build('bazel/snack', '//snack:image')
 ```
 
 Now Tilt can get YAML from Bazel, get an image from Bazel, insert it into the YAML and track its status in the Kubernetes cluster.
 
 ## Dealing with Dependencies
-There's a problem with our Tiltfile as it stands: it only picks up changes if the Tiltfile changes. It doesn't understand what dependencies go in to generating the YAML _or_ the code dependencies that go in to generating the docker image. Luckily for us Bazel makes it easy to ask for those dependencies and Tilt makes it easy to tell it about those dependencies. Let's start by getting the dependencies for the YAML and then move on to the dependencies for the docker image.
+If you started Tilt now, it would appear to work! Run `tilt up` and all the images get deployed to your cluster.
+
+Then you make a change to main.go. Nothing gets updates. Why not?
+
+It's not enough for Tilt to know how to build & deploy an image. It needs to know what files should trigger a new build and deploy.
+
+Luckily for us Bazel makes it easy to ask for those files and Tilt makes it easy to tell it about those files.
 
 ### YAML Dependenices
 [`bazel query`](https://docs.bazel.build/versions/master/query-how-to.html) is the functionality that we'll use to ask Bazel about the various dependencies of certain targets. Before we do that there are two types of dependencies that Tilt cares about: dependencies for the Tiltfile and dependencies for images.
@@ -184,7 +195,7 @@ def bazel_k8s(target):
 Now if we change a dependency of the YAML, the Tiltfile re-executes. It might be a bit overzealous due to those extraneous dependencies but we can deal with that later.
 
 ### Image Dependencies
-We can reuse our build and source file queries for the image target `//snack:image`. There's one build dep (`snack/BUILD`) and one source dep (`snack/main.go`). That looks right, now to use these queries in our `bazel_image` function:
+We can reuse our build and source file queries for the image target `//snack:image`. There's one build dep (`snack/BUILD`) and one source dep (`snack/main.go`). That looks right, now to use these queries in our `bazel_build` function:
 
 ```python
 def bazel_build(image, target):
