@@ -151,11 +151,16 @@ def local(cmd: str) -> Blob:
   """Runs cmd, waits for it to finish, and returns its stdout as a ``Blob``"""
   pass
 
-def read_file(file_path: str) -> Blob:
-  """Reads file and returns its contents.
+def read_file(file_path: str, default: str = None) -> Blob:
+  """
+  Reads file and returns its contents.
+
+  If the `file_path` does not exist and `default` is not `None`, `default` will be returned.
+  In any other case, an error reading `file_path` will be a Tiltfile load error.
 
   Args:
-    file_path: Path to the file locally (absolute, or relative to the location of the Tiltfile)."""
+    file_path: Path to the file locally (absolute, or relative to the location of the Tiltfile).
+    default: If not `None` and the file at `file_path` does not exist, this value will be returned."""
   pass
 
 
@@ -214,8 +219,16 @@ def decode_json(json: str) -> JSONType:
   """Deserializes a given string from JSON to Starlark. Fails if the string can't be parsed as JSON"""
   pass
 
-def read_json(path: str) -> JSONType:
-  """Reads the file at `path` and deserializes its contents as JSON"""
+def read_json(path: str, default: str = None) -> JSONType:
+  """
+  Reads the file at `path` and deserializes its contents as JSON
+
+  If the `path` does not exist and `default` is not `None`, `default` will be returned.
+  In any other case, an error reading `path` will be a Tiltfile load error.
+
+  Args:
+    path: Path to the file locally (absolute, or relative to the location of the Tiltfile).
+    default: If not `None` and the file at `path` does not exist, this value will be returned."""
   pass
 
 def default_registry(registry: str) -> None:
