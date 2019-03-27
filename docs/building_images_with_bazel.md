@@ -85,7 +85,7 @@ Easy enough, now in the main body of our Tiltfile we can call it like so:
 k8s_yaml(bazel_k8s(":snack-server"))
 ```
 
-And if we Tilt up we should see that Tilt calls Bazel to build the YAML, and by extension its image and then Tilt takes that YAML and deploys it to the cluster.
+And if we `tilt up` we should see that Tilt calls Bazel to build the YAML, and by extension its image and then Tilt takes that YAML and deploys it to the cluster.
 
 ### Building Images
 Now for the second component: images. Let's follow the same strategy and figure out the Bazel command that will just build an image and then integrate it in to the Tiltfile.
