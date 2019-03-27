@@ -103,7 +103,7 @@ custom_build(
 )
 ```
 
-This tells Tilt to run the command (`bazel run //snack:image`) and to assert after it has completed that an image named bazel/snack will exist with the tag "image". If it doesn't then the build fails.
+This tells Tilt to run the command (`bazel run //snack:image`) and then assert that an image named bazel/snack exists with the tag "image". If it doesn't then the build fails.
 
 We know what the image will be ahead of time because of Bazel's deterministic nature. Bazel uses a formula for determining the name of the image that it will push: "bazel/" + the directory that the build file is in". This image is tagged with the name of the rule that created it, which in our case is "image".
 
