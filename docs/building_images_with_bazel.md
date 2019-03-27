@@ -261,7 +261,7 @@ def bazel_build(image, target):
   watch_labels(build_deps)
 
   source_deps = str(local(BAZEL_SOURCES_CMD % target)).splitlines()
-  source_deps_files =bazel_labels_to_files(source_deps)
+  source_deps_files = bazel_labels_to_files(source_deps)
 
   custom_build(
     image,
