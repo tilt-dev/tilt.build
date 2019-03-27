@@ -17,7 +17,7 @@ _Note: Before diving in to this guide you should have run through [Tilt's Gettin
 Here's an [example repository](https://github.com/windmilleng/bazel_example) that contains two services (snack and vigoda) that are built with Bazel. The current development workflow is to make some changes to the code (contained in the `snack` or `vigoda` directories) then run the appopriate bazel rule to put the service in to my Kubernetes cluster. For example if I made a change to `snack/main.go` I would then run `bazel run //:snack-server.apply`. This command will build my Go code, put it in to an image, put that image in to my YAML, and run `kubectl apply` to update my Kubernetes cluster with the new YAML. That's a lot of stuff but Bazel handles it all by understanding the transitive dependencies of `snack-server`.
 
 ## Writing the Tiltfile
-Tiltfiles only need two things in order to provide a great experience: Kubernetes YAML and Docker Images. To get our service up in running Tilt we just need to figure out how to ask Bazel for those two things separately.
+Tiltfiles only need two things in order to provide a great experience: Kubernetes YAML and Docker Images. To get our service up and running in Tilt we just need to figure out how to ask Bazel for those two things.
 
 ### Getting YAML
 So when we run `bazel run //:snack-server.apply` what does Bazel actually do? To find out let's look at the `:snack-server` rule definition.
