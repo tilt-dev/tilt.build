@@ -83,6 +83,11 @@
 </table>
 </dd></dl>
 
+</dd></dl><dl class="class">
+<dt id="api.LiveUpdateStep">
+<em class="property">class </em><code class="descclassname">api.</code><code class="descname">LiveUpdateStep</code><a class="headerlink" href="#api.LiveUpdateStep" title="Permalink to this definition">&#xB6;</a></dt>
+<dd><p>A step in the process of performing a LiveUpdate on an image&#x2019;s container.</p>
+<p>See <a class="reference internal" href="#api.live_update" title="api.live_update"><code class="xref py py-meth docutils literal notranslate"><span class="pre">live_update()</span></code></a>.</p>
 </dd></dl><dl class="function">
 <dt id="api.blob">
 <code class="descclassname">api.</code><code class="descname">blob</code><span class="sig-paren">(</span><em>contents</em><span class="sig-paren">)</span><a class="headerlink" href="#api.blob" title="Permalink to this definition">&#xB6;</a></dt>
@@ -92,6 +97,18 @@
 <col class="field-body">
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#api.Blob" title="api.Blob"><code class="xref py py-class docutils literal notranslate"><span class="pre">Blob</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl><dl class="function">
+<dt id="api.container_restart">
+<code class="descclassname">api.</code><code class="descname">container_restart</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#api.container_restart" title="Permalink to this definition">&#xB6;</a></dt>
+<dd><p>Specify that a container should be restarted when it is live-updated.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name">
+<col class="field-body">
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#api.LiveUpdateStep" title="api.LiveUpdateStep"><code class="xref py py-class docutils literal notranslate"><span class="pre">LiveUpdateStep</span></code></a></td>
 </tr>
 </tbody>
 </table>
@@ -397,6 +414,38 @@ Directory is watched (See <code class="docutils literal notranslate"><span class
 </tbody>
 </table>
 </dd></dl><dl class="function">
+<dt id="api.live_update">
+<code class="descclassname">api.</code><code class="descname">live_update</code><span class="sig-paren">(</span><em>image</em>, <em>steps</em>, <em>full_rebuild_trigger=[]</em><span class="sig-paren">)</span><a class="headerlink" href="#api.live_update" title="Permalink to this definition">&#xB6;</a></dt>
+<dd><p>Specify how to update containers running <cite>image</cite>.</p>
+<p>The list of steps must be, in order:</p>
+<ul class="simple">
+<li>0 or 1 <a class="reference internal" href="#api.workdir" title="api.workdir"><code class="xref py py-meth docutils literal notranslate"><span class="pre">workdir()</span></code></a></li>
+<li>0 or more <a class="reference internal" href="#api.sync" title="api.sync"><code class="xref py py-meth docutils literal notranslate"><span class="pre">sync()</span></code></a></li>
+<li>0 or more <a class="reference internal" href="#api.run" title="api.run"><code class="xref py py-meth docutils literal notranslate"><span class="pre">run()</span></code></a></li>
+<li>0 or 1 <a class="reference internal" href="#api.container_restart" title="api.container_restart"><code class="xref py py-meth docutils literal notranslate"><span class="pre">container_restart()</span></code></a></li>
+</ul>
+<p>When a file changes:</p>
+<ol class="arabic simple">
+<li>If it matches any of the paths in <cite>full_rebuild_trigger</cite>, a full rebuild + deploy will be executed.</li>
+<li>Otherwise, if it matches any of the local paths in <cite>sync</cite> steps, a live update will be executed.</li>
+</ol>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name">
+<col class="field-body">
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>image</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) &#x2013; The name of the image to update. If this is not an image with a build defined in the Tiltfile, an error will be raised.</li>
+<li><strong>steps</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<a class="reference internal" href="#api.LiveUpdateStep" title="api.LiveUpdateStep"><code class="xref py py-class docutils literal notranslate"><span class="pre">LiveUpdateStep</span></code></a>]) &#x2013; The steps to execute when updating containers running this image.</li>
+<li><strong>full_rebuild_trigger</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]]) &#x2013; (paths relative to Tiltfile directory) Changes to any files listed here will cause Tilt to do a full image rebuild + deploy instead of a live update.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><code class="docutils literal notranslate"><span class="pre">None</span></code></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl><dl class="function">
 <dt id="api.local">
 <code class="descclassname">api.</code><code class="descname">local</code><span class="sig-paren">(</span><em>cmd</em><span class="sig-paren">)</span><a class="headerlink" href="#api.local" title="Permalink to this definition">&#xB6;</a></dt>
 <dd><p>Runs cmd, waits for it to finish, and returns its stdout as a <code class="docutils literal notranslate"><span class="pre">Blob</span></code>.</p>
@@ -451,6 +500,45 @@ In any other case, an error reading <cite>path</cite> will be a Tiltfile load er
 </tbody>
 </table>
 </dd></dl><dl class="function">
+<dt id="api.run">
+<code class="descclassname">api.</code><code class="descname">run</code><span class="sig-paren">(</span><em>cmd</em>, <em>trigger=[]</em><span class="sig-paren">)</span><a class="headerlink" href="#api.run" title="Permalink to this definition">&#xB6;</a></dt>
+<dd><p>Specify that the given <cite>cmd</cite> should be executed when updating an image&#x2019;s container</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name">
+<col class="field-body">
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>cmd</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) &#x2013; A shell command.</li>
+<li><strong>trigger</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>], <code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]) &#x2013; If the <code class="docutils literal notranslate"><span class="pre">trigger</span></code> argument is specified, the build step is only run on changes to the given file(s).</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference internal" href="#api.LiveUpdateStep" title="api.LiveUpdateStep"><code class="xref py py-class docutils literal notranslate"><span class="pre">LiveUpdateStep</span></code></a></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl><dl class="function">
+<dt id="api.sync">
+<code class="descclassname">api.</code><code class="descname">sync</code><span class="sig-paren">(</span><em>localPath</em>, <em>remotePath</em><span class="sig-paren">)</span><a class="headerlink" href="#api.sync" title="Permalink to this definition">&#xB6;</a></dt>
+<dd><p>Specify that any changes to <cite>localPath</cite> should be synced to <cite>remotePath</cite></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name">
+<col class="field-body">
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>localPath</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) &#x2013; A path relative to the Tiltfile&#x2019;s directory. Changes to files matching this path will be synced to <cite>remotePath</cite>.
+Can be a file (in which case just that file will be synced) or directory (in which case any files recursively under that directory will be synced).</li>
+<li><strong>remotePath</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) &#x2013; container path to which changes will be synced.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference internal" href="#api.LiveUpdateStep" title="api.LiveUpdateStep"><code class="xref py py-class docutils literal notranslate"><span class="pre">LiveUpdateStep</span></code></a></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl><dl class="function">
 <dt id="api.watch_file">
 <code class="descclassname">api.</code><code class="descname">watch_file</code><span class="sig-paren">(</span><em>file_path</em><span class="sig-paren">)</span><a class="headerlink" href="#api.watch_file" title="Permalink to this definition">&#xB6;</a></dt>
 <dd><p>Watches a file. If the file is changed a re-exectution of the Tiltfile is triggered.</p>
@@ -461,6 +549,20 @@ In any other case, an error reading <cite>path</cite> will be a Tiltfile load er
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>file_path</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) &#x2013; Path to the file locally (absolute, or relative to the location of the Tiltfile).</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><code class="docutils literal notranslate"><span class="pre">None</span></code></td>
+</tr>
+</tbody>
+</table>
+</dd></dl><dl class="function">
+<dt id="api.workdir">
+<code class="descclassname">api.</code><code class="descname">workdir</code><span class="sig-paren">(</span><em>dir</em><span class="sig-paren">)</span><a class="headerlink" href="#api.workdir" title="Permalink to this definition">&#xB6;</a></dt>
+<dd><p>Specify that any <cite>run</cite> steps should use <cite>dir</cite> as their working directory within the container.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name">
+<col class="field-body">
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>dir</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) &#x2013; container path from which <cite>run</cite> steps should be executed</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#api.LiveUpdateStep" title="api.LiveUpdateStep"><code class="xref py py-class docutils literal notranslate"><span class="pre">LiveUpdateStep</span></code></a></td>
 </tr>
 </tbody>
 </table>

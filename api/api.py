@@ -294,3 +294,64 @@ def custom_build(ref: str, command: str, deps: List[str], tag: str = "", disable
     disable_push: whether Tilt should push the image in to the registry that the Kubernetes cluster has access to. Set this to true if your command handles pushing as well.
   """
   pass
+
+class LiveUpdateStep:
+    """A step in the process of performing a LiveUpdate on an image's container.
+
+    See :meth:`live_update`.
+    """
+    pass
+
+def workdir(dir: str) -> LiveUpdateStep:
+    """Specify that any `run` steps should use `dir` as their working directory within the container.
+
+    Args:
+        dir: container path from which `run` steps should be executed
+    """
+    pass
+
+def sync(localPath: str, remotePath: str) -> LiveUpdateStep:
+    """Specify that any changes to `localPath` should be synced to `remotePath`
+
+    Args:
+        localPath: A path relative to the Tiltfile's directory. Changes to files matching this path will be synced to `remotePath`.
+            Can be a file (in which case just that file will be synced) or directory (in which case any files recursively under that directory will be synced).
+        remotePath: container path to which changes will be synced.
+    """
+    pass
+
+def run(cmd: str, trigger: Union[List[str], str] = []) -> LiveUpdateStep:
+    """Specify that the given `cmd` should be executed when updating an image's container
+
+    Args:
+      cmd: A shell command.
+      trigger: If the ``trigger`` argument is specified, the build step is only run on changes to the given file(s).
+    """
+    pass
+
+def container_restart() -> LiveUpdateStep:
+    """Specify that a container should be restarted when it is live-updated.
+    """
+    pass
+
+def live_update(image: str, steps: List[LiveUpdateStep], full_rebuild_trigger: Union[str, List[str]] = []) -> None:
+    """Specify how to update containers running `image`.
+
+    The list of steps must be, in order:
+
+    - 0 or 1 :meth:`workdir`
+    - 0 or more :meth:`sync`
+    - 0 or more :meth:`run`
+    - 0 or 1 :meth:`container_restart`
+
+    When a file changes:
+
+    1. If it matches any of the paths in `full_rebuild_trigger`, a full rebuild + deploy will be executed.
+    2. Otherwise, if it matches any of the local paths in `sync` steps, a live update will be executed.
+
+    Args:
+        image: The name of the image to update. If this is not an image with a build defined in the Tiltfile, an error will be raised.
+        steps: The steps to execute when updating containers running this image.
+        full_rebuild_trigger: (paths relative to Tiltfile directory) Changes to any files listed here will cause Tilt to do a full image rebuild + deploy instead of a live update.
+    """
+    pass
