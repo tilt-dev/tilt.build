@@ -71,7 +71,7 @@ And if we `tilt up` we should see that Tilt calls Bazel to build the YAML and th
 ### Building Images
 Let's follow the same strategy and figure out the Bazel command that will just build an image and then integrate that in to the Tiltfile.
 
-rules_k8s uses rules_docker under the hood for building images. Another [quick glance at rules_docker's documentation](https://github.com/bazelbuild/rules_docker#using-with-docker-locally) reveals that `bazel run //:targetname` will load the image in to the configured Docker daemon. That's all we need thanks to `custom_build`. Custom build takes an image name and a command that should produce that image. After the command is executed Tilt asserts that it exists, and retags it so it can track it.
+"rules_k8s" uses "rules_docker" under the hood for building images. [Reading through rules_docker's documentation](https://github.com/bazelbuild/rules_docker#using-with-docker-locally) reveals that `bazel run //:targetname` will load the image in to the configured Docker daemon. That's all we need thanks to `custom_build`. Custom build takes an image name and a command that should produce that image. After the command is executed Tilt asserts that it exists, and retags it so it can track it.
 
 ```python
 custom_build(
