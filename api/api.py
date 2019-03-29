@@ -302,16 +302,22 @@ class LiveUpdateStep:
     """
     pass
 
-def workdir(dir: str) -> LiveUpdateStep:
-    """Specify that any `run` steps should use `dir` as their working directory within the container.
+def work_dir(dir: str) -> LiveUpdateStep:
+    """Specify that `dir` should be used as the in-container working directory for any subsequent steps, e.g.:
+    1. Any `run` steps should use `dir` as their working directory within the container.
+    2. Any relative remote paths in `sync` steps are relative to `dir`
+
+    May only be included in a `live_update` once, and only as the first step.
 
     Args:
-        dir: container path from which `run` steps should be executed
+        dir: in-container working directory to use for subsequent steps
     """
     pass
 
-def sync(localPath: str, remotePath: str) -> LiveUpdateStep:
+def sync(local_path: str, remote_path: str) -> LiveUpdateStep:
     """Specify that any changes to `localPath` should be synced to `remotePath`
+
+    May not follow any `run` steps in a `live_update`.
 
     Args:
         localPath: A path relative to the Tiltfile's directory. Changes to files matching this path will be synced to `remotePath`.
@@ -323,6 +329,8 @@ def sync(localPath: str, remotePath: str) -> LiveUpdateStep:
 def run(cmd: str, trigger: Union[List[str], str] = []) -> LiveUpdateStep:
     """Specify that the given `cmd` should be executed when updating an image's container
 
+    May not precede any `sync` steps in a `live_update`.
+
     Args:
       cmd: A shell command.
       trigger: If the ``trigger`` argument is specified, the build step is only run on changes to the given file(s).
@@ -331,6 +339,9 @@ def run(cmd: str, trigger: Union[List[str], str] = []) -> LiveUpdateStep:
 
 def container_restart() -> LiveUpdateStep:
     """Specify that a container should be restarted when it is live-updated.
+
+    May only be included in a `live_update` once, and only as the last step.
+
     """
     pass
 
@@ -339,15 +350,18 @@ def live_update(image: str, steps: List[LiveUpdateStep], full_rebuild_trigger: U
 
     The list of steps must be, in order:
 
-    - 0 or 1 :meth:`workdir`
+    - 0 or 1 :meth:`work_dir`
     - 0 or more :meth:`sync`
     - 0 or more :meth:`run`
     - 0 or 1 :meth:`container_restart`
 
     When a file changes:
 
-    1. If it matches any of the paths in `full_rebuild_trigger`, a full rebuild + deploy will be executed.
-    2. Otherwise, if it matches any of the local paths in `sync` steps, a live update will be executed.
+    1. If it matches any of the paths in `full_rebuild_trigger`, a full rebuild + deploy will be executed (i.e., the normal, non-live_update process).
+    2. Otherwise, if it matches any of the local paths in `sync` steps, a live update will be executed:
+        1. copy any changed files according to `sync` steps
+        2. execute any relevant `run` steps
+        3. restart the container if a `container_restart` step is present
 
     Args:
         image: The name of the image to update. If this is not an image with a build defined in the Tiltfile, an error will be raised.
