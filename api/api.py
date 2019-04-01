@@ -302,18 +302,6 @@ class LiveUpdateStep:
     """
     pass
 
-def work_dir(dir: str) -> LiveUpdateStep:
-    """Specify that `dir` should be used as the in-container working directory for any subsequent steps, e.g.:
-    1. Any `run` steps should use `dir` as their working directory within the container.
-    2. Any relative remote paths in `sync` steps are relative to `dir`
-
-    May only be included in a `live_update` once, and only as the first step.
-
-    Args:
-        dir: in-container working directory to use for subsequent steps
-    """
-    pass
-
 def sync(local_path: str, remote_path: str) -> LiveUpdateStep:
     """Specify that any changes to `localPath` should be synced to `remotePath`
 
@@ -322,7 +310,7 @@ def sync(local_path: str, remote_path: str) -> LiveUpdateStep:
     Args:
         localPath: A path relative to the Tiltfile's directory. Changes to files matching this path will be synced to `remotePath`.
             Can be a file (in which case just that file will be synced) or directory (in which case any files recursively under that directory will be synced).
-        remotePath: container path to which changes will be synced.
+        remotePath: container path to which changes will be synced. Must be absolute.
     """
     pass
 
@@ -350,7 +338,6 @@ def live_update(image: str, steps: List[LiveUpdateStep], full_rebuild_trigger: U
 
     The list of steps must be, in order:
 
-    - 0 or 1 :meth:`work_dir`
     - 0 or more :meth:`sync`
     - 0 or more :meth:`run`
     - 0 or 1 :meth:`container_restart`
