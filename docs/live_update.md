@@ -14,7 +14,7 @@ This works well for interpreted languages like JavaScript and Python
 where you can add the files and go. For servers that need to be compiled,
 it would be too slow to recompile from scratch every time.
 
-That's why Tilt has a function `fast_build()` for lightning-fast local
+That's why Tilt has a function `live_update()` for lightning-fast local
 Kubernetes development.
 
 Let's look at an example in the [tiltdemo repo](https://github.com/windmilleng/tiltdemo):
@@ -30,53 +30,43 @@ The `Tiltfile` at the root of the repo contains this example:
 # tiltdemo1
 k8s_yaml('deployments/demoserver1.yaml')
 dm1_img_name = 'gcr.io/windmill-test-containers/tiltdemo/demoserver1'
-(fast_build(dm1_img_name, 'Dockerfile', '/go/bin/demoserver1')
-  .add('./cmd/demoserver1',
-      '/go/src/github.com/windmilleng/tiltdemo/cmd/demoserver1')
-  .run('go install github.com/windmilleng/tiltdemo/cmd/demoserver1'))
+docker_build(dm1_img_name, '.', dockerfile='Dockerfile.server1')
+live_update(dm1_img_name,
+  [
+    sync('cmd/demoserver1', '/go/src/github.com/windmilleng/tiltdemo/cmd/demoserver1'),
+    run('go install github.com/windmilleng/tiltdemo/cmd/demoserver1'),
+    restart_container(),
+  ])
 ```
 
-This looks similar to the `Tiltfile` in previous tutorials, but instead of building
-with `docker_build()`, it contains `fast_build()`. Let's zoom
-in on that part of the function.
+This looks similar to the `Tiltfile` in previous tutorials, but in addition to building
+with `docker_build()`, it contains `live_update()`. Let's zoom
+in on that part of the configuration.
 
 
 ```python
-(fast_build(dm1_img_name, 'Dockerfile', '/go/bin/demoserver1')
-  .add('./cmd/demoserver1',
-      '/go/src/github.com/windmilleng/tiltdemo/cmd/demoserver1')
-  .run('go install github.com/windmilleng/tiltdemo/cmd/demoserver1'))
+live_update(dm1_img_name,
+  [
+    sync('cmd/demoserver1', '/go/src/github.com/windmilleng/tiltdemo/cmd/demoserver1'),
+    run('go install github.com/windmilleng/tiltdemo/cmd/demoserver1'),
+    restart_container(),
+  ])
 ```
 
 These lines configure `tilt` to do incremental image builds. We'll step through it line-by-line.
 
-* `fast_build(dm1_img_name, 'Dockerfile', '/go/bin/demoserver1')`
+* `live_update(dm1_img_name,`
 
-`fast_build` begins the build.
-This is setting up the build environment before we add any code.
-We build on top of the image in `Dockerfile`. Our new
-image has the name in `dm1_img_name` and has an entrypoint `/go/bin/demoserver1`.
+This specifies we're configuring live updates for any container running `dm1_img_name`.
 
-Here's what's in `Dockerfile`:
+* `sync('cmd/demoserver1', '/go/src/github.com/windmilleng/tiltdemo/cmd/demoserver1'),`
 
-```dockerfile
-FROM golang:1.10
-```
+The `sync` method copies a file or directory from outside your container to inside of your container.
 
-It's only one line! This line says we're starting in a golang:1.10 container.
-
-Fast build Dockerfiles cannot contain any ADD or COPY lines.
-It's only for setting up the environment, not for adding your code.
-So this Dockerfile might look different than most.
-
-* `add('./cmd/demoserver1', '/go/src/github.com/windmilleng/tiltdemo/cmd/demoserver1')`
-
-The `add` method copies a directory from outside your container to inside of your container.
-
-In this case, we copy the directory `./cmd/demoserver` (relative to the Tiltfile) into
+In this case, we copy the directory `./cmd/demoserver1` (relative to the Tiltfile) into
 the container filesystem.
 
-While Tilt is running, it watches all files in `./cmd/demoserver`. If they change, it copies the file
+While Tilt is running, it watches all files in `./cmd/demoserver1`. If they change, it copies the file
 into the container.
 
 * `run('go install github.com/windmilleng/tiltdemo/cmd/demoserver1')`
@@ -85,13 +75,22 @@ The `run` method runs shell commands inside your container.
 
 Every time a file changes, Tilt will run this command again.
 
-One of the major build optimizations that Tilt does is to keep the container running, and
+One of the major build optimizations that Tilt does is to keep the container around, and
 start the command inside the running container.
 
 This is much closer to how we normally run commands for local development. Real humans
 don't delete all their code and re-clone it from git every time we need to do a new build!
 We re-run the command in the same directory. Modern tools then take advantage of local caches.
 Tilt runs commands with the same approach, but inside a container.
+
+* `restart_container()`
+
+This specifies that the container should be restarted after the other update steps have been
+applied. The files stay around and, in the case of k8s, the pod stays where it is. This is
+effectively just re-starting the service in the existing container.
+
+For languages/frameworks with hot reloading (i.e., they can pick up code changes without
+restarting the process), like node or flask, this step is unnecessary.
 
 In this guide, we explored just a few of the functions we can use in a `Tiltfile`
 to keep your build fast. For even more functions and tricks,
