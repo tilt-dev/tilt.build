@@ -86,7 +86,7 @@ Tilt runs commands with the same approach, but inside a container.
 * `restart_container()`
 
 This specifies that the container should be restarted after the other update steps have been
-applied. The files stay around and, in the case of k8s, the pod stays where it is. This is
+applied. Any changed files stay around and, in the case of k8s, the pod stays where it is. This is
 effectively just re-starting the service in the existing container.
 
 For languages/frameworks with hot reloading (i.e., they can pick up code changes without
