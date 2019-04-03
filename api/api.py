@@ -321,7 +321,7 @@ def run(cmd: str, trigger: Union[List[str], str] = []) -> LiveUpdateStep:
 
     Args:
       cmd: A shell command.
-      trigger: If the ``trigger`` argument is specified, the build step is only run on changes to the given file(s).
+      trigger: If the ``trigger`` argument is specified, the build step is only run on changes to the given file(s). Paths relative to Tiltfile.
     """
     pass
 
