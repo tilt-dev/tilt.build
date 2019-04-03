@@ -39,9 +39,9 @@ live_update(dm1_img_name,
   ])
 ```
 
-This looks similar to the `Tiltfile` in previous tutorials, but in addition to building
-with `docker_build()`, it contains `live_update()`. Let's zoom
-in on that part of the configuration.
+This looks similar to the `Tiltfile` in previous tutorials, but in addition to specifying
+how to build the image with `docker_build()`, it specifies how to update the running
+image with `live_update()`. Let's zoom in on that part of the configuration.
 
 
 ```python
@@ -66,14 +66,18 @@ The `sync` method copies a file or directory from outside your container to insi
 In this case, we copy the directory `./cmd/demoserver1` (relative to the Tiltfile) into
 the container filesystem.
 
-While Tilt is running, it watches all files in `./cmd/demoserver1`. If they change, it copies the file
-into the container.
+The normal `docker_build` behavior is to watch all files in the docker build context (`.`),
+and any time one changes, to do an image build and redeploy. The `sync` here says that, if
+the changed file matches `cmd/demoserver1`, to instead do a `live_update` - Tilt will copy
+the changed files into the container and execute any appropriate `run` or `restart_container`
+steps, without actually building or pushing a docker image or performing a k8s deploy.
 
 * `run('go install github.com/windmilleng/tiltdemo/cmd/demoserver1')`
 
 The `run` method runs shell commands inside your container.
 
-Every time a file changes, Tilt will run this command again.
+Every time a `live_update` runs (i.e., when a file matching a `sync` changes), Tilt will run
+this command again.
 
 One of the major build optimizations that Tilt does is to keep the container around, and
 start the command inside the running container.
