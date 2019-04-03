@@ -79,13 +79,12 @@ The `run` method runs shell commands inside your container.
 Every time a `live_update` runs (i.e., when a file matching a `sync` changes), Tilt will run
 this command again.
 
-One of the major build optimizations that Tilt does is to keep the container around, and
-start the command inside the running container.
-
-This is much closer to how we normally run commands for local development. Real humans
-don't delete all their code and re-clone it from git every time we need to do a new build!
-Instead, we re-run the command in the same directory. Modern tools then take advantage of local caches;
-Tilt runs commands with the same approach, but inside a container.
+One of the major build optimizations here is that Tilt runs your command inside the existing
+container, instead of building from scratch to create a fresh image. This is much closer to how
+we normally run commands for local development. Real humans don't delete all their code and
+re-clone it from git every time we need to do a new build! Instead, we re-run the command in
+the same directory. Modern tools then take advantage of local caches; Tilt runs commands with
+the same approach, but inside a container.
 
 * `restart_container()`
 
@@ -93,8 +92,8 @@ This specifies that the container should be restarted after the other update ste
 applied. Any changed files stay around and, in the case of k8s, the pod stays where it is. This is
 effectively just re-starting the service in the existing container.
 
-For languages/frameworks with hot reloading (i.e., they can pick up code changes without
-restarting the process), like node or flask, this step is unnecessary.
+For languages/frameworks like Node or Flask that have hot reloading (i.e., they can pick up code
+changes without restarting the process), this step is unnecessary.
 
 In this guide, we explored just a few of the functions we can use in a `Tiltfile`
 to keep your build fast. For even more functions and tricks,
