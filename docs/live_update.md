@@ -84,7 +84,7 @@ start the command inside the running container.
 
 This is much closer to how we normally run commands for local development. Real humans
 don't delete all their code and re-clone it from git every time we need to do a new build!
-We re-run the command in the same directory. Modern tools then take advantage of local caches.
+Instead, we re-run the command in the same directory. Modern tools then take advantage of local caches;
 Tilt runs commands with the same approach, but inside a container.
 
 * `restart_container()`
