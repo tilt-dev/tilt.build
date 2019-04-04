@@ -130,18 +130,15 @@ You can combine multiple optional arguments.
 ## Resources
 Tilt's UI makes it easier to find errors by grouping related status and output. E.g., when you edit a file, you want to know what error it caused, whether it's an error at build-time, deploy-time, or run-time. Tilt calls these groupings "Resources". Each Resource has a line in the UI that can be expanded and investigated.
 
-Tilt generates these groups after executing your `Tiltfile`. We're actively working on how to group in ways that make the most intuitive sense, so the specific algorithm is in-flux. We'll expand this paragraph when it's more settled.
+Tilt generates these groups after executing your `Tiltfile`. It does this by scanning all loaded yaml for any k8s objects that it considers a "workload" (i.e., it defines a Container, or is a CRD with an image\_json\_path). Each of these objects becomes a resource.
 
-You can configure a resource with a call to `k8s_resource`. Today there are two relevant configuration arguments: `image` and `port_forwards`.
+You can configure a resource with a call to [`k8s_resource`](api.html#api.k8s_resource). Today there are two relevant configuration arguments: `new_name` and `port_forwards`.
 
-`image` allows you to specify a custom image to group by. If not specified it will try to group images by the name of the resource itself.
+`new_name` allows you to specify a new resource name, in case you do not like the automatically generated one.
 
 ```python
-# group pods running images named "Frontend" in to a resource named "frontend"
-k8s_resource('frontend')
-
-# group pods running images named "custom_frontend" in to a resource named "frontend"
-k8s_resource('frontend', image='custom_frontend')
+# rename the resource "redis:deployment" to "redis"
+k8s_resource('redis:deployment', new_name='redis')
 ```
 
 Tilt also supports a few ways to specify `port_forwards`:

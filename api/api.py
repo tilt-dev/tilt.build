@@ -87,9 +87,59 @@ def k8s_yaml(yaml: Union[str, List[str], Blob]) -> None:
   """
   pass
 
-def k8s_resource(name: str, yaml: Union[str, Blob] = "", image: Union[str, FastBuild] = "",
+def k8s_resource(workload: str, new_name: str = "",
+                 port_forwards: Union[str, int, List[int]] = [],
+                 extra_pod_selectors: Union[Dict[str, str], List[Dict[str, str]]] = []) -> None:
+  """Configures a kubernetes resources
+
+  If :meth:`k8s_resource_assembly_version` has been called with `1`, see
+  :meth:`k8s_resource_v1_DEPRECATED` instead.
+
+  Args:
+    workload: which workload's resource to configure. This is a colon-separated
+      string consisting of one or more of (name, kind, namespace, group), e.g.,
+      "redis", "redis:deployment", or "redis:deployment:default".
+      `k8s_resource` searches all loaded k8s workload objects for an object matching
+      all given fields. If there's exactly one, `k8s_resource` configures options for
+      that workload. If there's not exactly one, `k8s_resource` raises an error.
+      (e.g., "redis" suffices if there's only one object named "redis", but if
+      there's both a deployment and a cronjob named "redis", you'd need to specify
+      "redis:deployment").
+    new_name: if non-empty, will be used as the new name for this resource
+    port_forwards: Local ports to connect to the pod. If no
+      target port is specified, will use the first container port.
+      Example values: 9000 (connect localhost:9000 to the default container port),
+      '9000:8000' (connect localhost:9000 to the container port 8000),
+      ['9000:8000', '9001:8001'] (connect localhost:9000 and :9001 to the
+      container ports 8000 and 8001, respectively).
+    extra_pod_selectors: In addition to relying on Tilt's heuristics to automatically
+      find K8S resources associated with this resource, a user may specify extra
+      labelsets to force entities to be associated with this resource. An entity
+      will be associated with this resource if it has all of the labels in at
+      least one of the entries specified (but still also if it meets any of
+      Tilt's usual mechanisms).
+  """
+
+  pass
+
+def k8s_resource_assembly_version(version: int) -> None:
+  """
+  Specifies which version of k8s resource assembly loading to use.
+
+  This function is deprecated and will be removed.
+  See `Resource Assembly Migration </resource_assembly_migration.html>`_ for information.
+
+  Changes the behavior of :meth:`k8s_resource`.
+  """
+
+def k8s_resource_v1_DEPRECATED(name: str, yaml: Union[str, Blob] = "", image: Union[str, FastBuild] = "",
     port_forwards: Union[str, int, List[int]] = [], extra_pod_selectors: Union[Dict[str, str], List[Dict[str, str]]] = []) -> None:
-  """Creates a kubernetes resource that tilt can deploy using the specified image.
+  """NOTE: This is actually named :meth:`k8s_resource`. This documents
+  the behavior of this method after a call to :meth:`k8s_resource_assembly_version` with value `1`.
+  This behavior is deprecated and will be removed.
+  See `Resource Assembly Migration </resource_assembly_migration.html>`_ for information.
+
+  Creates a kubernetes resource that tilt can deploy using the specified image.
 
   Args:
     name: What call this resource in the UI. If ``image`` is not specified ``name`` will be used as the image to group by.

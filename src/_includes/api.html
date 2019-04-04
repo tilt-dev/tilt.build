@@ -304,8 +304,68 @@ This uses the k8s json path template syntax, described <a class="reference exter
 </table>
 </dd></dl><dl class="function">
 <dt id="api.k8s_resource">
-<code class="descclassname">api.</code><code class="descname">k8s_resource</code><span class="sig-paren">(</span><em>name</em>, <em>yaml=&apos;&apos;</em>, <em>image=&apos;&apos;</em>, <em>port_forwards=[]</em>, <em>extra_pod_selectors=[]</em><span class="sig-paren">)</span><a class="headerlink" href="#api.k8s_resource" title="Permalink to this definition">&#xB6;</a></dt>
-<dd><p>Creates a kubernetes resource that tilt can deploy using the specified image.</p>
+<code class="descclassname">api.</code><code class="descname">k8s_resource</code><span class="sig-paren">(</span><em>workload</em>, <em>new_name=&apos;&apos;</em>, <em>port_forwards=[]</em>, <em>extra_pod_selectors=[]</em><span class="sig-paren">)</span><a class="headerlink" href="#api.k8s_resource" title="Permalink to this definition">&#xB6;</a></dt>
+<dd><p>Configures a kubernetes resources</p>
+<p>If <a class="reference internal" href="#api.k8s_resource_assembly_version" title="api.k8s_resource_assembly_version"><code class="xref py py-meth docutils literal notranslate"><span class="pre">k8s_resource_assembly_version()</span></code></a> has been called with <cite>1</cite>, see
+<a class="reference internal" href="#api.k8s_resource_v1_DEPRECATED" title="api.k8s_resource_v1_DEPRECATED"><code class="xref py py-meth docutils literal notranslate"><span class="pre">k8s_resource_v1_DEPRECATED()</span></code></a> instead.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name">
+<col class="field-body">
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>workload</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) &#x2013; which workload&#x2019;s resource to configure. This is a colon-separated
+string consisting of one or more of (name, kind, namespace, group), e.g.,
+&#x201C;redis&#x201D;, &#x201C;redis:deployment&#x201D;, or &#x201C;redis:deployment:default&#x201D;.
+<cite>k8s_resource</cite> searches all loaded k8s workload objects for an object matching
+all given fields. If there&#x2019;s exactly one, <cite>k8s_resource</cite> configures options for
+that workload. If there&#x2019;s not exactly one, <cite>k8s_resource</cite> raises an error.
+(e.g., &#x201C;redis&#x201D; suffices if there&#x2019;s only one object named &#x201C;redis&#x201D;, but if
+there&#x2019;s both a deployment and a cronjob named &#x201C;redis&#x201D;, you&#x2019;d need to specify
+&#x201C;redis:deployment&#x201D;).</li>
+<li><strong>new_name</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) &#x2013; if non-empty, will be used as the new name for this resource</li>
+<li><strong>port_forwards</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>]]) &#x2013; Local ports to connect to the pod. If no
+target port is specified, will use the first container port.
+Example values: 9000 (connect localhost:9000 to the default container port),
+&#x2018;9000:8000&#x2019; (connect localhost:9000 to the container port 8000),
+[&#x2018;9000:8000&#x2019;, &#x2018;9001:8001&#x2019;] (connect localhost:9000 and :9001 to the
+container ports 8000 and 8001, respectively).</li>
+<li><strong>extra_pod_selectors</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">Dict</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>], <code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">Dict</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]]]) &#x2013; In addition to relying on Tilt&#x2019;s heuristics to automatically
+find K8S resources associated with this resource, a user may specify extra
+labelsets to force entities to be associated with this resource. An entity
+will be associated with this resource if it has all of the labels in at
+least one of the entries specified (but still also if it meets any of
+Tilt&#x2019;s usual mechanisms).</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><code class="docutils literal notranslate"><span class="pre">None</span></code></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl><dl class="function">
+<dt id="api.k8s_resource_assembly_version">
+<code class="descclassname">api.</code><code class="descname">k8s_resource_assembly_version</code><span class="sig-paren">(</span><em>version</em><span class="sig-paren">)</span><a class="headerlink" href="#api.k8s_resource_assembly_version" title="Permalink to this definition">&#xB6;</a></dt>
+<dd><p>Specifies which version of k8s resource assembly loading to use.</p>
+<p>This function is deprecated and will be removed.
+See <a class="reference external" href="/resource_assembly_migration.html">Resource Assembly Migration</a> for information.</p>
+<p>Changes the behavior of <a class="reference internal" href="#api.k8s_resource" title="api.k8s_resource"><code class="xref py py-meth docutils literal notranslate"><span class="pre">k8s_resource()</span></code></a>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name">
+<col class="field-body">
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><code class="docutils literal notranslate"><span class="pre">None</span></code></td>
+</tr>
+</tbody>
+</table>
+</dd></dl><dl class="function">
+<dt id="api.k8s_resource_v1_DEPRECATED">
+<code class="descclassname">api.</code><code class="descname">k8s_resource_v1_DEPRECATED</code><span class="sig-paren">(</span><em>name</em>, <em>yaml=&apos;&apos;</em>, <em>image=&apos;&apos;</em>, <em>port_forwards=[]</em>, <em>extra_pod_selectors=[]</em><span class="sig-paren">)</span><a class="headerlink" href="#api.k8s_resource_v1_DEPRECATED" title="Permalink to this definition">&#xB6;</a></dt>
+<dd><p>NOTE: This is actually named <a class="reference internal" href="#api.k8s_resource" title="api.k8s_resource"><code class="xref py py-meth docutils literal notranslate"><span class="pre">k8s_resource()</span></code></a>. This documents
+the behavior of this method after a call to <a class="reference internal" href="#api.k8s_resource_assembly_version" title="api.k8s_resource_assembly_version"><code class="xref py py-meth docutils literal notranslate"><span class="pre">k8s_resource_assembly_version()</span></code></a> with value <cite>1</cite>.
+This behavior is deprecated and will be removed.
+See <a class="reference external" href="/resource_assembly_migration.html">Resource Assembly Migration</a> for information.</p>
+<p>Creates a kubernetes resource that tilt can deploy using the specified image.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name">
 <col class="field-body">
