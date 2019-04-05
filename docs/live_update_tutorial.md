@@ -31,33 +31,32 @@ The `Tiltfile` at the root of the repo contains this example:
 k8s_yaml('deployments/demoserver1.yaml')
 dm1_img_name = 'gcr.io/windmill-test-containers/tiltdemo/demoserver1'
 docker_build(dm1_img_name, '.', dockerfile='Dockerfile.server1')
-live_update(dm1_img_name,
-  [
+  live_update=[
     sync('cmd/demoserver1', '/go/src/github.com/windmilleng/tiltdemo/cmd/demoserver1'),
     run('go install github.com/windmilleng/tiltdemo/cmd/demoserver1'),
     restart_container(),
-  ])
+  ]
+)
 ```
 
-This looks similar to the `Tiltfile` in previous tutorials, but in addition to specifying
-how to build the image with `docker_build()`, it specifies how to update the running
-image with `live_update()`. Let's zoom in on that part of the configuration.
+This looks similar to the `Tiltfile` in previous tutorials, but when we specify
+how to build the image with `docker_build()`, we pass an additional argument,
+`live_update`, containing a list of steps for how to update the running container.
+Let's zoom in on that part of the configuration.
 
 
 ```python
-live_update(dm1_img_name,
-  [
+docker_build(...,
+  live_update=[
     sync('cmd/demoserver1', '/go/src/github.com/windmilleng/tiltdemo/cmd/demoserver1'),
     run('go install github.com/windmilleng/tiltdemo/cmd/demoserver1'),
     restart_container(),
-  ])
+  ]
+)
 ```
 
-These lines configure `tilt` to do incremental image builds. We'll step through it line-by-line.
-
-* `live_update(dm1_img_name,`
-
-This specifies we're configuring live updates for any container running `dm1_img_name`.
+These lines configure `tilt` to do incremental updates to containers running the
+image we're currently specifying (when possible). We'll step through it line by line.
 
 * `sync('cmd/demoserver1', '/go/src/github.com/windmilleng/tiltdemo/cmd/demoserver1'),`
 

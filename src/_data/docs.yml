@@ -20,7 +20,7 @@
   - title: Tiltfile Concepts
     href: tiltfile_concepts.html
   - title: Optimizing a Tiltfile
-    href: live_update.html
+    href: live_update_tutorial.html
   - title: Tiltfile API Reference
     href: api.html
   - title: Other Tilt Features
