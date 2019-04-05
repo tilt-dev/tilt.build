@@ -9,10 +9,10 @@ When specifying how to build an image (via `docker_build()` or `custom_build()`)
 `live_update` takes a list of `LiveUpdateSteps` that tell Tilt how to update a running container in place (instead of paying the cost of building a new image and redeploying).
 
 The list of `LiveUpdateSteps` must be, in order:
-- 0 or more `fall_back_on`	
-- 0 or more `sync`	
-- 0 or more `run`	
-- 0 or 1 `container_restart`	
+- 0 or more [`fall_back_on`](api.html#api.fall_back_on)
+- 0 or more [`sync`](api.html#api.sync)
+- 0 or more [`run`](api.html#api.run)
+- 0 or 1 [`container_restart`](api.html#api.container_restart)
 
 When a file changes:	
    1. If it matches any of the files in a `fall_back_on` step, we will fall back to a full rebuild + deploy (i.e., the normal, non-live_update process).	
@@ -21,4 +21,4 @@ When a file changes:
         2. for every `run` step:
             * if the `run` specifies one or more `triggers`, execute the command iff any changed files match the given triggers
             * else, simply execute the command
-        3. restart the container if a `container_restart` step is present
+        3. restart the container if a `container_restart` step is present. (This is tantamount to re-executing the container's `ENTRYPOINT`.)

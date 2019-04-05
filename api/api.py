@@ -10,7 +10,7 @@ class Blob:
 class LiveUpdateStep:
   """A step in the process of performing a LiveUpdate on an image's container.
 
-  See the LiveUpdate documentation, coming soon!
+  For details, see the `Live Update documentation <live_update_reference.html>`_.
   """
   pass
 
@@ -73,7 +73,7 @@ def docker_build(ref: str, context: str, build_args: Dict[str, str] = {}, docker
     build_args: build-time variables that are accessed like regular environment variables in the ``RUN`` instruction of the Dockerfile. See `the Docker Build Arg documentation <https://docs.docker.com/engine/reference/commandline/build/#set-build-time-variables---build-arg>`_
     dockerfile: path to the Dockerfile to build
     dockerfile_contents: raw contents of the Dockerfile to use for this build
-    live_update: set of steps for updating a running container (see the LiveUpdate documentation, coming soon!)
+    live_update: set of steps for updating a running container (see `Live Update documentation <live_update_reference.html>`_).
   """
   pass
 
@@ -346,6 +346,6 @@ def custom_build(ref: str, command: str, deps: List[str], tag: str = "", disable
     deps: a list of files or directories to be added as dependencies to this image. Tilt will watch those files and will rebuild the image when they change.
     tag: the tag you expect the resulting image to have; we set ``$EXPECTED_REF=imagename:tag`` and use this value to verify that the command produced the correct image. (If ``tag`` is not specified, Tilt will set the expected ref to ``imagename:<tilt-generated temporary tag>``.)
     disable_push: whether Tilt should push the image in to the registry that the Kubernetes cluster has access to. Set this to true if your command handles pushing as well.
-    live_update: set of steps for updating a running container (see the LiveUpdate documentation, coming soon!)
+    live_update: set of steps for updating a running container (see `Live Update documentation <live_update_reference.html>`_).
   """
   pass

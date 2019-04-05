@@ -87,7 +87,7 @@
 <dt id="api.LiveUpdateStep">
 <em class="property">class </em><code class="descclassname">api.</code><code class="descname">LiveUpdateStep</code><a class="headerlink" href="#api.LiveUpdateStep" title="Permalink to this definition">&#xB6;</a></dt>
 <dd><p>A step in the process of performing a LiveUpdate on an image&#x2019;s container.</p>
-<p>See the LiveUpdate documentation, coming soon!</p>
+<p>For details, see the <a class="reference external" href="live_update_reference.html">Live Update documentation</a>.</p>
 </dd></dl><dl class="function">
 <dt id="api.blob">
 <code class="descclassname">api.</code><code class="descname">blob</code><span class="sig-paren">(</span><em>contents</em><span class="sig-paren">)</span><a class="headerlink" href="#api.blob" title="Permalink to this definition">&#xB6;</a></dt>
@@ -139,7 +139,8 @@
 <li><strong>deps</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]) &#x2013; a list of files or directories to be added as dependencies to this image. Tilt will watch those files and will rebuild the image when they change.</li>
 <li><strong>tag</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) &#x2013; the tag you expect the resulting image to have; we set <code class="docutils literal notranslate"><span class="pre">$EXPECTED_REF=imagename:tag</span></code> and use this value to verify that the command produced the correct image. (If <code class="docutils literal notranslate"><span class="pre">tag</span></code> is not specified, Tilt will set the expected ref to <code class="docutils literal notranslate"><span class="pre">imagename:&lt;tilt-generated</span> <span class="pre">temporary</span> <span class="pre">tag&gt;</span></code>.)</li>
 <li><strong>disable_push</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>) &#x2013; whether Tilt should push the image in to the registry that the Kubernetes cluster has access to. Set this to true if your command handles pushing as well.</li>
-<li><strong>live_update</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<a class="reference internal" href="#api.LiveUpdateStep" title="api.LiveUpdateStep"><code class="xref py py-class docutils literal notranslate"><span class="pre">LiveUpdateStep</span></code></a>]) &#x2013; set of steps for updating a running container (see the LiveUpdate documentation, coming soon!)</li>
+<li><strong>live_update</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<a class="reference internal" href="#api.LiveUpdateStep" title="api.LiveUpdateStep"><code class="xref py py-class docutils literal notranslate"><span class="pre">LiveUpdateStep</span></code></a>]) &#x2013; <p>set of steps for updating a running container (see <a class="reference external" href="live_update_reference.html">Live Update documentation</a>).</p>
+</li>
 </ul>
 </td>
 </tr>
@@ -203,7 +204,8 @@
 <li><strong>build_args</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">Dict</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]) &#x2013; build-time variables that are accessed like regular environment variables in the <code class="docutils literal notranslate"><span class="pre">RUN</span></code> instruction of the Dockerfile. See <a class="reference external" href="https://docs.docker.com/engine/reference/commandline/build/#set-build-time-variables---build-arg">the Docker Build Arg documentation</a></li>
 <li><strong>dockerfile</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) &#x2013; path to the Dockerfile to build</li>
 <li><strong>dockerfile_contents</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <a class="reference internal" href="#api.Blob" title="api.Blob"><code class="xref py py-class docutils literal notranslate"><span class="pre">Blob</span></code></a>]) &#x2013; raw contents of the Dockerfile to use for this build</li>
-<li><strong>live_update</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<a class="reference internal" href="#api.LiveUpdateStep" title="api.LiveUpdateStep"><code class="xref py py-class docutils literal notranslate"><span class="pre">LiveUpdateStep</span></code></a>]) &#x2013; set of steps for updating a running container (see the LiveUpdate documentation, coming soon!)</li>
+<li><strong>live_update</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<a class="reference internal" href="#api.LiveUpdateStep" title="api.LiveUpdateStep"><code class="xref py py-class docutils literal notranslate"><span class="pre">LiveUpdateStep</span></code></a>]) &#x2013; <p>set of steps for updating a running container (see <a class="reference external" href="live_update_reference.html">Live Update documentation</a>).</p>
+</li>
 </ul>
 </td>
 </tr>
