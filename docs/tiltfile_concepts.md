@@ -127,10 +127,15 @@ docker_build("companyname/frontend", "frontend", build_args={"target": "local"})
 
 You can combine multiple optional arguments.
 
+## Workloads
+
+A workload is roughly a Kubernetes object that has a container. This means it's running an
+image and might produce logs and have some kind of status.
+
 ## Resources
 Tilt's UI makes it easier to find errors by grouping related status and output. E.g., when you edit a file, you want to know what error it caused, whether it's an error at build-time, deploy-time, or run-time. Tilt calls these groupings "Resources". Each Resource has a line in the UI that can be expanded and investigated.
 
-Tilt generates these groups after executing your `Tiltfile`. It does this by scanning all loaded yaml for any k8s objects that it considers a "workload" (i.e., it defines a Container, or is a CRD with an image\_json\_path). Each of these objects becomes a resource.
+Tilt generates these groups after executing your `Tiltfile`. It does this by scanning all loaded yaml for any k8s objects that it considers a workload. Each of these workloads becomes a Tilt resource.
 
 You can configure a resource with a call to [`k8s_resource`](api.html#api.k8s_resource). Today there are two relevant configuration arguments: `new_name` and `port_forwards`.
 
