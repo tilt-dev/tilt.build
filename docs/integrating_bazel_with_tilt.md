@@ -200,4 +200,4 @@ Now we're passing the dependencies to our `custom_build`. If any of those paths 
 Now we have a [Tiltfile that fully integrates with Bazel](https://github.com/windmilleng/bazel_example/blob/master/Tiltfile) and responds to changes from the filesystem.
 
 ## Putting it all together
-And that's that! Take a look at the [full example code](github.com/windmilleng/bazel_example) and let us know if you have any questions.
+And that's that! Take a look at the [full example code](https://github.com/windmilleng/bazel_example) and let us know if you have any questions.
