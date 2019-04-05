@@ -5,7 +5,7 @@ layout: docs
 This tutorial looks at a `Tiltfile` with build optimizations.
 We explain what they do, and why you would want to use them.
 
-##### (This is a tutorial that walks you through a sample project. If you're looking for technical specs and details, check out the [LiveUpdate Reference](live_update_reference.html) docs.)
+##### (This is a tutorial that walks you through a sample project. If you're looking for technical specs and details, check out the [Live Update Reference](live_update_reference.html) docs.)
 
 In the [Tutorial](tutorial.html), we introduced the `docker_build()` function.
 This function builds a Docker image. Tilt will watch the inputs to the
@@ -15,7 +15,7 @@ This works well for interpreted languages like JavaScript and Python
 where you can add the files and go. For servers that need to be compiled,
 it would be too slow to recompile from scratch every time.
 
-That's why Tilt has a function `live_update()` for lightning-fast local
+That's why Tilt has a feature called Live Update for lightning-fast local
 Kubernetes development.
 
 Let's look at an example in the [tiltdemo repo](https://github.com/windmilleng/tiltdemo):
