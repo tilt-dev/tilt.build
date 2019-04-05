@@ -2,9 +2,10 @@
 title: Optimizing a Tiltfile
 layout: docs
 ---
-
 This tutorial looks at a `Tiltfile` with build optimizations.
 We explain what they do, and why you would want to use them.
+
+##### (This is a tutorial that walks you through a sample project. If you're looking for technical specs and details, check out the [LiveUpdate Reference](live_update_reference.html) docs.)
 
 In the [Tutorial](tutorial.html), we introduced the `docker_build()` function.
 This function builds a Docker image. Tilt will watch the inputs to the
