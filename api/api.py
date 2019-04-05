@@ -7,7 +7,60 @@ class Blob:
 
    To wrap a string as a blob, call ``blob(my_str)``"""
 
-def docker_build(ref: str, context: str, build_args: Dict[str, str] = {}, dockerfile: str = "Dockerfile", dockerfile_contents: Union[str, Blob] = "") -> None:
+class LiveUpdateStep:
+  """A step in the process of performing a LiveUpdate on an image's container.
+
+  See the LiveUpdate documentation, coming soon!
+  """
+  pass
+
+def fall_back_on(files: Union[str, List[str]]) -> LiveUpdateStep:
+  """Specify that any changes to the given files will cause Tilt to *fall back* to a
+  full image build (rather than performing a live update).
+
+  ``fall_back_on`` step(s) may only go at the beginning of your list of steps.
+
+  (Files must be a subset of the files that we're already watching for this image;
+  that is, if any files fall outside of DockerBuild.context or CustomBuild.deps,
+  an error will be raised.)
+
+  Args:
+      files: a string or list of strings of files. If relative, will be evaluated relative to the Tiltfile. Tilt compares these to the local paths of edited files when determining whether to fall back to a full image build.
+  """
+  pass
+
+def sync(local_path: str, remote_path: str) -> LiveUpdateStep:
+  """Specify that any changes to `localPath` should be synced to `remotePath`
+
+  May not follow any `run` steps in a `live_update`.
+
+  Args:
+      localPath: A path relative to the Tiltfile's directory. Changes to files matching this path will be synced to `remotePath`.
+          Can be a file (in which case just that file will be synced) or directory (in which case any files recursively under that directory will be synced).
+      remotePath: container path to which changes will be synced. Must be absolute.
+  """
+  pass
+
+def run(cmd: str, trigger: Union[List[str], str] = []) -> LiveUpdateStep:
+  """Specify that the given `cmd` should be executed when updating an image's container
+
+  May not precede any `sync` steps in a `live_update`.
+
+  Args:
+    cmd: A shell command.
+    trigger: If the ``trigger`` argument is specified, the build step is only run on changes to the given file(s). Paths relative to Tiltfile.
+  """
+  pass
+
+def container_restart() -> LiveUpdateStep:
+  """Specify that a container should be restarted when it is live-updated.
+
+  May only be included in a `live_update` once, and only as the last step.
+
+  """
+  pass
+
+def docker_build(ref: str, context: str, build_args: Dict[str, str] = {}, dockerfile: str = "Dockerfile", dockerfile_contents: Union[str, Blob] = "", live_update: List[LiveUpdateStep]=[]) -> None:
   """Builds a docker image.
 
   Note that you can't set both the `dockerfile` and `dockerfile_contents` arguments (will throw an error).
@@ -20,6 +73,7 @@ def docker_build(ref: str, context: str, build_args: Dict[str, str] = {}, docker
     build_args: build-time variables that are accessed like regular environment variables in the ``RUN`` instruction of the Dockerfile. See `the Docker Build Arg documentation <https://docs.docker.com/engine/reference/commandline/build/#set-build-time-variables---build-arg>`_
     dockerfile: path to the Dockerfile to build
     dockerfile_contents: raw contents of the Dockerfile to use for this build
+    live_update: set of steps for updating a running container (see the LiveUpdate documentation, coming soon!)
   """
   pass
 
@@ -269,7 +323,7 @@ class CustomBuild:
     """Returns a FastBuild that is associated with the image that was built from a ``custom_build``. When the container needs to be rebuilt it will be built using the ``CustomBuild``. Otherwise update will be done with the ``FastBuild`` instructions. """
     pass
 
-def custom_build(ref: str, command: str, deps: List[str], tag: str = "", disable_push: bool = False) -> CustomBuild:
+def custom_build(ref: str, command: str, deps: List[str], tag: str = "", disable_push: bool = False, live_update: List[LiveUpdateStep]=[]) -> CustomBuild:
   """Provide a custom command that will build an image.
 
   Returns an object which can be used to create a FastBuild.
@@ -292,80 +346,6 @@ def custom_build(ref: str, command: str, deps: List[str], tag: str = "", disable
     deps: a list of files or directories to be added as dependencies to this image. Tilt will watch those files and will rebuild the image when they change.
     tag: the tag you expect the resulting image to have; we set ``$EXPECTED_REF=imagename:tag`` and use this value to verify that the command produced the correct image. (If ``tag`` is not specified, Tilt will set the expected ref to ``imagename:<tilt-generated temporary tag>``.)
     disable_push: whether Tilt should push the image in to the registry that the Kubernetes cluster has access to. Set this to true if your command handles pushing as well.
+    live_update: set of steps for updating a running container (see the LiveUpdate documentation, coming soon!)
   """
   pass
-
-class LiveUpdateStep:
-  """A step in the process of performing a LiveUpdate on an image's container.
-
-  See :meth:`live_update`.
-  """
-  pass
-
-def fall_back_on(files: Union[str, List[str]]) -> LiveUpdateStep:
-  """Specify that any changes to the given files will cause Tilt to *fall back* to a
-  full image build (rather than performing a live update).
-
-  ``fall_back_on`` step(s) may only go at the beginning of your list of steps.
-
-  (Files must be a subset of the files that we're already watching for this image;
-  that is, if any files fall outside of DockerBuild.context or CustomBuild.deps,
-  an error will be raised.)
-
-  Args:
-      files: a string or list of strings of files. If relative, will be evaluated relative
-      to the Tiltfile. Tilt compares these to the local paths of edited files when determining
-      whether to fall back to a full image build.
-  """
-  pass
-
-def sync(local_path: str, remote_path: str) -> LiveUpdateStep:
-    """Specify that any changes to `localPath` should be synced to `remotePath`
-
-    May not follow any `run` steps in a `live_update`.
-
-    Args:
-        localPath: A path relative to the Tiltfile's directory. Changes to files matching this path will be synced to `remotePath`.
-            Can be a file (in which case just that file will be synced) or directory (in which case any files recursively under that directory will be synced).
-        remotePath: container path to which changes will be synced. Must be absolute.
-    """
-    pass
-
-def run(cmd: str, trigger: Union[List[str], str] = []) -> LiveUpdateStep:
-    """Specify that the given `cmd` should be executed when updating an image's container
-
-    May not precede any `sync` steps in a `live_update`.
-
-    Args:
-      cmd: A shell command.
-      trigger: If the ``trigger`` argument is specified, the build step is only run on changes to the given file(s). Paths relative to Tiltfile.
-    """
-    pass
-
-def container_restart() -> LiveUpdateStep:
-    """Specify that a container should be restarted when it is live-updated.
-
-    May only be included in a `live_update` once, and only as the last step.
-
-    """
-    pass
-
-def live_update(image: str, steps: List[LiveUpdateStep], full_rebuild_trigger: Union[str, List[str]] = []) -> None:
-    """Specify how to update containers running `image`.
-
-    The list of steps must be, in order:
-
-    - 0 or more :meth:`fall_back_on`
-    - 0 or more :meth:`sync`
-    - 0 or more :meth:`run`
-    - 0 or 1 :meth:`container_restart`
-
-    When a file changes:
-
-    1. If it matches any of the files in a `fall_back_on` step, we will fall back to a full rebuild + deploy (i.e., the normal, non-live_update process).
-    2. Otherwise, if it matches any of the local paths in `sync` steps, a live update will be executed:
-        1. copy any changed files according to `sync` steps
-        2. execute any relevant `run` steps
-        3. restart the container if a `container_restart` step is present
-    """
-    pass
