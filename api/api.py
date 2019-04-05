@@ -296,11 +296,28 @@ def custom_build(ref: str, command: str, deps: List[str], tag: str = "", disable
   pass
 
 class LiveUpdateStep:
-    """A step in the process of performing a LiveUpdate on an image's container.
+  """A step in the process of performing a LiveUpdate on an image's container.
 
-    See :meth:`live_update`.
-    """
-    pass
+  See :meth:`live_update`.
+  """
+  pass
+
+def fall_back_on(files: Union[str, List[str]]) -> LiveUpdateStep:
+  """Specify that any changes to the given files will cause Tilt to *fall back* to a
+  full image build (rather than performing a live update).
+
+  ``fall_back_on`` step(s) may only go at the beginning of your list of steps.
+
+  (Files must be a subset of the files that we're already watching for this image;
+  that is, if any files fall outside of DockerBuild.context or CustomBuild.deps,
+  an error will be raised.)
+
+  Args:
+      files: a string or list of strings of files. If relative, will be evaluated relative
+      to the Tiltfile. Tilt compares these to the local paths of edited files when determining
+      whether to fall back to a full image build.
+  """
+  pass
 
 def sync(local_path: str, remote_path: str) -> LiveUpdateStep:
     """Specify that any changes to `localPath` should be synced to `remotePath`
@@ -338,21 +355,17 @@ def live_update(image: str, steps: List[LiveUpdateStep], full_rebuild_trigger: U
 
     The list of steps must be, in order:
 
+    - 0 or more :meth:`fall_back_on`
     - 0 or more :meth:`sync`
     - 0 or more :meth:`run`
     - 0 or 1 :meth:`container_restart`
 
     When a file changes:
 
-    1. If it matches any of the paths in `full_rebuild_trigger`, a full rebuild + deploy will be executed (i.e., the normal, non-live_update process).
+    1. If it matches any of the files in a `fall_back_on` step, we will fall back to a full rebuild + deploy (i.e., the normal, non-live_update process).
     2. Otherwise, if it matches any of the local paths in `sync` steps, a live update will be executed:
         1. copy any changed files according to `sync` steps
         2. execute any relevant `run` steps
         3. restart the container if a `container_restart` step is present
-
-    Args:
-        image: The name of the image to update. If this is not an image with a build defined in the Tiltfile, an error will be raised.
-        steps: The steps to execute when updating containers running this image.
-        full_rebuild_trigger: (paths relative to Tiltfile directory) Changes to any files listed here will cause Tilt to do a full image rebuild + deploy instead of a live update.
     """
     pass
