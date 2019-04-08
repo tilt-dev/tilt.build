@@ -164,8 +164,8 @@
 </dd></dl><dl class="function">
 <dt id="api.default_registry">
 <code class="descclassname">api.</code><code class="descname">default_registry</code><span class="sig-paren">(</span><em>registry</em><span class="sig-paren">)</span><a class="headerlink" href="#api.default_registry" title="Permalink to this definition">&#xB6;</a></dt>
-<dd><p>Specifies that any images that Tilt builds should be renamed so that they have the specified docker registry.</p>
-<p>This is useful if, e.g., a repo is configured to push to Google Container Registry, but you want to use Elastic Container Registry instead, without having to edit a bunch of configs. For example, <cite>default_registry(&#x201C;gcr.io/myrepo&#x201D;)</cite> would cause <cite>docker.io/alpine</cite> to be rewritten to <cite>gcr.io/myrepo/docker.io_alpine</cite></p>
+<dd><p>Specifies that any images that Tilt builds should be renamed so that they have the specified Docker registry.</p>
+<p>This is useful if, e.g., a repo is configured to push to Google Container Registry, but you want to use Elastic Container Registry instead, without having to edit a bunch of configs. For example, <code class="docutils literal notranslate"><span class="pre">default_registry(&quot;gcr.io/myrepo&quot;)</span></code> would cause <code class="docutils literal notranslate"><span class="pre">docker.io/alpine</span></code> to be rewritten to <code class="docutils literal notranslate"><span class="pre">gcr.io/myrepo/docker.io_alpine</span></code></p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name">
 <col class="field-body">
@@ -174,10 +174,12 @@
 </tr>
 </tbody>
 </table>
-<p>Images are renamed following these rules:
-1. Replace <cite>/</cite> and <cite>@</cite> with <cite>_</cite>.
-2. Prepend the value of <cite>registry</cite> and a <cite>/</cite>.</p>
-<p>e.g., with <cite>default_registry(&#x2018;gcr.io/myorg&#x2019;)</cite>, <cite>user-service</cite> becomes <cite>gcr.io/myorg/user-service</cite>.</p>
+<p>Images are renamed following these rules:</p>
+<ol class="arabic simple">
+<li>Replace <code class="docutils literal notranslate"><span class="pre">/</span></code> and <code class="docutils literal notranslate"><span class="pre">@</span></code> with <code class="docutils literal notranslate"><span class="pre">_</span></code>.</li>
+<li>Prepend the value of <code class="docutils literal notranslate"><span class="pre">registry</span></code> and a <code class="docutils literal notranslate"><span class="pre">/</span></code>.</li>
+</ol>
+<p>e.g., with <code class="docutils literal notranslate"><span class="pre">default_registry(&apos;gcr.io/myorg&apos;)</span></code>, <code class="docutils literal notranslate"><span class="pre">user-service</span></code> becomes <code class="docutils literal notranslate"><span class="pre">gcr.io/myorg/user-service</span></code>.</p>
 <p>(Note: this logic is currently crude, on the assumption that development image names are ephemeral and unimportant. <a class="reference external" href="https://github.com/windmilleng/tilt/issues">Please let us know</a> if they don&#x2019;t suit you!)</p>
 <p>Cf. our <a class="reference external" href="https://docs.tilt.dev/personal_registry.html">using a personal registry guide</a></p>
 <table class="docutils field-list" frame="void" rules="none">
