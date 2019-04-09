@@ -68,9 +68,9 @@ Tilt can give you consistent port forwards to running pods (whether they're runn
 k8s_resource('frontend', port_forwards='9000')
 ```
 
-(Note that the first parameter of `k8s_resource` must match the name of an image that was built. If you'd like to name it something else you can use the [`image` parameter](api.html#api.k8s_resource) to manually specify an image to group by)
+(Note that the first parameter of `k8s_resource` must match the name of a pod-having k8s object that was passed to `k8s_yaml`. If you'd like to name it something else you can use the [`new_name` parameter](api.html#api.k8s_resource) to change its name.)
 
-You can also use `k8s_resource` to change the resource grouping, or forward multiple ports. Cf. the [Resources](tiltfile_concepts.html#resources) section of `Tiltfile Concepts`.
+You can also use `k8s_resource` to forward multiple ports. Cf. the [Resources](tiltfile_concepts.html#resources) section of `Tiltfile Concepts`.
 
 ## Congrats
 Tilt is now setup for your project. Try exploring Tilt's UI (there's a context-sensitive legend in the bottom right). Introduce a build error and then a runtime crash; see Tilt's UI respond and surface the relevant problem.
