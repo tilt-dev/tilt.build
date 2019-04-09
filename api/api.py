@@ -174,11 +174,11 @@ def filter_yaml(yaml: Union[str, List[str], Blob], labels: dict=None, name: str=
 
     # extract all YAMLs matching labels "app=foobar"
     foobar_yaml, rest = filter_yaml('all.yaml', labels={'app': 'foobar'}
-    k8s_resource('foobar', yaml=foobar_yaml)
+    k8s_yaml(foobar_yaml)
 
     # extract YAMLs of kind "deployment" with metadata.name "baz"
     baz_yaml, rest = filter_yaml(rest, name='baz', kind='deployment')
-    k8s_resource('baz', yaml=baz_yaml)
+    k8s_yaml(baz_yaml)
 
   Args:
     yaml: Path(s) to YAML, or YAML as a ``Blob``.

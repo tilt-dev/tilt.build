@@ -227,11 +227,11 @@ returns the non-matching YAML as the second return value.</p>
 <p>For example, if you have a file of <em>all</em> your YAML, but only want to pass a few elements to Tilt:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># extract all YAMLs matching labels &quot;app=foobar&quot;</span>
 <span class="n">foobar_yaml</span><span class="p">,</span> <span class="n">rest</span> <span class="o">=</span> <span class="n">filter_yaml</span><span class="p">(</span><span class="s1">&apos;all.yaml&apos;</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="p">{</span><span class="s1">&apos;app&apos;</span><span class="p">:</span> <span class="s1">&apos;foobar&apos;</span><span class="p">}</span>
-<span class="n">k8s_resource</span><span class="p">(</span><span class="s1">&apos;foobar&apos;</span><span class="p">,</span> <span class="n">yaml</span><span class="o">=</span><span class="n">foobar_yaml</span><span class="p">)</span>
+<span class="n">k8s_yaml</span><span class="p">(</span><span class="n">foobar_yaml</span><span class="p">)</span>
 
 <span class="c1"># extract YAMLs of kind &quot;deployment&quot; with metadata.name &quot;baz&quot;</span>
 <span class="n">baz_yaml</span><span class="p">,</span> <span class="n">rest</span> <span class="o">=</span> <span class="n">filter_yaml</span><span class="p">(</span><span class="n">rest</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&apos;baz&apos;</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s1">&apos;deployment&apos;</span><span class="p">)</span>
-<span class="n">k8s_resource</span><span class="p">(</span><span class="s1">&apos;baz&apos;</span><span class="p">,</span> <span class="n">yaml</span><span class="o">=</span><span class="n">baz_yaml</span><span class="p">)</span>
+<span class="n">k8s_yaml</span><span class="p">(</span><span class="n">baz_yaml</span><span class="p">)</span>
 </pre></div>
 </div>
 <table class="docutils field-list" frame="void" rules="none">
