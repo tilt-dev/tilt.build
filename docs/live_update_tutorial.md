@@ -31,7 +31,7 @@ The `Tiltfile` at the root of the repo contains this example:
 # tiltdemo1
 k8s_yaml('deployments/demoserver1.yaml')
 dm1_img_name = 'gcr.io/windmill-test-containers/tiltdemo/demoserver1'
-docker_build(dm1_img_name, '.', dockerfile='Dockerfile.server1')
+docker_build(dm1_img_name, '.', dockerfile='Dockerfile.server1',
   live_update=[
     sync('cmd/demoserver1', '/go/src/github.com/windmilleng/tiltdemo/cmd/demoserver1'),
     run('go install github.com/windmilleng/tiltdemo/cmd/demoserver1'),
