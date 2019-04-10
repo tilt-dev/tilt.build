@@ -45,4 +45,4 @@ Now we’re cruising! Updates that don't require a `bundle update` zoom by in le
 
 ## Further Reading
 * The full [example Tiltfile](https://github.com/windmilleng/tilt-frontend-demo/blob/master/Tiltfile) featured in this guide
-* [Optimizing a Tiltfile](fast_build.html)
+* [Optimizing a Tiltfile](live_update_tutorial.html)

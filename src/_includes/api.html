@@ -83,6 +83,11 @@
 </table>
 </dd></dl>
 
+</dd></dl><dl class="class">
+<dt id="api.LiveUpdateStep">
+<em class="property">class </em><code class="descclassname">api.</code><code class="descname">LiveUpdateStep</code><a class="headerlink" href="#api.LiveUpdateStep" title="Permalink to this definition">&#xB6;</a></dt>
+<dd><p>A step in the process of performing a LiveUpdate on an image&#x2019;s container.</p>
+<p>For details, see the <a class="reference external" href="live_update_reference.html">Live Update documentation</a>.</p>
 </dd></dl><dl class="function">
 <dt id="api.blob">
 <code class="descclassname">api.</code><code class="descname">blob</code><span class="sig-paren">(</span><em>contents</em><span class="sig-paren">)</span><a class="headerlink" href="#api.blob" title="Permalink to this definition">&#xB6;</a></dt>
@@ -96,8 +101,21 @@
 </tbody>
 </table>
 </dd></dl><dl class="function">
+<dt id="api.container_restart">
+<code class="descclassname">api.</code><code class="descname">container_restart</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#api.container_restart" title="Permalink to this definition">&#xB6;</a></dt>
+<dd><p>Specify that a container should be restarted when it is live-updated.</p>
+<p>May only be included in a <cite>live_update</cite> once, and only as the last step.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name">
+<col class="field-body">
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#api.LiveUpdateStep" title="api.LiveUpdateStep"><code class="xref py py-class docutils literal notranslate"><span class="pre">LiveUpdateStep</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl><dl class="function">
 <dt id="api.custom_build">
-<code class="descclassname">api.</code><code class="descname">custom_build</code><span class="sig-paren">(</span><em>ref</em>, <em>command</em>, <em>deps</em>, <em>tag=&apos;&apos;</em>, <em>disable_push=False</em><span class="sig-paren">)</span><a class="headerlink" href="#api.custom_build" title="Permalink to this definition">&#xB6;</a></dt>
+<code class="descclassname">api.</code><code class="descname">custom_build</code><span class="sig-paren">(</span><em>ref</em>, <em>command</em>, <em>deps</em>, <em>tag=&apos;&apos;</em>, <em>disable_push=False</em>, <em>live_update=[]</em><span class="sig-paren">)</span><a class="headerlink" href="#api.custom_build" title="Permalink to this definition">&#xB6;</a></dt>
 <dd><p>Provide a custom command that will build an image.</p>
 <p>Returns an object which can be used to create a FastBuild.</p>
 <p>It will raise an error if the specified ref is not published in the registry with the name+tag that is provided via the <code class="docutils literal notranslate"><span class="pre">$EXPECTED_REF</span></code> environment variable.</p>
@@ -121,6 +139,8 @@
 <li><strong>deps</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]) &#x2013; a list of files or directories to be added as dependencies to this image. Tilt will watch those files and will rebuild the image when they change.</li>
 <li><strong>tag</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) &#x2013; the tag you expect the resulting image to have; we set <code class="docutils literal notranslate"><span class="pre">$EXPECTED_REF=imagename:tag</span></code> and use this value to verify that the command produced the correct image. (If <code class="docutils literal notranslate"><span class="pre">tag</span></code> is not specified, Tilt will set the expected ref to <code class="docutils literal notranslate"><span class="pre">imagename:&lt;tilt-generated</span> <span class="pre">temporary</span> <span class="pre">tag&gt;</span></code>.)</li>
 <li><strong>disable_push</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>) &#x2013; whether Tilt should push the image in to the registry that the Kubernetes cluster has access to. Set this to true if your command handles pushing as well.</li>
+<li><strong>live_update</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<a class="reference internal" href="#api.LiveUpdateStep" title="api.LiveUpdateStep"><code class="xref py py-class docutils literal notranslate"><span class="pre">LiveUpdateStep</span></code></a>]) &#x2013; <p>set of steps for updating a running container (see <a class="reference external" href="live_update_reference.html">Live Update documentation</a>).</p>
+</li>
 </ul>
 </td>
 </tr>
@@ -144,8 +164,8 @@
 </dd></dl><dl class="function">
 <dt id="api.default_registry">
 <code class="descclassname">api.</code><code class="descname">default_registry</code><span class="sig-paren">(</span><em>registry</em><span class="sig-paren">)</span><a class="headerlink" href="#api.default_registry" title="Permalink to this definition">&#xB6;</a></dt>
-<dd><p>Specifies that any images that Tilt builds should be renamed so that they have the specified docker registry.</p>
-<p>This is useful if, e.g., a repo is configured to push to Google Container Registry, but you want to use Elastic Container Registry instead, without having to edit a bunch of configs. For example, <cite>default_registry(&#x201C;gcr.io/myrepo&#x201D;)</cite> would cause <cite>docker.io/alpine</cite> to be rewritten to <cite>gcr.io/myrepo/docker.io_alpine</cite></p>
+<dd><p>Specifies that any images that Tilt builds should be renamed so that they have the specified Docker registry.</p>
+<p>This is useful if, e.g., a repo is configured to push to Google Container Registry, but you want to use Elastic Container Registry instead, without having to edit a bunch of configs. For example, <code class="docutils literal notranslate"><span class="pre">default_registry(&quot;gcr.io/myrepo&quot;)</span></code> would cause <code class="docutils literal notranslate"><span class="pre">docker.io/alpine</span></code> to be rewritten to <code class="docutils literal notranslate"><span class="pre">gcr.io/myrepo/docker.io_alpine</span></code></p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name">
 <col class="field-body">
@@ -154,10 +174,12 @@
 </tr>
 </tbody>
 </table>
-<p>Images are renamed following these rules:
-1. Replace <cite>/</cite> and <cite>@</cite> with <cite>_</cite>.
-2. Prepend the value of <cite>registry</cite> and a <cite>/</cite>.</p>
-<p>e.g., with <cite>default_registry(&#x2018;gcr.io/myorg&#x2019;)</cite>, <cite>user-service</cite> becomes <cite>gcr.io/myorg/user-service</cite>.</p>
+<p>Images are renamed following these rules:</p>
+<ol class="arabic simple">
+<li>Replace <code class="docutils literal notranslate"><span class="pre">/</span></code> and <code class="docutils literal notranslate"><span class="pre">@</span></code> with <code class="docutils literal notranslate"><span class="pre">_</span></code>.</li>
+<li>Prepend the value of <code class="docutils literal notranslate"><span class="pre">registry</span></code> and a <code class="docutils literal notranslate"><span class="pre">/</span></code>.</li>
+</ol>
+<p>e.g., with <code class="docutils literal notranslate"><span class="pre">default_registry(&apos;gcr.io/myorg&apos;)</span></code>, <code class="docutils literal notranslate"><span class="pre">user-service</span></code> becomes <code class="docutils literal notranslate"><span class="pre">gcr.io/myorg/user-service</span></code>.</p>
 <p>(Note: this logic is currently crude, on the assumption that development image names are ephemeral and unimportant. <a class="reference external" href="https://github.com/windmilleng/tilt/issues">Please let us know</a> if they don&#x2019;t suit you!)</p>
 <p>Cf. our <a class="reference external" href="https://docs.tilt.dev/personal_registry.html">using a personal registry guide</a></p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -170,7 +192,7 @@
 </table>
 </dd></dl><dl class="function">
 <dt id="api.docker_build">
-<code class="descclassname">api.</code><code class="descname">docker_build</code><span class="sig-paren">(</span><em>ref</em>, <em>context</em>, <em>build_args={}</em>, <em>dockerfile=&apos;Dockerfile&apos;</em>, <em>dockerfile_contents=&apos;&apos;</em><span class="sig-paren">)</span><a class="headerlink" href="#api.docker_build" title="Permalink to this definition">&#xB6;</a></dt>
+<code class="descclassname">api.</code><code class="descname">docker_build</code><span class="sig-paren">(</span><em>ref</em>, <em>context</em>, <em>build_args={}</em>, <em>dockerfile=&apos;Dockerfile&apos;</em>, <em>dockerfile_contents=&apos;&apos;</em>, <em>live_update=[]</em><span class="sig-paren">)</span><a class="headerlink" href="#api.docker_build" title="Permalink to this definition">&#xB6;</a></dt>
 <dd><p>Builds a docker image.</p>
 <p>Note that you can&#x2019;t set both the <cite>dockerfile</cite> and <cite>dockerfile_contents</cite> arguments (will throw an error).</p>
 <p>Example: <code class="docutils literal notranslate"><span class="pre">docker_build(&apos;myregistry/myproj/backend&apos;,</span> <span class="pre">&apos;/path/to/code&apos;)</span></code> is roughly equivalent to the call <code class="docutils literal notranslate"><span class="pre">docker</span> <span class="pre">build</span> <span class="pre">/path/to/code</span> <span class="pre">-t</span> <span class="pre">myregistry/myproj/backend</span></code></p>
@@ -184,6 +206,8 @@
 <li><strong>build_args</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">Dict</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]) &#x2013; build-time variables that are accessed like regular environment variables in the <code class="docutils literal notranslate"><span class="pre">RUN</span></code> instruction of the Dockerfile. See <a class="reference external" href="https://docs.docker.com/engine/reference/commandline/build/#set-build-time-variables---build-arg">the Docker Build Arg documentation</a></li>
 <li><strong>dockerfile</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) &#x2013; path to the Dockerfile to build</li>
 <li><strong>dockerfile_contents</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <a class="reference internal" href="#api.Blob" title="api.Blob"><code class="xref py py-class docutils literal notranslate"><span class="pre">Blob</span></code></a>]) &#x2013; raw contents of the Dockerfile to use for this build</li>
+<li><strong>live_update</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<a class="reference internal" href="#api.LiveUpdateStep" title="api.LiveUpdateStep"><code class="xref py py-class docutils literal notranslate"><span class="pre">LiveUpdateStep</span></code></a>]) &#x2013; <p>set of steps for updating a running container (see <a class="reference external" href="live_update_reference.html">Live Update documentation</a>).</p>
+</li>
 </ul>
 </td>
 </tr>
@@ -201,6 +225,25 @@
 <col class="field-body">
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><code class="docutils literal notranslate"><span class="pre">None</span></code></td>
+</tr>
+</tbody>
+</table>
+</dd></dl><dl class="function">
+<dt id="api.fall_back_on">
+<code class="descclassname">api.</code><code class="descname">fall_back_on</code><span class="sig-paren">(</span><em>files</em><span class="sig-paren">)</span><a class="headerlink" href="#api.fall_back_on" title="Permalink to this definition">&#xB6;</a></dt>
+<dd><p>Specify that any changes to the given files will cause Tilt to <em>fall back</em> to a
+full image build (rather than performing a live update).</p>
+<p><code class="docutils literal notranslate"><span class="pre">fall_back_on</span></code> step(s) may only go at the beginning of your list of steps.</p>
+<p>(Files must be a subset of the files that we&#x2019;re already watching for this image;
+that is, if any files fall outside of DockerBuild.context or CustomBuild.deps,
+an error will be raised.)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name">
+<col class="field-body">
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>files</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]]) &#x2013; a string or list of strings of files. If relative, will be evaluated relative to the Tiltfile. Tilt compares these to the local paths of edited files when determining whether to fall back to a full image build.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#api.LiveUpdateStep" title="api.LiveUpdateStep"><code class="xref py py-class docutils literal notranslate"><span class="pre">LiveUpdateStep</span></code></a></td>
 </tr>
 </tbody>
 </table>
@@ -366,8 +409,7 @@ This uses the k8s json path template syntax, described <a class="reference exter
 <code class="descclassname">api.</code><code class="descname">k8s_resource</code><span class="sig-paren">(</span><em>workload</em>, <em>new_name=&apos;&apos;</em>, <em>port_forwards=[]</em>, <em>extra_pod_selectors=[]</em><span class="sig-paren">)</span><a class="headerlink" href="#api.k8s_resource" title="Permalink to this definition">&#xB6;</a></dt>
 <dd><p>Configures a kubernetes resources</p>
 <p>This description apply to <cite>k8s_resource_assembly_version</cite> 2.
-If you are running Tilt version &lt; 0.8.0 and/or do not call <cite>k8s_resource_assembly_version(2)</cite>, see
-<a class="reference internal" href="#api.k8s_resource_v1_DEPRECATED" title="api.k8s_resource_v1_DEPRECATED"><code class="xref py py-meth docutils literal notranslate"><span class="pre">k8s_resource_v1_DEPRECATED()</span></code></a> instead.</p>
+If you are running Tilt version &lt; 0.8.0 and/or do not call <cite>k8s_resource_assembly_version(2)</cite>, see <a class="reference internal" href="#api.k8s_resource_v1_DEPRECATED" title="api.k8s_resource_v1_DEPRECATED"><code class="xref py py-meth docutils literal notranslate"><span class="pre">k8s_resource_v1_DEPRECATED()</span></code></a> instead.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name">
 <col class="field-body">
@@ -566,6 +608,47 @@ In any other case, an error reading <cite>path</cite> will be a Tiltfile load er
 </td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">Dict</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-data docutils literal notranslate"><span class="pre">Any</span></code>], <code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-data docutils literal notranslate"><span class="pre">Any</span></code>]]</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl><dl class="function">
+<dt id="api.run">
+<code class="descclassname">api.</code><code class="descname">run</code><span class="sig-paren">(</span><em>cmd</em>, <em>trigger=[]</em><span class="sig-paren">)</span><a class="headerlink" href="#api.run" title="Permalink to this definition">&#xB6;</a></dt>
+<dd><p>Specify that the given <cite>cmd</cite> should be executed when updating an image&#x2019;s container</p>
+<p>May not precede any <cite>sync</cite> steps in a <cite>live_update</cite>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name">
+<col class="field-body">
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>cmd</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) &#x2013; A shell command.</li>
+<li><strong>trigger</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>], <code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]) &#x2013; If the <code class="docutils literal notranslate"><span class="pre">trigger</span></code> argument is specified, the build step is only run when there are changes to the given file(s). Paths relative to Tiltfile.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference internal" href="#api.LiveUpdateStep" title="api.LiveUpdateStep"><code class="xref py py-class docutils literal notranslate"><span class="pre">LiveUpdateStep</span></code></a></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl><dl class="function">
+<dt id="api.sync">
+<code class="descclassname">api.</code><code class="descname">sync</code><span class="sig-paren">(</span><em>local_path</em>, <em>remote_path</em><span class="sig-paren">)</span><a class="headerlink" href="#api.sync" title="Permalink to this definition">&#xB6;</a></dt>
+<dd><p>Specify that any changes to <cite>localPath</cite> should be synced to <cite>remotePath</cite></p>
+<p>May not follow any <cite>run</cite> steps in a <cite>live_update</cite>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name">
+<col class="field-body">
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>localPath</strong> &#x2013; A path relative to the Tiltfile&#x2019;s directory. Changes to files matching this path will be synced to <cite>remotePath</cite>.
+Can be a file (in which case just that file will be synced) or directory (in which case any files recursively under that directory will be synced).</li>
+<li><strong>remotePath</strong> &#x2013; container path to which changes will be synced. Must be absolute.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference internal" href="#api.LiveUpdateStep" title="api.LiveUpdateStep"><code class="xref py py-class docutils literal notranslate"><span class="pre">LiveUpdateStep</span></code></a></p>
 </td>
 </tr>
 </tbody>

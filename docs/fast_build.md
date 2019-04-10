@@ -1,7 +1,8 @@
 ---
-title: Optimizing a Tiltfile
+title: Fast Build Tutorial (Deprecated)
 layout: docs
 ---
+#### Note: this doc is on a deprecated feature. For the fast building of the future, check out our [LiveUpdate tutorial](live_update_tutorial.html) and [reference documention](live_update_reference.html).
 
 This tutorial looks at a `Tiltfile` with build optimizations.
 We explain what they do, and why you would want to use them.
