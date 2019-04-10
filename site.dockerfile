@@ -2,14 +2,9 @@ FROM ruby:2.6
 
 RUN gem install jekyll bundler
 
-WORKDIR /docs
+WORKDIR /src
 
-RUN mkdir -p /src
-RUN mkdir -p /docs
-ADD src/Gemfile* /src/
-ADD docs/Gemfile* /docs/
-
+ADD ./Gemfile* /src/
 RUN bundle install
-ADD src /src/
-ADD docs /docs/
+ADD . .
 ENTRYPOINT bundle exec jekyll serve --config _config.yml,_config-dev.yml

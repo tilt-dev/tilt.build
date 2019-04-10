@@ -13,7 +13,7 @@ spec:
     spec:
       containers:
       - name: tilt-site
-        image: gcr.io/windmill-public-containers/tilt-site
+        image: tilt-site
         ports:
         - containerPort: 4000
 ---
@@ -32,6 +32,6 @@ spec:
     spec:
       containers:
       - name: docs-site
-        image: gcr.io/windmill-public-containers/docs-site
+        image: docs-site
         ports:
         - containerPort: 4000
