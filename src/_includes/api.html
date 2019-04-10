@@ -349,8 +349,8 @@ This uses the k8s json path template syntax, described <a class="reference exter
 <dt id="api.k8s_resource">
 <code class="descclassname">api.</code><code class="descname">k8s_resource</code><span class="sig-paren">(</span><em>workload</em>, <em>new_name=&apos;&apos;</em>, <em>port_forwards=[]</em>, <em>extra_pod_selectors=[]</em><span class="sig-paren">)</span><a class="headerlink" href="#api.k8s_resource" title="Permalink to this definition">&#xB6;</a></dt>
 <dd><p>Configures a kubernetes resources</p>
-<p>If <a class="reference internal" href="#api.k8s_resource_assembly_version" title="api.k8s_resource_assembly_version"><code class="xref py py-meth docutils literal notranslate"><span class="pre">k8s_resource_assembly_version()</span></code></a> has been called with <cite>1</cite>, see
-<a class="reference internal" href="#api.k8s_resource_v1_DEPRECATED" title="api.k8s_resource_v1_DEPRECATED"><code class="xref py py-meth docutils literal notranslate"><span class="pre">k8s_resource_v1_DEPRECATED()</span></code></a> instead.</p>
+<p>This description apply to <cite>k8s_resource_assembly_version</cite> 2.
+If you are running Tilt version &lt; 0.8.0 and/or do not call <cite>k8s_resource_assembly_version(2)</cite>, see <a class="reference internal" href="#api.k8s_resource_v1_DEPRECATED" title="api.k8s_resource_v1_DEPRECATED"><code class="xref py py-meth docutils literal notranslate"><span class="pre">k8s_resource_v1_DEPRECATED()</span></code></a> instead.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name">
 <col class="field-body">

@@ -146,8 +146,8 @@ def k8s_resource(workload: str, new_name: str = "",
                  extra_pod_selectors: Union[Dict[str, str], List[Dict[str, str]]] = []) -> None:
   """Configures a kubernetes resources
 
-  If :meth:`k8s_resource_assembly_version` has been called with `1`, see
-  :meth:`k8s_resource_v1_DEPRECATED` instead.
+  This description apply to `k8s_resource_assembly_version` 2.
+  If you are running Tilt version < 0.8.0 and/or do not call `k8s_resource_assembly_version(2)`, see :meth:`k8s_resource_v1_DEPRECATED` instead.
 
   Args:
     workload: which workload's resource to configure. This is a colon-separated
