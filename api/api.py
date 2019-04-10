@@ -77,16 +77,6 @@ def docker_build(ref: str, context: str, build_args: Dict[str, str] = {}, docker
   """
   pass
 
-class k8sObjectID:
-  """
-  Attributes:
-      name (str): The object's name (e.g., `"my-service"`)
-      kind (str): The object's kind (e.g., `"deployment"`)
-      namespace (str): The object's namespace (e.g., `"default"`)
-      group (str): The object's group (e.g., `"apps"`)
-  """
-  pass
-
 class FastBuild:
   """An image that was created with ``fast_build``"""
   def add(self, src: str, dest: str) -> 'FastBuild':
@@ -411,27 +401,3 @@ def custom_build(ref: str, command: str, deps: List[str], tag: str = "", disable
     live_update: set of steps for updating a running container (see `Live Update documentation <live_update_reference.html>`_).
   """
   pass
-
-def workload_to_resource_function(fn: Callable[[k8sObjectID], str]) -> None:
-    """
-    Provide a function that will be used to name `Tilt resources <tiltfile_concepts.html#resources>`_.
-
-    Tilt will auto-generate resource names for you. If you do not like the names
-    it generates, you can use this to customize how Tilt generates names.
-
-    Example ::
-
-      # name all tilt resources after the k8s object namespace + name
-      def resource_name(id):
-        return id.namespace + '-' + id.name
-      workload_to_resource_function(resource_name)
-
-    The names it generates must be unique (i.e., two workloads can't map to the
-    same resource name).
-
-    Args:
-      fn: A function that takes a :class:`k8sObjectID` and returns a `str`.
-          Tilt will call this function once for each workload to determine that workload's resource's name.
-    """
-
-    pass
