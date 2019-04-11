@@ -45,25 +45,12 @@ will leave your services up when it exists. To turn the services down, run:
 $ tilt down
 ```
 
-## Making Changes
+## Using Tilt's `docker_build`
 
-You can let Docker Compose take care of building images with [a `build` config](https://docs.docker.com/compose/compose-file/#build).
-
-But if you want to leverage Tilt's image-building optimizations,
-Tilt has two functions to help you out.
-
-With `docker_build`, Tilt builds an image from your existing Dockerfile. Every time the files change,
-Tilt will re-build the image and update the container.
-
-With `fast_build`, Tilt knows how to copy files directly to your container. When you build for the first
-time, Tilt builds the image. When you change a file, Tilt will try to be smarter and only sync the files
-it needs.
-
-When you declare either `docker_build` or `fast_build`,
-Tilt will find the image name in your `docker-compose.yml`,
-and use its own container-updating strategy instead of the one in the `docker-compose.yml` file.
-
-## Sample Project With `docker_build`
+Tilt automatically uses your [`build` configuration](https://docs.docker.com/compose/compose-file/#build)
+from Docker Compose. You can also use the `docker_build` function to use Tilt's
+updating optimizations. Tilt will find the image name in your `docker-compose.yml`,
+and use its own updating strategy instead of the one in the `docker-compose.yml` file.
 
 Let's look at a simple example app that runs Redis and a NodeJS-based server with Docker Compose.
 We'll use the same example as in
@@ -115,53 +102,7 @@ docker_build('tilt.dev/express-redis-app', '.')
 Now, when we run `tilt up`, Tilt will manage the image builds
 and re-build correctly every time a file changes.
 
-## Sample Project With `fast_build`
-
-We usually recommend people start with `docker_build` just to make sure everything works.
-
-When you're ready to optimize your local workflow to be even faster,
-that's when you want to try fast_build. Let's look at the
-same project as above.
-
-First, we want to remove all the lines from the Dockerfile that add source code. Now our Dockerfile is:
-
-```dockerfile
-FROM node:9-alpine
-WORKDIR '/var/www/app'
-```
-
-Now, we put those lines for installing dependencies and adding source code into our Tiltfile:
-
-```python
-docker_compose('docker-compose.yml')
-
-img = fast_build(
-  'tilt.dev/express-redis-app',
-  'Dockerfile',
-  'node server.js')
-
-img.add('.', '/var/www/app')
-
-img.run('npm install', trigger='package.json')
-```
-
-This tells Tilt how to copy files to the container.
-
-Now, when we run `tilt up` and update a file, Tilt will update the container in-place. You should
-see output that looks like this:
-
-```
-──┤ Rebuilding: app ├────────────────────────────────────────────
-  → Updating container…
-express-redis-docker_app_1 exited with code 137
-  → Container updated!
-app_1    | 2019-03-13T17:15:25.742414920Z Server listening on port 3000
-```
-
-For more details on Tilt's image-building strategies, see the [fast build
-documentation](fast_build.html) or the [api reference](api.html).
-
-To run this app yourself, check out the [git repo](https://github.com/windmilleng/express-redis-docker).
+You can also use Tilt's [Live Update](live_update_tutorial.html) feature to sync and build inside running containers.
 
 ## Debugging
 

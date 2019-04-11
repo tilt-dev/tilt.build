@@ -21,25 +21,28 @@ This Tiltfile is going to start out looking like any other. We’re first going 
 k8s_yaml('serve.yaml')
 ```
 
-Now we need to tell Tilt about the Docker image that is used in the provided Kubernetes YAML. But rather than use a standard `docker_build` we’re going to use `fast_build` to provide the lightning fast reload times that frontend developers have come to expect.
-
+Next we tell Tilt about how to build the Docker image. We also use [`live_update`](live_update_tutorial.html) to provide the lightning-fast reload times that frontend developers expect.
 ```python
-img = fast_build('tilt-frontend-demo', 'Dockerfile', 'node scripts/start.js')
-img.add('.', '/src')
-img.run('npm install')
+docker_build('tilt-frontend-demo', '.',
+  live_update=[
+    # Map the local source code into the container under /src
+    sync('.', '/src'),
+  ])
+)
 ```
 
-If we start using this Tiltfile we’ll notice one annoying thing: every time we change any file in our site we run a costly, slow `npm install`. Each change can take a minute. That’s no good. Luckily Tilt provides a way to only run a command when _certain_ files change. Introducing run triggers:
+This is fast, but has a bug: when you change `package.json`, the dependencies don't get updated. Let's use the fall back feature of Live Update to fix that:
 
 ```python
-img.run('npm install', trigger=['package.json', 'package-lock.json'])
+docker_build('tilt-frontend-demo', '.',
+  live_update=[
+    # when package.json changes, we need to do a full build
+    fall_back_on('package.json', 'package-lock.json'),
+    # Map the local source code into the container under /src
+    sync('.', '/src'),
+  ])
 ```
 
-Much better! With this change updates only take seconds, not minutes. Now we only run `yarn install` when either the `package.json` or the `package-lock.json` files change. But it still takes a couple seconds because we’re restarting the container every time _anything_ changes. We don’t need to do that for this service: new changes are picked up automatically as they change thanks to the magic of hot reload. Restarting the container is a waste of time. Luckily Tilt provides us with a way to prevent the container from restarting: `hot_reload()`
-
-```python
-img.hot_reload()
-```
 
 Now we’re cruising! Updates that don't require a `bundle update` zoom by in less than a second.
 
