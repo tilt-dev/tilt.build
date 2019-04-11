@@ -20,10 +20,12 @@ We've eliminated `k8s_resource`'s 'yaml' and 'image' parameters. It's now a
 function for configuring a workload's resource. ([See the API docs for the new `k8s_resource`](api.html#api.k8s_resource))
 
 Migrating to the new behavior should mostly be a matter of:
-1. Adding a call to `k8s_resource_assembly_version(2)` to the top of your Tiltfile (if running Tilt version < 0.8.0)
-2. removing any 'yaml' or 'image' args to `k8s_resource` calls
-3. and making any removed 'yaml' args from (2) are passed to `k8s_yaml` somewhere else in your Tiltfile.
-4. Letting any teammates know that they need to upgrade Tilt.
+1. Add a call to `k8s_resource_assembly_version(2)` to the top of your Tiltfile (if running Tilt version < 0.8.0)
+2. Remove any 'yaml' or 'image' args to `k8s_resource` calls
+3. and make sure any removed 'yaml' args from (2) are passed to `k8s_yaml` somewhere else in your Tiltfile.
+4. If your `k8s_resource` calls say unknown resource (because Tilt now names by k8s object instead of image),
+   either change the first arg to `k8s_resource` to match the new name, or use [`workload_to_resource_function`](/api.html#api.workload_to_resource_function) to change the naming rules.
+5. Let any teammates know that they need to upgrade Tilt.
 
 Please don't hesitate to [reach out](faq.html#q-how-do-i-get-help-with-tilt)
 if you run into any problems or confusion!

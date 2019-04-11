@@ -319,6 +319,65 @@ Chart directory is watched (See <code class="docutils literal notranslate"><span
 </tr>
 </tbody>
 </table>
+</dd></dl><dl class="class">
+<dt id="api.k8sObjectID">
+<em class="property">class </em><code class="descclassname">api.</code><code class="descname">k8sObjectID</code><a class="headerlink" href="#api.k8sObjectID" title="Permalink to this definition">&#xB6;</a></dt>
+<dd><dl class="attribute">
+<dt id="api.k8sObjectID.name">
+<code class="descname">name</code><a class="headerlink" href="#api.k8sObjectID.name" title="Permalink to this definition">&#xB6;</a></dt>
+<dd><p>The object&#x2019;s name (e.g., <cite>&#x201C;my-service&#x201D;</cite>)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name">
+<col class="field-body">
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">str</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="api.k8sObjectID.kind">
+<code class="descname">kind</code><a class="headerlink" href="#api.k8sObjectID.kind" title="Permalink to this definition">&#xB6;</a></dt>
+<dd><p>The object&#x2019;s kind (e.g., <cite>&#x201C;deployment&#x201D;</cite>)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name">
+<col class="field-body">
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">str</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="api.k8sObjectID.namespace">
+<code class="descname">namespace</code><a class="headerlink" href="#api.k8sObjectID.namespace" title="Permalink to this definition">&#xB6;</a></dt>
+<dd><p>The object&#x2019;s namespace (e.g., <cite>&#x201C;default&#x201D;</cite>)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name">
+<col class="field-body">
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">str</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="api.k8sObjectID.group">
+<code class="descname">group</code><a class="headerlink" href="#api.k8sObjectID.group" title="Permalink to this definition">&#xB6;</a></dt>
+<dd><p>The object&#x2019;s group (e.g., <cite>&#x201C;apps&#x201D;</cite>)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name">
+<col class="field-body">
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">str</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
 </dd></dl><dl class="function">
 <dt id="api.k8s_kind">
 <code class="descclassname">api.</code><code class="descname">k8s_kind</code><span class="sig-paren">(</span><em>kind</em>, <em>api_version=None</em>, <em>*</em>, <em>image_json_path</em><span class="sig-paren">)</span><a class="headerlink" href="#api.k8s_kind" title="Permalink to this definition">&#xB6;</a></dt>
@@ -603,6 +662,33 @@ Can be a file (in which case just that file will be synced) or directory (in whi
 <col class="field-body">
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>file_path</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) &#x2013; Path to the file locally (absolute, or relative to the location of the Tiltfile).</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><code class="docutils literal notranslate"><span class="pre">None</span></code></td>
+</tr>
+</tbody>
+</table>
+</dd></dl><dl class="function">
+<dt id="api.workload_to_resource_function">
+<code class="descclassname">api.</code><code class="descname">workload_to_resource_function</code><span class="sig-paren">(</span><em>fn</em><span class="sig-paren">)</span><a class="headerlink" href="#api.workload_to_resource_function" title="Permalink to this definition">&#xB6;</a></dt>
+<dd><p>(Only supported with <a class="reference internal" href="#api.k8s_resource_assembly_version" title="api.k8s_resource_assembly_version"><code class="xref py py-meth docutils literal notranslate"><span class="pre">k8s_resource_assembly_version()</span></code></a> &gt;= 2(2))
+Provide a function that will be used to name <a class="reference external" href="tiltfile_concepts.html#resources">Tilt resources</a>.</p>
+<p>Tilt will auto-generate resource names for you. If you do not like the names
+it generates, you can use this to customize how Tilt generates names.</p>
+<p>Example</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># name all tilt resources after the k8s object namespace + name</span>
+<span class="k">def</span> <span class="nf">resource_name</span><span class="p">(</span><span class="nb">id</span><span class="p">):</span>
+  <span class="k">return</span> <span class="nb">id</span><span class="o">.</span><span class="n">namespace</span> <span class="o">+</span> <span class="s1">&apos;-&apos;</span> <span class="o">+</span> <span class="nb">id</span><span class="o">.</span><span class="n">name</span>
+<span class="n">workload_to_resource_function</span><span class="p">(</span><span class="n">resource_name</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The names it generates must be unique (i.e., two workloads can&#x2019;t map to the
+same resource name).</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name">
+<col class="field-body">
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>fn</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Callable</span></code>[[<a class="reference internal" href="#api.k8sObjectID" title="api.k8sObjectID"><code class="xref py py-class docutils literal notranslate"><span class="pre">k8sObjectID</span></code></a>], <code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]) &#x2013; A function that takes a <a class="reference internal" href="#api.k8sObjectID" title="api.k8sObjectID"><code class="xref py py-class docutils literal notranslate"><span class="pre">k8sObjectID</span></code></a> and returns a <cite>str</cite>.
+Tilt will call this function once for each workload to determine that workload&#x2019;s resource&#x2019;s name.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><code class="docutils literal notranslate"><span class="pre">None</span></code></td>
 </tr>
