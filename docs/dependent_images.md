@@ -41,6 +41,10 @@ Next we'll create a Dockerfile for the app image. This is just an empty base ima
 # local.tilt.dev/nodejs-express-app
 
 FROM local.tilt.dev/nodejs-express-deps
+
+ADD . /src
+
+ENTRYPOINT node server.js
 ```
 
 Lastly, we'll add a Tiltfile that knows how to build both images.
@@ -53,11 +57,10 @@ docker_build(
   dockerfile='deps.dockerfile')
 
 # Configure build to copy our source code.
-app = fast_build(
+docker_build(
   'local.tilt.dev/nodejs-express-app',
-  'app.dockerfile',
-  'node server.js')
-app.add('.', '/src')
+  '.', # build context,
+  dockerfile='app.dockerfile')
 
 # Set up the Kubernetes resources.
 k8s_yaml('app.yml')
@@ -90,17 +93,7 @@ Building Dockerfile:
 ```
 
 If you make a change to server.js, Tilt knows it can skip the first image build
-and copy files to the container in-place. You will see output that looks like this:
-
-
-```shell
-2 changed: [.#server.js server.js]
-
-──┤ Rebuilding: nodejs-express-app ├──
-  → Updating container…
-  → Container updated!
-nodejs-expr…┊ Server listening on port 3000
-```
+and just do the second.
 
 ## Try it Yourself
 
