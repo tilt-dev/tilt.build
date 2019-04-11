@@ -403,7 +403,7 @@ def custom_build(ref: str, command: str, deps: List[str], tag: str = "", disable
   pass
 
 
-class k8sObjectID:
+class K8sObjectID:
   """
   Attributes:
     name (str): The object's name (e.g., `"my-service"`)
@@ -414,7 +414,7 @@ class k8sObjectID:
   pass
 
 
-def workload_to_resource_function(fn: Callable[[k8sObjectID], str]) -> None:
+def workload_to_resource_function(fn: Callable[[K8sObjectID], str]) -> None:
     """
     (Only supported with :meth:`k8s_resource_assembly_version` >= 2(2))
     Provide a function that will be used to name `Tilt resources <tiltfile_concepts.html#resources>`_.
@@ -433,7 +433,7 @@ def workload_to_resource_function(fn: Callable[[k8sObjectID], str]) -> None:
     same resource name).
 
     Args:
-      fn: A function that takes a :class:`k8sObjectID` and returns a `str`.
+      fn: A function that takes a :class:`K8sObjectID` and returns a `str`.
           Tilt will call this function once for each workload to determine that workload's resource's name.
     """
 
