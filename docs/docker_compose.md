@@ -62,7 +62,7 @@ adds the NodeJS dependencies, then adds the source code.
 
 ```dockerfile
 FROM node:9-alpine
-WORKDIR '/var/www/app'
+WORKDIR /var/www/app
 ADD package.json .
 RUN npm install
 ADD . .
@@ -100,13 +100,44 @@ docker_build('tilt.dev/express-redis-app', '.')
 ```
 
 Now, when we run `tilt up`, Tilt will manage the image builds
-and re-build correctly every time a file changes.
+and re-build every time a file changes.
 
-You can also use Tilt's [Live Update](live_update_tutorial.html) feature to sync and build inside running containers.
+## Using Tilt's `live_update`
+
+This works OK. But building a new image on every change can be a drag.
+
+With the `live_update` option, we can make it a lot faster by updating the container in-place.
+
+Here's the new Tiltfile:
+
+```python
+docker_compose('docker-compose.yml')
+docker_build('tilt.dev/express-redis-app', '.',
+  live_update = [
+    sync('.', '/var/www/app'),
+    run('npm i', trigger='package.json'),
+    restart_container()
+  ])
+```
+
+The `live_update` option is expressed as a sequence of in-place update steps.
+
+1. The `sync` step copies your local files into the running container.
+
+2. The `run` step re-runs `npm i` inside the container every time you edit `package.json`.
+
+3. The `restart_container` step restarts the server so that your changes are picked up.
+
+For more info on `live_update`, check out the [full tutorial](live_update_tutorial.html).
 
 ## Debugging
 
 Tilt uses Docker Compose to run your services, so you can also use `docker-compose` to examine state outside Tilt.
+
+## Try it Yourself
+
+All the code in this tutorial is available in [this Git repo](https://github.com/windmilleng/express-redis-docker).
+Run it yourself and make changes to see how it works.
 
 ## Troubleshooting
 
