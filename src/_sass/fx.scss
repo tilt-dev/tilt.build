@@ -101,6 +101,30 @@
   animation-name: docs-fade-in-4of4;
 }
 
+@keyframes blog-pen {
+  0% { transform: translate(-1px,0px); }
+  12.5% { transform: translate(1.199188px,-1px); }
+  37.5% { transform: translate(4.698376px,1.552899px); }
+  50% { transform: translate(7.448782px,-0.22355px); }
+  62.5% { transform: translate(8.199188px,0px); }
+  100% { transform: translate(-0.800812px,0px); }
+}
+@keyframes blog-line {
+  0% { d: path('M8,17L2,17C1.44772,17,1,17.4477,1,18C1,18.5523,1.44772,19,2,19L8,19C8.55229,19,9,18.5523,9,18C9,17.4477,8.55228,17,8,17Z'); }
+  62.5% { d: path('M18,17L2,17C1.44772,17,1,17.4477,1,18C1,18.5523,1.44772,19,2,19L18,19C18.5523,19,19,18.5523,19,18C19,17.4477,18.5523,17,18,17Z'); }
+  100% { d: path('M8,17L2,17C1.44772,17,1,17.4477,1,18C1,18.5523,1.44772,19,2,19L8,19C8.5523,19,9,18.5523,9,18C9,17.4477,8.5523,17,8,17Z'); }
+}
+.headerLink--blog:hover .blog-pen {
+  animation: 0.8s ease both blog-pen;
+}
+.headerLink--blog:hover .blog-line {
+  animation: 0.8s ease both blog-line;
+}
+.siteNav-popout .headerLink--blog:hover .blog-pen,
+.siteNav-popout .headerLink--blog:hover .blog-line {
+  animation-name: none;
+}
+
 .imageLink--logo-wordmark-anim .notch {
   transition-duration: 0.3s;
   transition-timing-function: ease-in-out;

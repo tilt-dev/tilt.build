@@ -590,28 +590,22 @@ h4 .fillStd {
   width: 24px;
   height: 24px;
   display: inline-block;
-  fill: $color-grey;
 }
 
 .footerIcon + .footerIcon {
   margin-left: $spacing-unit * 1/2;
 }
 
-.footerIcon svg,
-.footerIcon path {
-  transition: background-color 0.2s;
+.footerIcon .fillStd {
+  transition: fill 0.2s;
+  fill: $color-grey;
 }
 
 .footerIcon:hover {
   background-color: transparent;
 }
 
-.footerIcon path {
-  fill: $color-grey;
-}
-
-.footerIcon:hover svg,
-.footerIcon:hover path {
+.footerIcon:hover .fillStd {
   fill: $color-red;
 }
 

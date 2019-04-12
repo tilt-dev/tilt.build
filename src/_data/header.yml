@@ -18,6 +18,6 @@
   href:
   docsurl: true
 - name: Blog
-  icon: medium
-  mobileIcon: medium
+  icon: blog
+  mobileIcon: blog
   href: https://medium.com/windmill-engineering/

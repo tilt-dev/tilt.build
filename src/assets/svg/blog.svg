@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+  <ellipse class="fillStd" rx="12" ry="12" transform="translate(-1,0) translate(13,12)"/>
+  <path class="blog-pen" fill-rule="evenodd" clip-rule="evenodd" d="M11.5023,12.5208L14.0985,14.0197L17.3461,8.3947L14.7499,6.89581L11.5023,12.5208ZM10.3,17.6011L13.5988,14.8851L11.0027,13.3862L10.3,17.6011ZM18.729,4.00083L17.8636,3.5012C17.1663,3.07724,16.7652,3.35222,16.4986,3.86696L15.2495,6.03042L17.8457,7.52932L19.0948,5.36585C19.4006,4.84317,19.4345,4.41274,18.729,4.00083Z" fill="white" opacity="1" transform="translate(-1,0)"/>
+  <path class="blog-line" d="M8,17L2,17C1.44772,17,1,17.4477,1,18C1,18.5523,1.44772,19,2,19L8,19C8.55229,19,9,18.5523,9,18C9,17.4477,8.55228,17,8,17Z" fill="white" transform="translate(-1,0)" />
+</svg>
