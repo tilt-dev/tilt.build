@@ -12,6 +12,7 @@
 <dt id="api.CustomBuild.add_fast_build">
 <code class="descname">add_fast_build</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#api.CustomBuild.add_fast_build" title="Permalink to this definition">&#xB6;</a></dt>
 <dd><p>Returns a FastBuild that is associated with the image that was built from a <code class="docutils literal notranslate"><span class="pre">custom_build</span></code>. When the container needs to be rebuilt it will be built using the <code class="docutils literal notranslate"><span class="pre">CustomBuild</span></code>. Otherwise update will be done with the <code class="docutils literal notranslate"><span class="pre">FastBuild</span></code> instructions.</p>
+<p><strong>DEPRECATED</strong> &#x2013; for fast in-place updates, pass the <code class="docutils literal notranslate"><span class="pre">live_update</span></code> param to <a class="reference internal" href="#api.custom_build" title="api.custom_build"><code class="xref py py-meth docutils literal notranslate"><span class="pre">custom_build()</span></code></a> (see <a class="reference external" href="https://docs.tilt.dev/live_update_reference.html">Live Update documentation</a> for details).</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name">
 <col class="field-body">
@@ -26,6 +27,7 @@
 <dt id="api.FastBuild">
 <em class="property">class </em><code class="descclassname">api.</code><code class="descname">FastBuild</code><a class="headerlink" href="#api.FastBuild" title="Permalink to this definition">&#xB6;</a></dt>
 <dd><p>An image that was created with <code class="docutils literal notranslate"><span class="pre">fast_build</span></code></p>
+<p><strong>DEPRECATED</strong> &#x2013; for fast in-place updates, use <a class="reference external" href="https://docs.tilt.dev/live_update_reference.html">Live Update</a> instead.</p>
 <dl class="method">
 <dt id="api.FastBuild.add">
 <code class="descname">add</code><span class="sig-paren">(</span><em>src</em>, <em>dest</em><span class="sig-paren">)</span><a class="headerlink" href="#api.FastBuild.add" title="Permalink to this definition">&#xB6;</a></dt>
@@ -176,7 +178,6 @@
 <dt id="api.custom_build">
 <code class="descclassname">api.</code><code class="descname">custom_build</code><span class="sig-paren">(</span><em>ref</em>, <em>command</em>, <em>deps</em>, <em>tag=&apos;&apos;</em>, <em>disable_push=False</em>, <em>live_update=[]</em><span class="sig-paren">)</span><a class="headerlink" href="#api.custom_build" title="Permalink to this definition">&#xB6;</a></dt>
 <dd><p>Provide a custom command that will build an image.</p>
-<p>Returns an object which can be used to create a FastBuild.</p>
 <p>It will raise an error if the specified ref is not published in the registry with the name+tag that is provided via the <code class="docutils literal notranslate"><span class="pre">$EXPECTED_REF</span></code> environment variable.</p>
 <p>Example</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">k8s_yaml</span><span class="p">(</span><span class="s1">&apos;deploy/fission.yaml&apos;</span><span class="p">)</span>
@@ -310,7 +311,7 @@ an error will be raised.)</p>
 <dt id="api.fast_build">
 <code class="descclassname">api.</code><code class="descname">fast_build</code><span class="sig-paren">(</span><em>img_name</em>, <em>dockerfile_path</em>, <em>entrypoint=&apos;&apos;</em><span class="sig-paren">)</span><a class="headerlink" href="#api.fast_build" title="Permalink to this definition">&#xB6;</a></dt>
 <dd><p>Initiates a docker image build that supports <code class="docutils literal notranslate"><span class="pre">add</span></code> s and <code class="docutils literal notranslate"><span class="pre">run</span></code> s, and that uses a cache for subsequent builds.</p>
-<p>See the <a class="reference external" href="https://docs.tilt.dev/fast_build.html">fast build documentation</a>.</p>
+<p><strong>DEPRECATED</strong> &#x2013; for fast in-place updates, use <a class="reference external" href="https://docs.tilt.dev/live_update_reference.html">Live Update</a> instead.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name">
 <col class="field-body">

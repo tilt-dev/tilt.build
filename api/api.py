@@ -78,7 +78,11 @@ def docker_build(ref: str, context: str, build_args: Dict[str, str] = {}, docker
   pass
 
 class FastBuild:
-  """An image that was created with ``fast_build``"""
+  """An image that was created with ``fast_build``
+
+  **DEPRECATED** -- for fast in-place updates, use `Live Update <https://docs.tilt.dev/live_update_reference.html>`_ instead.
+  """
+
   def add(self, src: str, dest: str) -> 'FastBuild':
     """Adds the content from ``src`` into the image at path ``dest``.
 
@@ -108,7 +112,7 @@ class FastBuild:
 def fast_build(img_name: str, dockerfile_path: str, entrypoint: str = "") -> FastBuild:
   """Initiates a docker image build that supports ``add`` s and ``run`` s, and that uses a cache for subsequent builds.
 
-    See the `fast build documentation <https://docs.tilt.dev/fast_build.html>`_.
+    **DEPRECATED** -- for fast in-place updates, use `Live Update <https://docs.tilt.dev/live_update_reference.html>`_ instead.
   """
   pass
 
@@ -372,13 +376,14 @@ def default_registry(registry: str) -> None:
 class CustomBuild:
   """An image that was created with ``custom_build``"""
   def add_fast_build() -> FastBuild:
-    """Returns a FastBuild that is associated with the image that was built from a ``custom_build``. When the container needs to be rebuilt it will be built using the ``CustomBuild``. Otherwise update will be done with the ``FastBuild`` instructions. """
+    """Returns a FastBuild that is associated with the image that was built from a ``custom_build``. When the container needs to be rebuilt it will be built using the ``CustomBuild``. Otherwise update will be done with the ``FastBuild`` instructions.
+
+    **DEPRECATED** -- for fast in-place updates, pass the ``live_update`` param to :meth:`custom_build` (see `Live Update documentation <https://docs.tilt.dev/live_update_reference.html>`_ for details).
+    """
     pass
 
 def custom_build(ref: str, command: str, deps: List[str], tag: str = "", disable_push: bool = False, live_update: List[LiveUpdateStep]=[]) -> CustomBuild:
   """Provide a custom command that will build an image.
-
-  Returns an object which can be used to create a FastBuild.
 
   It will raise an error if the specified ref is not published in the registry with the name+tag that is provided via the ``$EXPECTED_REF`` environment variable.
 
