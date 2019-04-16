@@ -13,7 +13,7 @@ Get started easily, get more done, and never play twenty questions with <code cl
 
 <div class="flexblock u-marginTop1_25 u-marginBottom1_5">
 <a href="{{site.docsurl}}install.html" class="brandButton u-marginBottomUnit u-marginRightUnit">
-  {% include brandButtonBg.html %}
+  {% include common/brandButtonBg.html %}
   <div class="buttonLabel brandButton-text">
     Try Tilt Today
   </div>
@@ -98,7 +98,7 @@ Get started easily, get more done, and never play twenty questions with <code cl
   <div class="col-1of4">&nbsp;</div>
   <div class="col-3of4">
     <a href="{{site.docsurl}}install.html" class="brandButton brandButton--red">
-      {% include brandButtonBg.html %}
+      {% include common/brandButtonBg.html %}
       <div class="buttonLabel brandButton-text">
         Give it a Tilt
       </div>
