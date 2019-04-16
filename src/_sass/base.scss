@@ -168,6 +168,12 @@ code {
   padding: 1px 5px;
 }
 
+code.code--inline {
+  border: none;
+  background-color: transparent;
+  padding: 0;
+}
+
 pre {
   padding: 8px 12px;
   overflow-x: auto;
