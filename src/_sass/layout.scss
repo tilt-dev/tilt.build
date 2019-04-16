@@ -136,7 +136,7 @@ li {
   }
 }
 
-h1, .sidebar h2 {
+h1, .sidebar h2, h2.section {
   font-family: $header-font-family;
   font-variant-ligatures: none;
   font-size: 32px;
@@ -146,7 +146,8 @@ h1, .sidebar h2 {
   margin-bottom: $spacing-unit / 4;
   color: $color-grey;
 }
-.wrapper--home h1 {
+.wrapper--home h1,
+.wrapper--home h2.section, {
   color: $color-grey-dark;
 }
 h2 a {
@@ -377,26 +378,20 @@ label, .formItem-label {
   text-align: center;
 }
 
+.flexblock {
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  flex-wrap: wrap;
+}
+
 .u-blockTwoThirds {
   display: block;
   max-width: $col-3of4-width;
 }
 
-.imageLink svg,
-.imageLink path {
-  transition: opacity 0.2s;
-}
-
-.imageLink,
-.imageLink:hover {
+a.imageLink {
   background-color: transparent;
-}
-
-.imageLink:hover svg,
-.imageLink:hover path,
-.brandButton:hover svg,
-.brandButton:hover path {
-  opacity: 1;
 }
 
 .headerLink {
@@ -470,24 +465,61 @@ label, .formItem-label {
   opacity: 1;
 }
 
-.svgButton, .brandButton {
+.ctaLink {
   display: inline-block;
-  margin: auto;
-  position: relative;
+  margin: 0;
 }
 
+.svgButton {
+  display: inline-block;
+  padding: 0;
+  position: relative;
+}
+.brandButton {
+  display: inline-block;
+  padding: 0 $spacing-unit;
+  position: relative;
+}
+a.brandButton {
+  background-color: transparent;
+}
+.brandButton-bg {
+  display: flex;
+  opacity: $opacity-light;
+  height: 40px;
+  width: 100%;
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  transition: opacity 300ms;
+}
+.brandButton:hover .brandButton-bg {
+  opacity: 1;
+}
 button.svgButton, button.brandButton {
   border: none;
-  padding: 0;
   cursor: pointer;
   background-color: transparent;
 }
-
-.brandButton svg {
+.brandButton-bg > svg {
   fill: $brand-color;
-  opacity: $opacity-light;
-  min-width: 144px;
-  height: 40px;
+}
+.brandButton--red .brandButton-bg > svg {
+  fill: $color-red;
+}
+.brandButton-bgFill {
+  background-color: $brand-color;
+  flex: 1;
+}
+.brandButton--red .brandButton-bgFill {
+  background-color: $color-red;
+}
+.brandButton-text {
+  color: white;
+  display: block;
+  line-height: 40px;
+  text-align: center;
 }
 
 .editOnGitHub {
@@ -531,17 +563,6 @@ button.svgButton, button.brandButton {
 .svgButton--x {
   padding: 0 4px;
   width: 40px;
-}
-
-.brandButton-text {
-  color: white;
-  display: block;
-  position: absolute;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  line-height: 40px;
-  text-align: center;
 }
 
 /** Use the standard color fill for the given icon */
@@ -617,6 +638,10 @@ h4 .fillStd {
   margin: $spacing-unit * 1.5;
 }
 
+.u-marginRightUnit {
+  margin-right: $spacing-unit !important;
+}
+
 .u-marginBottom0 {
   margin-bottom: 0 !important;
 }
@@ -645,8 +670,16 @@ h4 .fillStd {
   margin-bottom: $spacing-unit * 2.5 !important;
 }
 
+.u-marginBottom3 {
+  margin-bottom: $spacing-unit * 3 !important;
+}
+
 .u-marginTopUnit {
   margin-top: $spacing-unit !important;
+}
+
+.u-marginTop1_25 {
+  margin-top: $spacing-unit * 1.25 !important;
 }
 
 .u-marginTop1_5 {

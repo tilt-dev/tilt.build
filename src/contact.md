@@ -58,7 +58,7 @@ or fill out the form below.
 
 <div class="u-marginBottom2_5">
   <button class="brandButton" type="submit">
-    {% svg assets/svg/button.svg %}
+    {% include brandButtonBg.html %}
     <div class="buttonLabel brandButton-text">
       Submit
     </div>
