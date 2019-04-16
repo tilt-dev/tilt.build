@@ -62,7 +62,7 @@ Get started easily, get more done, and never play twenty questions with <code cl
 
   <div class="u-marginBottom0_5">
   Tilt watches your filesystem and updates your servers in seconds so you can spend
-  more time getting stuff done and less time watching paint dry. We’ve can make even
+  more time getting stuff done and less time watching paint dry. Tilt makes even
   the most complicated setups feel snappy again — and that’s no easy task.
   </div>
 
