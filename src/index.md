@@ -5,10 +5,10 @@ layout: home
 
 # Tilt Up and Get Stuff Done
 
-## Tilt is a local development tool to manage your developer instance when your team deploys to Kubernetes in production.
+## Tilt manages local development instances for teams that deploy to Kubernetes.
 
 <div class="u-blockTwoThirds">
-Get started easily, get more done, and never play twenty questions with <code class="code--inline">kubectl</code> ever again.
+Get started easily, get more done, and never play twenty questions with <code>kubectl</code> ever again.
 </div>
 
 <div class="flexblock u-marginTop1_25 u-marginBottom1_5">
@@ -41,7 +41,7 @@ Get started easily, get more done, and never play twenty questions with <code cl
   Tilt is super fast to set up for greenfield projects, but it really shines
   when your setup requires some “extra love” (and even then it’s still pretty
   quick!) Any setup, any architecture, no matter how complex.
-  Any engineer can run ‘tilt up’ to see the app live instantly.
+  Any engineer can run <code>tilt up</code> to see the app live instantly.
   </div>
 
   <div>
@@ -79,11 +79,11 @@ Get started easily, get more done, and never play twenty questions with <code cl
   <div class="col-3of4 u-maxWidth100OnMobile">
   <h3 class="u-minHeight72OnMobile">
     <div class="h3-icon u-showOnlyOnMobile">{% svg assets/svg/observable.svg width="65" height="72" %}</div>
-    Aggregate your service telemetry
+    See problems instantly
   </h3>
 
   <div class="u-marginBottom0_5">
-  Stop playing 20 questions with kubectl each time your app misbehaves.
+  Stop playing 20 questions with <code>kubectl</code> each time your app misbehaves.
   Tilt collects problems from across tools and services into one UI.
   One place to see build breakages, yaml typos, crash loops, and request exceptions.
   </div>
