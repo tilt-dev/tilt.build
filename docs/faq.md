@@ -173,3 +173,32 @@ Tilt reads the same `KUBECONFIG` environment variable that `kubectl` uses. This 
 sets the path to a Kubernetes config.
 
 <script src="/assets/js/links.js" async></script>
+
+### Q: How do I set up Tilt to use MicroK8s?
+
+If you're using Linux, [microk8s](https://microk8s.io/)
+is a fast, low-overhead way to run Kubernetes locally for development.
+
+To install it, run
+
+```
+$ sudo snap install microk8s --channel=1.13/stable --classic
+```
+
+To add microk8s to the list of clusters you can deploy to with `kubectl`, run
+
+```
+$ microk8s.kubectl config view --raw > $HOME/.kube/config
+```
+
+Tilt always uses the current kubectl context. To set the kubectl context to microk8s, run:
+
+```
+$ kubectl config use-context microk8s
+```
+
+Currently, Tilt works best with microk8s 1.13 because it uses Docker as the runtime engine.
+The Docker runtime engine has APIs that make loading images and syncing files much faster.
+
+microk8s 1.14+ uses containerd, which doesn't have those APIs yet. We hope to
+have better approaches for containerd soon!
