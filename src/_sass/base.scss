@@ -207,7 +207,8 @@ pre {
     max-width: $content-width;
   }
 }
-.wrapper--docs {
+.wrapper--docs,
+.wrapper--blog {
   max-width: $header-width;
   display: flex;
   justify-content: space-between;

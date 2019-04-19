@@ -3,7 +3,6 @@ slug: designing-a-better-interface-for-microservices-development
 date: 2019-04-09T17:17:53.242Z
 author: ""
 title: "Designing a Better Interface for Microservices Development"
-subtitle: "In Tilt, you can now browse logs for all your microservices in a web interface. See an overview of how your resources are running, look through streaming logs, and preview HTTP endpoints. You can also scroll and search through a single stream that multiplexes all logs. Theses logs persist as Tilt hums along re-building and re-deploying your code."
 images:
   - featuredImage.png
   - 1*V8V8DrFCWrexmV9WcuPolg.png
@@ -18,10 +17,11 @@ keywords:
   - development
   - tilt
   - kubernetes
-draft: true
 ---
 
-![If you’ve already played with Tilt, you still see our familiar Terminal UI when you `tilt up` in your project. Hit `enter` on any resource to see the web UI.](/assets/images/designing-a-better-interface-for-microservices-development/1*0q7ZUSNikvKHnQKNwzen0Q.png)*If you’ve already played with Tilt, you still see our familiar Terminal UI when you `tilt up` in your project. Hit `enter` on any resource to see the web UI.*
+In Tilt, you can now browse logs for all your microservices in a web interface. See an overview of how your resources are running, look through streaming logs, and preview HTTP endpoints. You can also scroll and search through a single stream that multiplexes all logs. Theses logs persist as Tilt hums along re-building and re-deploying your code.
+
+![If you’ve already played with Tilt, you still see our familiar Terminal UI when you `tilt up` in your project. Hit `enter` on any resource to see the web UI.](/assets/images/designing-a-better-interface-for-microservices-development/featuredImage.png)*If you’ve already played with Tilt, you still see our familiar Terminal UI when you `tilt up` in your project. Hit `enter` on any resource to see the web UI.*
 
 ### …Is that all?
 

@@ -24,5 +24,14 @@ docker_build('docs-site', '.', dockerfile='docs.dockerfile',
                                               'docs/Gemfile', 'docs/Gemfile.lock'])
              ])
 
+docker_build('blog-site', '.', dockerfile='blog.dockerfile',
+             live_update = [
+               sync('./src', '/src/'),
+               sync('./blog', '/blog/'),
+               run('bundle install', trigger=['src/Gemfile', 'src/Gemfile.lock',
+                                              'blog/Gemfile', 'blog/Gemfile.lock'])
+             ])
+
 k8s_resource('tilt-site', port_forwards=4000)
 k8s_resource('docs-site', port_forwards=4001)
+k8s_resource('blog-site', port_forwards=4002)

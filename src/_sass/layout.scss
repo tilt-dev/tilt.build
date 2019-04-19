@@ -13,7 +13,7 @@ body {
   }
 }
 
-iframe, .docsContent img {
+iframe, .docsContent img, .blogContent img {
   @include mobile {
     max-width: 100%;
   }
@@ -126,7 +126,7 @@ li {
   }
 }
 
-.docsContent {
+.docsContent, .blogContent {
   display: block;
   max-width: $docs-width;
   width: 100%;
@@ -176,13 +176,17 @@ h2, .docsContent h1 {
 }
 
 /* on docs pages, these are grouped together */
-.docsContent h1, .sidebar h2 {
+.blogContent h1,
+.docsContent h1,
+.sidebar h2 {
   font-size: 32px;
   line-height: normal;
   margin-bottom: $spacing-unit / 2;
 }
 
-h3, .docsContent h2 {
+h3,
+.docsContent h2,
+.blogContent h2 {
   font-family: $header-font-family;
   font-variant-ligatures: none;
   font-size: 24px;
@@ -198,7 +202,9 @@ h3, .docsContent h2 {
   }
 }
 
-h4, .docsContent h3 {
+h4,
+.docsContent h3,
+.blogContent h3 {
   font-family: $header-font-family;
   font-variant-ligatures: none;
   font-size: 18px;
@@ -207,7 +213,8 @@ h4, .docsContent h3 {
   font-weight: 700;
   letter-spacing: 0;
 }
-.docsContent h3 {
+.docsContent h3,
+.blogContent h3 {
   color: $text-color;
 }
 .permalink {
