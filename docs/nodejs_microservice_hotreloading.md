@@ -28,7 +28,6 @@ docker_build('tilt-frontend-demo', '.',
     # Map the local source code into the container under /src
     sync('.', '/src'),
   ])
-)
 ```
 
 This is fast, but has a bug: when you change `package.json`, the dependencies don't get updated. Let's use the fall back feature of Live Update to fix that:
