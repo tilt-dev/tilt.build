@@ -35,3 +35,22 @@ spec:
         image: docs-site
         ports:
         - containerPort: 4000
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: blog-site
+spec:
+  selector:
+    matchLabels:
+      app: blog-site
+  template:
+    metadata:
+      labels:
+        app: blog-site
+    spec:
+      containers:
+      - name: blog-site
+        image: blog-site
+        ports:
+        - containerPort: 4000
