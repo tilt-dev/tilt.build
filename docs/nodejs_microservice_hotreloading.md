@@ -44,7 +44,7 @@ docker_build('tilt-frontend-demo', '.',
 ```
 
 
-Now we’re cruising! Updates that don't require a `bundle update` zoom by in less than a second.
+Now we’re cruising! Updates that don't require a `npm install` zoom by in less than a second.
 
 ## Further Reading
 * The full [example Tiltfile](https://github.com/windmilleng/tilt-frontend-demo/blob/master/Tiltfile) featured in this guide
