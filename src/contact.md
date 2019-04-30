@@ -6,7 +6,7 @@ permalink: /contact
 
 <div class="col-3of4 u-marginBottomUnit">
 If you'd like to learn more about what we're doing, you can either
-email <a href="mailto:dan@windmill.engineering">Dan</a> or <a href="mailto:nick@windmill.engineering">Nick</a>,
+email <a href="mailto:hi@windmill.engineering">us</a> directly,
 or fill out the form below.
 </div>
 
@@ -16,7 +16,7 @@ or fill out the form below.
   <input type="text" id="drip-name" name="fields[name]" value="" />
 </div>
 <div class="formItem">
-  <label for="drip-email">Email</label>
+  <label for="drip-email">Email Address</label>
   <input type="email" id="drip-email" name="fields[email]" value="" />
 </div>
 
