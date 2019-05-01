@@ -613,6 +613,27 @@ In any other case, an error reading <cite>path</cite> will be a Tiltfile load er
 </tbody>
 </table>
 </dd></dl><dl class="function">
+<dt id="api.read_yaml">
+<code class="descclassname">api.</code><code class="descname">read_yaml</code><span class="sig-paren">(</span><em>path</em>, <em>default=None</em><span class="sig-paren">)</span><a class="headerlink" href="#api.read_yaml" title="Permalink to this definition">&#xB6;</a></dt>
+<dd><p>Reads the file at <cite>path</cite> and deserializes its contents as YAML</p>
+<p>If the <cite>path</cite> does not exist and <cite>default</cite> is not <cite>None</cite>, <cite>default</cite> will be returned.
+In any other case, an error reading <cite>path</cite> will be a Tiltfile load error.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name">
+<col class="field-body">
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>path</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) &#x2013; Path to the file locally (absolute, or relative to the location of the Tiltfile).</li>
+<li><strong>default</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]) &#x2013; If not <cite>None</cite> and the file at <cite>path</cite> does not exist, this value will be returned.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">Dict</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-data docutils literal notranslate"><span class="pre">Any</span></code>], <code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-data docutils literal notranslate"><span class="pre">Any</span></code>]]</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl><dl class="function">
 <dt id="api.run">
 <code class="descclassname">api.</code><code class="descname">run</code><span class="sig-paren">(</span><em>cmd</em>, <em>trigger=[]</em><span class="sig-paren">)</span><a class="headerlink" href="#api.run" title="Permalink to this definition">&#xB6;</a></dt>
 <dd><p>Specify that the given <cite>cmd</cite> should be executed when updating an image&#x2019;s container</p>
