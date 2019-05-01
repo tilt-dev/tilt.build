@@ -326,18 +326,30 @@ def k8s_kind(kind: str, api_version: str=None, *, image_json_path: Union[str, Li
   """
   pass
 
-JSONType = Union[
+StructuredDataType = Union[
     Dict[str, Any],
     List[Any],
 ]
 
-def decode_json(json: str) -> JSONType:
+def decode_json(json: str) -> StructuredDataType:
   """Deserializes a given string from JSON to Starlark. Fails if the string can't be parsed as JSON."""
   pass
 
-def read_json(path: str, default: str = None) -> JSONType:
+def read_json(path: str, default: str = None) -> StructuredDataType:
   """
   Reads the file at `path` and deserializes its contents as JSON
+
+  If the `path` does not exist and `default` is not `None`, `default` will be returned.
+  In any other case, an error reading `path` will be a Tiltfile load error.
+
+  Args:
+    path: Path to the file locally (absolute, or relative to the location of the Tiltfile).
+    default: If not `None` and the file at `path` does not exist, this value will be returned."""
+  pass
+
+def read_yaml(path: str, default: str = None) -> StructuredDataType:
+  """
+  Reads the file at `path` and deserializes its contents as YAML
 
   If the `path` does not exist and `default` is not `None`, `default` will be returned.
   In any other case, an error reading `path` will be a Tiltfile load error.
