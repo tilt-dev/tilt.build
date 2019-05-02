@@ -36,7 +36,7 @@ $ brew install windmilleng/tap/tilt
 ### Option B) Installing Tilt from release binaries
 
 ```
-$ curl -L https://github.com/windmilleng/tilt/releases/download/v0.8.1/tilt.0.8.1.mac.x86_64.tar.gz | tar -xzv tilt && \
+$ curl -L https://github.com/windmilleng/tilt/releases/download/v0.8.2/tilt.0.8.2.mac.x86_64.tar.gz | tar -xzv tilt && \
   sudo mv tilt /usr/local/bin/tilt
 ```
 
@@ -62,7 +62,7 @@ $ kubectl cluster-info
 - Install the Tilt binary with:
 
 ```
-$ curl -L https://github.com/windmilleng/tilt/releases/download/v0.8.1/tilt.0.8.1.linux.x86_64.tar.gz | tar -xzv tilt && \
+$ curl -L https://github.com/windmilleng/tilt/releases/download/v0.8.2/tilt.0.8.2.linux.x86_64.tar.gz | tar -xzv tilt && \
     sudo mv tilt /usr/local/bin/tilt
 ```
 
@@ -86,7 +86,7 @@ After you install Tilt, verify that you installed it correctly with:
 
 ```
 $ tilt version
-v0.8.1, built 2019-04-22
+v0.8.2, built 2019-05-02
 ```
 
 Troubleshooting
