@@ -112,6 +112,30 @@ Get started easily, get more done, and never play twenty questions with <code>ku
   <iframe class="u-boxShadow" width="560" height="315" src="https://www.youtube.com/embed/1fS8K_Kn7yQ" frameborder="0" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </div>
 
+<div class="brandBox u-marginBottom2_5">
+{% include brandBoxBg.html %}
+<h2 class="section u-marginBottom0_5">Keep up with Developments in Microservice Development</h2>
+
+<div class="u-marginTop1">
+  <form action="https://www.getdrip.com/forms/507796156/submissions" method="post" data-drip-embedded-form="507796156">
+    <div class="u-marginBottom0_25"><label for="drip-email">Get our Newsletter</label></div>
+    <div class="subscribeFormItem">
+      <input class="inputBox u-heightBrandButton u-marginRight0_75" type="email" id="drip-email" name="fields[email]" value="" />
+      <button class="brandButton" type="submit" data-drip-attribute="sign-up-button">
+        {% include brandButtonBg.html %}
+        <div class="buttonLabel brandButton-text">
+          Subscribe
+        </div>
+      </button>
+    </div>
+    <div style="display: none;" aria-hidden="true">
+      <label for="website">Website</label><br />
+      <input type="text" id="website" name="website" tabindex="-1" autocomplete="false" value="" />
+    </div>
+  </form>
+</div>
+</div>
+
 <div class="row u-marginBottom0_5">
   <div class="col-1of2 u-marginBottomUnit u-maxWidth100OnMobile">
     <h4>

@@ -146,6 +146,12 @@ h1, .sidebar h2, h2.section {
   margin-bottom: $spacing-unit / 4;
   color: $color-grey;
 }
+.sidebar h2, h2.section {
+  @include mobile {
+    font-size: 26px;
+    line-height: 31px;
+  }
+}
 .wrapper--home h1,
 .wrapper--home h2.section, {
   color: $color-grey-dark;
@@ -494,13 +500,16 @@ a.brandButton {
 .brandButton-bg {
   display: flex;
   opacity: $opacity-light;
-  height: 40px;
+  height: $brand-button-height;
   width: 100%;
   position: absolute;
   z-index: -1;
   top: 0;
   left: 0;
   transition: opacity 300ms;
+}
+.u-heightBrandButton {
+  height: $brand-button-height !important;
 }
 .brandButton:hover .brandButton-bg {
   opacity: 1;
@@ -528,6 +537,41 @@ button.svgButton, button.brandButton {
   display: block;
   line-height: 40px;
   text-align: center;
+}
+
+.brandBox {
+  padding: $spacing-unit * 0.75 $spacing-unit;
+  position: relative;
+}
+.brandBox-bg {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 0;
+}
+.brandBox-left, .brandBox-right {
+  width: 40px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.brandBox-left > .brandBox-bgFill {
+  border-radius: 0 0 0 5px;
+}
+.brandBox-right > .brandBox-bgFill {
+  border-radius: 0 5px 0 0px;
+}
+.brandBox-bgFill {
+  background-color: $color-grey-lightest;
+  flex: 1;
+}
+.brandBox-bg svg {
+  fill: $color-grey-lightest;
+  width: 40px;
+  height: 80px;
 }
 
 .editOnGitHub {
@@ -639,11 +683,15 @@ h4 .fillStd {
 }
 
 .u-margin1 {
-  margin: $spacing-unit;
+  margin: $spacing-unit !important;
 }
 
 .u-margin1_5 {
-  margin: $spacing-unit * 1.5;
+  margin: $spacing-unit * 1.5 !important;
+}
+
+.u-marginRight0_75 {
+  margin-right: $spacing-unit * 0.75 !important;
 }
 
 .u-marginRightUnit {
@@ -652,6 +700,10 @@ h4 .fillStd {
 
 .u-marginBottom0 {
   margin-bottom: 0 !important;
+}
+
+.u-marginBottom0_25 {
+  margin-bottom: $spacing-unit * 0.25 !important;
 }
 
 .u-marginBottom0_5 {
@@ -815,6 +867,32 @@ h4 .fillStd {
   }
 }
 
+.subscribeFormItem {
+  display: flex;
+
+  @include mobile {
+    display: block;
+    text-align: right;
+  }
+}
+.subscribeFormItem > input {
+  font-family: $body-font-family;
+  font-weight: 300;
+  font-size: 18px;
+  background-color: white;
+  border: none;
+  line-height: 1.5 * $spacing-unit;
+  padding: 0 $spacing-unit/4;
+  flex: 1;
+  max-width: $col-1of2-width;
+
+  @include mobile {
+    display: block;
+    max-width: 100%;
+    width: 100%;
+    margin-bottom: $spacing-unit;
+  }
+}
 .formItem {
   display: block;
   position: relative;
