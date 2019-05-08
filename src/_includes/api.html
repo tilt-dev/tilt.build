@@ -179,9 +179,7 @@
 <p>Returns an object which can be used to create a FastBuild.</p>
 <p>It will raise an error if the specified ref is not published in the registry with the name+tag that is provided via the <code class="docutils literal notranslate"><span class="pre">$EXPECTED_REF</span></code> environment variable.</p>
 <p>Example</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">k8s_yaml</span><span class="p">(</span><span class="s1">&apos;deploy/fission.yaml&apos;</span><span class="p">)</span>
-<span class="n">k8s_kind</span><span class="p">(</span><span class="s1">&apos;Environment&apos;</span><span class="p">,</span> <span class="n">image_json_path</span><span class="o">=</span><span class="s1">&apos;{.spec.runtime.image}&apos;</span><span class="p">)</span>
-<span class="n">custom_build</span><span class="p">(</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">custom_build</span><span class="p">(</span>
   <span class="s1">&apos;gcr.io/foo&apos;</span><span class="p">,</span>
   <span class="s1">&apos;docker build -t $EXPECTED_REF .&apos;</span><span class="p">,</span>
   <span class="p">[</span><span class="s1">&apos;.&apos;</span><span class="p">],</span>

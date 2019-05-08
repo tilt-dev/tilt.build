@@ -396,8 +396,6 @@ def custom_build(ref: str, command: str, deps: List[str], tag: str = "", disable
 
   Example ::
 
-    k8s_yaml('deploy/fission.yaml')
-    k8s_kind('Environment', image_json_path='{.spec.runtime.image}')
     custom_build(
       'gcr.io/foo',
       'docker build -t $EXPECTED_REF .',
