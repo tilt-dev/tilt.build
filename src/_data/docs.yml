@@ -5,6 +5,8 @@
   items:
   - title: Install
     href: install.html
+  - title: Upgrading
+    href: upgrade.html
   - title: "Tutorial: First 15 Minutes"
     href: tutorial.html
   - title: Skaffold
