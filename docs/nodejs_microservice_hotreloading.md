@@ -36,7 +36,7 @@ This is fast, but has a bug: when you change `package.json`, the dependencies do
 docker_build('tilt-frontend-demo', '.',
   live_update=[
     # when package.json changes, we need to do a full build
-    fall_back_on('package.json', 'package-lock.json'),
+    fall_back_on(['package.json', 'package-lock.json']),
     # Map the local source code into the container under /src
     sync('.', '/src'),
   ]
