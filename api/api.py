@@ -392,7 +392,10 @@ def custom_build(ref: str, command: str, deps: List[str], tag: str = "", disable
 
   Returns an object which can be used to create a FastBuild.
 
-  It will raise an error if the specified ref is not published in the registry with the name+tag that is provided via the ``$EXPECTED_REF`` environment variable.
+  The command *must* publish an image with the name & tag ``$EXPECTED_REF``.
+
+  Tilt will raise an error if the command exits successfully, but the registry does not contain
+  an image with the ref ``$EXPECTED_REF``.
 
   Example ::
 
@@ -406,7 +409,8 @@ def custom_build(ref: str, command: str, deps: List[str], tag: str = "", disable
     ref: name for this image (e.g. 'myproj/backend' or 'myregistry/myproj/backend'). If this image will be used in a k8s resource(s), this ref must match the ``spec.container.image`` param for that resource(s).
     command: a command that, when run in the shell, builds an image puts it in the registry as ``ref``. Must produce an image named ``$EXPECTED_REF``
     deps: a list of files or directories to be added as dependencies to this image. Tilt will watch those files and will rebuild the image when they change.
-    tag: the tag you expect the resulting image to have; we set ``$EXPECTED_REF=imagename:tag`` and use this value to verify that the command produced the correct image. (If ``tag`` is not specified, Tilt will set the expected ref to ``imagename:<tilt-generated temporary tag>``.)
+    tag: Some tools can't change the image tag at runtime. They need a pre-specified tag. Tilt will set ``$EXPECTED_REF = image_name:tag``,
+       then re-tag it with its own tag before pushing to your cluster. See `the bazel guide <integrating_bazel_with_tilt.html>`_ for an example.
     disable_push: whether Tilt should push the image in to the registry that the Kubernetes cluster has access to. Set this to true if your command handles pushing as well.
     live_update: set of steps for updating a running container (see `Live Update documentation <live_update_reference.html>`_).
   """
