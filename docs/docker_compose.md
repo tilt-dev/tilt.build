@@ -1,5 +1,5 @@
 ---
-title: Docker Compose
+title: A Better UI for Docker Compose
 layout: docs
 ---
 

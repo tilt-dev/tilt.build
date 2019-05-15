@@ -1,5 +1,5 @@
 ---
-title: "Tutorial: First 15 Minutes"
+title: "Tutorial: the First 15 Minutes"
 layout: docs
 ---
 

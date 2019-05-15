@@ -1,5 +1,5 @@
 ---
-title: Skaffold
+title: From Skaffold to Tilt
 layout: docs
 ---
 
