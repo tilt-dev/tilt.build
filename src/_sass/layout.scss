@@ -951,10 +951,13 @@ input[type=checkbox] {
   top: 0;
   left: 0;
   display: inline-block;
-  width: $spacing-unit * 1.5;
-  height: $spacing-unit * 1.5;
+  margin-left: 0.25 * $spacing-unit;
+  margin-top: 0.125 * $spacing-unit;
+  width: $spacing-unit * 1.25;
+  height: $spacing-unit * 1.25;
   background-color: $color-grey-lightest;
-  border-radius: $spacing-unit * 0.75;
+  border-radius: 3px;
+  border: 1px solid $color-grey-dark;
   transition: background-color 0.2s ease-in-out;
   pointer-events: none;
 }
