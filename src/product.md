@@ -3,7 +3,6 @@ layout: page
 title: "Seeking: Head of Product"
 ---
 
-
 ### Who We Are
 
 Windmill Engineering is building the platform for cloud-native development.
@@ -48,3 +47,9 @@ very different than what you’re doing a year in.
   what problems they solve.
 - Has previous experience in both large and small technology companies where
   they have launched and scaled a product.
+
+<h3 class="ctaLink u-marginBottomUnit u-marginTopUnit">
+  <a href="/contact">
+    &hairsp;&gt; Interested? Contact Us
+  </a>
+</h3>
