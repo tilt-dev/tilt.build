@@ -1,7 +1,8 @@
 ---
 slug: whats-easier-than-clicking-run-test-not-clicking-it
 date: 2018-05-22T15:48:40.809Z
-author: ""
+author: jazzdan
+layout: blog
 title: "What’s Easier than Clicking “Run Test”? Not Clicking It."
 subtitle: "Have you ever been banging your head against the wall, trying to get that one test to pass? It can be frustrating to make a small tweak in your editor and then have to switch to a terminal to run the test, over and over again. VS Code makes this easier by offering CodeLenses to run tests right in the editor."
 images:
@@ -15,7 +16,6 @@ keywords:
   - testing
   - vscode
   - golang
-draft: true
 ---
 
 But it’s not live. It’s not responsive. We believe your tools should know what you’re working on. They should give you relevant feedback before you ask for them.

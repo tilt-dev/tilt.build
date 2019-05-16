@@ -1,7 +1,8 @@
 ---
 slug: how-to-compile-protobufs-when-you-have-friends-who-want-to-use-them-too
 date: 2018-10-01T21:19:26.715Z
-author: ""
+author: nick
+layout: blog
 title: "How to Compile Protobufs When You Have Friends Who Want to Use Them Too"
 subtitle: "I love GRPC, but hate compiling protobufs."
 tags:
@@ -16,7 +17,6 @@ keywords:
   - protobuf
   - grpc
   - software-development
-draft: true
 ---
 
 Protobufs make me feel productive! I can write a small `.proto` file that describes my interface. The protobuf compiler will generate all the client/server code that I need.
@@ -24,7 +24,7 @@ Protobufs make me feel productive! I can write a small `.proto` file that descri
 When I want to introduce protobufs into a codebase, I start with a Make rule:
 
 ```
-proto: 
+proto:
   protoc --go_out=plugins=grpc:../../../ -I. proto/*.proto
 ```
 

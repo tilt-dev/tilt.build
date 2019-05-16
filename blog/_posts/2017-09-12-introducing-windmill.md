@@ -1,7 +1,8 @@
 ---
 slug: introducing-windmill
 date: 2017-09-12T18:56:02.768Z
-author: ""
+author: nick
+layout: blog
 title: "Introducing Windmill"
 subtitle: "Windmill is exploring how to make developer tools (source control, build, and test) cloud-based, simple, and easy."
 images:
@@ -14,7 +15,6 @@ keywords:
   - continuous-integration
   - software-engineering
   - test-automation
-draft: true
 ---
 
 ### Our Product

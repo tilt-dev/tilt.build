@@ -20,4 +20,4 @@
 - name: Blog
   icon: blog
   mobileIcon: blog
-  href: https://medium.com/windmill-engineering/
+  blogurl: true

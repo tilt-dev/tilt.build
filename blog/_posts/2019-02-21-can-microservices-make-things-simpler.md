@@ -1,7 +1,8 @@
 ---
 slug: can-microservices-make-things-simpler
 date: 2019-02-21T15:49:15.649Z
-author: ""
+author: jazzdan
+layout: blog
 title: "Can Microservices Make Things Simpler?"
 subtitle: "When I think about microservices “simple” is not the first word that comes to mind. Quite the opposite, in fact. Microservices have a reputation of increasing complexity, making code sharing difficult and making it hard to develop locally. In the abstract though the idea of microservices seems like it should make a lot of these things simpler not harder. After all, what are microservices except a specific manifestation of a component model?"
 images:
@@ -21,7 +22,6 @@ keywords:
   - development
   - devops
   - elixir
-draft: true
 ---
 
 I have evidence that a well executed component model can simplify software development. Allow me to introduce you to Erlang.

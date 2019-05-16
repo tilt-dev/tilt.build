@@ -1,7 +1,8 @@
 ---
 slug: how-i-built-a-simple-static-jekyll-site-without-installing-ruby-a-rant
 date: 2019-02-18T05:41:05.350Z
-author: ""
+author: nick
+layout: blog
 title: "How I Built a Simple Static Jekyll Site Without Installing Ruby&#58; A Rant"
 subtitle: "How I Built a Simple Static Jekyll Site Without Installing Ruby: A Rant"
 tags:
@@ -14,7 +15,6 @@ keywords:
   - build-system
   - containers
   - jekyll
-draft: true
 ---
 
 Sometimes I have to make a static website.
@@ -63,7 +63,7 @@ That opens a terminal in the container.
 ```
 # gem install jekyll bundler
 ...
-# jekyll new src   
+# jekyll new src
 Running bundle install in /src...
 ...
 New jekyll site installed in /src.

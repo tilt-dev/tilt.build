@@ -1,7 +1,8 @@
 ---
 slug: tips-tricks-for-making-your-golang-container-builds-10x-faster
 date: 2018-10-01T20:09:54.364Z
-author: ""
+author: nick
+layout: blog
 title: "Tips & Tricks for Making Your Golang Container Builds 10x Faster"
 subtitle: "A couple weeks ago, I was wrestling with a bug."
 tags:
@@ -14,7 +15,6 @@ keywords:
   - golang
   - containers
   - build-tool
-draft: true
 ---
 
 Maybe you’ve had a night like this. I was tired, cranky. I probably should have taken a nap. But I felt like I was on the precipice of figuring it out.
@@ -206,7 +206,7 @@ tailybuild-base:
 tailybuild: tailybuild-base
   $(call inject-nonce)
   docker exec -it tailybuild rm -fR cmd
-  docker cp cmd tailybuild:/go/src/github.com/windmilleng/buildbench/ 
+  docker cp cmd tailybuild:/go/src/github.com/windmilleng/buildbench/
   docker exec -it tailybuild go install github.com/windmilleng/buildbench/cmd/example
   docker exec -it tailybuild /go/bin/example
 ```

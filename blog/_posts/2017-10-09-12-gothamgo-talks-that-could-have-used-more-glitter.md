@@ -1,7 +1,8 @@
 ---
 slug: 12-gothamgo-talks-that-could-have-used-more-glitter
 date: 2017-10-09T16:35:53.961Z
-author: ""
+author: nick
+layout: blog
 title: "12 GothamGo Talks That Could Have Used More Glitter"
 subtitle: "Windmill took our entire company to GothamGo last week. There are two of us. It’s a Go programming language conference in NYC. We both wanted to be there. It was an easy decision."
 images:
@@ -15,7 +16,6 @@ keywords:
   - software-engineering
   - go
   - golang
-draft: true
 ---
 
 I took notes on many of the talks. Here’s a brief summary of each one, and what I learned.
@@ -148,6 +148,3 @@ I’ll update this post with video links once the recordings are out.
 We were mainly at the conference to meet potential engineers to be a part of our team. If you’re interested in working together, [come talk to us](https://windmill.engineering/jobs/).
 
 We appreciated the love that so many people tweeted at us! We hope to see you next year!
-
-
-

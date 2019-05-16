@@ -1,7 +1,8 @@
 ---
 slug: thoughts-on-vscode-remote-development
 date: 2019-05-03T00:09:30.481Z
-author: ""
+author: nick
+layout: blog
 title: "Thoughts on VSCode Remote Development"
 subtitle: "Can we stop reinventing version managers now?"
 tags:
@@ -16,7 +17,6 @@ keywords:
   - vscode
   - containers
   - local-development
-draft: true
 ---
 
 Yesterday, the VSCode team announced a pack of Remote Development extensions. You can now edit code directly inside a container 😍. I have Thoughts.

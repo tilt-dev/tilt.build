@@ -1,7 +1,8 @@
 ---
 slug: mish-cruise-control-for-developers
 date: 2018-05-30T06:47:55.083Z
-author: ""
+author: dan
+layout: blog
 title: "mish&#58; cruise control for developers"
 subtitle: "mish in action"
 images:
@@ -18,7 +19,6 @@ keywords:
   - development
   - golang
   - python
-draft: true
 ---
 
 Our next Windmill experiment is [live](https://github.com/windmilleng/mish). `mish` is a terminal app that automates your development loop. `mish` watches your files, reruns commands, and displays the output. Refining the commands as your workflow changes is easy and ergonomic.

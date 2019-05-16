@@ -1,7 +1,8 @@
 ---
 slug: tilt-is-the-start-sh-script-of-my-dreams
 date: 2018-12-05T23:11:55.828Z
-author: ""
+author: nick
+layout: blog
 title: "Tilt is the `start.sh` Script of my Dreams"
 subtitle: "I heard Alex Clemmer give a talk at the NYC Kubernetes Meetup a few weeks ago. He started with a slide I loved:"
 images:
@@ -21,7 +22,6 @@ keywords:
   - kubernetes
   - minikube
   - microservices
-draft: true
 ---
 
 **“Kubernetes competes with Bash”**

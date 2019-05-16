@@ -136,31 +136,7 @@ Get started easily, get more done, and never play twenty questions with <code>ku
 </div>
 </div>
 
-<div class="row u-marginBottom0_5">
-  <div class="col-1of2 u-marginBottomUnit u-maxWidth100OnMobile">
-    <h4>
-      {% svg assets/svg/kubernetes.svg class="h4-icon" %}
-      Already have a Dockerfile and a Kubernetes config?
-    </h4>
-
-    <div class="u-clearBoth">
-    You’ll be able to setup Tilt
-    in no time and start getting things done.
-    <a class="bleedingLink" href="{{site.docsurl}}">&thinsp;<span class="bleedingLink-text">Check out the docs</span>!&hairsp;</a>
-    </div>
-  </div>
-
-  <div class="col-1of2 u-marginBottomUnit u-maxWidth100OnMobile">
-    <h4>
-      {% svg assets/svg/contact.svg class="h4-icon" %}
-      Having trouble developing your servers in Kubernetes?
-    </h4>
-
-    <div class="u-clearBoth">
-    We’d&thinsp;<a class="bleedingLink" href="/contact">&thinsp;<span class="bleedingLink-text">love to chat</span>.&hairsp;</a>
-    </div>
-  </div>
-</div>
+{% include cta_docs.html %}
 
 <h2 class="section">Find us at KubeCon EU</h2>
 

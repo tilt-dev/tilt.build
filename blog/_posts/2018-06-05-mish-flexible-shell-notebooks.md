@@ -1,7 +1,8 @@
 ---
 slug: mish-flexible-shell-notebooks
 date: 2018-06-05T22:01:37.684Z
-author: ""
+author: dan
+layout: blog
 title: "mish&#58; Flexible Shell Notebooks"
 subtitle: "easier refining and repeating"
 images:
@@ -11,7 +12,6 @@ tags:
   - terminal
 keywords:
   - terminal
-draft: true
 ---
 
 Shell makes it easy to rerun previous commands, but hard to edit them. Rerunning is `&lt;up&gt;-&lt;enter&gt;`, but editing requires `&lt;up&gt;-&lt;left&gt;-&lt;left&gt;-&lt;backspace&gt;-&lt;wait-how-many-backspaces-was-it&gt;-&lt;etc.&gt;`. If you’ve ever been irritated editing in shell, our [new tool `mish`](https://github.com/windmilleng/mish) can save you time and hassle.

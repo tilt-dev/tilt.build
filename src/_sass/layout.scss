@@ -125,11 +125,20 @@ li {
     max-width: $col-2of3-width;
   }
 }
-
-.docsContent, .blogContent {
+.docsContent {
   display: block;
   max-width: $docs-width;
   width: 100%;
+
+  @include docs-mobile {
+    max-width: 100%;
+  }
+}
+.blogContent {
+  display: block;
+  max-width: $blog-width;
+  width: 100%;
+  margin-bottom: 2.5 * $spacing-unit;
 
   @include docs-mobile {
     max-width: 100%;
@@ -771,7 +780,12 @@ h4 .fillStd {
     margin-bottom: $spacing-unit * 1.75 !important;
   }
 }
-
+.u-marginAuto {
+  margin: auto !important;
+}
+.u-maxWidthContent {
+  max-width: $content-width !important;
+}
 .u-maxWidth100OnMobile {
   @include mobile {
     max-width: 100%;

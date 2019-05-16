@@ -1,7 +1,8 @@
 ---
 slug: how-windmill-prepped-for-gothamgo
 date: 2018-05-17T21:23:42.867Z
-author: ""
+author: maia
+layout: blog
 title: "How Windmill Prepped for GothamGo"
 subtitle: "At the end of April, Windmill (all five of us) trekked down to GothamGo to learn things, meet people, and pitch our product. As Silver Level sponsors, we had our very own little table on the first floor; it was the perfect chance to pitch our fledgling product, make connections, and figure out what developers might want from us. The only question was: how?"
 images:
@@ -20,7 +21,6 @@ keywords:
   - conference-planning
   - golang
   - conference
-draft: true
 ---
 
 We’re a brand-new team, and GothamGo was a great excuse to do some important work. In preparation for the conference, we talked, we brainstormed, we aligned on our values and objectives and product goals; and then took the results of those conversations and ran with them, building our booth and our pitch from the bottom up.

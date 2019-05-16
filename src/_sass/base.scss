@@ -207,14 +207,20 @@ pre {
     max-width: $content-width;
   }
 }
-.wrapper--docs,
-.wrapper--blog {
+.wrapper--docs {
   max-width: $header-width;
   display: flex;
   justify-content: space-between;
 
   @include docs-mobile {
     display: block;
+    max-width: $content-width;
+  }
+}
+.wrapper--blog {
+  max-width: $blog-width;
+
+  @include docs-mobile {
     max-width: $content-width;
   }
 }

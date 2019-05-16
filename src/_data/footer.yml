@@ -3,7 +3,8 @@
   href: https://twitter.com/windmill_eng
 - name: Blog
   icon: blog
-  href: https://medium.com/windmill-engineering
+  href:
+  blogurl: true
 - name: GitHub
   icon: github
   href: https://github.com/windmilleng/tilt

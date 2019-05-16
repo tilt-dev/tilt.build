@@ -1,14 +1,14 @@
 ---
 slug: strange-loop-trip-report
 date: 2017-10-02T14:04:15.101Z
-author: ""
+author: dan
+layout: blog
 title: "Strange Loop Trip Report"
 subtitle: "Strange Loop is great. A technology conference in St. Louis, vaguely focused on programming languages as tools, that’s grown to 2,000 people. A few things stood out:"
 tags:
   - conference
 keywords:
   - conference
-draft: true
 ---
 
 ## Project Alloy

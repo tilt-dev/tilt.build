@@ -1,7 +1,8 @@
 ---
 slug: should-developers-know-about-kubernetes
 date: 2018-12-21T17:18:07.059Z
-author: ""
+author: jazzdan
+layout: blog
 title: "Should Developers Know about Kubernetes?"
 subtitle: "Intrepid Windmill employees hanging out with various Kubernetes mascots"
 tags:
@@ -16,7 +17,6 @@ keywords:
   - docker
   - programming
   - microservices
-draft: true
 ---
 
 That’s a wrap on Kubecon 2018, and on 2018 as a whole. As I reflect on the Kubecon experience, one question stands out: should application developers be aware of Kubernetes?

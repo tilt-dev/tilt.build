@@ -1,7 +1,8 @@
 ---
 slug: tilt-v0-8-release
 date: 2019-04-30T16:03:34.743Z
-author: ""
+author: nick
+layout: blog
 title: "Tilt v0.8 Release!"
 subtitle: "New Logs View, Live Update, Bazel Support, and Improved Resource Splitting"
 images:
@@ -18,7 +19,6 @@ keywords:
   - microservices
   - tilt
   - release-notes
-draft: true
 ---
 
 We released [Tilt v0.8](https://github.com/windmilleng/tilt) on April 22nd. This was a big release for us! So big that we’re only getting around to writing release notes now.
