@@ -1,7 +1,8 @@
 ---
 slug: 4-strange-loop-2018-talks-you-should-watch
 date: 2018-10-01T15:00:40.627Z
-author: ""
+author: jazzdan
+layout: blog
 title: "4 Strange Loop 2018 Talks You Should Watch"
 subtitle: "4 Strange Loop 2018 Talks You Should Watch"
 tags:
@@ -16,7 +17,6 @@ keywords:
   - strangeloop
   - programming-languages
   - talks
-draft: true
 ---
 
 [Strange Loop](https://thestrangeloop.com/) is the only conference I’ve ever been back to. It has a great balance of academic and industry talks aimed at the practitioner with a healthy strain of artistic whimsy running through it all. Here are five talks that I’ve been thinking about since the conference ended:

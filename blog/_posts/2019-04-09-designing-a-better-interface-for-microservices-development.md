@@ -1,7 +1,8 @@
 ---
 slug: designing-a-better-interface-for-microservices-development
 date: 2019-04-09T17:17:53.242Z
-author: ""
+author: han
+layout: blog
 title: "Designing a Better Interface for Microservices Development"
 images:
   - featuredImage.png

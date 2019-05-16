@@ -1,7 +1,8 @@
 ---
 slug: microservices-hidden-problem-understanding
 date: 2019-03-29T11:09:12.225Z
-author: ""
+author: dan
+layout: blog
 title: "Microservices’ Hidden Problem&#58; Understanding"
 subtitle: "How many times have you been iterating on code and realized your microservice app was broken, but you weren’t sure where the error was hiding? When we talk to Devs, they say they spend hours each week hunting for the right log line, forced to play 20 questions with kubectl. The problem? You’re using a tool that only solves half of your problem."
 images:
@@ -16,7 +17,6 @@ keywords:
   - microservices
   - development
   - tilt
-draft: true
 ---
 
 After you save a file, you want to **Update** your developer instance to use your new code. Kubernetes updating is clumsy and slow, which has led many to write tools to improve the situation.

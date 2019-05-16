@@ -1,7 +1,8 @@
 ---
 slug: dev-is-a-better-io-why-we-moved-to-tilt-dev
 date: 2019-02-20T14:35:07.670Z
-author: ""
+author: dan
+layout: blog
 title: ".dev is a better .io (why we moved to tilt.dev)"
 subtitle: "Diego Garcia, home of .io"
 tags:
@@ -14,7 +15,6 @@ keywords:
   - developer-tools
   - domain-names
   - tilt
-draft: true
 ---
 
 We’re proud for [Tilt](https://tilt.dev) to be an early adopter of the .dev domain. Google’s [announcement blog post](https://get.dev/) and landing page (the precociously named [get.dev](https://get.dev)) describe why .dev is a good TLD; I’d like to share why I think .dev is a *better* TLD.

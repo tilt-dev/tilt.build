@@ -1,7 +1,8 @@
 ---
 slug: production-is-for-cattle-but-development-is-for-pets
 date: 2018-08-06T17:22:38.794Z
-author: ""
+author: nick
+layout: blog
 title: "Production is for Cattle, but Development is for Pets"
 tags:
   - kubernetes
@@ -11,7 +12,6 @@ keywords:
   - kubernetes
   - cloud-services
   - golang
-draft: true
 ---
 
 Kubernetes makes it easy to manage herds of cattle: lots of servers running in production.
@@ -62,8 +62,8 @@ The service frontend-local is now running
 
 ```
 $ pets list
-Name                          Age                           
-backend-local                 1m                           
+Name                          Age
+backend-local                 1m
 frontend-local                1m
 ```
 

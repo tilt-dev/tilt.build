@@ -1,7 +1,8 @@
 ---
 slug: windmill-fan-program
 date: 2018-05-22T16:17:01.387Z
-author: ""
+author: dan
+layout: blog
 title: "Windmill Fan Program"
 subtitle: "Gopher feels the wind in their fur"
 tags:
@@ -12,7 +13,6 @@ keywords:
   - startup
   - development-tools
   - go
-draft: true
 ---
 
 Windmill is experimenting with Live Development. We’re building small tools we hypothesize will improve developer workflows. We need people to try them and give feedback. Other companies might call these Alpha Testers.

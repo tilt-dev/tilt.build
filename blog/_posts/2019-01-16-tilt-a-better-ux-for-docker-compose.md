@@ -1,7 +1,8 @@
 ---
 slug: tilt-a-better-ux-for-docker-compose
 date: 2019-01-16T17:18:00.294Z
-author: ""
+author: maia
+layout: blog
 title: "Tilt&#58; a Better UX for Docker Compose"
 subtitle: "We’ve done a lot of demos of Tilt in the past few months."
 images:
@@ -18,7 +19,6 @@ keywords:
   - developer-tools
   - microservices
   - containers
-draft: true
 ---
 
 Sometimes, people’s eyes light up and they say, “That’s exactly the tool I’ve been looking for! Now I can develop against all of my microservices at once, see exactly what’s going on with each of them, and have my local changes propagate up in seconds!”

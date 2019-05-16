@@ -1,7 +1,8 @@
 ---
 slug: fast-kubernetes-development-with-live-update
 date: 2019-04-02T09:27:35.205Z
-author: ""
+author: dan
+layout: blog
 title: "Fast Kubernetes Development with Live Update"
 subtitle: "Would you like to update your code on Kubernetes without waiting for a Docker build each time you change a file?"
 images:
@@ -18,7 +19,6 @@ keywords:
   - kubernetes
   - microservices
   - tilt
-draft: true
 ---
 
 The new **Live Update** feature of Tilt does just that. It’s live in [Tilt v0.8](https://github.com/windmilleng/tilt/releases). This post walks through setting up Live Update and using Tilt to speed up your Kubernetes iteration loop to just seconds.

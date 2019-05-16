@@ -1,7 +1,8 @@
 ---
 slug: how-tilt-updates-kubernetes-in-seconds-not-minutes
 date: 2018-08-28T15:28:24.574Z
-author: ""
+author: dan
+layout: blog
 title: "How Tilt updates Kubernetes in Seconds, not Minutes"
 subtitle: "When I bring my cat a box of toys, he loves the box and ignores the toys. I wish he’d pay attention to the work I did, but I didn’t let it bother me because he’s a cat. Then I started getting the same reaction from Kubernetes developers."
 images:
@@ -24,7 +25,6 @@ keywords:
   - devops
   - developer
   - developer-tools
-draft: true
 ---
 
 We built our new tool [Tilt](https://tilt.build) to make Kubernetes updates fast. Really fast. Seconds-instead-of-minutes fast. Cloud-as-fast-as-laptop fast. But when we show it to developers, they love the UI and ignore the speed.

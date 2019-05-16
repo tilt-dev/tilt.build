@@ -1,7 +1,8 @@
 ---
 slug: github-propelled-git-to-escape-velocity
 date: 2018-06-04T17:34:46.001Z
-author: ""
+author: dan
+layout: blog
 title: "GitHub propelled Git to escape velocity"
 subtitle: "Microsoft + GitHub! Is it more Chocolate + Peanut Butter or Dogs + Cats? Hot Take Tuesday falls on Monday this week:"
 images:
@@ -16,7 +17,6 @@ keywords:
   - git
   - mercurial
   - devops
-draft: true
 ---
 
 * HackerNews is full of [Sound](https://news.ycombinator.com/item?id=17229848) and [Fury](https://news.ycombinator.com/item?id=17226225), signifying nothing.

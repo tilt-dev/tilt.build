@@ -1,7 +1,8 @@
 ---
 slug: monitorama-trip-report
 date: 2018-06-11T22:36:07.318Z
-author: ""
+author: jazzdan
+layout: blog
 title: "Monitorama Trip Report"
 subtitle: "Monitorama Trip Report"
 tags:
@@ -16,7 +17,6 @@ keywords:
   - observability
   - conference
   - monitorama
-draft: true
 ---
 
 Monitorama was a 3 day conference held in Portland, Oregon that describes itself as an “Open Source Monitoring Conference Hackathon”.
