@@ -39,14 +39,14 @@ very different than what you’re doing a year in.
 - Help us build a team culture where everyone's doing their best work
 
 ### Our Ideal Candidate
-- Lives in the New York City, or would be willing to relocate.
+- Lives in New York City, or would be willing to relocate.
 - Has written code professionally. We do not expect this role to involve any
   coding, but it will be hard to succeed in this role without a strong
   understanding of developer workflow.
 - Familiar with Docker, containers, microservices, and Kubernetes. Can explain
   what problems they solve.
-- Has previous experience in both large and small technology companies where
-  they have launched and scaled a product.
+- Has previous experience in both large and small technology companies.
+  Has both launched and scaled a product.
 
 <h3 class="ctaLink u-marginBottomUnit u-marginTopUnit">
   <a href="/contact">
