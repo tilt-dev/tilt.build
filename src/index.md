@@ -109,7 +109,7 @@ Get started easily, get more done, and never play twenty questions with <code>ku
 <h2 class="section">Watch: Tilt in Two Minutes</h2>
 
 <div class="block u-marginTop1 u-marginBottom2 u-padding16">
-  <iframe class="u-boxShadow" width="560" height="315" src="https://www.youtube.com/embed/1fS8K_Kn7yQ" frameborder="0" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  <iframe class="u-boxShadow" width="560" height="315" src="https://www.youtube.com/embed/oSljj0zHd7U" frameborder="0" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </div>
 
 <div class="brandBox u-marginBottom2_5">

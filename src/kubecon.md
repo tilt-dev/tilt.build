@@ -7,7 +7,7 @@ permalink: /kubecon
 Let’s get you into a shiny new local development environment.
 
 <div class="block u-marginTop1 u-marginBottom2 u-padding16">
-  <iframe class="u-boxShadow" width="560" height="315" src="https://www.youtube.com/embed/1fS8K_Kn7yQ" frameborder="0" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  <iframe class="u-boxShadow" width="560" height="315" src="https://www.youtube.com/embed/oSljj0zHd7U" frameborder="0" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </div>
 
 <h3>Need help setting it up?</h3>
