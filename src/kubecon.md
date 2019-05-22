@@ -4,15 +4,28 @@ title: Welcome New KubeCon Friends!
 permalink: /kubecon
 ---
 
-Let’s get you into a shiny new local development environment.
+## Tilt manages local development instances for teams that deploy to Kubernetes.
 
-<div class="block u-marginTop1 u-marginBottom2 u-padding16">
-  <iframe class="u-boxShadow" width="560" height="315" src="https://www.youtube.com/embed/oSljj0zHd7U" frameborder="0" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<div class="flexblock u-marginTop1_25 u-marginBottom1_5">
+<a href="{{site.docsurl}}" class="brandButton u-marginBottomUnit u-marginRightUnit">
+  {% include brandButtonBg.html %}
+  <div class="buttonLabel brandButton-text">
+    Try Tilt Today
+  </div>
+</a>
+
+<h3 class="ctaLink u-marginBottomUnit">
+  <a href="https://github.com/windmilleng/tilt">
+    &hairsp;&gt; Check us out on GitHub&hairsp;
+  </a>
+</h3>
 </div>
 
 <h3>Need help setting it up?</h3>
 
-We’ll match you up with an engineer on our team. They’ll spend up to two hours pairing with you on your first Tiltfile.
+Tilt is free and open source. But we know your time is not free.
+
+We can match you up with an engineer on our team. They’ll spend up to two hours pairing with you on your first Tiltfile.
 
 Answer a few questions below, then we’ll reach out to you.
 
