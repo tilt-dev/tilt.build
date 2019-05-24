@@ -1087,6 +1087,15 @@ h4 .fillStd {
   box-shadow: 8px 10px 16px 16px $color-grey-lightest;
 }
 
+img.no-shadow {
+  box-shadow: none;
+
+  // center it
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .u-padding16 {
   padding: 16px !important;
 }

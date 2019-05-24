@@ -39,18 +39,19 @@ Even though `sync` steps must come _after_ any `fall_back_on` steps (if the latt
 A `sync` call takes two args: the local path of a file/directory, and the remote path to which Tilt should sync that file/directory if it changes. (This includes deleting the file remotely if it is deleted locally.)
 
 #### What files can I sync? How are builds triggered?
-When you tell Tilt how to build an image, you specify some set of files to watch. In the case of a `docker_build` call, Tilt watches the directory that you pass as `context`. Your sync'd local paths must fall within that context. (If you're using `custom_build`, all of the above applies, only with `deps` in place of `context`.)
+When you tell Tilt how to build an image, you specify some set of files to watch. In the case of a `docker_build` call, Tilt watches the directory that you pass as `context`. Your sync'd local paths must fall within that context. (If you're using `custom_build`, all of the above applies, only with `deps` in place of `context`.) Let's look at some examples:
 
-![An illegal "sync"](/assets/img/liveupdate-sync-illegal.png)
+<img src="/assets/img/liveupdate-sync-illegal.png" class="no-shadow" alt="An illegal 'sync'">
 
-The `sync` here is invalid, because it attempts to sync files that we're not even watching. (To put it another way: there's no way for those files to get into the container in the first place, because they would never be included in the Docker build.) If this is functionality you need, [let us know](https://tilt.dev/contact). 
+The `sync` above is invalid, because it attempts to sync files that we're not even watching. (To put it another way: there's no way for those files to get into the container in the first place, because they would never be included in the Docker build.) If this is functionality you need, [let us know](https://tilt.dev/contact).
 
-![Valid use of "sync" (all sync'd files are subsets of docker_build.context)](/assets/img/liveupdate-sync-docker-context.png)
-Here are some valid `sync`s. A change to any of the green files will kick off a Live Update, because they match a `sync` step. A change to any of the yellow files will kick off a full Docker build + deploy, because they're part of the Docker context but we don't have instructions on how to Live Update them. (Coming soon: a way to be to be more selective in what parts of your Docker context Tilt watches!)
+<img src="/assets/img/liveupdate-sync-docker-context.png" class="no-shadow" alt="A valid use of 'sync' (all sync'd files are subsets of docker_build.context)">
 
-![How to use "sync" with multiple dependent docker images](/assets/img/liveupdate-sync-dep-images.png)
+Above are some valid `sync`s. A change to any of the green files will kick off a Live Update, because they match a `sync` step. A change to any of the yellow files will kick off a full Docker build + deploy, because they're part of the Docker context but we don't have instructions on how to Live Update them. (Coming soon: a way to be to be more selective in what parts of your Docker context Tilt watches!)
 
-If you have multiple docker images that depend on each other, you can sync files from anywhere within the contexts of any of the images. (In this diagram, Tilt is building two images; the blue image depends on -- i.e. `FROM`'s -- the yellow image.)
+<img src="/assets/img/liveupdate-sync-dep-images.png" class="no-shadow" alt="How to use 'sync' with multiple dependent docker images">
+
+If you have multiple docker images that depend on each other, you can sync files from anywhere within the contexts of any of the images. (In the diagram above, Tilt is building two images; the blue image depends on--i.e. `FROM`'s--the yellow image.)
 
 The rule of thumb is: you can `sync` it if Tilt is watching it, and Tilt will watch it if it's in a `docker_build.context` or `custom_build.deps`.
 
