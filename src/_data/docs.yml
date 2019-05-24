@@ -23,7 +23,7 @@
   items:
   - title: Tiltfile Concepts
     href: tiltfile_concepts.html
-  - title: Optimizing a Tiltfile
+  - title: Faster Development with Live Update (Tutorial)
     href: live_update_tutorial.html
   - title: Live Update Reference
     href: live_update_reference.html
