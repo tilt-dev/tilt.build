@@ -108,7 +108,7 @@ class FastBuild:
 def fast_build(img_name: str, dockerfile_path: str, entrypoint: str = "") -> FastBuild:
   """Initiates a docker image build that supports ``add`` s and ``run`` s, and that uses a cache for subsequent builds.
 
-    See the `fast build documentation <https://docs.tilt.dev/fast_build.html>`_.
+  **Note**: this is a deprecated feature. For the fast building of the future, check out our `LiveUpdate tutorial </live_update_tutorial.html>`_ and `reference documention </live_update_reference.html>`_.
   """
   pass
 
