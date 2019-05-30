@@ -137,11 +137,3 @@ Get started easily, get more done, and never play twenty questions with <code>ku
 </div>
 
 {% include cta_docs.html %}
-
-<h2 class="section">Find us at KubeCon EU</h2>
-
-<div class="block u-marginTop1 u-marginBottom2 u-padding16">
-  <a href="https://events.linuxfoundation.org/events/kubecon-cloudnativecon-europe-2019/">
-  <img style='max-width: 500px; width: 100%' src="/assets/img/kubecon.png">
-  </a>
-</div>
