@@ -60,7 +60,7 @@ def container_restart() -> LiveUpdateStep:
   """
   pass
 
-def docker_build(ref: str, context: str, build_args: Dict[str, str] = {}, dockerfile: str = "Dockerfile", dockerfile_contents: Union[str, Blob] = "", live_update: List[LiveUpdateStep]=[]) -> None:
+def docker_build(ref: str, context: str, build_args: Dict[str, str] = {}, dockerfile: str = "Dockerfile", dockerfile_contents: Union[str, Blob] = "", live_update: List[LiveUpdateStep]=[], ignore: Union[str, List[str]] = []) -> None:
   """Builds a docker image.
 
   Note that you can't set both the `dockerfile` and `dockerfile_contents` arguments (will throw an error).
@@ -70,10 +70,11 @@ def docker_build(ref: str, context: str, build_args: Dict[str, str] = {}, docker
   Args:
     ref: name for this image (e.g. 'myproj/backend' or 'myregistry/myproj/backend'). If this image will be used in a k8s resource(s), this ref must match the ``spec.container.image`` param for that resource(s).
     context: path to use as the Docker build context.
-    build_args: build-time variables that are accessed like regular environment variables in the ``RUN`` instruction of the Dockerfile. See `the Docker Build Arg documentation <https://docs.docker.com/engine/reference/commandline/build/#set-build-time-variables---build-arg>`_
-    dockerfile: path to the Dockerfile to build
-    dockerfile_contents: raw contents of the Dockerfile to use for this build
+    build_args: build-time variables that are accessed like regular environment variables in the ``RUN`` instruction of the Dockerfile. See `the Docker Build Arg documentation <https://docs.docker.com/engine/reference/commandline/build/#set-build-time-variables---build-arg>`_.
+    dockerfile: path to the Dockerfile to build.
+    dockerfile_contents: raw contents of the Dockerfile to use for this build.
     live_update: set of steps for updating a running container (see `Live Update documentation <live_update_reference.html>`_).
+    ignore: set of patterns that will be ignored. Ignored files will not trigger builds and will not be included in images. Follows the `dockerignore syntax <https://docs.docker.com/engine/reference/builder/#dockerignore-file>`_.
   """
   pass
 
