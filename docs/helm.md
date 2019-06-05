@@ -10,9 +10,9 @@ There are two ways you can use Helm charts with Tilt.
 ## Basic Helm
 
 If you have a local Helm chart and want to deploy it as-is, add a `helm()` call to your `Tiltfile`:
-  
+
 ```python
-k8s_yaml(helm('path/to/chart'))
+k8s_yaml(helm('path/to/chart/dir'))
 ```
 
 The `helm` function runs `helm template` on a chart directory and returns the generated yaml.
@@ -31,26 +31,42 @@ The plugin API has two important functions:
 
 - `watch_file()` for telling Tilt to reload its configuration when a file changes
 
-Let's take a look at some common recipes for using the plugin API with Helm:
+Let's take a look at some common recipes for using the plugin API with Helm.
+
+### Example Repo
+
+If you prefer to play with a code sample, see
+
+[windmilleng/tilt-helm-demo](https://github.com/windmilleng/tilt-helm-demo)
 
 ### Re-implementing the `helm()` built-in
 
 To start, let's try implementing the `helm()` built-in ourselves.
 
 ```
-k8s_yaml(local('helm template path/to/chart'))
-watch_file('path/to/chart')
+k8s_yaml(local('helm template path/to/chart/dir'))
+watch_file('path/to/chart/dir')
 ```
 
 The real `helm()` built-in handles some extra optimizations and edge cases, but that's basically all it does!
 
-### Passing a variable
+### Passing a single variable
 
 Now that we know how to shell out to `helm`, we can pass arbitrary flags. Let's try using `--set` to set a variable.
 
 ```
-k8s_yaml(local('helm template --set key1=val1,key2=val2 path/to/chart'))
-watch_file('path/to/chart')
+k8s_yaml(local('helm template --set key1=val1,key2=val2 path/to/chart/dir'))
+watch_file('path/to/chart/dir')
+```
+
+### Passing a values file
+
+If you're passing a lot of variables, it's usually better to put those in a values.yaml file.
+
+```
+k8s_yaml(local('helm template -f ./values.yaml path/to/chart/dir'))
+watch_file('path/to/chart/dir')
+watch_file('values.yaml')
 ```
 
 ### Deploying a remote Helm chart
