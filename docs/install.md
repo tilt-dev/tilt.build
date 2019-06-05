@@ -69,15 +69,12 @@ $ curl -L https://github.com/windmilleng/tilt/releases/download/v0.8.8/tilt.0.8.
 From Source
 -----------
 
-If you'd prefer to install `tilt` from source,
+If you'd prefer to install `tilt` from source, see the [developers'
+guide](https://github.com/windmilleng/tilt/blob/master/DEVELOPING.md).
 
-- Install [go 1.11](https://golang.org/dl/). Make sure the Go install directory
-(usually `$HOME/go/bin`) is on your `$PATH`.
-- Run:
-
-```
-$ go get -u github.com/windmilleng/tilt/cmd/tilt
-```
+Building from source requires both Go and TypeScript/JavaScript tools, and
+dynamically compiles the TypeScript on every run. We only recommend this if you
+want to make changes to Tilt.
 
 Verifying
 ---------
