@@ -74,8 +74,8 @@ def docker_build(ref: str, context: str, build_args: Dict[str, str] = {}, docker
     dockerfile: path to the Dockerfile to build.
     dockerfile_contents: raw contents of the Dockerfile to use for this build.
     live_update: set of steps for updating a running container (see `Live Update documentation <live_update_reference.html>`_).
-    ignore: set of patterns that will be ignored. Ignored files will not trigger builds and will not be included in images. Follows the `dockerignore syntax <https://docs.docker.com/engine/reference/builder/#dockerignore-file>`_.
-    only: set of patterns that will cause a build to be triggered. All other changes will be ignored. Inverse of ignore parameter. Follows the `dockerignore syntax <https://docs.docker.com/engine/reference/builder/#dockerignore-file>`_.
+    ignore: set of file patterns that will be ignored. Ignored files will not trigger builds and will not be included in images. Follows the `dockerignore syntax <https://docs.docker.com/engine/reference/builder/#dockerignore-file>`_.
+    only: set of file patterns that will cause a build to be triggered. All other changes will be ignored. Inverse of ignore parameter. Follows the `dockerignore syntax <https://docs.docker.com/engine/reference/builder/#dockerignore-file>`_. Note that ignores take precedence over this parameter.
   """
   pass
 
