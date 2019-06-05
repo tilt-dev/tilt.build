@@ -144,6 +144,9 @@ li {
     max-width: 100%;
   }
 }
+.blogBody {
+  max-width: $blog-body-width;
+}
 
 h1, .sidebar h2, h2.section {
   font-family: $header-font-family;
@@ -189,14 +192,24 @@ h2, .docsContent h1 {
     line-height: 35px;
   }
 }
+.blogContent h1 {
+  color: $color-red;
+}
 
 /* on docs pages, these are grouped together */
-.blogContent h1,
 .docsContent h1,
 .sidebar h2 {
   font-size: 32px;
   line-height: normal;
   margin-bottom: $spacing-unit / 2;
+}
+
+.blogContent h1 {
+  font-size: 32px;
+  line-height: normal;
+
+  // tighten up title + subtitle
+  margin-bottom: -$spacing-unit / 4;
 }
 
 h3,
@@ -215,6 +228,10 @@ h3,
     font-size: 22px;
     line-height: 28px;
   }
+}
+
+.blogContent h2 {
+  color: $color-grey;
 }
 
 h4,
