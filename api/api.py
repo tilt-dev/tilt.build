@@ -67,6 +67,8 @@ def docker_build(ref: str, context: str, build_args: Dict[str, str] = {}, docker
 
   Example: ``docker_build('myregistry/myproj/backend', '/path/to/code')`` is roughly equivalent to the call ``docker build /path/to/code -t myregistry/myproj/backend``
 
+  Note: If you're using the the `ignore` and `only` parameters to do context filtering and you have tricky cases, reach out to us. The implementation is complex and there might be edge cases.
+
   Args:
     ref: name for this image (e.g. 'myproj/backend' or 'myregistry/myproj/backend'). If this image will be used in a k8s resource(s), this ref must match the ``spec.container.image`` param for that resource(s).
     context: path to use as the Docker build context.
