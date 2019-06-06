@@ -2,6 +2,7 @@
 slug: local-development-at-kubecon-eu
 date: 2019-05-29T19:01:59.467Z
 author: nick
+layout: blog
 title: "Local Development at KubeCon EU"
 subtitle: "The Tilt engineering team is back from KubeCon in Barcelona. Thanks for everyone who visited our booth to press our button!"
 images:

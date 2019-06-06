@@ -3,13 +3,23 @@ layout: default
 ---
 <div class="wrapper wrapper--blog u-marginBottom1_5">
   <div class="blogContent">
-    <h1>{{ page.title }}</h1>
-
-    {% if page.subtitle %}
-    <h2>{{ page.subtitle }}</h2>
+    
+    {% if page.image %}
+    <figure class="blogFeatureImage">
+      <img src="/assets/images/{{ page.slug }}/{{ page.image }}">
+      {% if page.image_caption %}
+      <figcaption>{{page.image_caption}}</figcaption>
+      {% endif %}
+    </figure>
     {% endif %}
-
+    
     <div class="blogBody">
+      <h1>{{ page.title }}</h1>
+
+      {% if page.subtitle %}
+      <h2>{{ page.subtitle }}</h2>
+      {% endif %}
+      
       {{ content }}
     </div>
   </div>

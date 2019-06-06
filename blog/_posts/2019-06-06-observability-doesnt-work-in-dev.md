@@ -2,10 +2,10 @@
 slug: observability-doesnt-work-in-dev
 date: 2019-06-06T14:43:58.636Z
 author: jazzdan
+layout: blog
 title: "Observability Doesn’t Work in Dev"
-subtitle: "A couple of years ago, diagnosing a problem in production would involve poring over log messages to produce an image in your head of what was happening. It felt like playing the world’s worst designed murder mystery game."
-images:
-  - featuredImage.png
+image: featuredImage.png
+image_caption: Spot the bug
 tags:
   - microservices
   - software-development
@@ -20,7 +20,7 @@ keywords:
   - local-development
 ---
 
-![Spot the bug](/assets/images/observability-doesnt-work-in-dev/1*xLhf5vNH6D77A7_ADPRx3g.png)*Spot the bug*
+A couple of years ago, diagnosing a problem in production would involve poring over log messages to produce an image in your head of what was happening. It felt like playing the world’s worst designed murder mystery game.
 
 Now we have a slew of complementary tools that, when used in conjunction, make debugging and understanding production systems way easier. Instead of looking at static graphs and hunting around for suspicious looking logs I can notice a systemic problem in Datadog then dive in to specific examples with Honeycomb. As a new hire I can look at traces in Lightstep for all of the requests I’m making and get a high-level overview of the system. It has never been easier to understand our production systems.
 
@@ -83,5 +83,7 @@ Why does observability suck in dev? We can’t lift and shift our production too
 Let’s start treating local development as seriously as we do production debugging. Local development is a unique, challenging environment that requires specialized tooling. It’s an environment that we as engineers spend a lot of time working in.
 
 It’s time the state of the art advanced beyond `grep` and `ps`. It’s time for specialized local development tools.
+
+<hr>
 
 *For our first take on a specialized local development tool, check out [Tilt](https://tilt.dev/)! Tilt manages local development instances for teams that deploy to Kubernetes. Get started easily, get more done, and never play twenty questions with `kubectl` ever again.*
