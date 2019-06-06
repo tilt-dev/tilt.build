@@ -26,7 +26,9 @@ $spacing-unit:     32px;
 $content-width:    $spacing-unit * 23;
 $header-width:     $content-width + 8.5 * $spacing-unit;
 $sidebar-width:    $spacing-unit * 7.5;
-$blog-width:       $spacing-unit * 32;
+$blog-body-width:  $spacing-unit * 21;
+// $blog-width:       $spacing-unit * 32;
+$blog-width:       $header-width;
 $docs-width:       $content-width + 0.5 * $spacing-unit;
 $brand-button-height: 1.25 * $spacing-unit;
 

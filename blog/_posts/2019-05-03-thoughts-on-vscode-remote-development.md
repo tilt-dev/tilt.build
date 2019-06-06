@@ -20,8 +20,8 @@ keywords:
 ---
 
 Yesterday, the VSCode team announced a pack of Remote Development extensions. You can now edit code directly inside a container 😍. I have Thoughts.
-[**Remote Development with Visual Studio Code**
-*May 2, 2019 by The VS Code Team, @code Today we're excited to announce the preview of three new extensions for Visual…*code.visualstudio.com](https://code.visualstudio.com/blogs/2019/05/02/remote-development)
+
+Read more here: [**Remote Development with Visual Studio Code**](https://code.visualstudio.com/blogs/2019/05/02/remote-development)
 
 I’ve spent the last few years focused on smoothing and optimizing the microservice dev experience. This launch dovetails with some trends:
 
@@ -33,7 +33,7 @@ From the VSCode announcement: “we hesitate to try out a new stack like Rust, G
 
 **The community is crying out for a general-purpose sandbox dev env.** Containers have potential, but the developer experience is still finicky and unstable.
 
-The `[devcontainer.json` API reference](https://code.visualstudio.com/docs/remote/containers#_devcontainerjson-reference) is a cool start. Auto-port-exposing! Docker-compose files! I’m excited to see how this develops.
+The [`devcontainer.json` API reference](https://code.visualstudio.com/docs/remote/containers#_devcontainerjson-reference) is a cool start. Auto-port-exposing! Docker-compose files! I’m excited to see how this develops.
 
 I’ve learned a lot from the teams that are pioneering this workflow. Some foreshadowing on what comes next:
 
