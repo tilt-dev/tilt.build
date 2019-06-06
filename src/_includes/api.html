@@ -256,6 +256,7 @@ then re-tag it with its own tag before pushing to your cluster. See <a class="re
 <dd><p>Builds a docker image.</p>
 <p>Note that you can&#x2019;t set both the <cite>dockerfile</cite> and <cite>dockerfile_contents</cite> arguments (will throw an error).</p>
 <p>Example: <code class="docutils literal notranslate"><span class="pre">docker_build(&apos;myregistry/myproj/backend&apos;,</span> <span class="pre">&apos;/path/to/code&apos;)</span></code> is roughly equivalent to the call <code class="docutils literal notranslate"><span class="pre">docker</span> <span class="pre">build</span> <span class="pre">/path/to/code</span> <span class="pre">-t</span> <span class="pre">myregistry/myproj/backend</span></code></p>
+<p>Note: If you&#x2019;re using the the <cite>ignore</cite> and <cite>only</cite> parameters to do context filtering and you have tricky cases, reach out to us. The implementation is complex and there might be edge cases.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name">
 <col class="field-body">
