@@ -4,7 +4,6 @@ date: 2017-12-01T16:46:51.509Z
 author: nick
 layout: blog
 title: "“I’m Bored Waiting for my Build” Survey"
-subtitle: "Windmill Engineering knows that you probably spend much of your day waiting for your code to compile and tests to run and servers to start."
 tags:
   - continuous-integration
   - software-engineering
@@ -16,6 +15,8 @@ keywords:
   - software-testing
   - developer-tools
 ---
+
+Windmill Engineering knows that you probably spend much of your day waiting for your code to compile and tests to run and servers to start.
 
 While you’re waiting, complain to us about it! What makes you productive, and what sucks up time?
 

@@ -4,7 +4,6 @@ date: 2018-05-17T21:23:42.867Z
 author: maia
 layout: blog
 title: "How Windmill Prepped for GothamGo"
-subtitle: "At the end of April, Windmill (all five of us) trekked down to GothamGo to learn things, meet people, and pitch our product. As Silver Level sponsors, we had our very own little table on the first floor; it was the perfect chance to pitch our fledgling product, make connections, and figure out what developers might want from us. The only question was: how?"
 images:
   - 0*M074ur4hu5eHFvxJ.jpg
   - featuredImage.jpg
@@ -22,6 +21,8 @@ keywords:
   - golang
   - conference
 ---
+
+At the end of April, Windmill (all five of us) trekked down to GothamGo to learn things, meet people, and pitch our product. As Silver Level sponsors, we had our very own little table on the first floor; it was the perfect chance to pitch our fledgling product, make connections, and figure out what developers might want from us. The only question was: how?
 
 We’re a brand-new team, and GothamGo was a great excuse to do some important work. In preparation for the conference, we talked, we brainstormed, we aligned on our values and objectives and product goals; and then took the results of those conversations and ran with them, building our booth and our pitch from the bottom up.
 
@@ -69,7 +70,7 @@ Instead of throwing ideas out into the void, though, we decided to focus our thi
 
 We started tossing out ideas for booth themes in keeping with these values, but the breakthrough actually came when we took a slightly different tack: rather than “what do we want our booth to *be*,” we considered, “how do we want our booth to hook passersby?” The very first idea that got proposed was: “let’s let people complain about their dev tools. People *love* complaining about their dev tools.” The team loved it, and from there, it was jut a hop, skip, and a jump to Lucy’s “Psychiatric Help 5¢” stall from Peanuts.
 
-![The final product!](/assets/images/how-windmill-prepped-for-gothamgo/0*Yq9VvVfMsajAS2z8.jpg)*The final product!*
+![The final product!](/assets/images/how-windmill-prepped-for-gothamgo/0_Yq9VvVfMsajAS2z8.jpg)*The final product!*
 
 We spent some time spitballing ideas, and declared a sub-committee to come up with a more concrete proposal. (It turned out that this was a key move — brainstorming is great for generating high-level ideas, but trying to make specific decisions in a committee of 5+ is a recipe for disaster.) With the fruits of this meeting in mind, our sub-committee set out to decide exactly what the booth would look like, and what swag/shiny things/interactive bits we would have to spark conversation and move towards our objectives.
 

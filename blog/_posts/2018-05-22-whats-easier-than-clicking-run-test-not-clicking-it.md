@@ -4,7 +4,6 @@ date: 2018-05-22T15:48:40.809Z
 author: jazzdan
 layout: blog
 title: "What’s Easier than Clicking “Run Test”? Not Clicking It."
-subtitle: "Have you ever been banging your head against the wall, trying to get that one test to pass? It can be frustrating to make a small tweak in your editor and then have to switch to a terminal to run the test, over and over again. VS Code makes this easier by offering CodeLenses to run tests right in the editor."
 images:
   - 1*KMMk--1EiY0CwrGZC-QJgA.gif
   - featuredImage.gif
@@ -17,6 +16,8 @@ keywords:
   - vscode
   - golang
 ---
+
+Have you ever been banging your head against the wall, trying to get that one test to pass? It can be frustrating to make a small tweak in your editor and then have to switch to a terminal to run the test, over and over again. VS Code makes this easier by offering CodeLenses to run tests right in the editor.
 
 But it’s not live. It’s not responsive. We believe your tools should know what you’re working on. They should give you relevant feedback before you ask for them.
 
@@ -32,7 +33,7 @@ Autorun is simple: every time you open a Go file that contains tests the extensi
 
 Test pinning allows you to focus on just one test and see the new result immediately on save of any file. This is useful when you’re just trying to get that *one pesky test* to pass*.*
 
-![](/assets/images/whats-easier-than-clicking-run-test-not-clicking-it/1*_jKIdDTho2gaznMzy-7fQg.gif)
+![](/assets/images/whats-easier-than-clicking-run-test-not-clicking-it/1__jKIdDTho2gaznMzy-7fQg.gif)
 
 ### Become a fan
 

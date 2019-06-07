@@ -13,6 +13,16 @@ body {
   }
 }
 
+figcaption,
+.blogBody > p > img + em {
+  display: block;
+}
+figcaption,
+.blogBody > p > img + em,
+.blogBody > p > img + em > code {
+  font-size: $small-font-size;
+}
+
 iframe, .docsContent img, .blogContent img {
   @include mobile {
     max-width: 100%;
@@ -147,7 +157,15 @@ li {
 .blogFeatureImage {
   margin-bottom: $spacing-unit * 1.25;
 }
-.blogBody {
+.blogBody > h1,
+.blogBody > h2,
+.blogBody > h3,
+.blogBody > blockquote,
+.blogBody > hr,
+.blogBody > p,
+.blogBody > ol,
+.blogBody > ul,
+.blogBody > div.block {
   max-width: $blog-body-width;
 }
 
@@ -266,7 +284,7 @@ h3:hover > .permalink {
   color: $color-grey;
 
   // tighten up title + subtitle
-  margin-top: - $spacing-unit / 4;
+  line-height: 32px;
 }
 .blogBody > h3 {
   font-size: 22px;
@@ -429,6 +447,11 @@ label, .formItem-label {
 .block {
   display: block;
   text-align: center;
+}
+.block--video {
+  margin: 0;
+  padding-top: $spacing-unit;
+  padding-bottom: $spacing-unit;
 }
 
 .flexblock {

@@ -4,9 +4,8 @@ date: 2019-04-02T09:27:35.205Z
 author: dan
 layout: blog
 title: "Fast Kubernetes Development with Live Update"
-subtitle: "Would you like to update your code on Kubernetes without waiting for a Docker build each time you change a file?"
-images:
-  - featuredImage.jpeg
+image: featuredImage.jpeg
+image_caption: Soon, your iteration loop will feel like this.
 tags:
   - docker
   - development
@@ -21,9 +20,9 @@ keywords:
   - tilt
 ---
 
-The new **Live Update** feature of Tilt does just that. It’s live in [Tilt v0.8](https://github.com/windmilleng/tilt/releases). This post walks through setting up Live Update and using Tilt to speed up your Kubernetes iteration loop to just seconds.
+Would you like to update your code on Kubernetes without waiting for a Docker build each time you change a file?
 
-![Soon, your iteration loop will feel like this.](/assets/images/fast-kubernetes-development-with-live-update/featuredImage.jpeg)*Soon, your iteration loop will feel like this.*
+The new **Live Update** feature of Tilt does just that. It’s live in [Tilt v0.8](https://github.com/windmilleng/tilt/releases). This post walks through setting up Live Update and using Tilt to speed up your Kubernetes iteration loop to just seconds.
 
 Live Update supports more projects than most sync tools because in addition to syncing files, it can run commands — which lets you call compilers, code generators, and more. (In particular, this means that Go projects can finally see the benefit of Go’s fast compiler even when running on Kubernetes.)
 
@@ -68,7 +67,9 @@ When you save a file in `./hello`, Tilt copies the file into the running contain
 
 Kubernetes sync tools have been limited to syncing code, which is fine for dynamic languages but doesn’t help you if you’re writing in a compiled language. This is especially frustrating for Go developers, because the Go compiler is really fast when it gets to use the cache — but a fresh image build can throw that cache away.
 
-**Let’s switch gears and look at our example Go project. **Here’s a simplified version of our example Go Tiltfile, using `run` to invoke a command on each Live Update:
+**Let’s switch gears and look at our example Go project.**
+
+Here’s a simplified version of our example Go Tiltfile, using `run` to invoke a command on each Live Update:
 
 ```
 k8s_yaml('hello.yaml')

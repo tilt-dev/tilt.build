@@ -4,7 +4,7 @@ date: 2019-03-29T11:09:12.225Z
 author: dan
 layout: blog
 title: "Microservices’ Hidden Problem&#58; Understanding"
-subtitle: "How many times have you been iterating on code and realized your microservice app was broken, but you weren’t sure where the error was hiding? When we talk to Devs, they say they spend hours each week hunting for the right log line, forced to play 20 questions with kubectl. The problem? You’re using a tool that only solves half of your problem."
+subtitle: ""
 images:
   - featuredImage.png
 tags:
@@ -19,10 +19,13 @@ keywords:
   - tilt
 ---
 
+How many times have you been iterating on code and realized your microservice app was broken, but you weren’t sure where the error was hiding? When we talk to Devs, they say they spend hours each week hunting for the right log line, forced to play 20 questions with kubectl. The problem? You’re using a tool that only solves half of your problem.
+
 After you save a file, you want to **Update** your developer instance to use your new code. Kubernetes updating is clumsy and slow, which has led many to write tools to improve the situation.
 
 But these tools don’t help you **Understand**. When you can’t Understand, you can’t iterate. Faster Update isn’t enough.
-> # The state of the art? Open N terminals, one for each microservice.
+
+> The state of the art? Open N terminals, one for each microservice.
 
 ### Microservices make Understanding harder
 
@@ -62,4 +65,4 @@ Our 2-minute demo shows off Tilt’s Updating and Understanding abilities:
 
 *We built Tilt from the ground up with microservice developers in mind. [Get in touch](https://tilt.dev/contact) if you’d like to try it today.*
 
-![Tilt lets you see your microservice surroundings](/assets/images/microservices-hidden-problem-understanding/1*6N6_Lgl8rHEhOViJHi9SFw.png)*Tilt lets you see your microservice surroundings*
+![Tilt lets you see your microservice surroundings](/assets/images/microservices-hidden-problem-understanding/featuredImage.png)*Tilt lets you see your microservice surroundings*

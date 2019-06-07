@@ -4,9 +4,8 @@ date: 2018-05-30T06:47:55.083Z
 author: dan
 layout: blog
 title: "mish&#58; cruise control for developers"
-subtitle: "mish in action"
-images:
-  - featuredImage.png
+image_caption: "mish in action"
+image: "1_5SyGWMKZ3wyZq_iNOp2g_g.gif"
 tags:
   - devops
   - shell
@@ -58,7 +57,7 @@ Because Mill deals with commands, not libraries, it works with any language, tes
 
 ## It’s Dangerous to Go Alone; Take Mi(chel)
 
-![Bonjour! Je m’appelle Michel](/assets/images/mish-cruise-control-for-developers/1*KbCt7S4W2Eh8EK7mqor4Pg.png)*Bonjour! Je m’appelle Michel*
+![Bonjour! Je m’appelle Michel](/assets/images/mish-cruise-control-for-developers/1_KbCt7S4W2Eh8EK7mqor4Pg.png)*Bonjour! Je m’appelle Michel*
 
 Adopting a new tool, especially a CLI, is intimidating because so many are so inscrutable. `mish` means to break that trend. It offers a contextual help bar in the footer. And a mascot!
 

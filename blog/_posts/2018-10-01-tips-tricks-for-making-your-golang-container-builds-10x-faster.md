@@ -4,7 +4,6 @@ date: 2018-10-01T20:09:54.364Z
 author: nick
 layout: blog
 title: "Tips & Tricks for Making Your Golang Container Builds 10x Faster"
-subtitle: "A couple weeks ago, I was wrestling with a bug."
 tags:
   - docker
   - golang
@@ -17,17 +16,19 @@ keywords:
   - build-tool
 ---
 
+A couple weeks ago, I was wrestling with a bug.
+
 Maybe you’ve had a night like this. I was tired, cranky. I probably should have taken a nap. But I felt like I was on the precipice of figuring it out.
 
 I Googled around for tools that might help. And I found one! But it didn’t compile on the version of Go I was using. What should I do?
 
-1. Try installing a different version of Go, but risk hosing my machine and getting into an even more broken state
+<p>1. Try installing a different version of Go, but risk hosing my machine and getting into an even more broken state</p>
 
-1. Try fixing the tool to compile on my version of Go
+<p>Try fixing the tool to compile on my version of Go</p>
 
 But then I realized I have a third option! An option that makes upgrading libraries safe again!!
 
-3. Build everything in a container
+<p>3. Build everything in a container</p>
 
 Yessssssss.
 

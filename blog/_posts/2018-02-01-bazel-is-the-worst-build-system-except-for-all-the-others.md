@@ -4,7 +4,6 @@ date: 2018-02-01T16:04:41.722Z
 author: nick
 layout: blog
 title: "Bazel is the Worst Build System, Except for All the Others"
-subtitle: "The Go community sometimes argues about whether Go projects should use go build or bazel build."
 tags:
   - bazel
   - developer-tools
@@ -15,7 +14,7 @@ keywords:
   - build-system
 ---
 
-
+The Go community sometimes argues about whether Go projects should use go build or bazel build.
 
 We talk about this at Windmill Engineering too! We’ve been trying to reconcile two statements:
 

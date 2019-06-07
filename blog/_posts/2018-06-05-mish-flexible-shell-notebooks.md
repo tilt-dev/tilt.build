@@ -4,10 +4,8 @@ date: 2018-06-05T22:01:37.684Z
 author: dan
 layout: blog
 title: "mish&#58; Flexible Shell Notebooks"
-subtitle: "easier refining and repeating"
-images:
-  - 1*1iZGUcjmLf8mvYYjtU0ZLg.gif
-  - 1*KbCt7S4W2Eh8EK7mqor4Pg.png
+image_caption: "easier refining and repeating"
+image: "1_w-2_vusBqdbQA_1oxcBFKw.gif"
 tags:
   - terminal
 keywords:

@@ -4,7 +4,6 @@ date: 2018-12-05T23:11:55.828Z
 author: nick
 layout: blog
 title: "Tilt is the `start.sh` Script of my Dreams"
-subtitle: "I heard Alex Clemmer give a talk at the NYC Kubernetes Meetup a few weeks ago. He started with a slide I loved:"
 images:
   - 1*Hu6PC-bmdzhrUoaQzUi7hA.png
   - 1*tO_khyEJs281wPBheBPXDQ.png
@@ -23,6 +22,8 @@ keywords:
   - minikube
   - microservices
 ---
+  
+I heard Alex Clemmer give a talk at the NYC Kubernetes Meetup a few weeks ago. He started with a slide I loved:
 
 **“Kubernetes competes with Bash”**
 
@@ -32,7 +33,7 @@ Kubernetes takes care of all of that now.
 
 It made me wonder what other stupid things we’re still doing with Bash that should have a more opinionated framework.
 
-### The ``start.sh` `script of my nightmares
+### The `start.sh` `script of my nightmares
 
 Every server I’ve worked on has some Bash script, `start.sh`.
 

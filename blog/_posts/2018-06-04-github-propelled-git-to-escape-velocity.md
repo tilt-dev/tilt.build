@@ -4,7 +4,6 @@ date: 2018-06-04T17:34:46.001Z
 author: dan
 layout: blog
 title: "GitHub propelled Git to escape velocity"
-subtitle: "Microsoft + GitHub! Is it more Chocolate + Peanut Butter or Dogs + Cats? Hot Take Tuesday falls on Monday this week:"
 images:
   - featuredImage.jpeg
 tags:
@@ -19,6 +18,8 @@ keywords:
   - devops
 ---
 
+[Microsoft + GitHub](https://blogs.microsoft.com/blog/2018/06/04/microsoft-github-empowering-developers/)! Is it more [Chocolate + Peanut Butter](https://www.youtube.com/watch?v=DJLDF6qZUX0) or [Dogs + Cats](https://www.youtube.com/watch?v=JmzuRXLzqKk)? Hot Take Tuesday falls on Monday this week:
+
 * HackerNews is full of [Sound](https://news.ycombinator.com/item?id=17229848) and [Fury](https://news.ycombinator.com/item?id=17226225), signifying nothing.
 
 * [GitLab](https://news.ycombinator.com/item?id=17223116) usage is skyrocketing.
@@ -31,7 +32,7 @@ Adding my congratulations seems insufficient; I’ll try to provide a hot take. 
 
 I think GitHub’s key bet was forking, and it was so successful that GitHub spread git to new developers.
 
-![Spongebob Squaregit](/assets/images/github-propelled-git-to-escape-velocity/1*DeZ4wzaH1PT58OKzTKRVZg.jpeg)*Spongebob Squaregit*
+![Spongebob Squaregit](/assets/images/github-propelled-git-to-escape-velocity/featuredImage.jpeg)*Spongebob Squaregit*
 
 ## My History at Google Code
 
