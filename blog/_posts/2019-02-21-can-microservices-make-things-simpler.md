@@ -4,7 +4,6 @@ date: 2019-02-21T15:49:15.649Z
 author: jazzdan
 layout: blog
 title: "Can Microservices Make Things Simpler?"
-subtitle: "When I think about microservices “simple” is not the first word that comes to mind. Quite the opposite, in fact. Microservices have a reputation of increasing complexity, making code sharing difficult and making it hard to develop locally. In the abstract though the idea of microservices seems like it should make a lot of these things simpler not harder. After all, what are microservices except a specific manifestation of a component model?"
 images:
   - featuredImage.png
   - 1*9aBt8gH0RfsBhoyhboBfJg.gif
@@ -23,6 +22,8 @@ keywords:
   - devops
   - elixir
 ---
+
+When I think about microservices “simple” is not the first word that comes to mind. Quite the opposite, in fact. Microservices have a reputation of increasing complexity, making code sharing difficult and making it hard to develop locally. In the abstract though the idea of microservices seems like it should make a lot of these things simpler not harder. After all, what are microservices except a specific manifestation of a component model?
 
 I have evidence that a well executed component model can simplify software development. Allow me to introduce you to Erlang.
 
@@ -66,4 +67,6 @@ What does this thing do? How am I expected to use it? Where do I look if I want 
 
 If I’m going to spend all of this time building an application with microservices I want to get *all *of the benefits of such an architecture, not just some. Alongside technological flexibility and individual scalability I want discoverability, visibility and ease of use. If microservices doesn’t make my app simpler, then what’s the point?
 
-[*Tilt](https://tilt.dev) makes it possible to develop all your microservices locally in Kubernetes while collaborating with your team. See a complete view of your system, from building to deploying to logging to crashing. [Give it a try](https://tilt.dev)!*
+<hr>
+
+*[Tilt](https://tilt.dev) makes it possible to develop all your microservices locally in Kubernetes while collaborating with your team. See a complete view of your system, from building to deploying to logging to crashing. [Give it a try](https://tilt.dev)!*

@@ -4,6 +4,7 @@ date: 2018-08-06T17:22:38.794Z
 author: nick
 layout: blog
 title: "Production is for Cattle, but Development is for Pets"
+image: featuredImage.png
 tags:
   - kubernetes
   - cloud-services

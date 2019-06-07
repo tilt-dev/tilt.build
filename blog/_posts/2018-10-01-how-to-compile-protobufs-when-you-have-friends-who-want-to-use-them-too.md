@@ -4,7 +4,6 @@ date: 2018-10-01T21:19:26.715Z
 author: nick
 layout: blog
 title: "How to Compile Protobufs When You Have Friends Who Want to Use Them Too"
-subtitle: "I love GRPC, but hate compiling protobufs."
 tags:
   - docker
   - protocol-buffers
@@ -18,6 +17,8 @@ keywords:
   - grpc
   - software-development
 ---
+  
+I love GRPC, but hate compiling protobufs.
 
 Protobufs make me feel productive! I can write a small `.proto` file that describes my interface. The protobuf compiler will generate all the client/server code that I need.
 
@@ -88,8 +89,8 @@ That worked fiiiine…for a while. It was finicky when adding new `.proto` files
 We wrote a small python script to help us apply this pattern in multiple projects.
 
 We thought about calling it GRIND (“GRpc IN Docker”). But that would be silly. Instead we call it `protocc`.
-[**windmilleng/protocc**
-*Compile protobufs (protoc) inside a container (protocc)! - windmilleng/protocc*github.com](https://github.com/windmilleng/protocc)
+
+[windmilleng/protocc - Compile protobufs (protoc) inside a container (protocc)!](https://github.com/windmilleng/protocc)
 
 Just copy `protocc.py` and run:
 

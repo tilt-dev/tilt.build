@@ -47,4 +47,6 @@ I’ve learned a lot from the teams that are pioneering this workflow. Some fore
 
 The VSCode team is doing exciting work here. And there are so many problems left to solve! If these extensions can deliver on the promise of making in-container editing as seamless as local editing, this will be a huge step forward.
 
+<hr>
+
 *Obligatory log rolling: If your team deploys to Kubernetes and you’re looking to make local development fun again, check out [Tilt](https://tilt.dev/)!*

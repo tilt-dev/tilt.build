@@ -4,9 +4,6 @@ date: 2019-01-16T17:18:00.294Z
 author: maia
 layout: blog
 title: "Tilt&#58; a Better UX for Docker Compose"
-subtitle: "We’ve done a lot of demos of Tilt in the past few months."
-images:
-  - featuredImage.0*PxblIaR2zjEgqKEd
 tags:
   - docker
   - docker-compose
@@ -20,6 +17,8 @@ keywords:
   - microservices
   - containers
 ---
+  
+We’ve done a lot of demos of Tilt in the past few months.
 
 Sometimes, people’s eyes light up and they say, “That’s exactly the tool I’ve been looking for! Now I can develop against all of my microservices at once, see exactly what’s going on with each of them, and have my local changes propagate up in seconds!”
 
@@ -45,9 +44,9 @@ In particular, Tilt via Docker Compose strives to make your experience fast, liv
 
 With Tilt, you can see the state of all your services at a glance. Why deal with something ugly and uninformative like `watch -d docker-compose ps` when there’s a better option? Tilt tells you right away whether your services are red, green, or pending; and when something goes wrong, we automatically surface the error message to you.
 
-Speaking of logs, Tilt lets you summon and dismiss per-service logs with a single keystroke; we think it’s *much *nicer than digging through log barf of all of your services, or tracking ten different log tails.
+Speaking of logs, Tilt lets you summon and dismiss per-service logs with a single keystroke; we think it’s *much* nicer than digging through log barf of all of your services, or tracking ten different log tails.
 
-![This is no way to live.](/assets/images/tilt-a-better-ux-for-docker-compose/0*PxblIaR2zjEgqKEd)*This is no way to live.*
+![This is no way to live.](/assets/images/tilt-a-better-ux-for-docker-compose/featuredImage.png)*This is no way to live.*
 
 ### Tilt x Docker Compose is LIVE
 
@@ -63,6 +62,8 @@ If the point above made you cringe because your Docker build is *just too slow*,
 
 Want to get started? [Check out our docs](https://docs.tilt.build/docker_compose.html).
 
-We’re still hard at work on Docker Compose support, adding and refining features to make the experience even better and more customizable. We welcome your feedback: come say hi in `[#tilt` on the Kubernetes Slack](https://kubernetes.slack.com/messages/CESBL84MV/), or [file a GitHub issue](https://github.com/windmilleng/tilt/issues) if you run into any problems. Until then: happy Composing!
+We’re still hard at work on Docker Compose support, adding and refining features to make the experience even better and more customizable. We welcome your feedback: come say hi in [`#tilt` on the Kubernetes Slack](https://kubernetes.slack.com/messages/CESBL84MV/), or [file a GitHub issue](https://github.com/windmilleng/tilt/issues) if you run into any problems. Until then: happy Composing!
 
-1: though we think that it’s pretty easy to write a `Tiltfile`. [Our docs](https://docs.tilt.build/first_config.html) are comprehensive, and we hope that writing your configs in *code* (and not just an endless pile of YAML) feels more familiar and comfortable for you. [[^](#02e9)]
+<hr>
+
+1: though we think that it’s pretty easy to write a `Tiltfile`. [Our docs](https://docs.tilt.build/first_config.html) are comprehensive, and we hope that writing your configs in *code* (and not just an endless pile of YAML) feels more familiar and comfortable for you.

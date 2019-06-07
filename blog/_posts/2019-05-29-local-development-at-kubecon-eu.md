@@ -4,10 +4,8 @@ date: 2019-05-29T19:01:59.467Z
 author: nick
 layout: blog
 title: "Local Development at KubeCon EU"
-subtitle: "The Tilt engineering team is back from KubeCon in Barcelona. Thanks for everyone who visited our booth to press our button!"
-images:
-  - featuredImage.jpeg
-  - 1*NIX8WIDMr8IUOPVRwHeBbw.jpeg
+subtitle: ""
+image: featuredImage.jpeg
 tags:
   - kubernetes
   - bazel
@@ -20,7 +18,7 @@ keywords:
   - kubecon
 ---
 
-![](/assets/images/local-development-at-kubecon-eu/1*oZyG3L85wDfz7aCZmmk1ug.jpeg)
+The Tilt engineering team is back from KubeCon in Barcelona. Thanks for everyone who visited our booth to press our button!
 
 ![[https://twitter.com/jazzdan/status/1131567233350668288](https://twitter.com/jazzdan/status/1131567233350668288)](/assets/images/local-development-at-kubecon-eu/1*NIX8WIDMr8IUOPVRwHeBbw.jpeg)*[https://twitter.com/jazzdan/status/1131567233350668288](https://twitter.com/jazzdan/status/1131567233350668288)*
 

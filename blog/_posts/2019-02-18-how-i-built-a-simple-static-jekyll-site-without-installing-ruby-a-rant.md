@@ -3,8 +3,7 @@ slug: how-i-built-a-simple-static-jekyll-site-without-installing-ruby-a-rant
 date: 2019-02-18T05:41:05.350Z
 author: nick
 layout: blog
-title: "How I Built a Simple Static Jekyll Site Without Installing Ruby&#58; A Rant"
-subtitle: "How I Built a Simple Static Jekyll Site Without Installing Ruby: A Rant"
+title: "How I Built a Simple Static Jekyll Site Without Installing Ruby: A Rant"
 tags:
   - docker
   - build-system

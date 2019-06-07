@@ -4,7 +4,8 @@ date: 2018-05-22T16:17:01.387Z
 author: dan
 layout: blog
 title: "Windmill Fan Program"
-subtitle: "Gopher feels the wind in their fur"
+image_caption: "Gopher feels the wind in their fur"
+image: 1_tzJemAXfFDXb1FKBEdgVfg.jpeg
 tags:
   - startup
   - development-tools
@@ -32,3 +33,7 @@ Fans get to try our experiments. Each experiment should take:
 We’re launching our first experiment soon. Very soon! Before June!
 
 Be the first to hear about future experiments by signing up below.
+
+<div class="block">
+<iframe width="100%" height="800px" scrolling="no" frameborder="0" id="player" src="https://airtable.com/embed/shr39k0vIo0QfZjrY?referrer=https%3A%2F%2Fmedium.com%2Fmedia%2Fce0697f2666bf5c90d384f6320646d8d%3FpostId%3Da4c0066c356d" allowfullscreen="true"></iframe>
+</div>

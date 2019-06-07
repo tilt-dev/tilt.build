@@ -4,7 +4,6 @@ date: 2017-10-09T16:35:53.961Z
 author: nick
 layout: blog
 title: "12 GothamGo Talks That Could Have Used More Glitter"
-subtitle: "Windmill took our entire company to GothamGo last week. There are two of us. It’s a Go programming language conference in NYC. We both wanted to be there. It was an easy decision."
 images:
   - featuredImage.png
   - 1*Xh2NMcuUBFQ81Yity29yRQ.png
@@ -18,12 +17,13 @@ keywords:
   - golang
 ---
 
+Windmill took our entire company to GothamGo last week. There are two of us. It’s a Go programming language conference in NYC. We both wanted to be there. It was an easy decision.
+
 I took notes on many of the talks. Here’s a brief summary of each one, and what I learned.
 
 ## Day 1
 
 Windmill sponsored a table! We’re not at the level of maturity yet where we know how to do “marketing” or “professional print services.” So we bought some poster board, markers, and glitter glue pens from the local art store, then made ourselves a shiny booth.
-
 
 The downside was that I missed a few talks while sitting at the booth. Sorry if I missed yours!
 
@@ -33,7 +33,7 @@ Steve bragged about how great Go is. He showed charts from Github, etc about how
 
 Then he transitioned into all the ways that Go has failed. For example, the Go team failed to appreciate how massive a problem dependency management would be, and how much a solution would need to integrate with the Go toolchain. But the slide that stuck with me was a screenshot of this section of “[Effective Go](https://golang.org/doc/effective_go.html#for)”:
 
-![“Effective Go”’s explanation of the `for` loop](/assets/images/12-gothamgo-talks-that-could-have-used-more-glitter/1*P23lQP0ndbTt8cfLB1FdJg.png)*“Effective Go”’s explanation of the `for` loop*
+![“Effective Go”’s explanation of the `for` loop](/assets/images/12-gothamgo-talks-that-could-have-used-more-glitter/1_P23lQP0ndbTt8cfLB1FdJg.png)*“Effective Go”’s explanation of the `for` loop*
 
 Steve criticized the Go community for focusing so much on systems C programmers, accidentally excluding other groups and making them feel unwelcome. I thought about how hard it is to write great documentation: you want to leverage the reader’s existing background knowledge on many axes, without alienating readers who don’t have that knowledge.
 
@@ -107,7 +107,7 @@ If you pass his [statictemplate tool](https://github.com/bouk/statictemplate) a 
 
 I don’t know if these benefits are worth it for most apps. I wouldn’t expect template execution to be a performance bottleneck. But as an academic exercise, this was a cool way to unpack the internals of Go and the template system! Bouke took us on a tour of the template [parse tree](https://golang.org/pkg/text/template/parse/), how to use build tags to generate different dev and prod versions, and even how to play tricks on the linker that let you call private functions 🙈!
 
-### **“I Will Debate Mark Bates About All of the Controversial Issues in Go”
+### **“I Will Debate Mark Bates About All of the Controversial Issues in Go”**
 by Sean Kelly and Mark Bates
 moderated by Cassandra Salisbury**
 
@@ -127,7 +127,7 @@ The NYTimes is building a multiplayer crossword game! JP described the high leve
 
 He let us play a demo, convincing everyone that multiplayer crosswords are total chaos.
 
-![We are not good at this game.](/assets/images/12-gothamgo-talks-that-could-have-used-more-glitter/1*Xh2NMcuUBFQ81Yity29yRQ.png)*We are not good at this game.*
+![We are not good at this game.](/assets/images/12-gothamgo-talks-that-could-have-used-more-glitter/1_Xh2NMcuUBFQ81Yity29yRQ.png)*We are not good at this game.*
 
 ### **“Internals of the Go Internal Linker” by Jessica Frazelle**
 

@@ -4,7 +4,6 @@ date: 2018-08-28T15:28:24.574Z
 author: dan
 layout: blog
 title: "How Tilt updates Kubernetes in Seconds, not Minutes"
-subtitle: "When I bring my cat a box of toys, he loves the box and ignores the toys. I wish he’d pay attention to the work I did, but I didn’t let it bother me because he’s a cat. Then I started getting the same reaction from Kubernetes developers."
 images:
   - featuredImage.png
   - 1*GXhhCXThiOY8QNXOFDPKEA.png
@@ -26,6 +25,8 @@ keywords:
   - developer
   - developer-tools
 ---
+  
+When I bring my cat a box of toys, he loves the box and ignores the toys. I wish he’d pay attention to the work I did, but I didn’t let it bother me because he’s a cat. Then I started getting the same reaction from Kubernetes developers.
 
 We built our new tool [Tilt](https://tilt.build) to make Kubernetes updates fast. Really fast. Seconds-instead-of-minutes fast. Cloud-as-fast-as-laptop fast. But when we show it to developers, they love the UI and ignore the speed.
 
@@ -45,7 +46,7 @@ Before we can update, we have to deploy an initial version. The Kubernetes deplo
 
 * allocate a new pod, pull the image and start running
 
-![Vanilla k8s deploy](/assets/images/how-tilt-updates-kubernetes-in-seconds-not-minutes/1*jnRi-JvXuwYyn9Gc9duuag.png)*Vanilla k8s deploy*
+![Vanilla k8s deploy](/assets/images/how-tilt-updates-kubernetes-in-seconds-not-minutes/featuredImage.png)*Vanilla k8s deploy*
 
 ## Second Time, Same as the First
 
