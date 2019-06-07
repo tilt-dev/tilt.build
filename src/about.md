@@ -13,7 +13,7 @@ We’re small (seven people, NYC-based, VC-backed). We’re based at Work-Bench 
 
 <div class="row">
   <div class="bio col-1of3 u-marginBottom1_25">
-    <img class="bio-image" src="/assets/img/dbentley.jpg">
+    <img class="bio-image" src="/assets/img/dan.jpg">
     <h4>Dan Bentley</h4>
 
     <div>

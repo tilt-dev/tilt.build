@@ -12,6 +12,30 @@ layout: default
       {% endif %}
     </figure>
     {% endif %}
+
+    <div class="blogCredit">
+      {% assign author = site.data.people[page.author] %}
+      <div class="u-marginBottom0_75">
+        <img class="blogCredit-img" src="/assets/img/{{ page.author }}.jpg">
+        <div>Published on <span class="blogCredit-date">{{ page.date | date_to_long_string }}</span></div>
+        <div><a href="{{ site.landingurl }}about">{{ author.name }}</a></div>
+      </div>
+      <div>
+        <a class="circleLinkIcon" rel="author"
+           href="https://twitter.com/{{ author.twitter }}">
+          {% svg assets/svg/twitter.svg alt="Twitter" %}
+        </a>
+        <a class="circleLinkIcon" rel="author"
+           href="https://github.com/{{ author.github }}">
+          {% svg assets/svg/github.svg alt="GitHub" %}
+        </a>
+        <a class="circleLinkIcon" rel="author"
+           href="mailto:{{page.author}}@windmill.engineering">
+          {% svg assets/svg/email.svg alt="Email" %}
+        </a>
+      </div>
+      
+    </div>
     
     <div class="blogBody">
       <h1>{{ page.title }}</h1>

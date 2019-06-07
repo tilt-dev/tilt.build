@@ -13,7 +13,7 @@
       {% elsif link.blogurl %}
       {% assign href = (href | prepend: site.blogurl) %}
       {% endif %}
-      <a class="footerIcon" href="{{href}}">
+      <a class="circleLinkIcon" href="{{href}}">
         {% svg assets/svg/{{link.icon}}.svg alt="{{link.name}}" %}
       </a>
       {% endfor %}

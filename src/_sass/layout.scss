@@ -168,6 +168,26 @@ li {
 .blogBody > div.block {
   max-width: $blog-body-width;
 }
+.blogCredit {
+  float: right;
+  width: $blog-credit-width;
+  font-size: 14px;
+  line-height: 18px;
+  letter-spacing: 0.02em;
+}
+.blogCredit-img {
+  width: 40px;
+  height: 32px;
+  float: left;
+  margin-right: $spacing-unit / 4;
+  object-fit: cover;
+}
+.blogCredit-date {
+  color: $color-blue;
+}
+.blogCredit-author {
+  color: $color-red;
+}
 
 h1, .sidebar h2, h2.section {
   font-family: $header-font-family;
@@ -721,27 +741,29 @@ h4 .fillStd {
   background-color: $color-red;
 }
 
-.footerIcon,
-.footerIcon svg {
+.circleLinkIcon,
+.circleLinkIcon svg {
   width: 24px;
   height: 24px;
   display: inline-block;
 }
 
-.footerIcon + .footerIcon {
-  margin-left: $spacing-unit * 1/2;
+.circleLinkIcon + .circleLinkIcon {
+  margin-left: $spacing-unit / 2;
 }
-
-.footerIcon .fillStd {
+.blogCredit .circleLinkIcon + .circleLinkIcon {
+  margin-left: $spacing-unit / 4;
+}
+.circleLinkIcon .fillStd {
   transition: fill 0.2s;
   fill: $color-grey;
 }
 
-.footerIcon:hover {
+.circleLinkIcon:hover {
   background-color: transparent;
 }
 
-.footerIcon:hover .fillStd {
+.circleLinkIcon:hover .fillStd {
   fill: $color-red;
 }
 
@@ -772,8 +794,11 @@ h4 .fillStd {
 .u-marginBottom0_5 {
   margin-bottom: $spacing-unit * 0.5 !important;
 }
-
-.u-marginBottomUnit {
+.u-marginBottom0_75 {
+  margin-bottom: $spacing-unit * 0.75 !important;
+}
+.u-marginBottomUnit,
+.u-marginBottom1 {
   margin-bottom: $spacing-unit !important;
 }
 

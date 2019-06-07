@@ -1,7 +1,7 @@
 ---
 slug: observability-doesnt-work-in-dev
 date: 2019-06-06T14:43:58.636Z
-author: jazzdan
+author: dmiller
 layout: blog
 title: "Observability Doesn’t Work in Dev"
 image: featuredImage.png
