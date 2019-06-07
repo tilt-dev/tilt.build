@@ -1,7 +1,7 @@
 ---
 slug: monitorama-trip-report
 date: 2018-06-11T22:36:07.318Z
-author: jazzdan
+author: dmiller
 layout: blog
 title: "Monitorama Trip Report"
 image: featuredImage.jpeg

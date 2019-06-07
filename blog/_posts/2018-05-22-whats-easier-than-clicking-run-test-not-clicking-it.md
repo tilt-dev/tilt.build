@@ -1,7 +1,7 @@
 ---
 slug: whats-easier-than-clicking-run-test-not-clicking-it
 date: 2018-05-22T15:48:40.809Z
-author: jazzdan
+author: dmiller
 layout: blog
 title: "What’s Easier than Clicking “Run Test”? Not Clicking It."
 images:

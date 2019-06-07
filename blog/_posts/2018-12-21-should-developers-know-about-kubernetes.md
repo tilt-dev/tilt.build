@@ -1,7 +1,7 @@
 ---
 slug: should-developers-know-about-kubernetes
 date: 2018-12-21T17:18:07.059Z
-author: jazzdan
+author: dmiller
 layout: blog
 title: "Should Developers Know about Kubernetes?"
 image: featuredImage.jpeg

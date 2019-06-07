@@ -1,7 +1,7 @@
 ---
 slug: 4-strange-loop-2018-talks-you-should-watch
 date: 2018-10-01T15:00:40.627Z
-author: jazzdan
+author: dmiller
 layout: blog
 title: "4 Strange Loop 2018 Talks You Should Watch"
 image: featuredImage.jpeg

@@ -1,7 +1,7 @@
 ---
 slug: can-microservices-make-things-simpler
 date: 2019-02-21T15:49:15.649Z
-author: jazzdan
+author: dmiller
 layout: blog
 title: "Can Microservices Make Things Simpler?"
 images:
