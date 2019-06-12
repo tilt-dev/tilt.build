@@ -145,9 +145,35 @@ def k8s_yaml(yaml: Union[str, List[str], Blob]) -> None:
   """
   pass
 
+
+class TriggerMode:
+  """A set of constants that describe how Tilt triggers an update for a resource.
+  Possible values are:
+
+  - ``TRIGGER_MODE_AUTO``: the default. When Tilt detects a change to files or config. files associated with this resource, it triggers an update.
+
+  - ``TRIGGER_MODE_MANUAL``: user manually triggers update for dirty resources (i.e. resources with pending changes) via a button in the UI. (Note that the initial build always occurs automatically.)
+
+  The default trigger mode for all manifests may be set with the top-level function :meth:`trigger_mode`
+  (if not set, defaults to ``TRIGGER_MODE_AUTO``), and per-resource with :meth:`k8s_resource`.
+  """
+  def __init__(self):
+    pass
+
+def trigger_mode(trigger_mode: TriggerMode):
+  """Sets the default :class:`TriggerMode` for resources in this Tiltfile.
+  (Trigger mode may still be adjusted per-resource with :meth:`k8s_resource`.)
+
+  If this function is not invoked, the default trigger mode for all resources is ``TRIGGER MODE AUTO``.
+
+  Args:
+    trigger_mode: may be one of ``TRIGGER_MODE_AUTO`` or ``TRIGGER_MODE_MANUAL``
+  """
+
 def k8s_resource(workload: str, new_name: str = "",
                  port_forwards: Union[str, int, List[int]] = [],
-                 extra_pod_selectors: Union[Dict[str, str], List[Dict[str, str]]] = []) -> None:
+                 extra_pod_selectors: Union[Dict[str, str], List[Dict[str, str]]] = [],
+                 trigger_mode: TriggerMode = None) -> None:
   """Configures a kubernetes resources
 
   This description apply to `k8s_resource_assembly_version` 2.
@@ -176,6 +202,12 @@ def k8s_resource(workload: str, new_name: str = "",
       will be associated with this resource if it has all of the labels in at
       least one of the entries specified (but still also if it meets any of
       Tilt's usual mechanisms).
+    trigger_mode: one of ``TRIGGER_MODE_AUTO`` or ``TRIGGER_MODE_MANUAL``. Indicates
+      whether updates for this resource are triggered automatically (i.e. whenever an
+      associated file changes) or manually (i.e. only when the user presses a button
+      in the UI). (If not passed, defaults to the value passed to the top-level
+      function :meth:`trigger_mode`; if that function was not called, defaults to
+      ``TRIGGER_MODE_AUTO``.)
   """
 
   pass
