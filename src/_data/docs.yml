@@ -37,6 +37,8 @@
     href: nodejs_microservice_hotreloading.html
   - title: Building on a Base Image
     href: dependent_images.html
+  - title: Play and Pause Resources with Manual Update Control
+    href: manual_update_control.html
   - title: Using a Personal Registry
     href: personal_registry.html
   - title: Integrating Bazel with Tilt
