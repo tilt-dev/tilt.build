@@ -16,8 +16,8 @@ Now there's another way of doing things: `TriggerMode: Manual`. The UI will show
 ## How to Set TriggerMode
 You can change the trigger mode(s) of your resources in your Tiltfile in two different ways:
 
-1. `k8s_resource()` has an optional arg, `trigger_mode`; for that specific resource, you can pass either `TRIGGER_MODE_AUTO` or `TRIGGER_MODE_MANUAL`.
-2. if you want to adjust all of your resource at once, call the top-level function `trigger_mode` with one of those two constants. This sets the _default trigger mode for all manifests_. (You can still use `k8s_resource()` to set the trigger mode for individual manifests.)
+1. [`k8s_resource()`](/api.html#api.k8s_resource) has an optional arg, `trigger_mode`; for that specific resource, you can pass either `TRIGGER_MODE_AUTO` or `TRIGGER_MODE_MANUAL`.
+2. if you want to adjust all of your resource at once, call the top-level function [`trigger_mode()`](/api.html#api.trigger_mode) with one of those two constants. This sets the _default trigger mode for all manifests_. (You can still use `k8s_resource()` to set the trigger mode for individual manifests.)
 
 Here are some examples:
 ```python

@@ -156,6 +156,8 @@ class TriggerMode:
 
   The default trigger mode for all manifests may be set with the top-level function :meth:`trigger_mode`
   (if not set, defaults to ``TRIGGER_MODE_AUTO``), and per-resource with :meth:`k8s_resource`.
+
+  See also: `Manual Update Control documentation <manual_update_control.html>`_
   """
   def __init__(self):
     pass
@@ -166,8 +168,11 @@ def trigger_mode(trigger_mode: TriggerMode):
 
   If this function is not invoked, the default trigger mode for all resources is ``TRIGGER MODE AUTO``.
 
+  See also: `Manual Update Control documentation <manual_update_control.html>`_
+
   Args:
     trigger_mode: may be one of ``TRIGGER_MODE_AUTO`` or ``TRIGGER_MODE_MANUAL``
+
   """
 
 def k8s_resource(workload: str, new_name: str = "",
@@ -202,12 +207,8 @@ def k8s_resource(workload: str, new_name: str = "",
       will be associated with this resource if it has all of the labels in at
       least one of the entries specified (but still also if it meets any of
       Tilt's usual mechanisms).
-    trigger_mode: one of ``TRIGGER_MODE_AUTO`` or ``TRIGGER_MODE_MANUAL``. Indicates
-      whether updates for this resource are triggered automatically (i.e. whenever an
-      associated file changes) or manually (i.e. only when the user presses a button
-      in the UI). (If not passed, defaults to the value passed to the top-level
-      function :meth:`trigger_mode`; if that function was not called, defaults to
-      ``TRIGGER_MODE_AUTO``.)
+    trigger_mode: one of ``TRIGGER_MODE_AUTO`` or ``TRIGGER_MODE_MANUAL``. For more info, see the
+      `Manual Update Control documentation <manual_update_control.html>`_.
   """
 
   pass

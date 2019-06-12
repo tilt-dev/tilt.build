@@ -158,6 +158,7 @@ Possible values are:</p>
 </ul>
 <p>The default trigger mode for all manifests may be set with the top-level function <a class="reference internal" href="#api.trigger_mode" title="api.trigger_mode"><code class="xref py py-meth docutils literal notranslate"><span class="pre">trigger_mode()</span></code></a>
 (if not set, defaults to <code class="docutils literal notranslate"><span class="pre">TRIGGER_MODE_AUTO</span></code>), and per-resource with <a class="reference internal" href="#api.k8s_resource" title="api.k8s_resource"><code class="xref py py-meth docutils literal notranslate"><span class="pre">k8s_resource()</span></code></a>.</p>
+<p>See also: <a class="reference external" href="manual_update_control.html">Manual Update Control documentation</a></p>
 </dd></dl><dl class="function">
 <dt id="api.blob">
 <code class="descclassname">api.</code><code class="descname">blob</code><span class="sig-paren">(</span><em>contents</em><span class="sig-paren">)</span><a class="headerlink" href="#api.blob" title="Permalink to this definition">&#xB6;</a></dt>
@@ -453,12 +454,9 @@ labelsets to force entities to be associated with this resource. An entity
 will be associated with this resource if it has all of the labels in at
 least one of the entries specified (but still also if it meets any of
 Tilt&#x2019;s usual mechanisms).</li>
-<li><strong>trigger_mode</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<a class="reference internal" href="#api.TriggerMode" title="api.TriggerMode"><code class="xref py py-class docutils literal notranslate"><span class="pre">TriggerMode</span></code></a>]) &#x2013; one of <code class="docutils literal notranslate"><span class="pre">TRIGGER_MODE_AUTO</span></code> or <code class="docutils literal notranslate"><span class="pre">TRIGGER_MODE_MANUAL</span></code>. Indicates
-whether updates for this resource are triggered automatically (i.e. whenever an
-associated file changes) or manually (i.e. only when the user presses a button
-in the UI). (If not passed, defaults to the value passed to the top-level
-function <a class="reference internal" href="#api.trigger_mode" title="api.trigger_mode"><code class="xref py py-meth docutils literal notranslate"><span class="pre">trigger_mode()</span></code></a>; if that function was not called, defaults to
-<code class="docutils literal notranslate"><span class="pre">TRIGGER_MODE_AUTO</span></code>.)</li>
+<li><strong>trigger_mode</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<a class="reference internal" href="#api.TriggerMode" title="api.TriggerMode"><code class="xref py py-class docutils literal notranslate"><span class="pre">TriggerMode</span></code></a>]) &#x2013; <p>one of <code class="docutils literal notranslate"><span class="pre">TRIGGER_MODE_AUTO</span></code> or <code class="docutils literal notranslate"><span class="pre">TRIGGER_MODE_MANUAL</span></code>. For more info, see the
+<a class="reference external" href="manual_update_control.html">Manual Update Control documentation</a>.</p>
+</li>
 </ul>
 </td>
 </tr>
@@ -702,6 +700,7 @@ Can be a file (in which case just that file will be synced) or directory (in whi
 <dd><p>Sets the default <a class="reference internal" href="#api.TriggerMode" title="api.TriggerMode"><code class="xref py py-class docutils literal notranslate"><span class="pre">TriggerMode</span></code></a> for resources in this Tiltfile.
 (Trigger mode may still be adjusted per-resource with <a class="reference internal" href="#api.k8s_resource" title="api.k8s_resource"><code class="xref py py-meth docutils literal notranslate"><span class="pre">k8s_resource()</span></code></a>.)</p>
 <p>If this function is not invoked, the default trigger mode for all resources is <code class="docutils literal notranslate"><span class="pre">TRIGGER</span> <span class="pre">MODE</span> <span class="pre">AUTO</span></code>.</p>
+<p>See also: <a class="reference external" href="manual_update_control.html">Manual Update Control documentation</a></p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name">
 <col class="field-body">
