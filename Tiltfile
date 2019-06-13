@@ -12,22 +12,26 @@ read_file('Makefile') # rebuild if we change the Makefile
 
 k8s_yaml('serve.yaml')
 
-docker_build('tilt-site', 'src', dockerfile='site.dockerfile',
-             live_update = [
+docker_build('tilt-site', '.', dockerfile='site.dockerfile',
+             ignore=['./api/api.py', './docs', './blog'],
+             live_update=[
                sync('./src', '/src/'),
                run('bundle install', trigger=['src/Gemfile', 'src/Gemfile.lock'])
              ])
 
-docker_build('docs-site', '.', dockerfile='docs.dockerfile', ignore=["./api/api.py"],
-             live_update = [
+docker_build('docs-site', '.', dockerfile='docs.dockerfile',
+             ignore=['./api/api.py', './blog'],
+             live_update=[
                sync('./src', '/src/'),
                sync('./docs', '/docs/'),
                run('bundle install', trigger=['src/Gemfile', 'src/Gemfile.lock',
                                               'docs/Gemfile', 'docs/Gemfile.lock'])
              ])
 
-docker_build('blog-site', '.', dockerfile='blog.dockerfile', ignore=["./api/api.py"],
-             live_update = [
+
+docker_build('blog-site', '.', dockerfile='blog.dockerfile',
+             ignore=['./api/api.py', './docs'],
+             live_update=[
                sync('./src', '/src/'),
                sync('./blog', '/blog/'),
                run('bundle install', trigger=['src/Gemfile', 'src/Gemfile.lock',
