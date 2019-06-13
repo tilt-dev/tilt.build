@@ -175,10 +175,14 @@ def trigger_mode(trigger_mode: TriggerMode):
 
   """
 
+# Hack so this appears correctly in the function signature: https://stackoverflow.com/a/50193319/4628866
+TRIGGER_MODE_AUTO = type('_sentinel', (TriggerMode,),
+                 {'__repr__': lambda self: 'TRIGGER_MODE_AUTO'})()
+
 def k8s_resource(workload: str, new_name: str = "",
                  port_forwards: Union[str, int, List[int]] = [],
                  extra_pod_selectors: Union[Dict[str, str], List[Dict[str, str]]] = [],
-                 trigger_mode: TriggerMode = None) -> None:
+                 trigger_mode: TriggerMode = TRIGGER_MODE_AUTO) -> None:
   """Configures a kubernetes resources
 
   This description apply to `k8s_resource_assembly_version` 2.
@@ -208,7 +212,7 @@ def k8s_resource(workload: str, new_name: str = "",
       least one of the entries specified (but still also if it meets any of
       Tilt's usual mechanisms).
     trigger_mode: one of ``TRIGGER_MODE_AUTO`` or ``TRIGGER_MODE_MANUAL``. For more info, see the
-      `Manual Update Control documentation <manual_update_control.html>`_.
+      `Manual Update Control docs <manual_update_control.html>`_.
   """
 
   pass
