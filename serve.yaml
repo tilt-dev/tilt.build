@@ -16,6 +16,11 @@ spec:
         image: tilt-site
         ports:
         - containerPort: 4000
+          name: http
+        readinessProbe:
+          httpGet:
+            path: /
+            port: http
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -35,6 +40,11 @@ spec:
         image: docs-site
         ports:
         - containerPort: 4000
+          name: http
+        readinessProbe:
+          httpGet:
+            path: /
+            port: http
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -54,3 +64,8 @@ spec:
         image: blog-site
         ports:
         - containerPort: 4000
+          name: http
+        readinessProbe:
+          httpGet:
+            path: /
+            port: http
