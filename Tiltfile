@@ -8,6 +8,8 @@ default_registry('gcr.io/windmill-public-containers')
 read_file('api/api.py')
 local('make api')
 
+read_file('Makefile') # rebuild if we change the Makefile
+
 k8s_yaml('serve.yaml')
 
 docker_build('tilt-site', 'src', dockerfile='site.dockerfile',
@@ -16,7 +18,7 @@ docker_build('tilt-site', 'src', dockerfile='site.dockerfile',
                run('bundle install', trigger=['src/Gemfile', 'src/Gemfile.lock'])
              ])
 
-docker_build('docs-site', '.', dockerfile='docs.dockerfile',
+docker_build('docs-site', '.', dockerfile='docs.dockerfile', ignore=["./api/api.py"],
              live_update = [
                sync('./src', '/src/'),
                sync('./docs', '/docs/'),
@@ -24,7 +26,7 @@ docker_build('docs-site', '.', dockerfile='docs.dockerfile',
                                               'docs/Gemfile', 'docs/Gemfile.lock'])
              ])
 
-docker_build('blog-site', '.', dockerfile='blog.dockerfile',
+docker_build('blog-site', '.', dockerfile='blog.dockerfile', ignore=["./api/api.py"],
              live_update = [
                sync('./src', '/src/'),
                sync('./blog', '/blog/'),
