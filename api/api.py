@@ -150,7 +150,7 @@ class TriggerMode:
   """A set of constants that describe how Tilt triggers an update for a resource.
   Possible values are:
 
-  - ``TRIGGER_MODE_AUTO``: the default. When Tilt detects a change to files or config. files associated with this resource, it triggers an update.
+  - ``TRIGGER_MODE_AUTO``: the default. When Tilt detects a change to files or config files associated with this resource, it triggers an update.
 
   - ``TRIGGER_MODE_MANUAL``: user manually triggers update for dirty resources (i.e. resources with pending changes) via a button in the UI. (Note that the initial build always occurs automatically.)
 

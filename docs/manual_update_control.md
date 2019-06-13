@@ -11,8 +11,6 @@ The behavior described above is `TriggerMode: Auto` (Tilt's default); that is, u
 
 Now there's another way of doing things: `TriggerMode: Manual`. The UI will show you when Tilt has detected changes relevant to your resource, but it's up to you to _manually_ trigger the update, by means of a button in the UI.
 
-###### SCREENSHOT GOES HERE!
-
 ## How to Set TriggerMode
 You can change the trigger mode(s) of your resources in your Tiltfile in two different ways:
 
