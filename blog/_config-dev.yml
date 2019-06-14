@@ -1,3 +1,4 @@
 docsurl: "http://localhost:4001/"
 landingurl: "http://localhost:4000/"
 blogurl: "http://localhost:4002/"
+host: 0.0.0.0
