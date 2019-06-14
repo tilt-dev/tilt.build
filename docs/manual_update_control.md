@@ -11,7 +11,7 @@ The behavior described above is `TriggerMode: Auto` (Tilt's default); that is, u
 
 There's another way of doing things: `TriggerMode: Manual`. Tilt will still monitor file changes associated with your resources, but instead of automatically rebuilding and/or deploying every time a relevant file changes, Tilt will simply indicate in the UI that files have changed, and give you a button that you can use to kick off the update.
 
-## How to Set TriggerMode
+## Using TriggerMode
 You can change the trigger mode(s) of your resources in your Tiltfile in two different ways:
 
 1. [`k8s_resource()`](/api.html#api.k8s_resource) has an optional arg, `trigger_mode`; for that specific resource, you can pass either `TRIGGER_MODE_AUTO` or `TRIGGER_MODE_MANUAL`.
