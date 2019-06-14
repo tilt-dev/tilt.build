@@ -20,34 +20,28 @@ You can change the trigger mode(s) of your resources in your Tiltfile in two dif
 Here are some examples:
 ```python
 ...
-k8s_resource('foo')  # TriggerMode = Auto by default
+k8s_resource('snack)  # TriggerMode = Auto by default
 ```
 
 ```python
 ...
 # TriggerMode = Manual
-k8s_resource('foo', trigger_mode=TRIGGER_MODE_MANUAL)
+k8s_resource('snack, trigger_mode=TRIGGER_MODE_MANUAL)
 ```
 
 ```python
 trigger_mode(TRIGGER_MODE_MANUAL)
 ...
 # TriggerMode = Manual (default set above)
-k8s_resource('foo')
+k8s_resource('snack)
 
 # TriggerMode = Auto (can override the above default
 # for specific resources)
 k8s_resource('bar', trigger_mode=TRIGGER_MODE_AUTO)
 ```
 
-Now, when you run Tilt, the web UI's sidebar will look something like this:
-
-<div class="block u-margin1_5">
- <img src="assets/img/update-control-button-in-menu.png">
-</div>
-
-When you make changes to "foo", instead of them being automatically applied, Tilt will simply indicate unapplied changes by the asterisk to the right of `foo` in the sidebar. It will not automatically apply those changes. Instead, it will wait until you click the apply button to the left of `foo`.
-
 <div class="block u-margin1_5">
  <img src="assets/img/update-control.gif">
 </div>
+
+When you make changes to "snack", instead of them being automatically applied, Tilt will simply indicate unapplied changes by the asterisk to the right of `snack` in the sidebar. It will not automatically apply those changes. Instead, it will wait until you click the apply button to the left of `snack`.
