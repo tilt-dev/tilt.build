@@ -9,7 +9,7 @@ Well, sometimes that's _not_ what you want. Maybe updating Resource X takes a lo
 
 The behavior described above is `TriggerMode: Auto` (Tilt's default); that is, updates are _automatically_ triggered whenever Tilt detects a change to a relevant file.
 
-Now there's another way of doing things: `TriggerMode: Manual`. The UI will show you when Tilt has detected changes relevant to your resource, but it's up to you to _manually_ trigger the update, by means of a button in the UI.
+There's another way of doing things: `TriggerMode: Manual`. Tilt will still monitor file changes associated with your resources, but instead of automatically rebuilding and/or deploying every time a relevant file changes, Tilt will simply indicate in the UI that files have changed, and give you a button that you can use to kick off the update.
 
 ## How to Set TriggerMode
 You can change the trigger mode(s) of your resources in your Tiltfile in two different ways:
@@ -39,3 +39,11 @@ k8s_resource('foo')
 # for specific resources)
 k8s_resource('bar', trigger_mode=TRIGGER_MODE_AUTO)
 ```
+
+Now, when you run Tilt, the web UI's sidebar will look something like this:
+
+<div class="block u-margin1_5">
+ <img src="assets/img/update-control-button-in-menu.png">
+</div>
+
+When you make changes to "foo", instead of them being automatically applied, Tilt will simply indicate unapplied changes by the asterisk to the right of `foo` in the sidebar, and it will not automatically apply those changes, instead waiting until you click the apply button to the left of `foo`.
