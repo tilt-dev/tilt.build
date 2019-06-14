@@ -46,4 +46,8 @@ Now, when you run Tilt, the web UI's sidebar will look something like this:
  <img src="assets/img/update-control-button-in-menu.png">
 </div>
 
-When you make changes to "foo", instead of them being automatically applied, Tilt will simply indicate unapplied changes by the asterisk to the right of `foo` in the sidebar, and it will not automatically apply those changes, instead waiting until you click the apply button to the left of `foo`.
+When you make changes to "foo", instead of them being automatically applied, Tilt will simply indicate unapplied changes by the asterisk to the right of `foo` in the sidebar. It will not automatically apply those changes. Instead, it will wait until you click the apply button to the left of `foo`.
+
+<div class="block u-margin1_5">
+ <img src="assets/img/update-control.gif">
+</div>
