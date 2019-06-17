@@ -9,9 +9,9 @@ Well, sometimes that's _not_ what you want. Maybe updating Resource X takes a lo
 
 The behavior described above is `TriggerMode: Auto` (Tilt's default); that is, updates are _automatically_ triggered whenever Tilt detects a change to a relevant file.
 
-Now there's another way of doing things: `TriggerMode: Manual`. The UI will show you when Tilt has detected changes relevant to your resource, but it's up to you to _manually_ trigger the update, by means of a button in the UI.
+There's another way of doing things: `TriggerMode: Manual`. Tilt will still monitor file changes associated with your resources, but instead of automatically rebuilding and/or deploying every time a relevant file changes, Tilt will simply indicate in the UI that files have changed, and give you a button that you can use to kick off the update.
 
-## How to Set TriggerMode
+## Using TriggerMode
 You can change the trigger mode(s) of your resources in your Tiltfile in two different ways:
 
 1. [`k8s_resource()`](/api.html#api.k8s_resource) has an optional arg, `trigger_mode`; for that specific resource, you can pass either `TRIGGER_MODE_AUTO` or `TRIGGER_MODE_MANUAL`.
@@ -20,22 +20,28 @@ You can change the trigger mode(s) of your resources in your Tiltfile in two dif
 Here are some examples:
 ```python
 ...
-k8s_resource('foo')  # TriggerMode = Auto by default
+k8s_resource('snack)  # TriggerMode = Auto by default
 ```
 
 ```python
 ...
 # TriggerMode = Manual
-k8s_resource('foo', trigger_mode=TRIGGER_MODE_MANUAL)
+k8s_resource('snack, trigger_mode=TRIGGER_MODE_MANUAL)
 ```
 
 ```python
 trigger_mode(TRIGGER_MODE_MANUAL)
 ...
 # TriggerMode = Manual (default set above)
-k8s_resource('foo')
+k8s_resource('snack)
 
 # TriggerMode = Auto (can override the above default
 # for specific resources)
 k8s_resource('bar', trigger_mode=TRIGGER_MODE_AUTO)
 ```
+
+<div class="block u-margin1_5">
+ <img src="assets/img/update-control.gif">
+</div>
+
+When you make changes to "snack", instead of them being automatically applied, Tilt will simply indicate unapplied changes by the asterisk to the right of `snack` in the sidebar. It will not automatically apply those changes. Instead, it will wait until you click the apply button to the left of `snack`.

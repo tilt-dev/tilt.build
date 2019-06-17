@@ -40,6 +40,8 @@
           {% assign href = (href | prepend: site.landingurl) %}
           {% elsif link.docsurl %}
           {% assign href = (href | prepend: site.docsurl) %}
+          {% elsif link.blogurl %}
+          {% assign href = (href | prepend: site.blogurl) %}
           {% endif %}
           <a class="headerLink headerLink--{{link.mobileIcon}} headerLink--mobile" href="{{href}}">
           {% svg assets/svg/{{link.mobileIcon}}.svg %}

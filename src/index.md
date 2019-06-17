@@ -116,10 +116,10 @@ Get started easily, get more done, and never play twenty questions with <code>ku
 {% include brandBoxBg.html %}
 <h2 class="section u-marginBottom0_5">Keep up with Developments in Microservice Development</h2>
 
-<div class="u-marginTop1">
+<div class="ctaSubscribe u-marginTop1">
   <form action="https://www.getdrip.com/forms/507796156/submissions" method="post" data-drip-embedded-form="507796156">
     <div class="u-marginBottom0_25"><label for="drip-email">Get our Newsletter</label></div>
-    <div class="subscribeFormItem">
+    <div class="ctaSubscribe-formItem">
       <input class="inputBox u-heightBrandButton u-marginRight0_75" type="email" id="drip-email" name="fields[email]" value="" />
       <button class="brandButton" type="submit" data-drip-attribute="sign-up-button">
         {% include brandButtonBg.html %}
