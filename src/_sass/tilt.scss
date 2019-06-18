@@ -32,6 +32,16 @@ $blog-width:       $header-width;
 $blog-credit-width: $blog-width - $blog-body-width - $spacing-unit;
 $docs-width:       $content-width + 0.5 * $spacing-unit;
 $brand-button-height: 1.25 * $spacing-unit;
+$blog-header-col-width: 320px;
+$blog-description-col-width: 496px;
+$hero-post-image-width: 496px;
+$hero-post-image-height: 273px;
+$hero-post-text-width: 320px;
+$hero-post-text-height: $hero-post-image-height;
+$post-preview-image-width: 320px;
+$post-preview-image-height: 184px;
+$post-preview-text-width: 496px;
+$post-preview-text-height: $post-preview-image-height;
 
 $col-1of3-width: $spacing-unit * 7;
 $col-2of3-width: $spacing-unit * 15;

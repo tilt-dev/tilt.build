@@ -1,0 +1,31 @@
+{% assign post = include.post %}
+{% assign previewType = include.previewType %}
+
+<div class="postPreview postPreview--{{previewType}} row row--flexStart u-marginBottom2">
+  <a class="postPreview-imageLink" href="{{post.url}}">
+    {% if post.image %}
+    <img class="postPreview-image" src="/assets/images/{{ post.slug }}/{{ post.image }}">
+    {% else %}
+    <div class="postPreview-image">Image</div>
+    {% endif %}
+  </a>
+
+  <div class="postPreview-text">
+    <h3 class="postPreview-title"><a href="{{ post.url }}">{{ post.title }}</a></h3>
+    <div class="postPreview-description">
+      {% assign content = post.content %}
+      {% if post.description %}
+      {% assign content = post.description %}
+      {% endif %}
+
+      {% assign words = 50 %}
+      {{ content | strip_html | truncatewords: words }}
+    </div>
+    
+    <div class="postPreview-credit">
+      {% assign author = site.data.people[post.author] %}
+      <img class="postPreview-creditImg" src="/assets/img/{{ post.author }}.jpg">
+      <div><a href="{{ site.landingurl }}about">{{ author.name }}</a></div>
+    </div>
+  </div>
+</div>
