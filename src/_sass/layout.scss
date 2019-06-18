@@ -188,6 +188,60 @@ li {
 .blogCredit-author {
   color: $color-red;
 }
+.postPreview-text {
+  display: block;
+  width: $post-preview-text-width;
+  height: $post-preview-text-height;
+}
+.postPreview-imageLink:hover {
+  background: transparent;
+  color: inherit;
+}
+.blogContent .postPreview-title {
+  display: block;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 29px;
+  margin-bottom: $spacing-unit / 4;
+}
+.postPreview-description {
+  display: block;
+  margin-bottom: $spacing-unit / 4;
+  height: $body-line-height * 3;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.postPreview--hero .postPreview-description {
+  height: $body-line-height * 6;
+}
+.postPreview-image {
+  display: block;
+  width: $post-preview-image-width;
+  height: $post-preview-image-height;
+  margin-right: $spacing-unit;
+  object-fit: cover;
+}
+.postPreview--hero .postPreview-text {
+  width: $hero-post-text-width;
+  height: $hero-post-text-height;
+}
+.postPreview--hero .postPreview-image {
+  width: $hero-post-image-width;
+  height: $hero-post-image-height;
+}
+.postPreview-credit {
+  display: block;
+  font-size: 14px;
+  line-height: 18px;
+  letter-spacing: 0.02em;
+}
+.postPreview-creditImg {
+  width: 20px;
+  height: 16px;
+  float: left;
+  margin-right: $spacing-unit / 8;
+  object-fit: cover;
+}
 
 h1, .sidebar h2, h2.section {
   font-family: $header-font-family;
@@ -217,6 +271,7 @@ h2 a:hover {
   color: $color-grey-dark;
   background-color: transparent;
 }
+
 
 h2, .docsContent h1 {
   font-family: $header-font-family;
@@ -431,6 +486,22 @@ label, .formItem-label {
 
 .row--flexStart {
   justify-content: flex-start;
+}
+
+.col--blogHeader {
+  display: block;
+  width: $blog-header-col-width;
+  margin-right: $spacing-unit;
+}
+.col--blogHeader > h2 {
+  font-weight: 300;
+  font-size: 24px;
+  line-height: 30px;
+}
+.col--blogDescription {
+  display: block;
+  width: $blog-description-col-width;
+  margin-right: $spacing-unit;
 }
 
 .col-1of4 {
