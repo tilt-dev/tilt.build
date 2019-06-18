@@ -1,12 +1,27 @@
 {% assign post = include.post %}
 {% assign previewType = include.previewType %}
 
-<div class="postPreview postPreview--{{previewType}} row row--flexStart u-marginBottom2">
+{% assign imageType = 'defaultImage' %}
+{% if post.image_type %}
+{% assign imageType = post.image_type + 'Image' %}
+{% endif %}
+
+{% assign postImage = "" %}
+{% if post.image %}
+{% assign postImage = post.image %}
+{% elsif post.images[0] %}
+{% assign postImage = post.images[0] %}
+{% else %}
+{% assign imageType = 'containImage' %}
+{% endif %}
+
+<div class="postPreview postPreview--{{previewType}} postPreview--{{imageType}} 
+            row row--flexStart u-marginBottom2">
   <a class="postPreview-imageLink" href="{{post.url}}">
-    {% if post.image %}
-    <img class="postPreview-image" src="/assets/images/{{ post.slug }}/{{ post.image }}">
+    {% if postImage != "" %}
+    <img class="postPreview-image" src="/assets/images/{{ post.slug }}/{{ postImage }}">
     {% else %}
-    <div class="postPreview-image">Image</div>
+    <img class="postPreview-image" src="/assets/img/blog-default-preview.png">
     {% endif %}
   </a>
 

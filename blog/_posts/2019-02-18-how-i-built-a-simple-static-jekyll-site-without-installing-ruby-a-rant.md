@@ -4,6 +4,8 @@ date: 2019-02-18T05:41:05.350Z
 author: nick
 layout: blog
 title: "How I Built a Simple Static Jekyll Site Without Installing Ruby: A Rant"
+image: 1_dyaaoU7Y6ymvlcKOfwVzHw.jpeg
+image_caption: "A dev workspace with too much stuff installed. <a href='https://unsplash.com/photos/HjXiUoLTqiI'>Photo courtesy of Steve Giampa on Unsplash</a>."
 tags:
   - docker
   - build-system

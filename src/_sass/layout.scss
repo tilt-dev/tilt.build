@@ -221,6 +221,9 @@ li {
   margin-right: $spacing-unit;
   object-fit: cover;
 }
+.postPreview--containImage .postPreview-image {
+  object-fit: contain;
+}
 .postPreview--hero .postPreview-text {
   width: $hero-post-text-width;
   height: $hero-post-text-height;

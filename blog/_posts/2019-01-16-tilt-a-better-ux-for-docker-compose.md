@@ -4,6 +4,8 @@ date: 2019-01-16T17:18:00.294Z
 author: maia
 layout: blog
 title: "Tilt&#58; a Better UX for Docker Compose"
+images:
+  - featuredImage.png
 tags:
   - docker
   - docker-compose
