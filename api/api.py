@@ -493,3 +493,13 @@ def workload_to_resource_function(fn: Callable[[K8sObjectID], str]) -> None:
     """
 
     pass
+
+def k8s_context() -> str:
+  """Returns the name of the Kubernetes context Tilt is connecting to.
+
+  Example ::
+
+    if k8s_context() == 'prod':
+      fail("failing early to avoid overwriting prod")
+  """
+  pass

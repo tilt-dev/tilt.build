@@ -396,6 +396,23 @@ Chart directory is watched (See <code class="docutils literal notranslate"><span
 </tbody>
 </table>
 </dd></dl><dl class="function">
+<dt id="api.k8s_context">
+<code class="descclassname">api.</code><code class="descname">k8s_context</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#api.k8s_context" title="Permalink to this definition">&#xB6;</a></dt>
+<dd><p>Returns the name of the Kubernetes context Tilt is connecting to.</p>
+<p>Example</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">k8s_context</span><span class="p">()</span> <span class="o">==</span> <span class="s1">&apos;prod&apos;</span><span class="p">:</span>
+  <span class="n">fail</span><span class="p">(</span><span class="s2">&quot;failing early to avoid overwriting prod&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name">
+<col class="field-body">
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></td>
+</tr>
+</tbody>
+</table>
+</dd></dl><dl class="function">
 <dt id="api.k8s_kind">
 <code class="descclassname">api.</code><code class="descname">k8s_kind</code><span class="sig-paren">(</span><em>kind</em>, <em>api_version=None</em>, <em>*</em>, <em>image_json_path</em><span class="sig-paren">)</span><a class="headerlink" href="#api.k8s_kind" title="Permalink to this definition">&#xB6;</a></dt>
 <dd><p>Tells Tilt about a k8s kind. Primarily intended for defining where your CRD specifies image names.</p>
