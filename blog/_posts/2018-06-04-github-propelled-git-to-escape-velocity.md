@@ -6,6 +6,7 @@ layout: blog
 title: "GitHub propelled Git to escape velocity"
 images:
   - featuredImage.jpeg
+image_type: "contain"
 tags:
   - github
   - git

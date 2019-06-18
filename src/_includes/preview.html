@@ -3,7 +3,7 @@
 
 {% assign imageType = 'defaultImage' %}
 {% if post.image_type %}
-{% assign imageType = post.image_type + 'Image' %}
+{% assign imageType = post.image_type | append: "Image" %}
 {% endif %}
 
 {% assign postImage = "" %}
