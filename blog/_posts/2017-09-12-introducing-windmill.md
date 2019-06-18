@@ -5,6 +5,7 @@ author: nick
 layout: blog
 title: "Introducing Windmill"
 image: 1_m-VXibfLnJvJ0_uCPF17Tg.png
+image_type: "contain"
 tags:
   - continuous-integration
   - software-engineering

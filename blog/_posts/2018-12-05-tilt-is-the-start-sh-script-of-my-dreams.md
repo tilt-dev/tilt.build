@@ -11,6 +11,7 @@ images:
   - 1*PQz8kxs1o-aP4JU-s_3QNQ.png
   - 1*bd7CA1YFEfje6Rd3WiVbXg.png
   - featuredImage.png
+image_type: "contain"
 tags:
   - docker
   - kubernetes

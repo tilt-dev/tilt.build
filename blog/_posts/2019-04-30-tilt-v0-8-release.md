@@ -7,6 +7,7 @@ title: "Tilt v0.8 Release!"
 subtitle: "New Logs View, Live Update, Bazel Support, and Improved Resource Splitting"
 images:
   - featuredImage.gif
+image_type: "contain"
 tags:
   - docker
   - kubernetes
