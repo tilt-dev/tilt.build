@@ -6,7 +6,7 @@ layout: docs
 Tilt can talk to any Kubernetes cluster. This doc describes idioms that can make Tilt work better when you frequently connect to multiple clusters.
 
 ## One Context
-Tilt uses the cluster specified by your [context](https://kubernetes.io/docs/concepts/configuration/organize-cluster-access-kubeconfig/). Tilt reads this value once at startup and continues to talk to the same cluster. If you change the value outside Tilt, Tilt won't suddenly be surprised the cluster looks completely different.
+Tilt uses the cluster specified by your [context](https://kubernetes.io/docs/concepts/configuration/organize-cluster-access-kubeconfig/). Tilt reads this value once at startup and continues to talk to the same cluster. If you change the value outside Tilt, Tilt will remain connected to the cluster that it started with.
 
 The context that Tilt selected at startup is exposed via the Tiltfile function `k8s_context`.
 
