@@ -34,7 +34,9 @@ docker_build('my-img', '.', live_update=[sync_src, sync_static])
 As part of Tiltfile validation, we check that all of the `LiveUpdateSteps` you've created have been used in at least one Live Update call. If not, we throw an error.
 
 ### [sync(local_path: str, remote_path: str)](api.html#api.sync)
-Even though `sync` steps must come _after_ any `fall_back_on` steps (if the latter are present), we'll discuss them first, since they are the backbone of a Live Update. To wit: _Tilt will only run a Live Update if it detects a change to one or more files matching a `sync` step._
+`sync` steps are the backbone of a Live Update. (For this reason, we'll discuss them first, even though they may be preceeded by one or more `fall_back_on` steps in a Tiltfile.) 
+
+_Tilt will only run a Live Update if it detects a change to one or more files matching a `sync` step._
 
 A `sync` call takes two args: the local path of a file/directory, and the remote path to which Tilt should sync that file/directory if it changes. (This includes deleting the file remotely if it is deleted locally.)
 
