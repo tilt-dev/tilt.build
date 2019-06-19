@@ -16,7 +16,14 @@ Thoughts on how to make microservices easier to run, debug, and collaborate on l
 {% assign post = site.posts[0] %}
 {% include preview.html post=post previewType="hero" %}
 
-{% for post in site.posts offset:1 %}
+{% assign post = site.posts[1] %}
+{% include preview.html post=post previewType="normal" %}
+{% assign post = site.posts[2] %}
+{% include preview.html post=post previewType="normal" %}
+
+{% include cta_subscribe_blog_list.html %}
+
+{% for post in site.posts offset:3 %}
 
 {% include preview.html post=post previewType="normal" %}
 
