@@ -15,4 +15,5 @@ ADD blog/Gemfile.lock /blog/
 RUN bundle install
 ADD src /src/
 ADD blog /blog/
+ADD healthcheck.sh .
 ENTRYPOINT bundle exec jekyll serve --config _config.yml,_config-dev.yml

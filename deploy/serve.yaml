@@ -18,9 +18,12 @@ spec:
         - containerPort: 4000
           name: http
         readinessProbe:
-          httpGet:
-            path: /
-            port: http
+          initialDelaySeconds: 5
+          periodSeconds: 10
+          timeoutSeconds: 5
+          exec:
+            command:
+              - ./healthcheck.sh
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -42,9 +45,12 @@ spec:
         - containerPort: 4000
           name: http
         readinessProbe:
-          httpGet:
-            path: /
-            port: http
+          initialDelaySeconds: 5
+          periodSeconds: 10
+          timeoutSeconds: 5
+          exec:
+            command:
+              - ./healthcheck.sh
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -66,6 +72,9 @@ spec:
         - containerPort: 4000
           name: http
         readinessProbe:
-          httpGet:
-            path: /
-            port: http
+          initialDelaySeconds: 5
+          periodSeconds: 10
+          timeoutSeconds: 5
+          exec:
+            command:
+              - ./healthcheck.sh
