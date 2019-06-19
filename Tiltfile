@@ -10,16 +10,16 @@ local('make api')
 
 read_file('Makefile') # rebuild if we change the Makefile
 
-k8s_yaml('serve.yaml')
+k8s_yaml('deploy/serve.yaml')
 
-docker_build('tilt-site', '.', dockerfile='site.dockerfile',
+docker_build('tilt-site', '.', dockerfile='deploy/site.dockerfile',
              ignore=['./api/api.py', './docs', './blog'],
              live_update=[
                sync('./src', '/src/'),
                run('bundle install', trigger=['src/Gemfile', 'src/Gemfile.lock'])
              ])
 
-docker_build('docs-site', '.', dockerfile='docs.dockerfile',
+docker_build('docs-site', '.', dockerfile='deploy/docs.dockerfile',
              ignore=['./api/api.py', './blog'],
              live_update=[
                sync('./src', '/src/'),
@@ -29,7 +29,7 @@ docker_build('docs-site', '.', dockerfile='docs.dockerfile',
              ])
 
 
-docker_build('blog-site', '.', dockerfile='blog.dockerfile',
+docker_build('blog-site', '.', dockerfile='deploy/blog.dockerfile',
              ignore=['./api/api.py', './docs'],
              live_update=[
                sync('./src', '/src/'),
