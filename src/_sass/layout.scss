@@ -192,6 +192,11 @@ li {
   display: block;
   width: $post-preview-text-width;
   height: $post-preview-text-height;
+
+  @include docs-mobile {
+    width: 100%;
+    height: auto;
+  }
 }
 .postPreview-imageLink:hover {
   background: transparent;
@@ -220,6 +225,10 @@ li {
   height: $post-preview-image-height;
   margin-right: $spacing-unit;
   object-fit: cover;
+
+  @include docs-mobile {
+    width: 100%;
+  }
 }
 .postPreview--containImage .postPreview-image {
   object-fit: contain;
@@ -227,10 +236,19 @@ li {
 .postPreview--hero .postPreview-text {
   width: $hero-post-text-width;
   height: $hero-post-text-height;
+
+  @include docs-mobile {
+    width: 100%;
+    height: auto;
+  }
 }
 .postPreview--hero .postPreview-image {
   width: $hero-post-image-width;
   height: $hero-post-image-height;
+
+  @include docs-mobile {
+    width: 100%;
+  }
 }
 .postPreview-credit {
   display: block;
@@ -502,6 +520,7 @@ label, .formItem-label {
   font-weight: 300;
   font-size: 24px;
   line-height: 30px;
+  margin-bottom: $spacing-unit / 4;
 }
 .col--blogDescription {
   display: block;
@@ -742,6 +761,19 @@ button.svgButton, button.brandButton {
 .brandBox--cta .brandBox-right {
   flex-grow: 0.5;
   visibility: hidden;
+
+  @include docs-mobile {
+    visibility: visible;
+    flex-grow: 0;
+  }
+}
+.ctaSubscribe-mailbox {
+  @include docs-mobile {
+    display: none;
+  }
+}
+.ctaSubscribe-mailbox > svg {
+  height: 100%;
 }
 
 .editOnGitHub {
