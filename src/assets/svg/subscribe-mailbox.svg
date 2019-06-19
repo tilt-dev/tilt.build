@@ -1,0 +1,9 @@
+<svg width="394" height="198" viewBox="0 0 394 198" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<path d="M0.000117191 198H345.62C348.301 198 350.932 197.397 353.219 196.257L389.34 178.274C392.233 176.835 393.998 174.269 393.998 171.505L394 5.57143C394 2.49426 390.942 0 387.169 0H0.000182817L0.000117191 198Z" fill="url(#pattern0)"/>
+<defs>
+<pattern id="pattern0" patternContentUnits="objectBoundingBox" width="1" height="1">
+<use xlink:href="#image0" transform="translate(0 -0.1633) scale(0.00037037 0.000737)"/>
+</pattern>
+<image id="image0" width="2700" height="1800" xlink:href="/assets/img/mathyas-kurmann-102977-unsplash.jpg"/>
+</defs>
+</svg>
