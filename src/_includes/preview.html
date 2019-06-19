@@ -16,8 +16,8 @@
 {% endif %}
 
 <div class="postPreview postPreview--{{previewType}} postPreview--{{imageType}} 
-            row row--flexStart u-marginBottom2">
-  <a class="postPreview-imageLink" href="{{post.url}}">
+            row row--flexStart u-marginBottom1_5">
+  <a class="postPreview-imageLink u-marginBottom0_5" href="{{post.url}}">
     {% if postImage != "" %}
     <img class="postPreview-image" src="/assets/images/{{ post.slug }}/{{ postImage }}">
     {% else %}

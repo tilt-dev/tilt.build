@@ -3,7 +3,7 @@ title: Tilt Blog
 layout: blog-list
 ---
 
-<div class="row row--flexStart u-marginBottom2_5">
+<div class="row row--flexStart u-marginBottom2_5 u-marginBottomUnitOnMobile">
 <div class="col--blogHeader">
 <h2>Tilting at Cloud-Based Developer Tools.</h2>
 </div>
