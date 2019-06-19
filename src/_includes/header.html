@@ -5,6 +5,13 @@
       {% svg assets/svg/logo-wordmark-anim.svg %}
     </a>
 
+    {% if page.layout == 'blog' or page.layout == 'blog-list' %}
+    <a class="imageLink u-marginLeft0_25" href="{{site.blogurl}}">
+      {% svg assets/svg/blog-logo.svg %}
+    </a>
+    {% endif %}
+      
+
     <nav class="siteNav">
       <div class="siteNav-float">
         {% for link in site.data.header %}
