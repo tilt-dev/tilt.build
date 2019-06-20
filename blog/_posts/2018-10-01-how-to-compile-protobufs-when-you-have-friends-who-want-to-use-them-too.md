@@ -3,6 +3,7 @@ slug: how-to-compile-protobufs-when-you-have-friends-who-want-to-use-them-too
 date: 2018-10-01T21:19:26.715Z
 author: nick
 layout: blog
+canonical_url: "https://medium.com/windmill-engineering/how-to-compile-protobufs-when-you-have-friends-who-want-to-use-them-too-b76d7fdc247e"
 title: "How to Compile Protobufs When You Have Friends Who Want to Use Them Too"
 tags:
   - docker

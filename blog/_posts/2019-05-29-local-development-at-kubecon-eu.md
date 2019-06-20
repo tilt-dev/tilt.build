@@ -3,6 +3,7 @@ slug: local-development-at-kubecon-eu
 date: 2019-05-29T19:01:59.467Z
 author: nick
 layout: blog
+canonical_url: "https://medium.com/windmill-engineering/local-development-at-kubecon-eu-c9782146aad2"
 title: "Local Development at KubeCon EU"
 subtitle: ""
 image: featuredImage.jpeg

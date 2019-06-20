@@ -3,6 +3,7 @@ slug: microservices-hidden-problem-understanding
 date: 2019-03-29T11:09:12.225Z
 author: dan
 layout: blog
+canonical_url: "https://medium.com/windmill-engineering/microservices-hidden-problem-understanding-db42c3d0a2b6"
 title: "Microservices’ Hidden Problem&#58; Understanding"
 subtitle: ""
 images:

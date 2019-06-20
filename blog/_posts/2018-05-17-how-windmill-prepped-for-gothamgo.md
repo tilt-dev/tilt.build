@@ -3,6 +3,7 @@ slug: how-windmill-prepped-for-gothamgo
 date: 2018-05-17T21:23:42.867Z
 author: maia
 layout: blog
+canonical_url: "https://medium.com/windmill-engineering/how-windmill-prepped-for-gothamgo-3308020d70b"
 title: "How Windmill Prepped for GothamGo"
 images:
   - 0*M074ur4hu5eHFvxJ.jpg

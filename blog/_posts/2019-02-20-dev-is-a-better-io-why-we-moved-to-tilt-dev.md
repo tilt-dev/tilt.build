@@ -3,6 +3,7 @@ slug: dev-is-a-better-io-why-we-moved-to-tilt-dev
 date: 2019-02-20T14:35:07.670Z
 author: dan
 layout: blog
+canonical_url: "https://medium.com/windmill-engineering/dev-is-a-better-io-why-we-moved-to-tilt-dev-9fc8321693d3"
 title: ".dev is a better .io"
 subtitle: Why we moved to tilt.dev
 image_caption: "Diego Garcia, home of .io"

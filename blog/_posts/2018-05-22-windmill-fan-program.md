@@ -3,6 +3,7 @@ slug: windmill-fan-program
 date: 2018-05-22T16:17:01.387Z
 author: dan
 layout: blog
+canonical_url: "https://medium.com/windmill-engineering/windmill-fan-program-a4c0066c356d"
 title: "Windmill Fan Program"
 image_caption: "Gopher feels the wind in their fur"
 image: 1_tzJemAXfFDXb1FKBEdgVfg.jpeg

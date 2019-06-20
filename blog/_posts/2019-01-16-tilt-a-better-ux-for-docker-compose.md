@@ -3,6 +3,7 @@ slug: tilt-a-better-ux-for-docker-compose
 date: 2019-01-16T17:18:00.294Z
 author: maia
 layout: blog
+canonical_url: "https://medium.com/windmill-engineering/tilt-a-better-ux-for-docker-compose-52e80d0625d0"
 title: "Tilt&#58; a Better UX for Docker Compose"
 images:
   - featuredImage.png

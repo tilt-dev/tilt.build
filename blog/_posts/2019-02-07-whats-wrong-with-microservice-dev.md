@@ -3,6 +3,7 @@ slug: whats-wrong-with-microservice-dev
 date: 2019-02-07T17:14:29.873Z
 author: maia
 layout: blog
+canonical_url: "https://medium.com/windmill-engineering/whats-wrong-with-microservice-dev-1bb424d2e14e"
 title: "What’s Wrong With Microservice Dev?"
 images:
   - 1*2ecTbOses842YP2DyKEziA.png

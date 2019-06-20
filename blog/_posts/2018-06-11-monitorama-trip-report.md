@@ -3,6 +3,7 @@ slug: monitorama-trip-report
 date: 2018-06-11T22:36:07.318Z
 author: dmiller
 layout: blog
+canonical_url: "https://medium.com/windmill-engineering/monitorama-trip-report-cc07f3356eda"
 title: "Monitorama Trip Report"
 image: featuredImage.jpeg
 tags:

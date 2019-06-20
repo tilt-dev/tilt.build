@@ -3,6 +3,7 @@ slug: strange-loop-trip-report
 date: 2017-10-02T14:04:15.101Z
 author: dan
 layout: blog
+canonical_url: "https://medium.com/windmill-engineering/strange-loop-trip-report-96dbc1cb42e9"
 title: "Strange Loop Trip Report"
 tags:
   - conference

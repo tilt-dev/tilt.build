@@ -3,6 +3,7 @@ slug: tilt-is-the-start-sh-script-of-my-dreams
 date: 2018-12-05T23:11:55.828Z
 author: nick
 layout: blog
+canonical_url: "https://medium.com/windmill-engineering/tilt-is-the-start-sh-script-of-my-dreams-e48478f599fd"
 title: "Tilt is the `start.sh` Script of my Dreams"
 images:
   - 1*Hu6PC-bmdzhrUoaQzUi7hA.png

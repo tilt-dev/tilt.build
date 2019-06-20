@@ -53,6 +53,12 @@ layout: default
       
       {{ content }}
 
+      {% if page.canonical_url %}
+      <hr>
+
+      <p><em>Originally posted on the Windmill Engineering blog on <a href="{{page.canonical_url}}">Medium</a></em></p>
+      {% endif %}
+
       <div class="blogCredit blogCredit--mobile u-showOnlyOnDocsMobile u-marginTop1 u-textAlignCenter">
         <a class="circleLinkIcon" rel="author"
            href="https://twitter.com/{{ author.twitter }}">

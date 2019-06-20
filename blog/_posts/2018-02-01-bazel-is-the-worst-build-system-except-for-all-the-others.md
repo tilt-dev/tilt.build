@@ -3,6 +3,7 @@ slug: bazel-is-the-worst-build-system-except-for-all-the-others
 date: 2018-02-01T16:04:41.722Z
 author: nick
 layout: blog
+canonical_url: "https://medium.com/windmill-engineering/bazel-is-the-worst-build-system-except-for-all-the-others-b369396a9e26"
 title: "Bazel is the Worst Build System, Except for All the Others"
 tags:
   - bazel

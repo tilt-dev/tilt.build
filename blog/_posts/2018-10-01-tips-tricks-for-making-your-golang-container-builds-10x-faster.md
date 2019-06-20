@@ -3,6 +3,7 @@ slug: tips-tricks-for-making-your-golang-container-builds-10x-faster
 date: 2018-10-01T20:09:54.364Z
 author: nick
 layout: blog
+canonical_url: "https://medium.com/windmill-engineering/tips-tricks-for-making-your-golang-container-builds-10x-faster-4cc618a43827"
 title: "Tips & Tricks for Making Your Golang Container Builds 10x Faster"
 tags:
   - docker

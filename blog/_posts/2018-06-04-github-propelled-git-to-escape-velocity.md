@@ -3,6 +3,7 @@ slug: github-propelled-git-to-escape-velocity
 date: 2018-06-04T17:34:46.001Z
 author: dan
 layout: blog
+canonical_url: "https://medium.com/windmill-engineering/github-propelled-git-to-escape-velocity-7838f566722e"
 title: "GitHub propelled Git to escape velocity"
 images:
   - featuredImage.jpeg

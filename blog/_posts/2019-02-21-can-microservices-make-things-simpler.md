@@ -3,6 +3,7 @@ slug: can-microservices-make-things-simpler
 date: 2019-02-21T15:49:15.649Z
 author: dmiller
 layout: blog
+canonical_url: "https://medium.com/windmill-engineering/can-microservices-make-things-simpler-f169d540955a"
 title: "Can Microservices Make Things Simpler?"
 images:
   - featuredImage.png
