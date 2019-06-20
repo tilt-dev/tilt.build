@@ -39,9 +39,9 @@ So then the logical thing to do is give every developer their own cloud cluster.
 
 ### Dev clusters have different requirements from prod, and one another
 
-Not so fast: now I have different problems! If I was using LightStep on-prem in prod, how should this work in dev? Should all the dev clusters point to a shared LightStep install? How will I differentiate my data from someone else’s, with the code constantly changing? If I use the prod installation then I have the same problem: how can I make sure that I don’t accidentally look at a dev trace when trying to diagnose a problem in prod?
+Not so fast: now I have different problems! If I was using LightStep on-prem in prod, how should our team set this up in dev? Should all the dev clusters point to a shared LightStep install? How will I differentiate my data from someone else’s, with the code constantly changing? If I use the prod installation then I have the same problem: how can I make sure that I don’t accidentally look at a dev trace when trying to diagnose a problem in prod?
 
-Cost is another big issue. If I give every developer their own LightStep install then the cost could rise quickly if I’m billed per instance.
+A few months ago, [LightStep announced Developer Mode](https://lightstep.com/blog/announcing-developer-mode/) to address this need. We’re watching it closely. As it evolves, which parts of the dev tracing experience will stay aligned with prod, and which parts will diverge?
 
 Plus there are the classic problems with remote development: jumping through networking hoops to use YourKit with a remote JVM, or connecting an IDE to a remote filesystem so you can edit files in the IDE and have them quickly appear in a remote server. These things are tricky to get set up, and can be flakey when things in your environment change.
 
@@ -85,6 +85,12 @@ Let’s start treating local development as seriously as we do production debugg
 
 It’s time the state of the art advanced beyond `grep` and `ps`. It’s time for specialized local development tools.
 
-<hr>
+---
 
 *For our first take on a specialized local development tool, check out [Tilt](https://tilt.dev/)! Tilt manages local development instances for teams that deploy to Kubernetes. Get started easily, get more done, and never play twenty questions with `kubectl` ever again.*
+
+---
+
+### Correction: June 20, 2019
+
+An earlier version of this post had some incorrect statements about pricing for observability services. We also weren’t aware of LightStep’s new dev mode, which looks cool, so we added a link to it.
