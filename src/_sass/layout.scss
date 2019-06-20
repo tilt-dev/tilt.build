@@ -175,6 +175,10 @@ li {
   line-height: 18px;
   letter-spacing: 0.02em;
 }
+.blogCredit--mobile {
+  float: none;
+  width: 100%;
+}
 .blogCredit-img {
   width: 40px;
   height: 32px;
@@ -384,6 +388,8 @@ h3:hover > .permalink {
 }
 .blogBody > h3 {
   font-size: 22px;
+  line-height: 28px;
+  margin-bottom: $spacing-unit / 8;
 }
 .blogBody > h1,
 .blogBody > h2,
@@ -951,7 +957,8 @@ h4 .fillStd {
   margin-top: $spacing-unit * 0.5 !important;
 }
 
-.u-marginTopUnit {
+.u-marginTopUnit,
+.u-marginTop1 {
   margin-top: $spacing-unit !important;
 }
 
