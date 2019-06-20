@@ -1,8 +1,10 @@
 ---
 layout: default
 ---
+{% assign author = site.data.people[page.author] %}
+
 <div class="wrapper wrapper--blog u-marginBottom1_5">
-  <div class="blogContent">
+  <div class="blogContent u-marginBottom1_75OnMobile">
     
     {% if page.image %}
     <figure class="blogFeatureImage">
@@ -13,8 +15,7 @@ layout: default
     </figure>
     {% endif %}
 
-    <div class="blogCredit">
-      {% assign author = site.data.people[page.author] %}
+    <div class="blogCredit u-hideOnDocsMobile">
       <div class="u-marginBottom0_75">
         <img class="blogCredit-img" src="/assets/img/{{ page.author }}.jpg">
         <div>Published on <span class="blogCredit-date">{{ page.date | date_to_long_string }}</span></div>
@@ -43,43 +44,34 @@ layout: default
       {% if page.subtitle %}
       <h2>{{ page.subtitle }}</h2>
       {% endif %}
+
+      <div class="blogCredit blogCredit--mobile u-showOnlyOnDocsMobile u-marginBottom1">
+        <img class="blogCredit-img" src="/assets/img/{{ page.author }}.jpg">
+        <div>Published on <span class="blogCredit-date">{{ page.date | date_to_long_string }}</span></div>
+        <div><a href="{{ site.landingurl }}about">{{ author.name }}</a></div>
+      </div>
       
       {{ content }}
+
+      <div class="blogCredit blogCredit--mobile u-showOnlyOnDocsMobile u-marginTop1 u-textAlignCenter">
+        <a class="circleLinkIcon" rel="author"
+           href="https://twitter.com/{{ author.twitter }}">
+          {% svg assets/svg/twitter.svg alt="Twitter" %}
+        </a>
+        <a class="circleLinkIcon" rel="author"
+           href="https://github.com/{{ author.github }}">
+          {% svg assets/svg/github.svg alt="GitHub" %}
+        </a>
+        <a class="circleLinkIcon" rel="author"
+           href="mailto:{{page.author}}@windmill.engineering">
+          {% svg assets/svg/email.svg alt="Email" %}
+        </a>
+      </div>
     </div>
   </div>
-  
-  <form action="https://www.getdrip.com/forms/438799151/submissions" method="post" data-drip-embedded-form="438799151">
-    <div class="ctaSubscribe ctaSubscribe--blog row row--flexStart u-marginBottom2_5">
-      <div class="col-1of3 u-marginRight0_5">
-        <div class="ctaSubscribe-header">Keep up with Developments in Microservice Development</div>
-      </div>
 
-      <div class="col-1of3">
-        <div class="u-marginBottom0_25">
-          <label class="ctaSubscribe-label" for="drip-email">
-            Get our Newsletter
-          </label>
-        </div>
-        
-        <div class="ctaSubscribe-formItem">
-          <input class="inputBox u-heightBrandButton u-marginRight0_75" type="email" id="drip-email" name="fields[email]" value="" />
-        </div>
-        <div style="display: none;" aria-hidden="true">
-          <label for="website">Website</label><br />
-          <input type="text" id="website" name="website" tabindex="-1" autocomplete="false" value="" />
-        </div>
-      </div>
-
-      <div style="align-self: flex-end">
-        <button class="brandButton" type="submit" data-drip-attribute="sign-up-button">
-          {% include brandButtonBg.html %}
-          <div class="buttonLabel brandButton-text">
-            Subscribe
-          </div>
-        </button>
-      </div>
-    </div>
-  </form>
+  {% include cta_subscribe_blog_desktop.html %}
+  {% include cta_subscribe_blog_list.html extraClasses="u-showOnlyOnDocsMobile" %}
 
   {% include cta_docs.html %}
 </div>
