@@ -36,3 +36,7 @@ gem "jekyll-inline-svg"
 
 # syntax highlighting
 gem "rouge"
+
+# Related posts
+gem "jekyll-tagging-related_posts"
+

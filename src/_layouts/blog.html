@@ -76,6 +76,16 @@ layout: default
     </div>
   </div>
 
+  {% if site.related_posts.size >= 2 %}
+  <h3 class="relatedHeader">Related</h3>
+  <div class="relatedPosts row u-marginBottom1">
+    {% assign post = site.related_posts[0] %}
+    {% include preview.html post=post previewType="related" %}
+    {% assign post = site.related_posts[1] %}
+    {% include preview.html post=post previewType="related" %}
+  </div>
+  {% endif %}
+    
   {% include cta_subscribe_blog_desktop.html %}
   {% include cta_subscribe_blog_list.html extraClasses="u-showOnlyOnDocsMobile" %}
 

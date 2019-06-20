@@ -192,6 +192,9 @@ li {
 .blogCredit-author {
   color: $color-red;
 }
+.postPreview {
+  margin-bottom: 1.5 * $spacing-unit;
+}
 .postPreview-text {
   display: block;
   width: $post-preview-text-width;
@@ -201,6 +204,12 @@ li {
     width: 100%;
     height: auto;
   }
+}
+.postPreview-imageLink {
+  margin-bottom: $spacing-unit * 0.5;
+}
+.postPreview--related .postPreview-imageLink {
+  margin-bottom: 0;
 }
 .postPreview-imageLink:hover {
   background: transparent;
@@ -254,11 +263,64 @@ li {
     width: 100%;
   }
 }
+.row.postPreview--related {
+  flex-wrap: nowrap;
+
+  @include mobile {
+    margin-bottom: $spacing-unit;
+  }
+}
+.postPreview--related .postPreview-text {
+  font-size: 14px;
+  line-height: 18px;
+  width: $related-post-text-width;
+  height: $related-post-text-height;
+  flex-shrink: 1;
+
+  @include mobile {
+    width: auto;
+    height: auto;
+    align-self: center;
+  }
+}
+.postPreview--related .postPreview-description {
+  height: 18px * 5;
+
+  @include mobile {
+    display: none;
+  }
+}
+.postPreview--related .postPreview-title {
+  font-family: $body-font-family;
+  font-size: 18px;
+  line-height: 22px;
+  font-weight: 700;
+  margin-bottom: $spacing-unit / 4;
+
+  @include mobile {
+    font-size: 24px;
+    line-height: 29px;
+  }
+}
+.postPreview--related .postPreview-imageLink {
+  margin-right: $spacing-unit / 2;
+  flex-shrink: 0;
+}
+.postPreview--related .postPreview-image {
+  width: $related-post-image-width;
+  height: $related-post-image-height;
+  margin-right: $spacing-unit / 2;
+}
 .postPreview-credit {
   display: block;
   font-size: 14px;
   line-height: 18px;
   letter-spacing: 0.02em;
+}
+.postPreview--related .postPreview-credit {
+  @include mobile {
+    display: none;
+  }
 }
 .postPreview-creditImg {
   width: 20px;
@@ -370,6 +432,9 @@ h3 > .permalink:hover {
 }
 h3:hover > .permalink {
   opacity: 1;
+}
+h3.relatedHeader {
+  font-size: 32px;
 }
 .permalink:hover {
   color: $text-color;
@@ -983,13 +1048,16 @@ h4 .fillStd {
     margin-bottom: $spacing-unit !important;
   }
 }
-
+.u-marginBottom0OnMobile {
+  @include mobile {
+    margin-bottom: 0 !important;
+  }
+}
 .u-marginBottom0_75OnMobile {
   @include mobile {
     margin-bottom: $spacing-unit * 0.75 !important;
   }
 }
-
 .u-marginBottom1_75OnMobile {
   @include mobile {
     margin-bottom: $spacing-unit * 1.75 !important;
