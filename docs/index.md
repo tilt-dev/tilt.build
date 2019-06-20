@@ -54,7 +54,7 @@ Questions? Comments? Just want to say hi? Find us on the Kubernetes slack. Get a
 us in [the **#tilt** channel](https://kubernetes.slack.com/messages/CESBL84MV/).
 
 We tweet [@windmill_eng](https://twitter.com/windmill_eng) and
-blog about building Tilt at [medium.com/windmill-engineering](https://medium.com/windmill-engineering).
+blog about building Tilt at [blog.tilt.dev](https://blog.tilt.dev).
 
 Tilt is Open Source, developed on [GitHub](https://github.com/windmilleng/tilt).
 

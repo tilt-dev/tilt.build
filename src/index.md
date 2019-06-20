@@ -67,7 +67,7 @@ Get started easily, get more done, and never play twenty questions with <code>ku
   </div>
 
   <div>
-    &gt;&hairsp;<a href="https://medium.com/windmill-engineering/how-tilt-updates-kubernetes-in-seconds-not-minutes-28ddffe2d79f">&thinsp;Get more stuff done&thinsp;</a>
+    &gt;&hairsp;<a href="https://blog.tilt.dev/2018/08/28/how-tilt-updates-kubernetes-in-seconds-not-minutes.html">&thinsp;Get more stuff done&thinsp;</a>
   </div>
   </div>
 </div>
@@ -89,7 +89,7 @@ Get started easily, get more done, and never play twenty questions with <code>ku
   </div>
 
   <div>
-    &gt;&hairsp;<a href="https://medium.com/windmill-engineering/microservices-hidden-problem-understanding-db42c3d0a2b6">&thinsp;Waste less time tracking down issues&thinsp;</a>
+    &gt;&hairsp;<a href="https://blog.tilt.dev/2019/03/29/microservices-hidden-problem-understanding.html">&thinsp;Waste less time tracking down issues&thinsp;</a>
   </div>
   </div>
 </div>

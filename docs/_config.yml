@@ -6,7 +6,7 @@ baseurl: ""
 url: "https://docs.tilt.dev/"
 docsurl: "https://docs.tilt.dev/"
 landingurl: "https://tilt.dev/"
-blogurl: "https://medium.com/windmill-engineering/"
+blogurl: "https://blog.tilt.dev/"
 twitter_username: windmill_eng
 github_username:  windmilleng
 google_analytics: UA-129150759-2
