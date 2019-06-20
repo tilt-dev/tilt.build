@@ -1,7 +1,7 @@
 title: Tilt Blog
 email: hi@windmill.engineering
 description: >-
-  Local Kubernetes development with no stress
+  Thoughts on how to make microservices easier to run, debug, and collaborate on locally
 baseurl: ""
 url: "https://blog.tilt.dev/"
 docsurl: "https://docs.tilt.dev/"
@@ -9,7 +9,7 @@ landingurl: "https://tilt.dev/"
 blogurl: "https://blog.tilt.dev/"
 twitter_username: windmill_eng
 github_username:  windmilleng
-google_analytics: UA-129150759-1
+google_analytics: UA-129150759-3
 include:
   - _redirects
 
