@@ -3,6 +3,7 @@ slug: 4-strange-loop-2018-talks-you-should-watch
 date: 2018-10-01T15:00:40.627Z
 author: dmiller
 layout: blog
+canonical_url: "https://medium.com/windmill-engineering/4-strange-loop-2018-talks-you-should-watch-ccb181fec53c"
 title: "4 Strange Loop 2018 Talks You Should Watch"
 image: featuredImage.jpeg
 tags:

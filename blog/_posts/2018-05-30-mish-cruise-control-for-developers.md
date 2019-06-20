@@ -3,6 +3,7 @@ slug: mish-cruise-control-for-developers
 date: 2018-05-30T06:47:55.083Z
 author: dan
 layout: blog
+canonical_url: "https://medium.com/windmill-engineering/mish-cruise-control-for-developers-98629709b5ec"
 title: "mish&#58; cruise control for developers"
 image_caption: "mish in action"
 image: "1_5SyGWMKZ3wyZq_iNOp2g_g.gif"

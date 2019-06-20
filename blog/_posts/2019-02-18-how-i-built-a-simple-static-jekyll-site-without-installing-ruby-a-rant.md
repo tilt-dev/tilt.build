@@ -3,6 +3,7 @@ slug: how-i-built-a-simple-static-jekyll-site-without-installing-ruby-a-rant
 date: 2019-02-18T05:41:05.350Z
 author: nick
 layout: blog
+canonical_url: "https://medium.com/windmill-engineering/how-i-built-a-simple-static-jekyll-site-without-installing-ruby-a-rant-b7e87fb123d0"
 title: "How I Built a Simple Static Jekyll Site Without Installing Ruby: A Rant"
 image: 1_dyaaoU7Y6ymvlcKOfwVzHw.jpeg
 image_caption: "A dev workspace with too much stuff installed. <a href='https://unsplash.com/photos/HjXiUoLTqiI'>Photo courtesy of Steve Giampa on Unsplash</a>."

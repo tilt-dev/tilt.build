@@ -3,6 +3,7 @@ slug: mish-flexible-shell-notebooks
 date: 2018-06-05T22:01:37.684Z
 author: dan
 layout: blog
+canonical_url: "https://medium.com/windmill-engineering/mish-flexible-shell-notebooks-3d8a0e008716"
 title: "mish&#58; Flexible Shell Notebooks"
 image_caption: "easier refining and repeating"
 image: "1_w-2_vusBqdbQA_1oxcBFKw.gif"

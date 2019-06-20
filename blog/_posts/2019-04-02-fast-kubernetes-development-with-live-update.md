@@ -3,6 +3,7 @@ slug: fast-kubernetes-development-with-live-update
 date: 2019-04-02T09:27:35.205Z
 author: dan
 layout: blog
+canonical_url: "https://medium.com/windmill-engineering/fast-kubernetes-development-with-live-update-7b2395490d68"
 title: "Fast Kubernetes Development with Live Update"
 image: featuredImage.jpeg
 image_caption: Soon, your iteration loop will feel like this.

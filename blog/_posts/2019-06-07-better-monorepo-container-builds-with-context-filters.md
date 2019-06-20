@@ -4,6 +4,7 @@ date: 2019-06-07T15:12:49.521Z
 author: dmiller
 title: "Better Monorepo Container Builds with Context Filters"
 layout: blog
+canonical_url: "https://medium.com/windmill-engineering/better-monorepo-container-builds-with-context-filters-94717ecdb7a3"
 image: featuredImage.png
 image_caption: My Docker contexts, visualized
 tags:

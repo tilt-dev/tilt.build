@@ -2,6 +2,7 @@
 slug: new-in-tilt-fine-tune-how-your-services-get-updated
 date: 2019-06-19T18:28:23.213Z
 author: han
+canonical_url: "https://medium.com/windmill-engineering/new-in-tilt-fine-tune-how-your-services-get-updated-9a1d3e8480c1"
 layout: blog
 title: "New in Tilt&#58; Fine-Tune How Your Services Get Updated"
 subtitle: "“Wait, so Tilt updates every single time I save my code?”"

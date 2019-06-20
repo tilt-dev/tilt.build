@@ -3,6 +3,7 @@ slug: thoughts-on-vscode-remote-development
 date: 2019-05-03T00:09:30.481Z
 author: nick
 layout: blog
+canonical_url: "https://medium.com/windmill-engineering/thoughts-on-vscode-remote-development-f88242d42a50"
 title: "Thoughts on VSCode Remote Development"
 subtitle: "Can we stop reinventing version managers now?"
 tags:

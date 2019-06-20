@@ -3,6 +3,7 @@ slug: should-developers-know-about-kubernetes
 date: 2018-12-21T17:18:07.059Z
 author: dmiller
 layout: blog
+canonical_url: "https://medium.com/windmill-engineering/should-developers-know-about-kubernetes-1df432ce057d"
 title: "Should Developers Know about Kubernetes?"
 image: featuredImage.jpeg
 image_caption: "Intrepid Windmill employees hanging out with various Kubernetes mascots"

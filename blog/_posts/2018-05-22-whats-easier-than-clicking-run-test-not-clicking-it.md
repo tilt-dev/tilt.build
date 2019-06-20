@@ -3,6 +3,7 @@ slug: whats-easier-than-clicking-run-test-not-clicking-it
 date: 2018-05-22T15:48:40.809Z
 author: dmiller
 layout: blog
+canonical_url: "https://medium.com/windmill-engineering/whats-easier-than-clicking-run-test-not-clicking-it-101d9d9282f3"
 title: "What’s Easier than Clicking “Run Test”? Not Clicking It."
 images:
   - 1*KMMk--1EiY0CwrGZC-QJgA.gif

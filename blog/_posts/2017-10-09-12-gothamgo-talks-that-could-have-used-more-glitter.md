@@ -3,6 +3,7 @@ slug: 12-gothamgo-talks-that-could-have-used-more-glitter
 date: 2017-10-09T16:35:53.961Z
 author: nick
 layout: blog
+canonical_url: "https://medium.com/windmill-engineering/12-gothamgo-talks-that-could-have-used-more-glitter-72ee38ae9d94"
 title: "12 GothamGo Talks That Could Have Used More Glitter"
 images:
   - featuredImage.png

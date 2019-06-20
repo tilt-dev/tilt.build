@@ -3,6 +3,7 @@ slug: im-bored-waiting-for-my-build-survey
 date: 2017-12-01T16:46:51.509Z
 author: nick
 layout: blog
+canonical_url: "https://medium.com/windmill-engineering/im-bored-waiting-for-my-build-survey-1dbe55048212"
 title: "“I’m Bored Waiting for my Build” Survey"
 tags:
   - continuous-integration

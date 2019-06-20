@@ -3,6 +3,7 @@ slug: how-tilt-updates-kubernetes-in-seconds-not-minutes
 date: 2018-08-28T15:28:24.574Z
 author: dan
 layout: blog
+canonical_url: "https://medium.com/windmill-engineering/how-tilt-updates-kubernetes-in-seconds-not-minutes-28ddffe2d79f"
 title: "How Tilt updates Kubernetes in Seconds, not Minutes"
 images:
   - featuredImage.png
