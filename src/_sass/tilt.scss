@@ -43,6 +43,10 @@ $post-preview-image-height: 184px;
 $post-preview-text-width: 496px;
 $post-preview-text-height: $post-preview-image-height;
 $blog-cta-text-width: 466px;
+$related-post-image-width: 134px;
+$related-post-image-height: 134px;
+$related-post-text-width: 325px;
+$related-post-text-height: $related-post-image-height + $spacing-unit;
 
 $col-1of3-width: $spacing-unit * 7;
 $col-2of3-width: $spacing-unit * 15;

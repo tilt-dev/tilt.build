@@ -21,3 +21,5 @@ kramdown:
 plugins:
   - jekyll-feed
   - jekyll-inline-svg
+  - jekyll/tagging
+  - jekyll-tagging-related_posts
