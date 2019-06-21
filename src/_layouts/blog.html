@@ -22,10 +22,13 @@ layout: default
         <div><a href="{{ site.landingurl }}about">{{ author.name }}</a></div>
       </div>
       <div>
+        {% if author.twitter %}
         <a class="circleLinkIcon" rel="author"
            href="https://twitter.com/{{ author.twitter }}">
           {% svg assets/svg/twitter.svg alt="Twitter" %}
         </a>
+        {% endif %}
+        
         <a class="circleLinkIcon" rel="author"
            href="https://github.com/{{ author.github }}">
           {% svg assets/svg/github.svg alt="GitHub" %}
