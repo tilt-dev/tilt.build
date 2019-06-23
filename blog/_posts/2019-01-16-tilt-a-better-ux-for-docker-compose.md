@@ -20,7 +20,7 @@ keywords:
   - microservices
   - containers
 ---
-  
+
 We’ve done a lot of demos of Tilt in the past few months.
 
 Sometimes, people’s eyes light up and they say, “That’s exactly the tool I’ve been looking for! Now I can develop against all of my microservices at once, see exactly what’s going on with each of them, and have my local changes propagate up in seconds!”
@@ -57,7 +57,7 @@ How many times have you run `docker-compose stop && docker-compose up --build`? 
 
 ### Tilt x Docker Compose is FAST
 
-If the point above made you cringe because your Docker build is *just too slow*, don’t worry, we’re here to help. We have some [optimizations up our sleeve](https://medium.com/windmill-engineering/how-tilt-updates-kubernetes-in-seconds-not-minutes-28ddffe2d79f) that will make your behemoth of a Docker build fast enough to actually incorporate into your dev flow. Man, being able to write a line of code and spin it up to check if everything works, because it’ll only take seconds — imagine that!
+If the point above made you cringe because your Docker build is *just too slow*, don’t worry, we’re here to help. We have some [optimizations up our sleeve](https://blog.tilt.dev/2018/08/28/how-tilt-updates-kubernetes-in-seconds-not-minutes.html) that will make your behemoth of a Docker build fast enough to actually incorporate into your dev flow. Man, being able to write a line of code and spin it up to check if everything works, because it’ll only take seconds — imagine that!
 
 *(Note: this feature is still in development; check back in a week or so for the lightning-fast build of your dreams.)*
 

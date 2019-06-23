@@ -35,7 +35,7 @@ Tilt focuses on an area most others neglect, so instead of replicating a familia
 
 So, how do we know which way to walk? Below, you’ll see the travelogue of where we’ve been. It’s more of an exploration than a straight path, so I’m thankful to be guided by strong convictions about what our tools should feel like:
 
-Tilt should show a lightweight, responsive, and trustworthy overview as you iterate in (or on) your microservices architecture. We’re engineers, so we know things go wrong as a matter of course. Because the clues you need are fragmented across various streams with varying levels of obscurity, [understanding why](https://medium.com/windmill-engineering/microservices-hidden-problem-understanding-db42c3d0a2b6) is the hidden problem. Troubleshooting common issues should not require deep expertise; Tilt should be a focused tool that helps you suss out root causes when you’re still in flow, not only a forensic lenses to examine outages days hence.
+Tilt should show a lightweight, responsive, and trustworthy overview as you iterate in (or on) your microservices architecture. We’re engineers, so we know things go wrong as a matter of course. Because the clues you need are fragmented across various streams with varying levels of obscurity, [understanding why](https://blog.tilt.dev/2019/03/29/microservices-hidden-problem-understanding.html) is the hidden problem. Troubleshooting common issues should not require deep expertise; Tilt should be a focused tool that helps you suss out root causes when you’re still in flow, not only a forensic lenses to examine outages days hence.
 
 ### Where have we been?
 
