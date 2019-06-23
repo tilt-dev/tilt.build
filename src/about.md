@@ -8,7 +8,7 @@ We saw Google change office productivity tools by building a technical foundatio
 for cloud-based collaboration. We want to do that for developer tools.
 
 <div class="u-marginBottom1_5">
-We’re small (seven people, NYC-based, VC-backed). We’re based at Work-Bench near Union Square.
+We’re small ({{site.data.people | size}} people, NYC-based, VC-backed). We’re based at Work-Bench near Union Square.
 </div>
 
 <div class="row">
