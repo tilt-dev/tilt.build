@@ -43,7 +43,7 @@ When you start working on microservices, it’s easy to cobble together a soluti
 
 This only holds together so long.
 
-With v0.8, Tilt now has a web view that helps you focus on the logs you want to see. Han Yu [wrote a blog post](https://medium.com/windmill-engineering/designing-a-better-interface-for-microservices-development-b0b6637a52fa) that breaks down how we’re thinking about this interface and how we expect it to evolve.
+With v0.8, Tilt now has a web view that helps you focus on the logs you want to see. Han Yu [wrote a blog post](https://blog.tilt.dev/2019/04/09/designing-a-better-interface-for-microservices-development.html) that breaks down how we’re thinking about this interface and how we expect it to evolve.
 
 ### Live Update
 
@@ -53,7 +53,7 @@ But many users were struggling to make container updates fast.
 
 With Tilt v0.8, you can layer “sync” and “run” steps onto an existing Dockerfile. These steps tell Tilt to automatically sync files and run commands directly in the container. You’ll see your changes much faster because you skip the overhead of creating a new container image and scheduling a new Kubernetes Pod.
 
-Read [Dan Bentley’s guide](https://medium.com/windmill-engineering/fast-kubernetes-development-with-live-update-7b2395490d68) for more on how to get started.
+Read [Dan Bentley’s guide](https://blog.tilt.dev/2019/04/02/fast-kubernetes-development-with-live-update.html) for more on how to get started.
 
 ### Bazel Support
 

@@ -42,7 +42,7 @@ by Gregg Donovan & Chris Love
 * “[Reproducible Development and Deployment with Bazel and Telepresence](https://www.youtube.com/watch?v=tD0FIlxO1AQ)”
 by Christian Roggia
 
-Bazel is a language-agnostic build system based on over a decade of experience with large-scale build tools at Google. We’ve been [tongue-in-cheek critical of Bazel in the past](https://medium.com/windmill-engineering/bazel-is-the-worst-build-system-except-for-all-the-others-b369396a9e26), but it’s a great tool.
+Bazel is a language-agnostic build system based on over a decade of experience with large-scale build tools at Google. We’ve been [tongue-in-cheek critical of Bazel in the past](https://blog.tilt.dev/2018/02/01/bazel-is-the-worst-build-system-except-for-all-the-others.html), but it’s a great tool.
 
 Bazel can also create reproducible container images. Unlike Dockerfiles, Bazel ensures that you get fast, iterative builds every time. No need to carefully stack Dockerfile layers like a Jenga tower to maximize caching.
 
