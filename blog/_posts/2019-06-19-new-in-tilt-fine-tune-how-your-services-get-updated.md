@@ -38,4 +38,6 @@ Then when you’re ready, hit the Update button and Tilt will do its thing. (Oop
 
 ![After you’ve edited a service, hit the Update icon to trigger an update](/assets/images/new-in-tilt-fine-tune-how-your-services-get-updated/1*DQ_aNDR0le3dcUsb9Eknaw.gif)*After you’ve edited a service, hit the Update icon to trigger an update*
 
-Check it out for yourself in [Tilt v0.9.0](https://github.com/windmilleng/tilt/releases). Does this make Tilt better suited for your workflow? And if you’re wondering where we’re headed next, the [Manual Update Control spec](https://github.com/windmilleng/tilt.specs/blob/master/manual_update_control.md) describes some of the paths we considered but haven’t tried yet. We’d love to hear your thoughts, so please [get in touch](https://tilt.dev/contact)!
+Check it out for yourself in [Tilt v0.9.0](https://github.com/windmilleng/tilt/releases), and see more details in [the docs](https://docs.tilt.dev/manual_update_control.html). Does this make Tilt better suited for your workflow? And if you’re wondering where we’re headed next, the [Manual Update Control spec](https://github.com/windmilleng/tilt.specs/blob/master/manual_update_control.md) describes some of the paths we considered but haven’t tried yet. 
+
+We’d love to hear your thoughts, so please [get in touch](https://tilt.dev/contact)!
