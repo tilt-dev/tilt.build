@@ -15,7 +15,7 @@ You don't want Tilt to start updating the production cluster just because you fo
 
 ```python
 dev_clusters = ['docker-for-desktop', 'minikube']
-if k8s_context not in dev_clusters:
+if k8s_context() not in dev_clusters:
   fail('unknown context %s; failing early to avoid Tilt talking to a production cluster' % k8s_context())
 ```
 
