@@ -32,7 +32,7 @@ Commits:
 
 
 ## What they do
-Combined, these changes improve Tilt support for KIND, microk8s, and minikube. On microk8s we now detect whether we should use a registry built in microk8s, or an external one. Finally [`live_update`](https://docs.tilt.dev/live_update_reference.html) on KIND clusters no longer results in full rebuilds.
+Combined, these changes improve Tilt support for [KIND](https://github.com/kubernetes-sigs/kind), [microk8s](https://microk8s.io/), and [minikube](https://kubernetes.io/docs/setup/learning-environment/minikube/). On microk8s we now detect whether we should use a registry built in microk8s, or an external one. Finally [`live_update`](https://docs.tilt.dev/live_update_reference.html) on KIND clusters no longer results in full rebuilds.
 
 ## Why they're important
-Aside from making Tilt work better on various Kubernetes clusters, these change also pave the way for us to run our integration tests across many different types of Kubernetes clusters, rather than just one.
+Aside from making Tilt work better on various Kubernetes clusters, these change also pave the way for us to run our integration tests across many different types of Kubernetes clusters, rather than just one. With this we'll be better able to catch edge-cases that affect only certain clusters. Hooray for test coverage!
