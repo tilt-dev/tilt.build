@@ -4,10 +4,22 @@ title: Contact Us
 permalink: /contact
 ---
 
-<div class="col-3of4 u-marginBottomUnit">
-If you'd like to learn more about what we're doing, you can either
-<a href="mailto:hi@windmill.engineering">email us directly</a>,
-or fill out the form below.
+<div class="u-marginBottomUnit">
+Curious about what we're doing? Got a problem with Tilt? Just want to say hi? Here are some ways to get in touch with us:
+    <ul class="u-marginTop0_5">
+        <li>
+            Find us in the <a href="https://kubernetes.slack.com/messages/CESBL84MV/" target="_blank"><strong>#tilt</strong> channel</a> in the Kubernetes Slack. (Not a member? <a href="https://slack.k8s.io/" target="_blank">Get your invite here</a>.)
+        </li>
+        <li>
+            Look through <a href="https://github.com/windmilleng/tilt/issues" target="_blank">our Github issues</a> (or file your own)
+        </li>
+        <li>
+            <a href="mailto:hi@windmill.engineering">Email us directly</a>
+        </li>
+        <li>
+            Fill out the form below!
+        </li>
+    </ul>
 </div>
 
 <form action="https://www.getdrip.com/forms/934127760/submissions" method="post" data-drip-embedded-form="934127760">
