@@ -3,8 +3,8 @@ slug: june-tilt-commit-of-the-month
 date: 2019-07-03T15:26:34.743Z
 author: dmiller
 layout: blog
-title: "Tilt Commit of the Month"
-subtitle: "June 2019 Edition"
+title: "Tilt Commit of the Month: June 2019"
+subtitle: "Support More Kubernetes Clusters"
 images:
   - featuredImage.jpg
 image_type: "contain"
@@ -13,7 +13,7 @@ tags:
   - kubernetes
   - microservices
   - tilt
-  - commit
+  - cotm
 keywords:
   - docker
   - kubernetes
@@ -23,7 +23,7 @@ keywords:
 
 Welcome to a new series of blog posts we're calling Tilt Commit of the Month. Commit of the Month is a lightweight way to highlight work that goes on in the Tilt project that might fly under the radar otherwise.
 
-We’re already cheating: this month we’re going to highlight a bunch of commits related to better detecting and working better with different kinds of Kubernetes clusters.
+We’re already cheating: this month we’re going to highlight a multiple commits, instead of just one. All of these commits are related to detecting and working better with different kinds of Kubernetes clusters.
 
 Commits:
 * [k8s: auto-detect microk8s registry](https://github.com/windmilleng/tilt/commit/d293a0ba0216711c855526100490e21733ada194)
