@@ -1,5 +1,5 @@
 ---
-title: Optimizing a Tiltfile
+title: Faster Development with Live Update (Tutorial)
 layout: docs
 ---
 This tutorial looks at a `Tiltfile` with build optimizations.

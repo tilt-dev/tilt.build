@@ -77,4 +77,4 @@ Tilt is now setup for your project. Try exploring Tilt's UI (there's a context-s
 
 Now's a great time to file bugs, feature requests, or [talk to us](index.html#community) about your use case. If you say hi in the `#tilt` channel of Kubernetes slack we can find time to chat.
 
-You can read in more detail about [Tiltfile Concepts](tiltfile_concepts.html) or [Optimizing your Builds](live_update_tutorial.html).
+You can read in more detail about [Tiltfile Concepts](tiltfile_concepts.html) or [Speeding up your development with Live Update](live_update_tutorial.html).
