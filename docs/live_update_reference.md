@@ -4,7 +4,7 @@ layout: docs
 ---
 ##### (This doc provides the technical specifications of Tilt's `LiveUpdate` functionality. For a tutorial that walks you through a sample project, see [Faster Development with Live Update (Tutorial)](live_update_tutorial.html).)
 
-When specifying how to build an image (via `docker_build()` or `custom_build()`), you may optionally pass the `live_update` arg.
+When specifying how to build an image (via `docker_build()` or `custom_build()`), you may optionally pass the `live_update` argument.
 
 `live_update` takes a list of `LiveUpdateSteps` that tell Tilt how to update a running container in place (instead of paying the cost of building a new image and redeploying).
 
@@ -15,13 +15,13 @@ The list of `LiveUpdateSteps` must be, in order:
 - 0 or 1 [`restart_container`](api.html#api.restart_container) steps
 
 When a file changes:
-   1. If it matches any of the files in a `fall_back_on` step, we will fall back to a full rebuild + deploy (i.e., the normal, non-live_update process).
-   2. Otherwise, if it matches any of the local paths in `sync` steps, a live update will be executed:
-        1. copy any changed files according to `sync` steps
-        2. for every `run` step:
+   1. If it matches any of the files in a `fall_back_on` step, we will fall back to a full rebuild + deploy (i.e. the normal, non-live_update process).
+   2. Otherwise, if it matches any of the local paths in `sync` steps, a live update will be executed as follows:
+        i. copy any changed files according to `sync` steps
+        ii. for every `run` step:
             * if the `run` specifies one or more `triggers`, execute the command iff any changed files match the given triggers
-            * else, simply execute the command
-        3. restart the container if a `restart_container` step is present. (This is tantamount to re-executing the container's `ENTRYPOINT`.)
+            * otherwise, simply execute the command
+        iii. restart the container if a `restart_container` step is present. (This is equivalent to re-executing the container's `ENTRYPOINT`.)
 
 ## LiveUpdateSteps
 Each of the functions above returns a `LiveUpdateStep` -- an object like any other, i.e. it can be assigned to a variable, etc. That means that something like this is perfectly valid syntax:
@@ -43,19 +43,29 @@ A `sync` call takes two args: the local path of a file/directory, and the remote
 #### What files can I sync? How are builds triggered?
 When you tell Tilt how to build an image, you specify some set of files to watch. In the case of a `docker_build` call, Tilt watches the directory that you pass as `context`. Your sync'd local paths must fall within that context. (If you're using `custom_build`, all of the above applies, only with `deps` in place of `context`.) Let's look at some examples:
 
-<img src="/assets/img/liveupdate-sync-illegal.png" class="no-shadow" alt="An illegal 'sync'">
+<figure>
+    <img src="/assets/img/liveupdate-sync-illegal.png" class="no-shadow" alt="An illegal 'sync'">
+    <figcaption>An illegal 'sync': attempting to sync files that aren't included in the docker_build context</figcaption>
+</figure>
 
-The `sync` above is invalid, because it attempts to sync files that we're not even watching. (To put it another way: there's no way for those files to get into the container in the first place, because they would never be included in the Docker build.) If this is functionality you need, [let us know](https://tilt.dev/contact).
+The `sync` above is invalid, because it attempts to sync files that we're not even watching (seen here highlighted in blue). To put it another way: there's no way for those files to get into the container in the first place, because they would never be included in the Docker build. (If this is functionality you need, [let us know](https://tilt.dev/contact).)
 
-<img src="/assets/img/liveupdate-sync-docker-context.png" class="no-shadow" alt="A valid use of 'sync' (all sync'd files are subsets of docker_build.context)">
+<figure>
+    <img src="/assets/img/liveupdate-sync-docker-context.png" class="no-shadow" alt="A valid use of 'sync' (all sync'd files are subsets of docker_build.context)">
+    <figcaption>A valid use of 'sync' (all sync'd files are subsets of docker_build.context)</figcaption>
+</figure>
 
-Above are some valid `sync`s. A change to any of the green files will kick off a Live Update, because they match a `sync` step. A change to any of the yellow files will kick off a full Docker build + deploy, because they're part of the Docker context but we don't have instructions on how to Live Update them. (Coming soon: a way to be to be more selective in what parts of your Docker context Tilt watches!)
+Above is an example of a valid `sync`s. A change to any of the green files will kick off a Live Update, because they match a `sync` step. A change to any of the yellow files will kick off a full Docker build + deploy, because they're part of the Docker context but we don't have instructions on how to Live Update them. (Want to be more selective in which files do/don't kick off full builds? Check out [context filters for `docker_build`](https://blog.tilt.dev/2019/06/07/better-monorepo-container-builds-with-context-filters.html).)
 
-<img src="/assets/img/liveupdate-sync-dep-images.png" class="no-shadow" alt="How to use 'sync' with multiple dependent docker images">
+<figure>
+    <img src="/assets/img/liveupdate-sync-dep-images.png" class="no-shadow" alt="How to use 'sync' with multiple dependent docker images">
+    <figcaption>An example of 'sync' used with dependent Docker images</figcaption>
+</figure>
 
-If you have multiple docker images that depend on each other, you can sync files from anywhere within the contexts of any of the images. (In the diagram above, Tilt is building two images; the blue image depends on--i.e. `FROM`'s--the yellow image.)
 
-The rule of thumb is: you can `sync` it if Tilt is watching it, and Tilt will watch it if it's in a `docker_build.context` or `custom_build.deps`.
+If you have multiple Docker images that depend on each other, you can sync files from anywhere within the contexts of any of the images. (In the diagram above, Tilt is building two images; the red image depends on--i.e. `FROM`'s--the yellow image.)
+
+The rule of thumb is: if Tilt it watching it, you can `sync` it. (Tilt will watch it if it's in a `docker_build.context` or `custom_build.deps`).
 
 
 #### Let's review
