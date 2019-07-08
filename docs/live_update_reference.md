@@ -116,3 +116,5 @@ docker_build('my-img', '.', live_update=[
 This step is optional. If you have a `restart_container` step, it must come at the very end of your list of Live Update steps. When this step is present, it tells Tilt to restart the container after all the files have been sync'd, runs have been executed, etc. In practice, this means that the container re-executes its `ENTRYPOINT` within the changed filesystem.
 
 If your container executes a binary and your Live Update changes that binary, you probably want to restart the container to re-execute it. If, however, you're running a Flask or Node app that responds to filesystem changes without requiring a restart, you can probably leave this step out.
+
+**NOTE**: `restart_container()` *only* works on containers managed by Docker. For non-Docker runtimes (e.g. containerd, CRI-O), please see the [wrapper script for simulating restart_container](https://github.com/windmilleng/rerun-process-wrapper).
