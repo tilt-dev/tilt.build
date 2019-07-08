@@ -347,8 +347,12 @@ def listdir(directory: str, recursive: bool = False) -> List[str]:
   Directory is watched (See ``watch_file``)."""
   pass
 
-def k8s_kind(kind: str, api_version: str=None, *, image_json_path: Union[str, List[str]]):
-  """Tells Tilt about a k8s kind. Primarily intended for defining where your CRD specifies image names.
+def k8s_kind(kind: str, api_version: str=None, *, image_json_path: Union[str, List[str]]=[]):
+  """Tells Tilt about a k8s kind.
+
+  For CRDs that use images built by Tilt: call this with `image_json_path` to tell Tilt where in the CRD's spec the image is specified.
+
+  For CRDs that do not use images built by Tilt, but have pods you want in a Tilt resource: call this without `image_json_path`, simply to specify that this type is a Tilt workload. Then call :meth:`k8s_resource` with `extra_pod_selectors` to specify which pods Tilt should associate with this resource.
 
   (Note the `*` in the signature means `image_json_path` must be passed as a keyword, e.g., `image_json_path="{.spec.image}"`)
 
