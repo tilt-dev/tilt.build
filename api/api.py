@@ -77,7 +77,7 @@ def docker_build(ref: str, context: str, build_args: Dict[str, str] = {}, docker
     dockerfile_contents: raw contents of the Dockerfile to use for this build.
     live_update: set of steps for updating a running container (see `Live Update documentation <live_update_reference.html>`_).
     ignore: set of file patterns that will be ignored. Ignored files will not trigger builds and will not be included in images. Follows the `dockerignore syntax <https://docs.docker.com/engine/reference/builder/#dockerignore-file>`_.
-    only: set of file patterns that will cause a build to be triggered. All other changes will be ignored. Inverse of ignore parameter. Follows the `dockerignore syntax <https://docs.docker.com/engine/reference/builder/#dockerignore-file>`_. Note that ignores take precedence over this parameter.
+    only: set of file patterns that should be considered for the build. All other changes will not trigger a build and will not be included in images. Inverse of ignore parameter. Follows the `dockerignore syntax <https://docs.docker.com/engine/reference/builder/#dockerignore-file>`_. Note that ignores take precedence over this parameter.
   """
   pass
 
@@ -432,7 +432,7 @@ class CustomBuild:
     """Returns a FastBuild that is associated with the image that was built from a ``custom_build``. When the container needs to be rebuilt it will be built using the ``CustomBuild``. Otherwise update will be done with the ``FastBuild`` instructions. """
     pass
 
-def custom_build(ref: str, command: str, deps: List[str], tag: str = "", disable_push: bool = False, live_update: List[LiveUpdateStep]=[]) -> CustomBuild:
+def custom_build(ref: str, command: str, deps: List[str], tag: str = "", disable_push: bool = False, live_update: List[LiveUpdateStep]=[], ignore: Union[str, List[str]] = []) -> CustomBuild:
   """Provide a custom command that will build an image.
 
   Returns an object which can be used to create a FastBuild.
@@ -458,6 +458,7 @@ def custom_build(ref: str, command: str, deps: List[str], tag: str = "", disable
        then re-tag it with its own tag before pushing to your cluster. See `the bazel guide <integrating_bazel_with_tilt.html>`_ for an example.
     disable_push: whether Tilt should push the image in to the registry that the Kubernetes cluster has access to. Set this to true if your command handles pushing as well.
     live_update: set of steps for updating a running container (see `Live Update documentation <live_update_reference.html>`_).
+    ignore: set of file patterns that will be ignored. Ignored files will not trigger builds and will not be included in images. Follows the `dockerignore syntax <https://docs.docker.com/engine/reference/builder/#dockerignore-file>`_.
   """
   pass
 
