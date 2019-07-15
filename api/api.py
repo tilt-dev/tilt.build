@@ -435,7 +435,7 @@ class CustomBuild:
     """Returns a FastBuild that is associated with the image that was built from a ``custom_build``. When the container needs to be rebuilt it will be built using the ``CustomBuild``. Otherwise update will be done with the ``FastBuild`` instructions. """
     pass
 
-def custom_build(ref: str, command: str, deps: List[str], tag: str = "", disable_push: bool = False, live_update: List[LiveUpdateStep]=[], entrypoint: str="") -> CustomBuild:
+def custom_build(ref: str, command: str, deps: List[str], tag: str = "", disable_push: bool = False, live_update: List[LiveUpdateStep]=[], ignore: Union[str, List[str]] = [], entrypoint: str="") -> CustomBuild:
   """Provide a custom command that will build an image.
 
   Returns an object which can be used to create a FastBuild.
@@ -463,6 +463,7 @@ def custom_build(ref: str, command: str, deps: List[str], tag: str = "", disable
        then re-tag it with its own tag before pushing to your cluster. See `the bazel guide <integrating_bazel_with_tilt.html>`_ for an example.
     disable_push: whether Tilt should push the image in to the registry that the Kubernetes cluster has access to. Set this to true if your command handles pushing as well.
     live_update: set of steps for updating a running container (see `Live Update documentation <live_update_reference.html>`_).
+    ignore: set of file patterns that will be ignored. Ignored files will not trigger builds and will not be included in images. Follows the `dockerignore syntax <https://docs.docker.com/engine/reference/builder/#dockerignore-file>`_.
     entrypoint: command to run when this container starts. Takes precedence over the container's ``CMD`` or ``ENTRYPOINT``, and over a `container command specified in k8s YAML <https://kubernetes.io/docs/tasks/inject-data-application/define-command-argument-container/>`_. Will be evaluated in a shell context: e.g. ``entrypoint="foo.sh bar"`` will be executed in the container as ``/bin/sh -c 'foo.sh bar'``.
   """
   pass
