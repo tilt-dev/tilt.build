@@ -54,14 +54,6 @@ We’re small ({{site.data.people | size}} people, NYC-based, VC-backed). We’r
     </div>
   </div>
   <div class="bio col-1of3 u-marginBottom1_25">
-    <img class="bio-image" src="/assets/img/karina.jpg">
-    <h4>Karina Bernacki</h4>
-
-    <div>
-    Coach and advisor, human, finder of hidden paths, & future vagabond. Helping leaders & organizations thrive in an ever-changing & deeply-connected world.
-    </div>
-  </div>
-  <div class="bio col-1of3 u-marginBottom1_25">
     <img class="bio-image" src="/assets/img/matt.jpg">
     <h4>Matt Landis</h4>
 
