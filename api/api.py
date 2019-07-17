@@ -79,7 +79,7 @@ def docker_build(ref: str, context: str, build_args: Dict[str, str] = {}, docker
     dockerfile_contents: raw contents of the Dockerfile to use for this build.
     live_update: set of steps for updating a running container (see `Live Update documentation <live_update_reference.html>`_).
     ignore: set of file patterns that will be ignored. Ignored files will not trigger builds and will not be included in images. Follows the `dockerignore syntax <https://docs.docker.com/engine/reference/builder/#dockerignore-file>`_.
-    only: set of file patterns that will cause a build to be triggered. All other changes will be ignored. Inverse of ignore parameter. Follows the `dockerignore syntax <https://docs.docker.com/engine/reference/builder/#dockerignore-file>`_. Note that ignores take precedence over this parameter.
+    only: set of file patterns that should be considered for the build. All other changes will not trigger a build and will not be included in images. Inverse of ignore parameter. Follows the `dockerignore syntax <https://docs.docker.com/engine/reference/builder/#dockerignore-file>`_. Note that ignores take precedence over this parameter.
     entrypoint: command to run when this container starts. Takes precedence over the container's ``CMD`` or ``ENTRYPOINT``, and over a `container command specified in k8s YAML <https://kubernetes.io/docs/tasks/inject-data-application/define-command-argument-container/>`_. Will be evaluated in a shell context: e.g. ``entrypoint="foo.sh bar"`` will be executed in the container as ``/bin/sh -c 'foo.sh bar'``.
   """
   pass
