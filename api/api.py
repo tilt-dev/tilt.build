@@ -60,7 +60,7 @@ def container_restart() -> LiveUpdateStep:
   """
   pass
 
-def docker_build(ref: str, context: str, build_args: Dict[str, str] = {}, dockerfile: str = "Dockerfile", dockerfile_contents: Union[str, Blob] = "", live_update: List[LiveUpdateStep]=[], ignore: Union[str, List[str]] = [], only: Union[str, List[str]] = []) -> None:
+def docker_build(ref: str, context: str, build_args: Dict[str, str] = {}, dockerfile: str = "Dockerfile", dockerfile_contents: Union[str, Blob] = "", live_update: List[LiveUpdateStep]=[], ignore: Union[str, List[str]] = [], only: Union[str, List[str]] = [], entrypoint: str = "") -> None:
   """Builds a docker image.
 
   Note that you can't set both the `dockerfile` and `dockerfile_contents` arguments (will throw an error).
@@ -68,6 +68,8 @@ def docker_build(ref: str, context: str, build_args: Dict[str, str] = {}, docker
   Example: ``docker_build('myregistry/myproj/backend', '/path/to/code')`` is roughly equivalent to the call ``docker build /path/to/code -t myregistry/myproj/backend``
 
   Note: If you're using the the `ignore` and `only` parameters to do context filtering and you have tricky cases, reach out to us. The implementation is complex and there might be edge cases.
+
+  Note: the `entrypoint` parameter is not supported for Docker Compose resources. If you need it for your use case, let us know.
 
   Args:
     ref: name for this image (e.g. 'myproj/backend' or 'myregistry/myproj/backend'). If this image will be used in a k8s resource(s), this ref must match the ``spec.container.image`` param for that resource(s).
@@ -78,6 +80,7 @@ def docker_build(ref: str, context: str, build_args: Dict[str, str] = {}, docker
     live_update: set of steps for updating a running container (see `Live Update documentation <live_update_reference.html>`_).
     ignore: set of file patterns that will be ignored. Ignored files will not trigger builds and will not be included in images. Follows the `dockerignore syntax <https://docs.docker.com/engine/reference/builder/#dockerignore-file>`_.
     only: set of file patterns that should be considered for the build. All other changes will not trigger a build and will not be included in images. Inverse of ignore parameter. Follows the `dockerignore syntax <https://docs.docker.com/engine/reference/builder/#dockerignore-file>`_. Note that ignores take precedence over this parameter.
+    entrypoint: command to run when this container starts. Takes precedence over the container's ``CMD`` or ``ENTRYPOINT``, and over a `container command specified in k8s YAML <https://kubernetes.io/docs/tasks/inject-data-application/define-command-argument-container/>`_. Will be evaluated in a shell context: e.g. ``entrypoint="foo.sh bar"`` will be executed in the container as ``/bin/sh -c 'foo.sh bar'``.
   """
   pass
 
@@ -427,12 +430,12 @@ def default_registry(registry: str) -> None:
   pass
 
 class CustomBuild:
-  """An image that was created with ``custom_build``"""
+  """An image that was created with :meth:`custom_build`"""
   def add_fast_build() -> FastBuild:
     """Returns a FastBuild that is associated with the image that was built from a ``custom_build``. When the container needs to be rebuilt it will be built using the ``CustomBuild``. Otherwise update will be done with the ``FastBuild`` instructions. """
     pass
 
-def custom_build(ref: str, command: str, deps: List[str], tag: str = "", disable_push: bool = False, live_update: List[LiveUpdateStep]=[], ignore: Union[str, List[str]] = []) -> CustomBuild:
+def custom_build(ref: str, command: str, deps: List[str], tag: str = "", disable_push: bool = False, live_update: List[LiveUpdateStep]=[], ignore: Union[str, List[str]] = [], entrypoint: str="") -> CustomBuild:
   """Provide a custom command that will build an image.
 
   Returns an object which can be used to create a FastBuild.
@@ -450,6 +453,8 @@ def custom_build(ref: str, command: str, deps: List[str], tag: str = "", disable
       ['.'],
     )
 
+  Note: the `entrypoint` parameter is not supported for Docker Compose resources. If you need it for your use case, let us know.
+
   Args:
     ref: name for this image (e.g. 'myproj/backend' or 'myregistry/myproj/backend'). If this image will be used in a k8s resource(s), this ref must match the ``spec.container.image`` param for that resource(s).
     command: a command that, when run in the shell, builds an image puts it in the registry as ``ref``. Must produce an image named ``$EXPECTED_REF``
@@ -459,6 +464,7 @@ def custom_build(ref: str, command: str, deps: List[str], tag: str = "", disable
     disable_push: whether Tilt should push the image in to the registry that the Kubernetes cluster has access to. Set this to true if your command handles pushing as well.
     live_update: set of steps for updating a running container (see `Live Update documentation <live_update_reference.html>`_).
     ignore: set of file patterns that will be ignored. Ignored files will not trigger builds and will not be included in images. Follows the `dockerignore syntax <https://docs.docker.com/engine/reference/builder/#dockerignore-file>`_.
+    entrypoint: command to run when this container starts. Takes precedence over the container's ``CMD`` or ``ENTRYPOINT``, and over a `container command specified in k8s YAML <https://kubernetes.io/docs/tasks/inject-data-application/define-command-argument-container/>`_. Will be evaluated in a shell context: e.g. ``entrypoint="foo.sh bar"`` will be executed in the container as ``/bin/sh -c 'foo.sh bar'``.
   """
   pass
 
