@@ -53,7 +53,7 @@ You fix faster when you know what's broken.
 Questions? Comments? Just want to say hi? Find us on the Kubernetes slack. Get an invite at [slack.k8s.io](http://slack.k8s.io) and find
 us in [the **#tilt** channel](https://kubernetes.slack.com/messages/CESBL84MV/).
 
-We tweet [@windmill_eng](https://twitter.com/windmill_eng) and
+We tweet [@tilt_dev](https://twitter.com/tilt_dev) and
 blog about building Tilt at [blog.tilt.dev](https://blog.tilt.dev).
 
 Tilt is Open Source, developed on [GitHub](https://github.com/windmilleng/tilt).
