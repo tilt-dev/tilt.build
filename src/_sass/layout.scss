@@ -347,7 +347,9 @@ h1, .sidebar h2, h2.section {
   }
 }
 .wrapper--home h1,
-.wrapper--home h2.section, {
+.wrapper--home h2.section,
+.wrapper--landing h1,
+.wrapper--landing h2.section {
   color: $color-grey-dark;
 }
 h2 a {
@@ -388,6 +390,7 @@ h2, .docsContent h1 {
 }
 
 h3,
+.wrapper--landing h2,
 .docsContent h2,
 .blogContent h2 {
   font-family: $header-font-family;
@@ -406,6 +409,7 @@ h3,
 }
 
 h4,
+.wrapper--landing h3,
 .docsContent h3,
 .blogContent h3 {
   font-family: $header-font-family;
@@ -416,9 +420,19 @@ h4,
   font-weight: 700;
   letter-spacing: 0;
 }
+.wrapper--landing h3,
 .docsContent h3,
 .blogContent h3 {
   color: $text-color;
+}
+.wrapper--landing h3 {
+  margin-top: $spacing-unit * 2;
+  text-align: center;
+}
+.wrapper--landing img {
+  max-width: 0.8 * $content-width;
+  margin: auto;
+  display: block;
 }
 .permalink {
   transition: opacity 0.3s;
