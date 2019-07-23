@@ -1290,3 +1290,6 @@ input[type=checkbox] {
 input[type=checkbox]:checked + .formItem-checkbox {
   background-color: $color-green;
 }
+.language-bash code {
+  user-select: all;
+}
