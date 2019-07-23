@@ -32,8 +32,8 @@ docker_compose("./docker-compose.yml")
 
 That's it! Then run:
 
-```
-$ tilt up
+```bash
+tilt up
 ```
 
 Tilt will pick up your Docker Compose file and start running your services.
@@ -41,8 +41,8 @@ Tilt will pick up your Docker Compose file and start running your services.
 Be aware of one important difference between `tilt up` and `docker-compose up`: Tilt
 will leave your services up when it exists. To turn the services down, run:
 
-```
-$ tilt down
+```bash
+tilt down
 ```
 
 ## Using Tilt's `docker_build`

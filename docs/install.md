@@ -21,22 +21,22 @@ On MacOS
 - In the Docker For Mac preferences, click [Enable Kubernetes](https://docs.docker.com/docker-for-mac/#kubernetes)
 - Verify that it works by opening a terminal and running
 
-```
-$ kubectl config get-contexts
-$ kubectl config use-context docker-for-desktop
+```bash
+kubectl config get-contexts
+kubectl config use-context docker-for-desktop
 ```
 
 ### Option A) Installing Tilt with Homebrew (recommended)
 
-```
-$ brew tap windmilleng/tap
-$ brew install windmilleng/tap/tilt
+```bash
+brew tap windmilleng/tap
+brew install windmilleng/tap/tilt
 ```
 
 ### Option B) Installing Tilt from release binaries
 
-```
-$ curl -L https://github.com/windmilleng/tilt/releases/download/v0.9.4/tilt.0.9.4.mac.x86_64.tar.gz | tar -xzv tilt && \
+```bash
+curl -L https://github.com/windmilleng/tilt/releases/download/v0.9.4/tilt.0.9.4.mac.x86_64.tar.gz | tar -xzv tilt && \
   sudo mv tilt /usr/local/bin/tilt
 ```
 
@@ -49,20 +49,20 @@ On Linux
 - Install [Minikube](https://github.com/kubernetes/minikube#installation)
 - Start Minikube as
 
-```
-$ minikube start
+```bash
+minikube start
 ```
 
 - Verify that it works by opening a terminal and running
 
-```
-$ kubectl cluster-info
+```bash
+kubectl cluster-info
 ```
 
 - Install the Tilt binary with:
 
-```
-$ curl -L https://github.com/windmilleng/tilt/releases/download/v0.9.4/tilt.0.9.4.linux.x86_64.tar.gz | tar -xzv tilt && \
+```bash
+curl -L https://github.com/windmilleng/tilt/releases/download/v0.9.4/tilt.0.9.4.linux.x86_64.tar.gz | tar -xzv tilt && \
     sudo mv tilt /usr/local/bin/tilt
 ```
 
@@ -81,9 +81,8 @@ Verifying
 
 After you install Tilt, verify that you installed it correctly with:
 
-```
-$ tilt version
-v0.9.4, built 2019-07-15
+```bash
+tilt version
 ```
 
 Troubleshooting

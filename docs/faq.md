@@ -85,7 +85,7 @@ copying Docker images around.
 
 To check which Docker server Tilt is connecting to, run:
 
-```
+```bash
 tilt doctor
 ```
 
@@ -141,20 +141,20 @@ Tilt uses the default Kubernetes cluster configured in `kubectl`.
 
 To see what cluster `kubectl` uses, run:
 
-```
-$ kubectl config current-context
+```bash
+kubectl config current-context
 ```
 
 To see what clusters are available, run:
 
-```
-$ kubectl config get-contexts
+```bash
+kubectl config get-contexts
 ```
 
 To change the cluster you're deploying to, run:
 
-```
-$ kubectl config use-context docker-for-desktop
+```bash
+kubectl config use-context docker-for-desktop
 ```
 
 The most common options we see in local development are
@@ -165,8 +165,8 @@ There is one exception to this rule:
 [Kind](https://github.com/kubernetes-sigs/kind) (Kubernetes in Docker) does not
 use `kubectl config`. Instead, you run:
 
-```
-$ KUBECONFIG="$(kind get kubeconfig-path)" tilt up
+```bash
+KUBECONFIG="$(kind get kubeconfig-path)" tilt up
 ```
 
 Tilt reads the same `KUBECONFIG` environment variable that `kubectl` uses. This variable
@@ -181,20 +181,20 @@ is a fast, low-overhead way to run Kubernetes locally for development.
 
 To install it, run
 
-```
-$ sudo snap install microk8s --channel=1.13/stable --classic
+```bash
+sudo snap install microk8s --channel=1.13/stable --classic
 ```
 
 To add microk8s to the list of clusters you can deploy to with `kubectl`, run
 
-```
-$ microk8s.kubectl config view --raw > $HOME/.kube/config
+```bash
+microk8s.kubectl config view --raw > $HOME/.kube/config
 ```
 
 Tilt always uses the current kubectl context. To set the kubectl context to microk8s, run:
 
-```
-$ kubectl config use-context microk8s
+```bash
+kubectl config use-context microk8s
 ```
 
 Currently, Tilt works best with microk8s 1.13 because it uses Docker as the runtime engine.
