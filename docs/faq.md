@@ -179,16 +179,25 @@ sets the path to a Kubernetes config.
 If you're using Linux, [microk8s](https://microk8s.io/)
 is a fast, low-overhead way to run Kubernetes locally for development.
 
-To install it, run
+To install it, run:
 
 ```bash
-sudo snap install microk8s --channel=1.13/stable --classic
+sudo snap install microk8s --classic
+sudo microk8s.enable dns
+sudo microk8s.enable registry
 ```
+
+The command `microk8s.enable registry` runs a local image registry inside microk8s.
+
+Tilt will automatically push images directly to this local registry.
+This is orders of magnitude faster than pushing and pulling images from a remote registry.
 
 To add microk8s to the list of clusters you can deploy to with `kubectl`, run
 
 ```bash
-microk8s.kubectl config view --raw > $HOME/.kube/config
+microk8s.kubectl config view --flatten > ~/.kube/microk8s-config
+KUBECONFIG=~/.kube/microk8s-config:~/.kube/config kubectl config view --flatten > ~/.kube/temp-config
+mv ~/.kube/temp-config ~/.kube/config
 ```
 
 Tilt always uses the current kubectl context. To set the kubectl context to microk8s, run:
@@ -196,9 +205,3 @@ Tilt always uses the current kubectl context. To set the kubectl context to micr
 ```bash
 kubectl config use-context microk8s
 ```
-
-Currently, Tilt works best with microk8s 1.13 because it uses Docker as the runtime engine.
-The Docker runtime engine has APIs that make loading images and syncing files much faster.
-
-microk8s 1.14+ uses containerd, which doesn't have those APIs yet. We hope to
-have better approaches for containerd soon!
