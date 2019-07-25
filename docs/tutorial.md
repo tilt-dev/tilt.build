@@ -1,5 +1,5 @@
 ---
-title: "Tutorial: the First 15 Minutes"
+title: "Tutorial: The First 15 Minutes"
 layout: docs
 ---
 
@@ -73,8 +73,19 @@ k8s_resource('frontend', port_forwards='9000')
 You can also use `k8s_resource` to forward multiple ports. Cf. the [Resources](tiltfile_concepts.html#resources) section of `Tiltfile Concepts`.
 
 ## Congrats
+
 Tilt is now setup for your project. Try exploring Tilt's UI (there's a context-sensitive legend in the bottom right). Introduce a build error and then a runtime crash; see Tilt's UI respond and surface the relevant problem.
 
-Now's a great time to file bugs, feature requests, or [talk to us](index.html#community) about your use case. If you say hi in the `#tilt` channel of Kubernetes slack we can find time to chat.
+## Next Steps
 
-You can read in more detail about [Tiltfile Concepts](tiltfile_concepts.html) or [Speeding up your development with Live Update](live_update_tutorial.html).
+If you had any trouble using this guide,
+now's a great time to [file bugs or feature requests](https://github.com/windmilleng/tilt/issues).
+
+We also hang out in the Kubernetes slack. Get an invite at [slack.k8s.io](http://slack.k8s.io) and find
+us in [the **#tilt** channel](https://kubernetes.slack.com/messages/CESBL84MV/).
+
+If the other contributors on your project have questions, send them the
+[Welcome to Tilt](welcome_to_tilt.md) guide for hacking on an existing project.
+
+When you're ready to level-up your Tiltfile, read on about [Tiltfile Concepts](tiltfile_concepts.html)
+or [Speeding up your development with Live Update](live_update_tutorial.html).
