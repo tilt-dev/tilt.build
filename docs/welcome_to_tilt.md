@@ -31,7 +31,7 @@ Think `docker build && kubectl apply` or `docker-compose up`.
 
 The `tilt` binary must be installed and accessible. That’s pretty easy:
 
-<pre style="user-select:all"><code>curl -sSL https://raw.githubusercontent.com/windmilleng/tilt/master/scripts/install.sh | bash</code></pre>
+<pre style="user-select:all"><code>curl -fsSL https://raw.githubusercontent.com/windmilleng/tilt/master/scripts/install.sh | bash</code></pre>
 
 [ [Want more install options?](https://docs.tilt.dev/install) ]
 
@@ -77,5 +77,8 @@ set up in your project.
 Don’t have your project configured yet? 
 
 [ [Read how here](https://docs.tilt.dev/tutorial.html) ]
+
+To add project-specific instructions for your other contributors,
+just fork the [tilt-init repo](https://github.com/windmilleng/tilt-init) and edit the README!
 
 

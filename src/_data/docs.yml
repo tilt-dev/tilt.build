@@ -7,8 +7,10 @@
     href: install.html
   - title: Upgrading
     href: upgrade.html
-  - title: "Tutorial: the First 15 Minutes"
+  - title: "Tutorial: The First 15 Minutes"
     href: tutorial.html
+  - title: "Dev on a Tilt-managed Project"
+    href: welcome_to_tilt.html
   - title: Example Projects
     href: example_projects.html
 - title: Tilt x Other Tools
