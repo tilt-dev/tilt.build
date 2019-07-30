@@ -24,6 +24,15 @@ spec:
           exec:
             command:
               - ./healthcheck.sh
+      - name: tilt-site2
+        image: tilt-site
+        command:
+          - bash
+          - -c
+          - bundle exec jekyll serve --config _config.yml,_config-dev.yml --port 4003
+        ports:
+        - containerPort: 4003
+          name: http
 ---
 apiVersion: apps/v1
 kind: Deployment
