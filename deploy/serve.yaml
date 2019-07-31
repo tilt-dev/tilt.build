@@ -18,9 +18,9 @@ spec:
         - containerPort: 4000
           name: http
         readinessProbe:
-          initialDelaySeconds: 5
-          periodSeconds: 10
-          timeoutSeconds: 5
+          initialDelaySeconds: 2
+          periodSeconds: 5
+          timeoutSeconds: 2
           exec:
             command:
               - ./healthcheck.sh
@@ -45,9 +45,9 @@ spec:
         - containerPort: 4000
           name: http
         readinessProbe:
-          initialDelaySeconds: 5
-          periodSeconds: 10
-          timeoutSeconds: 5
+          initialDelaySeconds: 2
+          periodSeconds: 5
+          timeoutSeconds: 2
           exec:
             command:
               - ./healthcheck.sh
@@ -72,9 +72,9 @@ spec:
         - containerPort: 4000
           name: http
         readinessProbe:
-          initialDelaySeconds: 5
-          periodSeconds: 10
-          timeoutSeconds: 5
+          initialDelaySeconds: 2
+          periodSeconds: 5
+          timeoutSeconds: 2
           exec:
             command:
               - ./healthcheck.sh
