@@ -56,9 +56,6 @@ But then, one of our fellow Tilters came to us in the [*#Tilt* channel in the K8
  
 As they mentioned, if you keep the Tilt tab overnight, sometimes browsers like Chrome will decide that said tab isn’t active anymore and will put it to sleep. Since the tab is asleep, Tilt isn’t able to detect that the tab is already open, causing it to open another Tilt tab with the Tilt web UI. 
 
-However with our new handy dandy `--no-browser` flag. we can work around that and restrict Tilt from opening a new tab. Whether you prefer the terminal UI to the web UI, or you like the web UI so much that you keep it open for so long that Tilt thinks it’s not there anymore, we’ve got you covered.
-
-
 ## But... why do we have two interfaces in the first place? 
 This is something we are still trying to figure out as well. The original Tilt was just the terminal UI--your services and their status, with logs for each service available on a keypress. As we progressed through our Tilt journey, we experimented with the web UI, which made it easier to navigate through logs and preview the services.  
 
@@ -66,12 +63,6 @@ Love of people love the web UI, but then again there are advantages to having a 
 
 Our next steps will be investigating what it would be like to show users just one UI or the other.
 
-
 ## Let us know your experience using the flag!
-
-Tilt v0.9.7 is [available on Github](https://github.com/windmilleng/tilt/releases)! (If this is your first time using Tilt, check out our [installation guide](https://docs.tilt.dev/install.html) to get started.) Download it and let us know what you think: 
-* say hi in the [*#tilt* channel](https://kubernetes.slack.com/messages/CESBL84MV/) on k8s slack
-* email us at [hi@windmill.engineering](mailto:hi@windmill.engineering)
-* if you run into trouble, check the [Github issues](https://github.com/windmilleng/tilt/issues) or file your own
 
 Happy Tilting!
