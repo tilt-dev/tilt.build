@@ -23,7 +23,7 @@ keywords:
 
 Welcome the second edition of Commit of the Month, a series of blog posts where we highlight some of the work done on Tilt this month! 
 
-July’s Commit of the Month gives you more control over your Tilt experience:it’s a command line flag that stops the Tilt web UI from opening automatically on `tilt up`.
+July’s Commit of the Month gives you more control over your Tilt experience: it’s a command line flag that stops the Tilt web UI from opening automatically on `tilt up`.
 
 Commit: 
 * [web: flag for opening browser](https://github.com/windmilleng/tilt/pull/1830)
