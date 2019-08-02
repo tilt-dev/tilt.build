@@ -59,7 +59,7 @@ As they mentioned, if you keep the Tilt tab overnight, sometimes browsers like C
 ## But... why do we have two interfaces in the first place? 
 This is something we are still trying to figure out as well. The original Tilt was just the terminal UI--your services and their status, with logs for each service available on a keypress. As we progressed through our Tilt journey, we experimented with the web UI, which made it easier to navigate through logs and preview the services.  
 
-Love of people love the web UI, but then again there are advantages to having a terminal UI as well. For some engineers, it feels more similar to their day-to-day workflows. 
+Lots of people love the web UI, but then again there are advantages to having a terminal UI as well. For some engineers, it feels more similar to their day-to-day workflows. 
 
 Our next steps will be investigating what it would be like to show users just one UI or the other.
 
