@@ -21,41 +21,49 @@ keywords:
   - flag 
 ---
 
-
 Welcome the second edition of Commit of the Month, a series of blog posts where we highlight some of the work done on Tilt this month! 
 
-This month’s Commit of the Month is the command line flag that disables the webUI:
+July’s Commit of the Month gives you more control over your Tilt experience:it’s a command line flag that stops the Tilt web UI from opening automatically on `tilt up`.
 
+Commit: 
 * [web: flag for opening browser](https://github.com/windmilleng/tilt/pull/1830)
+
+Though it’s a small quick change, I wanted to highlight this commit as Commit of the Month because it shows how our team responds to our user’s input and having this flag really improves the user‘s Tilt experience. It alleviates the annoying bit of having a new web UI pop up fresh every time.  
+
 
 ## What does it do?
 
+When you `tilt up`, usually you will see two UIs: the one that shows up on your terminal and one that pops up on your browser. 
 
-When you Tilt Up, usually you will see two UIs - the one that shows up on your terminal and the webUI.
-
-This one pops up on your _browser_..
-![Web UI](/assets/images/july-tilt-commit-of-the-month/webUI.png) 
-
-And this one pops up on your _terminal_.. 
-![Terminal UI](/assets/images/july-tilt-commit-of-the-month/TUI.png)
 
 Look familiar? 
 
-Well now, if you want to disable the web UI, you can now tilt up along with “--no-browser” 
+![Terminal UI vs Web UI](assets/images/july-tilt-commit-of-the-month/twoUI.png)
+
+Well now, if you want to stop Tilt from automatically opening a new tab for the web UI, you can `tilt up` along with `--no-browser` like so:
 ```
 tilt up --no-browser
 ```
 
-## But.. why do we have two interfaces in the first place? 
-This is something we are still trying to figure out as well. At first, the terminal UI was the original Tilt - where you can see your services and their status. As we progressed through our Tilt journey, we experimented with building the web UI, which made it easier to navigate through logs and preview the services.  
+##Use cases use cases …. USE CASES
+On startup,Tilt automatically opens up a new tab on your browser displaying our web interface.  We made it this way because the web interface is fairly new and we want people to know about it.  
 
-Then again there are advantages to having a terminal UI. For certain engineers it feels more similar to their day-to-day workflows. 
+Usually, Tilt is smart enough that it detects whether or not you already have Tilt browser tab open. One of our fellow Tilters came to us in the [*#Tilt* channel in the K8s slack](https://kubernetes.slack.com/messages/CESBL84MV/) with a use case we hadn’t thought about! 
+ 
+As they mentioned, if you keep the Tilt tab overnight, sometimes browsers like Chrome will decide that said tab isn’t active anymore and will put it to sleep. Since the tab is asleep, Tilt isn’t able to detect that the tab is already open, causing it to open another Tilt tab with the Tilt web UI. 
 
-Our next steps will be investigating what it would be like if you only want to see the web UI and the terminal UI.  
+However with our new handy dandy `--no-browser` flag. we can work around that and restrict Tilt from opening a new tab. Whether you prefer the terminal UI to the web UI, or you like the web UI so much that you keep it open for so long that Tilt thinks it’s not there anymore, we’ve got you covered.
+
+## But... why do we have two interfaces in the first place? 
+This is something we are still trying to figure out as well. The original Tilt was just the terminal UI-- your services and their status. As we progressed through our Tilt journey, we experimented with the web UI, which made it easier to navigate through logs and preview the services.  
+
+Love of people love the web UI, but then again there are advantages to having a terminal UI as well. For some engineers, it feels more similar to their day-to-day workflows. 
+
+Our next steps will be investigating what it would be like to show users just one UI or the other.
 
 ## Let us know your experience using the flag! 
 
-Tilt v9.7 is [available on Github](https://github.com/windmilleng/tilt/releases)! (If this is your first time using Tilt, check out our [installation guide](https://docs.tilt.dev/install.html) to get started.) Download it and let us know what you think: 
+Tilt v0.9.7 is [available on Github](https://github.com/windmilleng/tilt/releases)! (If this is your first time using Tilt, check out our [installation guide](https://docs.tilt.dev/install.html) to get started.) Download it and let us know what you think: 
 * say hi in the [*#tilt* channel](https://kubernetes.slack.com/messages/CESBL84MV/) on k8s slack
 * email us at [hi@windmill.engineering](mailto:hi@windmill.engineering)
 * if you run into trouble, check the [Github issues](https://github.com/windmilleng/tilt/issues) or file your own
