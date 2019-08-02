@@ -47,7 +47,7 @@ Well now, if you want to stop Tilt from automatically opening a new tab for the 
 tilt up --no-browser
 ```
 
-## Wait.. shouldn't Tilt detect if a tab is already open? 
+## Wait... shouldn't Tilt detect if a tab is already open? 
 It totally should!  
 
 Usually, Tilt is smart enough that it detects whether or not you already have Tilt browser tab open. 
