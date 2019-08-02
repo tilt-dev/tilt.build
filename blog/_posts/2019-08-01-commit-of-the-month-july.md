@@ -21,6 +21,7 @@ keywords:
   - flag 
 ---
 
+
 Welcome the second edition of Commit of the Month, a series of blog posts where we highlight some of the work done on Tilt this month! 
 
 July’s Commit of the Month gives you more control over your Tilt experience:it’s a command line flag that stops the Tilt web UI from opening automatically on `tilt up`.
@@ -38,14 +39,14 @@ When you `tilt up`, usually you will see two UIs: the one that shows up on your 
 
 Look familiar? 
 
-![Terminal UI vs Web UI](assets/images/july-tilt-commit-of-the-month/twoUI.png)
+![Terminal UI vs Web UI](assets/images/july-tilt-commit-of-the-month/twoUI.png) *Terminal UI vs Web UI* 
 
 Well now, if you want to stop Tilt from automatically opening a new tab for the web UI, you can `tilt up` along with `--no-browser` like so:
 ```
 tilt up --no-browser
 ```
 
-##Use cases use cases …. USE CASES
+## Use cases use cases …USE CASES
 On startup,Tilt automatically opens up a new tab on your browser displaying our web interface.  We made it this way because the web interface is fairly new and we want people to know about it.  
 
 Usually, Tilt is smart enough that it detects whether or not you already have Tilt browser tab open. One of our fellow Tilters came to us in the [*#Tilt* channel in the K8s slack](https://kubernetes.slack.com/messages/CESBL84MV/) with a use case we hadn’t thought about! 
