@@ -534,7 +534,7 @@ def allow_k8s_contexts(contexts: Union[str, List[str]]) -> None:
 
   Example ::
 
-    allow_k8s_contexts(['my-staging-cluster')
+    allow_k8s_contexts('my-staging-cluster')
 
     allow_k8s_contexts(['my-staging-cluster', 'gke_some-project-123456_us-central1-b_windmill'])
   """
