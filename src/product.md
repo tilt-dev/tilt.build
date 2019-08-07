@@ -45,11 +45,11 @@ We need a Head of Product to help us answer those questions and shape our strate
 - Has previous experience in both large and small technology companies.
     Has both launched and scaled a product.
 
-### Intersted? Apply.
+### Interested? Apply.
 Even if you don't have experience or interest in every bullet, we want to hear from you. There's no perfect candidate, and we want to find the right fit, even if it's different than we imagine. We especially would like to meet underrepresented/underestimated candidates.
 
 <h3 class="ctaLink u-marginBottomUnit u-marginTopUnit">
   <a href="/contact">
-    &hairsp;&gt; Interested? Contact Us
+    &hairsp;&gt; Contact Us
   </a>
 </h3>
