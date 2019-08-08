@@ -43,6 +43,8 @@
     href: manual_update_control.html
   - title: Using a Personal Registry
     href: personal_registry.html
+  - title: Non-Docker Builds
+    href: custom_build.html
   - title: Integrating Bazel with Tilt
     href: integrating_bazel_with_tilt.html
   - title: Working with Multiple Clusters
