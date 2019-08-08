@@ -516,3 +516,26 @@ def k8s_context() -> str:
       fail("failing early to avoid overwriting prod")
   """
   pass
+
+def allow_k8s_contexts(contexts: Union[str, List[str]]) -> None:
+  """Specifies that Tilt is allowed to run against the specified k8s context names.
+
+  To help reduce the chances you accidentally use Tilt to deploy to your
+  production cluster, Tilt will error unless at least one of these is true of
+  the active K8S context (i.e., what is returned by `kubectl config current-context`)
+  1. The K8S API URL is on localhost.
+  2. The context name is one of a few known local context names (e.g,. "minikube").
+  3. The context name is explicitly passed to `allow_k8s_contexts` in the Tiltfile.
+
+  Args:
+    contexts: a string or list of strings, specifying one or more k8s context
+        names that Tilt is allowed to run in. This list is in addition to
+        the default of all known-local clusters.
+
+  Example ::
+
+    allow_k8s_contexts('my-staging-cluster')
+
+    allow_k8s_contexts(['my-staging-cluster', 'gke_some-project-123456_us-central1-b_windmill'])
+  """
+  pass
