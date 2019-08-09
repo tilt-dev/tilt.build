@@ -6,6 +6,7 @@ enable_feature("events")
 default_registry('gcr.io/windmill-public-containers')
 
 # Generate the API docs.
+read_file('deploy/api.dockerfile')
 read_file('api/api.py')
 local('make api')
 
