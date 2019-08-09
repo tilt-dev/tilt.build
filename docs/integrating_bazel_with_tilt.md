@@ -189,7 +189,7 @@ def bazel_build(image, target):
   custom_build(
     image,
     BAZEL_RUN_CMD % target,
-    source_deps,
+    source_deps_files,
     tag="image",
   )
 ```
