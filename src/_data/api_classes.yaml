@@ -1,0 +1,7 @@
+classes:
+- Blob
+- CustomBuild
+- FastBuild
+- K8sObjectID
+- LiveUpdateStep
+- TriggerMode
