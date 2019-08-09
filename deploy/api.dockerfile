@@ -11,5 +11,8 @@ WORKDIR /src
 
 ADD api .
 RUN make html
-RUN cat /src/_build/html/index.html | hgrep "dl.class, dl.function" > api.html
+RUN echo "\n<h2>Functions</h2>" > api.html
+RUN cat /src/_build/html/index.html | hgrep "dl.function" >> api.html
+RUN echo "\n<h2>Classes</h2>" >> api.html
+RUN cat /src/_build/html/index.html | hgrep "dl.class" >> api.html
 ENTRYPOINT echo "~done~"

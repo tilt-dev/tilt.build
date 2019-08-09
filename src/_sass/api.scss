@@ -73,27 +73,3 @@ dl.function > dt {
 dt:hover .headerlink::after {
   opacity: 1;
 }
-
-h1 + dl.class::before,
-dl.class + dl.function::before {
-  content: "Functions";
-
-  display: block;
-  font-family: $header-font-family;
-  font-variant-ligatures: none;
-  font-size: 24px;
-  letter-spacing: 0;
-  color: $color-blue;
-  font-weight: 700;
-  letter-spacing: 0;
-  margin-bottom: $spacing-unit / 2;
-
-  @include mobile {
-    font-size: 22px;
-    line-height: 28px;
-  }
-}
-
-h1 + dl.class::before {
-  content: "Classes";
-}

@@ -29,10 +29,10 @@
     href: live_update_tutorial.html
   - title: Live Update Reference
     href: live_update_reference.html
-  - title: Tiltfile API Reference
-    href: api.html
   - title: Other Tilt Features
     href: other_tilt_features.html
+  - title: Tiltfile API Reference
+    href: api.html
 - title: Guides
   items:
   - title: Node.js Microservice with Hot Reloading
