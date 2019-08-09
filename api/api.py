@@ -298,6 +298,34 @@ def filter_yaml(yaml: Union[str, List[str], Blob], labels: dict=None, name: str=
   """
   pass
 
+def include(path: str):
+  """Include another Tiltfile.
+
+  Loads any builds or resources defined in that Tiltfile.
+
+  If you want to define common functions or constants and
+  import them into another Tiltfile, see the `load()` function.
+
+  Example ::
+
+    include('./frontend/Tiltfile')
+    include('./backend/Tiltfile')
+  """
+
+def load(path: str, *args):
+  """Include another Tiltfile.
+
+  Similar to `include(path)`, but binds variables in the global scope.
+
+  Used when you want to define common functions or constants
+  to share across Tiltfiles.
+
+  Example ::
+
+    include('./lib/Tiltfile', 'create_namespace')
+    create_namespace('frontend')
+  """
+
 def local(cmd: str) -> Blob:
   """Runs cmd, waits for it to finish, and returns its stdout as a ``Blob``."""
   pass

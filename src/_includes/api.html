@@ -279,6 +279,18 @@ Chart directory is watched (See <code class="docutils literal notranslate"><span
 </tbody>
 </table>
 </dd></dl><dl class="function">
+<dt id="api.include">
+<code class="descclassname">api.</code><code class="descname">include</code><span class="sig-paren">(</span><em>path</em><span class="sig-paren">)</span><a class="headerlink" href="#api.include" title="Permalink to this definition">&#xB6;</a></dt>
+<dd><p>Include another Tiltfile.</p>
+<p>Loads any builds or resources defined in that Tiltfile.</p>
+<p>If you want to define common functions or constants and
+import them into another Tiltfile, see the <cite>load()</cite> function.</p>
+<p>Example</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">include</span><span class="p">(</span><span class="s1">&apos;./frontend/Tiltfile&apos;</span><span class="p">)</span>
+<span class="n">include</span><span class="p">(</span><span class="s1">&apos;./backend/Tiltfile&apos;</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl><dl class="function">
 <dt id="api.k8s_context">
 <code class="descclassname">api.</code><code class="descname">k8s_context</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#api.k8s_context" title="Permalink to this definition">&#xB6;</a></dt>
 <dd><p>Returns the name of the Kubernetes context Tilt is connecting to.</p>
@@ -479,6 +491,18 @@ Directory is watched (See <code class="docutils literal notranslate"><span class
 </tr>
 </tbody>
 </table>
+</dd></dl><dl class="function">
+<dt id="api.load">
+<code class="descclassname">api.</code><code class="descname">load</code><span class="sig-paren">(</span><em>path</em>, <em>*args</em><span class="sig-paren">)</span><a class="headerlink" href="#api.load" title="Permalink to this definition">&#xB6;</a></dt>
+<dd><p>Include another Tiltfile.</p>
+<p>Similar to <cite>include(path)</cite>, but binds variables in the global scope.</p>
+<p>Used when you want to define common functions or constants
+to share across Tiltfiles.</p>
+<p>Example</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">include</span><span class="p">(</span><span class="s1">&apos;./lib/Tiltfile&apos;</span><span class="p">,</span> <span class="s1">&apos;create_namespace&apos;</span><span class="p">)</span>
+<span class="n">create_namespace</span><span class="p">(</span><span class="s1">&apos;frontend&apos;</span><span class="p">)</span>
+</pre></div>
+</div>
 </dd></dl><dl class="function">
 <dt id="api.local">
 <code class="descclassname">api.</code><code class="descname">local</code><span class="sig-paren">(</span><em>cmd</em><span class="sig-paren">)</span><a class="headerlink" href="#api.local" title="Permalink to this definition">&#xB6;</a></dt>
