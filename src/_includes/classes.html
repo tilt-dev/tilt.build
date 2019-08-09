@@ -1,0 +1,162 @@
+<dl class="class">
+<dt id="api.Blob">
+<em class="property">class </em><code class="descclassname">api.</code><code class="descname">Blob</code><a class="headerlink" href="#api.Blob" title="Permalink to this definition">&#xB6;</a></dt>
+<dd><p>The result of executing a command on your local system.</p>
+<p>Under the hood, a <cite>Blob</cite> is just a string, but we wrap it this way so Tilt knows the difference between a string meant to convey content and a string indicating, say, a filepath.</p>
+<p>To wrap a string as a blob, call <code class="docutils literal notranslate"><span class="pre">blob(my_str)</span></code></p>
+</dd></dl><dl class="class">
+<dt id="api.CustomBuild">
+<em class="property">class </em><code class="descclassname">api.</code><code class="descname">CustomBuild</code><a class="headerlink" href="#api.CustomBuild" title="Permalink to this definition">&#xB6;</a></dt>
+<dd><p>An image that was created with <a class="reference internal" href="#api.custom_build" title="api.custom_build"><code class="xref py py-meth docutils literal notranslate"><span class="pre">custom_build()</span></code></a></p>
+<dl class="method">
+<dt id="api.CustomBuild.add_fast_build">
+<code class="descname">add_fast_build</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#api.CustomBuild.add_fast_build" title="Permalink to this definition">&#xB6;</a></dt>
+<dd><p>Returns a FastBuild that is associated with the image that was built from a <code class="docutils literal notranslate"><span class="pre">custom_build</span></code>. When the container needs to be rebuilt it will be built using the <code class="docutils literal notranslate"><span class="pre">CustomBuild</span></code>. Otherwise update will be done with the <code class="docutils literal notranslate"><span class="pre">FastBuild</span></code> instructions.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name">
+<col class="field-body">
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#api.FastBuild" title="api.FastBuild"><code class="xref py py-class docutils literal notranslate"><span class="pre">FastBuild</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl><dl class="class">
+<dt id="api.FastBuild">
+<em class="property">class </em><code class="descclassname">api.</code><code class="descname">FastBuild</code><a class="headerlink" href="#api.FastBuild" title="Permalink to this definition">&#xB6;</a></dt>
+<dd><p>An image that was created with <code class="docutils literal notranslate"><span class="pre">fast_build</span></code></p>
+<dl class="method">
+<dt id="api.FastBuild.add">
+<code class="descname">add</code><span class="sig-paren">(</span><em>src</em>, <em>dest</em><span class="sig-paren">)</span><a class="headerlink" href="#api.FastBuild.add" title="Permalink to this definition">&#xB6;</a></dt>
+<dd><p>Adds the content from <code class="docutils literal notranslate"><span class="pre">src</span></code> into the image at path <code class="docutils literal notranslate"><span class="pre">dest</span></code>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name">
+<col class="field-body">
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>src</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) &#x2013; The path to content to be added to the image (absolute, or relative to the location of the Tiltfile).</li>
+<li><strong>dest</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) &#x2013; The path in the image where the content should be added.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference internal" href="#api.FastBuild" title="api.FastBuild"><code class="xref py py-class docutils literal notranslate"><span class="pre">FastBuild</span></code></a></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="api.FastBuild.hot_reload">
+<code class="descname">hot_reload</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#api.FastBuild.hot_reload" title="Permalink to this definition">&#xB6;</a></dt>
+<dd><p>Setting this on a <code class="docutils literal notranslate"><span class="pre">FastBuild</span></code> image tells Tilt that this container knows how to automatically reload any changes in the container. As a result there is no need to restart it.</p>
+<p>This is useful for containers that run something like nodemon or webpack Hot Module Replacement to update running processes quickly.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name">
+<col class="field-body">
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><code class="docutils literal notranslate"><span class="pre">None</span></code></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="api.FastBuild.run">
+<code class="descname">run</code><span class="sig-paren">(</span><em>cmd</em>, <em>trigger=[]</em><span class="sig-paren">)</span><a class="headerlink" href="#api.FastBuild.run" title="Permalink to this definition">&#xB6;</a></dt>
+<dd><p>Runs <code class="docutils literal notranslate"><span class="pre">cmd</span></code> as a build step in the image.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name">
+<col class="field-body">
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>cmd</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) &#x2013; A shell command.</li>
+<li><strong>trigger</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>], <code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]) &#x2013; If the <code class="docutils literal notranslate"><span class="pre">trigger</span></code> argument is specified, the build step is only run on changes to the given file(s).</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><code class="docutils literal notranslate"><span class="pre">None</span></code></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl><dl class="class">
+<dt id="api.K8sObjectID">
+<em class="property">class </em><code class="descclassname">api.</code><code class="descname">K8sObjectID</code><a class="headerlink" href="#api.K8sObjectID" title="Permalink to this definition">&#xB6;</a></dt>
+<dd><dl class="attribute">
+<dt id="api.K8sObjectID.name">
+<code class="descname">name</code><a class="headerlink" href="#api.K8sObjectID.name" title="Permalink to this definition">&#xB6;</a></dt>
+<dd><p>The object&#x2019;s name (e.g., <cite>&#x201C;my-service&#x201D;</cite>)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name">
+<col class="field-body">
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">str</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="api.K8sObjectID.kind">
+<code class="descname">kind</code><a class="headerlink" href="#api.K8sObjectID.kind" title="Permalink to this definition">&#xB6;</a></dt>
+<dd><p>The object&#x2019;s kind (e.g., <cite>&#x201C;deployment&#x201D;</cite>)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name">
+<col class="field-body">
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">str</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="api.K8sObjectID.namespace">
+<code class="descname">namespace</code><a class="headerlink" href="#api.K8sObjectID.namespace" title="Permalink to this definition">&#xB6;</a></dt>
+<dd><p>The object&#x2019;s namespace (e.g., <cite>&#x201C;default&#x201D;</cite>)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name">
+<col class="field-body">
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">str</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="api.K8sObjectID.group">
+<code class="descname">group</code><a class="headerlink" href="#api.K8sObjectID.group" title="Permalink to this definition">&#xB6;</a></dt>
+<dd><p>The object&#x2019;s group (e.g., <cite>&#x201C;apps&#x201D;</cite>)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name">
+<col class="field-body">
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">str</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl><dl class="class">
+<dt id="api.LiveUpdateStep">
+<em class="property">class </em><code class="descclassname">api.</code><code class="descname">LiveUpdateStep</code><a class="headerlink" href="#api.LiveUpdateStep" title="Permalink to this definition">&#xB6;</a></dt>
+<dd><p>A step in the process of performing a LiveUpdate on an image&#x2019;s container.</p>
+<p>For details, see the <a class="reference external" href="live_update_reference.html">Live Update documentation</a>.</p>
+</dd></dl><dl class="class">
+<dt id="api.TriggerMode">
+<em class="property">class </em><code class="descclassname">api.</code><code class="descname">TriggerMode</code><a class="headerlink" href="#api.TriggerMode" title="Permalink to this definition">&#xB6;</a></dt>
+<dd><p>A set of constants that describe how Tilt triggers an update for a resource.
+Possible values are:</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">TRIGGER_MODE_AUTO</span></code>: the default. When Tilt detects a change to files or config files associated with this resource, it triggers an update.</li>
+<li><code class="docutils literal notranslate"><span class="pre">TRIGGER_MODE_MANUAL</span></code>: user manually triggers update for dirty resources (i.e. resources with pending changes) via a button in the UI. (Note that the initial build always occurs automatically.)</li>
+</ul>
+<p>The default trigger mode for all manifests may be set with the top-level function <a class="reference internal" href="#api.trigger_mode" title="api.trigger_mode"><code class="xref py py-meth docutils literal notranslate"><span class="pre">trigger_mode()</span></code></a>
+(if not set, defaults to <code class="docutils literal notranslate"><span class="pre">TRIGGER_MODE_AUTO</span></code>), and per-resource with <a class="reference internal" href="#api.k8s_resource" title="api.k8s_resource"><code class="xref py py-meth docutils literal notranslate"><span class="pre">k8s_resource()</span></code></a>.</p>
+<p>See also: <a class="reference external" href="manual_update_control.html">Manual Update Control documentation</a></p>
+</dd></dl>
