@@ -322,7 +322,7 @@ def load(path: str, *args):
 
   Example ::
 
-    include('./lib/Tiltfile', 'create_namespace')
+    load('./lib/Tiltfile', 'create_namespace')
     create_namespace('frontend')
   """
 
