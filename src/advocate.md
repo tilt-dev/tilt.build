@@ -22,14 +22,17 @@ Tilt relieves the pains of local Kubernetes microservice development. It already
 We need a Developer Advocate who can help us build a community of Tilt users. We know this can go by many names (DevRel, Dev Evangelism, etc.), but we know we aren't great at it. We love Ashley McNamara's [post describing the role](https://medium.com/@ashleymcnamara/what-is-developer-advocacy-3a92442b627c): "the real goal of a Developer Advocate is to become the voice of the user. We gather feedback in a way developers can’t (since they know the codebase too well), then use that feedback to shape the product to become what it needs to be."
 
 ### What You'll Do
-- Organize the Tilt community. Maybe that's in the Slack channel, or meetups, or Twitter.
-- Learn from our community. What's hurting them that brings them to Tilt? What's still hurting after they pickup Tilt?
+- Organize the Tilt community. Across Slack channels, meetups, Twitter, and wherever else it makes sense.
+- Learn from our community. What's hurting them that brings them to Tilt? What's still hurting after they pick up Tilt?
 - Fight for the user. Bring what you've learned to help us improve the product, by advocating within our company. What bugs are we dropping on the floor?
 - Tell Tilt's story. Blogs, conferences, documentation, workshops, sample apps.
+- Create systems so the whole team contributes to telling Tilt's story (it's too much for one person)
 - Help us reach more users to become the ubiquitous tool for microservice dev.
 - Stay informed of what's happening in tech. What's the latest Kubernetes distribution? How is Go's module system going to impact container builds?
+- Find communities we're missing that would benefit from cloud-native dev. Does data science need Tilt? Is Tilt a game changer for game devs?
 
 ### Our Ideal Candidate
+- Has been a dev advocate on a small or mid-szed team. Because we're small and you'll be our first dev advocate, we think you need prior experience to succeed here.
 - Active in the Kubernetes community. (Or a related developer community)
 - Spends time with the team in New York City, even if you live elsewhere. (This would be our first remote role; as former remote employees ourselves we know it's important to be upfront and to work on it)
 
