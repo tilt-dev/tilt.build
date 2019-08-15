@@ -61,15 +61,6 @@ We’re small ({{site.data.people | size}} people, NYC-based, VC-backed). We’r
       Seven years at Microsoft. Four years at Twitter. Needs to think of a pithy bio.
     </div>
   </div>
-  <div class="bio col-1of3 u-marginBottom1_25">
-    <img class="bio-image" src="/assets/img/maria.jpg">
-    <h4>Maria Vivanco</h4>
-
-    <div>
-      HackNY fellow '19. I love traveling, making films, and coding.
-      Worked on Android apps and now excited to learn more about dev tools engineering.
-    </div>
-  </div>
 </div>
 
 {% svg assets/svg/mask.svg %}
