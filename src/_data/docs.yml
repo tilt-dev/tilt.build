@@ -13,6 +13,8 @@
     href: welcome_to_tilt.html
   - title: Example Projects
     href: example_projects.html
+  - title: Choosing a Local Dev Cluster
+    href: choosing_clusters.html
 - title: Tilt x Other Tools
   items:
   - title: From Skaffold to Tilt
@@ -47,8 +49,6 @@
     href: custom_build.html
   - title: Integrating Bazel with Tilt
     href: integrating_bazel_with_tilt.html
-  - title: Working with Multiple Clusters
-    href: multiple_clusters.html
 - title: About
   items:
   - title: Code of Conduct
