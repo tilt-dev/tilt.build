@@ -32,7 +32,7 @@ We need a Developer Advocate who can help us build a community of Tilt users. We
 - Find communities we're missing that would benefit from cloud-native dev. Does data science need Tilt? Is Tilt a game changer for game devs?
 
 ### Our Ideal Candidate
-- Has been a dev advocate on a small or mid-szed team. Because we're small and you'll be our first dev advocate, we think you need prior experience to succeed here.
+- Has been a dev advocate on a small- or mid-sized team. Because we're small and you'll be our first dev advocate, we think you need prior experience to succeed here.
 - Active in the Kubernetes community. (Or a related developer community)
 - Spends time with the team in New York City, even if you live elsewhere. (This would be our first remote role; as former remote employees ourselves we know it's important to be upfront and to work on it)
 
