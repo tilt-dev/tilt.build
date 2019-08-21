@@ -1,6 +1,6 @@
 ---
 slug: why-does-developing-on-kubernetes-suck
-date: 2019-08-19
+date: 2019-08-21
 author: dmiller
 layout: blog
 title: "Why Does Developing on Kubernetes Suck?"
@@ -29,7 +29,7 @@ So, how does developing on Kubernetes suck? Let me count the ways.
 
 The problem comes when you want to run code/Kubernetes configs on multiple of these clusters because they each have their own… let’s call them quirks. They don’t behave identically to one another, or identically to a real Kubernetes cluster. I won’t enumerate these discrepancies here, but I’ll refer to this problem throughout this blog post when discussing thorny issues like networking and authentication.
 
-There’s no tool I’m aware of that solves these problems aside from just doing your development in a real Kubernetes cluster in the cloud, which is the way I prefer to work these days.
+There’s no tool I’m aware of that solves these problems aside from just doing your development in a real Kubernetes cluster in the cloud, which is the way I prefer to work these days. If you're in the market for a local dev cluster we recently published a [guide to choosing a dev cluster](https://docs.tilt.dev/choosing_clusters.html) to help make sense of all the options.
 
 ## Permissions/Authentication
 If you’re developing software on Kubernetes, you’re probably using Kubernetes in production. If you’re using Kubernetes in production, you probably have locked down authentication settings. For example, a common set up is to only allow your developers to access to create/edit objects in one namespace. To do this you need a bunch of things set up:
