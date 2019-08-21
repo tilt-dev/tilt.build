@@ -48,7 +48,7 @@ Networking is my least favorite thing to work on in Kubernetes, and the area tha
 
 One nice tool for at least seeing how your services are connected is Octant. [Octant](https://github.com/vmware/octant) gives you a visual overview of all of your pods and which services they belong to.
 
-![Octant's Resource Viewer](/assets/images/why-does-kubernetes-development-suck/octant.png)
+![Octant's Resource Viewer](/assets/images/why-does-developing-on-kubernetes-suck/octant.png)
 
 At least with Octant I can easily go from a piece of code to the way that is connected to the internet.
 
