@@ -5,8 +5,7 @@ author: dmiller
 layout: blog
 title: "Why Does Developing on Kubernetes Suck?"
 subtitle: "Let me count the ways"
-images:
-  - featuredImage.png
+image: featuredImage.png
 image_type: "contain"
 tags:
   - docker

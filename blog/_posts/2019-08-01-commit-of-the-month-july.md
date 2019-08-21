@@ -5,8 +5,7 @@ author: maria
 layout: blog
 title: "Tilt Commit of the Month: July 2019"
 subtitle: "No Browser - Flag to Disable the Web UI"
-images:
-  - featuredImage.png
+image: featuredImage.png
 image_type: "contain"
 tags:
   - docker
