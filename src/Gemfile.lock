@@ -57,7 +57,7 @@ GEM
       jekyll (~> 3.5)
       jekyll-feed (~> 0.9)
       jekyll-seo-tag (~> 2.1)
-    nokogiri (1.10.1)
+    nokogiri (1.10.4)
       mini_portile2 (~> 2.4.0)
     nuggets (1.6.0)
     pathutil (0.16.2)
