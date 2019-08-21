@@ -119,7 +119,7 @@ This is because KIND copies in every layer of the image and only does very primi
 
 Fortunately the kind folks working on the KIND project have made a bunch of improvements to image loading recently. We’ve also released a [proof of concept](https://github.com/windmilleng/kind-local) for running a registry in KIND which should help improve speeds further.
 
-If I’m going to be using a local development environment I tend to go with Docker for Mac or MicroK8s, though as I stated earlier, these days I prefer to do my development in a real cloud Kubernetes cluster. Tilt with [live_update](https://docs.tilt.dev/live_update_tutorial.html) helps me bypass the need to push and pull images altogether.
+If I’m going to be using a local development environment I tend to go with Docker for Mac or MicroK8s, though as I stated earlier, these days I prefer to do my development in a real cloud Kubernetes cluster. There are also great tools emerging in this space. [Garden](https://garden.io/) caches image layers in a remote registry, reducing what needs to be rebuilt by each developer. Tilt with [live_update](https://docs.tilt.dev/live_update_tutorial.html) helps me bypass the need to push and pull images altogether so that's what I use to solve this problem.
 
 ## Mounts/file Syncing
 
@@ -143,7 +143,7 @@ Then there’s [Kubernetes events](https://www.bluematador.com/blog/kubernetes-e
 
 There’s a great set of observability tools I can use that help with this in production, but I don’t want to be running them locally. Sometimes I can’t afford the resources--my laptop is rather constrained. And while those tools are each excellent in their niche, I’d rather have one tool that makes it easy to do common tasks. In other words, I should always be able to start my debugging in one window. Some problems may be so unique or special that I end up going to other tools to resolve them, but I can’t be having to tab through twelve windows just to check for one problem.
 
-I explore this problem in a different [blog post](https://blog.tilt.dev/2019/06/06/observability-doesnt-work-in-dev.html), and I think Tilt solves this well especially now that it includes Kubernetes events alongside pod logs. The aforementioned Kubebox is another great option.
+I explore this problem in a different [blog post](https://blog.tilt.dev/2019/06/06/observability-doesnt-work-in-dev.html), and I think Tilt solves this well especially now that it includes Kubernetes events alongside pod logs. The aforementioned [Kubebox](https://github.com/astefanutti/kubebox) and [garden](https://garden.io/) are two other great options.
 
 ## Conclusion
 
