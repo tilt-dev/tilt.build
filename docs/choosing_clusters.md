@@ -12,10 +12,10 @@ Beginner Level:
 
 - [Docker for Desktop](#docker-for-desktop)
 - [Microk8s](#microk8s)
-- [Minikube](#minikube)
 
 Intermediate Level:
 
+- [Minikube](#minikube)
 - [KIND](#kind)
 - [K3D](#k3d)
 
@@ -102,6 +102,8 @@ to push to a remote registry.
 ### Cons
 
 - The VM makes everything much slower, both at start-time and run-time
+- We often see engineers struggle to set it up the first time, getting lost in a
+  maze of VM drivers that they're unfamiliar with
 - You usually want to shutdown minikube when you're finished
 
 ---
@@ -157,8 +159,8 @@ export KUBECONFIG="$(k3d get-kubeconfig --name='k3s-default')"
 ### Cons
 
 - Pushing images into the cluster is slow.
-- Tilt does not yet natively support `k3d import-images`, which all the same problems as `kind load`.
-- Least widely used
+- Tilt does not yet natively support `k3d import-images`, which has all the same problems as `kind load`.
+- The least widely used. That's not _necessarily_ bad. Just be aware that there's less documentation on its pitfalls. Tools (including the Tilt team!) tend to be slower to add support for it.
 
 ---
 
