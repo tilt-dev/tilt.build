@@ -5,8 +5,7 @@ author: dmiller
 layout: blog
 title: "Tilt Commit of the Month: June 2019"
 subtitle: "Support More Kubernetes Clusters"
-images:
-  - featuredImage.jpg
+image: featuredImage.jpg
 image_type: "contain"
 tags:
   - docker
