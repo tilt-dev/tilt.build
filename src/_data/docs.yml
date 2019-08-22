@@ -31,8 +31,8 @@
     href: live_update_tutorial.html
   - title: Live Update Reference
     href: live_update_reference.html
-  - title: Other Tilt Features
-    href: other_tilt_features.html
+  - title: "Debugging File Changes: Rebuilds and Ignores"
+    href: file_changes.html
   - title: Tiltfile API Reference
     href: api.html
 - title: Guides
