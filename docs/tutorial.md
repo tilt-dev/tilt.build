@@ -81,11 +81,7 @@ Tilt is now setup for your project. Try exploring Tilt's UI (there's a context-s
 If you had any trouble using this guide,
 now's a great time to [file bugs or feature requests](https://github.com/windmilleng/tilt/issues).
 
-We also hang out in the Kubernetes slack. Get an invite at [slack.k8s.io](http://slack.k8s.io) and find
-us in [the **#tilt** channel](https://kubernetes.slack.com/messages/CESBL84MV/).
+When the other contributors to your project want to know what this new Tiltfile is for,
+what will you tell them?
 
-If the other contributors on your project have questions, send them the
-[Welcome to Tilt](welcome_to_tilt.md) guide for hacking on an existing project.
-
-When you're ready to level-up your Tiltfile, read on about [Tiltfile Concepts](tiltfile_concepts.html)
-or [Speeding up your development with Live Update](live_update_tutorial.html).
+[Our guide to onboarding teams can help.](onboarding_checklist.html)

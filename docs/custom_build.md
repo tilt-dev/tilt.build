@@ -39,7 +39,7 @@ This mode is easy if your tool takes the destination of the image as an argument
 Other tools want to have an image ref hard-coded in configuration. They'll build and push to the same place each time. Instead of having to change your tool, tell Tilt what tag the build image will have with `custom_build(..., tag='frontend:s2i')`. After Tilt runs your build command, it will find this image and retag and push it with a unique ID.
 
 ## Live Update and Other Features
-Tilt's `docker_build` supports other options. The most impactful is [Live Update](live_update_tutorial.md), which lets you update code in Kubernetes without doing a full image build.  `custom_build` supports this as well, using the same syntax.
+Tilt's `docker_build` supports other options. The most impactful is [Live Update](live_update_tutorial.html), which lets you update code in Kubernetes without doing a full image build.  `custom_build` supports this as well, using the same syntax.
 
 `custom_build` supports most other options of `docker_build`, and a few specific to non-Docker container builders. If you find an option you think should exist but doesn't, let us know in the `#tilt` channel in [Kubernetes Slack](http://slack.k8s.io).
 
