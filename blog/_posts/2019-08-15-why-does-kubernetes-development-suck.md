@@ -16,7 +16,7 @@ keywords:
   - tilt
 ---
 
-Kubernetes has changed the way I operate software. Whole classes of production problems have disappeared--, arguably to be replaced by others. But such is the way of the world. All told I’m happier operating a microservices app today than I was before I started using Kubernetes.
+Kubernetes has changed the way I operate software. Whole classes of production problems have disappeared--arguably to be replaced by others. But such is the way of the world. All told I’m happier operating a microservices app today than I was before I started using Kubernetes.
 
 When I’m _writing_ software, though, Kuberentes has only made things harder. In this post I want to walk through all of the problems I have encountered developing software on Kubernetes. Full disclosure: While I work on Tilt as part of my job, which we have designed to solve some of these problems, another part of my job is writing software that runs on Kubernetes. When there’s another tool that solves a problem better than Tilt, I’ll use that.
 

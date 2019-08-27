@@ -1,6 +1,6 @@
 ---
 slug: multi-container-live-update
-date: 2019-08-20
+date: 2019-08-27
 author: maia
 layout: blog
 title: "Live Update Multiple Containers Per Pod"
