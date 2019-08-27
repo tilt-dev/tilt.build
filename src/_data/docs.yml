@@ -1,6 +1,3 @@
-- items:
-  - title: Tilt User Guide
-    href: /
 - title: Getting Started
   items:
   - title: Install
@@ -9,49 +6,51 @@
     href: upgrade.html
   - title: "Tutorial: The First 15 Minutes"
     href: tutorial.html
-  - title: "Dev on a Tilt-managed Project"
-    href: welcome_to_tilt.html
   - title: Example Projects
     href: example_projects.html
+- title: Onboarding Your Team
+  items:
+  - title: "Before you ask your team to tilt up..."
+    href: onboarding_checklist.html
+  - title: "Guide for Application Developers"
+    href: welcome_to_tilt.html
   - title: Choosing a Local Dev Cluster
     href: choosing_clusters.html
-- title: Tilt x Other Tools
+- title: Enhancements
   items:
-  - title: From Skaffold to Tilt
-    href: skaffold.html
-  - title: Using Helm with Tilt
-    href: helm.html
-  - title: A Better UI for Docker Compose
-    href: docker_compose.html
-- title: Using Tilt
+  - title: Faster Development with Live Update (Tutorial)
+    href: live_update_tutorial.html
+  - title: "Debugging File Changes: Rebuilds and Ignores"
+    href: file_changes.html
+  - title: Play and Pause Resources with Manual Update Control
+    href: manual_update_control.html
+- title: Tilt Cookbooks
   items:
   - title: Tiltfile Concepts
     href: tiltfile_concepts.html
-  - title: Faster Development with Live Update (Tutorial)
-    href: live_update_tutorial.html
-  - title: Live Update Reference
-    href: live_update_reference.html
-  - title: "Debugging File Changes: Rebuilds and Ignores"
-    href: file_changes.html
+  - title: With Skaffold
+    href: skaffold.html
+  - title: With Helm
+    href: helm.html
+  - title: With Docker Compose
+    href: docker_compose.html
+  - title: "How to: Node.js Microservice with Hot Reloading"
+    href: nodejs_microservice_hotreloading.html
+  - title: "How to: Building on a Base Image"
+    href: dependent_images.html
+  - title: "How to: Using a Personal Registry"
+    href: personal_registry.html
+  - title: "How to: Images without Docker"
+    href: custom_build.html
+  - title: "How to: Bazel with Tilt"
+    href: integrating_bazel_with_tilt.html
+- title: Reference
+  items:
   - title: Tiltfile API Reference
     href: api.html
-- title: Guides
-  items:
-  - title: Node.js Microservice with Hot Reloading
-    href: nodejs_microservice_hotreloading.html
-  - title: Building on a Base Image
-    href: dependent_images.html
-  - title: Play and Pause Resources with Manual Update Control
-    href: manual_update_control.html
-  - title: Using a Personal Registry
-    href: personal_registry.html
-  - title: Non-Docker Builds
-    href: custom_build.html
-  - title: Integrating Bazel with Tilt
-    href: integrating_bazel_with_tilt.html
-- title: About
-  items:
-  - title: Code of Conduct
-    href: code_of_conduct.html
+  - title: Live Update Reference
+    href: live_update_reference.html
   - title: Frequently Asked Questions
     href: faq.html
+  - title: Code of Conduct
+    href: code_of_conduct.html
