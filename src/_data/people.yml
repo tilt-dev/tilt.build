@@ -2,22 +2,33 @@ nick:
   name: Nick Santos
   twitter: nicksantos
   github: nicks
+  active: true
 dan:
   name: Dan Bentley
   twitter: dbentley
   github: dbentley
+  active: true
 dmiller:
   name: Dan Miller
   twitter: jazzdan
   github: jazzdan
+  active: true
 maia:
   name: Maia McCormick
   twitter: maia_mcc
   github: maiamcc
+  active: true
 han:
   name: Han Yu
   twitter: hanacious
   github: hyu
+  active: true
 matt:
   name: Matt Landis
   github: landism
+  twitter: m_landis
+  active: true
+maria:
+  name: Maria Vivanco
+  github: mariavivanco
+  twitter: mariuhvivanco
