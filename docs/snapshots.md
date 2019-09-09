@@ -1,18 +1,18 @@
 ---
-title: Share Errors with Snapshots
+title: Share Errors and Cluster State with Snapshots
 layout: docs
 ---
 
-Thanks for trying out the snapshots beta! This page explains what snapshots are and how to manage them. There's also a FAQ section at the end.
+Thanks for trying out the snapshots alpha! This page explains what snapshots are and how to manage them. There's also a [FAQ section](/snapshots#faq) at the end.
 
-As this feature is in beta the screenshots here may not exactly match what is currently in the UI. Thanks for understanding!
+As this feature is in alpha the screenshots here may not exactly match what is currently in the UI. Thanks for understanding!
 
 ## What is a snapshot?
 A snapshot is a link that you can send to someone that will allow them to interactively explore your current Tilt state. This is useful for async debugging and adding context to bug reports. They look like this:
 
 TODO INSERT SNAPSHOT GIF/EXAMPLE HERE
 
-A snapshot is a frozen moment in time version of the Tilt UI. In a snapshot you can drill in to specific services, see alerts and Kubernetes events. Pretty much anything you can do in normal Tilt, you can do in a snapshot!
+A snapshot is a frozen "moment-in-time" version of the Tilt UI. In a snapshot you can drill in to specific services, see alerts and Kubernetes events. Pretty much anything you can do in normal Tilt, you can do in a snapshot!
 
 ## Sharing Snapshots
 In order to share a snapshot first make sure that the feature is enabled for you in your Tiltfile:
@@ -58,7 +58,7 @@ TODO screenshot
 ### Q: What data do you store for each snapshot?
 For each snapshot we store the entirety of your Tilt's state, including all logs and build history. In addition we store two pieces of metadata: the time that the snapshot was taken and the user, if any, that created it.
 
-### Q: Can I delete a snapshot that I created while I was signed out?
+### Q: Can I delete a snapshot that I created before I linked my Tilt Cloud account?
 No. Any snapshot created while you were signed out can't be deleted.
 
 ### Q: If I delete a snapshot is any data retained?
