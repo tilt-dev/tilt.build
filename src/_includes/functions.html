@@ -4,10 +4,12 @@
 <dd><p>Specifies that Tilt is allowed to run against the specified k8s context names.</p>
 <p>To help reduce the chances you accidentally use Tilt to deploy to your
 production cluster, Tilt will error unless at least one of these is true of
-the active K8S context (i.e., what is returned by <cite>kubectl config current-context</cite>)
-1. The K8S API URL is on localhost.
-2. The context name is one of a few known local context names (e.g,. &#x201C;minikube&#x201D;).
-3. The context name is explicitly passed to <cite>allow_k8s_contexts</cite> in the Tiltfile.</p>
+the active K8S context (i.e., what is returned by <cite>kubectl config current-context</cite>)</p>
+<ol class="arabic simple">
+<li>The K8S API URL is on localhost.</li>
+<li>The context name is one of a few known local context names (e.g,. &#x201C;minikube&#x201D;).</li>
+<li>The context name is explicitly passed to <cite>allow_k8s_contexts</cite> in the Tiltfile.</li>
+</ol>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name">
 <col class="field-body">
