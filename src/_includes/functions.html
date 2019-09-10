@@ -356,12 +356,18 @@ that workload. If there&#x2019;s not exactly one, <cite>k8s_resource</cite> rais
 there&#x2019;s both a deployment and a cronjob named &#x201C;redis&#x201D;, you&#x2019;d need to specify
 &#x201C;redis:deployment&#x201D;).</li>
 <li><strong>new_name</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) &#x2013; if non-empty, will be used as the new name for this resource</li>
-<li><strong>port_forwards</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>]]) &#x2013; Local ports to connect to the pod. If no
-target port is specified, will use the first container port.
-Example values: 9000 (connect localhost:9000 to the default container port),
+<li><strong>port_forwards</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>]]) &#x2013; Local ports to connect to the pod. If a target port is
+specified, that will be used. Otherwise, if the container exposes a port
+with the same number as the local port, that will be used. Otherwise,
+the default container port will be used.
+Example values: 9000 (connect localhost:9000 to the container&#x2019;s port 9000,
+if it is exposed, otherwise connect to the container&#x2019;s default port),
 &#x2018;9000:8000&#x2019; (connect localhost:9000 to the container port 8000),
 [&#x2018;9000:8000&#x2019;, &#x2018;9001:8001&#x2019;] (connect localhost:9000 and :9001 to the
-container ports 8000 and 8001, respectively).</li>
+container ports 8000 and 8001, respectively).
+[8000, 8001] (assuming the container exposes both 8000 and 8001, connect
+localhost:8000 and localhost:8001 to the container&#x2019;s ports 8000 and 8001,
+respectively).</li>
 <li><strong>extra_pod_selectors</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">Dict</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>], <code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">Dict</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]]]) &#x2013; In addition to relying on Tilt&#x2019;s heuristics to automatically
 find K8S resources associated with this resource, a user may specify extra
 labelsets to force entities to be associated with this resource. An entity
