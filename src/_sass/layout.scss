@@ -430,9 +430,13 @@ h4,
   text-align: center;
 }
 .wrapper--landing img {
-  max-width: 0.8 * $content-width;
+  max-width: $content-width;
   margin: auto;
   display: block;
+
+  @include mobile {
+    max-width: 100%;
+  }
 }
 .permalink {
   transition: opacity 0.3s;
@@ -981,6 +985,9 @@ h4 .fillStd {
 .u-marginLeft0_25 {
   margin-left: $spacing-unit * 0.25 !important;
 }
+.u-marginLeft2 {
+  margin-left: $spacing-unit * 2 !important;
+}
 .u-marginRight0_5 {
   margin-right: $spacing-unit * 0.5 !important;
 }
@@ -991,6 +998,9 @@ h4 .fillStd {
 
 .u-marginRightUnit {
   margin-right: $spacing-unit !important;
+}
+.u-marginRight2 {
+  margin-right: $spacing-unit * 2 !important;
 }
 
 .u-marginBottom0 {
@@ -1020,6 +1030,10 @@ h4 .fillStd {
   margin-bottom: $spacing-unit * 1.5 !important;
 }
 
+.u-marginBottom1_75 {
+  margin-bottom: $spacing-unit * 1.75 !important;
+}
+
 .u-marginBottom2 {
   margin-bottom: $spacing-unit * 2 !important;
 }
@@ -1047,6 +1061,10 @@ h4 .fillStd {
 
 .u-marginTop1_5 {
   margin-top: $spacing-unit * 1.5 !important;
+}
+
+.u-marginTop1_75 {
+  margin-top: $spacing-unit * 1.75 !important;
 }
 
 .u-marginTop2 {
@@ -1132,6 +1150,12 @@ img.no-shadow {
 
 .u-fillGreenLightest {
   fill: $color-green-lightest !important;
+}
+.u-colorRed {
+  color: $color-red !important;
+}
+.u-muted {
+  opacity: $opacity-light !important;
 }
 
 .u-clearBoth {

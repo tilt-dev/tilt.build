@@ -1,84 +1,101 @@
 ---
-title: Welcome to Tilt
+title: Hello Tilt
 layout: landing
 ---
 
-# Welcome to Tilt
+{% svg assets/svg/hello.svg class="landingLogoHello" %}
+{% svg assets/svg/logo-wordmark.svg class="landingLogoWordmark" %}
 
-_What is it?_
+<h2 class="subtitle">
+Tilt gives you a powerful microservice dev environment that seamlessly bridges the gap between local and Kubernetes.
+</h2>
 
-A tool you install on your laptop, plus some code in config files in your
-project.
+<div class="subtitleAside">
+Think <code>docker-compose up</code> or <code>docker build . && kubectl apply</code>
+</div>
 
-_What does it do?_
+<div class="landingBlock">
 
-It watches your files for edits, automatically builds your container images and
-applies any changes to bring your environment up-to-date in real-time. And makes
-your builds way faster.
+  <h2>What does it do?</h2>
+  
+  <ul class="supportingExampleList">
+  <li>Watch your files for edits</li>
+  
+  <li>Applies changes automatically & builds your container images in real-time</li>
+  
+  <li>Makes your builds way faster</li>
+  
+  <li>Combines all of the debug information into one clean, efficient interface</li>
+  
+  <li>No guessing games with kubectl ever again</li>
+  </ul>
+  
+  <div class="u-colorRed u-marginTop1_75">
+  The engineer who sent you to this page has already configured Tilt for your
+  project. You can get started right now!
+  </div>
 
-_What else?_
+</div>
 
-It combines all of the information you need to debug efficiently into one clean
-interface so you never have to play 20 questions with `kubectl` ever again.
+## Install Locally
 
-_Sorta like..._
+<div class="u-muted u-marginBottom0_25">
+  The quick install downloads the Tilt command-line tool.
+</div>
 
-Think `docker build && kubectl apply` or `docker-compose up`.
+```bash
+curl -fsSL https://raw.githubusercontent.com/windmilleng/tilt/master/scripts/install.sh | bash
+```
 
----
+<div class="detailBlock u-marginBottom1_75">
+<a href="https://docs.tilt.dev/install">
+More options in the docs
+</a>
+</div>
 
-## Installing
+## Get Started
 
-The `tilt` binary must be installed and accessible. That’s pretty easy:
+<div class="u-muted u-marginBottom0_25">
+All you need to do is go to any project with a <code>Tiltfile</code> and <code>tilt up</code>
+</div>
 
-<pre style="user-select:all"><code>curl -fsSL https://raw.githubusercontent.com/windmilleng/tilt/master/scripts/install.sh | bash</code></pre>
+```bash
+tilt up
+```
 
-[ [Want more install options?](https://docs.tilt.dev/install) ]
+<div class="detailBlock u-marginBottom1_75">
+<a href="https://docs.tilt.dev">
+To learn more about how Tilt works check out our friendly docs.
+</a>
+</div>
 
----
+<div class="landingBlock u-colorRed">
+Hack, Observe, Repeat! Now that you have run tilt up, you can...
+</div>
 
-## Getting Started
+<ol class="supportingExampleColumns">
+  <li>Browse logs by server to understand what’s happening</li>
 
-If you’re on this page, it’s because someone has already set up your application to run with Tilt.
+  <li>Easily spot errors when something goes wrong</li>
 
-Now all you have to do is:
+  <li>Keep an eye on build and health status as you code</li>
+</ol>
 
-<pre style="user-select:all"><code>tilt up</code></pre>
+<img src="/assets/docimg/welcome-page-screenshot.png">
 
-[ [Want to read more about how it works?](https://docs.tilt.dev) ]
+<h2 class="u-textAlignCenter u-marginTop1_5">Watch the Demo</h2>
 
----
+[![Watch the Demo](/assets/docimg/welcome-page-videothumb.png)](https://www.youtube.com/watch?v=oSljj0zHd7U)
 
-## Hack, Observe, Repeat
-
-Now that you have run `tilt up`, you can:
-
-### Keep an eye on build and health status as you code
-
-![Build Status](assets/docimg/tilt-feature-1.png)
-
-### Browse logs by server to understand what's happening
-
-![Browse Logs](assets/docimg/tilt-feature-2.png)
-
-### Spot errors when something goes wrong
-
-![Spot Errors](assets/docimg/tilt-feature-3.png)
-
-### [Watch the Video](https://www.youtube.com/watch?v=oSljj0zHd7U)
-
-[![Watch the Video](assets/docimg/videothumb.png)](https://www.youtube.com/watch?v=oSljj0zHd7U)
-
----
-
-This README is for application engineers who have been sent here after Tilt was
-set up in your project.
-
-Don’t have your project configured yet? 
-
-[ [Read how here](https://docs.tilt.dev/tutorial.html) ]
-
-To add project-specific instructions for your other contributors,
-just fork the [tilt-init repo](https://github.com/windmilleng/tilt-init) and edit the README!
-
-
+<div class="landingBlock u-muted">
+  This Welcome to Tilt README is for application engineers who have been sent
+  here after Tilt was set up in your project.
+  <br><br>
+  Don’t have your project configured yet?
+  <a href="https://docs.tilt.dev/tutorial.html">Read how here.</a>
+  <br><br>
+  To create your own Welcome README with project-specific instructions, just
+  <a href="https://github.com/windmilleng/tilt-init">
+  fork and edit the tilt-init repo on GitHub
+  </a>!
+</div>

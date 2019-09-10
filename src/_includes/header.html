@@ -1,9 +1,15 @@
 <header class="site-header">
 
   <div class="wrapper wrapper--header">
+    {% if page.layout == 'landing' %}
+    <a class="imageLink imageLink--logo-imagemark" href="{{site.landingurl}}">
+      {% svg assets/svg/logo-imagemark.svg %}
+    </a>
+    {% else %}
     <a class="imageLink imageLink--logo-wordmark-anim" href="{{site.landingurl}}">
       {% svg assets/svg/logo-wordmark-anim.svg %}
     </a>
+    {% endif %}
 
     {% if page.layout == 'blog' or page.layout == 'blog-list' %}
     <a class="imageLink u-marginLeft0_25" href="{{site.blogurl}}">
