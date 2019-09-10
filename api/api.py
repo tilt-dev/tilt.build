@@ -203,12 +203,18 @@ def k8s_resource(workload: str, new_name: str = "",
       there's both a deployment and a cronjob named "redis", you'd need to specify
       "redis:deployment").
     new_name: if non-empty, will be used as the new name for this resource
-    port_forwards: Local ports to connect to the pod. If no
-      target port is specified, will use the first container port.
-      Example values: 9000 (connect localhost:9000 to the default container port),
+    port_forwards: Local ports to connect to the pod. If a target port is
+      specified, that will be used. Otherwise, if the container exposes a port
+      with the same number as the local port, that will be used. Otherwise,
+      the default container port will be used.
+      Example values: 9000 (connect localhost:9000 to the container's port 9000,
+      if it is exposed, otherwise connect to the container's default port),
       '9000:8000' (connect localhost:9000 to the container port 8000),
       ['9000:8000', '9001:8001'] (connect localhost:9000 and :9001 to the
       container ports 8000 and 8001, respectively).
+      [8000, 8001] (assuming the container exposes both 8000 and 8001, connect
+      localhost:8000 and localhost:8001 to the container's ports 8000 and 8001,
+      respectively).
     extra_pod_selectors: In addition to relying on Tilt's heuristics to automatically
       find K8S resources associated with this resource, a user may specify extra
       labelsets to force entities to be associated with this resource. An entity
