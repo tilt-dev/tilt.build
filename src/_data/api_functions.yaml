@@ -1,7 +1,7 @@
 functions:
 - allow_k8s_contexts
 - blob
-- container_restart
+- restart_container
 - custom_build
 - decode_json
 - default_registry
