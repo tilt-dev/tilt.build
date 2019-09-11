@@ -74,14 +74,23 @@ Hack, Observe, Repeat! Now that you have run tilt up, you can...
 </div>
 
 <ol class="supportingExampleColumns">
-  <li>Browse logs by server to understand what’s happening</li>
+<li>
+<img class="subArrow subArrow--1" src="/assets/docimg/welcome-page-arrow-1.png">
+Browse logs by server to understand what’s happening
+</li>
 
-  <li>Easily spot errors when something goes wrong</li>
+<li>
+<img class="subArrow subArrow--2" src="/assets/docimg/welcome-page-arrow-2.png">
+Easily spot errors when something goes wrong
+</li>
 
-  <li>Keep an eye on build and health status as you code</li>
+<li>
+<img class="subArrow subArrow--3" src="/assets/docimg/welcome-page-arrow-3.png">
+Keep an eye on build and health status as you code
+</li>
 </ol>
 
-<img src="/assets/docimg/welcome-page-screenshot.png">
+<img class="supportingExampleImage" src="/assets/docimg/welcome-page-screenshot.png">
 
 <h2 class="u-textAlignCenter u-marginTop1_5">Watch the Demo</h2>
 

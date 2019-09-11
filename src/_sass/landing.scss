@@ -103,6 +103,7 @@
   width: 33%;
   margin-left: 0;
   text-align: center;
+  position: relative;
 
   @include mobile {
     display: list-item;
@@ -129,6 +130,23 @@
     margin-left: $spacing-unit / 2;
     padding-left: $spacing-unit / 2;
   }
+}
+.subArrow {
+  position: absolute;
+  top: 150%;
+
+  @include mobile {
+    display: none !important;
+  }
+}
+.subArrow--1 {
+  left: $spacing-unit / 2;
+}
+.subArrow--2 {
+  right: 50%;
+}
+.subArrow--3 {
+  right: $spacing-unit / 2;
 }
 .landingBlock {
   margin-top: 1.75 * $spacing-unit;
