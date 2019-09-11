@@ -51,7 +51,7 @@ We’re small ({{total}} people, NYC-based, VC-backed). We’re based at Work-Be
     <h4>Maia McCormick</h4>
 
     <div>
-    <a href="https://www.recurse.com/">Recurse Center</a> alum, three years building backends at <a href="https://engineering.shopspring.com/">Spring</a>. Classical singer and <a href="http://stbam.us/">conductor</a>, folk dancer, word nerd, foodie.
+    <a href="https://www.recurse.com/" target="_blank">Recurse Center</a> alum, three years building backends at <a href="https://engineering.shopspring.com/" target="_blank">Spring</a>. Classical singer and <a href="https://www.chamberchoirs.nyc/welcome" target="_blank">conductor</a>, <a href="https://contra.maiamccormick.com" target="_blank">folk dancer/teacher</a>, word nerd, foodie.
     </div>
   </div>
   <div class="bio col-1of3 u-marginBottom1_25">
