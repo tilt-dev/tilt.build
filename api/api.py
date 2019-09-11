@@ -52,7 +52,7 @@ def run(cmd: str, trigger: Union[List[str], str] = []) -> LiveUpdateStep:
   """
   pass
 
-def container_restart() -> LiveUpdateStep:
+def restart_container() -> LiveUpdateStep:
   """Specify that a container should be restarted when it is live-updated.
 
   May only be included in a `live_update` once, and only as the last step.
