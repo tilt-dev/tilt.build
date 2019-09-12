@@ -10,7 +10,7 @@ As this feature is in alpha the screenshots here may not exactly match what is c
 ## What is a snapshot?
 A snapshot is a link that you can send to someone that will allow them to interactively explore your current Tilt state. This is useful for async debugging and adding context to bug reports. They look like this:
 
-https://cloud.tilt.dev/snapshot/AfCRlNcLyfhEJR97q8o=
+[https://cloud.tilt.dev/snapshot/AfCRlNcLyfhEJR97q8o=](https://cloud.tilt.dev/snapshot/AfCRlNcLyfhEJR97q8o=)
 
 A snapshot is a frozen "moment-in-time" version of the Tilt UI. In a snapshot you can drill in to specific services, see alerts and Kubernetes events. Pretty much anything you can do in normal Tilt, you can do in a snapshot!
 
