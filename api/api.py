@@ -574,3 +574,20 @@ def allow_k8s_contexts(contexts: Union[str, List[str]]) -> None:
     allow_k8s_contexts(['my-staging-cluster', 'gke_some-project-123456_us-central1-b_windmill'])
   """
   pass
+
+def enable_feature(feature_name: str) -> None:
+  """Configures Tilt to enable non-default features (e.g., experimental or deprecated).
+
+  The Tilt features controlled by this are generally in an unfinished state, and
+  not yet documented.
+
+  As a Tiltfile author, you don't need to worry about this function unless something
+  else directs you to (e.g., an experimental feature doc, or a conversation with a
+  Tilt contributor).
+
+  As a Tiltfile reader, you can probably ignore this, or you can ask the person
+  who added it to the Tiltfile what it's doing there.
+
+  Args:
+    feature_name: name of the feature to enable
+  """
