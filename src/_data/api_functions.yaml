@@ -1,11 +1,11 @@
 functions:
 - allow_k8s_contexts
 - blob
-- restart_container
 - custom_build
 - decode_json
 - default_registry
 - docker_build
+- enable_feature
 - fail
 - fall_back_on
 - fast_build
@@ -25,6 +25,7 @@ functions:
 - read_file
 - read_json
 - read_yaml
+- restart_container
 - run
 - sync
 - trigger_mode

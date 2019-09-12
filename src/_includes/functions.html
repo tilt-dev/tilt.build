@@ -47,19 +47,6 @@ the default of all known-local clusters.</td>
 </tbody>
 </table>
 </dd></dl><dl class="function">
-<dt id="api.container_restart">
-<code class="descclassname">api.</code><code class="descname">container_restart</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#api.container_restart" title="Permalink to this definition">&#xB6;</a></dt>
-<dd><p>Specify that a container should be restarted when it is live-updated.</p>
-<p>May only be included in a <cite>live_update</cite> once, and only as the last step.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name">
-<col class="field-body">
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#api.LiveUpdateStep" title="api.LiveUpdateStep"><code class="xref py py-class docutils literal notranslate"><span class="pre">LiveUpdateStep</span></code></a></td>
-</tr>
-</tbody>
-</table>
-</dd></dl><dl class="function">
 <dt id="api.custom_build">
 <code class="descclassname">api.</code><code class="descname">custom_build</code><span class="sig-paren">(</span><em>ref</em>, <em>command</em>, <em>deps</em>, <em>tag=&apos;&apos;</em>, <em>disable_push=False</em>, <em>live_update=[]</em>, <em>match_in_env_vars=False</em>, <em>ignore=[]</em>, <em>entrypoint=&apos;&apos;</em><span class="sig-paren">)</span><a class="headerlink" href="#api.custom_build" title="Permalink to this definition">&#xB6;</a></dt>
 <dd><p>Provide a custom command that will build an image.</p>
@@ -172,6 +159,27 @@ then re-tag it with its own tag before pushing to your cluster. See <a class="re
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><code class="docutils literal notranslate"><span class="pre">None</span></code></p>
 </td>
+</tr>
+</tbody>
+</table>
+</dd></dl><dl class="function">
+<dt id="api.enable_feature">
+<code class="descclassname">api.</code><code class="descname">enable_feature</code><span class="sig-paren">(</span><em>feature_name</em><span class="sig-paren">)</span><a class="headerlink" href="#api.enable_feature" title="Permalink to this definition">&#xB6;</a></dt>
+<dd><p>Configures Tilt to enable non-default features. (e.g., experimental or deprecated)</p>
+<p>The Tilt features controlled by this are generally in an unfinished state, and
+not yet documented.</p>
+<p>As a Tiltfile author, you don&#x2019;t need to worry about this function unless something
+else directs you to. (e.g., an experimental feature doc, or a conversation with a
+Tilt contributor)</p>
+<p>As a Tiltfile reader, you can probably ignore this, or you can ask the person
+who added it to the Tiltfile what it&#x2019;s doing there.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name">
+<col class="field-body">
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>feature_name</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) &#x2013; name of the feature to enable</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><code class="docutils literal notranslate"><span class="pre">None</span></code></td>
 </tr>
 </tbody>
 </table>
@@ -581,6 +589,19 @@ In any other case, an error reading <cite>path</cite> will be a Tiltfile load er
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">Dict</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-data docutils literal notranslate"><span class="pre">Any</span></code>], <code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-data docutils literal notranslate"><span class="pre">Any</span></code>]]</p>
 </td>
+</tr>
+</tbody>
+</table>
+</dd></dl><dl class="function">
+<dt id="api.restart_container">
+<code class="descclassname">api.</code><code class="descname">restart_container</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#api.restart_container" title="Permalink to this definition">&#xB6;</a></dt>
+<dd><p>Specify that a container should be restarted when it is live-updated.</p>
+<p>May only be included in a <cite>live_update</cite> once, and only as the last step.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name">
+<col class="field-body">
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#api.LiveUpdateStep" title="api.LiveUpdateStep"><code class="xref py py-class docutils literal notranslate"><span class="pre">LiveUpdateStep</span></code></a></td>
 </tr>
 </tbody>
 </table>
