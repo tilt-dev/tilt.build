@@ -154,12 +154,12 @@ kubectl config get-contexts
 To change the cluster you're deploying to, run:
 
 ```bash
-kubectl config use-context docker-for-desktop
+kubectl config use-context docker-desktop
 ```
 
 The most common options we see in local development are
-`minikube`, `docker-for-desktop` (Docker For Mac stable), and
-`docker-desktop` (Docker for Mac edge).
+`microk8s`, `docker-desktop` (Docker For Mac stable), and
+`docker-for-desktop` (older Docker for Mac versions).
 
 There is one exception to this rule:
 [Kind](https://github.com/kubernetes-sigs/kind) (Kubernetes in Docker) does not

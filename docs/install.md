@@ -19,7 +19,7 @@ On MacOS
 - Make Docker For Mac your local Kubernetes cluster:
 
 ```bash
-kubectl config use-context docker-for-desktop
+kubectl config use-context docker-desktop
 ```
 
 Installing the `tilt` binary is a one-step command:
