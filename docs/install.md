@@ -38,8 +38,8 @@ On Linux
 
 ```bash
 sudo snap install microk8s --classic && \
-microk8s.enable dns && \
-microk8s.enable registry
+sudo microk8s.enable dns && \
+sudo microk8s.enable registry
 ```
 
 - Make microk8s your local Kubernetes cluster:

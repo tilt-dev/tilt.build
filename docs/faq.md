@@ -183,8 +183,8 @@ To install it, run:
 
 ```bash
 sudo snap install microk8s --classic && \
-microk8s.enable dns && \
-microk8s.enable registry
+sudo microk8s.enable dns && \
+sudo microk8s.enable registry
 ```
 
 The command `microk8s.enable registry` runs a local image registry inside microk8s.
