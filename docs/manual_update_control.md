@@ -20,7 +20,7 @@ You can change the trigger mode(s) of your resources in your Tiltfile in two dif
 Here are some examples:
 ```python
 ...
-k8s_resource('snack)  # TriggerMode = Auto by default
+k8s_resource('snack')  # TriggerMode = Auto by default
 ```
 
 ```python
@@ -33,7 +33,7 @@ k8s_resource('snack, trigger_mode=TRIGGER_MODE_MANUAL)
 trigger_mode(TRIGGER_MODE_MANUAL)
 ...
 # TriggerMode = Manual (default set above)
-k8s_resource('snack)
+k8s_resource('snack')
 
 # TriggerMode = Auto (can override the above default
 # for specific resources)
