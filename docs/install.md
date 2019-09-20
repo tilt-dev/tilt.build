@@ -14,12 +14,12 @@ You'll also need:
 On MacOS
 --------
 
-- Install [Docker For Mac](https://docs.docker.com/docker-for-mac/install/)
+- Install [Docker for Mac](https://docs.docker.com/docker-for-mac/install/)
 - In the Docker For Mac preferences, click [Enable Kubernetes](https://docs.docker.com/docker-for-mac/#kubernetes)
 - Make Docker For Mac your local Kubernetes cluster:
 
 ```bash
-kubectl config use-context docker-desktop
+kubectl config use-context docker-desktop  # or docker-for-desktop, for older versions
 ```
 
 Installing the `tilt` binary is a one-step command:

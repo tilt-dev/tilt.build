@@ -154,7 +154,7 @@ kubectl config get-contexts
 To change the cluster you're deploying to, run:
 
 ```bash
-kubectl config use-context docker-desktop
+kubectl config use-context docker-desktop  # or docker-for-desktop, for older versions
 ```
 
 The most common options we see in local development are
