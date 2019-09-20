@@ -2,6 +2,7 @@ functions:
 - allow_k8s_contexts
 - blob
 - custom_build
+- dc_resource
 - decode_json
 - default_registry
 - docker_build

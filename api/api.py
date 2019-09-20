@@ -159,7 +159,7 @@ class TriggerMode:
   - ``TRIGGER_MODE_MANUAL``: user manually triggers update for dirty resources (i.e. resources with pending changes) via a button in the UI. (Note that the initial build always occurs automatically.)
 
   The default trigger mode for all manifests may be set with the top-level function :meth:`trigger_mode`
-  (if not set, defaults to ``TRIGGER_MODE_AUTO``), and per-resource with :meth:`k8s_resource`.
+  (if not set, defaults to ``TRIGGER_MODE_AUTO``), and per-resource with :meth:`k8s_resource` / :meth:`dc_resource`.
 
   See also: `Manual Update Control documentation <manual_update_control.html>`_
   """
@@ -224,6 +224,14 @@ def k8s_resource(workload: str, new_name: str = "",
     trigger_mode: one of ``TRIGGER_MODE_AUTO`` or ``TRIGGER_MODE_MANUAL``. For more info, see the
       `Manual Update Control docs <manual_update_control.html>`_.
   """
+  pass
+
+def dc_resource(name: str, trigger_mode: TriggerMode = TRIGGER_MODE_AUTO) -> None:
+  """Configures the Docker Compose resource of the given name.
+
+  Args:
+    trigger_mode: one of ``TRIGGER_MODE_AUTO`` or ``TRIGGER_MODE_MANUAL``. For more info, see the
+      `Manual Update Control docs <manual_update_control.html>`_. """
 
   pass
 
