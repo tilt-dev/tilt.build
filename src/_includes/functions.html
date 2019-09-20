@@ -50,7 +50,8 @@ the default of all known-local clusters.</td>
 <dt id="api.custom_build">
 <code class="descclassname">api.</code><code class="descname">custom_build</code><span class="sig-paren">(</span><em>ref</em>, <em>command</em>, <em>deps</em>, <em>tag=&apos;&apos;</em>, <em>disable_push=False</em>, <em>live_update=[]</em>, <em>match_in_env_vars=False</em>, <em>ignore=[]</em>, <em>entrypoint=&apos;&apos;</em><span class="sig-paren">)</span><a class="headerlink" href="#api.custom_build" title="Permalink to this definition">&#xB6;</a></dt>
 <dd><p>Provide a custom command that will build an image.</p>
-<p>Returns an object which can be used to create a FastBuild.</p>
+<p>For examples on how to use this to integrate your own build scripts with Tilt,
+see the [custom build script tutorial](custom_build.html).</p>
 <p>The command <em>must</em> publish an image with the name &amp; tag <code class="docutils literal notranslate"><span class="pre">$EXPECTED_REF</span></code>.</p>
 <p>Tilt will raise an error if the command exits successfully, but the registry does not contain
 an image with the ref <code class="docutils literal notranslate"><span class="pre">$EXPECTED_REF</span></code>.</p>

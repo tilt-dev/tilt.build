@@ -1,5 +1,5 @@
 ---
-title: Non-Docker Builds
+title: Custom Build Scripts
 layout: docs
 ---
 
@@ -53,4 +53,14 @@ Kubernetes (and the [OCI model](https://github.com/opencontainers/image-spec) ge
 Tilt only deploys One-Time references. Instead of pushing to `gcr.io/company-name/frontend` and leaving the YAML as-is, Tilt retags the image and rewrites the container spec. This makes the Tilt experience more reliable.  Deploying with a Tagged reference creates a race condition. Pods created at different times from the same definition may end up running different code as the reference is overwritten.
 
 ## Conclusion
-Tilt supports any container image builder via `custom_build`. You can see details at the [API reference](https://docs.tilt.dev/api.html#api.custom_build). We hang out in the `#tilt` channel in [Kubernetes Slack](http://slack.k8s.io) and would love to hear about problems or successes you have with `custom_build`.
+
+Tilt supports any container image builder via `custom_build`.
+
+For a more complex example, see the tutorial on how to use `custom_build` to [build images with Bazel](integrating_tilt_with_bazel.html).
+
+For a complete listing of all the `custom_build` parameters, see  [API reference](api.html#api.custom_build).
+
+If you have a more complex build script that you're not sure how to integrate
+with Tilt, we'd love to hear about it. Come find us in the `#tilt` channel in
+[Kubernetes Slack](http://slack.k8s.io) or
+[file an issue](https://github.com/windmilleng/tilt/issues) on GitHub.

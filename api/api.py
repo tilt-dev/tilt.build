@@ -473,7 +473,8 @@ class CustomBuild:
 def custom_build(ref: str, command: str, deps: List[str], tag: str = "", disable_push: bool = False, live_update: List[LiveUpdateStep]=[], match_in_env_vars: bool = False, ignore: Union[str, List[str]] = [], entrypoint: str="") -> CustomBuild:
   """Provide a custom command that will build an image.
 
-  Returns an object which can be used to create a FastBuild.
+  For examples on how to use this to integrate your own build scripts with Tilt,
+  see the [custom build script tutorial](custom_build.html).
 
   The command *must* publish an image with the name & tag ``$EXPECTED_REF``.
 

@@ -40,9 +40,9 @@
     href: dependent_images.html
   - title: "How to: Using a Personal Registry"
     href: personal_registry.html
-  - title: "How to: Images without Docker"
+  - title: "How to: Custom Build Scripts"
     href: custom_build.html
-  - title: "How to: Bazel with Tilt"
+  - title: "How to: Bazel Build Scripts"
     href: integrating_bazel_with_tilt.html
 - title: Reference
   items:
