@@ -19,6 +19,23 @@ The `helm` function runs `helm template` on a chart directory and returns the ge
 
 When you make edits to the files in the chart directory, Tilt will automatically re-deploy the chart.
 
+## Helm Options
+
+The `helm` funcion has a few options for common arguments:
+
+```python
+yaml = helm(
+  'path/to/chart/dir',
+  # The release name, equivalent to helm --name
+  name='release-name',
+  # The namespace to install in, equivalent to helm --namespace
+  namespace='my-namespace',
+  # The values file to substitute into the chart.
+  values=['./path/to/chart/dir/values-dev.yaml'] 
+  )
+k8s_yaml(yaml)
+```
+
 ## Advanced Helm
 
 Helm can also do more advanced templating -- like downloading remote charts and injecting run-time variables.
