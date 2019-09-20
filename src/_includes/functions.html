@@ -539,6 +539,29 @@ to share across Tiltfiles.</p>
 </tbody>
 </table>
 </dd></dl><dl class="function">
+<dt id="api.local_resource">
+<code class="descclassname">api.</code><code class="descname">local_resource</code><span class="sig-paren">(</span><em>name</em>, <em>cmd</em>, <em>deps=None</em>, <em>trigger_mode=TRIGGER_MODE_AUTO</em><span class="sig-paren">)</span><a class="headerlink" href="#api.local_resource" title="Permalink to this definition">&#xB6;</a></dt>
+<dd><p>Configures <cite>cmd</cite> to run on the _host_ machine, not in a remote cluster.</p>
+<p>If <cite>deps</cite> is set then <cite>cmd</cite> is only run if one of the files specified changes.</p>
+<p>If <cite>trigger_mode</cite> is set then the local resource obeys the trigger mode.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name">
+<col class="field-body">
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>name</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) &#x2013; will be used as the new name for this resource</li>
+<li><strong>cmd</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) &#x2013; command to be executed on host machine</li>
+<li><strong>deps</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>], <code class="docutils literal notranslate"><span class="pre">None</span></code>]) &#x2013; a list of files or directories to be added as dependencies to this cmd. Tilt will watch those files and will run the cmd when they change.</li>
+<li><strong>trigger_mode</strong> (<a class="reference internal" href="#api.TriggerMode" title="api.TriggerMode"><code class="xref py py-class docutils literal notranslate"><span class="pre">TriggerMode</span></code></a>) &#x2013; may be one of <code class="docutils literal notranslate"><span class="pre">TRIGGER_MODE_AUTO</span></code> or <code class="docutils literal notranslate"><span class="pre">TRIGGER_MODE_MANUAL</span></code></li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><code class="docutils literal notranslate"><span class="pre">None</span></code></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl><dl class="function">
 <dt id="api.read_file">
 <code class="descclassname">api.</code><code class="descname">read_file</code><span class="sig-paren">(</span><em>file_path</em>, <em>default=None</em><span class="sig-paren">)</span><a class="headerlink" href="#api.read_file" title="Permalink to this definition">&#xB6;</a></dt>
 <dd><p>Reads file and returns its contents.</p>

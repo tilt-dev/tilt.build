@@ -597,3 +597,19 @@ def enable_feature(feature_name: str) -> None:
   Args:
     feature_name: name of the feature to enable
   """
+  pass
+
+def local_resource(name: str, cmd: str, deps: Union[str, List[str]] = None, trigger_mode: TriggerMode = TRIGGER_MODE_AUTO) -> None:
+  """Configures `cmd` to run on the _host_ machine, not in a remote cluster.
+
+  If `deps` is set then `cmd` is only run if one of the files specified changes.
+
+  If `trigger_mode` is set then the local resource obeys the trigger mode.
+
+  Args:
+    name: will be used as the new name for this resource
+    cmd: command to be executed on host machine
+    deps: a list of files or directories to be added as dependencies to this cmd. Tilt will watch those files and will run the cmd when they change.
+    trigger_mode: may be one of ``TRIGGER_MODE_AUTO`` or ``TRIGGER_MODE_MANUAL``
+  """
+  pass
