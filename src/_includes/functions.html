@@ -89,6 +89,21 @@ then re-tag it with its own tag before pushing to your cluster. See <a class="re
 </tbody>
 </table>
 </dd></dl><dl class="function">
+<dt id="api.dc_resource">
+<code class="descclassname">api.</code><code class="descname">dc_resource</code><span class="sig-paren">(</span><em>name</em>, <em>trigger_mode=TRIGGER_MODE_AUTO</em><span class="sig-paren">)</span><a class="headerlink" href="#api.dc_resource" title="Permalink to this definition">&#xB6;</a></dt>
+<dd><p>Configures the Docker Compose resource of the given name.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name">
+<col class="field-body">
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>trigger_mode</strong> (<a class="reference internal" href="#api.TriggerMode" title="api.TriggerMode"><code class="xref py py-class docutils literal notranslate"><span class="pre">TriggerMode</span></code></a>) &#x2013; one of <code class="docutils literal notranslate"><span class="pre">TRIGGER_MODE_AUTO</span></code> or <code class="docutils literal notranslate"><span class="pre">TRIGGER_MODE_MANUAL</span></code>. For more info, see the
+<a class="reference external" href="manual_update_control.html">Manual Update Control docs</a>.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><code class="docutils literal notranslate"><span class="pre">None</span></code></td>
+</tr>
+</tbody>
+</table>
+</dd></dl><dl class="function">
 <dt id="api.decode_json">
 <code class="descclassname">api.</code><code class="descname">decode_json</code><span class="sig-paren">(</span><em>json</em><span class="sig-paren">)</span><a class="headerlink" href="#api.decode_json" title="Permalink to this definition">&#xB6;</a></dt>
 <dd><p>Deserializes a given string from JSON to Starlark. Fails if the string can&#x2019;t be parsed as JSON.</p>
@@ -391,8 +406,9 @@ labelsets to force entities to be associated with this resource. An entity
 will be associated with this resource if it has all of the labels in at
 least one of the entries specified (but still also if it meets any of
 Tilt&#x2019;s usual mechanisms).</li>
-<li><strong>trigger_mode</strong> (<a class="reference internal" href="#api.TriggerMode" title="api.TriggerMode"><code class="xref py py-class docutils literal notranslate"><span class="pre">TriggerMode</span></code></a>) &#x2013; one of <code class="docutils literal notranslate"><span class="pre">TRIGGER_MODE_AUTO</span></code> or <code class="docutils literal notranslate"><span class="pre">TRIGGER_MODE_MANUAL</span></code>. For more info, see the
-<a class="reference external" href="manual_update_control.html">Manual Update Control docs</a>.</li>
+<li><strong>trigger_mode</strong> (<a class="reference internal" href="#api.TriggerMode" title="api.TriggerMode"><code class="xref py py-class docutils literal notranslate"><span class="pre">TriggerMode</span></code></a>) &#x2013; <p>one of <code class="docutils literal notranslate"><span class="pre">TRIGGER_MODE_AUTO</span></code> or <code class="docutils literal notranslate"><span class="pre">TRIGGER_MODE_MANUAL</span></code>. For more info, see the
+<a class="reference external" href="manual_update_control.html">Manual Update Control docs</a>.</p>
+</li>
 </ul>
 </td>
 </tr>
