@@ -604,7 +604,7 @@ def local_resource(name: str, cmd: str, deps: Union[str, List[str]] = None, trig
 
   If `deps` is set then `cmd` is run whenever one of the files specified changes.
 
-  If `trigger_mode` is set then the local resource obeys the trigger mode.
+  All local resources are executed on the first run of the Tiltfile.
 
   Args:
     name: will be used as the new name for this resource
