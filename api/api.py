@@ -610,6 +610,7 @@ def local_resource(name: str, cmd: str, deps: Union[str, List[str]] = None, trig
     name: will be used as the new name for this resource
     cmd: command to be executed on host machine
     deps: a list of files or directories to be added as dependencies to this cmd. Tilt will watch those files and will run the cmd when they change.
-    trigger_mode: may be one of ``TRIGGER_MODE_AUTO`` or ``TRIGGER_MODE_MANUAL``
+    trigger_mode: one of ``TRIGGER_MODE_AUTO`` or ``TRIGGER_MODE_MANUAL``. For more info, see the
+      `Manual Update Control docs <manual_update_control.html>`_.
   """
   pass
