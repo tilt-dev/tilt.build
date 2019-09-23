@@ -602,7 +602,7 @@ def enable_feature(feature_name: str) -> None:
 def local_resource(name: str, cmd: str, deps: Union[str, List[str]] = None, trigger_mode: TriggerMode = TRIGGER_MODE_AUTO) -> None:
   """Configures `cmd` to run on the _host_ machine, not in a remote cluster.
 
-  If `deps` is set then `cmd` is only run if one of the files specified changes.
+  If `deps` is set then `cmd` is run whenever one of the files specified changes.
 
   If `trigger_mode` is set then the local resource obeys the trigger mode.
 
