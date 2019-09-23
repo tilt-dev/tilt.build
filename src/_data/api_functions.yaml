@@ -23,6 +23,7 @@ functions:
 - listdir
 - load
 - local
+- local_resource
 - read_file
 - read_json
 - read_yaml
