@@ -6,11 +6,7 @@ enable_feature("snapshots")
 default_registry('gcr.io/windmill-public-containers')
 
 # Generate the API docs.
-read_file('deploy/api.dockerfile')
-read_file('api/api.py')
-local('make api')
-
-read_file('Makefile') # rebuild if we change the Makefile
+local_resource('make-api', 'make api', ['deploy/api.dockerfile', 'api/api.py', 'Makefile'])
 
 k8s_yaml('deploy/serve.yaml')
 
