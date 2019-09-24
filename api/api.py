@@ -380,7 +380,7 @@ def helm(pathToChartDir: str, name: str = "", namespace: str = "", values: Union
     pathToChartDir: Path to the directory locally (absolute, or relative to the location of the Tiltfile).
     name: The release name. Equivalent to the helm `--name` flag
     namespace: The namespace to deploy the chart to. Equivalent to the helm `--namespace` flag
-    values: Specify values to the chart in a YAML file. Can specify multiple. Equivalent to the helm `--values` flag
+    values: Specify one or more values files (in addition to the `values.yaml` file in the chart). Equivalent to the Helm ``--values`` or ``-f`` flags (`see docs <https://helm.sh/docs/chart_template_guide/#values-files>`_).
 """
   pass
 
