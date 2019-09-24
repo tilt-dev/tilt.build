@@ -17,12 +17,12 @@ might want to consider to ensure the best possible onboarding experience:
 
 - Which services do your colleagues hack on? Do all of them start up OK in Tilt?
 
-- Are there any known gotchas or spurious error messages when you Tilt up a
+- Are there any known gotchas or spurious error messages when you `tilt up` a
   server? Are they documented somewhere?
 
 ## Enhancements, errors, and optimizations
 
-- Tilt up each server and edit a file. Do you see the server auto-update with
+- `tilt up` each server and edit a file. Do you see the server auto-update with
   your changes?
 
 - Are updates slow to show up? Could you add
@@ -48,7 +48,7 @@ might want to consider to ensure the best possible onboarding experience:
 - Do your teammates know where to ask for help if their dev workflow breaks or
   gets frustratingly slow?
 
-- Do you have a README to help your teammates Tilt up and go?
+- Do you have a README to help your teammates `tilt up` and go?
   [Here's one that we use](welcome_to_tilt.html) that you're welcome to link to.
 
 - Are there other teams in your org that could benefit from a cloud-native dev
