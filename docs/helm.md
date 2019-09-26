@@ -21,7 +21,7 @@ When you make edits to the files in the chart directory, Tilt will automatically
 
 ## Helm Options
 
-The `helm` funcion has a few options for common arguments:
+The `helm` function has a few options for common arguments:
 
 ```python
 yaml = helm(
