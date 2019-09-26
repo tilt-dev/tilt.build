@@ -147,7 +147,7 @@ K3s is fully compliant with "full" Kubernetes, but has a lot of optional and
 legacy features removed.
 
 ```bash
-curl -sfL https://get.k3s.io | sh -
+curl -s https://raw.githubusercontent.com/rancher/k3d/master/install.sh | bash
 k3d create cluster
 export KUBECONFIG="$(k3d get-kubeconfig --name='k3s-default')"
 ```
