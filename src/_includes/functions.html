@@ -145,6 +145,23 @@ then re-tag it with its own tag before pushing to your cluster. See <a class="re
 </tbody>
 </table>
 </dd></dl><dl class="function">
+<dt id="api.disable_snapshots">
+<code class="descclassname">api.</code><code class="descname">disable_snapshots</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#api.disable_snapshots" title="Permalink to this definition">&#xB6;</a></dt>
+<dd><p>Disables Tilt&#x2019;s &#x201C;snapshots&#x201D; feature, hiding it from the UI.</p>
+<p>This is intended for use in projects where there might be some kind of
+data policy that does not allow developers to upload snapshots to TiltCloud.</p>
+<p>Note that this directive does not provide any real security, since a
+developer can always simply edit it out of the Tiltfile, but it at least
+ensures a pretty high bar of intent.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name">
+<col class="field-body">
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><code class="docutils literal notranslate"><span class="pre">None</span></code></td>
+</tr>
+</tbody>
+</table>
+</dd></dl><dl class="function">
 <dt id="api.docker_build">
 <code class="descclassname">api.</code><code class="descname">docker_build</code><span class="sig-paren">(</span><em>ref</em>, <em>context</em>, <em>build_args={}</em>, <em>dockerfile=&apos;Dockerfile&apos;</em>, <em>dockerfile_contents=&apos;&apos;</em>, <em>live_update=[]</em>, <em>match_in_env_vars=False</em>, <em>ignore=[]</em>, <em>only=[]</em>, <em>entrypoint=&apos;&apos;</em>, <em>target=&apos;&apos;</em><span class="sig-paren">)</span><a class="headerlink" href="#api.docker_build" title="Permalink to this definition">&#xB6;</a></dt>
 <dd><p>Builds a docker image.</p>
