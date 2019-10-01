@@ -5,6 +5,7 @@ functions:
 - dc_resource
 - decode_json
 - default_registry
+- disable_snapshots
 - docker_build
 - enable_feature
 - fail
