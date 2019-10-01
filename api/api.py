@@ -624,7 +624,7 @@ def local_resource(name: str, cmd: str, deps: Union[str, List[str]] = None, trig
   pass
 
 def disable_snapshots() -> None:
-    """Disables Tilt's "snapshots" feature, hiding it from the UI.
+    """Disables Tilt's `snapshots <snapshots.html>`_ feature, hiding it from the UI.
 
     This is intended for use in projects where there might be some kind of
     data policy that does not allow developers to upload snapshots to TiltCloud.
