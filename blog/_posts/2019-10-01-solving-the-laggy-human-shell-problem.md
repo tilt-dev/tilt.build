@@ -9,6 +9,7 @@ image_caption: "Two ships pass in the middle of the night"
 tags:
   - kubernetes
   - developer-tools
+  - snapshot
 keywords:
   - kubernetes
   - developer-tools
