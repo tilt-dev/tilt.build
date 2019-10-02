@@ -45,16 +45,16 @@ https://cloud.tilt.dev/snapshot/AYSV59gLhM3GVMuuR28=
 
 If you are running a recent version of Tilt, you'll have a button in the Tilt web UI:
 
-![share snapshot](assets/img/share-snapshot-button.png)
+![share snapshot](/assets/images/solving-the-laggy-human-shell-problem/share-snapshot-button.png)
 
 If you click this button a modal will appear.
 
-![snapshot modal](assets/img/snapshot-modal.png)
+![snapshot modal](/assets/images/solving-the-laggy-human-shell-problem/snapshot-modal.png)
 
 If you haven't already connected Tilt to TiltCloud, you'll need to click a couple
 buttons to create a TiltCloud account:
 
-![link to TiltCloud](assets/img/link-to-tiltcloud.png)
+![link to TiltCloud](/assets/images/solving-the-laggy-human-shell-problem/link-to-tiltcloud.png)
 
 Once you've done that, just click "Get Link" and you should be presented with a
 URL that looks something like this: [https://cloud.tilt.dev/snapshot/AYSV59gLhM3GVMuuR28=](https://cloud.tilt.dev/snapshot/AYSV59gLhM3GVMuuR28=).
@@ -65,8 +65,8 @@ Click the button that appeared to see the snapshot. Or you can take the generate
 
 You can view and delete all of the snapshots associated with your account on TiltCloud. Go to [https://cloud.tilt.dev/snapshots](https://cloud.tilt.dev/snapshots) (this is also linked from the bottom of the "Share Snapshot" window). This will display a list of all of your snapshots, with a button to delete the ones you don't want anymore.
 
-![snapshots list](assets/img/snapshots-list.png)
+![snapshots list](/assets/images/solving-the-laggy-human-shell-problem/snapshots-list.png)
 
 ## Learn More
 
-Can’t wait to enhance your productivity with snapshots? If you have the latest version of Tilt installed you can get started today! For more information, check out the [snapshots documentation](TODO).
+Can’t wait to enhance your productivity with snapshots? If you have the latest version of Tilt installed you can get started today! For more information, check out the [snapshots documentation](https://docs.tilt.dev/snapshots).
