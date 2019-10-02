@@ -44,11 +44,13 @@ You can view and delete all of the snapshots associated with your account on Til
 For each snapshot we store the entirety of your Tilt's state, including all logs and build history. In addition we store two pieces of metadata: the time that the snapshot was taken and the user, if any, that created it.
 
 ### Q: How private are snapshots?
-Snapshots are accessible to anyone who has the link, which includes an unguessable ID.
-If this makes you or your team nervous, you can disable them for your project with the
-[`disable_snapshots`](https://docs.tilt.dev/api.html#api.disable_snapshots)
-directive in your Tiltfile. If you're interested in using snapshots, but want
-access control, please [let us know](https://tilt.dev/contact)!
+A snapshot is accessible to anyone who has the link, which includes an unguessable ID.
+Providing stricter access control is on our roadmap. If this is important to you,
+[let us know](https://tilt.dev/contact)!
+
+### Q: My company doesn't allow sharing data with a SaaS. How can I disable snapshots?
+Add the [`disable_snapshots`](https://docs.tilt.dev/api.html#api.disable_snapshots)
+directive to your Tiltfile.
 
 ### Q: If I delete a snapshot is any data retained?
 No. If you delete a snapshot all associated data is removed from the data store. There is no soft delete.
