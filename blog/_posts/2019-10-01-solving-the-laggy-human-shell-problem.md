@@ -15,46 +15,58 @@ keywords:
   - developer-tools
 ---
 
-Dan opens his laptop and orients himself after his last meeting of the day. He knows that today he needs to make his first ever change to the shopping cart service to add support for the feature that his team is working on. Step one will be getting a dev environment set up so that he can make changes locally.
+Has this ever happened to you?
 
-Dan hits an endpoint test the cart service but it returns a 500. Looking at the logs it appears to be related to the database connection.
+![Two engineers discussing a problem across timezones](/assets/images/solving-the-laggy-human-shell-problem/without_snapshots.png)
 
-```
-com.sun.jersey.spi.container.ContainerResponse mapMappableContainerException
-SEVERE: The RuntimeException could not be mapped to a response, re-throwing to the HTTP container
-org.hibernate.exception.JDBCConnectionException: Cannot open connection
-```
-Hmm. Dan is unfamiliar with Java and has no idea what Hibernate is.  Dan would love to dig in to the architecture of this service but his project is on a tight deadline. Surely someone on the cart team knows the answer.
-
-![Dan asks a question about the java error](/assets/images/solving-the-laggy-human-shell-problem/1.png)
-
-Dan waits for an answer. And waits… and waits…
-
-Then he realizes: the cart team is based out of the New York office, and it’s 3:30 PM in San Francisco but 6:30 PM on the east coast. He’ll have to until tomorrow to get an answer to his question.
-
-**The next day, in New York City**
-
-Han sits down at their desk and notices an unread message in their team’s Slack channel. It’s Dan asking about some trouble he's having with the cart service. Han immediately asks a question to help narrow down the problem:
-
-![Han asks: is the database running?](/assets/images/solving-the-laggy-human-shell-problem/is_running.png)
-
-But, of course, Dan is in San Francisco and won’t get this message for a couple hours. It’s 9:30 AM in New York, but 6:30 AM in San Francisco. Han context switches to something else.
-
-**Later that day, in San Francisco, Dan comes online**
-
-![Lots of back and forth between Dan and Han](/assets/images/solving-the-laggy-human-shell-problem/all_told.png)
-
-After lots of back and forth and a few misaligned lunch breaks Dan gets a solution thanks to Han's help. All told, it took Dan 24 hours to get an answer to his question.
+After lots of back and forth and a few misaligned lunch breaks Dan gets a solution thanks to Han's help. All told, it took Dan 24 hours to get an answer to his question, just so he get started working on a service that is new to him.
 
 ## The Laggy Human Shell
-Does this story sound familiar? I call it the Laggy Human Shell problem: when two coworkers are communicating over text and asking each other to run commands, but keep missing each other, like ships passing in the night, with a 20 minute - 24 hour turnaround time.
+
+I call this the Laggy Human Shell problem: when two coworkers are communicating over text and asking each other to run commands, but keep missing each other, like ships passing in the night, with a 20 minute - 24 hour turnaround time on each message. It would be so much faster if you had access to their environment, but that's not always possible if it's a laptop or an external person's machine.
 
 To solve this problem, we built snapshots. Snapshots allow you to send a link to someone with a frozen “moment-in-time” version of the Tilt UI. In a snapshot you can drill in to specific services, see alerts, Kubernetes events, and everything else you can see in the Tilt UI!
 
-With snapshots, Dan and Han's lagging human shell sessions would have looked like this:
+With snapshots, Dan and Han's lagging human shell session would have looked like this:
 
 ![A snapshot link simplifies Dan and Han's conversation](/assets/images/solving-the-laggy-human-shell-problem/with_snapshots.png)
 
 Since Tilt knows the entire state of your Kubernetes cluster, with tons of information relevant to your app contained within it, sending someone a Tilt snapshot allows them to quickly investigate things, rather than wait on a human who might be out to lunch for answers.
 
-Can’t wait to enhance your productivity with snapshots? If you have the latest version of Tilt installed you can get started today! For more information, check out the snapshots documentation.
+## Introducing Tilt Snapshots
+
+A snapshot is a link that you can send to someone that will allow them to interactively explore your current Tilt state. This is useful for async debugging and adding context to bug reports. They look like pretty much just like Tilt, but frozen in time. Here's an example:
+
+https://cloud.tilt.dev/snapshot/AYSV59gLhM3GVMuuR28=
+
+![A screenshot of a snapshot](/assets/images/solving-the-laggy-human-shell-problem/with_snapshots.png)
+
+### Sharing Snapshots
+
+If you are running a recent version of Tilt, you'll have a button in the Tilt web UI:
+
+![share snapshot](assets/img/share-snapshot-button.png)
+
+If you click this button a modal will appear.
+
+![snapshot modal](assets/img/snapshot-modal.png)
+
+If you haven't already connected Tilt to TiltCloud, you'll need to click a couple
+buttons to create a TiltCloud account:
+
+![link to TiltCloud](assets/img/link-to-tiltcloud.png)
+
+Once you've done that, just click "Get Link" and you should be presented with a
+URL that looks something like this: [https://cloud.tilt.dev/snapshot/AYSV59gLhM3GVMuuR28=](https://cloud.tilt.dev/snapshot/AYSV59gLhM3GVMuuR28=).
+
+Click the button that appeared to see the snapshot. Or you can take the generated link, post it in a Slack channel, bug report or on Twitter so _anyone_ will be able to what you were seeing in Tilt when you ran in to an issue.
+
+### Managing Snapshots
+
+You can view and delete all of the snapshots associated with your account on TiltCloud. Go to [https://cloud.tilt.dev/snapshots](https://cloud.tilt.dev/snapshots) (this is also linked from the bottom of the "Share Snapshot" window). This will display a list of all of your snapshots, with a button to delete the ones you don't want anymore.
+
+![snapshots list](assets/img/snapshots-list.png)
+
+## Learn More
+
+Can’t wait to enhance your productivity with snapshots? If you have the latest version of Tilt installed you can get started today! For more information, check out the [snapshots documentation](TODO).
