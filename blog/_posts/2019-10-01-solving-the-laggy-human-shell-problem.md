@@ -45,27 +45,26 @@ A snapshot is a link that you can send to someone that will allow them to intera
 
 ### Sharing Snapshots
 
-If you are running a recent version of Tilt, you'll have a button in the Tilt web UI:
+If you are running a recent version of Tilt, you'll see 'Create Snapshot' in the Tilt web UI:
 
 ![share snapshot](/assets/images/solving-the-laggy-human-shell-problem/share-snapshot-button.png)
 
-If you click this button a modal will appear.
+Clicking brings up a modal.
 
 ![snapshot modal](/assets/images/solving-the-laggy-human-shell-problem/snapshot-modal.png)
 
-If you haven't already connected Tilt to TiltCloud, you'll need to click a couple
-buttons to create a TiltCloud account:
+You'll need to create and link a TiltCloud account if you haven't already.
 
 ![link to TiltCloud](/assets/images/solving-the-laggy-human-shell-problem/link-to-tiltcloud.png)
 
 Once you've done that, just click "Get Link" and you should be presented with a
-URL that looks something like this: [https://cloud.tilt.dev/snapshot/AYSV59gLhM3GVMuuR28=](https://cloud.tilt.dev/snapshot/AYSV59gLhM3GVMuuR28=).
+URL like: [https://cloud.tilt.dev/snapshot/AYSV59gLhM3GVMuuR28=](https://cloud.tilt.dev/snapshot/AYSV59gLhM3GVMuuR28=).
 
 Click the button that appeared to see the snapshot. Or you can take the generated link, post it in a Slack channel, bug report or on Twitter so _anyone_ will be able to what you were seeing in Tilt when you ran in to an issue.
 
 ### Managing Snapshots
 
-You can view and delete all of the snapshots associated with your account on TiltCloud. Go to [https://cloud.tilt.dev/snapshots](https://cloud.tilt.dev/snapshots) (this is also linked from the bottom of the "Share Snapshot" window). This will display a list of all of your snapshots, with a button to delete the ones you don't want anymore.
+You can view and delete all of the snapshots associated with your account on TiltCloud. Go to [https://cloud.tilt.dev/snapshots](https://cloud.tilt.dev/snapshots) (this is also linked from the bottom of the "Share Snapshot" window). This will display a list of all of your snapshots, with the ability to delete old snapshots.
 
 ![snapshots list](/assets/images/solving-the-laggy-human-shell-problem/snapshots-list.png)
 
