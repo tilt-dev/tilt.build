@@ -5,7 +5,6 @@ author: dmiller
 layout: blog
 title: "Solving the Laggy Human Shell Problem"
 image: ships_pass.png
-image_caption: "Two ships pass in the middle of the night"
 tags:
   - kubernetes
   - developer-tools
