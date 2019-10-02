@@ -15,11 +15,13 @@ keywords:
   - developer-tools
 ---
 
+Tilt highlights problems so you can focus on fixing them, not finding them. When you see a build breakage in the service you just edited, you can respond while you're still thinking about it. What can you do when the failing service is one you've never touched? We see Slack channels turn into poor excuses for shells: Dan reports an error; Han asks him to copy/paste the output; Dan pastes it; no, not that output, the lines above it--
+
 Has this ever happened to you?
 
 ![Two engineers discussing a problem across timezones](/assets/images/solving-the-laggy-human-shell-problem/without_snapshots.png)
 
-After lots of back and forth and a few misaligned lunch breaks Dan gets a solution thanks to Han's help. All told, it took Dan 24 hours to get an answer to his question, just so he get started working on a service that is new to him.
+After lots of back and forth and a few misaligned lunch breaks Dan gets a solution thanks to Han's help. All told, it took Dan hours to get an answer to his question, just so he get started working on a service that is new to him.
 
 ## The Laggy Human Shell
 
