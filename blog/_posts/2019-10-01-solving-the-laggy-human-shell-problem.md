@@ -37,7 +37,7 @@ Since Tilt knows the entire state of your Kubernetes cluster, with tons of infor
 
 A snapshot is a link that you can send to someone that will allow them to interactively explore your current Tilt state. This is useful for async debugging and adding context to bug reports. They look like pretty much just like Tilt, but frozen in time. Here's an example:
 
-https://cloud.tilt.dev/snapshot/AYSV59gLhM3GVMuuR28=
+[https://cloud.tilt.dev/snapshot/AYSV59gLhM3GVMuuR28=](https://cloud.tilt.dev/snapshot/AYSV59gLhM3GVMuuR28=)
 
 ![A screenshot of a snapshot](/assets/images/solving-the-laggy-human-shell-problem/with_snapshots.png)
 
