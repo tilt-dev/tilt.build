@@ -21,7 +21,7 @@ Has this ever happened to you?
 
 ![Two engineers discussing a problem across timezones](/assets/images/solving-the-laggy-human-shell-problem/without_snapshots.png)
 
-After lots of back and forth and a few misaligned lunch breaks Dan gets a solution thanks to Han's help. All told, it took Dan hours to get an answer to his question, just so he get started working on a service that is new to him.
+After lots of back and forth and a few misaligned lunch breaks Dan gets a solution thanks to Han's help. All told, it took Dan hours to get an answer to his question, just so he could get started working on a service that is new to him.
 
 ## The Laggy Human Shell
 
