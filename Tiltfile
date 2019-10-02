@@ -1,7 +1,6 @@
 # -*- mode: Python -*-
 
 k8s_resource_assembly_version(2)
-enable_feature("snapshots")
 
 default_registry('gcr.io/windmill-public-containers')
 
