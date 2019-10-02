@@ -29,11 +29,11 @@ I call this the Laggy Human Shell problem: when two coworkers are communicating 
 
 To solve this problem, we built snapshots. Snapshots allow you to send a link to someone with a frozen “moment-in-time” version of the Tilt UI. In a snapshot you can drill in to specific services, see alerts, Kubernetes events, and everything else you can see in the Tilt UI!
 
-With snapshots, Dan and Han's lagging human shell session would have looked like this:
+With snapshots, Dan and Han's laggy human shell session would have looked like this:
 
 ![A snapshot link simplifies Dan and Han's conversation](/assets/images/solving-the-laggy-human-shell-problem/with_snapshots.png)
 
-Since Tilt knows the entire state of your Kubernetes cluster, with tons of information relevant to your app contained within it, sending someone a Tilt snapshot allows them to quickly investigate things, rather than wait on a human who might be out to lunch for answers.
+Since a Tilt snapshot contains the state of your Kubernetes cluster, sending someone a Tilt snapshot allows them to asynchronously diagnose your problem, rather than waiting for both of you to have bandwidth at the same time.
 
 ## Introducing Tilt Snapshots
 
