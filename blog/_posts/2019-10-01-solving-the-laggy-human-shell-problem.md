@@ -40,7 +40,7 @@ A snapshot is a link that you can send to someone that will allow them to intera
 
 [https://cloud.tilt.dev/snapshot/AYSV59gLhM3GVMuuR28=](https://cloud.tilt.dev/snapshot/AYSV59gLhM3GVMuuR28=)
 
-![A screenshot of a snapshot](/assets/images/solving-the-laggy-human-shell-problem/with_snapshots.png)
+![A screenshot of a snapshot](/assets/images/solving-the-laggy-human-shell-problem/snapshot.png)
 
 ### Sharing Snapshots
 
