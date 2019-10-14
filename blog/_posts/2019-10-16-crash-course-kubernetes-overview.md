@@ -1,6 +1,6 @@
 ---
 slug: crash-course-kubernetes-overview
-date: 2019-10-07
+date: 2019-10-16
 author: maia
 layout: blog
 title: "A Crash Course in Kubernetes #1: Overview"
