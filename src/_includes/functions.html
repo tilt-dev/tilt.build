@@ -197,6 +197,39 @@ ensures a pretty high bar of intent.</p>
 </tbody>
 </table>
 </dd></dl><dl class="function">
+<dt id="api.docker_prune_settings">
+<code class="descclassname">api.</code><code class="descname">docker_prune_settings</code><span class="sig-paren">(</span><em>disable=True</em>, <em>max_age_mins=360</em>, <em>num_builds=0</em>, <em>interval_hrs=1</em><span class="sig-paren">)</span><a class="headerlink" href="#api.docker_prune_settings" title="Permalink to this definition">&#xB6;</a></dt>
+<dd><p>Configures Tilt&#x2019;s Docker Pruner, which runs occasionally in the background and prunes Docker images associated
+with your current project.</p>
+<p>The pruner runs soon after startup (as soon as at least some resources are declared, and there are no pending builds).
+Subsequently, it runs after every <code class="docutils literal notranslate"><span class="pre">num_builds</span></code> Docker builds, or, if <code class="docutils literal notranslate"><span class="pre">num_builds</span></code> is not set, every <code class="docutils literal notranslate"><span class="pre">interval_hrs</span></code> hours.</p>
+<dl class="docutils">
+<dt>The pruner will prune:</dt>
+<dd><ul class="first last simple">
+<li>stopped containers built by Tilt that are at least <code class="docutils literal notranslate"><span class="pre">max_age_mins</span></code> mins old</li>
+<li>images built by Tilt and associated with this Tilt run that are at least <code class="docutils literal notranslate"><span class="pre">max_age_mins</span></code> mins old</li>
+<li>dangling build caches that are at least <code class="docutils literal notranslate"><span class="pre">max_age_mins</span></code> mins old</li>
+</ul>
+</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name">
+<col class="field-body">
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>disable</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>) &#x2013; if true, disable the Docker Pruner</li>
+<li><strong>max_age_mins</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) &#x2013; maximum age, in minutes, of images/containers to retain. Defaults to 360 mins., i.e. 6 hours</li>
+<li><strong>num_builds</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) &#x2013; number of Docker builds after which to run a prune. (If unset, the pruner instead runs every <code class="docutils literal notranslate"><span class="pre">interval_hrs</span></code> hours)</li>
+<li><strong>interval_hrs</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) &#x2013; run a Docker Prune every <code class="docutils literal notranslate"><span class="pre">interval_hrs</span></code> hours (unless <code class="docutils literal notranslate"><span class="pre">num_builds</span></code> is set, in which case use the &#x201C;prune every X builds&#x201D; logic). Defaults to 1 hour</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><code class="docutils literal notranslate"><span class="pre">None</span></code></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl><dl class="function">
 <dt id="api.enable_feature">
 <code class="descclassname">api.</code><code class="descname">enable_feature</code><span class="sig-paren">(</span><em>feature_name</em><span class="sig-paren">)</span><a class="headerlink" href="#api.enable_feature" title="Permalink to this definition">&#xB6;</a></dt>
 <dd><p>Configures Tilt to enable non-default features (e.g., experimental or deprecated).</p>

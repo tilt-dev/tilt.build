@@ -633,3 +633,24 @@ def disable_snapshots() -> None:
     developer can always simply edit it out of the Tiltfile, but it at least
     ensures a pretty high bar of intent.
     """
+
+def docker_prune_settings(disable: bool=True, max_age_mins: int=360, num_builds: int=0, interval_hrs: int=1) -> None:
+  """
+  Configures Tilt's Docker Pruner, which runs occasionally in the background and prunes Docker images associated
+  with your current project.
+
+  The pruner runs soon after startup (as soon as at least some resources are declared, and there are no pending builds).
+  Subsequently, it runs after every ``num_builds`` Docker builds, or, if ``num_builds`` is not set, every ``interval_hrs`` hours.
+
+  The pruner will prune:
+    - stopped containers built by Tilt that are at least ``max_age_mins`` mins old
+    - images built by Tilt and associated with this Tilt run that are at least ``max_age_mins`` mins old
+    - dangling build caches that are at least ``max_age_mins`` mins old
+
+  Args:
+    disable: if true, disable the Docker Pruner
+    max_age_mins: maximum age, in minutes, of images/containers to retain. Defaults to 360 mins., i.e. 6 hours
+    num_builds: number of Docker builds after which to run a prune. (If unset, the pruner instead runs every ``interval_hrs`` hours)
+    interval_hrs: run a Docker Prune every ``interval_hrs`` hours (unless ``num_builds`` is set, in which case use the "prune every X builds" logic). Defaults to 1 hour
+  """
+  pass
