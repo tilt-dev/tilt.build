@@ -3,6 +3,16 @@ title: Tiltfile API Reference
 layout: docs
 ---
 
+## Modules
+
+<ul>
+{% for name in site.data.api_modules.modules %}
+<li><a href="api_{{name}}.html">{{ name }}</a></li>
+{% endfor %}
+</ul>
+
+---
+
 ## Functions
 
 <ul>

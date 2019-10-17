@@ -11,10 +11,17 @@ WORKDIR /src
 
 ADD api .
 RUN make html
+
 RUN cat /src/_build/html/index.html | hgrep "dl.function" > functions.html
 RUN echo "functions:" > functions.yaml
 RUN cat /src/_build/html/index.html | hgrep -a id "dl.function > dt" | sed -e 's/^api./- /' >> functions.yaml
+
 RUN cat /src/_build/html/index.html | hgrep "dl.class" > classes.html
 RUN echo "classes:" > classes.yaml
 RUN cat /src/_build/html/index.html | hgrep -a id "dl.class > dt" | sed -e 's/^api./- /' >> classes.yaml
+
+RUN cat /src/_build/html/os.html | hgrep "dl.data" > os_data.html
+RUN echo "data:" > os_data.yaml
+RUN cat /src/_build/html/os.html | hgrep -a id "dl.data > dt" | sed -e 's/^modules.os./- /' >> os_data.yaml
+
 ENTRYPOINT echo "~done~"

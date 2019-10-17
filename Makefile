@@ -5,8 +5,10 @@ api:
 	rm -fR api/api.html
 	docker build -t tilt.api -f deploy/api.dockerfile .
 	docker run --name tilt.api tilt.api
-	docker cp tilt.api:/src/functions.html src/_includes/functions.html
-	docker cp tilt.api:/src/classes.html src/_includes/classes.html
 	docker cp tilt.api:/src/functions.yaml src/_data/api_functions.yaml
+	docker cp tilt.api:/src/functions.html src/_includes/functions.html
 	docker cp tilt.api:/src/classes.yaml src/_data/api_classes.yaml
+	docker cp tilt.api:/src/classes.html src/_includes/classes.html
+	docker cp tilt.api:/src/os_data.yaml src/_data/os_data.yaml
+	docker cp tilt.api:/src/os_data.html src/_includes/os_data.html
 	docker rm tilt.api
