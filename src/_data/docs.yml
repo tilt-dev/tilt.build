@@ -48,6 +48,8 @@
   items:
   - title: Tiltfile API Reference
     href: api.html
+  - title: Tiltfile API - os module
+    href: api_os.html
   - title: Live Update Reference
     href: live_update_reference.html
   - title: Frequently Asked Questions
