@@ -507,7 +507,7 @@ def custom_build(ref: str, command: str, deps: List[str], tag: str = "", disable
   Args:
     ref: name for this image (e.g. 'myproj/backend' or 'myregistry/myproj/backend'). If this image will be used in a k8s resource(s), this ref must match the ``spec.container.image`` param for that resource(s).
     command: a command that, when run in the shell, builds an image puts it in the registry as ``ref``. Must produce an image named ``$EXPECTED_REF``
-    deps: a list of files or directories to be added as dependencies to this image. Tilt will watch those files and will rebuild the image when they change.
+    deps: a list of files or directories to be added as dependencies to this image. Tilt will watch those files and will rebuild the image when they change. Only accepts real paths, not file globs.
     tag: Some tools can't change the image tag at runtime. They need a pre-specified tag. Tilt will set ``$EXPECTED_REF = image_name:tag``,
        then re-tag it with its own tag before pushing to your cluster. See `the bazel guide <integrating_bazel_with_tilt.html>`_ for an example.
     disable_push: whether Tilt should push the image in to the registry that the Kubernetes cluster has access to. Set this to true if your command handles pushing as well.
@@ -617,7 +617,7 @@ def local_resource(name: str, cmd: str, deps: Union[str, List[str]] = None, trig
   Args:
     name: will be used as the new name for this resource
     cmd: command to be executed on host machine
-    deps: a list of files or directories to be added as dependencies to this cmd. Tilt will watch those files and will run the cmd when they change.
+    deps: a list of files or directories to be added as dependencies to this cmd. Tilt will watch those files and will run the cmd when they change. Only accepts real paths, not file globs.
     trigger_mode: one of ``TRIGGER_MODE_AUTO`` or ``TRIGGER_MODE_MANUAL``. For more info, see the
       `Manual Update Control docs <manual_update_control.html>`_.
   """
