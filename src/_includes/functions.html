@@ -697,6 +697,10 @@ In any other case, an error reading <cite>path</cite> will be a Tiltfile load er
 <code class="descclassname">api.</code><code class="descname">restart_container</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#api.restart_container" title="Permalink to this definition">&#xB6;</a></dt>
 <dd><p>Specify that a container should be restarted when it is live-updated.</p>
 <p>May only be included in a <cite>live_update</cite> once, and only as the last step.</p>
+<p>Only works on containers managed by Docker. For non-Docker runtimes
+(e.g. containerd, CRI-O), please see the <a class="reference external" href="https://github.com/windmilleng/rerun-process-wrapper">wrapper script for simulating
+restart_container</a>.</p>
+<p>For more info, see the <a class="reference external" href="live_update_reference">Live Update Reference</a>.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name">
 <col class="field-body">

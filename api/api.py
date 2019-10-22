@@ -57,6 +57,11 @@ def restart_container() -> LiveUpdateStep:
 
   May only be included in a `live_update` once, and only as the last step.
 
+  Only works on containers managed by Docker. For non-Docker runtimes
+  (e.g. containerd, CRI-O), please see the `wrapper script for simulating
+  restart_container <https://github.com/windmilleng/rerun-process-wrapper>`_.
+
+  For more info, see the `Live Update Reference <live_update_reference>`_.
   """
   pass
 
