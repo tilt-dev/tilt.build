@@ -1,11 +1,12 @@
 ---
-slug: crash-course-kubernetes-overview
+slug: build-cache-spark-joy
 date: 2019-10-16
 author: maia
 layout: blog
 title: "Does This Build Cache Spark Joy?"
 subtitle: "Pruning Away your Docker Disk Space Woes"
-image: "k8s-illustration.png"
+image: "marie-kondo-containers.jpg"
+image_caption: "Do you really need all those stopped containers?"
 tags:
   - docker
   - kubernetes
@@ -22,7 +23,9 @@ keywords:
 ---
 My favorite class of bugs is the one that users run into when they’re using your product _too much_. If you’ve been using Tilt for a while and so Tilt has been building lots of Docker images for you and it’s starting to eat up your disk space, it can be _super_ frustrating, of course--but when a bunch of people started [reporting this problem](https://github.com/windmilleng/tilt/issues/2102), I’ll admit that I was a little excited.
 
-TODO: slack screenshots here?
+![A user on Slack: "I'm not sure if this is a Tilt problem, but I haven't experienced it before switching to Tilt. Several times per day during development my pods get evicted due to DiskPressure. I'm running Kubernetes with Minikube and 20 GB space allocated. If I do docker system prune it removes about 5 GB of build cache and DiskPressure goes away. Has anyone else experienced this issue?"](/assets/images/build-cache-spark-joy/disk-space-report-1.png)
+![A user on Slack: "We use Docker Desktop with Tilt and eventually it eats up the local Docker system storage (50gb) and I have to do a 'docker system prune -a' to get Docker Desktop's Kubernetes cluster working again. I'm assuming it's because Tilt is building more and more images every time a change occurs.  What's the best practice to clean up these or prevent this from happening?"](/assets/images/build-cache-spark-joy/disk-space-report-2.png)
+![A user on Slack reporting an error that reads: "Build Failed: ImageBuild: failed to solve with frontend dockerfile.v0: failed to build LLB: failed to copy files: copy file range failed: no space left on device"](/assets/images/build-cache-spark-joy/disk-space-report-3.png)
 
 If you’re experiencing Docker disk space woes (whether you’re developing on Tilt or not), you’re not alone. This post digs into the signs and causes of disk space issues, tells you how to fix them yourself, and describes Tilt’s new way of handling these problems.
 
@@ -106,5 +109,5 @@ docker_pruner_settings(max_age_mins=15)
 docker_pruner_settings(num_builds=10)
 ```
 
-We hope the Docker Pruner helps keep your disk usage in check, so you can stay in flow without worrying about finicky errors. Let us know how you're finding it! (Don’t like it? Disable it in your Tiltfile, and let us know what would make it better.)
+We hope the Docker Pruner helps keep your disk usage in check, so you can stay in flow without worrying about finicky errors. Let us know how you're finding it! [Read more about the settings in the docs.](https://docs.tilt.dev/api.html#api.docker_prune_settings)) (Don’t like it? Disable it in your Tiltfile, and let us know what would make it better.)
 
