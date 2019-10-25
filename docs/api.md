@@ -25,6 +25,8 @@ layout: docs
 
 {% include functions.html %}
 
+---
+
 ## Types
 
 <ul>
