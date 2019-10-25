@@ -24,6 +24,8 @@ def fall_back_on(files: Union[str, List[str]]) -> LiveUpdateStep:
   that is, if any files fall outside of DockerBuild.context or CustomBuild.deps,
   an error will be raised.)
 
+  For more info, see the `Live Update Reference <live_update_reference>`_.
+
   Args:
       files: a string or list of strings of files. If relative, will be evaluated relative to the Tiltfile. Tilt compares these to the local paths of edited files when determining whether to fall back to a full image build.
   """
@@ -33,6 +35,8 @@ def sync(local_path: str, remote_path: str) -> LiveUpdateStep:
   """Specify that any changes to `localPath` should be synced to `remotePath`
 
   May not follow any `run` steps in a `live_update`.
+
+  For more info, see the `Live Update Reference <live_update_reference>`_.
 
   Args:
       localPath: A path relative to the Tiltfile's directory. Changes to files matching this path will be synced to `remotePath`.
@@ -45,6 +49,8 @@ def run(cmd: str, trigger: Union[List[str], str] = []) -> LiveUpdateStep:
   """Specify that the given `cmd` should be executed when updating an image's container
 
   May not precede any `sync` steps in a `live_update`.
+
+  For more info, see the `Live Update Reference <live_update_reference>`_.
 
   Args:
     cmd: A shell command.
@@ -381,6 +387,8 @@ def helm(pathToChartDir: str, name: str = "", namespace: str = "", values: Union
   """Run `helm template <https://docs.helm.sh/helm/#helm-template>`_ on a given directory that contains a chart and return the fully rendered YAML as a Blob
   Chart directory is watched (See ``watch_file``).
 
+  For more examples, see the `Helm Cookbook <helm>`_.
+
   Args:
     pathToChartDir: Path to the directory locally (absolute, or relative to the location of the Tiltfile).
     name: The release name. Equivalent to the helm `--name` flag
@@ -465,6 +473,8 @@ def default_registry(registry: str) -> None:
 
   This is useful if, e.g., a repo is configured to push to Google Container Registry, but you want to use Elastic Container Registry instead, without having to edit a bunch of configs. For example, ``default_registry("gcr.io/myrepo")`` would cause ``docker.io/alpine`` to be rewritten to ``gcr.io/myrepo/docker.io_alpine``
 
+  For more info, see our `Using a Personal Registry Guide <personal_registry>`_.
+
   Args:
     registry: The registry that all built images should be renamed to use.
 
@@ -477,8 +487,6 @@ def default_registry(registry: str) -> None:
   e.g., with ``default_registry('gcr.io/myorg')``, ``user-service`` becomes ``gcr.io/myorg/user-service``.
 
   (Note: this logic is currently crude, on the assumption that development image names are ephemeral and unimportant. `Please let us know <https://github.com/windmilleng/tilt/issues>`_ if they don't suit you!)
-
-  Cf. our `using a personal registry guide <https://docs.tilt.dev/personal_registry.html>`_
   """
   pass
 
@@ -492,7 +500,7 @@ def custom_build(ref: str, command: str, deps: List[str], tag: str = "", disable
   """Provide a custom command that will build an image.
 
   For examples on how to use this to integrate your own build scripts with Tilt,
-  see the [custom build script tutorial](custom_build.html).
+  see the `Custom Build Script How-to <custom_build.html>`_.
 
   The command *must* publish an image with the name & tag ``$EXPECTED_REF``.
 
@@ -580,6 +588,8 @@ def allow_k8s_contexts(contexts: Union[str, List[str]]) -> None:
   1. The K8S API URL is on localhost.
   2. The context name is one of a few known local context names (e.g,. "minikube").
   3. The context name is explicitly passed to `allow_k8s_contexts` in the Tiltfile.
+
+  For more on which cluster context is right for you, see `Choosing a Local Dev Cluster <choosing_clusters>`_.
 
   Args:
     contexts: a string or list of strings, specifying one or more k8s context

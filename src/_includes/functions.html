@@ -10,6 +10,7 @@ the active K8S context (i.e., what is returned by <cite>kubectl config current-c
 <li>The context name is one of a few known local context names (e.g,. &#x201C;minikube&#x201D;).</li>
 <li>The context name is explicitly passed to <cite>allow_k8s_contexts</cite> in the Tiltfile.</li>
 </ol>
+<p>For more on which cluster context is right for you, see <a class="reference external" href="choosing_clusters">Choosing a Local Dev Cluster</a>.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name">
 <col class="field-body">
@@ -51,7 +52,7 @@ the default of all known-local clusters.</td>
 <code class="descclassname">api.</code><code class="descname">custom_build</code><span class="sig-paren">(</span><em>ref</em>, <em>command</em>, <em>deps</em>, <em>tag=&apos;&apos;</em>, <em>disable_push=False</em>, <em>live_update=[]</em>, <em>match_in_env_vars=False</em>, <em>ignore=[]</em>, <em>entrypoint=&apos;&apos;</em><span class="sig-paren">)</span><a class="headerlink" href="#api.custom_build" title="Permalink to this definition">&#xB6;</a></dt>
 <dd><p>Provide a custom command that will build an image.</p>
 <p>For examples on how to use this to integrate your own build scripts with Tilt,
-see the [custom build script tutorial](custom_build.html).</p>
+see the <a class="reference external" href="custom_build.html">Custom Build Script How-to</a>.</p>
 <p>The command <em>must</em> publish an image with the name &amp; tag <code class="docutils literal notranslate"><span class="pre">$EXPECTED_REF</span></code>.</p>
 <p>Tilt will raise an error if the command exits successfully, but the registry does not contain
 an image with the ref <code class="docutils literal notranslate"><span class="pre">$EXPECTED_REF</span></code>.</p>
@@ -120,6 +121,7 @@ then re-tag it with its own tag before pushing to your cluster. See <a class="re
 <code class="descclassname">api.</code><code class="descname">default_registry</code><span class="sig-paren">(</span><em>registry</em><span class="sig-paren">)</span><a class="headerlink" href="#api.default_registry" title="Permalink to this definition">&#xB6;</a></dt>
 <dd><p>Specifies that any images that Tilt builds should be renamed so that they have the specified Docker registry.</p>
 <p>This is useful if, e.g., a repo is configured to push to Google Container Registry, but you want to use Elastic Container Registry instead, without having to edit a bunch of configs. For example, <code class="docutils literal notranslate"><span class="pre">default_registry(&quot;gcr.io/myrepo&quot;)</span></code> would cause <code class="docutils literal notranslate"><span class="pre">docker.io/alpine</span></code> to be rewritten to <code class="docutils literal notranslate"><span class="pre">gcr.io/myrepo/docker.io_alpine</span></code></p>
+<p>For more info, see our <a class="reference external" href="personal_registry">Using a Personal Registry Guide</a>.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name">
 <col class="field-body">
@@ -135,7 +137,6 @@ then re-tag it with its own tag before pushing to your cluster. See <a class="re
 </ol>
 <p>e.g., with <code class="docutils literal notranslate"><span class="pre">default_registry(&apos;gcr.io/myorg&apos;)</span></code>, <code class="docutils literal notranslate"><span class="pre">user-service</span></code> becomes <code class="docutils literal notranslate"><span class="pre">gcr.io/myorg/user-service</span></code>.</p>
 <p>(Note: this logic is currently crude, on the assumption that development image names are ephemeral and unimportant. <a class="reference external" href="https://github.com/windmilleng/tilt/issues">Please let us know</a> if they don&#x2019;t suit you!)</p>
-<p>Cf. our <a class="reference external" href="https://docs.tilt.dev/personal_registry.html">using a personal registry guide</a></p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name">
 <col class="field-body">
@@ -271,6 +272,7 @@ full image build (rather than performing a live update).</p>
 <p>(Files must be a subset of the files that we&#x2019;re already watching for this image;
 that is, if any files fall outside of DockerBuild.context or CustomBuild.deps,
 an error will be raised.)</p>
+<p>For more info, see the <a class="reference external" href="live_update_reference">Live Update Reference</a>.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name">
 <col class="field-body">
@@ -343,6 +345,7 @@ for more info.)</li>
 <code class="descclassname">api.</code><code class="descname">helm</code><span class="sig-paren">(</span><em>pathToChartDir</em>, <em>name=&apos;&apos;</em>, <em>namespace=&apos;&apos;</em>, <em>values=[]</em><span class="sig-paren">)</span><a class="headerlink" href="#api.helm" title="Permalink to this definition">&#xB6;</a></dt>
 <dd><p>Run <a class="reference external" href="https://docs.helm.sh/helm/#helm-template">helm template</a> on a given directory that contains a chart and return the fully rendered YAML as a Blob
 Chart directory is watched (See <code class="docutils literal notranslate"><span class="pre">watch_file</span></code>).</p>
+<p>For more examples, see the <a class="reference external" href="helm">Helm Cookbook</a>.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name">
 <col class="field-body">
@@ -714,6 +717,7 @@ restart_container</a>.</p>
 <code class="descclassname">api.</code><code class="descname">run</code><span class="sig-paren">(</span><em>cmd</em>, <em>trigger=[]</em><span class="sig-paren">)</span><a class="headerlink" href="#api.run" title="Permalink to this definition">&#xB6;</a></dt>
 <dd><p>Specify that the given <cite>cmd</cite> should be executed when updating an image&#x2019;s container</p>
 <p>May not precede any <cite>sync</cite> steps in a <cite>live_update</cite>.</p>
+<p>For more info, see the <a class="reference external" href="live_update_reference">Live Update Reference</a>.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name">
 <col class="field-body">
@@ -734,6 +738,7 @@ restart_container</a>.</p>
 <code class="descclassname">api.</code><code class="descname">sync</code><span class="sig-paren">(</span><em>local_path</em>, <em>remote_path</em><span class="sig-paren">)</span><a class="headerlink" href="#api.sync" title="Permalink to this definition">&#xB6;</a></dt>
 <dd><p>Specify that any changes to <cite>localPath</cite> should be synced to <cite>remotePath</cite></p>
 <p>May not follow any <cite>run</cite> steps in a <cite>live_update</cite>.</p>
+<p>For more info, see the <a class="reference external" href="live_update_reference">Live Update Reference</a>.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name">
 <col class="field-body">
