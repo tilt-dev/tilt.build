@@ -14,7 +14,7 @@ Curious about what we're doing? Got a problem with Tilt? Just want to say hi? He
             Look through <a href="https://github.com/windmilleng/tilt/issues" target="_blank">our Github issues</a> (or file your own)
         </li>
         <li>
-            <a href="mailto:hi@windmill.engineering">Email us directly</a>
+            <a href="mailto:hi@tilt.dev">Email us directly</a>
         </li>
         <li>
             Fill out the form below!
