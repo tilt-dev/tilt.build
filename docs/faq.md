@@ -14,7 +14,7 @@ us in [the **#tilt** channel](https://kubernetes.slack.com/messages/CESBL84MV/).
 You can also file an issue in [our GitHub repo](https://github.com/windmilleng/tilt/issues/new).
 
 For help with private issues (like security vulnerabilities or just concerning non-public code),
-please email [help@windmill.engineering](mailto:help@windmill.engineering).
+please email [help@tilt.dev](mailto:help@tilt.dev).
 
 ### Q: When I run `tilt version`, I see "template engine not found for: version". What do I do?
 
@@ -71,7 +71,7 @@ To collect a CPU profile:
 
 Tilt will create a file `tilt.profile` with CPU statistics. It shouldn't contain
 any personally identifiable info, but just to be safe, email the file to
-[help@windmill.engineering](mailto:help@windmill.engineering). We will do our
+[help@tilt.dev](mailto:help@tilt.dev). We will do our
 best to figure it out!
 
 Building Container Images
