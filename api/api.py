@@ -192,7 +192,7 @@ TRIGGER_MODE_AUTO = type('_sentinel', (TriggerMode,),
 def k8s_resource(workload: str, new_name: str = "",
                  port_forwards: Union[str, int, List[int]] = [],
                  extra_pod_selectors: Union[Dict[str, str], List[Dict[str, str]]] = [],
-                 trigger_mode: TriggerMode = TRIGGER_MODE_AUTO) -> None:
+                 trigger_mode: TriggerMode = TRIGGER_MODE_AUTO, resource_deps: List[str] = []) -> None:
   """Configures a kubernetes resources
 
   This description apply to `k8s_resource_assembly_version` 2.
@@ -229,15 +229,20 @@ def k8s_resource(workload: str, new_name: str = "",
       Tilt's usual mechanisms).
     trigger_mode: one of ``TRIGGER_MODE_AUTO`` or ``TRIGGER_MODE_MANUAL``. For more info, see the
       `Manual Update Control docs <manual_update_control.html>`_.
+    resource_deps: a list of resources on which this resource depends.
+      See the `Resource Dependencies docs <resource_dependencies.html>`_.
   """
   pass
 
-def dc_resource(name: str, trigger_mode: TriggerMode = TRIGGER_MODE_AUTO) -> None:
+def dc_resource(name: str, trigger_mode: TriggerMode = TRIGGER_MODE_AUTO, resource_deps: List[str] = []) -> None:
   """Configures the Docker Compose resource of the given name.
 
   Args:
     trigger_mode: one of ``TRIGGER_MODE_AUTO`` or ``TRIGGER_MODE_MANUAL``. For more info, see the
-      `Manual Update Control docs <manual_update_control.html>`_. """
+      `Manual Update Control docs <manual_update_control.html>`_.
+    resource_deps: a list of resources on which this resource depends.
+      See the `Resource Dependencies docs <resource_dependencies.html>`_.
+  """
 
   pass
 
@@ -612,7 +617,9 @@ def enable_feature(feature_name: str) -> None:
   """
   pass
 
-def local_resource(name: str, cmd: str, deps: Union[str, List[str]] = None, trigger_mode: TriggerMode = TRIGGER_MODE_AUTO) -> None:
+def local_resource(name: str, cmd: str, deps: Union[str, List[str]] = None,
+                   trigger_mode: TriggerMode = TRIGGER_MODE_AUTO,
+                   resource_deps: List[str] = []) -> None:
   """Configures `cmd` to run on the _host_ machine, not in a remote cluster.
 
   If `deps` is set then `cmd` is run whenever one of the files specified changes.
@@ -625,6 +632,8 @@ def local_resource(name: str, cmd: str, deps: Union[str, List[str]] = None, trig
     deps: a list of files or directories to be added as dependencies to this cmd. Tilt will watch those files and will run the cmd when they change. Only accepts real paths, not file globs.
     trigger_mode: one of ``TRIGGER_MODE_AUTO`` or ``TRIGGER_MODE_MANUAL``. For more info, see the
       `Manual Update Control docs <manual_update_control.html>`_.
+    resource_deps: a list of resources on which this resource depends.
+      See the `Resource Dependencies docs <resource_dependencies.html>`_.
   """
   pass
 

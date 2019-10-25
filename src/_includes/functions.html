@@ -90,16 +90,22 @@ then re-tag it with its own tag before pushing to your cluster. See <a class="re
 </table>
 </dd></dl><dl class="function">
 <dt id="api.dc_resource">
-<code class="descclassname">api.</code><code class="descname">dc_resource</code><span class="sig-paren">(</span><em>name</em>, <em>trigger_mode=TRIGGER_MODE_AUTO</em><span class="sig-paren">)</span><a class="headerlink" href="#api.dc_resource" title="Permalink to this definition">&#xB6;</a></dt>
+<code class="descclassname">api.</code><code class="descname">dc_resource</code><span class="sig-paren">(</span><em>name</em>, <em>trigger_mode=TRIGGER_MODE_AUTO</em>, <em>resource_deps=[]</em><span class="sig-paren">)</span><a class="headerlink" href="#api.dc_resource" title="Permalink to this definition">&#xB6;</a></dt>
 <dd><p>Configures the Docker Compose resource of the given name.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name">
 <col class="field-body">
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>trigger_mode</strong> (<a class="reference internal" href="#api.TriggerMode" title="api.TriggerMode"><code class="xref py py-class docutils literal notranslate"><span class="pre">TriggerMode</span></code></a>) &#x2013; one of <code class="docutils literal notranslate"><span class="pre">TRIGGER_MODE_AUTO</span></code> or <code class="docutils literal notranslate"><span class="pre">TRIGGER_MODE_MANUAL</span></code>. For more info, see the
-<a class="reference external" href="manual_update_control.html">Manual Update Control docs</a>.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>trigger_mode</strong> (<a class="reference internal" href="#api.TriggerMode" title="api.TriggerMode"><code class="xref py py-class docutils literal notranslate"><span class="pre">TriggerMode</span></code></a>) &#x2013; one of <code class="docutils literal notranslate"><span class="pre">TRIGGER_MODE_AUTO</span></code> or <code class="docutils literal notranslate"><span class="pre">TRIGGER_MODE_MANUAL</span></code>. For more info, see the
+<a class="reference external" href="manual_update_control.html">Manual Update Control docs</a>.</li>
+<li><strong>resource_deps</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]) &#x2013; a list of resources on which this resource depends.
+See the <a class="reference external" href="resource_dependencies.html">Resource Dependencies docs</a>.</li>
+</ul>
+</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><code class="docutils literal notranslate"><span class="pre">None</span></code></td>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><code class="docutils literal notranslate"><span class="pre">None</span></code></p>
+</td>
 </tr>
 </tbody>
 </table>
@@ -419,7 +425,7 @@ This uses the k8s json path template syntax, described <a class="reference exter
 </table>
 </dd></dl><dl class="function">
 <dt id="api.k8s_resource">
-<code class="descclassname">api.</code><code class="descname">k8s_resource</code><span class="sig-paren">(</span><em>workload</em>, <em>new_name=&apos;&apos;</em>, <em>port_forwards=[]</em>, <em>extra_pod_selectors=[]</em>, <em>trigger_mode=TRIGGER_MODE_AUTO</em><span class="sig-paren">)</span><a class="headerlink" href="#api.k8s_resource" title="Permalink to this definition">&#xB6;</a></dt>
+<code class="descclassname">api.</code><code class="descname">k8s_resource</code><span class="sig-paren">(</span><em>workload</em>, <em>new_name=&apos;&apos;</em>, <em>port_forwards=[]</em>, <em>extra_pod_selectors=[]</em>, <em>trigger_mode=TRIGGER_MODE_AUTO</em>, <em>resource_deps=[]</em><span class="sig-paren">)</span><a class="headerlink" href="#api.k8s_resource" title="Permalink to this definition">&#xB6;</a></dt>
 <dd><p>Configures a kubernetes resources</p>
 <p>This description apply to <cite>k8s_resource_assembly_version</cite> 2.
 If you are running Tilt version &lt; 0.8.0 and/or do not call <cite>k8s_resource_assembly_version(2)</cite>, see <a class="reference internal" href="#api.k8s_resource_v1_DEPRECATED" title="api.k8s_resource_v1_DEPRECATED"><code class="xref py py-meth docutils literal notranslate"><span class="pre">k8s_resource_v1_DEPRECATED()</span></code></a> instead.</p>
@@ -458,6 +464,9 @@ least one of the entries specified (but still also if it meets any of
 Tilt&#x2019;s usual mechanisms).</li>
 <li><strong>trigger_mode</strong> (<a class="reference internal" href="#api.TriggerMode" title="api.TriggerMode"><code class="xref py py-class docutils literal notranslate"><span class="pre">TriggerMode</span></code></a>) &#x2013; <p>one of <code class="docutils literal notranslate"><span class="pre">TRIGGER_MODE_AUTO</span></code> or <code class="docutils literal notranslate"><span class="pre">TRIGGER_MODE_MANUAL</span></code>. For more info, see the
 <a class="reference external" href="manual_update_control.html">Manual Update Control docs</a>.</p>
+</li>
+<li><strong>resource_deps</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]) &#x2013; <p>a list of resources on which this resource depends.
+See the <a class="reference external" href="resource_dependencies.html">Resource Dependencies docs</a>.</p>
 </li>
 </ul>
 </td>
@@ -606,7 +615,7 @@ to share across Tiltfiles.</p>
 </table>
 </dd></dl><dl class="function">
 <dt id="api.local_resource">
-<code class="descclassname">api.</code><code class="descname">local_resource</code><span class="sig-paren">(</span><em>name</em>, <em>cmd</em>, <em>deps=None</em>, <em>trigger_mode=TRIGGER_MODE_AUTO</em><span class="sig-paren">)</span><a class="headerlink" href="#api.local_resource" title="Permalink to this definition">&#xB6;</a></dt>
+<code class="descclassname">api.</code><code class="descname">local_resource</code><span class="sig-paren">(</span><em>name</em>, <em>cmd</em>, <em>deps=None</em>, <em>trigger_mode=TRIGGER_MODE_AUTO</em>, <em>resource_deps=[]</em><span class="sig-paren">)</span><a class="headerlink" href="#api.local_resource" title="Permalink to this definition">&#xB6;</a></dt>
 <dd><p>Configures <cite>cmd</cite> to run on the _host_ machine, not in a remote cluster.</p>
 <p>If <cite>deps</cite> is set then <cite>cmd</cite> is run whenever one of the files specified changes.</p>
 <p>All local resources are executed on the first run of the Tiltfile.</p>
@@ -620,6 +629,9 @@ to share across Tiltfiles.</p>
 <li><strong>deps</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>], <code class="docutils literal notranslate"><span class="pre">None</span></code>]) &#x2013; a list of files or directories to be added as dependencies to this cmd. Tilt will watch those files and will run the cmd when they change. Only accepts real paths, not file globs.</li>
 <li><strong>trigger_mode</strong> (<a class="reference internal" href="#api.TriggerMode" title="api.TriggerMode"><code class="xref py py-class docutils literal notranslate"><span class="pre">TriggerMode</span></code></a>) &#x2013; <p>one of <code class="docutils literal notranslate"><span class="pre">TRIGGER_MODE_AUTO</span></code> or <code class="docutils literal notranslate"><span class="pre">TRIGGER_MODE_MANUAL</span></code>. For more info, see the
 <a class="reference external" href="manual_update_control.html">Manual Update Control docs</a>.</p>
+</li>
+<li><strong>resource_deps</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]) &#x2013; <p>a list of resources on which this resource depends.
+See the <a class="reference external" href="resource_dependencies.html">Resource Dependencies docs</a>.</p>
 </li>
 </ul>
 </td>
