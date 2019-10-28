@@ -1,12 +1,12 @@
 ---
 slug: build-cache-spark-joy
-date: 2019-10-16
+date: 2019-10-28
 author: maia
 layout: blog
 title: "Does This Build Cache Spark Joy?"
 subtitle: "Pruning Away your Docker Disk Space Woes"
 image: "marie-kondo-containers.jpg"
-image_caption: "Do you really need all those stopped containers?"
+image_caption: 'Do you really need all those old containers? (Credit: Netflix, from "Tidying Up with Marie Kondo", 2019)'
 tags:
   - docker
   - kubernetes
@@ -35,13 +35,12 @@ If you’re experiencing Docker disk space woes (whether you’re developing on 
 How do you know that you’re running into disk space trouble? The surest sign is that your Docker daemon is throwing errors of the form:
 > No space left on device
 
-This error can happen in the course of many different operations, but generally it means the same thing: your Docker daemon doesn’t have enough room for all the junk that’s on it. (Note that the “device” running out of space here is the Docker VM, not your computer as a whole--don’t panic!)
+This error can happen in the course of many different operations, but generally it means the same thing: your Docker daemon doesn’t have enough room for all the junk that’s on it.
 
-The more opaque form of this error is when your _local Kubernetes cluster_ (e.g. Kubernetes for Docker for Mac, or Minikube, if you’re also using the Minikube Docker instance) starts throwing “DiskPressure” errors. Recall that local k8s clusters are (generally) single-node clusters, i.e. all the k8s stuff happening on a single VM. Funnily, all your Docker storage is _also_ on that same VM; thus, if you have too much junk in your Docker storage, it takes away space that k8s would otherwise want to use, so k8s starts complaining about a lack of space. I won’t say that this is always the case, but often, “DiskPressure” errors on your local k8s cluster are, at their root, Docker disk space problems, and not k8s specific; try the steps below and see if the errors go away.
+The more opaque form of this error is when you're running MacOS and your _local Kubernetes cluster_ (e.g. Kubernetes for Docker for Mac, or Minikube, if you’re also using the Minikube Docker instance) starts throwing “DiskPressure” errors. Recall that local k8s clusters are (generally) single-node clusters, and on MacOS, your nodes are all VMs; thus, all the k8s stuff happening on a single VM. Funnily, all your Docker storage is _also_ on that same VM; thus, if you have too much junk in your Docker storage, it takes away space that k8s would otherwise want to use, so k8s starts complaining about a lack of space. I won’t say that this is always the case, but often, “DiskPressure” errors on your local k8s cluster are, at their root, Docker disk space problems, and not k8s specific; try the steps below and see if the errors go away.
 
 ### What's eating you(r disk space)?
-If you think you’re running out of Docker storage space, dig in with [`docker system df`](XXX) to see where your space is going. You’ll see stats for four types of 
-Dig in with docker system df (-v) = see docker disk usage broken down by object type. I haven’t had to battle volume bloat much, so I’m not going to talk about it here, but let’s talk about the other three objects.
+If you think you’re running out of Docker storage space, dig in with [`docker system df`](https://docs.docker.com/engine/reference/commandline/system_df/) to see where your space is going (try `-v` for even more info). You’ll see stats for four types of Docker objects. I haven’t had to battle volume bloat much, so I’m not going to talk about it here, but let’s talk about the other three objects:
 
 **Images**: okay, if you use Docker, you probably know what an image is, and it’s probably pretty to easy to imagine how, if you have enough of them, they start taking up a lot of disk space. Because images are composed of layers (see below), an image only takes up size according to its _unique_ layers--but this can still add up. If you’re developing with Tilt, especially if you’re not using [Live Update](https://blog.tilt.dev/2019/04/02/fast-kubernetes-development-with-live-update.html) and are doing a fresh docker build for every code change, you’ll be building a _lot_ of images. Sorry about that!
 
@@ -55,7 +54,7 @@ Docker does all this (retaining a cache, keeping old images around) in order to 
 
 Luckily, there are a number of `prune` commands that you can run to get rid of all the old Docker artifacts that you don’t actually need anymore and reclaim your precious, precious disk space. (Note that `docker system df` has a "reclaimable" column that indicates how much of each object can safely be pruned away.)
 
-**[`docker images prune`](https://docs.docker.com/engine/reference/commandline/image_prune/)**: by default, this command gets rid of all _dangling images_, i.e. images without tags. (You get dangling images when, say, you had tag `myapp:latest` pointing to image ID `a1b2c3d4`, but then you pull down a new version of `myapp:latest`, such that the tag now points to `e5f6g7h8`; your old image ID, `a1b2c3d4`, is now tagless, i.e. _dangling_.) You can use the `--all`/`-a` flag to get rid of _unused images_ as well (i.e. images not associated with a container).
+**[`docker image prune`](https://docs.docker.com/engine/reference/commandline/image_prune/)**: by default, this command gets rid of all _dangling images_, i.e. images without tags. (You get dangling images when, say, you had tag `myapp:latest` pointing to image ID `a1b2c3d4`, but then you pull down a new version of `myapp:latest`, such that the tag now points to `e5f6g7h8`; your old image ID, `a1b2c3d4`, is now tagless, i.e. _dangling_.) You can use the `--all`/`-a` flag to get rid of _unused images_ as well (i.e. images not associated with a container).
 
 **[`docker builder prune`](https://docs.docker.com/engine/reference/commandline/builder_prune/)**: remove layers from the build cache that aren't referenced by any images.
 
@@ -63,7 +62,7 @@ Luckily, there are a number of `prune` commands that you can run to get rid of a
 
 You can kill all of your birds (...whales?) with one stone with [`docker system prune`](https://docs.docker.com/engine/reference/commandline/system_prune/), which basically does all of the above.
 
-(It can be especially satisfying to watch your disk usage with `watch -d docker system df` as you prune, and see the numbers drop before your eyes.)
+It can be especially satisfying to watch your disk usage with `watch -d docker system df` (you may need to `brew install watch`) as you prune, and see the numbers drop before your eyes.
 
 ## How does Tilt deal with this?
 
@@ -109,5 +108,6 @@ docker_pruner_settings(max_age_mins=15)
 docker_pruner_settings(num_builds=10)
 ```
 
-We hope the Docker Pruner helps keep your disk usage in check, so you can stay in flow without worrying about finicky errors. Let us know how you're finding it! [Read more about the settings in the docs.](https://docs.tilt.dev/api.html#api.docker_prune_settings)) (Don’t like it? Disable it in your Tiltfile, and let us know what would make it better.)
+We hope the Docker Pruner helps keep your disk usage in check, so you can stay in flow without worrying about finicky errors. [Read more about the settings in the docs.](https://docs.tilt.dev/api.html#api.docker_prune_settings), configure it to your liking, and let us know how it's working for you!
+
 
