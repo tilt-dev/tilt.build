@@ -44,9 +44,9 @@ If you think you’re running out of Docker storage space, dig in with [`docker 
 
 **Images**: okay, if you use Docker, you probably know what an image is, and it’s probably pretty to easy to imagine how, if you have enough of them, they start taking up a lot of disk space. Because images are composed of layers (see below), an image only takes up size according to its _unique_ layers---but this can still add up. If you’re developing with Tilt, especially if you’re not using [Live Update](https://blog.tilt.dev/2019/04/02/fast-kubernetes-development-with-live-update.html) and are doing a fresh docker build for every code change, you’ll be building a _lot_ of images. Sorry about that!
 
-**Build Cache**: Docker images are composed of _layers_ stacked on top of each other, each layer representing the filesystem state that resulted from a Dockerfile step. (For more on layers, [see the docs](https://docs.docker.com/storage/storagedriver/#images-and-layers). If nothing has changed in layer X, we can reuse the layer X we have lying around from last time and save ourselves time and work. Layers from past builds live in the cache. Usually, this is great---it increases the probability that whenever we’re building a new image, we can reuse something from before.
+**Build Cache**: Docker images are composed of _layers_ stacked on top of each other, each layer representing the filesystem state that resulted from a Dockerfile step. (For more on layers, [see the docs](https://docs.docker.com/storage/storagedriver/#images-and-layers).) If nothing has changed in layer X, we can reuse the layer X we have lying around from last time and save ourselves time and work. Layers from past builds live in the cache. Usually, this is great---it increases the probability that whenever we’re building a new image, we can reuse something from before.
 
-**Containers**: if you have a lot of containers around, either running or stopped, they can start to eat up your space, especially if you’ve got big files on them. If you tend to spin up k8s resources and then forget about them, those containers could be causing you unnecessary trouble. With K8s, though, at least when you bring down a pod, it’s container is _removed_; some other container management systems, e.g. Docker Compose, will stop but not remove the container, so you still have to contend with its size in storage.
+**Containers**: if you have a lot of containers around, either running or stopped, they can start to eat up your space, especially if you’ve got big files on them. If you tend to spin up k8s resources and then forget about them, those containers could be causing you unnecessary trouble. With K8s, though, at least when you bring down a pod, its container is _removed_; some other container management systems (e.g. Docker Compose) will stop but not remove the container, so you still have to contend with its size in storage.
 
 Docker does all this (retaining a cache, keeping old images around) in order to be _fast_, and usually that’s great! But sometimes it goes too far; when Docker hoards too much old stuff just in case we need it later, it may run out of room to do the work we actually need it to do.
 
@@ -95,15 +95,15 @@ By default, Tilt's Docker Pruner runs once after your initial builds have all co
 ```
 docker_pruner_settings(disable=True)
 ```
-* You want to keep your images around for a really long time; adjust the max age of images we keep around:
+* If you want to keep your images around for a really long time, adjust the max age of images we keep around:
 ```
 docker_pruner_settings(max_age_mins=1440)
 ```
-* Your project eats up a ton of space, and you want to blow away the maximum possible amount of stuff every time; set the max age really low. (Remember that no matter how low you set the max age, we'll only prune objects that are _not in use_. So, whatever images you're currently running are always safe.)
+* Say your project eats up a ton of space, and you want to blow away the maximum possible amount of stuff every time; set the max age really low. (Remember that no matter how low you set the max age, we'll only prune objects that are _not in use_. So, whatever images you're currently running are always safe.)
 ```
 docker_pruner_settings(max_age_mins=15)
 ```
-* The amount of space you use is unpredictable and doesn't correlate with time Tilt has been up for; instead of pruning every X hours, prune every Y builds instead.
+* Maybe the amount of space you use is unpredictable and doesn't correlate with time Tilt has been up for; in this case. instead of pruning every X hours, prune every Y builds instead.
 ```
 docker_pruner_settings(num_builds=10)
 ```
