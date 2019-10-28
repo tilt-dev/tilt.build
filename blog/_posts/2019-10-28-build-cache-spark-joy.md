@@ -103,7 +103,7 @@ docker_pruner_settings(max_age_mins=1440)
 ```
 docker_pruner_settings(max_age_mins=15)
 ```
-* Maybe the amount of space you use is unpredictable and doesn't correlate with time Tilt has been up for; in this case. instead of pruning every X hours, prune every Y builds instead.
+* Maybe the amount of space you use is unpredictable and doesn't correlate with time Tilt has been up for; in this case, instead of pruning every X hours, prune every Y builds instead.
 ```
 docker_pruner_settings(num_builds=10)
 ```
