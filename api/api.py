@@ -24,7 +24,7 @@ def fall_back_on(files: Union[str, List[str]]) -> LiveUpdateStep:
   that is, if any files fall outside of DockerBuild.context or CustomBuild.deps,
   an error will be raised.)
 
-  For more info, see the `Live Update Reference <live_update_reference>`_.
+  For more info, see the `Live Update Reference <live_update_reference.html>`_.
 
   Args:
       files: a string or list of strings of files. If relative, will be evaluated relative to the Tiltfile. Tilt compares these to the local paths of edited files when determining whether to fall back to a full image build.
@@ -36,7 +36,7 @@ def sync(local_path: str, remote_path: str) -> LiveUpdateStep:
 
   May not follow any `run` steps in a `live_update`.
 
-  For more info, see the `Live Update Reference <live_update_reference>`_.
+  For more info, see the `Live Update Reference <live_update_reference.html>`_.
 
   Args:
       localPath: A path relative to the Tiltfile's directory. Changes to files matching this path will be synced to `remotePath`.
@@ -50,7 +50,7 @@ def run(cmd: str, trigger: Union[List[str], str] = []) -> LiveUpdateStep:
 
   May not precede any `sync` steps in a `live_update`.
 
-  For more info, see the `Live Update Reference <live_update_reference>`_.
+  For more info, see the `Live Update Reference <live_update_reference.html>`_.
 
   Args:
     cmd: A shell command.
@@ -67,7 +67,7 @@ def restart_container() -> LiveUpdateStep:
   (e.g. containerd, CRI-O), please see the `wrapper script for simulating
   restart_container <https://github.com/windmilleng/rerun-process-wrapper>`_.
 
-  For more info, see the `Live Update Reference <live_update_reference>`_.
+  For more info, see the `Live Update Reference <live_update_reference.html>`_.
   """
   pass
 
@@ -128,7 +128,7 @@ class FastBuild:
 def fast_build(img_name: str, dockerfile_path: str, entrypoint: str = "") -> FastBuild:
   """Initiates a docker image build that supports ``add`` s and ``run`` s, and that uses a cache for subsequent builds.
 
-  **Note**: this is a deprecated feature. For the fast building of the future, check out our `LiveUpdate tutorial </live_update_tutorial.html>`_ and `reference documention </live_update_reference.html>`_.
+  **Note**: this is a deprecated feature. For the fast building of the future, check out our `LiveUpdate tutorial </live_update_tutorial.html>`_ and `reference documention <live_update_reference.html>`_.
   """
   pass
 
@@ -252,7 +252,7 @@ def k8s_resource_assembly_version(version: int) -> None:
   Specifies which version of k8s resource assembly loading to use.
 
   This function is deprecated and will be removed.
-  See `Resource Assembly Migration </resource_assembly_migration.html>`_ for information.
+  See `Resource Assembly Migration <resource_assembly_migration.html>`_ for information.
 
   Changes the behavior of :meth:`k8s_resource`.
   """
@@ -262,7 +262,7 @@ def k8s_resource_v1_DEPRECATED(name: str, yaml: Union[str, Blob] = "", image: Un
   """NOTE: This is actually named :meth:`k8s_resource`. This documents
   the behavior of this method after a call to :meth:`k8s_resource_assembly_version` with value `1`.
   This behavior is deprecated and will be removed.
-  See `Resource Assembly Migration </resource_assembly_migration.html>`_ for information.
+  See `Resource Assembly Migration <resource_assembly_migration.html>`_ for information.
 
   Creates a kubernetes resource that tilt can deploy using the specified image.
 
@@ -387,7 +387,7 @@ def helm(pathToChartDir: str, name: str = "", namespace: str = "", values: Union
   """Run `helm template <https://docs.helm.sh/helm/#helm-template>`_ on a given directory that contains a chart and return the fully rendered YAML as a Blob
   Chart directory is watched (See ``watch_file``).
 
-  For more examples, see the `Helm Cookbook <helm>`_.
+  For more examples, see the `Helm Cookbook <helm.html>`_.
 
   Args:
     pathToChartDir: Path to the directory locally (absolute, or relative to the location of the Tiltfile).
@@ -473,7 +473,7 @@ def default_registry(registry: str) -> None:
 
   This is useful if, e.g., a repo is configured to push to Google Container Registry, but you want to use Elastic Container Registry instead, without having to edit a bunch of configs. For example, ``default_registry("gcr.io/myrepo")`` would cause ``docker.io/alpine`` to be rewritten to ``gcr.io/myrepo/docker.io_alpine``
 
-  For more info, see our `Using a Personal Registry Guide <personal_registry>`_.
+  For more info, see our `Using a Personal Registry Guide <personal_registry.html>`_.
 
   Args:
     registry: The registry that all built images should be renamed to use.
@@ -589,7 +589,7 @@ def allow_k8s_contexts(contexts: Union[str, List[str]]) -> None:
   2. The context name is one of a few known local context names (e.g,. "minikube").
   3. The context name is explicitly passed to `allow_k8s_contexts` in the Tiltfile.
 
-  For more on which cluster context is right for you, see `Choosing a Local Dev Cluster <choosing_clusters>`_.
+  For more on which cluster context is right for you, see `Choosing a Local Dev Cluster <choosing_clusters.html>`_.
 
   Args:
     contexts: a string or list of strings, specifying one or more k8s context

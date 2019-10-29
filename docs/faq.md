@@ -24,7 +24,7 @@ There is another project called Tilt for
 You're accidentally running that Tilt instead.
 
 Common fixes include deleting the other Tilt, always using an absolute path, or
-renaming Tilt to avoid the conflict. Tilt is a static binary so it is OK to
+renaming Tilt to `tlt` to avoid the conflict. Tilt is a static binary so it is OK to
 rename it.
 
 ### Q: I'm getting push errors like "unauthorized: You don't have the needed permissions". What do I do?
@@ -74,9 +74,6 @@ any personally identifiable info, but just to be safe, email the file to
 [help@tilt.dev](mailto:help@tilt.dev). We will do our
 best to figure it out!
 
-Building Container Images
--------------------------
-
 ### Q: Tilt says it's building images. But I can't find them with the Docker CLI. What's going on?
 
 If you are using Minikube or MicroK8s, Tilt will automatically connect to the
@@ -102,7 +99,7 @@ You're right, that would be slow!
 Most local Kubernetes development solutions let you build images directly inside
 the cluster. There's no need to push the image to a remote repository.
 
-When you're using Docker for Mac or Minikube, Tilt will automatically build the
+When you're using Docker for Mac, Minikube, or MicroK8s, Tilt will automatically build the
 images in-cluster. When it detects this case, it will even modify your
 Kubernetes configs to set ImageNeverPull, so that Kubernetes will emit an error
 if it even tries to pull an image from a remote server.
@@ -131,10 +128,6 @@ server. Specifically:
 This is helpful if you have a more powerful machine in the cloud that you want
 to build your images.
 
-
-Deploying Containers
--------------------------
-
 ### Q: How do I change what Kubernetes cluster Tilt uses?
 
 Tilt uses the default Kubernetes cluster configured in `kubectl`.
@@ -161,47 +154,8 @@ The most common options we see in local development are
 `microk8s`, `docker-desktop` (Docker For Mac stable), and
 `docker-for-desktop` (older Docker for Mac versions).
 
-There is one exception to this rule:
-[Kind](https://github.com/kubernetes-sigs/kind) (Kubernetes in Docker) does not
-use `kubectl config`. Instead, you run:
+### Q: What local Kubernetes solution should I choose?
 
-```bash
-KUBECONFIG="$(kind get kubeconfig-path)" tilt up
-```
-
-Tilt reads the same `KUBECONFIG` environment variable that `kubectl` uses. This variable
-sets the path to a Kubernetes config.
+Check out our [Guide to Choosing a Local Cluster](choosing_clusters.html).
 
 <script src="/assets/js/links.js" async></script>
-
-### Q: How do I set up Tilt to use MicroK8s?
-
-If you're using Linux, [microk8s](https://microk8s.io/)
-is a fast, low-overhead way to run Kubernetes locally for development.
-
-To install it, run:
-
-```bash
-sudo snap install microk8s --classic && \
-sudo microk8s.enable dns && \
-sudo microk8s.enable registry
-```
-
-The command `microk8s.enable registry` runs a local image registry inside microk8s.
-
-Tilt will automatically push images directly to this local registry.
-This is orders of magnitude faster than pushing and pulling images from a remote registry.
-
-To add microk8s to the list of clusters you can deploy to with `kubectl`, run
-
-```bash
-sudo microk8s.kubectl config view --flatten > ~/.kube/microk8s-config && \
-KUBECONFIG=~/.kube/microk8s-config:~/.kube/config kubectl config view --flatten > ~/.kube/temp-config && \
-mv ~/.kube/temp-config ~/.kube/config
-```
-
-Tilt always uses the current kubectl context. To set the kubectl context to microk8s, run:
-
-```bash
-kubectl config use-context microk8s
-```
