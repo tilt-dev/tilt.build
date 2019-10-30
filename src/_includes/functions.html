@@ -36,6 +36,24 @@ the default of all known-local clusters.</td>
 </tbody>
 </table>
 </dd></dl><dl class="function">
+<dt id="api.analytics_settings">
+<code class="descclassname">api.</code><code class="descname">analytics_settings</code><span class="sig-paren">(</span><em>enable</em><span class="sig-paren">)</span><a class="headerlink" href="#api.analytics_settings" title="Permalink to this definition">&#xB6;</a></dt>
+<dd><p>Overrides Tilt telemetry.</p>
+<p>By default, Tilt does not send telemetry. After you successfully run a Tiltfile,
+the Tilt web UI will nudge you to opt in or opt out of telemetry.</p>
+<p>The Tiltfile can override these telemetry settings, for teams
+that always want telemetry enabled or disabled.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name">
+<col class="field-body">
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>enable</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>) &#x2013; if true, telemetry will be turned on. If false, telemetry will be turned off.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><code class="docutils literal notranslate"><span class="pre">None</span></code></td>
+</tr>
+</tbody>
+</table>
+</dd></dl><dl class="function">
 <dt id="api.blob">
 <code class="descclassname">api.</code><code class="descname">blob</code><span class="sig-paren">(</span><em>contents</em><span class="sig-paren">)</span><a class="headerlink" href="#api.blob" title="Permalink to this definition">&#xB6;</a></dt>
 <dd><p>Creates a Blob object that wraps the provided string. Useful for passing strings in to functions that expect a <cite>Blob</cite>, e.g. <code class="docutils literal notranslate"><span class="pre">k8s_yaml</span></code>.</p>

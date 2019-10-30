@@ -1,5 +1,6 @@
 functions:
 - allow_k8s_contexts
+- analytics_settings
 - blob
 - custom_build
 - dc_resource
