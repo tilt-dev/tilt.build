@@ -20,10 +20,14 @@
   items:
   - title: Faster Development with Live Update (Tutorial)
     href: live_update_tutorial.html
+  - title: Live Update Reference
+    href: live_update_reference.html
   - title: "Debugging File Changes: Rebuilds and Ignores"
     href: file_changes.html
   - title: Play and Pause Resources with Manual Update Control
     href: manual_update_control.html
+  - title: Share Errors and Cluster State with Snapshots
+    href: snapshots.html
 - title: Tilt Cookbooks
   items:
   - title: Tiltfile Concepts
@@ -44,15 +48,15 @@
     href: custom_build.html
   - title: "How to: Bazel Build Scripts"
     href: integrating_bazel_with_tilt.html
-- title: Reference
+- title: Help
   items:
+  - title: Who is Tilt for?
+    href: product_faq.html
+  - title: Frequently Asked Questions
+    href: faq.html
   - title: Tiltfile API Reference
     href: api.html
   - title: Tiltfile API - os module
     href: api_os.html
-  - title: Live Update Reference
-    href: live_update_reference.html
-  - title: Frequently Asked Questions
-    href: faq.html
   - title: Code of Conduct
     href: code_of_conduct.html
