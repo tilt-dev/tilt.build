@@ -28,10 +28,9 @@ A resource is "ready" when:
 * For local resources: the command has succeeded at least once
 
 Some other use cases:
-* Define your resource deps such that teammates who work on different subsets of services
-  can simply `tilt up svc1 svc2` to get the services they are working on, and
-  any dependencies they need to work on those services, without having to
-  explicitly list them all.
+* Define your resource deps such that it's easy to bring up only the services
+  you need for what you're currently working on. e.g., `tilt up frontend`
+  starts not just `frontend`, but also the database and the assets server.
 * Create a `local_resource` to generate language bindings from protobuf schemas,
   and make the services that use those language bindings depend on that `local resource`.
 
@@ -39,15 +38,10 @@ Caveat:
 This feature currently mostly only helps in the common case that different versions
 of services are broadly compatible with each other, and focuses on ensuring that
 *some* instance of a resource's dependencies exist, without worrying too much about
-whether it's a *current* version. A couple of ways in which this might affect your
-expectations:
-1. `resource_deps` only affects the first build after a `tilt up`. Once any version
-    of `database` has been running at least once, its dependencies are unblocked
-    for the rest of Tilt's lifetime.
-2. Due to Tilt's ability to [reuse instances from previous Tilt invocations](https://blog.tilt.dev/2019/10/14/september-commit-of-the-month.html),
-    if you have an old `database` running when you `tilt up`, it can satisfy
-    `frontend`'s dependency. This can make it seem like `resource_deps` is not
-    having any effect.
+whether it's a *current* version. For this reason, `resource_deps` currently only
+affects the first build after a `tilt up`. e.g., Once any version of `database`
+has been running at least once, its dependencies are unblocked to build for the
+rest of Tilt's lifetime.
 
 We think this feature is useful as-is, but are aware there are more possibilities
 for it. Please [reach out](https://tilt.dev/contact) if it's not meeting your
