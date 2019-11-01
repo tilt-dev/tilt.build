@@ -3,7 +3,7 @@ title: Who is Tilt for?
 layout: docs
 ---
 
-Tilt is a cloud-native development environment for teams that deploy to Kubernetes.
+Tilt is a cloud-native development engine for teams that deploy to Kubernetes.
 
 It's free and open-source.
 
@@ -74,9 +74,7 @@ We’re a small team of 6 people. We’re based at
 
 ### If you're a startup, does that mean you will collapse?
 
-Eventually! All things must pass.
-
-We're just excited to be working on this problem now.
+We have funding from top-tier VCs we love, and have plans. Talk to us if you're nervous.
 
 Tilt (the local dev environment) will always be free and open-source. If we
 can't turn this into a business, the community should be able to continue using
@@ -108,8 +106,8 @@ Filing a GitHub issue helps a lot, even if it's not always obvious from the outs
 
 We also have a number of partnerships with teams that we meet with
 semi-regularly to get feedback and help prioritize things that are affecting
-many people. If you're interested in partnering with us, please email our CEO
-[dan](mailto:dan@tilt.dev).
+many people. If you're interested in [partnering](partner_program.html) with us,
+please email our CEO [Dan](mailto:dan@tilt.dev?subject=Tilt partner program).
 
 ### Why did you call it Tilt?
 

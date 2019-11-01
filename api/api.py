@@ -678,3 +678,17 @@ def docker_prune_settings(disable: bool=True, max_age_mins: int=360, num_builds:
     interval_hrs: run a Docker Prune every ``interval_hrs`` hours (unless ``num_builds`` is set, in which case use the "prune every X builds" logic). Defaults to 1 hour
   """
   pass
+
+def analytics_settings(enable: bool) -> None:
+  """Overrides Tilt telemetry.
+
+  By default, Tilt does not send telemetry. After you successfully run a Tiltfile,
+  the Tilt web UI will nudge you to opt in or opt out of telemetry.
+
+  The Tiltfile can override these telemetry settings, for teams
+  that always want telemetry enabled or disabled.
+
+  Args:
+    enable: if true, telemetry will be turned on. If false, telemetry will be turned off.
+  """
+  pass
