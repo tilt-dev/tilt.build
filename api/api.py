@@ -644,6 +644,7 @@ def local_resource(name: str, cmd: str, deps: Union[str, List[str]] = None,
       `Manual Update Control docs <manual_update_control.html>`_.
     resource_deps: a list of resources on which this resource depends.
       See the `Resource Dependencies docs <resource_dependencies.html>`_.
+    ignore: set of file patterns that will be ignored. Ignored files will not trigger runs. Follows the `dockerignore syntax <https://docs.docker.com/engine/reference/builder/#dockerignore-file>`_.
   """
   pass
 
