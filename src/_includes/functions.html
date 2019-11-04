@@ -366,7 +366,7 @@ for more info.)</li>
 </table>
 </dd></dl><dl class="function">
 <dt id="api.helm">
-<code class="descclassname">api.</code><code class="descname">helm</code><span class="sig-paren">(</span><em>pathToChartDir</em>, <em>name=&apos;&apos;</em>, <em>namespace=&apos;&apos;</em>, <em>values=[]</em><span class="sig-paren">)</span><a class="headerlink" href="#api.helm" title="Permalink to this definition">&#xB6;</a></dt>
+<code class="descclassname">api.</code><code class="descname">helm</code><span class="sig-paren">(</span><em>pathToChartDir</em>, <em>name=&apos;&apos;</em>, <em>namespace=&apos;&apos;</em>, <em>values=[]</em>, <em>set=[]</em><span class="sig-paren">)</span><a class="headerlink" href="#api.helm" title="Permalink to this definition">&#xB6;</a></dt>
 <dd><p>Run <a class="reference external" href="https://docs.helm.sh/helm/#helm-template">helm template</a> on a given directory that contains a chart and return the fully rendered YAML as a Blob
 Chart directory is watched (See <code class="docutils literal notranslate"><span class="pre">watch_file</span></code>).</p>
 <p>For more examples, see the <a class="reference external" href="helm.html">Helm Cookbook</a>.</p>
@@ -379,6 +379,7 @@ Chart directory is watched (See <code class="docutils literal notranslate"><span
 <li><strong>name</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) &#x2013; The release name. Equivalent to the helm <cite>&#x2013;name</cite> flag</li>
 <li><strong>namespace</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) &#x2013; The namespace to deploy the chart to. Equivalent to the helm <cite>&#x2013;namespace</cite> flag</li>
 <li><strong>values</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]]) &#x2013; Specify one or more values files (in addition to the <cite>values.yaml</cite> file in the chart). Equivalent to the Helm <code class="docutils literal notranslate"><span class="pre">--values</span></code> or <code class="docutils literal notranslate"><span class="pre">-f</span></code> flags (<a class="reference external" href="https://helm.sh/docs/chart_template_guide/#values-files">see docs</a>).</li>
+<li><strong>set</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]]) &#x2013; Specify one or more values. Equivalent to the Helm <code class="docutils literal notranslate"><span class="pre">--set</span></code> flag.</li>
 </ul>
 </td>
 </tr>

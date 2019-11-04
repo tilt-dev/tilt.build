@@ -388,7 +388,7 @@ def kustomize(pathToDir: str) -> Blob:
     pathToDir: Path to the directory locally (absolute, or relative to the location of the Tiltfile)."""
   pass
 
-def helm(pathToChartDir: str, name: str = "", namespace: str = "", values: Union[str, List[str]]=[]) -> Blob:
+def helm(pathToChartDir: str, name: str = "", namespace: str = "", values: Union[str, List[str]]=[], set: Union[str, List[str]]=[]) -> Blob:
   """Run `helm template <https://docs.helm.sh/helm/#helm-template>`_ on a given directory that contains a chart and return the fully rendered YAML as a Blob
   Chart directory is watched (See ``watch_file``).
 
@@ -399,6 +399,7 @@ def helm(pathToChartDir: str, name: str = "", namespace: str = "", values: Union
     name: The release name. Equivalent to the helm `--name` flag
     namespace: The namespace to deploy the chart to. Equivalent to the helm `--namespace` flag
     values: Specify one or more values files (in addition to the `values.yaml` file in the chart). Equivalent to the Helm ``--values`` or ``-f`` flags (`see docs <https://helm.sh/docs/chart_template_guide/#values-files>`_).
+    set: Specify one or more values. Equivalent to the Helm ``--set`` flag.
 """
   pass
 
