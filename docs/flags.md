@@ -26,16 +26,15 @@ and you want your users to be able to run only a subset of them. E.g., `tilt up`
 * `tilt up`: run all services
 * `tilt up a b d`: run A, B, and D but not C
 * `tilt flags a b`: change running Tilt to run A and B but neither C nor D.
-* `tilt up` (a second time): run all services
+* `tilt up` (a second time): run a and b (the last services set)
 
 #### Tiltfile
 ```python
-flags.define_string_list("to-run", args=True, sticky=False)
+flags.define_string_list("to-run", args=True)
 cfg = flags.parse()
 
-flags.exclude_all_resources()
-for r in cfg['to-run']:
-  flags.include_resource(r)
+
+flags.set_resources(cft['to-run'])
 ```
 
 ### Run a defined set of services
@@ -58,31 +57,18 @@ groups = {
   'enterprise': ['a', 'b', 'd'],
 }
 
-
-
-
-
-
-
-
-
-
-
-
-flags.exclude_all_resources()
+resources = []
 for arg in cfg['args']:
   if arg in groups:
-    for r in groups[arg]:
-      flags.include_resource(r)
+    resources += groups[arg]
   else:
-    flags.include_resource(r)
+    resources.append(r)
+flags.set_resources(resources)
 ```
-
-By making the flag sticky (the default), Tilt will record the flag between runs.
 
 
 ### Specify services to edit
-You have many services that your users frequently need to run, but don't expect to edit. Your YAML includes images from your CI that are suitably recently (and match what's in production or staging).
+You have many services that your users frequently need to run, but don't expect to edit. Your YAML includes good enough images. (Perhaps they're from a suitably recent CI invocation, or refer to standard images.)
 
 #### Command-Lines
 * `tilt up`: run all services, editing none
@@ -97,7 +83,9 @@ cfg = flags.parse()
 
 # omitting the code from above Tiltfile that includes correct resources
 
-# only configure the build for services we want to edit
+# Only configure the build for services we want to edit
+# Thanks to Tilt's existing behavior, an image that is mentioned in YAML but has no build set
+# will use the existing tag.
 if 'a' in cfg['to-edit']:
   docker_build('a', './a')
 if 'b' in cfg['to-edit']:
@@ -115,16 +103,35 @@ Any change to the flags file will cause Tilt to reexecute the Tiltfile. You can 
 
 A call to `tilt flags` will connect to the running Tilt instance on the server port and cause Tilt to reexecute the Tiltfile, using the passed command-line args as if it's the first execution after a Tilt up.
 
+### Comparison to Default Behavior
+If you don't call `flags.parse`, Tilt's default behavior is to set resources to any (non-empty) passed args. The equivalent of a Tiltfile:
+```python
+flags.define_string_list("args", args=True)
+cfg = flags.parse(write_file=False)
+if cfg['args']:
+  flags.set_resources(cfg['args'])
+```
+You can see this in the Tiltfile execution log.
+
 ## Future Directions
 This section describes places we expect flags to go. Let us know if any of these would be particularly helpful to you and your team.
 
 ### More Kinds of Flags
 You should be able to define more kinds of flags. For example, a list of ints or floats, or a singly-valued string. By moving error-checking to the built-in library, you can make your Tiltfile shorter and more correct.
 
-### Better Flag Manipulation
+### Better Flag Manipulation/Discovery
 Your users should be able to understand what reasonable values are. This could be from help output, tab-completion, or in the Web UI.
 
 Your users should be able to modify flags in the Web UI, without having to know there's a file underneath.
 
 ### Escape Hatch for Flag Parsing
 You should be able to use a custom syntax for your flags. The flags module could take a function that would parse a command-line into a JSON value.
+
+## Open Qs:
+### Namespace
+What namespace should this go in? `flags`? `config`? Just be in the global namespace?
+
+### Defining Flags
+Should we use an existing flags library for commonality?
+Pros: commonality is nice. It prevents us from having to define something new, and potentially users from having to learn something new.
+Cons: we may want to support different semantics, e.g. letting people add to set flags.
