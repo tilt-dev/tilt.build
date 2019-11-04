@@ -132,6 +132,34 @@ def fast_build(img_name: str, dockerfile_path: str, entrypoint: str = "") -> Fas
   """
   pass
 
+def docker_compose(configPaths: Union[str, List[str]]) -> None:
+  """Run containers with Docker Compose.
+
+  Tilt will read your docker-compose YAML and separate out the services.
+  We will infer which services defined in your YAML
+  correspond to images defined elsewhere in your ``Tiltfile`` (matching based on
+  the DockerImage ref).
+
+  Tilt will watch for changes your docker-compose YAML and reload if it changes.
+
+  For more info, see `the guide to Tilt with Docker Compose <docker_compose.html>`_.
+
+  Examples:
+
+  .. code-block:: python
+
+    # Path to file
+    docker_compose('./docker-compose.yml')
+
+    # List of files
+    docker_compose(['./docker-compose.yml', './docker-compose.override.yml'])
+
+  Args:
+    yaml: Path(s) to YAML.
+  """
+
+
+
 def k8s_yaml(yaml: Union[str, List[str], Blob]) -> None:
   """Call this with a path to a file that contains YAML, or with a ``Blob`` of YAML.
 
