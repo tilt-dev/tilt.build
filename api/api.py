@@ -135,7 +135,7 @@ def fast_build(img_name: str, dockerfile_path: str, entrypoint: str = "") -> Fas
 def docker_compose(configPaths: Union[str, List[str]]) -> None:
   """Run containers with Docker Compose.
 
-  Tilt will read your docker-compose YAML and separate out the services.
+  Tilt will read your Docker Compose YAML and separate out the services.
   We will infer which services defined in your YAML
   correspond to images defined elsewhere in your ``Tiltfile`` (matching based on
   the DockerImage ref).
