@@ -140,7 +140,7 @@ def docker_compose(configPaths: Union[str, List[str]]) -> None:
   correspond to images defined elsewhere in your ``Tiltfile`` (matching based on
   the DockerImage ref).
 
-  Tilt will watch for changes your docker-compose YAML and reload if it changes.
+  Tilt will watch your Docker Compose YAML and reload if it changes.
 
   For more info, see `the guide to Tilt with Docker Compose <docker_compose.html>`_.
 
