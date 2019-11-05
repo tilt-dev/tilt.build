@@ -130,6 +130,16 @@ The `live_update` option is expressed as a sequence of in-place update steps.
 
 For more info on `live_update`, check out the [full tutorial](live_update_tutorial.html).
 
+## Multiple Compose Files
+
+To use multiple
+[Docker Compose files](https://docs.docker.com/compose/extends/), simply pass
+the list of files to your `docker_compose` function.
+
+```python
+docker_compose(["./docker-compose.yml", "./docker-compose.override.yml"])
+```
+
 ## Debugging
 
 Tilt uses Docker Compose to run your services, so you can also use `docker-compose` to examine state outside Tilt.
