@@ -155,7 +155,7 @@ def docker_compose(configPaths: Union[str, List[str]]) -> None:
     docker_compose(['./docker-compose.yml', './docker-compose.override.yml'])
 
   Args:
-    yaml: Path(s) to YAML.
+    configPaths: Path(s) to Docker Compose yaml files.
   """
 
 
