@@ -225,11 +225,11 @@ ensures a pretty high bar of intent.</p>
 <dt id="api.docker_compose">
 <code class="descclassname">api.</code><code class="descname">docker_compose</code><span class="sig-paren">(</span><em>configPaths</em><span class="sig-paren">)</span><a class="headerlink" href="#api.docker_compose" title="Permalink to this definition">&#xB6;</a></dt>
 <dd><p>Run containers with Docker Compose.</p>
-<p>Tilt will read your docker-compose YAML and separate out the services.
+<p>Tilt will read your Docker Compose YAML and separate out the services.
 We will infer which services defined in your YAML
 correspond to images defined elsewhere in your <code class="docutils literal notranslate"><span class="pre">Tiltfile</span></code> (matching based on
 the DockerImage ref).</p>
-<p>Tilt will watch for changes your docker-compose YAML and reload if it changes.</p>
+<p>Tilt will watch your Docker Compose YAML and reload if it changes.</p>
 <p>For more info, see <a class="reference external" href="docker_compose.html">the guide to Tilt with Docker Compose</a>.</p>
 <p>Examples:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Path to file</span>
@@ -243,7 +243,7 @@ the DockerImage ref).</p>
 <col class="field-name">
 <col class="field-body">
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>yaml</strong> &#x2013; Path(s) to YAML.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>configPaths</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]]) &#x2013; Path(s) to Docker Compose yaml files.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><code class="docutils literal notranslate"><span class="pre">None</span></code></td>
 </tr>
