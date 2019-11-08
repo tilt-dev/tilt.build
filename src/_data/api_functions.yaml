@@ -8,6 +8,7 @@ functions:
 - default_registry
 - disable_snapshots
 - docker_build
+- docker_compose
 - docker_prune_settings
 - enable_feature
 - fail

@@ -222,6 +222,34 @@ ensures a pretty high bar of intent.</p>
 </tbody>
 </table>
 </dd></dl><dl class="function">
+<dt id="api.docker_compose">
+<code class="descclassname">api.</code><code class="descname">docker_compose</code><span class="sig-paren">(</span><em>configPaths</em><span class="sig-paren">)</span><a class="headerlink" href="#api.docker_compose" title="Permalink to this definition">&#xB6;</a></dt>
+<dd><p>Run containers with Docker Compose.</p>
+<p>Tilt will read your docker-compose YAML and separate out the services.
+We will infer which services defined in your YAML
+correspond to images defined elsewhere in your <code class="docutils literal notranslate"><span class="pre">Tiltfile</span></code> (matching based on
+the DockerImage ref).</p>
+<p>Tilt will watch for changes your docker-compose YAML and reload if it changes.</p>
+<p>For more info, see <a class="reference external" href="docker_compose.html">the guide to Tilt with Docker Compose</a>.</p>
+<p>Examples:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Path to file</span>
+<span class="n">docker_compose</span><span class="p">(</span><span class="s1">&apos;./docker-compose.yml&apos;</span><span class="p">)</span>
+
+<span class="c1"># List of files</span>
+<span class="n">docker_compose</span><span class="p">([</span><span class="s1">&apos;./docker-compose.yml&apos;</span><span class="p">,</span> <span class="s1">&apos;./docker-compose.override.yml&apos;</span><span class="p">])</span>
+</pre></div>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name">
+<col class="field-body">
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>yaml</strong> &#x2013; Path(s) to YAML.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><code class="docutils literal notranslate"><span class="pre">None</span></code></td>
+</tr>
+</tbody>
+</table>
+</dd></dl><dl class="function">
 <dt id="api.docker_prune_settings">
 <code class="descclassname">api.</code><code class="descname">docker_prune_settings</code><span class="sig-paren">(</span><em>disable=True</em>, <em>max_age_mins=360</em>, <em>num_builds=0</em>, <em>interval_hrs=1</em><span class="sig-paren">)</span><a class="headerlink" href="#api.docker_prune_settings" title="Permalink to this definition">&#xB6;</a></dt>
 <dd><p>Configures Tilt&#x2019;s Docker Pruner, which runs occasionally in the background and prunes Docker images associated
