@@ -229,9 +229,6 @@ def k8s_resource(workload: str, new_name: str = "",
                  trigger_mode: TriggerMode = TRIGGER_MODE_AUTO, resource_deps: List[str] = []) -> None:
   """Configures a kubernetes resources
 
-  This description apply to `k8s_resource_assembly_version` 2.
-  If you are running Tilt version < 0.8.0 and/or do not call `k8s_resource_assembly_version(2)`, see :meth:`k8s_resource_v1_DEPRECATED` instead.
-
   Args:
     workload: which workload's resource to configure. This is a colon-separated
       string consisting of one or more of (name, kind, namespace, group), e.g.,
@@ -278,47 +275,6 @@ def dc_resource(name: str, trigger_mode: TriggerMode = TRIGGER_MODE_AUTO, resour
       See the `Resource Dependencies docs <resource_dependencies.html>`_.
   """
 
-  pass
-
-def k8s_resource_assembly_version(version: int) -> None:
-  """
-  Specifies which version of k8s resource assembly loading to use.
-
-  This function is deprecated and will be removed.
-  See `Resource Assembly Migration <resource_assembly_migration.html>`_ for information.
-
-  Changes the behavior of :meth:`k8s_resource`.
-  """
-
-def k8s_resource_v1_DEPRECATED(name: str, yaml: Union[str, Blob] = "", image: Union[str, FastBuild] = "",
-    port_forwards: Union[str, int, List[int]] = [], extra_pod_selectors: Union[Dict[str, str], List[Dict[str, str]]] = []) -> None:
-  """NOTE: This is actually named :meth:`k8s_resource`. This documents
-  the behavior of this method after a call to :meth:`k8s_resource_assembly_version` with value `1`.
-  This behavior is deprecated and will be removed.
-  See `Resource Assembly Migration <resource_assembly_migration.html>`_ for information.
-
-  Creates a kubernetes resource that tilt can deploy using the specified image.
-
-  Args:
-    name: What call this resource in the UI. If ``image`` is not specified ``name`` will be used as the image to group by.
-    yaml: Optional YAML. If this arg is not passed, we
-      expect to be able to extract it from an existing resource
-      (by looking for a k8s container running the specified ``image``).
-    image: An optional Image. If the image is not passed,
-      we expect to be able to extract it from an existing resource.
-    port_forwards: Local ports to connect to the pod. If no
-      target port is specified, will use the first container port.
-      Example values: 9000 (connect localhost:9000 to the default container port),
-      '9000:8000' (connect localhost:9000 to the container port 8000),
-      ['9000:8000', '9001:8001'] (connect localhost:9000 and :9001 to the
-      container ports 8000 and 8001, respectively).
-    extra_pod_selectors: In addition to relying on Tilt's heuristics to automatically
-      find K8S resources associated with this resource, a user may specify extra
-      labelsets to force entities to be associated with this resource. An entity
-      will be associated with this resource if it has all of the labels in at
-      least one of the entries specified (but still also if it meets any of
-      Tilt's usual mechanisms).
-  """
   pass
 
 def filter_yaml(yaml: Union[str, List[str], Blob], labels: dict=None, name: str=None, namespace: str=None, kind: str=None, api_version: str=None):
@@ -579,7 +535,6 @@ class K8sObjectID:
 
 def workload_to_resource_function(fn: Callable[[K8sObjectID], str]) -> None:
     """
-    (Only supported with :meth:`k8s_resource_assembly_version` >= 2(2))
     Provide a function that will be used to name `Tilt resources <tiltfile_concepts.html#resources>`_.
 
     Tilt will auto-generate resource names for you. If you do not like the names
