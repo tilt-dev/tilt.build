@@ -28,6 +28,8 @@
     href: manual_update_control.html
   - title: Share Errors and Cluster State with Snapshots
     href: snapshots.html
+  - title: Resource Dependencies
+    href: resource_dependencies.html
 - title: Tilt Cookbooks
   items:
   - title: Tiltfile Concepts
