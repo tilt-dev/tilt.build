@@ -31,7 +31,9 @@ yaml = helm(
   # The namespace to install in, equivalent to helm --namespace
   namespace='my-namespace',
   # The values file to substitute into the chart.
-  values=['./path/to/chart/dir/values-dev.yaml'] 
+  values=['./path/to/chart/dir/values-dev.yaml'],
+  # Values to set from the command-line
+  set=['service.port=1234', 'ingress.enabled=true']
   )
 k8s_yaml(yaml)
 ```
