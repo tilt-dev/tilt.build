@@ -677,3 +677,11 @@ def analytics_settings(enable: bool) -> None:
     enable: if true, telemetry will be turned on. If false, telemetry will be turned off.
   """
   pass
+
+def version_settings(check_updates: bool) -> None:
+  """Controls whether Tilt will display a notification in the web UI when there is a new version available.
+  By default this is set to True.
+
+  Args:
+    check_updates: whether or not to check for new versions of Tilt on GitHub.
+  """
