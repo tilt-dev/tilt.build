@@ -33,5 +33,6 @@ functions:
 - run
 - sync
 - trigger_mode
+- version_settings
 - watch_file
 - workload_to_resource_function
