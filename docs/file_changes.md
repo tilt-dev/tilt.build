@@ -129,6 +129,15 @@ Files that match these patterns will not trigger rebuilds.
 `.tiltignore` does not affect whether a file is included in any Docker
 build contexts.
 
+## Try it Yourself
+
+If you'd like to try out the APIs in this guide, see
+[this example repo](https://github.com/windmilleng/ignore-examples). You can:
+
+- `git clone https://github.com/windmilleng/ignore-examples`
+- `tilt up` to run all the servers
+- Try editing the files and see which servers reload.
+
 ## Future Work
 
 If Tilt rebuilds an image, you should always be able to look at the logs
