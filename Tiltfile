@@ -1,5 +1,8 @@
 # -*- mode: Python -*-
 
+def cloud_build(name, context, dockerfile='Dockerfile', ignore=[], live_update=[]):
+  full_name = name # TODO make this a full tag. Or can I use registry support?
+
 k8s_resource_assembly_version(2)
 
 default_registry('gcr.io/windmill-public-containers')
