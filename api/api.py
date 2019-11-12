@@ -613,8 +613,9 @@ def enable_feature(feature_name: str) -> None:
 
 def local_resource(name: str, cmd: str, deps: Union[str, List[str]] = None,
                    trigger_mode: TriggerMode = TRIGGER_MODE_AUTO,
-                   resource_deps: List[str] = []) -> None:
-  """Configures `cmd` to run on the _host_ machine, not in a remote cluster.
+                   resource_deps: List[str] = [], ignore: Union[str, List[str]] = [],
+                   auto_init: bool=True) -> None:
+  """Configures `cmd` to run on the _host_ machine (not in a remote cluster).
 
   If `deps` is set then `cmd` is run whenever one of the files specified changes.
 
@@ -629,6 +630,9 @@ def local_resource(name: str, cmd: str, deps: Union[str, List[str]] = None,
     resource_deps: a list of resources on which this resource depends.
       See the `Resource Dependencies docs <resource_dependencies.html>`_.
     ignore: set of file patterns that will be ignored. Ignored files will not trigger runs. Follows the `dockerignore syntax <https://docs.docker.com/engine/reference/builder/#dockerignore-file>`_.
+    auto_init: whether this resource runs on ``tilt up``. Defaults to ``True``. Note that ``auto_init=False`` is only compatible with ``trigger_mode=TRIGGER_MODE_MANUAL``.
+
+  For more info, see the `Local Resource docs <local_resource.html>`_.
   """
   pass
 

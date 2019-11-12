@@ -29,8 +29,12 @@ For instance: rather than pulling/pushing big container images with the Go compi
 you'd rather compile your binary locally, and then use Live Update to quickly sync
 the new binary up to a running container in your cluster
 
+See also: [`local_resource` API spec](api.html#api.local_resource).
+
 (Of course, the command you run doesn't have to be on that (only) affects your
-local filesystem... affect the cloud, etc...)
+local filesystem. It might, for instance, be a script that is _invoked locally_
+but runs against your k8s cluster.)
+
 
 ## Local Resource + Live Update = <3
 
@@ -73,20 +77,25 @@ You can trigger a Local Resource at will with the "force update" button:
 
 !["force update" button](assets/img/force-update-button.png)
 
-By default, a Local Resource will run once on startup. To disable this behavior, specify `auto_init=False`:
+By default, a Local Resource will run on startup. To disable this behavior, put the
+resource in `TRIGGER_MODE_MANUAL` and specify `auto_init=False`:
 ```python
-local_resource('reset-db', cmd='reset_db.sh', auto_init=False)
+local_resource('reset-db', cmd='reset_db.sh',
+    trigger_mode=TRIGGER_MODE_MANUAL, auto_init=False
+)
 ```
 
+(`auto_init=False` is currently only compatible with `TRIGGER_MODE_MANUAL`. If
+you'd like a Local Resource that runs automatically in response to file changes
+but does NOT run on `tilt up`, [let us know](https://tilt.dev/contact).)
+
 Note that you can mix and match manual and automatic runs as you like. For instance,
-you might have a `seed-db` Local Resource. You don't want it to run on `tilt up`
-because that might blow away DB state from your previous run. Usually, you run it
-manually whenever you need to put new data into your DB, but want to run automatically
-if you touch the `seed_db.sh` script:
+you might have a `seed-db` Local Resource. Usually, you run it manually whenever
+you need to put new data into your DB, but want to run automatically if you touch
+the `seed_db.sh` script:
 ```python
 local_resource('reset-db',
     cmd='reset_db.sh',
     deps=['seed_db.sh'],
-    auto_init=False
 )
 ```
