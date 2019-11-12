@@ -3,13 +3,23 @@ title: Tiltfile API Reference
 layout: docs
 ---
 
-## Modules
+## Data
 
 <ul>
-{% for name in site.data.api_modules.modules %}
-<li><a href="api_{{name}}.html">{{ name }}</a></li>
+{% for name in site.data.api_data.data %}
+
+{% assign anchor = "api." | append: name %}
+{% if name contains "." %}
+  {% assign anchor = "modules." | append: name %}
+{% endif %}
+
+<li><a href="#{{anchor}}">{{ name }}</a></li>
 {% endfor %}
 </ul>
+
+---
+
+{% include data.html %}
 
 ---
 
@@ -17,7 +27,13 @@ layout: docs
 
 <ul>
 {% for name in site.data.api_functions.functions %}
-<li><a href="#api.{{name}}">{{ name }}</a></li>
+
+{% assign anchor = "api." | append: name %}
+{% if name contains "." %}
+  {% assign anchor = "modules." | append: name %}
+{% endif %}
+  
+<li><a href="#{{anchor}}">{{ name }}</a></li>
 {% endfor %}
 </ul>
 
@@ -31,7 +47,13 @@ layout: docs
 
 <ul>
 {% for name in site.data.api_classes.classes %}
-<li><a href="#api.{{name}}">{{ name }}</a></li>
+
+{% assign anchor = "api." | append: name %}
+{% if name contains "." %}
+  {% assign anchor = "modules." | append: name %}
+{% endif %}
+  
+<li><a href="#{{anchor}}">{{ name }}</a></li>
 {% endfor %}
 </ul>
 
