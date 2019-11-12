@@ -2,13 +2,13 @@
 title: Run Local and/or Occasional Workflows with Local Resource
 layout: docs
 ---
-Each entry in your Tilt sidebar is a **resource**---a unit of work managed by Tilt. (Until
-this point, most Tilt resources have been a some combination of image instructions and Kubernetes
-YAML). A **local resource** works like any other resource in your sidebar; it represents a
-unit of work, and executes either automatically in response to file changes, or
-[manually](https://docs.tilt.dev/manual_update_control.html) on signal from the user.
-For your resource `MyGreatService`, when one of its file dependencies changes, its work
-is to build a Docker image and deploy some k8s yaml; for a local resource, it's
+Each entry in your Tilt sidebar is a **resource**---a unit of work managed by Tilt. (For context,
+the most common type of Tilt resource is one that represents a deployed service, and is made up of
+some combination of image build instructions and Kubernetes YAML.) A **local resource** works
+like any other resource in your sidebar; it represents a unit of work, and executes either
+automatically in response to file changes, or [manually](https://docs.tilt.dev/manual_update_control.html)
+on signal from the user. For your resource `MyGreatService`, when one of its file dependencies
+changes, its work is to build a Docker image and deploy some k8s yaml; for a local resource, it's
 to execute an arbitrary command on your local filesystem.
 
 # Run commands locally on file change
