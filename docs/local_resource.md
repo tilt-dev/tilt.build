@@ -2,32 +2,38 @@
 title: Run Local and/or Occasional Workflows with Local Resource
 layout: docs
 ---
-A **local resource** works like any other resource in your sidebar (which are most
-often some combination of Docker Build instructions and K8s Yaml)--encompasses
-a unit of work, and execute in response to file changes, or
-[manually](https://docs.tilt.dev/manual_update_control.html). For your resource
-`MyGreatService`, when one of its file dependencies changes, the work it executes
+Each entry in your Tilt sidebar is a **resource**---a unit of work managed by Tilt. (Until
+this point, most Tilt resources have been a some combination of image instructions and Kubernetes
+YAML). A **local resource** works like any other resource in your sidebar; it represents a
+unit of work, and executes either automatically in response to file changes, or
+[manually](https://docs.tilt.dev/manual_update_control.html) on signal from the user.
+For your resource `MyGreatService`, when one of its file dependencies changes, its work
 is to build a Docker image and deploy some k8s yaml; for a local resource, it's
 to execute an arbitrary command on your local filesystem.
 
 # Run commands locally on file change
-
-Tilt is designed to make it easy to build images, and to sync files/run commands
-in the cloud. For some kinds of development, however, you might want to harness
-Tilt's responsiveness to file changes, but run commands locally instead. These
-cases often fall into the general categories of:
+Most uses of Tilt focus on easily and quickly seeing your code running in the cloud.
+For some kinds of development, however, you might want to harness
+Tilt's responsiveness to file changes to run commands _locally_ instead. Here are two
+two general cases where running commands locally and responsively might come in handy:
 - *file changes or other artifacts that you want on your local machine (e.g. for
 git commit)*. For instance: when `package.json` changes, run `yarn install`
 (because you want the resulting `yarn.lock` file to exist on your local computer
-so that you can commit it to git)
+so that you can commit it to git).
 
 ```python
 local_resource('yarn', cmd='yarn install', deps=['package.json'])
 ```
 - *tooling that you have locally but don't want to put on your container images*.
 For instance: rather than pulling/pushing big container images with the Go compiler,
-you'd rather compile your binary locally, and then use Live Update to quickly sync
-the new binary up to a running container in your cluster
+you'd rather compile your binary locally, and pull that compiled binary into your Docker image
+(or directly into your running container via Live Update).
+
+```python
+local_resource('compile-binary',
+    cmd='go build -i -o ./bin/the-binary github.com/my-org/my-app/', deps='./my-app')
+docker_build('gcr.io/my-org/my-app', context='./bin')
+```
 
 See also: [`local_resource` API spec](api.html#api.local_resource).
 
@@ -57,11 +63,11 @@ docker_build('hello-world', '.',
 ```
 
 Note that the `docker_build` call specifies `ignore='helloworld.proto'`. This is
-because we DON'T want an edit to that proto file to kick off a Docker build.
-Rather, an edit to `helloworld.proto` triggers the local resource to generate
-protobufs; when these protobufs appear on disk, they register as file changes and
-trigger a Live Update to the `hello-world` resource, i.e. they get `sync`'d to
-the container where `hello-world` is running.
+because we DON'T want an edit to that proto file to _directly_ kick off an update to
+our Docker image (in this case, a Live Update). Rather, an edit to `helloworld.proto`
+triggers the local resource to generate protobufs; when these protobufs appear on disk,
+they register as file changes and trigger a Live Update to the `hello-world` resource,
+i.e. they get `sync`'d to the container where `hello-world` is running.
 
 To see this pattern in action, check out [this example repo](https://github.com/windmilleng/local_resource_example).
 
