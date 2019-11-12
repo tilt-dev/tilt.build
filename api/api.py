@@ -93,7 +93,7 @@ def docker_build(ref: str, context: str, build_args: Dict[str, str] = {}, docker
     ignore: set of file patterns that will be ignored. Ignored files will not trigger builds and will not be included in images. Follows the `dockerignore syntax <https://docs.docker.com/engine/reference/builder/#dockerignore-file>`_.
     only: set of file paths that should be considered for the build. All other changes will not trigger a build and will not be included in images. Inverse of ignore parameter. Only accepts real paths, not file globs.
     entrypoint: command to run when this container starts. Takes precedence over the container's ``CMD`` or ``ENTRYPOINT``, and over a `container command specified in k8s YAML <https://kubernetes.io/docs/tasks/inject-data-application/define-command-argument-container/>`_. Will be evaluated in a shell context: e.g. ``entrypoint="foo.sh bar"`` will be executed in the container as ``/bin/sh -c 'foo.sh bar'``.
-    target: Specify a build stage in the Dockerfile. Equivalent to the `docker build --target` flag.
+    target: Specify a build stage in the Dockerfile. Equivalent to the ``docker build --target`` flag.
   """
   pass
 
@@ -505,7 +505,7 @@ def custom_build(ref: str, command: str, deps: List[str], tag: str = "", disable
       ['.'],
     )
 
-  Note: the `entrypoint` parameter is not supported for Docker Compose resources. If you need it for your use case, let us know.
+  Note: the ``entrypoint`` parameter is not supported for Docker Compose resources. If you need it for your use case, let us know.
 
   Args:
     ref: name for this image (e.g. 'myproj/backend' or 'myregistry/myproj/backend'). If this image will be used in a k8s resource(s), this ref must match the ``spec.container.image`` param for that resource(s).
@@ -515,7 +515,7 @@ def custom_build(ref: str, command: str, deps: List[str], tag: str = "", disable
        then re-tag it with its own tag before pushing to your cluster. See `the bazel guide <integrating_bazel_with_tilt.html>`_ for an example.
     disable_push: whether Tilt should push the image in to the registry that the Kubernetes cluster has access to. Set this to true if your command handles pushing as well.
     live_update: set of steps for updating a running container (see `Live Update documentation <live_update_reference.html>`_).
-    match_in_env_vars: specifies that k8s objects can reference this image in their environment variables, and Tilt will handle those variables the same as it usually handles a k8s container spec's `image`s.
+    match_in_env_vars: specifies that k8s objects can reference this image in their environment variables, and Tilt will handle those variables the same as it usually handles a k8s container spec's ``image``s.
     ignore: set of file patterns that will be ignored. Ignored files will not trigger builds and will not be included in images. Follows the `dockerignore syntax <https://docs.docker.com/engine/reference/builder/#dockerignore-file>`_.
     entrypoint: command to run when this container starts. Takes precedence over the container's ``CMD`` or ``ENTRYPOINT``, and over a `container command specified in k8s YAML <https://kubernetes.io/docs/tasks/inject-data-application/define-command-argument-container/>`_. Will be evaluated in a shell context: e.g. ``entrypoint="foo.sh bar"`` will be executed in the container as ``/bin/sh -c 'foo.sh bar'``.
   """

@@ -60,7 +60,5 @@
     href: faq.html
   - title: Tiltfile API Reference
     href: api.html
-  - title: Tiltfile API - os module
-    href: api_os.html
   - title: Code of Conduct
     href: code_of_conduct.html
