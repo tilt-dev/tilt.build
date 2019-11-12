@@ -776,6 +776,21 @@ Can be a file (in which case just that file will be synced) or directory (in whi
 </tbody>
 </table>
 </dd></dl><dl class="function">
+<dt id="api.version_settings">
+<code class="descclassname">api.</code><code class="descname">version_settings</code><span class="sig-paren">(</span><em>check_updates</em><span class="sig-paren">)</span><a class="headerlink" href="#api.version_settings" title="Permalink to this definition">&#xB6;</a></dt>
+<dd><p>Controls whether Tilt will display a notification in the web UI when there is a new version available.
+By default this is set to True.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name">
+<col class="field-body">
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>check_updates</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>) &#x2013; whether or not to check for new versions of Tilt on GitHub.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><code class="docutils literal notranslate"><span class="pre">None</span></code></td>
+</tr>
+</tbody>
+</table>
+</dd></dl><dl class="function">
 <dt id="api.watch_file">
 <code class="descclassname">api.</code><code class="descname">watch_file</code><span class="sig-paren">(</span><em>file_path</em><span class="sig-paren">)</span><a class="headerlink" href="#api.watch_file" title="Permalink to this definition">&#xB6;</a></dt>
 <dd><p>Watches a file. If the file is changed a re-exectution of the Tiltfile is triggered.</p>
