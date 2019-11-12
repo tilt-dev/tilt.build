@@ -68,6 +68,12 @@
     color: $color-grey;
     position: absolute;
   }
+
+  code {
+    font-size: 22px;
+    background-color: $color-grey-lightest;
+    padding: 0 4px;
+  }
 }
 .wrapper--landing pre {
   margin-bottom: $spacing-unit / 4;
