@@ -43,7 +43,7 @@ No problem, just rerun it! Service X didn’t come up as expected because it was
 missing a dependency? Wait for the dependency to come up, and then re-run the
 deploy for Service X.
 
-!["Force update" sidebar button](assets/img/trigger-button.png)
+!["Force update" sidebar button](/assets/images/force-update/trigger-button.png)
 
 Simply click the button in the sidebar to force an update of the resource in
 question. If it’s a Docker resource, Tilt will do a full build and deploy
