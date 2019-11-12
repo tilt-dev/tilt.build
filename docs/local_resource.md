@@ -35,7 +35,6 @@ See also: [`local_resource` API spec](api.html#api.local_resource).
 local filesystem. It might, for instance, be a script that is _invoked locally_
 but runs against your k8s cluster.)
 
-
 ## Local Resource + Live Update = <3
 
 Local Resource and Live Update are two great tastes that taste great together.
