@@ -77,7 +77,7 @@ docker_build('gcr.io/my-org/my-app', context='./bin')
 local filesystem. It might, for instance, be a script that is _invoked locally_
 but runs against your k8s cluster.)
 
-## Local Resource + Live Update = <3
+### Local Resource + Live Update = <3
 
 Local Resource and Live Update are two great tastes that taste great together.
 A useful pattern is to have a local resource which creates an artifact
@@ -107,7 +107,7 @@ i.e. they get `sync`'d to the container where `hello-world` is running.
 
 To see this pattern in action, check out [this example repo](https://github.com/windmilleng/local_resource_example).
 
-# Run occasional workflows (locally or against your cluster)
+## Run occasional workflows (locally or against your cluster)
 
 There's another class of workflow that local resource can help with; commands that
 are a part of your development flow, but that you run only occasionally. This might
@@ -130,6 +130,7 @@ local_resource('reset-db', cmd='reset_db.sh',
 you'd like a local resource that runs automatically in response to file changes
 but does NOT run on `tilt up`, [let us know](https://tilt.dev/contact).)
 
+### Mix and match manual and automatic
 Note that you can mix and match manual and automatic runs as you like. For instance,
 you might have a `seed-db` local resource. Usually, you run it manually whenever
 you need to put new data into your DB, but want to run automatically if you touch
@@ -141,3 +142,5 @@ local_resource('reset-db',
 )
 ```
 
+## Take it for a spin!
+How are _you_ going to use local resource? What features do you wish it had? Take it for a spin (see: [API spec](http://tilt.dev/api.html#api.local_resource), [more detailed documentation](http://tilt.dev/local_resource.html)) and [let us know what you think](https://tilt.dev/contact)!
