@@ -30,9 +30,8 @@ This would regenerate your protobufs every time you change `helloworld.proto`---
 
 The alternative was running `go generate ./greeter_server` by hand whenever you changed your `.proto` file. Your Tiltfile execution was faster, your proto generation was predictable, but you had to remember to run the command when you changed a certain file, which shook you out of your workflow (assuming that you remembered at all, and didn't spend multiple minutes wondering why something on your server wasn't working).
 
-If you're one of the many Tilt users who has bootstrapped `local` to do work that you don't _actually_ want to do every time your Tiltfile reloads, OR if you're annoyed at having to tab out of Tilt to run bits and pieces of your workflow from terminal, we've got a new feature that we think might help. It's called Local Resource, and here's how it works.
+If you're one of the many Tilt users who has bootstrapped `local` to do work that you don't _actually_ want to do every time your Tiltfile reloads, OR if you're annoyed at having to tab out of Tilt to run bits and pieces of your workflow from terminal, we've got a new feature that we think might help. It's called Local Resource, and here's how it works. (You can also play around with it in [this example repo](https://github.com/windmilleng/local_resource_example).)
 
-[[ 'resource' and 'update' vocab ]]
 
 ## What is a "Local Resource"?
 
@@ -68,7 +67,9 @@ you'd rather compile your binary locally, and pull that compiled binary into you
 
 ```python
 local_resource('compile-binary',
-    cmd='go build -i -o ./bin/the-binary github.com/my-org/my-app/', deps='./my-app')
+    cmd='go build -i -o ./bin/the-binary github.com/my-org/my-app/',
+    deps='./my-app'
+)
 docker_build('gcr.io/my-org/my-app', context='./bin')
 ```
 

@@ -21,7 +21,7 @@ See the [`local_resource` API spec](api.html#api.local_resource) for more detail
 ## Specifying dependencies
 The `deps` argument allows you to specify file dependencies for your local resource---either as a string (filepath) or a list of strings (list of filepaths).
 
-When Tilt detects a change to any of a resource's `deps`, the resource will execute (unless the resource is in `TRIGGER_MODE_MANUAL`, in which case the resource will not execute, but you'll see the "pending changes" indicator next to your resource in the sidebar.
+When Tilt detects a change to any of a resource's `deps`, the resource will execute (unless the resource is in `TRIGGER_MODE_MANUAL`, in which case the resource will not execute, but you'll see the "pending changes" indicator next to your resource in the sidebar).
 
 `deps` are optional. By default, a local resource without `deps` runs once on `tilt up` (and any time you change its definition in your `Tiltfile`). You can always manually trigger a local resource (or any resource) with the "force update" button:
 
@@ -29,7 +29,7 @@ When Tilt detects a change to any of a resource's `deps`, the resource will exec
 
 You might use this pattern for, e.g. a local resource that refreshes tokens/credentials needed by your app; you want to do it once on `tilt up`, and every now and then as needed, but not in response to any particular file changes.
 
-As with `docker_build` and `custom_build`, You can specify files/directories to be ignored with the `ignore` argument [[link]].
+As with `docker_build` and `custom_build`, You can specify files/directories to be ignored [with the `ignore` argument](http://tilt.dev/2019/06/07/better-monorepo-container-builds-with-context-filters.html).
 
 ## auto_init
 
