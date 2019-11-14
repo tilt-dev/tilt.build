@@ -28,7 +28,7 @@ execute, but you'll see the "pending changes" indicator next to your resource in
 
 Specifying `deps` is optional. By default, a local resource without `deps` runs only once:
 on `tilt up` (and any time you change its definition in your `Tiltfile`). You can
-always manually trigger a local resource (or any resource) with the "force update" button:
+always manually trigger a local resource (or any resource) with the ["force update" button](https://blog.tilt.dev/2019/11/14/force-update.html):
 
 !["force update" button](assets/img/force-update-button.png)
 

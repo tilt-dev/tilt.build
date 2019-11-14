@@ -117,7 +117,7 @@ are a part of your development flow, but that you run only occasionally. This mi
 be a task like "ensure GKE user 'foo' exists" or "refresh my credentials" or even
 "blow away my database".
 
-You can trigger a local resource at will with the "force update" button:
+You can trigger a local resource at will with the ["force update" button](https://blog.tilt.dev/2019/11/14/force-update.html):
 
 !["force update" button](assets/img/force-update-button.png)
 
