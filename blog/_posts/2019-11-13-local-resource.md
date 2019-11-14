@@ -73,7 +73,7 @@ local_resource('compile-binary',
 docker_build('gcr.io/my-org/my-app', context='./bin')
 ```
 
-(Of course, the command you run doesn't have to be on that (only) affects your
+(Of course, the command you run doesn't have to be one that exclusively affects your
 local filesystem. It might, for instance, be a script that is _invoked locally_
 but runs against your k8s cluster.)
 
@@ -93,7 +93,7 @@ local_resource('proto',
 # define your hello-world resource: k8s yaml + a Docker build
 k8s_yaml('hello-world.yaml')
 docker_build('hello-world', '.',
-    ignore='helloworld.proto',  # don't step on the local resource's toes
+    ignore='helloworld.proto',  # let the local_resource handle these changes
     live_update=[ sync('.', '/app') ]
 )
 ```
@@ -101,15 +101,15 @@ docker_build('hello-world', '.',
 Note that the `docker_build` call specifies `ignore='helloworld.proto'`. This is
 because we DON'T want an edit to that proto file to _directly_ kick off an update to
 our Docker image (in this case, a Live Update). Rather, an edit to `helloworld.proto`
-triggers the local resource to generate protobufs; when these protobufs appear on disk,
-they register as file changes and trigger a Live Update to the `hello-world` resource,
-i.e. they get `sync`'d to the container where `hello-world` is running.
+triggers the local resource to generate protobufs; when the generated proto files appear
+on disk, they register as file changes and trigger a Live Update to the `hello-world`
+resource, i.e. they get `sync`'d to the container where `hello-world` is running.
 
 To see this pattern in action, check out [this example repo](https://github.com/windmilleng/local_resource_example).
 
 ## Run occasional workflows (locally or against your cluster)
 
-There's another class of workflow that local resource can help with; commands that
+There's another class of workflow that local resource can help with: commands that
 are a part of your development flow, but that you run only occasionally. This might
 be a task like "ensure GKE user 'foo' exists" or "refresh my credentials" or even
 "blow away my database".
@@ -118,10 +118,17 @@ You can trigger a local resource at will with the "force update" button:
 
 !["force update" button](assets/img/force-update-button.png)
 
+Like other resources, you can specify a trigger mode for your local resources:
+either `TRIGGER_MODE_AUTO` (the default), or `TRIGGER_MODE_MANUAL`. (A manual
+resource detects changes to its deps, but doesn't automatically update---rather,
+it displays a "ready for update" icon in the Web UI for the user to click at their
+leisure. For more on trigger mode, [see the docs](https://docs.tilt.dev/manual_update_control.html).)
+Manual mode may be especially useful for local resources that you only want to run occasionally. 
+
 By default, a local resource will run on startup. To disable this behavior, put the
 resource in `TRIGGER_MODE_MANUAL` and specify `auto_init=False`:
 ```python
-local_resource('reset-db', cmd='reset_db.sh',
+local_resource('blow-away-pods', cmd='kubectl delete pods --all',
     trigger_mode=TRIGGER_MODE_MANUAL, auto_init=False
 )
 ```
@@ -131,14 +138,30 @@ you'd like a local resource that runs automatically in response to file changes
 but does NOT run on `tilt up`, [let us know](https://tilt.dev/contact).)
 
 ### Mix and match manual and automatic
-Note that you can mix and match manual and automatic runs as you like. For instance,
-you might have a `seed-db` local resource. Usually, you run it manually whenever
-you need to put new data into your DB, but want to run automatically if you touch
-the `seed_db.sh` script:
+Note that you can mix and match manual and automatic runs as you like. Say you
+have a local resource to refresh some credentials. You want to run it on `tilt up`,
+whenever you notice your credentials being out of date (you can force a run via the
+"force update" button), or if you're iterating on the `update_creds.sh` script:
 ```python
-local_resource('reset-db',
-    cmd='reset_db.sh',
+local_resource('update-credentials',
+    cmd='update_creds.sh',
+    deps=['update_creds.sh'],
+)
+```
+Alternately, imagine a `seed-db` local resource. Usually, you'll click the "force update"
+button to run it whenever you need to put new data into your database. You might want to
+know if you've made changes to the script since you last executed the local resource, but
+probably don't want the script to run willy-nilly as you iterate on it, since it blows
+away your whole database; therefore you might make use of `TRIGGER_MODE_MANUAL` You certainly
+do _not_ want this script to run on `tilt up`, because you don't want to automatically blow
+away the database from your previous Tilt run, so you would probably specify `auto_init=False`.
+Your local resource definition might look like this:
+```python
+local_resource('seed-db',
+    cmd='seed_db.sh',
     deps=['seed_db.sh'],
+    trigger_mode=TRIGGER_MODE_MANUAL,
+    auto_init=False
 )
 ```
 
