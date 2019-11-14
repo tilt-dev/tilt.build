@@ -1,6 +1,6 @@
 ---
 slug: local-resource
-date: 2019-11-13
+date: 2019-11-15
 author: maia
 layout: blog
 title: "Local Resource"
