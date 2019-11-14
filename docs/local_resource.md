@@ -26,7 +26,7 @@ When Tilt detects a change to any of a resource's `deps`, the resource will exec
 (unless the resource is in `TRIGGER_MODE_MANUAL`, in which case the resource will not
 execute, but you'll see the "pending changes" indicator next to your resource in the sidebar).
 
-`deps` are optional. By default, a local resource without `deps` runs only once:
+Specifying `deps` is optional. By default, a local resource without `deps` runs only once:
 on `tilt up` (and any time you change its definition in your `Tiltfile`). You can
 always manually trigger a local resource (or any resource) with the "force update" button:
 

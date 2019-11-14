@@ -4,9 +4,9 @@ date: 2019-11-13
 author: maia
 layout: blog
 title: "Local Resource"
-subtitle: "tbd"
-image: "tbd.jpg"
-image_caption: "tbd"
+subtitle: "Integrate your whole workflow into Tilt"
+image: "alexandr-podvalny-WOxddhzhC1w-unsplash.jpg"
+image_caption: "Buy local, and run commands local(ly)! (Photo by Alexandr Podvalny on <a href='https://unsplash.com/photos/WOxddhzhC1w'>Unsplash</a>.)"
 tags:
   - docker
   - kubernetes
@@ -19,6 +19,9 @@ keywords:
   - docker
   - tilt
 ---
+Tilt has an exciting new feature that we hope will make your Tiltfile more efficient,
+and let you keep your entire workflow at your fingertips when using Tilt.
+
 Once upon a time, you might have written the following line in your Tiltfile:
 
 ```
@@ -37,9 +40,9 @@ If you're one of the many Tilt users who has bootstrapped `local` to do work tha
 
 The first thing to understand is that every item that shows up in your sidebar is a _resource_---a unit of work managed by Tilt.
 
-[[image? sidebar w/ labels]]
+![resources in the sidebar of the Tilt UI](/assets/images/local-resource/resources-in-sidebar.png)
 
-In the lifetime of Tilt so far, a resource has represented a service you're deploying, often in the form of image build + k8s deploy instructions (or in some cases, just k8s deploy instructions). But there are other kinds of resource now! In particular, a local resource represents a unit of work that is run _on your local machine_ rather than in your cluster. But like any other resource, a local resource runs in response to its dependencies (files on disk) changing, and prints logs to the UI, and surfaces alerts if anything goes wrong. The only difference is the work being done: where the work of a Kubernetes resource might be `docker build && kubectl apply`, a local resource runs a user-specified command against the local filesystem. You can specify a local resource in your Tiltfile with the following syntax:
+In the lifetime of Tilt so far, a resource has generally represented a service you're deploying, often in the form of image build + k8s deploy instructions (or in some cases, just k8s deploy instructions).[^1] But there are other kinds of resource now! In particular, a local resource represents a unit of work that is run _on your local machine_ rather than in your cluster. But like any other resource, a local resource runs in response to its dependencies (files on disk) changing, and prints logs to the UI, and surfaces alerts if anything goes wrong. The only difference is the work being done: where the work of a Kubernetes resource might be `docker build && kubectl apply`, a local resource runs a user-specified command against the local filesystem. You can specify a local resource in your Tiltfile with the following syntax:
 
 ```python
 local_resource('yarn', cmd='yarn install', deps=['package.json'])
@@ -166,4 +169,13 @@ local_resource('seed-db',
 ```
 
 ## Take it for a spin!
-How are _you_ going to use local resource? What features do you wish it had? Take it for a spin (see: [API spec](http://tilt.dev/api.html#api.local_resource), [more detailed documentation](http://tilt.dev/local_resource.html)) and [let us know what you think](https://tilt.dev/contact)!
+How are _you_ going to use local resource? What features do you wish it had? Take
+it for a spin (see: [API spec](http://tilt.dev/api.html#api.local_resource),
+[more detailed documentation](http://tilt.dev/local_resource.html)) and
+[let us know what you think](https://tilt.dev/contact)!
+
+[^1]: the exception to this rule is, of course, the Tiltfile. A "Tiltfile" item
+appears in your sidebar along with all the other resources because _it's also a
+resource_; the loading/parsing of the Tiltfile is a unit of work managed by Tilt,
+which may succeed or fail and which generates logs, just like a `docker build`
+or `kubectl apply`.
