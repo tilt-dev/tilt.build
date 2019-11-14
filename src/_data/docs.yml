@@ -30,7 +30,7 @@
     href: snapshots.html
   - title: Resource Dependencies
     href: resource_dependencies.html
-  - title: Local or Occasional Workflows wtih Local Resource
+  - title: Local or Occasional Workflows with Local Resource
     href: local_resource.html
 - title: Tilt Cookbooks
   items:
