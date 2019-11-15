@@ -113,7 +113,7 @@ curl -fsSL https://github.com/windmilleng/tilt/releases/download/v0.10.20/tilt.0
 ```
 
 Finally, if you want to install `tilt` from source, see the [developers'
-guide](https://github.com/windmilleng/tilt/blob/master/DEVELOPING.md).
+guide](https://github.com/windmilleng/tilt/blob/master/CONTRIBUTING.md).
 
 Building from source requires both Go and TypeScript/JavaScript tools, and
 dynamically compiles the TypeScript on every run. We only recommend this if you
