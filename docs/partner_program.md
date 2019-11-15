@@ -33,9 +33,9 @@ Analytics Settings
 - Repo: 3QLdKIWhsYTCsPI0vtsx6Q==
 ```
 
-All strings in analytics are hashed, to help protect your privacy and your code.
-We use the aggregate data so that both of us (our team and your dev-ops team) has
-an accurate picture of how your team is using Tilt and what parts of it are slow
+We use the aggregate data so that both of us (our team and your dev-ops team)
+has an accurate picture of how your team is using Tilt and what parts of it are
+slow. For more info, see ["What does Tilt send?"](telemetry_faq.html).
 
 If this sounds interesting to you, please email our CEO
 [Dan](mailto:dan@tilt.dev?subject=Tilt partner program) to get set up.
