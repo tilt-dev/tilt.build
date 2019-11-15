@@ -2,6 +2,9 @@
 title: Run Local and/or Occasional Workflows with Local Resource
 layout: docs
 ---
+(This is a technical doc; see the [Local Resource feature announcement blog post](https://blog.tilt.dev/2019/11/15/local-resource.html)
+for more context on this feature, and an explanation of some circumstances where it might come in handy.)
+
 Each entry in your Tilt sidebar is a **resource**---a unit of work managed by Tilt. (For context,
 the most common type of Tilt resource is one that represents a deployed service, and is made up of
 some combination of image build instructions and Kubernetes YAML.) A **local resource** works
