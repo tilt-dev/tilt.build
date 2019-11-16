@@ -90,7 +90,6 @@ The installer first checks if you can install Tilt with Homebrew. If you'd prefe
 to run Homebrew manually, run:
 
 ```bash
-brew tap windmilleng/tap
 brew install windmilleng/tap/tilt
 ```
 
