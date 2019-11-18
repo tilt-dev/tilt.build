@@ -1123,7 +1123,8 @@ h4 .fillStd {
 }
 
 .docsContent img {
-  box-shadow: 8px 10px 16px 16px $color-grey-lightest;
+  box-shadow: 4px 5px 8px 8px $color-grey-lightest;
+  margin: $spacing-unit * 0.5 $spacing-unit;
 }
 
 img.no-shadow {
