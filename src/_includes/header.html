@@ -1,15 +1,4 @@
-{% assign hasBanner = false %}
-{% if page.url != "/hello.html" %}
-{% assign hasBanner = true %}
-{% endif %}
-
-{% if hasBanner %}
-<aside class="banner">
-  Check out our booth at KubeCon San Diego for <a href="{{site.landingurl}}hello">new and upcoming features</a>!
-</aside>
-{% endif %}
-
-<header class="site-header{% if hasBanner %} has-banner {% endif %}">
+<header class="site-header">
 
   <div class="wrapper wrapper--header">
     {% if page.layout == 'landing' %}
