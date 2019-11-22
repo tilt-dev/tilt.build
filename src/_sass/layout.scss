@@ -1339,37 +1339,3 @@ input[type=checkbox]:checked + .formItem-checkbox {
 .language-bash code {
   user-select: all;
 }
-.banner {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  padding: $spacing-unit / 4;
-  background-color: $color-blue;
-  color: $color-grey-darkest;
-  font-family: $header-font-family;
-  font-weight: 700;
-  z-index: 1000;
-  line-height: normal;
-  text-align: center;
-
-  @include docs-mobile {
-    font-size: 14px;
-    padding: $spacing-unit / 8;
-  }
-}
-.banner a {
-  color: $color-grey-darkest;
-  border-bottom: 1px solid $color-grey-dark;
-  display: inline-block;
-  line-height: 0.8;
-  transition: color 300ms ease, border-bottom-color 300ms ease;
-}
-.banner a:hover {
-  background-color: $color-blue;
-  color: white;
-  border-bottom-color: white;
-}
-.site-header.has-banner {
-  margin-top: $spacing-unit * 2;
-}
