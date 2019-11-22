@@ -18,7 +18,7 @@ $ brew install windmilleng/tap/tilt
 ### Option B) Installing Tilt from release binaries
 
 ```bash
-curl -L https://github.com/windmilleng/tilt/releases/download/v0.10.20/tilt.0.10.20.mac.x86_64.tar.gz | tar -xzv tilt && \
+curl -L https://github.com/windmilleng/tilt/releases/download/v0.10.21/tilt.0.10.21.mac.x86_64.tar.gz | tar -xzv tilt && \
   sudo mv tilt /usr/local/bin/tilt
 ```
 
@@ -26,7 +26,7 @@ On Linux
 --------
 
 ```bash
-curl -L https://github.com/windmilleng/tilt/releases/download/v0.10.20/tilt.0.10.20.linux.x86_64.tar.gz | tar -xzv tilt && \
+curl -L https://github.com/windmilleng/tilt/releases/download/v0.10.21/tilt.0.10.21.linux.x86_64.tar.gz | tar -xzv tilt && \
     sudo mv tilt /usr/local/bin/tilt
 ```
 
