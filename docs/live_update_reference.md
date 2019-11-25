@@ -14,6 +14,8 @@ The list of `LiveUpdateSteps` must be, in order:
 - 0 or more [`run`](api.html#api.run) steps
 - 0 or 1 [`restart_container`](api.html#api.restart_container) steps
 
+**NOTE**: your initial build will be a _full_ build---i.e., the specified Docker build or Custom Build. (This is because Live Update needs a running container to modify.) _Live Update will only run on your second build and thereafter._ Thus, your base build (Docker/Custom Build) should be sufficient to create your dev image, and should not rely on any `sync`'d files or `run` commands. (If this is functionality you need, [let us know](https://tilt.dev/contact).)
+
 When a file changes:
    1. If it matches any of the files in a `fall_back_on` step, we will fall back to a full rebuild + deploy (i.e. the normal, non-live_update process).
    2. Otherwise, if it matches any of the local paths in `sync` steps, a live update will be executed as follows:
