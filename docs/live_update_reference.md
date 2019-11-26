@@ -14,7 +14,7 @@ The list of `LiveUpdateSteps` must be, in order:
 - 0 or more [`run`](api.html#api.run) steps
 - 0 or 1 [`restart_container`](api.html#api.restart_container) steps
 
-**NOTE**: your initial build will be a _full_ build---i.e., the specified Docker build or Custom Build. (This is because Live Update needs a running container to modify.) _Live Update will only run on your second build and thereafter._ Thus, your base build (Docker/Custom Build) should be sufficient to create your dev image, and should not rely on any `sync`'d files or `run` commands. (If this is functionality you need, [let us know](https://tilt.dev/contact).)
+When you `tilt up`, your initial build will be a full build---i.e., the specified Docker build or Custom build.[^1]
 
 When a file changes:
    1. If it matches any of the files in a `fall_back_on` step, we will fall back to a full rebuild + deploy (i.e. the normal, non-live_update process).
@@ -120,3 +120,5 @@ This step is optional. If you have a `restart_container` step, it must come at t
 If your container executes a binary and your Live Update changes that binary, you probably want to restart the container to re-execute it. If, however, you're running a Flask or Node app that responds to filesystem changes without requiring a restart, you can probably leave this step out.
 
 **NOTE**: `restart_container()` *only* works on containers managed by Docker. For non-Docker runtimes (e.g. containerd, CRI-O), please see the [wrapper script for simulating restart_container](https://github.com/windmilleng/rerun-process-wrapper).
+
+[^1]: The initial build is always a full build because Live Update needs a running container to modify. Thus, your base build (Docker/Custom Build) should be sufficient to create your dev image, and should not rely on any `sync`'d files or `run` commands. (If this is functionality you need, [let us know](https://tilt.dev/contact).)
