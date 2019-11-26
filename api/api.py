@@ -486,7 +486,7 @@ class CustomBuild:
     """Returns a FastBuild that is associated with the image that was built from a ``custom_build``. When the container needs to be rebuilt it will be built using the ``CustomBuild``. Otherwise update will be done with the ``FastBuild`` instructions. """
     pass
 
-def custom_build(ref: str, command: str, deps: List[str], tag: str = "", disable_push: bool = False, live_update: List[LiveUpdateStep]=[], match_in_env_vars: bool = False, ignore: Union[str, List[str]] = [], entrypoint: str="") -> CustomBuild:
+def custom_build(ref: str, command: str, deps: List[str], tag: str = "", disable_push: bool = False, skips_local_docker: bool = False, live_update: List[LiveUpdateStep]=[], match_in_env_vars: bool = False, ignore: Union[str, List[str]] = [], entrypoint: str="") -> CustomBuild:
   """Provide a custom command that will build an image.
 
   For examples on how to use this to integrate your own build scripts with Tilt,
@@ -495,7 +495,7 @@ def custom_build(ref: str, command: str, deps: List[str], tag: str = "", disable
   The command *must* publish an image with the name & tag ``$EXPECTED_REF``.
 
   Tilt will raise an error if the command exits successfully, but the registry does not contain
-  an image with the ref ``$EXPECTED_REF``.
+  an image with the ref ``$EXPECTED_REF``, unless you specify ``skips_local_docker=True``
 
   Example ::
 
@@ -514,6 +514,7 @@ def custom_build(ref: str, command: str, deps: List[str], tag: str = "", disable
     tag: Some tools can't change the image tag at runtime. They need a pre-specified tag. Tilt will set ``$EXPECTED_REF = image_name:tag``,
        then re-tag it with its own tag before pushing to your cluster. See `the bazel guide <integrating_bazel_with_tilt.html>`_ for an example.
     disable_push: whether Tilt should push the image in to the registry that the Kubernetes cluster has access to. Set this to true if your command handles pushing as well.
+    skips_local_docker: Whether your build command writes the image to your local Docker image store. Set this to true if you're using a cloud-based builder or independent image builder like ``buildah``.
     live_update: set of steps for updating a running container (see `Live Update documentation <live_update_reference.html>`_).
     match_in_env_vars: specifies that k8s objects can reference this image in their environment variables, and Tilt will handle those variables the same as it usually handles a k8s container spec's ``image``s.
     ignore: set of file patterns that will be ignored. Ignored files will not trigger builds and will not be included in images. Follows the `dockerignore syntax <https://docs.docker.com/engine/reference/builder/#dockerignore-file>`_.

@@ -67,13 +67,13 @@ that always want telemetry enabled or disabled.</p>
 </table>
 </dd></dl><dl class="function">
 <dt id="api.custom_build">
-<code class="descclassname">api.</code><code class="descname">custom_build</code><span class="sig-paren">(</span><em>ref</em>, <em>command</em>, <em>deps</em>, <em>tag=&apos;&apos;</em>, <em>disable_push=False</em>, <em>live_update=[]</em>, <em>match_in_env_vars=False</em>, <em>ignore=[]</em>, <em>entrypoint=&apos;&apos;</em><span class="sig-paren">)</span><a class="headerlink" href="#api.custom_build" title="Permalink to this definition">&#xB6;</a></dt>
+<code class="descclassname">api.</code><code class="descname">custom_build</code><span class="sig-paren">(</span><em>ref</em>, <em>command</em>, <em>deps</em>, <em>tag=&apos;&apos;</em>, <em>disable_push=False</em>, <em>skips_local_docker=False</em>, <em>live_update=[]</em>, <em>match_in_env_vars=False</em>, <em>ignore=[]</em>, <em>entrypoint=&apos;&apos;</em><span class="sig-paren">)</span><a class="headerlink" href="#api.custom_build" title="Permalink to this definition">&#xB6;</a></dt>
 <dd><p>Provide a custom command that will build an image.</p>
 <p>For examples on how to use this to integrate your own build scripts with Tilt,
 see the <a class="reference external" href="custom_build.html">Custom Build Script How-to</a>.</p>
 <p>The command <em>must</em> publish an image with the name &amp; tag <code class="docutils literal notranslate"><span class="pre">$EXPECTED_REF</span></code>.</p>
 <p>Tilt will raise an error if the command exits successfully, but the registry does not contain
-an image with the ref <code class="docutils literal notranslate"><span class="pre">$EXPECTED_REF</span></code>.</p>
+an image with the ref <code class="docutils literal notranslate"><span class="pre">$EXPECTED_REF</span></code>, unless you specify <code class="docutils literal notranslate"><span class="pre">skips_local_docker=True</span></code></p>
 <p>Example</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">custom_build</span><span class="p">(</span>
   <span class="s1">&apos;gcr.io/foo&apos;</span><span class="p">,</span>
@@ -94,6 +94,7 @@ an image with the ref <code class="docutils literal notranslate"><span class="pr
 <li><strong>tag</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) &#x2013; Some tools can&#x2019;t change the image tag at runtime. They need a pre-specified tag. Tilt will set <code class="docutils literal notranslate"><span class="pre">$EXPECTED_REF</span> <span class="pre">=</span> <span class="pre">image_name:tag</span></code>,
 then re-tag it with its own tag before pushing to your cluster. See <a class="reference external" href="integrating_bazel_with_tilt.html">the bazel guide</a> for an example.</li>
 <li><strong>disable_push</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>) &#x2013; whether Tilt should push the image in to the registry that the Kubernetes cluster has access to. Set this to true if your command handles pushing as well.</li>
+<li><strong>skips_local_docker</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>) &#x2013; Whether your build command writes the image to your local Docker image store. Set this to true if you&#x2019;re using a cloud-based builder or independent image builder like <code class="docutils literal notranslate"><span class="pre">buildah</span></code>.</li>
 <li><strong>live_update</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<a class="reference internal" href="#api.LiveUpdateStep" title="api.LiveUpdateStep"><code class="xref py py-class docutils literal notranslate"><span class="pre">LiveUpdateStep</span></code></a>]) &#x2013; <p>set of steps for updating a running container (see <a class="reference external" href="live_update_reference.html">Live Update documentation</a>).</p>
 </li>
 <li><strong>match_in_env_vars</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>) &#x2013; specifies that k8s objects can reference this image in their environment variables, and Tilt will handle those variables the same as it usually handles a k8s container spec&#x2019;s <a href="#id2"><span class="problematic" id="id3">``</span></a>image``s.</li>
