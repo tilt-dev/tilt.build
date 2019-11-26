@@ -223,11 +223,28 @@ def trigger_mode(trigger_mode: TriggerMode):
 TRIGGER_MODE_AUTO = type('_sentinel', (TriggerMode,),
                  {'__repr__': lambda self: 'TRIGGER_MODE_AUTO'})()
 
+def dc_resource(name: str, trigger_mode: TriggerMode = TRIGGER_MODE_AUTO, resource_deps: List[str] = []) -> None:
+  """Configures the Docker Compose resource of the given name. Note: Tilt does an amount of resource configuration
+  for you(for more info, see `Tiltfile Concepts: Resources <tiltfile_concepts.html#resources>`_); you only need
+  to invoke this function if you want to configure your resource beyond what Tilt does automatically.
+
+  Args:
+    trigger_mode: one of ``TRIGGER_MODE_AUTO`` or ``TRIGGER_MODE_MANUAL``. For more info, see the
+      `Manual Update Control docs <manual_update_control.html>`_.
+    resource_deps: a list of resources on which this resource depends.
+      See the `Resource Dependencies docs <resource_dependencies.html>`_.
+  """
+
+  pass
+
 def k8s_resource(workload: str, new_name: str = "",
                  port_forwards: Union[str, int, List[int]] = [],
                  extra_pod_selectors: Union[Dict[str, str], List[Dict[str, str]]] = [],
                  trigger_mode: TriggerMode = TRIGGER_MODE_AUTO, resource_deps: List[str] = []) -> None:
-  """Configures a kubernetes resources
+  """Configures the Kubernetes resource of the given name. Tilt assembles Kubernetes resources
+  automatically, as described in `Tiltfile Concepts: Resources <tiltfile_concepts.html#resources>`_).
+  Calling ``k8s_resource`` is *optional*; you can use this function to configure port forwarding for
+  your resource, to rename it, or to adjust any of the other settings specified below.
 
   Args:
     workload: which workload's resource to configure. This is a colon-separated
@@ -263,18 +280,6 @@ def k8s_resource(workload: str, new_name: str = "",
     resource_deps: a list of resources on which this resource depends.
       See the `Resource Dependencies docs <resource_dependencies.html>`_.
   """
-  pass
-
-def dc_resource(name: str, trigger_mode: TriggerMode = TRIGGER_MODE_AUTO, resource_deps: List[str] = []) -> None:
-  """Configures the Docker Compose resource of the given name.
-
-  Args:
-    trigger_mode: one of ``TRIGGER_MODE_AUTO`` or ``TRIGGER_MODE_MANUAL``. For more info, see the
-      `Manual Update Control docs <manual_update_control.html>`_.
-    resource_deps: a list of resources on which this resource depends.
-      See the `Resource Dependencies docs <resource_dependencies.html>`_.
-  """
-
   pass
 
 def filter_yaml(yaml: Union[str, List[str], Blob], labels: dict=None, name: str=None, namespace: str=None, kind: str=None, api_version: str=None):
