@@ -38,6 +38,32 @@ yaml = helm(
 k8s_yaml(yaml)
 ```
 
+## Sub-charts and requirements.txt
+
+If you have chart dependencies, you need to run:
+
+```
+helm dep update
+```
+
+outside of Tilt to download the dependencies to your repo. Then create a
+`.tiltignore` with the contents:
+
+```
+**/charts
+**/tmpcharts
+```
+
+Or, if you want be more cautious:
+
+```
+path/to/your/chart/charts
+path/to/your/chart/tmpcharts
+```
+
+When Helm runs, it touches these chart directories. Adding these lines ensures that Tilt
+doesn't reload the Tiltfile every time Helm touches them.
+
 ## Advanced Helm
 
 Helm can also do more advanced templating -- like downloading remote charts and injecting run-time variables.
