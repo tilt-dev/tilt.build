@@ -4,7 +4,7 @@ date: 2019-12-03
 author: dmiller
 layout: blog
 title: "Tilt Commit of the Month: November 2019"
-image: featuredImage.png
+image: featuredImage.jpg
 image_type: "contain"
 tags:
   - kubernetes
@@ -27,4 +27,3 @@ This enables some cool workflows if you share a network with your team. Imagine 
 
 
 Thanks to [Denis Olsem](https://github.com/dolsem) for adding this functionality! If you want to contribute to Tilt, we [welcome PRs](https://github.com/windmilleng/tilt/blob/master/CONTRIBUTING.md)!
-
