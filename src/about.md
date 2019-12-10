@@ -67,8 +67,8 @@ We’re small ({{total}} people, VC-backed). We’re based in Union Square, NYC 
     <h4>L Körbes</h4>
 
     <div>
-        Coding, writing, speaking, teaching Go, making videos, and dabbling with Kubernetes.
-        Cloud Native Ambassador and 'Best Hair' award recipient. They/them.
+      International speaker, DevRel extraordinaire, gopher, occasional writer.
+      Cloud Native Ambassador and 'Best Hair' award recipient. They/them.
     </div>
   </div>
 </div>
