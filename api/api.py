@@ -695,3 +695,14 @@ def version_settings(check_updates: bool) -> None:
   Args:
     check_updates: whether or not to check for new versions of Tilt on GitHub.
   """
+
+def struct(**kwargs) -> Any:
+  """Creates an object with arbitrary fields.
+
+  Examples:
+
+  .. code-block:: python
+
+    x = struct(a="foo", b=6)
+    print("%s %d" % (x.a, x.b)) # prints "foo 6"
+  """

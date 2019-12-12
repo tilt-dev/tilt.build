@@ -752,6 +752,23 @@ restart_container</a>.</p>
 </tbody>
 </table>
 </dd></dl><dl class="function">
+<dt id="api.struct">
+<code class="descclassname">api.</code><code class="descname">struct</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#api.struct" title="Permalink to this definition">&#xB6;</a></dt>
+<dd><p>Creates an object with arbitrary fields.</p>
+<p>Examples:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">struct</span><span class="p">(</span><span class="n">a</span><span class="o">=</span><span class="s2">&quot;foo&quot;</span><span class="p">,</span> <span class="n">b</span><span class="o">=</span><span class="mi">6</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%s</span><span class="s2"> </span><span class="si">%d</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">a</span><span class="p">,</span> <span class="n">x</span><span class="o">.</span><span class="n">b</span><span class="p">))</span> <span class="c1"># prints &quot;foo 6&quot;</span>
+</pre></div>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name">
+<col class="field-body">
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><code class="xref py py-data docutils literal notranslate"><span class="pre">Any</span></code></td>
+</tr>
+</tbody>
+</table>
+</dd></dl><dl class="function">
 <dt id="api.sync">
 <code class="descclassname">api.</code><code class="descname">sync</code><span class="sig-paren">(</span><em>local_path</em>, <em>remote_path</em><span class="sig-paren">)</span><a class="headerlink" href="#api.sync" title="Permalink to this definition">&#xB6;</a></dt>
 <dd><p>Specify that any changes to <cite>localPath</cite> should be synced to <cite>remotePath</cite></p>
