@@ -7,19 +7,19 @@ set_team('tilt-dev')
 enable_feature('update_history')
 
 # Generate the API docs.
-local_resource('make-api', 'make api', ['deploy/api.dockerfile', 'api/api.py', 'Makefile'])
+local_resource('make-api', 'make api', ['deploy/api.dockerfile', 'api/conf.py', 'api/api.py', 'Makefile', 'api/modules'])
 
 k8s_yaml('deploy/serve.yaml')
 
 docker_build('tilt-site', '.', dockerfile='deploy/site.dockerfile',
-             ignore=['./api/api.py', './docs', './blog'],
+             ignore=['./api/api.py', './api/modules', './docs', './blog'],
              live_update=[
                sync('./src', '/src/'),
                run('bundle install', trigger=['src/Gemfile', 'src/Gemfile.lock'])
              ])
 
 docker_build('docs-site', '.', dockerfile='deploy/docs.dockerfile',
-             ignore=['./api/api.py', './blog'],
+             ignore=['./api/api.py', './api/modules', './blog'],
              live_update=[
                sync('./src', '/src/'),
                sync('./docs', '/docs/'),
@@ -29,7 +29,7 @@ docker_build('docs-site', '.', dockerfile='deploy/docs.dockerfile',
 
 
 docker_build('blog-site', '.', dockerfile='deploy/blog.dockerfile',
-             ignore=['./api/api.py', './docs'],
+             ignore=['./api/api.py', './api/modules', './docs'],
              live_update=[
                sync('./src', '/src/'),
                sync('./blog', '/blog/'),

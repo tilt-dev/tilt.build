@@ -41,7 +41,7 @@ dl:not(.class) > dt {
 }
 
 .descclassname {
-  display: none;
+  display: inline-block;
 }
 
 .descname, .xref {

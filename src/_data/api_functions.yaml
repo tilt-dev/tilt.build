@@ -36,3 +36,6 @@ functions:
 - version_settings
 - watch_file
 - workload_to_resource_function
+- config.define_string_list
+- config.parse
+- config.set_enabled_resources
