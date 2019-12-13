@@ -1,32 +1,33 @@
 ---
-title: User Config
+title: Tiltfile Config
 layout: docs
 ---
 
-A Tiltfile can define a user config, which allow the users of a Tiltfile to provide
-input / configuration to that Tiltfile. For example, one might write a Tiltfile
-such that one runs `tilt up consumer` to run Tilt with the services needed for
-development for consumers, or `tilt up enterprise` to run Tilt with the services
-needed for development for enterprise.
+A Tiltfile can define a Tiltfile config, which allow the users of a Tiltfile to
+provide input / configuration to that Tiltfile. For example, one might write a
+Tiltfile such that one runs `tilt up consumer` to run Tilt with the services
+needed for development for consumers, or `tilt up enterprise` to run Tilt with
+the services needed for development for enterprise.
 
-This doc describes how to describe your setup to Tilt to enable these
-shorthands. We aim to make common cases trivial, while also supporting escape
-hatches that enable arbitrarily-complex cases.
+This doc describes how to configure these and other shorthands in Tilt. We aim
+to make common cases trivial, while also supporting escape hatches that enable
+arbitrarily complex cases.
 
 In order, we'll cover:
 * Examples that cover common cases, showing both the Tiltfiles and accompanying
   usage.
-* Describe how this is implemented. These details, especially around
-  persistence, will let you understand how to write tooling that interacts with
-  this system.
+* Describe how this is implemented. These details will help you understand how
+  to write tooling that interacts with this system and describe its behavior
+  to teammates.
 * Future work (we see how it fits in but don't plan to implement until there's
   concrete demand).
 
-### Run only some services
+### Run only some services (reimplement default Tilt behavior)
 Your app has many services, call them A, B, C, and D, and you want your users to
 be able to run only a subset of them. E.g., `tilt up` will run all services, but
 running `tilt up a b d` will run only the resources a, b, and d, ignoring c.
-This is the same as the default `tilt up` behavior.
+This is the same as the default `tilt up` behavior, but is useful as an example
+and starting point.
 
 #### Command-Lines
 * `tilt up`: run all services
@@ -42,13 +43,13 @@ config.set_enabled_resources(cfg.get('to-run', []))
 ```
 
 ### Run a defined set of services
-Your app has many services, call them A, B, C, and D. You have defined modes you
-want users to be able to start (e.g. consumer vs. enterprise) and you don't want
-them to have to remember which service is necessary for which mode.
+Your app has many services, call them A, B, C, and D. Some of your developers
+work on consumer features, which need one subset of those services, and some of
+your developers work on enterprise features, which need a different subset. You
+don't want your developers to have to remember and keep up with the latest on
+which services are in which subset.
 You want to be able to write a doc that tells users to run `tilt up consumer`
-the first time and know that's enough that they'll be set up. Running Tilt
-subsequent times without arguments should default to the mode they already have
-set.
+and know that's enough that they'll be set up.
 
 #### Command-Lines
 * `tilt up`: run all services
@@ -62,7 +63,7 @@ groups = {
   'enterprise': ['a', 'b', 'd'],
 }
 resources = []
-for arg in cfg.get('args', []):
+for arg in cfg.get('to-run', []):
   if arg in groups:
     resources += groups[arg]
   else:
@@ -109,16 +110,23 @@ names and the values are their values (e.g., `{"to-edit": ["b", "c"]}`).
 As with any other file read by the Tiltfile, if this config file is changed
 while Tilt is running, Tilt will pick up that change and reexecute the Tiltfile.
 If the same setting is specified in both the config file and the command-line
-args, the value from the args takes precedent.
+args, the value from the args takes precedence.
 
 ## Changing args at runtime
 While Tilt is running, if the user decides they need a different set of
-user args (i.e., args handled by config.parse, not args to tilt itself like
-`--hud`) than what they passed to `tilt up`, they can use `tilt flags` to
-replace them. `tilt flags --clear` tells Tilt to clear the set of user args in
-use.
-Note that settings from user args always take precedent over settings from the
-config file, even if the config file is changed after the user args were set.
+Tiltfile args (i.e., args handled by config.parse, not args to tilt itself like
+`--hud`) than what they passed to `tilt up`, they can use `tilt args` to
+replace them, e.g.:
+#### Command-Lines
+* `tilt up a b d`: start tilt with just services a, b, and d
+* `tilt args a b d -- --to-edit b`: connect to the tilt that is running from the
+                   previous line, and enable editing for service b
+* `tilt args --clear`: clear the Tiltfile args (change the running Tilt so that
+                   it's as if it were just run as a bare `tilt up` with no
+                   Tiltfile args)
+
+Note that settings from args always take precedence over settings from the
+config file, even if the config file is changed after the args were set.
 
 ### Comparison to Default Behavior
 If you don't call `config.parse`, Tilt's default behavior is to set resources to

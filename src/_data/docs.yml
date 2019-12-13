@@ -32,8 +32,8 @@
     href: resource_dependencies.html
   - title: Local or Occasional Workflows with Local Resource
     href: local_resource.html
-  - title: User-defined Tilt Configs
-    href: user_config.html
+  - title: Tiltfile Configs
+    href: tiltfile_config.html
 - title: Tilt Cookbooks
   items:
   - title: Tiltfile Concepts
