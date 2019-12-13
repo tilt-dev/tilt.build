@@ -4,8 +4,8 @@ Tiltfile API Reference
 .. automodule:: api
    :members:
 
-.. automodule:: modules.config
+.. automodule:: modules.os
    :members:
 
-.. automodule:: modules.os
+.. automodule:: modules.config
    :members:

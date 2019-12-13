@@ -3,9 +3,7 @@
 
 # You can set these variables from the command line.
 #
-# For some reason, the new version of Sphinx treats *.html links
-# as warnings, so we had to disable the -W flag that treats them as errors.
-SPHINXOPTS    = 
+SPHINXOPTS    = -W
 SPHINXBUILD   = sphinx-build
 SOURCEDIR     = .
 BUILDDIR      = _build

@@ -31,6 +31,7 @@ functions:
 - read_yaml
 - restart_container
 - run
+- struct
 - sync
 - trigger_mode
 - version_settings
