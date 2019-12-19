@@ -48,7 +48,7 @@ function doesn't support.
 Bazel's [rules_docker](https://github.com/bazelbuild/rules_docker) extension assembles Docker images and
 writes them to the local Docker image store.
 
-See the tutorial on how to use `custom_build` to [build images with Bazel](integrating_tilt_with_bazel.html).
+See the tutorial on how to use `custom_build` to [build images with Bazel](integrating_bazel_with_tilt.html).
 
 ### Buildah (or any image builder indepdendent of Docker)
 

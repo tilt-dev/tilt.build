@@ -376,7 +376,7 @@ an image with the ref
                Parameters:
               </th>
               <td class="field-body">
-               <ul class="first simple">
+               <ul class="first last simple">
                 <li>
                  <strong>
                   ref
@@ -627,22 +627,6 @@ then re-tag it with its own tag before pushing to your cluster. See
                  .
                 </li>
                </ul>
-              </td>
-             </tr>
-             <tr class="field-even field">
-              <th class="field-name">
-               Return type:
-              </th>
-              <td class="field-body">
-               <p class="first last">
-                <a class="reference internal" href="#api.CustomBuild" title="api.CustomBuild">
-                 <code class="xref py py-class docutils literal notranslate">
-                  <span class="pre">
-                   CustomBuild
-                  </span>
-                 </code>
-                </a>
-               </p>
               </td>
              </tr>
             </tbody>
@@ -2020,85 +2004,6 @@ an error will be raised.)
                 <code class="xref py py-class docutils literal notranslate">
                  <span class="pre">
                   LiveUpdateStep
-                 </span>
-                </code>
-               </a>
-              </td>
-             </tr>
-            </tbody>
-           </table>
-          </dd>
-         </dl><dl class="function">
-          <dt id="api.fast_build">
-           <code class="descclassname">
-           </code>
-           <code class="descname">
-            fast_build
-           </code>
-           <span class="sig-paren">
-            (
-           </span>
-           <em>
-            img_name
-           </em>
-           ,
-           <em>
-            dockerfile_path
-           </em>
-           ,
-           <em>
-            entrypoint=&apos;&apos;
-           </em>
-           <span class="sig-paren">
-            )
-           </span>
-           <a class="headerlink" href="#api.fast_build" title="Permalink to this definition">
-            &#xB6;
-           </a>
-          </dt>
-          <dd>
-           <p>
-            Initiates a docker image build that supports
-            <code class="docutils literal notranslate">
-             <span class="pre">
-              add
-             </span>
-            </code>
-            s and
-            <code class="docutils literal notranslate">
-             <span class="pre">
-              run
-             </span>
-            </code>
-            s, and that uses a cache for subsequent builds.
-           </p>
-           <p>
-            <strong>
-             Note
-            </strong>
-            : this is a deprecated feature. For the fast building of the future, check out our
-            <a class="reference external" href="/live_update_tutorial.html">
-             LiveUpdate tutorial
-            </a>
-            and
-            <a class="reference external" href="live_update_reference.html">
-             reference documention
-            </a>
-            .
-           </p>
-           <table class="docutils field-list" frame="void" rules="none">
-            <col class="field-name">
-            <col class="field-body">
-            <tbody valign="top">
-             <tr class="field-odd field">
-              <th class="field-name">
-               Return type:
-              </th>
-              <td class="field-body">
-               <a class="reference internal" href="#api.FastBuild" title="api.FastBuild">
-                <code class="xref py py-class docutils literal notranslate">
-                 <span class="pre">
-                  FastBuild
                  </span>
                 </code>
                </a>
@@ -3633,7 +3538,11 @@ to share across Tiltfiles.
             <cite>
              cmd
             </cite>
-            to run on the _host_ machine (not in a remote cluster).
+            to run on the
+            <em>
+             host
+            </em>
+            machine (not in a remote cluster).
            </p>
            <p>
             If
