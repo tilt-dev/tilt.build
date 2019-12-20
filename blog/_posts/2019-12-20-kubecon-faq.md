@@ -26,7 +26,7 @@ keywords:
 We had a blast at KubeCon NA 2019---a big shout-out to everyone who stopped by our booth to say
 hi, watch a demo, or play with Duplos for a bit. We were blown away by the excitement about
 Tilt, and you all asked some great questions, so before Team Tilt goes into hibernation for
-the rest of December, we wanted to answer the most frequent questions we got a KubeCon
+the rest of December, we wanted to answer the most frequent questions we got at KubeCon.
 
 ### Q: How much does Tilt cost?
 Tilt is free and open-source, and it’s going to stay that way. We’re currently funded by some
