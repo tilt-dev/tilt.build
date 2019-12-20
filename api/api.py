@@ -97,41 +97,6 @@ def docker_build(ref: str, context: str, build_args: Dict[str, str] = {}, docker
   """
   pass
 
-class FastBuild:
-  """An image that was created with ``fast_build``"""
-  def add(self, src: str, dest: str) -> 'FastBuild':
-    """Adds the content from ``src`` into the image at path ``dest``.
-
-    Args:
-      src: The path to content to be added to the image (absolute, or relative to the location of the Tiltfile).
-      dest: The path in the image where the content should be added.
-
-    """
-    pass
-
-  def run(self, cmd: str, trigger: Union[List[str], str] = []) -> None:
-    """Runs ``cmd`` as a build step in the image.
-
-    Args:
-      cmd: A shell command.
-      trigger: If the ``trigger`` argument is specified, the build step is only run on changes to the given file(s).
-    """
-    pass
-
-  def hot_reload() -> None:
-    """Setting this on a ``FastBuild`` image tells Tilt that this container knows how to automatically reload any changes in the container. As a result there is no need to restart it.
-
-    This is useful for containers that run something like nodemon or webpack Hot Module Replacement to update running processes quickly."""
-    pass
-
-
-def fast_build(img_name: str, dockerfile_path: str, entrypoint: str = "") -> FastBuild:
-  """Initiates a docker image build that supports ``add`` s and ``run`` s, and that uses a cache for subsequent builds.
-
-  **Note**: this is a deprecated feature. For the fast building of the future, check out our `LiveUpdate tutorial </live_update_tutorial.html>`_ and `reference documention <live_update_reference.html>`_.
-  """
-  pass
-
 def docker_compose(configPaths: Union[str, List[str]]) -> None:
   """Run containers with Docker Compose.
 
@@ -485,13 +450,7 @@ def default_registry(registry: str) -> None:
   """
   pass
 
-class CustomBuild:
-  """An image that was created with :meth:`custom_build`"""
-  def add_fast_build() -> FastBuild:
-    """Returns a FastBuild that is associated with the image that was built from a ``custom_build``. When the container needs to be rebuilt it will be built using the ``CustomBuild``. Otherwise update will be done with the ``FastBuild`` instructions. """
-    pass
-
-def custom_build(ref: str, command: str, deps: List[str], tag: str = "", disable_push: bool = False, skips_local_docker: bool = False, live_update: List[LiveUpdateStep]=[], match_in_env_vars: bool = False, ignore: Union[str, List[str]] = [], entrypoint: str="") -> CustomBuild:
+def custom_build(ref: str, command: str, deps: List[str], tag: str = "", disable_push: bool = False, skips_local_docker: bool = False, live_update: List[LiveUpdateStep]=[], match_in_env_vars: bool = False, ignore: Union[str, List[str]] = [], entrypoint: str=""):
   """Provide a custom command that will build an image.
 
   For examples on how to use this to integrate your own build scripts with Tilt,
@@ -621,7 +580,7 @@ def local_resource(name: str, cmd: str, deps: Union[str, List[str]] = None,
                    trigger_mode: TriggerMode = TRIGGER_MODE_AUTO,
                    resource_deps: List[str] = [], ignore: Union[str, List[str]] = [],
                    auto_init: bool=True) -> None:
-  """Configures `cmd` to run on the _host_ machine (not in a remote cluster).
+  """Configures `cmd` to run on the *host* machine (not in a remote cluster).
 
   If `deps` is set then `cmd` is run whenever one of the files specified changes.
 

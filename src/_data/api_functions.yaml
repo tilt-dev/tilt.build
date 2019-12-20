@@ -13,7 +13,6 @@ functions:
 - enable_feature
 - fail
 - fall_back_on
-- fast_build
 - filter_yaml
 - helm
 - include
