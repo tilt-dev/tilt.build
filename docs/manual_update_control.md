@@ -26,7 +26,7 @@ k8s_resource('snack')  # TriggerMode = Auto by default
 ```python
 ...
 # TriggerMode = Manual
-k8s_resource('snack, trigger_mode=TRIGGER_MODE_MANUAL)
+k8s_resource('snack', trigger_mode=TRIGGER_MODE_MANUAL)
 ```
 
 ```python
