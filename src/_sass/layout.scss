@@ -157,6 +157,17 @@ li {
 .blogFeatureImage {
   margin-bottom: $spacing-unit * 1.25;
 }
+.blogFeatureImage > img {
+  width: 100%;
+  max-height: 500px; /* 50% of max-width */
+  object-fit: cover;
+  display: block;
+
+  @include docs-mobile {
+    /* Using vw units here ensures the height is capped to a percentage of width */
+    max-height: 50vw;
+  }
+}
 .blogBody > h1,
 .blogBody > h2,
 .blogBody > h3,
