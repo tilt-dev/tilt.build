@@ -110,7 +110,7 @@ if it even tries to pull an image from a remote server.
 Docker for building container images.
 
 Tilt will automatically enable Buildkit if your local Docker installation
-supports it.
+supports it and if the `DOCKER_BUILDKIT` environment variable is **not** set to `0`.
 
 BuildKit is supported on Docker v18.06 when Experimental mode is enabled, and on
 Docker v18.09+
