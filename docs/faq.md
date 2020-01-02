@@ -109,7 +109,7 @@ if it even tries to pull an image from a remote server.
 [BuildKit](https://github.com/moby/buildkit) is a new build engine in
 Docker for building container images.
 
-Tilt will automatically enable Buildkit if your local Docker installation
+Tilt will automatically enable BuildKit if your local Docker installation
 supports it.
 
 BuildKit is supported on Docker v18.06 when Experimental mode is enabled, and on
