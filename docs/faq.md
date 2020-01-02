@@ -104,16 +104,18 @@ images in-cluster. When it detects this case, it will even modify your
 Kubernetes configs to set ImageNeverPull, so that Kubernetes will emit an error
 if it even tries to pull an image from a remote server.
 
-### Q: Docker Buildkit is cool! How do I use it?
+### Q: Docker BuildKit is cool! How do I use it?
 
 [BuildKit](https://github.com/moby/buildkit) is a new build engine in
 Docker for building container images.
 
 Tilt will automatically enable Buildkit if your local Docker installation
-supports it and if the `DOCKER_BUILDKIT` environment variable is **not** set to `0`.
+supports it.
 
 BuildKit is supported on Docker v18.06 when Experimental mode is enabled, and on
 Docker v18.09+
+
+If you want to disable BuildKit manually, set `DOCKER_BUILDKIT=0`.
 
 ### Q: How do I tell Tilt to build my images with a remote Docker server?
 
