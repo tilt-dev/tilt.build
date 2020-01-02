@@ -4,6 +4,7 @@ date: 2020-01-02
 author: dmiller
 layout: blog
 title: "Tilt Commit of the Month: December 2019"
+subtitle: "Tilt now supports Helm 3"
 image: helm-logo.svg
 image_type: "contain"
 tags:
