@@ -60,6 +60,8 @@
     href: product_faq.html
   - title: What does Tilt send?
     href: telemetry_faq.html
+  - title: Why is Tilt broken?
+    href: debug_faq.html
   - title: Frequently Asked Questions
     href: faq.html
   - title: Tiltfile API Reference

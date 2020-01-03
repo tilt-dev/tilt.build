@@ -116,3 +116,5 @@ It's a [Don Quixote reference](https://en.wikipedia.org/wiki/Don_Quixote#Tilting
 Our demo app is called [Servantes](https://en.wikipedia.org/wiki/Miguel_de_Cervantes).
 
 We have plenty more puns if you ask.
+
+<script src="/assets/js/links.js" async></script>
