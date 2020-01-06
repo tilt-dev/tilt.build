@@ -6,6 +6,7 @@ layout: docs
 As this feature is new and being improved the screenshots here may not exactly match what is currently in the UI. Thanks for understanding!
 
 ## What is a snapshot?
+
 A snapshot is a link that you can send to someone that will allow them to interactively explore your current Tilt state. This is useful for async debugging and adding context to bug reports. They look like pretty much just like Tilt, but frozen in time:
 
 [https://cloud.tilt.dev/snapshot/AYSV59gLhM3GVMuuR28=](https://cloud.tilt.dev/snapshot/AYSV59gLhM3GVMuuR28=)
