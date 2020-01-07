@@ -21,11 +21,15 @@ and restarting Tilt.
 
 Until you make a choice, Tilt will send a minimal amount of data (this helps us improve the installation/opting flow).
 
+---
+
 ### Why does Tilt want analytics?
 
 We're a small company trying to make Tilt awesomer.
 
 We can do this better if we understand which features people are using and which bugs people are running into.
+
+---
 
 ### Where does the analytics data go?
 
@@ -35,6 +39,8 @@ This data may be stored in managed database services (like Google Cloud) or
 managed analytics services (like Datadog) to help us analyze it.
 
 We will not resell or give away this data to advertisers.
+
+---
 
 ### What kinds of data does Tilt record if I opt-in?
 
@@ -51,6 +57,8 @@ could include snippets of data about your project (e.g. that you have a service
 named `deathray-backend` or an error message that includes the string it failed
 to parse). You should probably not opt-in if you're working on a classified
 project.
+
+---
 
 ### Can you give some examples?
 
@@ -93,6 +101,8 @@ Here's an example of the data Tilt sends when a Tiltfile loads:
 We've talked about adding a command that displays everything Tilt is sending in
 a part of the web UI, for transparency. If you're interested in this, let us
 know.
+
+---
 
 ### What other ways can I control analytics?
 

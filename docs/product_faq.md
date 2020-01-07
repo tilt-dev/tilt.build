@@ -9,6 +9,8 @@ It's free and open-source.
 
 That's a lot to unpack! Let's break it down.
 
+---
+
 ### What is a cloud-native development environment?
 
 For decades, developer environments focused on files. You change a source
@@ -23,6 +25,8 @@ Development today needs new tools.
 is a new kind of tool that understands how your files and your servers fit
 together, and can help you better understand your system.
 
+---
+
 ### What kinds of teams should use Tilt?
 
 Currently, we're focused on helping teams that develop microservices, because that's where
@@ -36,6 +40,8 @@ the pain is most acute.
 
 Once you've set up Tilt, any contributor should be able to run `tilt up` to get
 [a complete dev environment](https://docs.tilt.dev/welcome_to_tilt.html).
+
+---
 
 ### Why does Tilt focus on Kubernetes?
 
@@ -53,6 +59,8 @@ expect that the industry will converge on Kubernetes. Tilt's support for other
 systems is mostly about
 [making it easier for teams to migrate](https://blog.tilt.dev/2019/09/16/tips-on-moving-your-dev-env-from-docker-compose-to-kubernetes.html).
 
+---
+
 ### What's Next?
 
 Tilt is just the first step towards blurring the line between your laptop and the cloud.
@@ -60,6 +68,8 @@ Tilt is just the first step towards blurring the line between your laptop and th
 The next step -- [Tilt Cloud](snapshots.html) -- is a platform for
 making all kinds of data from your tilt instance available to your team. And
 making your team’s data available to you.
+
+---
 
 ## Governance
 
@@ -72,6 +82,8 @@ Our mission is to build a platform for cloud-native development.
 We’re a small team of 6 people. We’re based at
 [Work-Bench](https://www.work-bench.com/) in New York City.
 
+---
+
 ### If you're a startup, does that mean you will collapse?
 
 We have funding from top-tier VCs we love, and have plans. Talk to us if you're nervous.
@@ -79,6 +91,8 @@ We have funding from top-tier VCs we love, and have plans. Talk to us if you're 
 Tilt (the local dev environment) will always be free and open-source. If we
 can't turn this into a business, the community should be able to continue using
 it.
+
+---
 
 ### Where can I chat with the team?
 
@@ -88,6 +102,8 @@ For real-time support, find us on the Kubernetes slack. Get an invite at
 
 We have a weekly rotation so that there's always a Tilt developer active in the
 channel during NYC business hours (10am-5pm Monday through Friday).
+
+---
 
 ### How do I file an issue?
 
@@ -100,6 +116,8 @@ OK to ping the thread or ask in Slack. We probably just missed it.
 For help with private issues (like security vulnerabilities or just concerning non-public code),
 please email [help@tilt.dev](mailto:help@tilt.dev).
 
+---
+
 ### How do new features get added to the roadmap?
 
 Filing a GitHub issue helps a lot, even if it's not always obvious from the outside.
@@ -108,6 +126,8 @@ We also have a number of partnerships with teams that we meet with
 semi-regularly to get feedback and help prioritize things that are affecting
 many people. If you're interested in [partnering](partner_program.html) with us,
 please email our CEO [Dan](mailto:dan@tilt.dev?subject=Tilt partner program).
+
+---
 
 ### Why did you call it Tilt?
 
