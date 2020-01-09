@@ -7,25 +7,22 @@ local_resource('make-api', 'make api', ['deploy/api.dockerfile', 'Makefile', 'ap
 
 local_resource(
   'tilt-site',
-  cmd='true', # TODO(dmiller): do we need this?
-  serve_cmd='cd src && bundle exec jekyll serve --config _config.yml,_config-dev.ym',
-  deps='.',
+  serve_cmd='cd src && bundle exec jekyll serve -P 4000 --config _config.yml,_config-dev.ym',
+  deps=['src/_config.yml', 'src/_config-dev.yml'],
   ignore=['./api', './docs', './blog'],
 )
 
 local_resource(
   'docs-site',
-  cmd='true', # TODO(dmiller): do we need this?
-  serve_cmd='cd docs && bundle exec jekyll serve --config _config.yml,_config-dev.ym',
-  deps='.',
+  serve_cmd='cd docs && bundle exec jekyll serve -P 4001 --config _config.yml,_config-dev.ym',
+  deps=['docs/_config.yml', 'docs/_config-dev.yml'],
   ignore=['./api', './blog'],
   resource_deps=['make-api']
  )
 
 local_resource(
   'blog-site',
-  cmd='true', # TODO(dmiller): do we need this?
-  serve_cmd='cd blog && bundle exec jekyll serve --config _config.yml,_config-dev.ym',
-  deps='.',
+  serve_cmd='cd blog && bundle exec jekyll serve -P 4002 --config _config.yml,_config-dev.ym',
+  deps=['blog/_config.yml', 'blog/_config-dev.yml'],
   ignore=['./api', './docs'],
 )
