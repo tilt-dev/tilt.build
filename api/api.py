@@ -665,3 +665,15 @@ def struct(**kwargs) -> Any:
     x = struct(a="foo", b=6)
     print("%s %d" % (x.a, x.b)) # prints "foo 6"
   """
+
+def update_settings(max_parallel_updates: int) -> None:
+  """Configures Tilt's updates to your resources. (An update is any execution of or
+  change to a resource. Examples of updates include: doing a docker build + deploy to
+  Kubernetes; running a live update on an existing container; and executing
+  a local resource command).
+
+  Expect more settings to be configurable from this function soon.
+
+  Args:
+    max_parallel_updates: maximum number of updates Tilt will execute in parallel. Default is 3. Must be a positive integer.
+"""
