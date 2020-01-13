@@ -1095,6 +1095,10 @@ ensures a pretty high bar of intent.
            <em>
             target=&apos;&apos;
            </em>
+           ,
+           <em>
+            ssh=&apos;&apos;
+           </em>
            <span class="sig-paren">
             )
            </span>
@@ -1466,6 +1470,40 @@ ensures a pretty high bar of intent.
                   </span>
                  </code>
                  flag.
+                </li>
+                <li>
+                 <strong>
+                  ssh
+                 </strong>
+                 (
+                 <code class="xref py py-data docutils literal notranslate">
+                  <span class="pre">
+                   Union
+                  </span>
+                 </code>
+                 [
+                 <code class="xref py py-class docutils literal notranslate">
+                  <span class="pre">
+                   str
+                  </span>
+                 </code>
+                 ,
+                 <code class="xref py py-class docutils literal notranslate">
+                  <span class="pre">
+                   List
+                  </span>
+                 </code>
+                 [
+                 <code class="xref py py-class docutils literal notranslate">
+                  <span class="pre">
+                   str
+                  </span>
+                 </code>
+                 ]]) &#x2013; Include SSH secrets in your build. Use ssh=&#x2019;default&#x2019; to clone private repositories inside a Dockerfile. Uses the syntax in the
+                 <a class="reference external" href="https://docs.docker.com/develop/develop-images/build_enhancements/#using-ssh-to-access-private-data-in-builds">
+                  Docker build &#x2013;ssh flag
+                 </a>
+                 .
                 </li>
                </ul>
               </td>
