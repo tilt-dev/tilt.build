@@ -5,7 +5,7 @@ author: dmiller
 layout: blog
 title: "Tilt Commit of the Month: December 2019"
 subtitle: "Tilt now supports Helm 3"
-image: helm-logo.svg
+image: /assets/images/december-commit-of-the-month/helm-logo.svg
 image_type: "contain"
 tags:
   - tilt

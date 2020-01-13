@@ -8,6 +8,7 @@ title: ".dev is a better .io"
 subtitle: Why we moved to tilt.dev
 image_caption: "Diego Garcia, home of .io"
 image: featuredImage.jpeg
+image_needs_slug: true
 tags:
   - internet
   - developer-tools

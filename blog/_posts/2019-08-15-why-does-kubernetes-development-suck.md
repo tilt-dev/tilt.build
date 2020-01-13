@@ -6,6 +6,7 @@ layout: blog
 title: "Why Does Developing on Kubernetes Suck?"
 subtitle: "Let me count the ways"
 image: featuredImage.png
+image_needs_slug: true
 image_type: "contain"
 tags:
   - docker

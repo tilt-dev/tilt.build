@@ -6,6 +6,7 @@ layout: blog
 canonical_url: "https://medium.com/windmill-engineering/observability-doesnt-work-in-dev-c214a9fb3e2d"
 title: "Observability Doesn’t Work in Dev"
 image: featuredImage.png
+image_needs_slug: true
 image_caption: Spot the bug
 tags:
   - microservices

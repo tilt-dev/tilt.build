@@ -4,7 +4,7 @@ date: 2019-12-20
 author: maia
 layout: blog
 title: "KubeCon NA 2019 FAQ"
-image: "booth-photo.jpg"
+image: "/assets/images/kubecon-faq/booth-photo.jpg"
 image_caption: "Team Tilt at our booth at KubeCon NA 2019"
 tags:
   - docker

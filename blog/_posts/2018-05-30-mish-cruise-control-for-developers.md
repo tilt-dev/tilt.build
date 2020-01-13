@@ -7,6 +7,7 @@ canonical_url: "https://medium.com/windmill-engineering/mish-cruise-control-for-
 title: "mish&#58; cruise control for developers"
 image_caption: "mish in action"
 image: "1_5SyGWMKZ3wyZq_iNOp2g_g.gif"
+image_needs_slug: true
 tags:
   - devops
   - shell

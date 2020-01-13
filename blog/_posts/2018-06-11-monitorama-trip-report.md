@@ -6,6 +6,7 @@ layout: blog
 canonical_url: "https://medium.com/windmill-engineering/monitorama-trip-report-cc07f3356eda"
 title: "Monitorama Trip Report"
 image: featuredImage.jpeg
+image_needs_slug: true
 tags:
   - devops
   - monitoring

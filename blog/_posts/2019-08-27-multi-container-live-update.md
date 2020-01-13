@@ -6,6 +6,7 @@ layout: blog
 title: "Live Update Multiple Containers Per Pod"
 subtitle: "Because your sidecar deserves iteration too!"
 image: sidecarDog.jpg
+image_needs_slug: true
 image_caption: "Who WOULDN'T want to iterate on this sidecar?!"
 tags:
   - docker

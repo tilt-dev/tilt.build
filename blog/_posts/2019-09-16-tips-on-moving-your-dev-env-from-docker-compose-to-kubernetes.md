@@ -5,6 +5,7 @@ author: nick
 layout: blog
 title: "Tips on Moving your Dev Env from Docker Compose to Kubernetes"
 image: olivier-miche-Skva4bc_Bsg-unsplash.png
+image_needs_slug: true
 image_caption: "Photo by Olivier Miche on <a href='https://unsplash.com/photos/Skva4bc_Bsg'>Unsplash</a>"
 tags:
   - kubernetes

@@ -6,6 +6,7 @@ layout: blog
 canonical_url: "https://medium.com/windmill-engineering/should-developers-know-about-kubernetes-1df432ce057d"
 title: "Should Developers Know about Kubernetes?"
 image: featuredImage.jpeg
+image_needs_slug: true
 image_caption: "Intrepid Windmill employees hanging out with various Kubernetes mascots"
 tags:
   - kubernetes

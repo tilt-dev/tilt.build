@@ -6,6 +6,7 @@ layout: blog
 canonical_url: "https://medium.com/windmill-engineering/4-strange-loop-2018-talks-you-should-watch-ccb181fec53c"
 title: "4 Strange Loop 2018 Talks You Should Watch"
 image: featuredImage.jpeg
+image_needs_slug: true
 tags:
   - programming
   - conference
