@@ -4676,6 +4676,72 @@ Can be a file (in which case just that file will be synced) or directory (in whi
            </table>
           </dd>
          </dl><dl class="function">
+          <dt id="api.update_settings">
+           <code class="descclassname">
+           </code>
+           <code class="descname">
+            update_settings
+           </code>
+           <span class="sig-paren">
+            (
+           </span>
+           <em>
+            max_parallel_updates
+           </em>
+           <span class="sig-paren">
+            )
+           </span>
+           <a class="headerlink" href="#api.update_settings" title="Permalink to this definition">
+            &#xB6;
+           </a>
+          </dt>
+          <dd>
+           <p>
+            Configures Tilt&#x2019;s updates to your resources. (An update is any execution of or
+change to a resource. Examples of updates include: doing a docker build + deploy to
+Kubernetes; running a live update on an existing container; and executing
+a local resource command).
+           </p>
+           <p>
+            Expect more settings to be configurable from this function soon.
+           </p>
+           <table class="docutils field-list" frame="void" rules="none">
+            <col class="field-name">
+            <col class="field-body">
+            <tbody valign="top">
+             <tr class="field-odd field">
+              <th class="field-name">
+               Parameters:
+              </th>
+              <td class="field-body">
+               <strong>
+                max_parallel_updates
+               </strong>
+               (
+               <code class="xref py py-class docutils literal notranslate">
+                <span class="pre">
+                 int
+                </span>
+               </code>
+               ) &#x2013; maximum number of updates Tilt will execute in parallel. Default is 3. Must be a positive integer.
+              </td>
+             </tr>
+             <tr class="field-even field">
+              <th class="field-name">
+               Return type:
+              </th>
+              <td class="field-body">
+               <code class="docutils literal notranslate">
+                <span class="pre">
+                 None
+                </span>
+               </code>
+              </td>
+             </tr>
+            </tbody>
+           </table>
+          </dd>
+         </dl><dl class="function">
           <dt id="api.version_settings">
            <code class="descclassname">
            </code>

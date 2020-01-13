@@ -33,6 +33,7 @@ functions:
 - struct
 - sync
 - trigger_mode
+- update_settings
 - version_settings
 - watch_file
 - workload_to_resource_function
