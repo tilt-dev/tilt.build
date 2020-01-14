@@ -66,7 +66,7 @@ If you want the old behavior, you can disable parallel updates with this line in
 update_settings(max_parallel_updates=1)
 ```
 
-Then Tilt will only run one Docker build at a time.
+Then Tilt will only update one service at a time.
 
 We've found that some users want to guarantee that services come up in a
 specific order. For example, maybe you want to ensure the database starts before
