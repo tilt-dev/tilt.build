@@ -79,7 +79,7 @@ k8s_resource('database', …)
 k8s_resource('teapot', …, resource_deps=['database'])
 ```
 
-With these `resource_deps`, Tilt won't start building teapot until the database pod is ready.
+With these `resource_deps`, Tilt won't start building `teapot` until the `database` pod is ready.
 
 ## What's Next?
 
