@@ -6,6 +6,7 @@ layout: blog
 canonical_url: "https://medium.com/windmill-engineering/fast-kubernetes-development-with-live-update-7b2395490d68"
 title: "Fast Kubernetes Development with Live Update"
 image: featuredImage.jpeg
+image_needs_slug: true
 image_caption: Soon, your iteration loop will feel like this.
 tags:
   - docker

@@ -7,6 +7,7 @@ canonical_url: "https://medium.com/windmill-engineering/windmill-fan-program-a4c
 title: "Windmill Fan Program"
 image_caption: "Gopher feels the wind in their fur"
 image: 1_tzJemAXfFDXb1FKBEdgVfg.jpeg
+image_needs_slug: true
 tags:
   - startup
   - development-tools

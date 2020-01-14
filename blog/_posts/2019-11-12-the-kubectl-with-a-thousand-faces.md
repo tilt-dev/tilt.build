@@ -6,6 +6,7 @@ layout: blog
 title: "The Kubectl with a Thousand Faces"
 subtitle: "Commit of the Month / October 2019"
 image: yuri-bodrikhin-dXLnq8z8x4k-unsplash.jpg
+image_needs_slug: true
 image_caption: "Photo by <a href='https://unsplash.com/@bodriy?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText'>Yuri Bodrikhin</a> on <a href='https://unsplash.com/backgrounds/art/diamond?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText'>Unsplash</a>"
 tags:
   - kubernetes

@@ -7,6 +7,7 @@ canonical_url: "https://medium.com/windmill-engineering/mish-flexible-shell-note
 title: "mish&#58; Flexible Shell Notebooks"
 image_caption: "easier refining and repeating"
 image: "1_w-2_vusBqdbQA_1oxcBFKw.gif"
+image_needs_slug: true
 tags:
   - terminal
 keywords:

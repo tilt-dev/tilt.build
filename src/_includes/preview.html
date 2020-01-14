@@ -19,7 +19,11 @@
             row row--flexStart">
   <a class="postPreview-imageLink" href="{{post.url}}">
     {% if postImage != "" %}
-    <img class="postPreview-image" src="/assets/images/{{ post.slug }}/{{ postImage }}">
+    {% assign imageUrl = postImage %}
+    {% if post.image_needs_slug %}
+    {% assign imageUrl = "/assets/images/" | append: post.slug | append: "/" | append: postImage %}
+    {% endif %}
+    <img class="postPreview-image" src="{{ imageUrl }}">
     {% else %}
     <img class="postPreview-image" src="/assets/img/blog-default-preview.png">
     {% endif %}

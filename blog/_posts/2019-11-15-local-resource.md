@@ -6,6 +6,7 @@ layout: blog
 title: "Local Resource"
 subtitle: "Integrate your whole workflow into Tilt"
 image: "alexandr-podvalny-WOxddhzhC1w-unsplash.jpg"
+image_needs_slug: true
 image_caption: "Buy local, and run commands local(ly)! (Photo by Alexandr Podvalny on <a href='https://unsplash.com/photos/WOxddhzhC1w'>Unsplash</a>.)"
 tags:
   - docker

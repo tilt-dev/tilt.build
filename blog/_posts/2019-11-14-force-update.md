@@ -6,6 +6,7 @@ layout: blog
 title: "Introducing: Force Update"
 subtitle: "'Turn it off and on again' the Tilt way"
 image: featuredImage.jpg
+image_needs_slug: true
 image_caption: "From 'The IT Crowd'"
 tags:
   - docker

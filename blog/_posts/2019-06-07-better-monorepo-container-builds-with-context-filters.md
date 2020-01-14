@@ -6,6 +6,7 @@ title: "Better Monorepo Container Builds with Context Filters"
 layout: blog
 canonical_url: "https://medium.com/windmill-engineering/better-monorepo-container-builds-with-context-filters-94717ecdb7a3"
 image: featuredImage.png
+image_needs_slug: true
 image_caption: My Docker contexts, visualized
 tags:
   - docker

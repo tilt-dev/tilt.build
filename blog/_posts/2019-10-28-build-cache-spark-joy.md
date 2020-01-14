@@ -6,6 +6,7 @@ layout: blog
 title: "Does This Build Cache Spark Joy?"
 subtitle: "Pruning Away your Docker Disk Space Woes"
 image: "marie-kondo-containers.jpg"
+image_needs_slug: true
 image_caption: 'Do you really need all those old containers? (Credit: Netflix, from "Tidying Up with Marie Kondo", 2019)'
 tags:
   - docker

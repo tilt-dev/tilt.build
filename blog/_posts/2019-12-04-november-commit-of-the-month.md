@@ -4,7 +4,7 @@ date: 2019-12-03
 author: dmiller
 layout: blog
 title: "Tilt Commit of the Month: November 2019"
-image: featuredImage.jpg
+image: /assets/images/november-commit-of-the-month/featuredImage.jpg
 image_type: "contain"
 tags:
   - kubernetes
