@@ -70,7 +70,7 @@ Then Tilt will only update one service at a time.
 
 We've found that some users want to guarantee that services come up in a
 specific order. For example, maybe you want to ensure the database starts before
-your internet-enabled teapot. In that case, don't artificially slow yourself down with `max_parallel_updates=1`!
+your internet-enabled teapot. Don't worry, you don't have to artificially slow yourself down with `max_parallel_updates=1`;
 You want to use [resource dependencies](https://docs.tilt.dev/resource_dependencies.html) to
 tell Tilt about your service order.
 
