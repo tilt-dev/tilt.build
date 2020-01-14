@@ -38,7 +38,7 @@ Examples of updates include:
 - Running a build script in a container
 - Restarting a pod
 
-Tilt wants service-updating at all scales to be fast, from the small-scale "copy an HTML file pls" to the mega-corp scale `bazel build`.
+Tilt wants resource-updating at all scales to be fast, from the small-scale "copy an HTML file pls" to the mega-corp scale `bazel build`.
 
 ## How Do I Turn it On?
 
