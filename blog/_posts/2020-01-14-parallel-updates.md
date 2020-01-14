@@ -44,7 +44,7 @@ Tilt wants service-updating at all scales to be fast, from the small-scale "copy
 
 As of Tilt v0.11.0, parallel updates are included FREE.
 
-Tilt will run up to 3 updates in parallel. More parallel updates are also
+By default, Tilt will run up to 3 updates in parallel. More parallel updates are also
 available for the low, low cost of [one function call](https://docs.tilt.dev/api.html#api.update_settings) in your Tiltfile:
 
 ```python
