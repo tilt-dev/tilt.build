@@ -1,5 +1,5 @@
 ---
-title: Flags for Tiltfile Config Management
+title: Tiltfile Flags and Args
 layout: docs
 ---
 
@@ -26,7 +26,77 @@ Because users have different needs around options, Tilt supports several ways of
 
 
 ## Defining and Using Options in the Tiltfile
-Here's where we describe config.define_string_list(), config.parse(), and config.set_resources.
+In the Tiltfile, you interact with these options in 3 ways:
+* Define options.
+* Get option values.
+* (Optional) Set results.
+
+### Define Options
+You define an option by calling `config.define_string_list`. (We plan to support more types beyond list of strings in the future, but are starting with just one type). This allows users to pass that as a flag on the command-line or as a field in `tilt-config.json`. You can also specify one option that is populated from any remaining args. In code:
+```
+# Flags
+# Tiltfile
+config.define_string_list('foo')
+
+# CLI
+tilt up -- --foo bar
+tilt args -- --foo bar
+
+# tilt-config.json
+{
+ "foo": ["bar"]
+}
+
+# Args
+# Tiltfile
+config.define_string_list('services', args=True)
+
+# CLI
+tilt up -- fe be kafka
+tilt args -- fe be kafka
+
+# tilt-config.json
+{
+ "services": ["fe", "be", "kafka"]
+}
+```
+
+# Get Option Values
+The function `config.parse` will parse both `tilt-config.json` and the CLI args to create one dictionary that maps keys to value. CLI args take precedence over values in the config file.
+
+```python
+config.define_string_list('foo')
+config.define_string_list('services', args=True)
+cfg = config.parse()
+print(cfg)
+# If you ran tilt up -- --foo bar fe be kafka
+# cfg would be the python dict:
+{"foo": ["bar"],
+ "services": ["fe", "be", "kafka"],
+}
+```
+
+You can then use the values in the returned dictionary in your Tiltfile code to decide how to configure Tilt. You can make Tilt work for your team's model of options using these option primitives to decide how to call the builtin Tiltfile function you already use to configure youre Tilt.
+
+# (Optional) Set Results
+One very common use for options is which services to run, so we offer special support for that case. The function `config.set_resources` allows you to replace a Tiltfile like:
+```python
+cfg = config.parse()
+if 'fe' in cfg['services']:
+  docker_build(...)
+  k8s_yaml(...)
+  k8s_resource(...)
+if 'be' in cfg['services']:
+  docker_build(...)
+  k8s_yaml(...)
+  k8s_resource(...)
+```
+
+With the simpler:
+```python
+cfg = config.parse()
+config.set_resources(cfg['services'])
+```
 
 ## Examples
 
@@ -67,16 +137,14 @@ groups = {
   'enterprise': ['a', 'b', 'd'],
 }
 
-if cfg['args']:
-  resources = []
-  for arg in cfg['args']:
-    if arg in groups:
-      resources += groups[arg]
-    else:
-      resources.append(r)
-  flags.set_resources(resources)
+resources = []
+for arg in cfg['args']:
+  if arg in groups:
+    resources += groups[arg]
+  else:
+    resources.append(r)
+config.set_resources(resources)
 ```
-
 
 ### Specify services to edit
 You have many services that your users frequently need to run, but don't expect to edit. Your YAML includes good enough images. (Perhaps they're from a suitably recent CI invocation, or refer to standard images.)
