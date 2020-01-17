@@ -9,10 +9,10 @@ Tools offer flags and args to support the wide range of users needs and preferen
 * Tiltfile code uses the choices to power arbitrary customizations
 
 This doc describes how you, the Dev Experience engineer who owns the Tiltfile, can offer this to your user, the App Developer who runs Tilt while they code. In order, we'll cover:
-*) Setting options as a user
-*) Examples of common configuration
-*) How Config Works
-*) Future work (we see how it fits in but don't plan to implement until there's concrete demand).
+* Setting options as a user
+* Examples of common configuration
+* Config file that stores flags
+* Future work
 
 ## Setting Options as a User
 Because users have different needs around options, Tilt supports several ways of setting options:
