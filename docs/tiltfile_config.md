@@ -3,24 +3,26 @@ title: Tiltfile Config
 layout: docs
 ---
 
-A Tiltfile can define a Tiltfile config, which allow the users of a Tiltfile to
-provide input / configuration to that Tiltfile. For example, one might write a
-Tiltfile such that one runs `tilt up consumer` to run Tilt with the services
-needed for development for consumers, or `tilt up enterprise` to run Tilt with
-the services needed for development for enterprise.
+Tools offer flags and args to support the wide range of users needs and preferences, and dev workflows are no different. Devs on your team will want options in how they use Tilt; some are long-standing personal preferences and others will change in the middle of working on a Pull Request. With Tilt's user configuration system, you can improve a Tiltfile that encodes one standard setup to power the breadth of workflows your team needs:
+* Maintainers choose the options to expose that make sense for their project
+* Users can easily set and change options, without having to learn a Tiltfile
+* Tiltfile extensions expose the choices so they can power arbitrary customizations
 
-This doc describes how to configure these and other shorthands in Tilt. We aim
-to make common cases trivial, while also supporting escape hatches that enable
-arbitrarily complex cases.
+This doc describes how you, the Dev Experience engineer who owns the Tiltfile, can offer this to your user, the App Developer who runs Tilt while they code. In order, we'll cover:
+*) Setting options as a user
+*) Examples of common configuration
+*) How Config Works
+*) Future work (we see how it fits in but don't plan to implement until there's concrete demand).
 
-In order, we'll cover:
-* Examples that cover common cases, showing both the Tiltfiles and accompanying
-  usage.
-* Describe how this is implemented. These details will help you understand how
-  to write tooling that interacts with this system and describe its behavior
-  to teammates.
-* Future work (we see how it fits in but don't plan to implement until there's
-  concrete demand).
+## Setting Options as a User
+Because users have different needs around options, Tilt supports several ways of setting options:
+
+* Jump into a mode quickly by adding flags and args on the command: `tilt up -- --key value`.
+* Store long-lived preferences in a file named `tilt-config.json` so you don't have to remember to pass options on each invocation.
+* Change options without having to restart/rebuild/redeploy: `tilt args -- --key value2` updates the running Tilt and reloads the config with the new value.
+* Set options in existing scripts outside of Tilt. For example, a new-hire onboarding tool that provisions capacity and requests permissions can write that info to `tilt-config.json`.
+
+## Examples
 
 ### Run only some services (reimplement default Tilt behavior)
 Your app has many services, call them A, B, C, and D, and you want your users to
@@ -102,7 +104,7 @@ if 'd' in to_edit:
   docker_build('d', './d')
 ```
 
-## The Config File
+## How Config Works
 In addition to config settings coming from command-line args, Tilt will read
 them from a `tilt_config.json` in the same directory as the `Tiltfile`, if one
 exists. It should contain a single JSON dict, where the keys are config setting
