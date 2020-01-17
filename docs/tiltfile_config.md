@@ -32,7 +32,7 @@ and starting point.
 #### Command-Lines
 * `tilt up`: run all services
 * `tilt up a b d`: run A, B, and D but not C
-* `tilt flags a b`: change running Tilt to run A and B but neither C nor D.
+* `tilt args a b`: change running Tilt to run A and B but neither C nor D.
 * `tilt up`: run all services
 
 #### Tiltfile
