@@ -6,6 +6,7 @@ layout: blog
 canonical_url: "https://medium.com/windmill-engineering/production-is-for-cattle-but-development-is-for-pets-5f4ecba11f7d"
 title: "Production is for Cattle, but Development is for Pets"
 image: featuredImage.png
+image_needs_slug: true
 tags:
   - kubernetes
   - cloud-services

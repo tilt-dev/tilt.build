@@ -28,6 +28,12 @@
     href: manual_update_control.html
   - title: Share Errors and Cluster State with Snapshots
     href: snapshots.html
+  - title: Resource Dependencies
+    href: resource_dependencies.html
+  - title: Local or Occasional Workflows with Local Resource
+    href: local_resource.html
+  - title: Tiltfile Configs
+    href: tiltfile_config.html
 - title: Tilt Cookbooks
   items:
   - title: Tiltfile Concepts
@@ -52,11 +58,13 @@
   items:
   - title: Who is Tilt for?
     href: product_faq.html
+  - title: What does Tilt send?
+    href: telemetry_faq.html
+  - title: Why is Tilt broken?
+    href: debug_faq.html
   - title: Frequently Asked Questions
     href: faq.html
   - title: Tiltfile API Reference
     href: api.html
-  - title: Tiltfile API - os module
-    href: api_os.html
   - title: Code of Conduct
     href: code_of_conduct.html

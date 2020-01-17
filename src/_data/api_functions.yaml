@@ -1,5 +1,6 @@
 functions:
 - allow_k8s_contexts
+- analytics_settings
 - blob
 - custom_build
 - dc_resource
@@ -7,19 +8,17 @@ functions:
 - default_registry
 - disable_snapshots
 - docker_build
+- docker_compose
 - docker_prune_settings
 - enable_feature
 - fail
 - fall_back_on
-- fast_build
 - filter_yaml
 - helm
 - include
 - k8s_context
 - k8s_kind
 - k8s_resource
-- k8s_resource_assembly_version
-- k8s_resource_v1_DEPRECATED
 - k8s_yaml
 - kustomize
 - listdir
@@ -31,7 +30,13 @@ functions:
 - read_yaml
 - restart_container
 - run
+- struct
 - sync
 - trigger_mode
+- update_settings
+- version_settings
 - watch_file
 - workload_to_resource_function
+- config.define_string_list
+- config.parse
+- config.set_enabled_resources

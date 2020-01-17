@@ -6,6 +6,7 @@ layout: blog
 title: "Tilt Commit of the Month: August 2019"
 subtitle: "Protect Your Production Clusters"
 image: featuredImage.png
+image_needs_slug: true
 image_type: "contain"
 tags:
   - docker

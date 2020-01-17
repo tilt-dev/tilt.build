@@ -8,7 +8,11 @@ layout: default
     
     {% if page.image %}
     <figure class="blogFeatureImage">
-      <img src="/assets/images/{{ page.slug }}/{{ page.image }}">
+      {% assign imageUrl = page.image %}
+      {% if page.image_needs_slug %}
+      {% assign imageUrl = "/assets/images/" | append: page.slug | append: "/" | append: page.image %}
+      {% endif %}
+      <img src="{{imageUrl}}">
       {% if page.image_caption %}
       <figcaption>{{page.image_caption}}</figcaption>
       {% endif %}

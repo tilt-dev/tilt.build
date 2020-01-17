@@ -7,6 +7,7 @@ canonical_url: "https://medium.com/windmill-engineering/local-development-at-kub
 title: "Local Development at KubeCon EU"
 subtitle: ""
 image: featuredImage.jpeg
+image_needs_slug: true
 tags:
   - kubernetes
   - bazel

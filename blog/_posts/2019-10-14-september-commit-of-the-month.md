@@ -5,6 +5,7 @@ author: dmiller
 layout: blog
 title: "September Commit of the Month"
 image: featuredImage.jpg
+image_needs_slug: true
 tags:
   - kubernetes
   - developer-tools

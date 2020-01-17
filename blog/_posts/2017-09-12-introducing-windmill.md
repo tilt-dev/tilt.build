@@ -6,6 +6,7 @@ layout: blog
 canonical_url: "https://medium.com/windmill-engineering/introducing-windmill-98036ed5d824"
 title: "Introducing Windmill"
 image: 1_m-VXibfLnJvJ0_uCPF17Tg.png
+image_needs_slug: true
 image_type: "contain"
 tags:
   - continuous-integration

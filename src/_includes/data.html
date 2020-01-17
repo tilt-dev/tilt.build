@@ -1,0 +1,52 @@
+<dl class="data">
+          <dt id="modules.os.environ">
+           <code class="descclassname">
+            os.
+           </code>
+           <code class="descname">
+            environ
+           </code>
+           <em class="property">
+            = typing.Dict[str, str]
+           </em>
+           <a class="headerlink" href="#modules.os.environ" title="Permalink to this definition">
+            &#xB6;
+           </a>
+          </dt>
+          <dd>
+           <p>
+            A dictionary of your environment variables.
+           </p>
+           <p>
+            For example,
+            <code class="docutils literal notranslate">
+             <span class="pre">
+              os.environ[&apos;HOME&apos;]
+             </span>
+            </code>
+            is usually your home directory.
+           </p>
+           <p>
+            Captured each time the Tiltfile begins execution.
+           </p>
+           <p>
+            Tiltfile dictionaries support many of the same methods
+as Python dictionaries, including:
+           </p>
+           <ul class="simple">
+            <li>
+             dict.get(key, default)
+            </li>
+            <li>
+             dict.items()
+            </li>
+           </ul>
+           <p>
+            See the
+            <a class="reference external" href="https://github.com/bazelbuild/starlark/blob/master/spec.md#built-in-methods">
+             Starlark spec
+            </a>
+            for more.
+           </p>
+          </dd>
+         </dl>

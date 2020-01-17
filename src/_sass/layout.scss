@@ -157,6 +157,17 @@ li {
 .blogFeatureImage {
   margin-bottom: $spacing-unit * 1.25;
 }
+.blogFeatureImage > img {
+  width: 100%;
+  max-height: 500px; /* 50% of max-width */
+  object-fit: cover;
+  display: block;
+
+  @include docs-mobile {
+    /* Using vw units here ensures the height is capped to a percentage of width */
+    max-height: 50vw;
+  }
+}
 .blogBody > h1,
 .blogBody > h2,
 .blogBody > h3,
@@ -419,6 +430,9 @@ h4,
   color: $color-blue;
   font-weight: 700;
   letter-spacing: 0;
+}
+.docsContent h3 {
+  font-size: 20px;
 }
 .wrapper--landing h3,
 .docsContent h3,
@@ -1123,7 +1137,8 @@ h4 .fillStd {
 }
 
 .docsContent img {
-  box-shadow: 8px 10px 16px 16px $color-grey-lightest;
+  box-shadow: 4px 5px 8px 8px $color-grey-lightest;
+  margin: $spacing-unit * 0.5 $spacing-unit;
 }
 
 img.no-shadow {

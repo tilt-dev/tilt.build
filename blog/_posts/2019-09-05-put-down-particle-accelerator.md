@@ -6,6 +6,7 @@ layout: blog
 title: "Microservice Devs: Put Down the Particle Accelerator"
 subtitle: "Pick Up The MDE Chemistry Set"
 image: slac.jpg
+image_needs_slug: true
 image_caption: "More Science than is strictly necessary for daily work"
 tags:
   - kubernetes

@@ -22,8 +22,7 @@ dl.class > dt {
   display: inline-block;
   background-color: $color-blue-lightest;
 }
-dl.method > dt,
-dl.function > dt {
+dl:not(.class) > dt {
   border-top: solid 3px $color-grey-light;
   padding: 5px 8px 8px 8px;
   display: inline-block;
@@ -42,7 +41,7 @@ dl.function > dt {
 }
 
 .descclassname {
-  display: none;
+  display: inline-block;
 }
 
 .descname, .xref {

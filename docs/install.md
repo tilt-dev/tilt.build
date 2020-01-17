@@ -90,7 +90,6 @@ The installer first checks if you can install Tilt with Homebrew. If you'd prefe
 to run Homebrew manually, run:
 
 ```bash
-brew tap windmilleng/tap
 brew install windmilleng/tap/tilt
 ```
 
@@ -101,19 +100,19 @@ If you'd prefer to download the binary manually:
 On MacOS:
 
 ```bash
-curl -fsSL https://github.com/windmilleng/tilt/releases/download/v0.10.15/tilt.0.10.15.mac.x86_64.tar.gz | tar -xzv tilt && \
+curl -fsSL https://github.com/windmilleng/tilt/releases/download/v0.11.0/tilt.0.11.0.mac.x86_64.tar.gz | tar -xzv tilt && \
   sudo mv tilt /usr/local/bin/tilt
 ```
 
 On Linux:
 
 ```bash
-curl -fsSL https://github.com/windmilleng/tilt/releases/download/v0.10.15/tilt.0.10.15.linux.x86_64.tar.gz | tar -xzv tilt && \
+curl -fsSL https://github.com/windmilleng/tilt/releases/download/v0.11.0/tilt.0.11.0.linux.x86_64.tar.gz | tar -xzv tilt && \
   sudo mv tilt /usr/local/bin/tilt
 ```
 
 Finally, if you want to install `tilt` from source, see the [developers'
-guide](https://github.com/windmilleng/tilt/blob/master/DEVELOPING.md).
+guide](https://github.com/windmilleng/tilt/blob/master/CONTRIBUTING.md).
 
 Building from source requires both Go and TypeScript/JavaScript tools, and
 dynamically compiles the TypeScript on every run. We only recommend this if you

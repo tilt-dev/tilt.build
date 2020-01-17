@@ -31,10 +31,38 @@ yaml = helm(
   # The namespace to install in, equivalent to helm --namespace
   namespace='my-namespace',
   # The values file to substitute into the chart.
-  values=['./path/to/chart/dir/values-dev.yaml'] 
+  values=['./path/to/chart/dir/values-dev.yaml'],
+  # Values to set from the command-line
+  set=['service.port=1234', 'ingress.enabled=true']
   )
 k8s_yaml(yaml)
 ```
+
+## Sub-charts and requirements.txt
+
+If you have chart dependencies, you need to run:
+
+```
+helm dep update
+```
+
+outside of Tilt to download the dependencies to your repo. Then create a
+`.tiltignore` with the contents:
+
+```
+**/charts
+**/tmpcharts
+```
+
+Or, if you want be more cautious:
+
+```
+path/to/your/chart/charts
+path/to/your/chart/tmpcharts
+```
+
+When Helm runs, it touches these chart directories. Adding these lines ensures that Tilt
+doesn't reload the Tiltfile every time Helm touches them.
 
 ## Advanced Helm
 

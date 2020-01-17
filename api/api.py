@@ -71,7 +71,7 @@ def restart_container() -> LiveUpdateStep:
   """
   pass
 
-def docker_build(ref: str, context: str, build_args: Dict[str, str] = {}, dockerfile: str = "Dockerfile", dockerfile_contents: Union[str, Blob] = "", live_update: List[LiveUpdateStep]=[], match_in_env_vars: bool = False, ignore: Union[str, List[str]] = [], only: Union[str, List[str]] = [], entrypoint: str = "", target: str = "") -> None:
+def docker_build(ref: str, context: str, build_args: Dict[str, str] = {}, dockerfile: str = "Dockerfile", dockerfile_contents: Union[str, Blob] = "", live_update: List[LiveUpdateStep]=[], match_in_env_vars: bool = False, ignore: Union[str, List[str]] = [], only: Union[str, List[str]] = [], entrypoint: str = "", target: str = "", ssh: Union[str, List[str]] = "") -> None:
   """Builds a docker image.
 
   Note that you can't set both the `dockerfile` and `dockerfile_contents` arguments (will throw an error).
@@ -89,48 +89,42 @@ def docker_build(ref: str, context: str, build_args: Dict[str, str] = {}, docker
     dockerfile: path to the Dockerfile to build.
     dockerfile_contents: raw contents of the Dockerfile to use for this build.
     live_update: set of steps for updating a running container (see `Live Update documentation <live_update_reference.html>`_).
-    match_in_env_vars: specifies that k8s objects can reference this image in their environment variables, and Tilt will handle those variables the same as it usually handles a k8s container spec's `image`s.
+    match_in_env_vars: specifies that k8s objects can reference this image in their environment variables, and Tilt will handle those variables the same as it usually handles a k8s container spec's ``image`` s.
     ignore: set of file patterns that will be ignored. Ignored files will not trigger builds and will not be included in images. Follows the `dockerignore syntax <https://docs.docker.com/engine/reference/builder/#dockerignore-file>`_.
     only: set of file paths that should be considered for the build. All other changes will not trigger a build and will not be included in images. Inverse of ignore parameter. Only accepts real paths, not file globs.
     entrypoint: command to run when this container starts. Takes precedence over the container's ``CMD`` or ``ENTRYPOINT``, and over a `container command specified in k8s YAML <https://kubernetes.io/docs/tasks/inject-data-application/define-command-argument-container/>`_. Will be evaluated in a shell context: e.g. ``entrypoint="foo.sh bar"`` will be executed in the container as ``/bin/sh -c 'foo.sh bar'``.
-    target: Specify a build stage in the Dockerfile. Equivalent to the `docker build --target` flag.
+    target: Specify a build stage in the Dockerfile. Equivalent to the ``docker build --target`` flag.
+    ssh: Include SSH secrets in your build. Use ssh='default' to clone private repositories inside a Dockerfile. Uses the syntax in the `Docker build --ssh flag <https://docs.docker.com/develop/develop-images/build_enhancements/#using-ssh-to-access-private-data-in-builds>`_.
   """
   pass
 
-class FastBuild:
-  """An image that was created with ``fast_build``"""
-  def add(self, src: str, dest: str) -> 'FastBuild':
-    """Adds the content from ``src`` into the image at path ``dest``.
+def docker_compose(configPaths: Union[str, List[str]]) -> None:
+  """Run containers with Docker Compose.
 
-    Args:
-      src: The path to content to be added to the image (absolute, or relative to the location of the Tiltfile).
-      dest: The path in the image where the content should be added.
+  Tilt will read your Docker Compose YAML and separate out the services.
+  We will infer which services defined in your YAML
+  correspond to images defined elsewhere in your ``Tiltfile`` (matching based on
+  the DockerImage ref).
 
-    """
-    pass
+  Tilt will watch your Docker Compose YAML and reload if it changes.
 
-  def run(self, cmd: str, trigger: Union[List[str], str] = []) -> None:
-    """Runs ``cmd`` as a build step in the image.
+  For more info, see `the guide to Tilt with Docker Compose <docker_compose.html>`_.
 
-    Args:
-      cmd: A shell command.
-      trigger: If the ``trigger`` argument is specified, the build step is only run on changes to the given file(s).
-    """
-    pass
+  Examples:
 
-  def hot_reload() -> None:
-    """Setting this on a ``FastBuild`` image tells Tilt that this container knows how to automatically reload any changes in the container. As a result there is no need to restart it.
+  .. code-block:: python
 
-    This is useful for containers that run something like nodemon or webpack Hot Module Replacement to update running processes quickly."""
-    pass
+    # Path to file
+    docker_compose('./docker-compose.yml')
 
+    # List of files
+    docker_compose(['./docker-compose.yml', './docker-compose.override.yml'])
 
-def fast_build(img_name: str, dockerfile_path: str, entrypoint: str = "") -> FastBuild:
-  """Initiates a docker image build that supports ``add`` s and ``run`` s, and that uses a cache for subsequent builds.
-
-  **Note**: this is a deprecated feature. For the fast building of the future, check out our `LiveUpdate tutorial </live_update_tutorial.html>`_ and `reference documention <live_update_reference.html>`_.
+  Args:
+    configPaths: Path(s) to Docker Compose yaml files.
   """
-  pass
+
+
 
 def k8s_yaml(yaml: Union[str, List[str], Blob]) -> None:
   """Call this with a path to a file that contains YAML, or with a ``Blob`` of YAML.
@@ -195,14 +189,28 @@ def trigger_mode(trigger_mode: TriggerMode):
 TRIGGER_MODE_AUTO = type('_sentinel', (TriggerMode,),
                  {'__repr__': lambda self: 'TRIGGER_MODE_AUTO'})()
 
+def dc_resource(name: str, trigger_mode: TriggerMode = TRIGGER_MODE_AUTO, resource_deps: List[str] = []) -> None:
+  """Configures the Docker Compose resource of the given name. Note: Tilt does an amount of resource configuration
+  for you(for more info, see `Tiltfile Concepts: Resources <tiltfile_concepts.html#resources>`_); you only need
+  to invoke this function if you want to configure your resource beyond what Tilt does automatically.
+
+  Args:
+    trigger_mode: one of ``TRIGGER_MODE_AUTO`` or ``TRIGGER_MODE_MANUAL``. For more info, see the
+      `Manual Update Control docs <manual_update_control.html>`_.
+    resource_deps: a list of resources on which this resource depends.
+      See the `Resource Dependencies docs <resource_dependencies.html>`_.
+  """
+
+  pass
+
 def k8s_resource(workload: str, new_name: str = "",
                  port_forwards: Union[str, int, List[int]] = [],
                  extra_pod_selectors: Union[Dict[str, str], List[Dict[str, str]]] = [],
                  trigger_mode: TriggerMode = TRIGGER_MODE_AUTO, resource_deps: List[str] = []) -> None:
-  """Configures a kubernetes resources
-
-  This description apply to `k8s_resource_assembly_version` 2.
-  If you are running Tilt version < 0.8.0 and/or do not call `k8s_resource_assembly_version(2)`, see :meth:`k8s_resource_v1_DEPRECATED` instead.
+  """Configures the Kubernetes resource of the given name. Tilt assembles Kubernetes resources
+  automatically, as described in `Tiltfile Concepts: Resources <tiltfile_concepts.html#resources>`_).
+  Calling ``k8s_resource`` is *optional*; you can use this function to configure port forwarding for
+  your resource, to rename it, or to adjust any of the other settings specified below.
 
   Args:
     workload: which workload's resource to configure. This is a colon-separated
@@ -237,59 +245,6 @@ def k8s_resource(workload: str, new_name: str = "",
       `Manual Update Control docs <manual_update_control.html>`_.
     resource_deps: a list of resources on which this resource depends.
       See the `Resource Dependencies docs <resource_dependencies.html>`_.
-  """
-  pass
-
-def dc_resource(name: str, trigger_mode: TriggerMode = TRIGGER_MODE_AUTO, resource_deps: List[str] = []) -> None:
-  """Configures the Docker Compose resource of the given name.
-
-  Args:
-    trigger_mode: one of ``TRIGGER_MODE_AUTO`` or ``TRIGGER_MODE_MANUAL``. For more info, see the
-      `Manual Update Control docs <manual_update_control.html>`_.
-    resource_deps: a list of resources on which this resource depends.
-      See the `Resource Dependencies docs <resource_dependencies.html>`_.
-  """
-
-  pass
-
-def k8s_resource_assembly_version(version: int) -> None:
-  """
-  Specifies which version of k8s resource assembly loading to use.
-
-  This function is deprecated and will be removed.
-  See `Resource Assembly Migration <resource_assembly_migration.html>`_ for information.
-
-  Changes the behavior of :meth:`k8s_resource`.
-  """
-
-def k8s_resource_v1_DEPRECATED(name: str, yaml: Union[str, Blob] = "", image: Union[str, FastBuild] = "",
-    port_forwards: Union[str, int, List[int]] = [], extra_pod_selectors: Union[Dict[str, str], List[Dict[str, str]]] = []) -> None:
-  """NOTE: This is actually named :meth:`k8s_resource`. This documents
-  the behavior of this method after a call to :meth:`k8s_resource_assembly_version` with value `1`.
-  This behavior is deprecated and will be removed.
-  See `Resource Assembly Migration <resource_assembly_migration.html>`_ for information.
-
-  Creates a kubernetes resource that tilt can deploy using the specified image.
-
-  Args:
-    name: What call this resource in the UI. If ``image`` is not specified ``name`` will be used as the image to group by.
-    yaml: Optional YAML. If this arg is not passed, we
-      expect to be able to extract it from an existing resource
-      (by looking for a k8s container running the specified ``image``).
-    image: An optional Image. If the image is not passed,
-      we expect to be able to extract it from an existing resource.
-    port_forwards: Local ports to connect to the pod. If no
-      target port is specified, will use the first container port.
-      Example values: 9000 (connect localhost:9000 to the default container port),
-      '9000:8000' (connect localhost:9000 to the container port 8000),
-      ['9000:8000', '9001:8001'] (connect localhost:9000 and :9001 to the
-      container ports 8000 and 8001, respectively).
-    extra_pod_selectors: In addition to relying on Tilt's heuristics to automatically
-      find K8S resources associated with this resource, a user may specify extra
-      labelsets to force entities to be associated with this resource. An entity
-      will be associated with this resource if it has all of the labels in at
-      least one of the entries specified (but still also if it meets any of
-      Tilt's usual mechanisms).
   """
   pass
 
@@ -388,7 +343,7 @@ def kustomize(pathToDir: str) -> Blob:
     pathToDir: Path to the directory locally (absolute, or relative to the location of the Tiltfile)."""
   pass
 
-def helm(pathToChartDir: str, name: str = "", namespace: str = "", values: Union[str, List[str]]=[]) -> Blob:
+def helm(pathToChartDir: str, name: str = "", namespace: str = "", values: Union[str, List[str]]=[], set: Union[str, List[str]]=[]) -> Blob:
   """Run `helm template <https://docs.helm.sh/helm/#helm-template>`_ on a given directory that contains a chart and return the fully rendered YAML as a Blob
   Chart directory is watched (See ``watch_file``).
 
@@ -399,6 +354,7 @@ def helm(pathToChartDir: str, name: str = "", namespace: str = "", values: Union
     name: The release name. Equivalent to the helm `--name` flag
     namespace: The namespace to deploy the chart to. Equivalent to the helm `--namespace` flag
     values: Specify one or more values files (in addition to the `values.yaml` file in the chart). Equivalent to the Helm ``--values`` or ``-f`` flags (`see docs <https://helm.sh/docs/chart_template_guide/#values-files>`_).
+    set: Specify one or more values. Equivalent to the Helm ``--set`` flag.
 """
   pass
 
@@ -495,13 +451,7 @@ def default_registry(registry: str) -> None:
   """
   pass
 
-class CustomBuild:
-  """An image that was created with :meth:`custom_build`"""
-  def add_fast_build() -> FastBuild:
-    """Returns a FastBuild that is associated with the image that was built from a ``custom_build``. When the container needs to be rebuilt it will be built using the ``CustomBuild``. Otherwise update will be done with the ``FastBuild`` instructions. """
-    pass
-
-def custom_build(ref: str, command: str, deps: List[str], tag: str = "", disable_push: bool = False, live_update: List[LiveUpdateStep]=[], match_in_env_vars: bool = False, ignore: Union[str, List[str]] = [], entrypoint: str="") -> CustomBuild:
+def custom_build(ref: str, command: str, deps: List[str], tag: str = "", disable_push: bool = False, skips_local_docker: bool = False, live_update: List[LiveUpdateStep]=[], match_in_env_vars: bool = False, ignore: Union[str, List[str]] = [], entrypoint: str=""):
   """Provide a custom command that will build an image.
 
   For examples on how to use this to integrate your own build scripts with Tilt,
@@ -510,7 +460,7 @@ def custom_build(ref: str, command: str, deps: List[str], tag: str = "", disable
   The command *must* publish an image with the name & tag ``$EXPECTED_REF``.
 
   Tilt will raise an error if the command exits successfully, but the registry does not contain
-  an image with the ref ``$EXPECTED_REF``.
+  an image with the ref ``$EXPECTED_REF``, unless you specify ``skips_local_docker=True``
 
   Example ::
 
@@ -520,7 +470,7 @@ def custom_build(ref: str, command: str, deps: List[str], tag: str = "", disable
       ['.'],
     )
 
-  Note: the `entrypoint` parameter is not supported for Docker Compose resources. If you need it for your use case, let us know.
+  Note: the ``entrypoint`` parameter is not supported for Docker Compose resources. If you need it for your use case, let us know.
 
   Args:
     ref: name for this image (e.g. 'myproj/backend' or 'myregistry/myproj/backend'). If this image will be used in a k8s resource(s), this ref must match the ``spec.container.image`` param for that resource(s).
@@ -529,8 +479,9 @@ def custom_build(ref: str, command: str, deps: List[str], tag: str = "", disable
     tag: Some tools can't change the image tag at runtime. They need a pre-specified tag. Tilt will set ``$EXPECTED_REF = image_name:tag``,
        then re-tag it with its own tag before pushing to your cluster. See `the bazel guide <integrating_bazel_with_tilt.html>`_ for an example.
     disable_push: whether Tilt should push the image in to the registry that the Kubernetes cluster has access to. Set this to true if your command handles pushing as well.
+    skips_local_docker: Whether your build command writes the image to your local Docker image store. Set this to true if you're using a cloud-based builder or independent image builder like ``buildah``.
     live_update: set of steps for updating a running container (see `Live Update documentation <live_update_reference.html>`_).
-    match_in_env_vars: specifies that k8s objects can reference this image in their environment variables, and Tilt will handle those variables the same as it usually handles a k8s container spec's `image`s.
+    match_in_env_vars: specifies that k8s objects can reference this image in their environment variables, and Tilt will handle those variables the same as it usually handles a k8s container spec's ``image`` s.
     ignore: set of file patterns that will be ignored. Ignored files will not trigger builds and will not be included in images. Follows the `dockerignore syntax <https://docs.docker.com/engine/reference/builder/#dockerignore-file>`_.
     entrypoint: command to run when this container starts. Takes precedence over the container's ``CMD`` or ``ENTRYPOINT``, and over a `container command specified in k8s YAML <https://kubernetes.io/docs/tasks/inject-data-application/define-command-argument-container/>`_. Will be evaluated in a shell context: e.g. ``entrypoint="foo.sh bar"`` will be executed in the container as ``/bin/sh -c 'foo.sh bar'``.
   """
@@ -550,7 +501,6 @@ class K8sObjectID:
 
 def workload_to_resource_function(fn: Callable[[K8sObjectID], str]) -> None:
     """
-    (Only supported with :meth:`k8s_resource_assembly_version` >= 2(2))
     Provide a function that will be used to name `Tilt resources <tiltfile_concepts.html#resources>`_.
 
     Tilt will auto-generate resource names for you. If you do not like the names
@@ -629,8 +579,9 @@ def enable_feature(feature_name: str) -> None:
 
 def local_resource(name: str, cmd: str, deps: Union[str, List[str]] = None,
                    trigger_mode: TriggerMode = TRIGGER_MODE_AUTO,
-                   resource_deps: List[str] = []) -> None:
-  """Configures `cmd` to run on the _host_ machine, not in a remote cluster.
+                   resource_deps: List[str] = [], ignore: Union[str, List[str]] = [],
+                   auto_init: bool=True) -> None:
+  """Configures `cmd` to run on the *host* machine (not in a remote cluster).
 
   If `deps` is set then `cmd` is run whenever one of the files specified changes.
 
@@ -644,6 +595,10 @@ def local_resource(name: str, cmd: str, deps: Union[str, List[str]] = None,
       `Manual Update Control docs <manual_update_control.html>`_.
     resource_deps: a list of resources on which this resource depends.
       See the `Resource Dependencies docs <resource_dependencies.html>`_.
+    ignore: set of file patterns that will be ignored. Ignored files will not trigger runs. Follows the `dockerignore syntax <https://docs.docker.com/engine/reference/builder/#dockerignore-file>`_.
+    auto_init: whether this resource runs on ``tilt up``. Defaults to ``True``. Note that ``auto_init=False`` is only compatible with ``trigger_mode=TRIGGER_MODE_MANUAL``.
+
+  For more info, see the `Local Resource docs <local_resource.html>`_.
   """
   pass
 
@@ -678,3 +633,48 @@ def docker_prune_settings(disable: bool=True, max_age_mins: int=360, num_builds:
     interval_hrs: run a Docker Prune every ``interval_hrs`` hours (unless ``num_builds`` is set, in which case use the "prune every X builds" logic). Defaults to 1 hour
   """
   pass
+
+def analytics_settings(enable: bool) -> None:
+  """Overrides Tilt telemetry.
+
+  By default, Tilt does not send telemetry. After you successfully run a Tiltfile,
+  the Tilt web UI will nudge you to opt in or opt out of telemetry.
+
+  The Tiltfile can override these telemetry settings, for teams
+  that always want telemetry enabled or disabled.
+
+  Args:
+    enable: if true, telemetry will be turned on. If false, telemetry will be turned off.
+  """
+  pass
+
+def version_settings(check_updates: bool) -> None:
+  """Controls whether Tilt will display a notification in the web UI when there is a new version available.
+  By default this is set to True.
+
+  Args:
+    check_updates: whether or not to check for new versions of Tilt on GitHub.
+  """
+
+def struct(**kwargs) -> Any:
+  """Creates an object with arbitrary fields.
+
+  Examples:
+
+  .. code-block:: python
+
+    x = struct(a="foo", b=6)
+    print("%s %d" % (x.a, x.b)) # prints "foo 6"
+  """
+
+def update_settings(max_parallel_updates: int) -> None:
+  """Configures Tilt's updates to your resources. (An update is any execution of or
+  change to a resource. Examples of updates include: doing a docker build + deploy to
+  Kubernetes; running a live update on an existing container; and executing
+  a local resource command).
+
+  Expect more settings to be configurable from this function soon.
+
+  Args:
+    max_parallel_updates: maximum number of updates Tilt will execute in parallel. Default is 3. Must be a positive integer.
+"""

@@ -127,17 +127,34 @@ docker_build("companyname/frontend", "frontend", build_args={"target": "local"})
 
 You can combine multiple optional arguments.
 
-## Workloads
+## Kubernetes Workloads
 
 A workload is roughly a Kubernetes object that has a container. This means it's running an
 image and might produce logs and have some kind of status.
 
 ## Resources
-Tilt's UI makes it easier to find errors by grouping related status and output. E.g., when you edit a file, you want to know what error it caused, whether it's an error at build-time, deploy-time, or run-time. Tilt calls these groupings "Resources". Each Resource has a line in the UI that can be expanded and investigated.
+A "resource" is a bundle of work managed by Tilt: e.g. a Docker image to build + Kubernetes
+YAML to apply, or a command to run locally (i.e. a [local resource](local_resource.html)).
+Tilt groups disparate bits of work (e.g. `docker build && kubectl apply`) into resources to
+unify status and output, and make it easier to find errors: for instance, when something
+goes wrong after you edit a file, you want to know what error it caused, whether it's an
+error at build-time, deploy-time, or run-time. Each resource has a line in the UI that
+can be expanded and investigated.
 
-Tilt generates these groups after executing your `Tiltfile`. It does this by scanning all loaded yaml for any k8s objects that it considers a workload. Each of these workloads becomes a Tilt resource.
+Tilt generates these bundles of work after executing your `Tiltfile`. Some Tiltfile calls
+(e.g. `local_resource`) correspond to a single resource; for other calls (e.g. `docker_build`
++ `k8s_yaml`), Tilt must join multiple bits of work into a single resource. For Kubernetes
+resources, Tilt does this assembly by scanning all loaded YAML for any k8s objects that it
+considers a workload. Each of these workloads becomes a Tilt resource. If Tilt finds any image
+build directives corresponding to an image in a workload, that directive also gets added to
+that resource. (The assembly logic is similar for Docker Compose resources. For more
+information, see the [Docker Compose documentation](docker_compose.html).)
 
-You can configure a resource with a call to [`k8s_resource`](api.html#api.k8s_resource). Today there are two relevant configuration arguments: `new_name` and `port_forwards`.
+In many cases, Tilt's automatically resource assembly logic will be suffient for you to run
+your app. However, if you need to configure your Kubernetes resources on top of Tilt's
+automatic assembly, you can do so with a call to [`k8s_resource`](api.html#api.k8s_resource).
+Here we'll discuss the most common configuration arguments: `new_name` and `port_forwards`.
+For discussion of other available arguments, see the [api spec](api.html#api.k8s_resource).
 
 `new_name` allows you to specify a new resource name, in case you do not like the automatically generated one.
 
