@@ -171,8 +171,8 @@ local_resource('seed-db',
 
 ## Take it for a spin!
 How are _you_ going to use local resource? What features do you wish it had? Take
-it for a spin (see: [API spec](http://tilt.dev/api.html#api.local_resource),
-[more detailed documentation](http://tilt.dev/local_resource.html)) and
+it for a spin (see: [API spec](https://docs.tilt.dev/api.html#api.local_resource),
+[more detailed documentation](https://docs.tilt.dev/local_resource.html)) and
 [let us know what you think](https://tilt.dev/contact)!
 
 [^1]: the exception to this rule is, of course, the Tiltfile. A "Tiltfile" item
