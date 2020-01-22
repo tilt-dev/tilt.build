@@ -312,8 +312,13 @@ def load(path: str, *args):
     create_namespace('frontend')
   """
 
-def local(cmd: str) -> Blob:
-  """Runs cmd, waits for it to finish, and returns its stdout as a ``Blob``."""
+def local(cmd: str, quiet: bool = False) -> Blob:
+  """Runs cmd, waits for it to finish, and returns its stdout as a ``Blob``
+
+  Args:
+    cmd: Command to run.
+    quiet: If set to True, skips printing output to log.
+  """
   pass
 
 def read_file(file_path: str, default: str = None) -> Blob:
