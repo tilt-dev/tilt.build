@@ -17,7 +17,7 @@ Building and updating just one service in Kubernetes can be slow.
 In microservice land, you potentially have a lot of services: databases, API
 gateways,
 [internet-enabled teapots](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/418),
-and so on. Thats's a lot of time spent waiting around for Docker builds.
+and so on. That's a lot of time spent waiting around for Docker builds.
 
 A lot of that idle time is waiting on disk or network I/O. One of the Tilt
 community's first big feature requests was for

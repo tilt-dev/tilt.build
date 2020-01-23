@@ -92,7 +92,20 @@ and a bunch of other stuff. The API server also accepts user commands--any `kube
 you run is a request to the API server.
 
 So when you call `kubectl apply -f pod.yaml`...
-**DIAGRAM HERE**
+
+<div class="slider" id="main-slider"><!-- outermost container element -->
+	<div class="slider-wrapper"><!-- innermost wrapper element -->
+	    <!-- slides -->
+		<div class="slide" data-image="/assets/images/crash-course-kubernetes-nodes/slide1.gif"></div>
+		<div class="slide" data-image="/assets/images/crash-course-kubernetes-nodes/slide2.gif"></div>
+		<div class="slide" data-image="/assets/images/crash-course-kubernetes-nodes/slide3.gif"></div>
+	</div>
+	<div class="slider-nav"><!-- "Previous" and "Next" actions -->
+		<button class="slider-previous">Previous</button>
+		<button class="slider-next">Next</button>
+	</div>
+</div>	
+
 
 To read more about the above components, and all the other bits and pieces on the master node
 that do important work, see [the Kubernetes docs](https://kubernetes.io/docs/concepts/overview/components/#master-components).
