@@ -1,10 +1,11 @@
-/* https://codepen.io/gabrieleromanato/pen/pKrny */
+/* Adapted from https://codepen.io/gabrieleromanato/pen/pKrny */
 
 .slider {
     width: 100%;
     overflow: hidden;
     position: relative;
     height: 400px;
+    padding-bottom: 1.5em;
 }
 
 .slider-wrapper {
@@ -36,7 +37,7 @@
     left: 0;
     margin-top: -32px;
     z-index: 1000;
-    display: none;
+    display: block;
 }
 
 .slider-nav button {

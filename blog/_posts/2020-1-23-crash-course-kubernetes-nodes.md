@@ -21,6 +21,8 @@ keywords:
   - tilt
   - nodes
 ---
+<script src="/assets/js/slideshow.js"></script>
+
 Hello and welcome to our now slightly less-new blog post series, “A Crash Course on Kubernetes!” 
 
 Our summer intern didn’t have a background in Kubernetes, so to get her up to speed, we started
@@ -93,6 +95,7 @@ you run is a request to the API server.
 
 So when you call `kubectl apply -f pod.yaml`...
 
+<!-- Adapted from https://codepen.io/gabrieleromanato/pen/pKrny -->
 <div class="slider" id="main-slider"><!-- outermost container element -->
 	<div class="slider-wrapper"><!-- innermost wrapper element -->
 	    <!-- slides -->
