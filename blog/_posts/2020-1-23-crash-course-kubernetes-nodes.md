@@ -93,15 +93,22 @@ internals call to the API server to create, update, and destroy objects, store d
 and a bunch of other stuff. The API server also accepts user commands--any `kubectl` command
 you run is a request to the API server.
 
-So when you call `kubectl apply -f pod.yaml`...
+So when you call `kubectl apply -f pod.yaml`, what's going on under the hood looks sooomething like this:
 
 <!-- Adapted from https://codepen.io/gabrieleromanato/pen/pKrny -->
 <div class="slider" id="main-slider"><!-- outermost container element -->
 	<div class="slider-wrapper"><!-- innermost wrapper element -->
 	    <!-- slides -->
-		<div class="slide" data-image="/assets/images/crash-course-kubernetes-nodes/slide1.gif"></div>
-		<div class="slide" data-image="/assets/images/crash-course-kubernetes-nodes/slide2.gif"></div>
-		<div class="slide" data-image="/assets/images/crash-course-kubernetes-nodes/slide3.gif"></div>
+		<div class="slide" data-image="/assets/images/crash-course-kubernetes-nodes/slide1.png"></div>
+		<div class="slide" data-image="/assets/images/crash-course-kubernetes-nodes/slide2.png"></div>
+		<div class="slide" data-image="/assets/images/crash-course-kubernetes-nodes/slide3.png"></div>
+		<div class="slide" data-image="/assets/images/crash-course-kubernetes-nodes/slide4.png"></div>
+		<div class="slide" data-image="/assets/images/crash-course-kubernetes-nodes/slide5.png"></div>
+		<div class="slide" data-image="/assets/images/crash-course-kubernetes-nodes/slide6.png"></div>
+		<div class="slide" data-image="/assets/images/crash-course-kubernetes-nodes/slide7.png"></div>
+		<div class="slide" data-image="/assets/images/crash-course-kubernetes-nodes/slide8.png"></div>
+		<div class="slide" data-image="/assets/images/crash-course-kubernetes-nodes/slide9.png"></div>
+		<div class="slide" data-image="/assets/images/crash-course-kubernetes-nodes/slide10.png"></div>
 	</div>
 	<div class="slider-nav"><!-- "Previous" and "Next" actions -->
 		<button class="slider-previous">Previous</button>
