@@ -4,10 +4,9 @@ date: 2020-1-23
 author: maia
 layout: blog
 title: "A Crash Course in Kubernetes #2: Nodes"
-subtitle: "tbd"
-image: "slide1.gif"
+image: "featuredImage.png"
 image_needs_slug: true
-image_caption: "tbd"
+image_caption: "From <a href='https://www.cncf.io/the-childrens-illustrated-guide-to-kubernetes/'>\"The Illustrated Children's Guide to Kubernetes\"</a>, licensed under Creative Commons Attribution (CC-BY-4.0)"
 tags:
   - docker
   - kubernetes
