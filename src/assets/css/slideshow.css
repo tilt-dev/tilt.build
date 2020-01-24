@@ -24,6 +24,8 @@
     background-position: top;
     opacity: 0;
     transition: opacity 500ms linear;
+    text-align: center;
+    padding-top: 1em;
 }
 
 .slider-wrapper > .slide:first-child {
