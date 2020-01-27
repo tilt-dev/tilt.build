@@ -142,13 +142,13 @@ error at build-time, deploy-time, or run-time. Each resource has a line in the U
 can be expanded and investigated.
 
 Tilt generates these bundles of work after executing your `Tiltfile`. Some Tiltfile calls
-(e.g. `local_resource`) correspond to a single resource; for other calls (e.g. `docker_build`
-+ `k8s_yaml`), Tilt must join multiple bits of work into a single resource. For Kubernetes
-resources, Tilt does this assembly by scanning all loaded YAML for any k8s objects that it
-considers a workload. Each of these workloads becomes a Tilt resource. If Tilt finds any image
-build directives corresponding to an image in a workload, that directive also gets added to
-that resource. (The assembly logic is similar for Docker Compose resources. For more
-information, see the [Docker Compose documentation](docker_compose.html).)
+(e.g. `local_resource`) correspond to a single resource; for other calls (e.g. `docker_build` + `k8s_yaml`), 
+Tilt must join multiple bits of work into a single resource. For Kubernetes resources, Tilt 
+does this assembly by scanning all loaded YAML for any k8s objects that it considers a workload.
+Each of these workloads becomes a Tilt resource. If Tilt finds any image build directives 
+corresponding to an image in a workload, that directive also gets added to that resource. 
+(The assembly logic is similar for Docker Compose resources. For more information, see the 
+[Docker Compose documentation](docker_compose.html).)
 
 In many cases, Tilt's automatically resource assembly logic will be suffient for you to run
 your app. However, if you need to configure your Kubernetes resources on top of Tilt's
