@@ -61,16 +61,16 @@ and know that's enough that they'll be set up.
 config.define_string_list("to-run", args=True)
 cfg = config.parse()
 groups = {
-  'consumer': ['a', 'b', 'c'],
-  'enterprise': ['a', 'b', 'd'],
+    'consumer': ['a', 'b', 'c'],
+    'enterprise': ['a', 'b', 'd'],
 }
 resources = []
 for arg in cfg.get('to-run', []):
-  if arg in groups:
-    resources += groups[arg]
-  else:
-    # also support specifying individual services instead of groups, e.g. `tilt up a b d`
-    resources.append(arg)
+    if arg in groups:
+      resources += groups[arg]
+    else:
+      # also support specifying individual services instead of groups, e.g. `tilt up a b d`
+      resources.append(arg)
 config.set_enabled_resources(resources)
 ```
 
@@ -95,13 +95,13 @@ cfg = config.parse()
 # will use the existing tag.
 to_edit = cfg.get('to-edit', [])
 if 'a' in to_edit:
-  docker_build('a', './a')
+    docker_build('a', './a')
 if 'b' in to_edit:
-  docker_build('b', './b')
+    docker_build('b', './b')
 if 'c' in to_edit:
-  docker_build('c', './c')
+    docker_build('c', './c')
 if 'd' in to_edit:
-  docker_build('d', './d')
+    docker_build('d', './d')
 ```
 
 ## The Config File
