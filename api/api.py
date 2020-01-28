@@ -71,7 +71,7 @@ def restart_container() -> LiveUpdateStep:
   """
   pass
 
-def docker_build(ref: str, context: str, build_args: Dict[str, str] = {}, dockerfile: str = "Dockerfile", dockerfile_contents: Union[str, Blob] = "", live_update: List[LiveUpdateStep]=[], match_in_env_vars: bool = False, ignore: Union[str, List[str]] = [], only: Union[str, List[str]] = [], entrypoint: str = "", target: str = "", ssh: Union[str, List[str]] = "") -> None:
+def docker_build(ref: str, context: str, build_args: Dict[str, str] = {}, dockerfile: str = "Dockerfile", dockerfile_contents: Union[str, Blob] = "", live_update: List[LiveUpdateStep]=[], match_in_env_vars: bool = False, ignore: Union[str, List[str]] = [], only: Union[str, List[str]] = [], entrypoint: str = "", target: str = "", ssh: Union[str, List[str]] = "", network: str = "") -> None:
   """Builds a docker image.
 
   Note that you can't set both the `dockerfile` and `dockerfile_contents` arguments (will throw an error).
@@ -95,6 +95,7 @@ def docker_build(ref: str, context: str, build_args: Dict[str, str] = {}, docker
     entrypoint: command to run when this container starts. Takes precedence over the container's ``CMD`` or ``ENTRYPOINT``, and over a `container command specified in k8s YAML <https://kubernetes.io/docs/tasks/inject-data-application/define-command-argument-container/>`_. Will be evaluated in a shell context: e.g. ``entrypoint="foo.sh bar"`` will be executed in the container as ``/bin/sh -c 'foo.sh bar'``.
     target: Specify a build stage in the Dockerfile. Equivalent to the ``docker build --target`` flag.
     ssh: Include SSH secrets in your build. Use ssh='default' to clone private repositories inside a Dockerfile. Uses the syntax in the `Docker build --ssh flag <https://docs.docker.com/develop/develop-images/build_enhancements/#using-ssh-to-access-private-data-in-builds>`_.
+    network: Set the networking mode for RUN instructions. Equivalent to the ``docker build --network`` flag.
   """
   pass
 
