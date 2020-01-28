@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "Seeking: Frontend Engineer"
+title: "Seeking: Developer Tools Engineer"
 ---
 
 {% include job_intro.md %}
@@ -12,7 +12,7 @@ automates and optimizes container image builds, and has a Heads-Up Display UI
 that saves you from having to play 20 questions with kubectl. But which pains do
 we relieve next? What features relieve them fastest or best?
 
-We need a Devtools Engineer to help build features to answer those questions.
+We need a Developer Tools Engineer to help build features to answer those questions.
 
 ### What You'll Do
 
