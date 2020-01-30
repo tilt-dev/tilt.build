@@ -5,7 +5,6 @@ author: maia
 layout: blog
 title: "A Crash Course in Kubernetes #2: Nodes"
 image: "featuredImage.png"
-image_needs_slug: true
 image_caption: "From <a href='https://www.cncf.io/the-childrens-illustrated-guide-to-kubernetes/'>\"The Illustrated Children's Guide to Kubernetes\"</a>, licensed under Creative Commons Attribution (CC-BY-4.0)"
 tags:
   - docker
@@ -40,20 +39,31 @@ If you missed [Post 1: Overview](https://blog.tilt.dev/2019/10/16/crash-course-k
 outside world).
 
 ## What is a Node, and Why Should I Care?
+
+![A hand-wavey architecture diagram](/assets/images/crash-course-kubernetes-nodes/k8s-arch.png)
+*An extremely high-level, hand-wave-y architecture diagram.*
+
 In the above diagram, the blue squares are nodes. A node is just a machine (physical or virtual,
 it doesn’t matter) that runs some containers, and a Kubernetes process or two. There are two
 types of nodes: **worker nodes**, where your code runs, and the **master node**, which is in
-charge of managing the cluster.
+charge of managing the cluster.[^1]
+
+While it's tempting to skip straight to a discussion of pods---i.e. running units of your app---it's
+prudent start with nodes because after all, the interesting part of Kubernetes (IMO) isn't _that_ it
+runs a bunch of containers for you, it's _how_. That "how" is nodes: the machinery that controls your
+cluster (the master node), and the machinery that runs your pods (worker nodes).
 
 Like most other parts of Kubernetes, nodes are easy to ignore and abstract away when your
-cluster is in a happy state. When things start to break, however, it can be really useful to
-understand just what Kubernetes is doing. 
+cluster is in a happy state. (After all, the point of Kubernetes is to abstract away individual
+machines!) When things start to break, however, it can be really useful to understand just what
+Kubernetes is doing; if you start getting errors like “node(s) had taints” and “could not
+schedule pod”, knowing how nodes work, and how pods are assigned to nodes, will help you figure
+out what’s going on.
 
-If you start getting errors like “node(s) had taints” and “could not schedule pod”, knowing how
-nodes work, and how pods are assigned to nodes, will help you figure out what’s going on. And
-if things start to go wrong (“Unable to connect to the [API] server”), or if your `kubectl
-apply` didn’t work like you expected it to, an accurate mental model of the master node and
-all the machinery that runs your cluster will be a lifesaver.
+More importantly, as your mental model of Kubernetes gets more detailed, it helps to understand just
+how Kubernetes stores and enforces your desired state, and how your `kubectl` commands interact with
+the cluster. Simply put, the master node controls your whole cluster, so if you want to understand
+Kubernetes, that's a great place to start!
 
 ### Wait, What’s a Pod?
 Simply put, a pod is one unit of your app---say, a running instance of `shopping_cart_server`.
@@ -71,17 +81,37 @@ In Kubernetes, you specify your configuration _declaratively_---you tell Kuberne
 state of your cluster (number of instances of your app, which scaling method to use, how to set
 up the networking) and Kubernetes makes it so. 
 
-The master node is how: it is both the means by which you specify your desired state, and the
-machinery for making sure that state is maintained.
+The master node contains both the means for specifying your desired state, and the machinery for
+achieving and maintaining that state. Some bits of the master node that you should know about: 
 
+![A(n incomplete) diagram of the master node's machinery](/assets/images/crash-course-kubernetes-nodes/master-node.png)
+*A(n incomplete) diagram of the master node's machinery*
+
+#### etcd: data storage
 The desired cluster state lives on the master node in a datastore called **etcd**, [a consistent,
-highly-available key value store](https://etcd.io/). 
+highly available key-value store](https://etcd.io/).
 
+#### API Server: interacting with the cluster
+The **API server** is the means by which the master node (and the user) makes changes to the cluster---it provides
+endpoints for creating, configuring, and deleting just about anything in the cluster.
+
+#### Pod Scheduler: assign pods to worker nodes
+The **pod scheduler** on watches for new pods that haven’t been assigned to nodes. These are pods
+that need creation, but we don’t yet know what node they’re going to live on. For each of these pods,
+the pod scheduler finds the “best” node to put it on, according to a set of rules which Kubernetes
+calls “priorities.” (Some set of scheduling priorities are active by default, but you can configure
+your cluster to use whatever priorities you want.)
+
+Some examples examples of priorities include:
+"try to put this pod on a node that already has the relevant container images cached locally," or
+"try to put this pod on the node that's currently using the least resources."
+
+#### Controllers: maintain desired cluster state
 The master node runs a number of [**controllers**](https://kubernetes.io/docs/concepts/architecture/controller/).
 For a given type of Kubernetes object, a controller: 
 * Polls the cluster for state relating to that type; 
 * Compares it to the desired state stored in etcd; and if needed,
-* Calls out to the **API server** to make any changes to the cluster. 
+* Calls out to the API server to make any changes to the cluster. 
 
 For example, if the Replication Controller sees that the desired state of ReplicaSet A is “four
 copies of podA”, but only three podA’s exist in the cluster, the controller asks the API server
@@ -126,36 +156,19 @@ run. That’s where worker nodes come in. Worker nodes are machines that run one
 
 If you’re connected to a Kubernetes cluster in the cloud, you’ll most likely run your pods across
 multiple nodes. If you’re running Kubernetes locally (e.g. Docker Desktop, KinD, Minikube), you’ll
-be working with a single node, which is a VM running on your computer. Regardless of the number
-of worker nodes you have at your disposal, and whether they’re physical or virtual machines, the
-basic anatomy is the same.
+be working with a single node, which is a VM or container running on your computer. Regardless of the
+number of worker nodes you have at your disposal, and whether they’re physical or virtual machines,
+the basic anatomy is the same.
 
 In addition to your pod(s), a worker node has some additional daemons that allow it to do its job:
 
 * **Kubelet**: makes sure that the right containers are running on the right pods. It works a lot
-like the controllers that live on the master node: the kubelet reads the state of all the pods
-on its node, compares that against the desired state and, if there’s a discrepancy, makes the necessary changes
+like the controllers that live on the master node: the kubelet reads the state of all the pods on its
+node, compares that against the desired state and, if there’s a discrepancy, makes the necessary changes
 * **Kube-proxy**: proxies network traffic to/from pods (since pods aren’t themselves directly
 connected to the network)
 
 [Read more about worker nodes and their components here](https://kubernetes.io/docs/concepts/overview/components/#node-components).
-
-A worker node is only as good as the pods it’s running, so how does it figure out which pods to
-run? This is where the pod scheduler, our last piece of master node machinery, comes in.
-
-#### Scheduling: Putting Pods on Nodes
-The **pod scheduler** on the master node watches for new pods that haven’t been assigned to
-nodes. These are pods that need creation, but we don’t yet know what computer they’re going to
-live on. For each of these pods, the pod scheduler finds the “best” node to put it on.
-
-First, it checks for _possible_ nodes, that is, those that have enough resources. With the list
-of available nodes thus narrowed down, the scheduler chooses the “best” node, according to a set
-of rules which Kubernetes calls “priorities.” (Some set of scheduling priorities are active by
-default, but you can configure your cluster to use whatever priorities you want.) 
-
-Examples of some priorities by which the scheduler might decide on the “best” node:
-* `ImageLocalityPriority`: Favors nodes that already have the container images for that Pod cached locally.
-* `SelectorSpreadPriority`: Spreads Pods across hosts, considering Pods that belong to the same Service, StatefulSet or ReplicaSet.
 
 ## That’s it for now
 Thanks for joining us for post #2 of our “Crash Course on Kubernetes.” I hope this overview of
@@ -166,3 +179,7 @@ run your app---how they work, and how they talk to each other and the outside wo
 
 Until then: happy kube-ing!
 
+[^1]: to complicate things further, some Kubernetes runtimes are _single-node clusters_, in which a
+single node (a container or VM) serves as both the master node and the worker node. However, you can
+still think of these as separate _types_ of nodes that just happen to be co-located; they still do
+very different things, even if they live on the same machine.
