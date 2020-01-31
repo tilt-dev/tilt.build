@@ -34,8 +34,8 @@ We’re blogifying our Tilt U presentations so that other folks can benefit from
 This is post #2 of the series, in which we talk about nodes, a.k.a "the things that hold the things
 that run your app."
 
-If you missed [Post 1: Overview](https://blog.tilt.dev/2019/10/16/crash-course-kubernetes
--overview.html), you might want to start there. Stay tuned for post #3, which will cover pods
+If you missed [Post 1: Overview](/2019/10/16/crash-course-kubernetes-overview.html),
+you might want to start there. Stay tuned for post #3, which will cover pods
 (the things that actually run your app) and services (how pods talk to each other and the
 outside world).
 
