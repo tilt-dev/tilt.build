@@ -49,3 +49,4 @@ Now we’re cruising! Updates that don't require a `npm install` zoom by in less
 ## Further Reading
 * The full [example Tiltfile](https://github.com/windmilleng/tilt-frontend-demo/blob/master/Tiltfile) featured in this guide
 * [Faster Development with Live Update (Tutorial)](live_update_tutorial.html)
+* [Demo Vue.js app with Tilt](https://github.com/windmilleng/tilt-vuejs-demo)
