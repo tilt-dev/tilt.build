@@ -1,12 +1,12 @@
 ---
 slug: crash-course-kubernetes-nodes
-date: 2020-1-23
+date: 2020-1-31
 author: maia
 layout: blog
 title: "A Crash Course in Kubernetes #2: Nodes"
 image: "/assets/images/crash-course-kubernetes-nodes/featuredImage.png"
 image_caption: "From <a href='https://www.cncf.io/the-childrens-illustrated-guide-to-kubernetes/'>\"The Illustrated Children's Guide to Kubernetes\"</a>, licensed under Creative Commons Attribution (CC-BY-4.0)"
-slideshow: true
+has_slideshow: true
 tags:
   - docker
   - kubernetes
@@ -97,7 +97,7 @@ The **API server** is the means by which the master node (and the user) makes ch
 endpoints for creating, configuring, and deleting just about anything in the cluster.
 
 #### Pod Scheduler: assign pods to worker nodes
-The **pod scheduler** on watches for new pods that haven’t been assigned to nodes. These are pods
+The **pod scheduler** watches for new pods that haven’t been assigned to nodes. These are pods
 that need creation, but we don’t yet know what node they’re going to live on. For each of these pods,
 the pod scheduler finds the “best” node to put it on, according to a set of rules which Kubernetes
 calls “priorities.” (Some set of scheduling priorities are active by default, but you can configure
