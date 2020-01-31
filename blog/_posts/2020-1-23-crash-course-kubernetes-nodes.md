@@ -4,8 +4,9 @@ date: 2020-1-23
 author: maia
 layout: blog
 title: "A Crash Course in Kubernetes #2: Nodes"
-image: "featuredImage.png"
+image: "/assets/images/crash-course-kubernetes-nodes/featuredImage.png"
 image_caption: "From <a href='https://www.cncf.io/the-childrens-illustrated-guide-to-kubernetes/'>\"The Illustrated Children's Guide to Kubernetes\"</a>, licensed under Creative Commons Attribution (CC-BY-4.0)"
+slideshow: true
 tags:
   - docker
   - kubernetes
@@ -179,7 +180,4 @@ run your app---how they work, and how they talk to each other and the outside wo
 
 Until then: happy kube-ing!
 
-[^1]: to complicate things further, some Kubernetes runtimes are _single-node clusters_, in which a
-single node (a container or VM) serves as both the master node and the worker node. However, you can
-still think of these as separate _types_ of nodes that just happen to be co-located; they still do
-very different things, even if they live on the same machine.
+[^1]: to complicate things further, some Kubernetes runtimes are _single-node clusters_, in which a single node (a container or VM) serves as both the master node and the worker node. However, you can still think of these as separate _types_ of nodes that just happen to be co-located; they still do very different things, even if they live on the same machine.
