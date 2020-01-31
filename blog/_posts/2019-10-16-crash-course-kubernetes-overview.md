@@ -23,7 +23,12 @@ keywords:
 ---
 Hello and welcome to our new blog post series, "A Crash Course on Kubernetes"! Our summer intern didn't have a background in Kubernetes, so to get her up to speed, we started giving internal Tilt University presentations on relevant concepts. This was a great crash course for our intern, but even our experienced engineers learned things at these talks--turns out, you can work within Kubernetes pretty effectively and still have large gaps in your mental models.
 
-We're blogifying our Tilt U presentations so that other folks can benefit from the digging we did. This is post #1 of the series, where we discuss what Kubernetes is at the highest level, and explain why you should care. The subsequent posts will dig a little deeper into the building blocks you're likely to tinker with when you're starting out: post #2 will cover nodes (including the machinery of the master node), and post #3 will cover pods + services.
+We're blogifying our Tilt U presentations so that other folks can benefit from the digging we did.
+This is post #1 of the series, where we discuss what Kubernetes is at the highest level, and explain
+why you should care. The subsequent posts will dig a little deeper into the building blocks you're
+likely to tinker with when you're starting out: post #2
+([now live](/2020/01/31/crash-course-kubernetes-nodes.html)!) covers nodes (including the
+machinery of the master node), and post #3 will cover pods + services.
 
 Without further ado:
 
@@ -37,7 +42,7 @@ Let's break that down.
 Greek for "helmsman" or "captain" (hence the ship's-wheel logo). Often abbreviated as "k8s" (for the 8 letters between the 'k' and 's').
 
 ### "open-source"
-it's [right there on GitHub](https://github.com/kubernetes/kubernetes)!
+It's [right there on GitHub](https://github.com/kubernetes/kubernetes)!
 
 ### "container-orchestration system"
 Here's where it gets interesting. I'll assume you know what containers are[^1]. But what is an "orchestration system"?
@@ -64,11 +69,15 @@ The short answer is: in virtual machines! Kubernetes nodes are generally all VMs
 The even shorter answer is: it doesn't matter! You as the user don't need to know the location of the VM(s) that you're talking to; all you need is the address of the Kubernetes API server, which lives on the master node and allows you (via `kubectl`) to communicate with the rest of your cluster. If your kubecontext knows where the API server lives, then it doesn't matter whether it's on a VM in your own computer or on a server in some far-flung AWS AZ -- just send it a command, and Kubernetes will take care of the rest.
 
 ## Okay, why should I care?
-Well, you don't have to!  Everyone uses Kubernetes at a different level of abstraction; for instance, I operated quite happily for a while without understanding precisely how a `kubectl apply` command results in a new pod… until i needed to know, and then this knowledge gap came back to bite me. That won't even necessarily be the case for you--maybe you'll never _need_ this knowledge of the guts of Kubernetes--but it will probably help your debugging abilities if you have accurate mental models.
+Well, you don't have to!  Everyone uses Kubernetes at a different level of abstraction; for instance, I operated quite happily for a while without understanding precisely how a `kubectl apply` command results in a new pod… until I needed to know, and then this knowledge gap came back to bite me. That won't even necessarily be the case for you--maybe you'll never _need_ this knowledge of the guts of Kubernetes--but it will probably help your debugging abilities if you have accurate mental models.
 
 We hope this series helps new and experienced Kubernetes users alike get a better handle on what's going on under the hood--even if we're only scratching the surface of the complexity of Kubernetes. See you next time!
 
 ## Further reading
+Check out [the next post in this series](/2020/01/31/crash-course-kubernetes-nodes.html),
+where we talk all about **nodes**---the machines that run units of your app, and the means by
+which Kubernetes controls your cluster.
+
 The official [Kubernetes Tutorial](https://kubernetes.io/docs/tutorials/) and [Kubernetes Concepts documentation](https://kubernetes.io/docs/concepts/) is a great place to start learning more. For a digestible and fun high-level overview, I recommend this [Kubernetes comic](https://cloud.google.com/kubernetes-engine/kubernetes-comic/). And if you want to start playing around with Kubernetes on your laptop, Tilt is a great way to quickly iterate on your configs; just change a line of YAML and see what happens!
 
 [^1]: Briefly: "A container is a standard unit of software that packages up code and all its dependencies so the application runs quickly and reliably from one computing environment to another. A Docker container image is a lightweight, standalone, executable package of software that includes everything needed to run an application: code, runtime, system tools, system libraries and settings." (From [Docker: What is a Container?](https://www.docker.com/resources/what-container))
