@@ -5,6 +5,7 @@ functions:
 - custom_build
 - dc_resource
 - decode_json
+- decode_yaml
 - default_registry
 - disable_snapshots
 - docker_build

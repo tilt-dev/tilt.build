@@ -423,6 +423,10 @@ def read_json(path: str, default: str = None) -> StructuredDataType:
     default: If not `None` and the file at `path` does not exist, this value will be returned."""
   pass
 
+def decode_yaml(yaml: str) -> StructuredDataType:
+  """Deserializes a given string from YAML to Starlark. Fails if the string can't be parsed as YAML."""
+  pass
+
 def read_yaml(path: str, default: str = None) -> StructuredDataType:
   """
   Reads the file at `path` and deserializes its contents as YAML
