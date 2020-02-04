@@ -5,6 +5,7 @@ author: nick
 layout: blog
 canonical_url: "https://medium.com/windmill-engineering/tilt-is-the-start-sh-script-of-my-dreams-e48478f599fd"
 title: "Tilt is the `start.sh` Script of my Dreams"
+image_needs_slug: true
 images:
   - 1*Hu6PC-bmdzhrUoaQzUi7hA.png
   - 1*tO_khyEJs281wPBheBPXDQ.png

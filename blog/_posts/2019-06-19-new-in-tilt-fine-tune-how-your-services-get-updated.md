@@ -6,6 +6,7 @@ canonical_url: "https://medium.com/windmill-engineering/new-in-tilt-fine-tune-ho
 layout: blog
 title: "New in Tilt&#58; Fine-Tune How Your Services Get Updated"
 subtitle: "“Wait, so Tilt updates every single time I save my code?”"
+image_needs_slug: true
 images:
   - featuredImage.gif
   - 1*DQ_aNDR0le3dcUsb9Eknaw.gif

@@ -5,6 +5,7 @@ author: dan
 layout: blog
 canonical_url: "https://medium.com/windmill-engineering/how-tilt-updates-kubernetes-in-seconds-not-minutes-28ddffe2d79f"
 title: "How Tilt updates Kubernetes in Seconds, not Minutes"
+image_needs_slug: true
 images:
   - featuredImage.png
   - 1*GXhhCXThiOY8QNXOFDPKEA.png

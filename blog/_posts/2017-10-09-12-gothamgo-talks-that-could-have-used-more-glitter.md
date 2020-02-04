@@ -5,6 +5,7 @@ author: nick
 layout: blog
 canonical_url: "https://medium.com/windmill-engineering/12-gothamgo-talks-that-could-have-used-more-glitter-72ee38ae9d94"
 title: "12 GothamGo Talks That Could Have Used More Glitter"
+image_needs_slug: true
 images:
   - featuredImage.png
   - 1*Xh2NMcuUBFQ81Yity29yRQ.png

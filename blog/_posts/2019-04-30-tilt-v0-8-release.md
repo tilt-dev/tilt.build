@@ -6,6 +6,7 @@ layout: blog
 canonical_url: "https://medium.com/windmill-engineering/tilt-v0-8-release-57d47beb38b6"
 title: "Tilt v0.8 Release!"
 subtitle: "New Logs View, Live Update, Bazel Support, and Improved Resource Splitting"
+image_needs_slug: true
 images:
   - featuredImage.gif
 image_type: "contain"

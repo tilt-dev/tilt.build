@@ -5,6 +5,7 @@ author: dan
 layout: blog
 canonical_url: "https://medium.com/windmill-engineering/github-propelled-git-to-escape-velocity-7838f566722e"
 title: "GitHub propelled Git to escape velocity"
+image_needs_slug: true
 images:
   - featuredImage.jpeg
 image_type: "contain"
