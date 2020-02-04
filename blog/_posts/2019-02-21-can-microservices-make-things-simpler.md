@@ -5,6 +5,7 @@ author: dmiller
 layout: blog
 canonical_url: "https://medium.com/windmill-engineering/can-microservices-make-things-simpler-f169d540955a"
 title: "Can Microservices Make Things Simpler?"
+image_needs_slug: true
 images:
   - featuredImage.png
   - 1*9aBt8gH0RfsBhoyhboBfJg.gif

@@ -5,6 +5,7 @@ author: maia
 layout: blog
 canonical_url: "https://medium.com/windmill-engineering/tilt-a-better-ux-for-docker-compose-52e80d0625d0"
 title: "Tilt&#58; a Better UX for Docker Compose"
+image_needs_slug: true
 images:
   - featuredImage.png
 tags:

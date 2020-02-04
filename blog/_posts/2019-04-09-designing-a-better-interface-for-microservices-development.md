@@ -5,6 +5,7 @@ author: han
 layout: blog
 canonical_url: "https://medium.com/windmill-engineering/designing-a-better-interface-for-microservices-development-b0b6637a52fa"
 title: "Designing a Better Interface for Microservices Development"
+image_needs_slug: true
 images:
   - featuredImage.png
   - 1*V8V8DrFCWrexmV9WcuPolg.png

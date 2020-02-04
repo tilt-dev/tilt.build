@@ -5,6 +5,7 @@ author: maia
 layout: blog
 canonical_url: "https://medium.com/windmill-engineering/how-windmill-prepped-for-gothamgo-3308020d70b"
 title: "How Windmill Prepped for GothamGo"
+image_needs_slug: true
 images:
   - 0*M074ur4hu5eHFvxJ.jpg
   - featuredImage.jpg

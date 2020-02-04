@@ -5,6 +5,7 @@ author: maia
 layout: blog
 title: "Tilt v0.9 Release!"
 subtitle: "Better Visibility and More Control"
+image_needs_slug: true
 images:
   - featuredImage.gif
 image_type: "contain"
