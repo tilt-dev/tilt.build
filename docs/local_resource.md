@@ -57,3 +57,30 @@ For more on trigger mode, [see the docs](https://docs.tilt.dev/manual_update_con
 `auto_init=False` is currently only compatible with `TRIGGER_MODE_MANUAL`. If
 you'd like a local resource that runs automatically in response to file changes
 but does NOT run on `tilt up`, [let us know](https://tilt.dev/contact).
+
+## serve_cmd
+
+local_resource's `serve_cmd` argument allows a local_resource to function as a
+persistent process, so you can use it for things like running services locally
+instead of in k8s, or `tail -f`.
+
+Without `serve_cmd`, a local_resource functions as a sort of batch job - when
+Tilt runs it, it expects it to terminate. While it's running, it's "in progress",
+and when it finishes, it's green or red depending on its exit code.
+
+With `serve_cmd`, when the resource updates, Tilt will first run its `cmd`, if
+it is non-empty. Then, if `cmd` succeeds, Tilt will run its `serve_cmd`. As soon
+as the `serve_cmd` starts, Tilt will consider the resource updated and "running".
+If the `serve_cmd` exits, with any exit code, Tilt will consider it an error
+and turn it red.
+
+Some examples:
+
+#### build and run a server locally
+``local_resource(cmd='go build ./cmd/myserver', serve_cmd='./myserver --port=8001', deps=['cmd/myserver'])``
+
+#### keep a port forward open to a service not deployed by Tilt
+``local_resource(serve_cmd='kubectl port-forward -n openfaas svc/gateway 8080:8080')``
+
+#### show the k8s api server's logs
+``local_resource(serve_cmd='kubectl logs -f -n kube-system kube-apiserver-docker-desktop')``

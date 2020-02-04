@@ -586,12 +586,17 @@ def enable_feature(feature_name: str) -> None:
 def local_resource(name: str, cmd: str, deps: Union[str, List[str]] = None,
                    trigger_mode: TriggerMode = TRIGGER_MODE_AUTO,
                    resource_deps: List[str] = [], ignore: Union[str, List[str]] = [],
-                   auto_init: bool=True) -> None:
-  """Configures `cmd` to run on the *host* machine (not in a remote cluster).
+                   auto_init: bool=True, serve_cmd: str = "") -> None:
+  """Configures one or more commands to run on the *host* machine (not in a remote cluster).
 
-  If `deps` is set then `cmd` is run whenever one of the files specified changes.
+  By default, local_resources are updated on ``tilt up`` and whenever any of their ``deps`` change.
 
-  All local resources are executed on the first run of the Tiltfile.
+  When the resource updates:
+
+  - if `cmd` is non-empty, it is executed
+  - if `cmd` succeeds and `serve_cmd` is non-empty, it is executed
+
+  For more info, see the `Local Resource docs <local_resource.html>`_.
 
   Args:
     name: will be used as the new name for this resource
@@ -603,8 +608,7 @@ def local_resource(name: str, cmd: str, deps: Union[str, List[str]] = None,
       See the `Resource Dependencies docs <resource_dependencies.html>`_.
     ignore: set of file patterns that will be ignored. Ignored files will not trigger runs. Follows the `dockerignore syntax <https://docs.docker.com/engine/reference/builder/#dockerignore-file>`_.
     auto_init: whether this resource runs on ``tilt up``. Defaults to ``True``. Note that ``auto_init=False`` is only compatible with ``trigger_mode=TRIGGER_MODE_MANUAL``.
-
-  For more info, see the `Local Resource docs <local_resource.html>`_.
+    serve_cmd: Tilt will run this command on update and expect it to not exit
   """
   pass
 
