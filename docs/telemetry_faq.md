@@ -112,6 +112,13 @@ You can disable analytics in the current environment by running:
 export TILT_DISABLE_ANALYTICS="true"
 ```
 
+Tilt also respects the DO_NOT_TRACK environment variable used 
+for [other TUI/console apps](https://consoledonottrack.com/):
+
+```bash
+export DO_NOT_TRACK="1"
+```
+
 You can also enable analytics in the Tiltfile by adding:
 
 ```python
