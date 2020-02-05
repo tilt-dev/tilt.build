@@ -60,19 +60,30 @@ but does NOT run on `tilt up`, [let us know](https://tilt.dev/contact).
 
 ## serve_cmd
 
-local_resource's `serve_cmd` argument allows a local_resource to function as a
+`local_resource`'s `serve_cmd` argument allows a local resource to function as a
 persistent process, so you can use it for things like running services locally
 instead of in k8s, or `tail -f`.
 
-Without `serve_cmd`, a local_resource functions as a sort of batch job - when
-Tilt runs it, it expects it to terminate. While it's running, it's "in progress",
-and when it finishes, it's green or red depending on its exit code.
+This is named `serve_cmd` because its main intent is to allow the specification
+of a command to start a process that runs a server, but it can be used for any
+long-running process.
 
-With `serve_cmd`, when the resource updates, Tilt will first run its `cmd`, if
-it is non-empty. Then, if `cmd` succeeds, Tilt will run its `serve_cmd`. As soon
-as the `serve_cmd` starts, Tilt will consider the resource updated and "running".
-If the `serve_cmd` exits, with any exit code, Tilt will consider it an error
-and turn it red.
+Without `serve_cmd`, a local resource functions as a sort of batch job. Tilt runs
+the command and expects it to terminate. While the command is running, it's
+"in progress", and when it finishes, it's red or green based on the process's
+exit code.
+
+With `serve_cmd`, when the resource updates:
+1. Tilt will first run the resource's `cmd`, if it is non-empty.
+   1. While you can just put this into your `serve_cmd`, it can be useful to
+      separate your "build" step (e.g., `go build ./main.go`) from your "run" step.
+   2. When updating a resource, Tilt will not kill the resource's previously
+      running process until it's successfully executed `cmd`.
+2. If `cmd` succeeds, Tilt will run the resource's `serve_cmd`.
+   1. As soon as the `serve_cmd` starts, Tilt will consider the resource updated
+      and "running".
+   2. If the `serve_cmd` exits, with any exit code, Tilt will consider it an error
+      and turn it red.
 
 Some examples:
 
