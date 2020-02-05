@@ -589,12 +589,14 @@ def local_resource(name: str, cmd: str, deps: Union[str, List[str]] = None,
                    auto_init: bool=True, serve_cmd: str = "") -> None:
   """Configures one or more commands to run on the *host* machine (not in a remote cluster).
 
-  By default, local_resources are updated on ``tilt up`` and whenever any of their ``deps`` change.
+  By default, Tilt performs an update on local resources on ``tilt up`` and whenever any of their ``deps`` change.
 
-  When the resource updates:
+  When Tilt performs an update on a local resource:
 
   - if `cmd` is non-empty, it is executed
-  - if `cmd` succeeds and `serve_cmd` is non-empty, it is executed
+  - if `cmd` succeeds:
+    - Tilt kills any extant `serve_cmd` process from previous updates of this resource
+    - if `serve_cmd` is non-empty, it is executed
 
   For more info, see the `Local Resource docs <local_resource.html>`_.
 

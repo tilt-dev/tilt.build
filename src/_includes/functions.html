@@ -3649,7 +3649,7 @@ to share across Tiltfiles.
             machine (not in a remote cluster).
            </p>
            <p>
-            By default, local_resources are updated on
+            By default, Tilt performs an update on local resources on
             <code class="docutils literal notranslate">
              <span class="pre">
               tilt
@@ -3667,7 +3667,7 @@ to share across Tiltfiles.
             change.
            </p>
            <p>
-            When the resource updates:
+            When Tilt performs an update on a local resource:
            </p>
            <ul class="simple">
             <li>
@@ -3682,7 +3682,13 @@ to share across Tiltfiles.
              <cite>
               cmd
              </cite>
-             succeeds and
+             succeeds:
+- Tilt kills any extant
+             <cite>
+              serve_cmd
+             </cite>
+             process from previous updates of this resource
+- if
              <cite>
               serve_cmd
              </cite>
