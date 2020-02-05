@@ -57,3 +57,41 @@ For more on trigger mode, [see the docs](https://docs.tilt.dev/manual_update_con
 `auto_init=False` is currently only compatible with `TRIGGER_MODE_MANUAL`. If
 you'd like a local resource that runs automatically in response to file changes
 but does NOT run on `tilt up`, [let us know](https://tilt.dev/contact).
+
+## serve_cmd
+
+`local_resource`'s `serve_cmd` argument allows a local resource to function as a
+persistent process, so you can use it for things like running services locally
+instead of in k8s, or `tail -f`.
+
+This is named `serve_cmd` because its main intent is to allow the specification
+of a command to start a process that runs a server, but it can be used for any
+long-running process.
+
+Without `serve_cmd`, a local resource functions as a sort of batch job. Tilt runs
+the command and expects it to terminate. While the command is running, it's
+"in progress", and when it finishes, it's red or green based on the process's
+exit code.
+
+With `serve_cmd`, when the resource updates:
+1. Tilt will first run the resource's `cmd`, if it is non-empty.
+   1. While you can just put this into your `serve_cmd`, it can be useful to
+      separate your "build" step (e.g., `go build ./main.go`) from your "run" step.
+   2. When updating a resource, Tilt will not kill the resource's previously
+      running process until it's successfully executed `cmd`.
+2. If `cmd` succeeds, Tilt will run the resource's `serve_cmd`.
+   1. As soon as the `serve_cmd` starts, Tilt will consider the resource updated
+      and "running".
+   2. If the `serve_cmd` exits, with any exit code, Tilt will consider it an error
+      and turn it red.
+
+Some examples:
+
+#### build and run a server locally
+``local_resource(cmd='go build ./cmd/myserver', serve_cmd='./myserver --port=8001', deps=['cmd/myserver'])``
+
+#### keep a port forward open to a service not deployed by Tilt
+``local_resource(serve_cmd='kubectl port-forward -n openfaas svc/gateway 8080:8080')``
+
+#### show the k8s api server's logs
+``local_resource(serve_cmd='kubectl logs -f -n kube-system kube-apiserver-docker-desktop')``

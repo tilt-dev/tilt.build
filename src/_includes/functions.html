@@ -3703,6 +3703,10 @@ to share across Tiltfiles.
            <em>
             auto_init=True
            </em>
+           ,
+           <em>
+            serve_cmd=&apos;&apos;
+           </em>
            <span class="sig-paren">
             )
            </span>
@@ -3712,29 +3716,65 @@ to share across Tiltfiles.
           </dt>
           <dd>
            <p>
-            Configures
-            <cite>
-             cmd
-            </cite>
-            to run on the
+            Configures one or more commands to run on the
             <em>
              host
             </em>
             machine (not in a remote cluster).
            </p>
            <p>
-            If
-            <cite>
-             deps
-            </cite>
-            is set then
-            <cite>
-             cmd
-            </cite>
-            is run whenever one of the files specified changes.
+            By default, Tilt performs an update on local resources on
+            <code class="docutils literal notranslate">
+             <span class="pre">
+              tilt
+             </span>
+             <span class="pre">
+              up
+             </span>
+            </code>
+            and whenever any of their
+            <code class="docutils literal notranslate">
+             <span class="pre">
+              deps
+             </span>
+            </code>
+            change.
            </p>
            <p>
-            All local resources are executed on the first run of the Tiltfile.
+            When Tilt performs an update on a local resource:
+           </p>
+           <ul class="simple">
+            <li>
+             if
+             <cite>
+              cmd
+             </cite>
+             is non-empty, it is executed
+            </li>
+            <li>
+             if
+             <cite>
+              cmd
+             </cite>
+             succeeds:
+- Tilt kills any extant
+             <cite>
+              serve_cmd
+             </cite>
+             process from previous updates of this resource
+- if
+             <cite>
+              serve_cmd
+             </cite>
+             is non-empty, it is executed
+            </li>
+           </ul>
+           <p>
+            For more info, see the
+            <a class="reference external" href="local_resource.html">
+             Local Resource docs
+            </a>
+            .
            </p>
            <table class="docutils field-list" frame="void" rules="none">
             <col class="field-name">
@@ -3745,7 +3785,7 @@ to share across Tiltfiles.
                Parameters:
               </th>
               <td class="field-body">
-               <ul class="first last simple">
+               <ul class="first simple">
                 <li>
                  <strong>
                   name
@@ -3941,32 +3981,33 @@ See the
                  </code>
                  .
                 </li>
+                <li>
+                 <strong>
+                  serve_cmd
+                 </strong>
+                 (
+                 <code class="xref py py-class docutils literal notranslate">
+                  <span class="pre">
+                   str
+                  </span>
+                 </code>
+                 ) &#x2013; Tilt will run this command on update and expect it to not exit
+                </li>
                </ul>
               </td>
              </tr>
-            </tbody>
-           </table>
-           <p>
-            For more info, see the
-            <a class="reference external" href="local_resource.html">
-             Local Resource docs
-            </a>
-            .
-           </p>
-           <table class="docutils field-list" frame="void" rules="none">
-            <col class="field-name">
-            <col class="field-body">
-            <tbody valign="top">
-             <tr class="field-odd field">
+             <tr class="field-even field">
               <th class="field-name">
                Return type:
               </th>
               <td class="field-body">
-               <code class="docutils literal notranslate">
-                <span class="pre">
-                 None
-                </span>
-               </code>
+               <p class="first last">
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  None
+                 </span>
+                </code>
+               </p>
               </td>
              </tr>
             </tbody>
