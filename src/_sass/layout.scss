@@ -500,9 +500,9 @@ h3.relatedHeader {
 .blogBody > h3 {
   margin-bottom: 0;
 }
-.blogBody > h1 + p,
-.blogBody > h1 + h2 + p {
-  margin-top: $spacing-unit / 4;
+.blogBody > h1 + .blogCredit + p,
+.blogBody > h1 + h2 + .blogCredit + p {
+  margin-top: $spacing-unit / 2;
 }
 
 .sidebar-opener {
