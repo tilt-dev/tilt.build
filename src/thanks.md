@@ -6,4 +6,4 @@ permalink: /thanks
 
 ## We got your message!
 
-Someone on the Windmill Engineering team will reach out to you soon.
+Someone on the Tilt team will reach out to you soon.
