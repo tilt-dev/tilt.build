@@ -11,12 +11,12 @@ We're here to help you figure out the right one for you.
 Beginner Level:
 
 - [Docker for Desktop](#docker-for-desktop)
+- [Kind](#kind)
 - [Microk8s](#microk8s)
 
 Intermediate Level:
 
 - [Minikube](#minikube)
-- [KIND](#kind)
 - [K3D](#k3d)
 
 Advanced Level:
@@ -29,7 +29,7 @@ Advanced Level:
 
 ## Docker for Desktop
 
-Docker for Desktop is what we recommend most often for MacOS users.
+Docker for Desktop is the easiest to get started with if you're on MacOS.
 
 In the Docker For Mac preferences, click
 [Enable Kubernetes](https://docs.docker.com/docker-for-mac/#kubernetes)
@@ -43,8 +43,34 @@ In the Docker For Mac preferences, click
 ### Cons
 
 - If Kubernetes breaks, it's easier to reset the whole thing than debug it.
+- Much more resource-intensive because it uses docker-shim as the container runtime.
 - Different defaults than a prod cluster and difficult to customize.
 - Not available on Linux.
+
+---
+
+## Kind
+
+[Kind](https://kind.sigs.k8s.io/) runs Kubernetes inside a Docker container.
+
+The Kubernetes team uses Kind to test Kubernetes itself. But its fast startup
+time also makes it a good solution for local dev. Follow these instructions for
+setting up Kind with Tilt:
+
+[Kind Setup Instructions](https://github.com/windmilleng/kind-local)
+
+### Pros
+
+- Creating a new cluster is fast (~20 seconds). Deleting a cluster is even faster. 
+- Much more robust than Docker for Mac. Uses containerd instead of docker-shim. Short-lived clusters tend to be more reliable.
+- Supports a local image registry (with our [custom setup instructions](https://github.com/windmilleng/kind-local)).
+  Pushing images is fast. No fiddling with image registry auth credentials.
+- Can run in [most CI environments](https://github.com/kind-ci/examples) (TravisCI, CircleCI, etc)
+
+### Cons
+
+- The local registry setup is still new, and changing rapidly. You need to be using Tilt v0.12.0+
+- If Tilt can't find the registry, it will use the much slower `kind load` to load images.
 
 ---
 
@@ -71,15 +97,15 @@ kubectl config use-context microk8s
 
 ### Pros
 
-- No virtual machine overhead
+- No virtual machine overhead on Linux
 - Ships with plugins that make common configs as easy as `microk8s.enable`
-- The in-cluster registry makes image updates much faster. When you enable the registry, Tilt will use it automatically.
+- Supports a local image registry with `microk8s.enable registry`.
+  Pushing images is fast.  No fiddling with image registry auth credentials.
 
 ### Cons
 
-- Resetting the cluster is slow and error-prone
-- Containerd-only
-- Linux-only
+- Resetting the cluster is slow and error-prone.
+- Optimized for Linux. You can use it on MacOS and Windows with [Multipass](https://multipass.run/).
 
 ---
 
@@ -105,37 +131,6 @@ to push to a remote registry.
 - We often see engineers struggle to set it up the first time, getting lost in a
   maze of VM drivers that they're unfamiliar with
 - You usually want to shutdown minikube when you're finished
-
----
-
-## KIND
-
-[KIND](https://kind.sigs.k8s.io/) runs Kubernetes inside a Docker container.
-
-The Kuberetes team uses KIND to test Kubernetes itself. But its fast startup
-time also makes it a good solution for local dev. Run it with:
-
-```bash
-GO111MODULE="on" go get sigs.k8s.io/kind@v0.4.0
-kind create cluster
-export KUBECONFIG="$(kind get kubeconfig-path)"
-```
-
-### Pros
-
-- Fast to startup (less than 45 seconds on most machines)
-- Creating and deleting ephemeral clusters feels great
-- Can run in [most CI environments](https://github.com/kind-ci/examples) (TravisCI, CircleCI, etc)
-
-### Cons
-
-- Pushing images into the cluster is slow.
-- KIND can copy images into the cluster with `kind load`. This is slower than an
-  in-cluster registry because it copies the whole image even if a single layer
-  has changed. But it's still faster than a remote registry. Tilt will use `kind
-  load` if it detects KIND.
-- We have [examples](https://github.com/windmilleng/kind-local) on how to run an
-  in-cluster registry, but it's brittle.
 
 ---
 
