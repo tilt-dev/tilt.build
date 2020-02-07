@@ -39,8 +39,8 @@ and starting point.
 
 #### Tiltfile
 
-(see the [config API reference](/api.html#modules.config.define_string_list>)
-for details on what exactly these calls are doing)
+(See the [config API reference](/api.html#modules.config.define_string_list>)
+for details on what exactly these calls are doing.)
 ```python
 config.define_string_list("to-run", args=True)
 cfg = config.parse()
