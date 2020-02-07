@@ -40,7 +40,7 @@ You should see the text `🍄 One-Up! 🍄`.
 
 Congratulations! You've run your first server with `tilt`.
 
-Type `q` to quit the status box. When you're finished, run
+Type `ctrl-C` to quit the status box. When you're finished, run
 
 ```
 tilt down
