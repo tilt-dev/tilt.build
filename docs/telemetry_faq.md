@@ -3,7 +3,10 @@ title: What does Tilt send?
 layout: docs
 ---
 
-Tilt nudges you to opt in or out of analytics.
+Tilt sends anonymized data about how you use it.
+
+The first time you visit the web UI, Tilt nudges you to explicitly opt in or out
+of analytics.
 
 You can opt-in from the command-line with:
 
@@ -18,8 +21,6 @@ tilt analytics opt out
 ```
 
 and restarting Tilt.
-
-Until you make a choice, Tilt will send a minimal amount of data (this helps us improve the installation/opting flow).
 
 ---
 
@@ -52,7 +53,7 @@ We don't want to collect data about you or your project.
 When possible, strings that may contain information about your project (repo names, service
 names, directory names) are hashed to protect your privacy.
 
-The  hashing system isn't foolproof. It's possible that some of the data we collect
+The hashing system isn't foolproof. It's possible that some of the data we collect
 could include snippets of data about your project (e.g. that you have a service
 named `deathray-backend` or an error message that includes the string it failed
 to parse). You should probably not opt-in if you're working on a classified
