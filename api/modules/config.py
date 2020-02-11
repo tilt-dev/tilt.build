@@ -2,11 +2,13 @@ from typing import Dict, Union, List, Callable, Any
 
 def define_string_list(name: str, args: bool=False, usage: str="") -> None:
     """
-    Defines a config setting of type `List[str]` to be returned by
-    :meth:`parse`.
+    Defines a config setting of type `List[str]`.
 
-    See the `Tiltfile config documentation <tiltfile_config.html>`_ for examples and more
-    information.
+    Allows the user invoking Tilt to configure a key named ``name`` to be in the
+    dict returned by :meth:`parse`.
+
+    See the `Tiltfile config documentation <tiltfile_config.html>`_ for examples
+    and more information.
 
     Args:
       name: The name of the config setting
