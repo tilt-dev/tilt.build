@@ -407,8 +407,24 @@ StructuredDataType = Union[
     List[Any],
 ]
 
-def decode_json(json: str) -> StructuredDataType:
-  """Deserializes a given string from JSON to Starlark. Fails if the string can't be parsed as JSON."""
+def decode_json(json: Union[str, Blob]) -> StructuredDataType:
+  """
+  Deserializes the given JSON into a starlark object
+
+  Args:
+    yaml: the yaml to deserialize
+  """
+  pass
+
+def encode_json(obj: StructuredDataType) -> Blob:
+  """
+  Serializes the given starlark object into JSON.
+
+  Only supports maps with string keys, lists, strings, ints, and bools.
+
+  Args:
+    obj: the object to serialize
+  """
   pass
 
 def read_json(path: str, default: str = None) -> StructuredDataType:
@@ -425,7 +441,7 @@ def read_json(path: str, default: str = None) -> StructuredDataType:
 
 def read_yaml(path: str, default: str = None) -> StructuredDataType:
   """
-  Reads the file at `path` and deserializes its contents as YAML
+  Reads the file at `path` and deserializes its contents into a starlark object
 
   If the `path` does not exist and `default` is not `None`, `default` will be returned.
   In any other case, an error reading `path` will be a Tiltfile load error.
@@ -433,6 +449,26 @@ def read_yaml(path: str, default: str = None) -> StructuredDataType:
   Args:
     path: Path to the file locally (absolute, or relative to the location of the Tiltfile).
     default: If not `None` and the file at `path` does not exist, this value will be returned."""
+  pass
+
+def decode_yaml(yaml: Union[str, Blob]) -> StructuredDataType:
+  """
+  Deserializes the given yaml into a starlark object
+
+  Args:
+    yaml: the yaml to deserialize
+  """
+  pass
+
+def encode_yaml(obj: StructuredDataType) -> Blob:
+  """
+  Serializes the given starlark object into YAML.
+
+  Only supports maps with string keys, lists, strings, ints, and bools.
+
+  Args:
+    obj: the object to serialize
+  """
   pass
 
 def default_registry(registry: str) -> None:
