@@ -5533,7 +5533,17 @@ Tilt will call this function once for each workload to determine that workload&#
             <cite>
              List[str]
             </cite>
-            to be returned by
+            .
+           </p>
+           <p>
+            Allows the user invoking Tilt to configure a key named
+            <code class="docutils literal notranslate">
+             <span class="pre">
+              name
+             </span>
+            </code>
+            to be in the
+dict returned by
             <a class="reference internal" href="#modules.config.parse" title="modules.config.parse">
              <code class="xref py py-meth docutils literal notranslate">
               <span class="pre">
@@ -5548,8 +5558,8 @@ Tilt will call this function once for each workload to determine that workload&#
             <a class="reference external" href="tiltfile_config.html">
              Tiltfile config documentation
             </a>
-            for examples and more
-information.
+            for examples
+and more information.
            </p>
            <table class="docutils field-list" frame="void" rules="none">
             <col class="field-name">
@@ -5583,12 +5593,71 @@ information.
                    bool
                   </span>
                  </code>
-                 ) &#x2013; If true, any positional args (e.g., in
-                 <cite>
-                  tilt up &#x2013; 1 2 3
-                 </cite>
-                 ,
-this setting would get [&#x201C;1&#x201D; &#x201C;2&#x201D; &#x201C;3&#x201D;])
+                 ) &#x2013;
+                 <p>
+                  If False, the config setting is specified by its name. (e.g., if it&#x2019;s named &#x201C;foo&#x201D;,
+                  <code class="docutils literal notranslate">
+                   <span class="pre">
+                    tilt
+                   </span>
+                   <span class="pre">
+                    up
+                   </span>
+                   <span class="pre">
+                    --
+                   </span>
+                   <span class="pre">
+                    --foo
+                   </span>
+                   <span class="pre">
+                    bar
+                   </span>
+                  </code>
+                  this setting would be
+                  <code class="docutils literal notranslate">
+                   <span class="pre">
+                    [&quot;bar&quot;]
+                   </span>
+                  </code>
+                  .)
+                 </p>
+                 <p>
+                  If True, the config setting is specified by unnamed positional args. (e.g.,
+in
+                  <code class="docutils literal notranslate">
+                   <span class="pre">
+                    tilt
+                   </span>
+                   <span class="pre">
+                    up
+                   </span>
+                   <span class="pre">
+                    --
+                   </span>
+                   <span class="pre">
+                    1
+                   </span>
+                   <span class="pre">
+                    2
+                   </span>
+                   <span class="pre">
+                    3
+                   </span>
+                  </code>
+                  , this setting would be
+                  <code class="docutils literal notranslate">
+                   <span class="pre">
+                    [&quot;1&quot;
+                   </span>
+                   <span class="pre">
+                    &quot;2&quot;
+                   </span>
+                   <span class="pre">
+                    &quot;3&quot;]
+                   </span>
+                  </code>
+                  .)
+                 </p>
                 </li>
                 <li>
                  <strong>
