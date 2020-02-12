@@ -12,6 +12,8 @@ functions:
 - docker_compose
 - docker_prune_settings
 - enable_feature
+- encode_json
+- encode_yaml
 - fail
 - fall_back_on
 - filter_yaml

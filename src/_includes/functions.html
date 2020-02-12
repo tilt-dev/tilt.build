@@ -775,13 +775,129 @@ See the
           </dt>
           <dd>
            <p>
-            Deserializes a given string from JSON to Starlark. Fails if the string can&#x2019;t be parsed as JSON.
+            Deserializes the given JSON into a starlark object
            </p>
            <table class="docutils field-list" frame="void" rules="none">
             <col class="field-name">
             <col class="field-body">
             <tbody valign="top">
              <tr class="field-odd field">
+              <th class="field-name">
+               Parameters:
+              </th>
+              <td class="field-body">
+               <strong>
+                yaml
+               </strong>
+               &#x2013; the yaml to deserialize
+              </td>
+             </tr>
+             <tr class="field-even field">
+              <th class="field-name">
+               Return type:
+              </th>
+              <td class="field-body">
+               <code class="xref py py-data docutils literal notranslate">
+                <span class="pre">
+                 Union
+                </span>
+               </code>
+               [
+               <code class="xref py py-class docutils literal notranslate">
+                <span class="pre">
+                 Dict
+                </span>
+               </code>
+               [
+               <code class="xref py py-class docutils literal notranslate">
+                <span class="pre">
+                 str
+                </span>
+               </code>
+               ,
+               <code class="xref py py-data docutils literal notranslate">
+                <span class="pre">
+                 Any
+                </span>
+               </code>
+               ],
+               <code class="xref py py-class docutils literal notranslate">
+                <span class="pre">
+                 List
+                </span>
+               </code>
+               [
+               <code class="xref py py-data docutils literal notranslate">
+                <span class="pre">
+                 Any
+                </span>
+               </code>
+               ]]
+              </td>
+             </tr>
+            </tbody>
+           </table>
+          </dd>
+         </dl><dl class="function">
+          <dt id="api.decode_yaml">
+           <code class="descclassname">
+           </code>
+           <code class="descname">
+            decode_yaml
+           </code>
+           <span class="sig-paren">
+            (
+           </span>
+           <em>
+            yaml
+           </em>
+           <span class="sig-paren">
+            )
+           </span>
+           <a class="headerlink" href="#api.decode_yaml" title="Permalink to this definition">
+            &#xB6;
+           </a>
+          </dt>
+          <dd>
+           <p>
+            Deserializes the given yaml into a starlark object
+           </p>
+           <table class="docutils field-list" frame="void" rules="none">
+            <col class="field-name">
+            <col class="field-body">
+            <tbody valign="top">
+             <tr class="field-odd field">
+              <th class="field-name">
+               Parameters:
+              </th>
+              <td class="field-body">
+               <strong>
+                yaml
+               </strong>
+               (
+               <code class="xref py py-data docutils literal notranslate">
+                <span class="pre">
+                 Union
+                </span>
+               </code>
+               [
+               <code class="xref py py-class docutils literal notranslate">
+                <span class="pre">
+                 str
+                </span>
+               </code>
+               ,
+               <a class="reference internal" href="#api.Blob" title="api.Blob">
+                <code class="xref py py-class docutils literal notranslate">
+                 <span class="pre">
+                  Blob
+                 </span>
+                </code>
+               </a>
+               ]) &#x2013; the yaml to deserialize
+              </td>
+             </tr>
+             <tr class="field-even field">
               <th class="field-name">
                Return type:
               </th>
@@ -1999,6 +2115,196 @@ who added it to the Tiltfile what it&#x2019;s doing there.
                  None
                 </span>
                </code>
+              </td>
+             </tr>
+            </tbody>
+           </table>
+          </dd>
+         </dl><dl class="function">
+          <dt id="api.encode_json">
+           <code class="descclassname">
+           </code>
+           <code class="descname">
+            encode_json
+           </code>
+           <span class="sig-paren">
+            (
+           </span>
+           <em>
+            obj
+           </em>
+           <span class="sig-paren">
+            )
+           </span>
+           <a class="headerlink" href="#api.encode_json" title="Permalink to this definition">
+            &#xB6;
+           </a>
+          </dt>
+          <dd>
+           <p>
+            Serializes the given starlark object into JSON.
+           </p>
+           <p>
+            Only supports maps with string keys, lists, strings, ints, and bools.
+           </p>
+           <table class="docutils field-list" frame="void" rules="none">
+            <col class="field-name">
+            <col class="field-body">
+            <tbody valign="top">
+             <tr class="field-odd field">
+              <th class="field-name">
+               Parameters:
+              </th>
+              <td class="field-body">
+               <strong>
+                obj
+               </strong>
+               (
+               <code class="xref py py-data docutils literal notranslate">
+                <span class="pre">
+                 Union
+                </span>
+               </code>
+               [
+               <code class="xref py py-class docutils literal notranslate">
+                <span class="pre">
+                 Dict
+                </span>
+               </code>
+               [
+               <code class="xref py py-class docutils literal notranslate">
+                <span class="pre">
+                 str
+                </span>
+               </code>
+               ,
+               <code class="xref py py-data docutils literal notranslate">
+                <span class="pre">
+                 Any
+                </span>
+               </code>
+               ],
+               <code class="xref py py-class docutils literal notranslate">
+                <span class="pre">
+                 List
+                </span>
+               </code>
+               [
+               <code class="xref py py-data docutils literal notranslate">
+                <span class="pre">
+                 Any
+                </span>
+               </code>
+               ]]) &#x2013; the object to serialize
+              </td>
+             </tr>
+             <tr class="field-even field">
+              <th class="field-name">
+               Return type:
+              </th>
+              <td class="field-body">
+               <a class="reference internal" href="#api.Blob" title="api.Blob">
+                <code class="xref py py-class docutils literal notranslate">
+                 <span class="pre">
+                  Blob
+                 </span>
+                </code>
+               </a>
+              </td>
+             </tr>
+            </tbody>
+           </table>
+          </dd>
+         </dl><dl class="function">
+          <dt id="api.encode_yaml">
+           <code class="descclassname">
+           </code>
+           <code class="descname">
+            encode_yaml
+           </code>
+           <span class="sig-paren">
+            (
+           </span>
+           <em>
+            obj
+           </em>
+           <span class="sig-paren">
+            )
+           </span>
+           <a class="headerlink" href="#api.encode_yaml" title="Permalink to this definition">
+            &#xB6;
+           </a>
+          </dt>
+          <dd>
+           <p>
+            Serializes the given starlark object into YAML.
+           </p>
+           <p>
+            Only supports maps with string keys, lists, strings, ints, and bools.
+           </p>
+           <table class="docutils field-list" frame="void" rules="none">
+            <col class="field-name">
+            <col class="field-body">
+            <tbody valign="top">
+             <tr class="field-odd field">
+              <th class="field-name">
+               Parameters:
+              </th>
+              <td class="field-body">
+               <strong>
+                obj
+               </strong>
+               (
+               <code class="xref py py-data docutils literal notranslate">
+                <span class="pre">
+                 Union
+                </span>
+               </code>
+               [
+               <code class="xref py py-class docutils literal notranslate">
+                <span class="pre">
+                 Dict
+                </span>
+               </code>
+               [
+               <code class="xref py py-class docutils literal notranslate">
+                <span class="pre">
+                 str
+                </span>
+               </code>
+               ,
+               <code class="xref py py-data docutils literal notranslate">
+                <span class="pre">
+                 Any
+                </span>
+               </code>
+               ],
+               <code class="xref py py-class docutils literal notranslate">
+                <span class="pre">
+                 List
+                </span>
+               </code>
+               [
+               <code class="xref py py-data docutils literal notranslate">
+                <span class="pre">
+                 Any
+                </span>
+               </code>
+               ]]) &#x2013; the object to serialize
+              </td>
+             </tr>
+             <tr class="field-even field">
+              <th class="field-name">
+               Return type:
+              </th>
+              <td class="field-body">
+               <a class="reference internal" href="#api.Blob" title="api.Blob">
+                <code class="xref py py-class docutils literal notranslate">
+                 <span class="pre">
+                  Blob
+                 </span>
+                </code>
+               </a>
               </td>
              </tr>
             </tbody>
@@ -4320,7 +4626,7 @@ In any other case, an error reading
             <cite>
              path
             </cite>
-            and deserializes its contents as YAML
+            and deserializes its contents into a starlark object
            </p>
            <p>
             If the
