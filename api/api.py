@@ -311,6 +311,13 @@ def load(path: str, *args):
 
     load('./lib/Tiltfile', 'create_namespace')
     create_namespace('frontend')
+
+  If ``path`` starts with ``"ext://"`` the path will be treated as a [Tilt Extension](https://github.com/windmilleng/tilt-extensions).
+
+  Example ::
+
+    load('ext://hello_world', 'hi') # Resolves to https://github.com/windmilleng/tilt-extensions/blob/master/hello_world/Tiltfile
+    hi() # prints "Hello world!"
   """
 
 def local(cmd: str, quiet: bool = False) -> Blob:
