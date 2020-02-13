@@ -35,7 +35,8 @@ and starting point.
 * `tilt up`: run all services
 * `tilt up a b d`: run A, B, and D but not C
 * `tilt args a b`: change running Tilt to run A and B but neither C nor D.
-* `tilt up`: run all services
+* `tilt down`: delete all services
+* `tilt down a b d`: delete A, B, and D but leave C running
 
 #### Tiltfile
 
@@ -87,6 +88,8 @@ recent CI invocation, or refer to standard images.)
   end of `tilt up` options and the start of user-defined settings)
 * `tilt up -- consumer --to-edit b --to-edit c`: run consumer services and set
   up b and c for editing.
+* `tilt down -- consumer`: Delete consumer services but leave any other services alone.
+  
 #### Tiltfile
 ```python
 config.define_string_list("to-run", args=True)
