@@ -24,28 +24,27 @@
            </p>
            <p>
             To help reduce the chances you accidentally use Tilt to deploy to your
-production cluster, Tilt will error unless at least one of these is true of
-the active K8S context (i.e., what is returned by
+production cluster, Tilt will only push to clusters that have been whitelisted
+for local development.
+           </p>
+           <p>
+            By default, Tilt whitelists Minikube, Docker for Desktop, Microk8s, Kind, and K3D.
+           </p>
+           <p>
+            To whitelist your development cluster, add a line in your Tiltfile:
+           </p>
+           <p>
+            <cite>
+             allow_k8s_contexts(&#x2018;context-name&#x2019;)
+            </cite>
+           </p>
+           <p>
+            where &#x2018;context-name&#x2019; is the name returned by
             <cite>
              kubectl config current-context
             </cite>
-            )
+            .
            </p>
-           <ol class="arabic simple">
-            <li>
-             The K8S API URL is on localhost.
-            </li>
-            <li>
-             The context name is one of a few known local context names (e.g,. &#x201C;minikube&#x201D;).
-            </li>
-            <li>
-             The context name is explicitly passed to
-             <cite>
-              allow_k8s_contexts
-             </cite>
-             in the Tiltfile.
-            </li>
-           </ol>
            <p>
             For more on which cluster context is right for you, see
             <a class="reference external" href="choosing_clusters.html">
@@ -898,80 +897,6 @@ See the
               </td>
              </tr>
              <tr class="field-even field">
-              <th class="field-name">
-               Return type:
-              </th>
-              <td class="field-body">
-               <code class="xref py py-data docutils literal notranslate">
-                <span class="pre">
-                 Union
-                </span>
-               </code>
-               [
-               <code class="xref py py-class docutils literal notranslate">
-                <span class="pre">
-                 Dict
-                </span>
-               </code>
-               [
-               <code class="xref py py-class docutils literal notranslate">
-                <span class="pre">
-                 str
-                </span>
-               </code>
-               ,
-               <code class="xref py py-data docutils literal notranslate">
-                <span class="pre">
-                 Any
-                </span>
-               </code>
-               ],
-               <code class="xref py py-class docutils literal notranslate">
-                <span class="pre">
-                 List
-                </span>
-               </code>
-               [
-               <code class="xref py py-data docutils literal notranslate">
-                <span class="pre">
-                 Any
-                </span>
-               </code>
-               ]]
-              </td>
-             </tr>
-            </tbody>
-           </table>
-          </dd>
-         </dl><dl class="function">
-          <dt id="api.decode_yaml">
-           <code class="descclassname">
-           </code>
-           <code class="descname">
-            decode_yaml
-           </code>
-           <span class="sig-paren">
-            (
-           </span>
-           <em>
-            yaml
-           </em>
-           <span class="sig-paren">
-            )
-           </span>
-           <a class="headerlink" href="#api.decode_yaml" title="Permalink to this definition">
-            &#xB6;
-           </a>
-          </dt>
-          <dd>
-           <p>
-            Deserializes a given string from YAML to Starlark. Fails if the string can&#x2019;t be parsed as YAML.
-           </p>
-           <table class="docutils field-list" frame="void" rules="none">
-            <col class="field-name">
-            <col class="field-body">
-            <tbody valign="top">
-             <tr class="field-odd field">
               <th class="field-name">
                Return type:
               </th>
