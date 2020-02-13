@@ -71,7 +71,7 @@ def restart_container() -> LiveUpdateStep:
   """
   pass
 
-def docker_build(ref: str, context: str, build_args: Dict[str, str] = {}, dockerfile: str = "Dockerfile", dockerfile_contents: Union[str, Blob] = "", live_update: List[LiveUpdateStep]=[], match_in_env_vars: bool = False, ignore: Union[str, List[str]] = [], only: Union[str, List[str]] = [], entrypoint: str = "", target: str = "", ssh: Union[str, List[str]] = "", network: str = "") -> None:
+def docker_build(ref: str, context: str, build_args: Dict[str, str] = {}, dockerfile: str = "Dockerfile", dockerfile_contents: Union[str, Blob] = "", live_update: List[LiveUpdateStep]=[], match_in_env_vars: bool = False, ignore: Union[str, List[str]] = [], only: Union[str, List[str]] = [], entrypoint: str = "", target: str = "", ssh: Union[str, List[str]] = "", network: str = "", secret: Union[str, List[str]] = "", extra_tag: Union[str, List[str]] = "", container_args: List[str] = None) -> None:
   """Builds a docker image.
 
   Note that you can't set both the `dockerfile` and `dockerfile_contents` arguments (will throw an error).
@@ -94,8 +94,11 @@ def docker_build(ref: str, context: str, build_args: Dict[str, str] = {}, docker
     only: set of file paths that should be considered for the build. All other changes will not trigger a build and will not be included in images. Inverse of ignore parameter. Only accepts real paths, not file globs.
     entrypoint: command to run when this container starts. Takes precedence over the container's ``CMD`` or ``ENTRYPOINT``, and over a `container command specified in k8s YAML <https://kubernetes.io/docs/tasks/inject-data-application/define-command-argument-container/>`_. Will be evaluated in a shell context: e.g. ``entrypoint="foo.sh bar"`` will be executed in the container as ``/bin/sh -c 'foo.sh bar'``.
     target: Specify a build stage in the Dockerfile. Equivalent to the ``docker build --target`` flag.
-    ssh: Include SSH secrets in your build. Use ssh='default' to clone private repositories inside a Dockerfile. Uses the syntax in the `Docker build --ssh flag <https://docs.docker.com/develop/develop-images/build_enhancements/#using-ssh-to-access-private-data-in-builds>`_.
+    ssh: Include SSH secrets in your build. Use ssh='default' to clone private repositories inside a Dockerfile. Uses the syntax in the `docker build --ssh flag <https://docs.docker.com/develop/develop-images/build_enhancements/#using-ssh-to-access-private-data-in-builds>`_.
     network: Set the networking mode for RUN instructions. Equivalent to the ``docker build --network`` flag.
+    secret: Include secrets in your build in a way that won't show up in the image. Uses the same syntax as the `docker build --secret flag <https://docs.docker.com/develop/develop-images/build_enhancements/#new-docker-build-secret-information>`_.
+    extra_tag: Tag an image with one or more extra references after each build. Useful when running Tilt in a CI pipeline, where you want each image to be tagged with the pipeline ID so you can find it later. Uses the same syntax as the ``docker build --tag`` flag.
+    container_args: args to run when this container starts. Takes precedence over a `container args specified in k8s YAML <https://kubernetes.io/docs/tasks/inject-data-application/define-command-argument-container/>`_.
   """
   pass
 

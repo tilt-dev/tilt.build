@@ -1218,6 +1218,18 @@ ensures a pretty high bar of intent.
            <em>
             network=&apos;&apos;
            </em>
+           ,
+           <em>
+            secret=&apos;&apos;
+           </em>
+           ,
+           <em>
+            extra_tag=&apos;&apos;
+           </em>
+           ,
+           <em>
+            container_args=None
+           </em>
            <span class="sig-paren">
             )
            </span>
@@ -1620,7 +1632,7 @@ ensures a pretty high bar of intent.
                  </code>
                  ]]) &#x2013; Include SSH secrets in your build. Use ssh=&#x2019;default&#x2019; to clone private repositories inside a Dockerfile. Uses the syntax in the
                  <a class="reference external" href="https://docs.docker.com/develop/develop-images/build_enhancements/#using-ssh-to-access-private-data-in-builds">
-                  Docker build &#x2013;ssh flag
+                  docker build &#x2013;ssh flag
                  </a>
                  .
                 </li>
@@ -1647,6 +1659,110 @@ ensures a pretty high bar of intent.
                   </span>
                  </code>
                  flag.
+                </li>
+                <li>
+                 <strong>
+                  secret
+                 </strong>
+                 (
+                 <code class="xref py py-data docutils literal notranslate">
+                  <span class="pre">
+                   Union
+                  </span>
+                 </code>
+                 [
+                 <code class="xref py py-class docutils literal notranslate">
+                  <span class="pre">
+                   str
+                  </span>
+                 </code>
+                 ,
+                 <code class="xref py py-class docutils literal notranslate">
+                  <span class="pre">
+                   List
+                  </span>
+                 </code>
+                 [
+                 <code class="xref py py-class docutils literal notranslate">
+                  <span class="pre">
+                   str
+                  </span>
+                 </code>
+                 ]]) &#x2013; Include secrets in your build in a way that won&#x2019;t show up in the image. Uses the same syntax as the
+                 <a class="reference external" href="https://docs.docker.com/develop/develop-images/build_enhancements/#new-docker-build-secret-information">
+                  docker build &#x2013;secret flag
+                 </a>
+                 .
+                </li>
+                <li>
+                 <strong>
+                  extra_tag
+                 </strong>
+                 (
+                 <code class="xref py py-data docutils literal notranslate">
+                  <span class="pre">
+                   Union
+                  </span>
+                 </code>
+                 [
+                 <code class="xref py py-class docutils literal notranslate">
+                  <span class="pre">
+                   str
+                  </span>
+                 </code>
+                 ,
+                 <code class="xref py py-class docutils literal notranslate">
+                  <span class="pre">
+                   List
+                  </span>
+                 </code>
+                 [
+                 <code class="xref py py-class docutils literal notranslate">
+                  <span class="pre">
+                   str
+                  </span>
+                 </code>
+                 ]]) &#x2013; Tag an image with one or more extra references after each build. Useful when running Tilt in a CI pipeline, where you want each image to be tagged with the pipeline ID so you can find it later. Uses the same syntax as the
+                 <code class="docutils literal notranslate">
+                  <span class="pre">
+                   docker
+                  </span>
+                  <span class="pre">
+                   build
+                  </span>
+                  <span class="pre">
+                   --tag
+                  </span>
+                 </code>
+                 flag.
+                </li>
+                <li>
+                 <strong>
+                  container_args
+                 </strong>
+                 (
+                 <code class="xref py py-data docutils literal notranslate">
+                  <span class="pre">
+                   Optional
+                  </span>
+                 </code>
+                 [
+                 <code class="xref py py-class docutils literal notranslate">
+                  <span class="pre">
+                   List
+                  </span>
+                 </code>
+                 [
+                 <code class="xref py py-class docutils literal notranslate">
+                  <span class="pre">
+                   str
+                  </span>
+                 </code>
+                 ]]) &#x2013; args to run when this container starts. Takes precedence over a
+                 <a class="reference external" href="https://kubernetes.io/docs/tasks/inject-data-application/define-command-argument-container/">
+                  container args specified in k8s YAML
+                 </a>
+                 .
                 </li>
                </ul>
               </td>
