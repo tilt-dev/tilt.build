@@ -85,6 +85,13 @@ We’re small ({{total}} people, VC-backed). We’re based in Union Square, NYC 
       Cloud Native Ambassador and 'Best Hair' award recipient. They/them.
     </div>
   </div>
+  <div class="bio col-1of3 u-marginBottom1_25">
+    <img class="bio-image" src="/assets/img/victor.jpg">
+    <h4>Victor Wu</h4>
+    <div>
+      Increasingly earlier stage startups. Innovating on remote work. He/him.
+    </div>
+  </div>  
 </div>
 
 {% svg assets/svg/mask.svg %}
