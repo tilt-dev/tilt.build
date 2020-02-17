@@ -630,7 +630,7 @@ def enable_feature(feature_name: str) -> None:
   """
   pass
 
-def local_resource(name: str, cmd: str, deps: Union[str, List[str]] = None,
+def local_resource(name: str, cmd: str = "", deps: Union[str, List[str]] = None,
                    trigger_mode: TriggerMode = TRIGGER_MODE_AUTO,
                    resource_deps: List[str] = [], ignore: Union[str, List[str]] = [],
                    auto_init: bool=True, serve_cmd: str = "") -> None:
