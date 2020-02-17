@@ -66,5 +66,7 @@
     href: faq.html
   - title: Tiltfile API Reference
     href: api.html
+  - title: Tilt CLI Reference
+    href: cli/tilt.html
   - title: Code of Conduct
     href: code_of_conduct.html
