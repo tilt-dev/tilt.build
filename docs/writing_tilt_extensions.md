@@ -2,8 +2,7 @@
 title: Writing Tilt Extensions (Preview)
 layout: docs
 ---
-
-Introducing Tilt Extensions! Extensions are a simple way to bundle up Tiltfile functionality that should be shared with the world.
+Extensions are a simple way to bundle up Tiltfile functionality that should be shared with the world.
 
 Lots of Tilt users have implemented useful Tiltfile functionality that'd be great for others to be able to use as well. We've seen functions that force resources in to different namespaces, inject sidecars or even run tests. We created extensions to make it easy for Tiltfile authors to share those ideas, and for new Tiltfile authors to stand on the shoulders of giants by building on top of them.
 
@@ -51,5 +50,5 @@ def jest(path):
 
 Now Tilt is running your tests, how cool is that?
 
-## Conclusion
-Whether it's a small thing like how to get logs out of Kubernetes or a big thing like how to efficiently run tests, we think that sharing these patterns through Tilt Extensions will unlock step-level increases in engineering productivity. Just how NPM packages enabled people to do more things faster with JavaScript, we think Tilt Extensions will enable people to make their own developer experience more productive, faster.
+## Next Steps
+If you run in to any challenges while writing an extension, or have an idea for an extension but can't implement is, [contact us](debug_faq.md#where-can-i-ask-questions)!
