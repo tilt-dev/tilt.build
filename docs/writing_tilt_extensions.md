@@ -51,4 +51,4 @@ def jest(path):
 Now Tilt is running your tests, how cool is that?
 
 ## Next Steps
-If you run in to any challenges while writing an extension, or have an idea for an extension but can't implement is, [contact us](debug_faq.md#where-can-i-ask-questions)!
+If you run into any challenges while writing an extension, or have an idea for an extension but can't implement is, [contact us](debug_faq.md#where-can-i-ask-questions)!
