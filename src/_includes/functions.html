@@ -3923,6 +3923,35 @@ to share across Tiltfiles.
 </pre>
             </div>
            </div>
+           <p>
+            If
+            <code class="docutils literal notranslate">
+             <span class="pre">
+              path
+             </span>
+            </code>
+            starts with
+            <code class="docutils literal notranslate">
+             <span class="pre">
+              &quot;ext://&quot;
+             </span>
+            </code>
+            the path will be treated as a
+            <a class="reference external" href="using_tilt_extensions.html">
+             Tilt Extension
+            </a>
+            .
+           </p>
+           <p>
+            Example
+           </p>
+           <div class="highlight-default notranslate">
+            <div class="highlight">
+             <pre><span></span><span class="n">load</span><span class="p">(</span><span class="s1">&apos;ext://hello_world&apos;</span><span class="p">,</span> <span class="s1">&apos;hi&apos;</span><span class="p">)</span> <span class="c1"># Resolves to https://github.com/windmilleng/tilt-extensions/blob/master/hello_world/Tiltfile</span>
+<span class="n">hi</span><span class="p">()</span> <span class="c1"># prints &quot;Hello world!&quot;</span>
+</pre>
+            </div>
+           </div>
           </dd>
          </dl><dl class="function">
           <dt id="api.local">
