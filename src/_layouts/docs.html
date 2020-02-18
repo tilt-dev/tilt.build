@@ -27,7 +27,7 @@ layout: default
 
       <ul class="sidebar-sectionList">
         {% for page in section.items %}
-          <li><a class="sidebar-link" href="{{page.href | escape}}">{{page.title | escape}}</a>
+          <li><a class="sidebar-link" href="/{{page.href | escape}}">{{page.title | escape}}</a>
         {% endfor %}
       </ul>
 
@@ -37,6 +37,7 @@ layout: default
 
   </nav>
   <article class="docsContent">
+    {% if page.hideEditButton %}
     <a class="editOnGitHub u-hideOnMobile" 
        href="https://github.com/windmilleng/tilt.build/tree/master/docs/{{page.name}}">
       {% svg assets/svg/github.svg width=16 height=16 %}
@@ -45,6 +46,7 @@ layout: default
         Edit on GitHub
       </span>
     </a>
+    {% endif %}
     
     <h1>{{ page.title | escape }}</h1>
     
