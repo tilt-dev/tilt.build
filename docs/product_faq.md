@@ -79,8 +79,10 @@ We're a start-up! "The Tilt Team" or "Tilt.dev" is fine. Nice to e-meet you.
 
 Our mission is to build a platform for cloud-native development.
 
-We’re a small team of 7 people. We’re based at
-[Work-Bench](https://www.work-bench.com/) in New York City and Berlin.
+{% assign total = site.data.people | where: "active","true" | size %}
+We’re a small team of {{total}} people. We’re based at
+[Work-Bench](https://www.work-bench.com/) in New York City, 
+but also have teammates in Berlin, Germany and Richmond, VA.
 
 We used to call ourselves "Windmill Engineering." 
 You may hear us use that name sometimes when we slip up.
