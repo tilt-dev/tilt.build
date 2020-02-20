@@ -449,11 +449,7 @@ def read_json(path: str, default: str = None) -> StructuredDataType:
     default: If not `None` and the file at `path` does not exist, this value will be returned."""
   pass
 
-def decode_yaml(yaml: str) -> StructuredDataType:
-  """Deserializes a given string from YAML to Starlark. Fails if the string can't be parsed as YAML."""
-  pass
-
-def read_yaml(path: str, default: str = None) -> StructuredDataType:
+def read_yaml(path: str, default: StructuredDataType = None) -> StructuredDataType:
   """
   Reads the file at `path` and deserializes its contents into a starlark object
 
@@ -465,9 +461,32 @@ def read_yaml(path: str, default: str = None) -> StructuredDataType:
     default: If not `None` and the file at `path` does not exist, this value will be returned."""
   pass
 
+def read_yaml_stream(path: str, default: List[StructuredDataType] = None) -> List[StructuredDataType]:
+  """
+  Reads a yaml stream (i.e., yaml documents separated by ``"\\n---\\n"``) from the
+  file at `path` and deserializes its contents into a starlark object
+
+  If the `path` does not exist and `default` is not `None`, `default` will be returned.
+  In any other case, an error reading `path` will be a Tiltfile load error.
+
+  Args:
+    path: Path to the file locally (absolute, or relative to the location of the Tiltfile).
+    default: If not `None` and the file at `path` does not exist, this value will be returned."""
+  pass
+
 def decode_yaml(yaml: Union[str, Blob]) -> StructuredDataType:
   """
-  Deserializes the given yaml into a starlark object
+  Deserializes the given yaml document into a starlark object
+
+  Args:
+    yaml: the yaml to deserialize
+  """
+  pass
+
+def decode_yaml_stream(yaml: Union[str, Blob]) -> List[StructuredDataType]:
+  """
+  Deserializes the given yaml stream (i.e., any number of yaml
+  documents, separated by ``"\\n---\\n"``) into a list of starlark objects.
 
   Args:
     yaml: the yaml to deserialize
@@ -482,6 +501,18 @@ def encode_yaml(obj: StructuredDataType) -> Blob:
 
   Args:
     obj: the object to serialize
+  """
+  pass
+
+def encode_yaml_stream(objs: List[StructuredDataType]) -> Blob:
+  """
+  Serializes the given starlark objects into a YAML stream (i.e.,
+  multiple YAML documents, separated by ``"\\n---\\n"``).
+
+  Only supports maps with string keys, lists, strings, ints, and bools.
+
+  Args:
+    objs: the object to serialize
   """
   pass
 

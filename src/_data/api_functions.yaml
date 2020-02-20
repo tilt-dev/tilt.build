@@ -6,6 +6,7 @@ functions:
 - dc_resource
 - decode_json
 - decode_yaml
+- decode_yaml_stream
 - default_registry
 - disable_snapshots
 - docker_build
@@ -14,6 +15,7 @@ functions:
 - enable_feature
 - encode_json
 - encode_yaml
+- encode_yaml_stream
 - fail
 - fall_back_on
 - filter_yaml
@@ -31,6 +33,7 @@ functions:
 - read_file
 - read_json
 - read_yaml
+- read_yaml_stream
 - restart_container
 - run
 - struct
