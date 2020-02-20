@@ -10,8 +10,8 @@ We're here to help you figure out the right one for you.
 
 Beginner Level:
 
-- [Docker for Desktop](#docker-for-desktop)
 - [Kind](#kind)
+- [Docker for Desktop](#docker-for-desktop)
 - [Microk8s](#microk8s)
 
 Intermediate Level:
@@ -24,28 +24,6 @@ Advanced Level:
 - [Amazon Elastic Kubernetes Service](#remote)
 - [Azure Kubernetes Service](#remote)
 - [Google Kubernetes Engine](#remote)
-
----
-
-## Docker for Desktop
-
-Docker for Desktop is the easiest to get started with if you're on MacOS.
-
-In the Docker For Mac preferences, click
-[Enable Kubernetes](https://docs.docker.com/docker-for-mac/#kubernetes)
-
-### Pros
-
-- Widely used and supported.
-- Nothing else to install.
-- Built images are immediately available in-cluster. No pushing and pulling from image registries.
-
-### Cons
-
-- If Kubernetes breaks, it's easier to reset the whole thing than debug it.
-- Much more resource-intensive because it uses docker-shim as the container runtime.
-- Different defaults than a prod cluster and difficult to customize.
-- Not available on Linux.
 
 ---
 
@@ -72,6 +50,28 @@ set up Kind for use with Tilt](https://github.com/windmilleng/kind-local).
 con is mitigated if you use Kind with a local registry, as described in the instructions linked above.)
 
 ---
+## Docker for Desktop
+
+Docker for Desktop is the easiest to get started with if you're on MacOS.
+
+In the Docker For Mac preferences, click
+[Enable Kubernetes](https://docs.docker.com/docker-for-mac/#kubernetes)
+
+### Pros
+
+- Widely used and supported.
+- Nothing else to install.
+- Built images are immediately available in-cluster. No pushing and pulling from image registries.
+
+### Cons
+
+- If Kubernetes breaks, it's easier to reset the whole thing than debug it.
+- Much more resource-intensive because it uses docker-shim as the container runtime.
+- Different defaults than a prod cluster and difficult to customize.
+- Not available on Linux.
+
+---
+
 
 ## MicroK8s
 
