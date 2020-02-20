@@ -54,10 +54,8 @@ In the Docker For Mac preferences, click
 [Kind](https://kind.sigs.k8s.io/) runs Kubernetes inside a Docker container.
 
 The Kubernetes team uses Kind to test Kubernetes itself. But its fast startup
-time also makes it a good solution for local dev. Follow these instructions for
-setting up Kind with Tilt:
-
-[Kind Setup Instructions](https://github.com/windmilleng/kind-local)
+time also makes it a good solution for local dev. [Follow these instructions to
+set up Kind for use with Tilt](https://github.com/windmilleng/kind-local).
 
 ### Pros
 
@@ -70,7 +68,8 @@ setting up Kind with Tilt:
 ### Cons
 
 - The local registry setup is still new, and changing rapidly. You need to be using Tilt v0.12.0+
-- If Tilt can't find the registry, it will use the much slower `kind load` to load images.
+- If Tilt can't find the registry, it will use the much slower `kind load` to load images. (This
+con is mitigated if you use Kind with a local registry, as described in the instructions linked above.)
 
 ---
 
@@ -138,23 +137,20 @@ to push to a remote registry.
 
 [K3D](https://github.com/rancher/k3d) runs K3s, a lightweight Kubernetes distro, inside a Docker container.
 
-K3s is fully compliant with "full" Kubernetes, but has a lot of optional and
-legacy features removed.
-
-```bash
-curl -s https://raw.githubusercontent.com/rancher/k3d/master/install.sh | bash
-k3d create cluster
-export KUBECONFIG="$(k3d get-kubeconfig --name='k3s-default')"
-```
+K3s is fully compliant with "full" Kubernetes, but has a lot of optional and legacy features removed.
+[Follow these instructions to set up k3d for use with Tilt](https://github.com/windmilleng/k3d-local-registry/).
 
 ### Pros
 
 - Extremely fast to start up (less than 5 seconds on most machines)
+- It's easy to run k3d with a [local registry that Tilt will auto-detect](https://github.com/windmilleng/k3d-local-registry/),
+which means less finicky setup, and fast pushing/pulling of images
 
 ### Cons
 
-- Pushing images into the cluster is slow.
-- Tilt does not yet natively support `k3d import-images`, which has all the same problems as `kind load`.
+- Tilt does not yet natively support `k3d import-images`, so for a smooth local dev experience with
+Tilt, you have to use a local image registry (which you get for free if you set up k3d using the
+instructions linked above)
 - The least widely used. That's not _necessarily_ bad. Just be aware that there's less documentation on its pitfalls. Tools (including the Tilt team!) tend to be slower to add support for it.
 
 ---
