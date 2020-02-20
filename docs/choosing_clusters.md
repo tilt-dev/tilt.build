@@ -32,8 +32,10 @@ Advanced Level:
 [Kind](https://kind.sigs.k8s.io/) runs Kubernetes inside a Docker container.
 
 The Kubernetes team uses Kind to test Kubernetes itself. But its fast startup
-time also makes it a good solution for local dev. [Follow these instructions to
-set up Kind for use with Tilt](https://github.com/windmilleng/kind-local).
+time also makes it a good solution for local dev. Follow these instructions to
+set up Kind for use with Tilt:
+
+[**Kind Setup Instructions**](https://github.com/windmilleng/kind-local)
 
 ### Pros
 
@@ -138,7 +140,9 @@ to push to a remote registry.
 [k3d](https://github.com/rancher/k3d) runs [k3s](https://k3s.io/), a lightweight Kubernetes distro, inside a Docker container.
 
 k3s is fully compliant with "full" Kubernetes, but has a lot of optional and legacy features removed.
-[Follow these instructions to set up k3d for use with Tilt](https://github.com/windmilleng/k3d-local-registry/).
+Follow these instructions to set up k3d for use with Tilt:
+
+[**k3d Setup Instructions**](https://github.com/windmilleng/k3d-local-registry/)
 
 ### Pros
 
