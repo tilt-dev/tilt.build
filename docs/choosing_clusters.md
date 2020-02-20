@@ -17,7 +17,7 @@ Beginner Level:
 Intermediate Level:
 
 - [Minikube](#minikube)
-- [K3D](#k3d)
+- [k3d](#k3d)
 
 Advanced Level:
 
@@ -63,7 +63,7 @@ set up Kind for use with Tilt](https://github.com/windmilleng/kind-local).
 - Much more robust than Docker for Mac. Uses containerd instead of docker-shim. Short-lived clusters tend to be more reliable.
 - Supports a local image registry (with our [custom setup instructions](https://github.com/windmilleng/kind-local)).
   Pushing images is fast. No fiddling with image registry auth credentials.
-- Can run in [most CI environments](https://github.com/kind-ci/examples) (TravisCI, CircleCI, etc)
+- Can run in [most CI environments](https://github.com/kind-ci/examples) (TravisCI, CircleCI, etc.)
 
 ### Cons
 
@@ -133,11 +133,11 @@ to push to a remote registry.
 
 ---
 
-## K3D
+## k3d
 
-[K3D](https://github.com/rancher/k3d) runs K3s, a lightweight Kubernetes distro, inside a Docker container.
+[k3d](https://github.com/rancher/k3d) runs [k3s](https://k3s.io/), a lightweight Kubernetes distro, inside a Docker container.
 
-K3s is fully compliant with "full" Kubernetes, but has a lot of optional and legacy features removed.
+k3s is fully compliant with "full" Kubernetes, but has a lot of optional and legacy features removed.
 [Follow these instructions to set up k3d for use with Tilt](https://github.com/windmilleng/k3d-local-registry/).
 
 ### Pros
