@@ -9,7 +9,7 @@ You'll also need:
 
 - Docker, to build containers
 - Kubectl, to get information about your cluster
-- A local Kubernetes cluster (on MacOS, Docker For Mac works for this!)
+- A local Kubernetes cluster (on macOS, Docker For Mac works for this!)
 
 On macOS
 --------
@@ -103,7 +103,7 @@ Otherwise, the installer downloads a static `tilt` binary and puts it under `/us
 See [Tilt's GitHub Releases page](https://github.com/windmilleng/tilt/releases) for specific versions.
 If you'd prefer to download the binary manually:
 
-On MacOS:
+On macOS:
 
 ```bash
 curl -fsSL https://github.com/windmilleng/tilt/releases/download/v0.12.3/tilt.0.12.3.mac.x86_64.tar.gz | tar -xzv tilt && \
