@@ -3,7 +3,7 @@ title: Install
 layout: docs
 ---
 
-Tilt is currently available for MacOS and Linux.
+Tilt is currently available for macOS and Linux. (If you are interested in Windows, [contact us](https://tilt.dev/contact) or upvote this [GitHub issue](https://github.com/windmilleng/tilt/issues/1961)).
 
 You'll also need:
 
@@ -11,7 +11,7 @@ You'll also need:
 - Kubectl, to get information about your cluster
 - A local Kubernetes cluster (on MacOS, Docker For Mac works for this!)
 
-On MacOS
+On macOS
 --------
 
 - Install [Docker For Mac](https://docs.docker.com/docker-for-mac/install/)
