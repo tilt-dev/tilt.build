@@ -60,7 +60,7 @@ curl -fsSL https://raw.githubusercontent.com/windmilleng/tilt/master/scripts/ins
 Windows (alpha)
 ---------------
 
-Each [Tilt release](https://github.com/windmilleng/tilt/releases) contains a Windows alpha. 
+Each [Tilt release](https://github.com/windmilleng/tilt/releases) contains an alpha build for Windows. 
 It is not actively being developed at the moment. If you are interested in Windows support, [contact us](https://tilt.dev/contact) or upvote this [GitHub issue](https://github.com/windmilleng/tilt/issues/1961).
 
 Verifying
