@@ -3,7 +3,7 @@ title: Install
 layout: docs
 ---
 
-Tilt is currently available for macOS and Linux. (If you are interested in Windows, [contact us](https://tilt.dev/contact) or upvote this [GitHub issue](https://github.com/windmilleng/tilt/issues/1961)).
+Tilt is currently available for macOS and Linux. Windows support is available in alpha.
 
 You'll also need:
 
@@ -56,6 +56,12 @@ Installing the `tilt` binary is a one-step command:
 ```bash
 curl -fsSL https://raw.githubusercontent.com/windmilleng/tilt/master/scripts/install.sh | bash
 ```
+
+Windows (alpha)
+---------------
+
+Each [Tilt release](https://github.com/windmilleng/tilt/releases) contains a Windows alpha. 
+It is not actively being developed at the moment. If you are interested in Windows support, [contact us](https://tilt.dev/contact) or upvote this [GitHub issue](https://github.com/windmilleng/tilt/issues/1961).
 
 Verifying
 ---------
