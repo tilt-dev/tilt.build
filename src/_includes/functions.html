@@ -859,7 +859,7 @@ See the
           </dt>
           <dd>
            <p>
-            Deserializes the given yaml into a starlark object
+            Deserializes the given yaml document into a starlark object
            </p>
            <table class="docutils field-list" frame="void" rules="none">
             <col class="field-name">
@@ -937,6 +937,124 @@ See the
                 </span>
                </code>
                ]]
+              </td>
+             </tr>
+            </tbody>
+           </table>
+          </dd>
+         </dl><dl class="function">
+          <dt id="api.decode_yaml_stream">
+           <code class="descclassname">
+           </code>
+           <code class="descname">
+            decode_yaml_stream
+           </code>
+           <span class="sig-paren">
+            (
+           </span>
+           <em>
+            yaml
+           </em>
+           <span class="sig-paren">
+            )
+           </span>
+           <a class="headerlink" href="#api.decode_yaml_stream" title="Permalink to this definition">
+            &#xB6;
+           </a>
+          </dt>
+          <dd>
+           <p>
+            Deserializes the given yaml stream (i.e., any number of yaml
+documents, separated by
+            <code class="docutils literal notranslate">
+             <span class="pre">
+              &quot;\n---\n&quot;
+             </span>
+            </code>
+            ) into a list of starlark objects.
+           </p>
+           <table class="docutils field-list" frame="void" rules="none">
+            <col class="field-name">
+            <col class="field-body">
+            <tbody valign="top">
+             <tr class="field-odd field">
+              <th class="field-name">
+               Parameters:
+              </th>
+              <td class="field-body">
+               <strong>
+                yaml
+               </strong>
+               (
+               <code class="xref py py-data docutils literal notranslate">
+                <span class="pre">
+                 Union
+                </span>
+               </code>
+               [
+               <code class="xref py py-class docutils literal notranslate">
+                <span class="pre">
+                 str
+                </span>
+               </code>
+               ,
+               <a class="reference internal" href="#api.Blob" title="api.Blob">
+                <code class="xref py py-class docutils literal notranslate">
+                 <span class="pre">
+                  Blob
+                 </span>
+                </code>
+               </a>
+               ]) &#x2013; the yaml to deserialize
+              </td>
+             </tr>
+             <tr class="field-even field">
+              <th class="field-name">
+               Return type:
+              </th>
+              <td class="field-body">
+               <code class="xref py py-class docutils literal notranslate">
+                <span class="pre">
+                 List
+                </span>
+               </code>
+               [
+               <code class="xref py py-data docutils literal notranslate">
+                <span class="pre">
+                 Union
+                </span>
+               </code>
+               [
+               <code class="xref py py-class docutils literal notranslate">
+                <span class="pre">
+                 Dict
+                </span>
+               </code>
+               [
+               <code class="xref py py-class docutils literal notranslate">
+                <span class="pre">
+                 str
+                </span>
+               </code>
+               ,
+               <code class="xref py py-data docutils literal notranslate">
+                <span class="pre">
+                 Any
+                </span>
+               </code>
+               ],
+               <code class="xref py py-class docutils literal notranslate">
+                <span class="pre">
+                 List
+                </span>
+               </code>
+               [
+               <code class="xref py py-data docutils literal notranslate">
+                <span class="pre">
+                 Any
+                </span>
+               </code>
+               ]]]
               </td>
              </tr>
             </tbody>
@@ -2332,6 +2450,114 @@ who added it to the Tiltfile what it&#x2019;s doing there.
                 </span>
                </code>
                ]]) &#x2013; the object to serialize
+              </td>
+             </tr>
+             <tr class="field-even field">
+              <th class="field-name">
+               Return type:
+              </th>
+              <td class="field-body">
+               <a class="reference internal" href="#api.Blob" title="api.Blob">
+                <code class="xref py py-class docutils literal notranslate">
+                 <span class="pre">
+                  Blob
+                 </span>
+                </code>
+               </a>
+              </td>
+             </tr>
+            </tbody>
+           </table>
+          </dd>
+         </dl><dl class="function">
+          <dt id="api.encode_yaml_stream">
+           <code class="descclassname">
+           </code>
+           <code class="descname">
+            encode_yaml_stream
+           </code>
+           <span class="sig-paren">
+            (
+           </span>
+           <em>
+            objs
+           </em>
+           <span class="sig-paren">
+            )
+           </span>
+           <a class="headerlink" href="#api.encode_yaml_stream" title="Permalink to this definition">
+            &#xB6;
+           </a>
+          </dt>
+          <dd>
+           <p>
+            Serializes the given starlark objects into a YAML stream (i.e.,
+multiple YAML documents, separated by
+            <code class="docutils literal notranslate">
+             <span class="pre">
+              &quot;\n---\n&quot;
+             </span>
+            </code>
+            ).
+           </p>
+           <p>
+            Only supports maps with string keys, lists, strings, ints, and bools.
+           </p>
+           <table class="docutils field-list" frame="void" rules="none">
+            <col class="field-name">
+            <col class="field-body">
+            <tbody valign="top">
+             <tr class="field-odd field">
+              <th class="field-name">
+               Parameters:
+              </th>
+              <td class="field-body">
+               <strong>
+                objs
+               </strong>
+               (
+               <code class="xref py py-class docutils literal notranslate">
+                <span class="pre">
+                 List
+                </span>
+               </code>
+               [
+               <code class="xref py py-data docutils literal notranslate">
+                <span class="pre">
+                 Union
+                </span>
+               </code>
+               [
+               <code class="xref py py-class docutils literal notranslate">
+                <span class="pre">
+                 Dict
+                </span>
+               </code>
+               [
+               <code class="xref py py-class docutils literal notranslate">
+                <span class="pre">
+                 str
+                </span>
+               </code>
+               ,
+               <code class="xref py py-data docutils literal notranslate">
+                <span class="pre">
+                 Any
+                </span>
+               </code>
+               ],
+               <code class="xref py py-class docutils literal notranslate">
+                <span class="pre">
+                 List
+                </span>
+               </code>
+               [
+               <code class="xref py py-data docutils literal notranslate">
+                <span class="pre">
+                 Any
+                </span>
+               </code>
+               ]]]) &#x2013; the object to serialize
               </td>
              </tr>
              <tr class="field-even field">
@@ -4751,13 +4977,43 @@ In any other case, an error reading
                  (
                  <code class="xref py py-data docutils literal notranslate">
                   <span class="pre">
-                   Optional
+                   Union
+                  </span>
+                 </code>
+                 [
+                 <code class="xref py py-class docutils literal notranslate">
+                  <span class="pre">
+                   Dict
                   </span>
                  </code>
                  [
                  <code class="xref py py-class docutils literal notranslate">
                   <span class="pre">
                    str
+                  </span>
+                 </code>
+                 ,
+                 <code class="xref py py-data docutils literal notranslate">
+                  <span class="pre">
+                   Any
+                  </span>
+                 </code>
+                 ],
+                 <code class="xref py py-class docutils literal notranslate">
+                  <span class="pre">
+                   List
+                  </span>
+                 </code>
+                 [
+                 <code class="xref py py-data docutils literal notranslate">
+                  <span class="pre">
+                   Any
+                  </span>
+                 </code>
+                 ],
+                 <code class="docutils literal notranslate">
+                  <span class="pre">
+                   None
                   </span>
                  </code>
                  ]) &#x2013; If not
@@ -4815,6 +5071,210 @@ In any other case, an error reading
                  </span>
                 </code>
                 ]]
+               </p>
+              </td>
+             </tr>
+            </tbody>
+           </table>
+          </dd>
+         </dl><dl class="function">
+          <dt id="api.read_yaml_stream">
+           <code class="descclassname">
+           </code>
+           <code class="descname">
+            read_yaml_stream
+           </code>
+           <span class="sig-paren">
+            (
+           </span>
+           <em>
+            path
+           </em>
+           ,
+           <em>
+            default=None
+           </em>
+           <span class="sig-paren">
+            )
+           </span>
+           <a class="headerlink" href="#api.read_yaml_stream" title="Permalink to this definition">
+            &#xB6;
+           </a>
+          </dt>
+          <dd>
+           <p>
+            Reads a yaml stream (i.e., yaml documents separated by
+            <code class="docutils literal notranslate">
+             <span class="pre">
+              &quot;\n---\n&quot;
+             </span>
+            </code>
+            ) from the
+file at
+            <cite>
+             path
+            </cite>
+            and deserializes its contents into a starlark object
+           </p>
+           <p>
+            If the
+            <cite>
+             path
+            </cite>
+            does not exist and
+            <cite>
+             default
+            </cite>
+            is not
+            <cite>
+             None
+            </cite>
+            ,
+            <cite>
+             default
+            </cite>
+            will be returned.
+In any other case, an error reading
+            <cite>
+             path
+            </cite>
+            will be a Tiltfile load error.
+           </p>
+           <table class="docutils field-list" frame="void" rules="none">
+            <col class="field-name">
+            <col class="field-body">
+            <tbody valign="top">
+             <tr class="field-odd field">
+              <th class="field-name">
+               Parameters:
+              </th>
+              <td class="field-body">
+               <ul class="first simple">
+                <li>
+                 <strong>
+                  path
+                 </strong>
+                 (
+                 <code class="xref py py-class docutils literal notranslate">
+                  <span class="pre">
+                   str
+                  </span>
+                 </code>
+                 ) &#x2013; Path to the file locally (absolute, or relative to the location of the Tiltfile).
+                </li>
+                <li>
+                 <strong>
+                  default
+                 </strong>
+                 (
+                 <code class="xref py py-data docutils literal notranslate">
+                  <span class="pre">
+                   Optional
+                  </span>
+                 </code>
+                 [
+                 <code class="xref py py-class docutils literal notranslate">
+                  <span class="pre">
+                   List
+                  </span>
+                 </code>
+                 [
+                 <code class="xref py py-data docutils literal notranslate">
+                  <span class="pre">
+                   Union
+                  </span>
+                 </code>
+                 [
+                 <code class="xref py py-class docutils literal notranslate">
+                  <span class="pre">
+                   Dict
+                  </span>
+                 </code>
+                 [
+                 <code class="xref py py-class docutils literal notranslate">
+                  <span class="pre">
+                   str
+                  </span>
+                 </code>
+                 ,
+                 <code class="xref py py-data docutils literal notranslate">
+                  <span class="pre">
+                   Any
+                  </span>
+                 </code>
+                 ],
+                 <code class="xref py py-class docutils literal notranslate">
+                  <span class="pre">
+                   List
+                  </span>
+                 </code>
+                 [
+                 <code class="xref py py-data docutils literal notranslate">
+                  <span class="pre">
+                   Any
+                  </span>
+                 </code>
+                 ]]]]) &#x2013; If not
+                 <cite>
+                  None
+                 </cite>
+                 and the file at
+                 <cite>
+                  path
+                 </cite>
+                 does not exist, this value will be returned.
+                </li>
+               </ul>
+              </td>
+             </tr>
+             <tr class="field-even field">
+              <th class="field-name">
+               Return type:
+              </th>
+              <td class="field-body">
+               <p class="first last">
+                <code class="xref py py-class docutils literal notranslate">
+                 <span class="pre">
+                  List
+                 </span>
+                </code>
+                [
+                <code class="xref py py-data docutils literal notranslate">
+                 <span class="pre">
+                  Union
+                 </span>
+                </code>
+                [
+                <code class="xref py py-class docutils literal notranslate">
+                 <span class="pre">
+                  Dict
+                 </span>
+                </code>
+                [
+                <code class="xref py py-class docutils literal notranslate">
+                 <span class="pre">
+                  str
+                 </span>
+                </code>
+                ,
+                <code class="xref py py-data docutils literal notranslate">
+                 <span class="pre">
+                  Any
+                 </span>
+                </code>
+                ],
+                <code class="xref py py-class docutils literal notranslate">
+                 <span class="pre">
+                  List
+                 </span>
+                </code>
+                [
+                <code class="xref py py-data docutils literal notranslate">
+                 <span class="pre">
+                  Any
+                 </span>
+                </code>
+                ]]]
                </p>
               </td>
              </tr>
