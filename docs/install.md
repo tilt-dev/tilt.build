@@ -3,15 +3,15 @@ title: Install
 layout: docs
 ---
 
-Tilt is currently available for MacOS and Linux.
+Tilt is currently available for macOS and Linux. Windows support is available in alpha.
 
 You'll also need:
 
 - Docker, to build containers
 - Kubectl, to get information about your cluster
-- A local Kubernetes cluster (on MacOS, Docker For Mac works for this!)
+- A local Kubernetes cluster (on macOS, Docker For Mac works for this!)
 
-On MacOS
+On macOS
 --------
 
 - Install [Docker For Mac](https://docs.docker.com/docker-for-mac/install/)
@@ -57,6 +57,12 @@ Installing the `tilt` binary is a one-step command:
 curl -fsSL https://raw.githubusercontent.com/windmilleng/tilt/master/scripts/install.sh | bash
 ```
 
+Windows (alpha)
+---------------
+
+Each [Tilt release](https://github.com/windmilleng/tilt/releases) contains an alpha build for Windows. 
+It is not actively being developed at the moment. If you are interested in Windows support, [contact us](https://tilt.dev/contact) or upvote this [GitHub issue](https://github.com/windmilleng/tilt/issues/1961).
+
 Verifying
 ---------
 
@@ -97,7 +103,7 @@ Otherwise, the installer downloads a static `tilt` binary and puts it under `/us
 See [Tilt's GitHub Releases page](https://github.com/windmilleng/tilt/releases) for specific versions.
 If you'd prefer to download the binary manually:
 
-On MacOS:
+On macOS:
 
 ```bash
 curl -fsSL https://github.com/windmilleng/tilt/releases/download/v0.12.4/tilt.0.12.4.mac.x86_64.tar.gz | tar -xzv tilt && \
