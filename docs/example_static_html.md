@@ -1,14 +1,17 @@
 ---
-title: Example Projects
+title: "Example: Plain Old Static HTML"
 layout: docs
 ---
 
-This doc supplements our [Tutorial](tutorial.html) for people who want to try Tilt but don't have a suitable project on hand. It describes two example projects we've built that use Tilt.
+Maybe you want to try Tilt but don't have a suitable project on hand.
+
+That's OK! Let's look at a project that just serves static HTML.
 
 These projects can also be useful to confirm Tilt is working as expected in your environment.
 
 ## oneup
-Oneup is a simple app that starts one service.
+
+Oneup is a simple app that uses busybox to serve HTML files.
 
 First, check out the Tilt repo.
 
@@ -47,15 +50,3 @@ tilt down
 ```
 
 to turn off the server.
-
-## Servantes
-[Servantes](https://github.com/windmilleng/servantes) is a personalized homepage app implemented with many microservices in multiple languages. You can run it with the commands
-
-```
-git clone https://github.com/windmilleng/servantes
-cd servantes; tilt up
-```
-
-Each widget is implemented by a different microservice backend.
-
-Servantes uses many features of Tilt, and so can be a useful reference.

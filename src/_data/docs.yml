@@ -6,8 +6,22 @@
     href: upgrade.html
   - title: "Tutorial: The First 15 Minutes"
     href: tutorial.html
-  - title: Example Projects
-    href: example_projects.html
+
+- title: Example Projects
+  items:
+  - title: Plain Old Static HTML
+    href: example_static_html.html
+  - title: Go
+    href: example_go.html
+  - title: NodeJS
+    href: example_nodejs.html
+  - title: Python
+    href: example_python.html
+  - title: Java
+    href: example_java.html
+  - title: C#
+    href: example_csharp.html
+
 - title: Onboarding Your Team
   items:
   - title: "Before you ask your team to tilt up..."
@@ -16,6 +30,7 @@
     href: welcome_to_tilt.html
   - title: Choosing a Local Dev Cluster
     href: choosing_clusters.html
+
 - title: Enhancements
   items:
   - title: Faster Development with Live Update (Tutorial)
