@@ -1131,6 +1131,9 @@ h4 .fillStd {
 .u-textAlignCenter {
   text-align: center !important;
 }
+.u-textAlignRight {
+  text-align: right !important;
+}
 
 .u-boxShadow {
   box-shadow: 8px 10px 16px 16px $color-grey-lightest !important;
@@ -1355,4 +1358,32 @@ input[type=checkbox]:checked + .formItem-checkbox {
 }
 .twitter-tweet {
   margin: $spacing-unit !important;
+}
+
+.helpfulForm-content {
+  min-height: 2.75em;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  text-align: right;
+}
+.helpfulForm-button {
+  font-family: $header-font-family;
+  font-size: 20px;
+  font-weight: 400;
+  color: $color-grey-dark;
+  background-color: transparent;
+  display: inline-block;
+  transition: background-color 300ms ease;
+  padding: $spacing-unit / 8 $spacing-unit / 2;
+  margin: 0 $spacing-unit / 4;
+  border: 1px solid $color-grey;
+  font-family: inherit;
+  cursor: pointer;
+}
+.helpfulForm-button--yes:hover {
+  background-color: rgba($color-blue, 0.3);
+}
+.helpfulForm-button--no:hover {
+  background-color: rgba($color-red, 0.3);
 }
