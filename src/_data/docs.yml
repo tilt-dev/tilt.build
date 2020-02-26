@@ -8,28 +8,16 @@
     href: tutorial.html
 
 - title: Example Projects
-  items:
-  - title: Plain Old Static HTML
-    href: example_static_html.html
-  - title: Go
-    href: example_go.html
-  - title: NodeJS
-    href: example_nodejs.html
-  - title: Python
-    href: example_python.html
-  - title: Java
-    href: example_java.html
-  - title: C#
-    href: example_csharp.html
+  include: examples
 
 - title: Onboarding Your Team
   items:
+  - title: Choosing a Local Dev Cluster
+    href: choosing_clusters.html
   - title: "Before you ask your team to tilt up..."
     href: onboarding_checklist.html
   - title: "Guide for Application Developers"
     href: welcome_to_tilt.html
-  - title: Choosing a Local Dev Cluster
-    href: choosing_clusters.html
 
 - title: Enhancements
   items:

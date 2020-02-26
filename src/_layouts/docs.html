@@ -25,11 +25,19 @@ layout: default
       <h3 class="sidebar-sectionTitle">{{ section.title | escape }}</h3>
       {% endif %}
 
-      <ul class="sidebar-sectionList">
-        {% for page in section.items %}
-          <li><a class="sidebar-link" href="/{{page.href | escape}}">{{page.title | escape}}</a>
-        {% endfor %}
-      </ul>
+      {% if section.include == 'examples' %}
+        <ul class="sidebar-sectionList">
+          {% for page in site.data.examples %}
+            <li><a class="sidebar-link" href="/{{page.href | escape}}">{{page.title | escape}}</a>
+          {% endfor %}
+        </ul>
+      {% else %}
+        <ul class="sidebar-sectionList">
+          {% for page in section.items %}
+            <li><a class="sidebar-link" href="/{{page.href | escape}}">{{page.title | escape}}</a>
+          {% endfor %}
+        </ul>
+      {% endif %}
 
     {% endfor %}
 
