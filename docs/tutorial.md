@@ -3,7 +3,9 @@ title: "Tutorial: The First 15 Minutes"
 layout: docs
 ---
 
-This tutorial walks you through setting up Tilt for your project. It should take 15 minutes, and assumes you've already [installed Tilt](install.html). Before you begin, you may want to join the `#tilt` channel in [Kubernetes Slack](http://slack.k8s.io) for technical and moral support.
+This tutorial walks you through setting up Tilt for your project. 
+
+It should take 15 minutes, and assumes you've already [installed Tilt](install.html). Before you begin, you may want to join the `#tilt` channel in [Kubernetes Slack](http://slack.k8s.io) for technical and moral support.
 
 Start by `cd`'ing into a project you can already build and deploy to Kubernetes.
 
@@ -81,7 +83,11 @@ Tilt is now setup for your project. Try exploring Tilt's UI (there's a context-s
 If you had any trouble using this guide,
 now's a great time to [file bugs or feature requests](https://github.com/windmilleng/tilt/issues).
 
-When the other contributors to your project want to know what this new Tiltfile is for,
-what will you tell them?
+If you'd like to see examples in your programming language, we have example projects for:
 
-[Our guide to onboarding teams can help.](onboarding_checklist.html)
+<ul>
+  {% for page in site.data.examples %}
+    <li><a href="/{{page.href | escape}}">{{page.title | escape}}</a></li>
+  {% endfor %}
+</ul>
+
