@@ -1,0 +1,20 @@
+<script>
+let helpfulFormSend = function(el, action) {
+  ga('send', 'event', 'helpfulForm', action);
+  if (action == 'no') {
+    el.parentNode.innerHTML = "<div>We're sad to hear that.<br>Please <a href='/#community'>reach out</a> to us if you need help.</div>"
+  } else {
+    el.parentNode.innerHTML = '<div>Thanks! We appreciate that!</div>'
+  }
+}
+</script>
+
+<div class="helpfulForm brandBox u-marginTop2" style="max-width: 400px">
+  {% include brandBoxBg.html %}
+  <h3>Was this doc helpful?</h3>
+
+  <div class="helpfulForm-content">
+    <button class="helpfulForm-button helpfulForm-button--yes" onclick="helpfulFormSend(this, 'yes')">Yes</button>
+    <button class="helpfulForm-button helpfulForm-button--no" onclick="helpfulFormSend(this, 'no')">No</button>
+  </div>
+</div>
