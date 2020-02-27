@@ -3,50 +3,177 @@ title: "Example: Plain Old Static HTML"
 layout: docs
 ---
 
-Maybe you want to try Tilt but don't have a suitable project on hand.
+The best indicator of a healthy development workflow is a short feedback loop.
 
-That's OK! Let's look at a project that just serves static HTML.
+Kubernetes is a huge wrench in the works.
 
-These projects can also be useful to confirm Tilt is working as expected in your environment.
+Let's fix this.
 
-## oneup
+In this example, we're going to take you through a very simple shell script that
+serves static HTML.
 
-Oneup is a simple app that uses busybox to serve HTML files.
+We'll use Tilt to:
 
-First, check out the Tilt repo.
+- Run the server on Kubernetes
+- Measure the time from a code change to a new process
+- Optimize that time for fast feedback
+
+Obviously, this is a silly example. But it can be a useful example to confirm that Tilt is working
+as expected in your environment.
+
+All the code is in this repo:
+
+[tilt-example-html](https://github.com/windmilleng/tilt-example-html)
+
+To skip straight to the fully optimized setup, go to this subdirectory:
+
+[Recommended Tiltfile](https://github.com/windmilleng/tilt-example-html/blob/master/2-recommended/Tiltfile)
+
+## Step 0: The Simplest Deployment
+
+Our server is a two-line shell script:
+
+```shell
+echo "Serving files on port 8000"
+busybox httpd -f -p 8000
+```
+
+To start this server on Kubernetes, we need 3 configs:
+
+1) A [Dockerfile](https://github.com/windmilleng/tilt-example-html/blob/master/0-base/Dockerfile) that builds the image
+
+2) A [Kubernetes deployment](https://github.com/windmilleng/tilt-example-html/blob/master/0-base/kubernetes.yaml) that runs the image
+
+3) And finally, a Tiltfile that ties them together
+
+```python
+docker_build('example-html-image', '.')
+k8s_yaml('kubernetes.yaml')
+k8s_resource('example-html', port_forwards=8000)
+```
+
+The first line tells Tilt to build an image with the name `example-html-image`
+in the directory `.` (the current directory).
+
+The second line tells Tilt to load the Kubernetes
+[Deployment](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/#creating-a-deployment)
+yaml. The image name in the `docker_build` call must match the container `image`
+reference in the `example-html` Deployment.
+
+The last line configures port-forwarding so that your server is
+reachable at http://localhost:8000/. The resource name in the `k8s_resource` call
+must match the Deployment's `metadata.name` in `kubernetes.yaml`.
+
+Try it! Run:
 
 ```
-git clone https://github.com/windmilleng/tilt
-cd tilt/integration/oneup
-```
-
-We'll be looking at the [oneup](https://github.com/windmilleng/tilt/tree/master/integration/oneup) project
-in `integration/oneup`.
-
-In the oneup directory, run
-
-```
+git clone https://github.com/windmilleng/tilt-example-html
+cd tilt-example-html/0-base
 tilt up
 ```
 
-Your terminal will turn into a status box that lets you watch your server come up. When it's ready,
-you will see the status icon turn green. The logs in the botton pane will display
-"Serving oneup on container port 8000."
+Tilt will open a browser showing the web UI, a unified view that shows you app
+status and logs. Your terminal will also turn into a status box if you'd like to
+watch your server come up there.
 
-<div class="block u-margin1_5">
- <img src="assets/img/oneup.png">
-</div>
+When it's ready, you will see the status icon turn green. The logs in the
+botton pane will display "Serving files on port 8000."
 
-Type `b` to open `oneup` in a browser window.
-Your browser will open `http://localhost:8100`.
-You should see the text `🍄 One-Up! 🍄`.
+[![The server is up! Click the screenshot to see an interactive snapshot.](assets/docimg/example-static-html-image-1.png)](https://cloud.tilt.dev/snapshot/AejkyuULr2AjWu50Eck=){:.is-image}
 
-Congratulations! You've run your first server with `tilt`.
+## Step 1: Let's Add Benchmark Trickery
 
-Type `ctrl-C` to quit the status box. When you're finished, run
+Before we try to make this faster, let's measure it.
 
+Tilt can run commands locally, so that you can integrate your existing scripts. 
+
+In this example, we use [`local_resource`](local_resource.html), which lets you
+trigger local jobs, or run local servers. We add a `local_resource` to our
+[Tiltfile](https://github.com/windmilleng/tilt-example-html/blob/master/1-measured/Tiltfile)
+that records when an update starts. We've also modified our server itself to
+read that start time and print the time elapsed.
+
+```python
+k8s_resource('example-html', port_forwards=8000, resource_deps=['deploy'])
+
+# Records the time from a code change to a new process.
+# Normally, you would let Tilt do deploys automatically, but this
+# shows you how to set up a custom workflow that measures it.
+local_resource(
+  'deploy',
+  'date +%s > start-time.txt')
 ```
-tilt down
+
+The `local_resource()` call creates a local resource named `deploy`. The second
+argument is the script that it runs.
+
+Let's click the button on the `deploy` resource and see what happens!
+
+[![Step 1](assets/docimg/example-static-html-image-2.png)](https://cloud.tilt.dev/snapshot/AcD7yuUL6_d3neimWHk=){:.is-image}
+
+| Approach | Deploy Time |
+|---|---|
+| Naive | 1-2s |
+
+Can we do better?
+
+## Step 2: Let's Optimize It
+
+When we make a change to a file, we currently have to build an image, deploy new Kubernetes configs,
+and wait for Kubernetes to schedule the pod.
+
+With Tilt, we can skip all of these steps, live-updating the pod in place.
+
+Here's our [new Tiltfile](https://github.com/windmilleng/tilt-example-html/blob/master/2-recommended/Tiltfile) 
+with the following new code:
+
+```python
+# Add a live_update rule to our docker_build.
+docker_build('example-html-image', '.', live_update=[
+  sync('.', '/app'),
+  run('./report-deployment-time.sh'),
+  run('sed -i "s/Hello cats/Congratulations, you set up live_update/g" index.html'),
+])
 ```
 
-to turn off the server.
+We've added a new parameter to `docker_build()` with three `live_update` steps.
+
+The first step syncs the code from the current directory (`.`) into the container at directory `/app`.
+
+The second step runs our script to report the deployment time.
+
+The third step congratulates you on finishing this guide!
+
+Let's see what this looks like:
+
+[![Step 2](assets/docimg/example-static-html-image-3.png)](https://cloud.tilt.dev/snapshot/AZik6-ULEyDHLV-ILmY=){:.is-image}
+
+Tilt was able to update the container in less than a second!
+
+## Our Recommendation
+
+### Final Score
+
+| Approach | Deploy Time |
+|---|---|
+| Naive | 1-2s |
+| With live_update | 0-1s |
+
+You can try the server here:
+
+[Recommended Structure](https://github.com/windmilleng/tilt-example-html/blob/master/2-recommended)
+
+Obviously, our busybox example is very silly. We just wanted to show you how
+Tilt can work with any language, even a silly one.
+
+Other examples:
+
+<ul>
+  {% for page in site.data.examples %}
+     {% if page.href contains "static_html" %}
+       <!-- skip -->
+     {% else %}
+        <li><a href="/{{page.href | escape}}">{{page.title | escape}}</a></li>
+     {% endif %}
+  {% endfor %}
+</ul>
