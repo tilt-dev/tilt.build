@@ -60,7 +60,7 @@ curl -fsSL https://raw.githubusercontent.com/windmilleng/tilt/master/scripts/ins
 Windows (alpha)
 ---------------
 
-Each [Tilt release](https://github.com/windmilleng/tilt/releases) contains an alpha build for Windows. 
+Each [Tilt release](https://github.com/windmilleng/tilt/releases) contains an alpha build for Windows.
 It is not actively being developed at the moment. If you are interested in Windows support, [contact us](https://tilt.dev/contact) or upvote this [GitHub issue](https://github.com/windmilleng/tilt/issues/1961).
 
 Verifying
@@ -106,14 +106,14 @@ If you'd prefer to download the binary manually:
 On macOS:
 
 ```bash
-curl -fsSL https://github.com/windmilleng/tilt/releases/download/v0.12.4/tilt.0.12.4.mac.x86_64.tar.gz | tar -xzv tilt && \
+curl -fsSL https://github.com/windmilleng/tilt/releases/download/v0.12.5/tilt.0.12.5.mac.x86_64.tar.gz | tar -xzv tilt && \
   sudo mv tilt /usr/local/bin/tilt
 ```
 
 On Linux:
 
 ```bash
-curl -fsSL https://github.com/windmilleng/tilt/releases/download/v0.12.4/tilt.0.12.4.linux.x86_64.tar.gz | tar -xzv tilt && \
+curl -fsSL https://github.com/windmilleng/tilt/releases/download/v0.12.5/tilt.0.12.5.linux.x86_64.tar.gz | tar -xzv tilt && \
   sudo mv tilt /usr/local/bin/tilt
 ```
 
