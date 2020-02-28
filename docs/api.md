@@ -6,7 +6,7 @@ layout: docs
 ## Data
 
 <ul>
-{% for name in site.data.api_data.data %}
+{% for name in site.data.api.data.data %}
 
 {% assign anchor = "api." | append: name %}
 {% if name contains "." %}
@@ -19,14 +19,14 @@ layout: docs
 
 ---
 
-{% include data.html %}
+{% include api/data.html %}
 
 ---
 
 ## Functions
 
 <ul>
-{% for name in site.data.api_functions.functions %}
+{% for name in site.data.api.functions.functions %}
 
 {% assign anchor = "api." | append: name %}
 {% if name contains "." %}
@@ -39,14 +39,14 @@ layout: docs
 
 ---
 
-{% include functions.html %}
+{% include api/functions.html %}
 
 ---
 
 ## Types
 
 <ul>
-{% for name in site.data.api_classes.classes %}
+{% for name in site.data.api.classes.classes %}
 
 {% assign anchor = "api." | append: name %}
 {% if name contains "." %}
@@ -59,4 +59,4 @@ layout: docs
 
 ---
 
-{% include classes.html %}
+{% include api/classes.html %}

@@ -11,8 +11,11 @@ local_resource('make-api', 'make api', ['deploy/api.dockerfile', 'Makefile', 'ap
 
 k8s_yaml('deploy/serve.yaml')
 
+# files in common directories but specific to the API docs (all non-docs resources should ignore these)
+api_ignores = ['./src/_data/api/', './src/_includes/api/']
+
 docker_build('tilt-site', '.', dockerfile='deploy/site.dockerfile',
-             ignore=['./api', './docs', './blog'],
+             ignore=['./api', './docs', './blog'] + api_ignores,
              live_update=[
                sync('./src', '/src/'),
                run('bundle install', trigger=['src/Gemfile', 'src/Gemfile.lock'])
@@ -29,7 +32,7 @@ docker_build('docs-site', '.', dockerfile='deploy/docs.dockerfile',
 
 
 docker_build('blog-site', '.', dockerfile='deploy/blog.dockerfile',
-             ignore=['./api', './docs'],
+             ignore=['./api', './docs'] + api_ignores,
              live_update=[
                sync('./src', '/src/'),
                sync('./blog', '/blog/'),
@@ -37,6 +40,6 @@ docker_build('blog-site', '.', dockerfile='deploy/blog.dockerfile',
                                               'blog/Gemfile', 'blog/Gemfile.lock'])
              ])
 
-k8s_resource('tilt-site', port_forwards=4000, resource_deps=['make-api'])
+k8s_resource('tilt-site', port_forwards=4000)
 k8s_resource('docs-site', port_forwards=4001, resource_deps=['make-api'])
-k8s_resource('blog-site', port_forwards=4002, resource_deps=['make-api'])
+k8s_resource('blog-site', port_forwards=4002)
