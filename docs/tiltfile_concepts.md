@@ -150,7 +150,7 @@ corresponding to an image in a workload, that directive also gets added to that 
 (The assembly logic is similar for Docker Compose resources. For more information, see the 
 [Docker Compose documentation](docker_compose.html).)
 
-In many cases, Tilt's automatically resource assembly logic will be suffient for you to run
+In many cases, Tilt's automatic resource assembly logic will be sufficient for you to run
 your app. However, if you need to configure your Kubernetes resources on top of Tilt's
 automatic assembly, you can do so with a call to [`k8s_resource`](api.html#api.k8s_resource).
 Here we'll discuss the most common configuration arguments: `new_name` and `port_forwards`.
