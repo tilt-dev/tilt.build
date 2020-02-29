@@ -50,14 +50,4 @@ We need a Developer Tools Engineer to help build features to answer those questi
   <br>(Though we expect you're more comfortable on the backend,
   features will need a UI in our typescript/CSS frontend.)
 
-
-### Interested? Apply.
-
-Even if you don't have experience or interest in every bullet, we want to hear from you. There's no perfect candidate, and we want to find the right fit, even if it's different than we imagine. We especially would like to meet
-underrepresented/underestimated candidates.
-
-<h3 class="ctaLink u-marginBottomUnit u-marginTopUnit">
-  <a href="/contact">
-    &hairsp;&gt; Contact Us
-  </a>
-</h3>
+{% include job_outro.md %}

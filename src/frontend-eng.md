@@ -44,12 +44,6 @@ We need a Frontend Engineer to help build prototypes and features to answer that
 
 - Experience with Go
   <br>(Without at least some Go experience or a willingness to learn, you might have a hard time prototyping new features.)
+  
+{% include job_outro.md %}
 
-### Interested? Apply.
-Even if you don't have experience or interest in every bullet, we want to hear from you. There's no perfect candidate, and we want to find the right fit, even if it's different than we imagine. We especially would like to meet underrepresented/underestimated candidates.
-
-<h3 class="ctaLink u-marginBottomUnit u-marginTopUnit">
-  <a href="/contact">
-    &hairsp;&gt; Contact Us
-  </a>
-</h3>
