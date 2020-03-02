@@ -65,7 +65,7 @@ Above is an example of a valid `sync`s. A change to any of the green files will 
 </figure>
 
 
-If you have multiple Docker images that depend on each other, you can sync files from anywhere within the contexts of any of the images. (In the diagram above, Tilt is building two images; the red image depends on--i.e. `FROM`'s--the yellow image.)
+If you have multiple Docker images that depend on each other, you can sync files from anywhere within the contexts of any of the images. (In the diagram above, Tilt is building two images; the yellow image in the `server1` directory depends on--i.e. `FROM`'s--the red image in the `common` directory.)
 
 The rule of thumb is: if Tilt it watching it, you can `sync` it. (Tilt will watch it if it's in a `docker_build.context` or `custom_build.deps`).
 
