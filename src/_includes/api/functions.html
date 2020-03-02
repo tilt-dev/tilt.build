@@ -6029,6 +6029,55 @@ Tilt will call this function once for each workload to determine that workload&#
            </table>
           </dd>
          </dl><dl class="function">
+          <dt id="modules.os.getcwd">
+           <code class="descclassname">
+            os.
+           </code>
+           <code class="descname">
+            getcwd
+           </code>
+           <span class="sig-paren">
+            (
+           </span>
+           <span class="sig-paren">
+            )
+           </span>
+           <a class="headerlink" href="#modules.os.getcwd" title="Permalink to this definition">
+            &#xB6;
+           </a>
+          </dt>
+          <dd>
+           <p>
+            Returns a string representation of the current working directory.
+           </p>
+           <p>
+            The current working directory is the directory containing the currently executing Tiltfile.
+If your Tiltfile runs any commands, they run from this directory.
+           </p>
+           <p>
+            While calling :meth:load or :meth:include to execute another Tiltfile,
+returns the directory of the loaded/included Tiltfile.
+           </p>
+           <table class="docutils field-list" frame="void" rules="none">
+            <col class="field-name">
+            <col class="field-body">
+            <tbody valign="top">
+             <tr class="field-odd field">
+              <th class="field-name">
+               Return type:
+              </th>
+              <td class="field-body">
+               <code class="xref py py-class docutils literal notranslate">
+                <span class="pre">
+                 str
+                </span>
+               </code>
+              </td>
+             </tr>
+            </tbody>
+           </table>
+          </dd>
+         </dl><dl class="function">
           <dt id="modules.config.define_string_list">
            <code class="descclassname">
             config.
