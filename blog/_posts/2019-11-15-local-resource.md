@@ -120,7 +120,7 @@ be a task like "ensure GKE user 'foo' exists" or "refresh my credentials" or eve
 
 You can trigger a local resource at will with the ["force update" button](https://blog.tilt.dev/2019/11/14/force-update.html):
 
-!["force update" button](assets/img/force-update-button.png)
+!["force update" button](/assets/images/local-resource/force-update-button.png)
 
 Like other resources, you can specify a trigger mode for your local resources:
 either `TRIGGER_MODE_AUTO` (the default), or `TRIGGER_MODE_MANUAL`. (A manual
