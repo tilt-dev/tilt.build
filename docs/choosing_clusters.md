@@ -77,7 +77,7 @@ In the Docker For Mac preferences, click
 
 ## MicroK8s
 
-[Microk8s](https://microk8s.dev) is what we recommend most often for Linux users.
+[Microk8s](https://microk8s.io) is what we recommend most often for Linux users.
 
 Install:
 
