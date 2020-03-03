@@ -1142,6 +1142,8 @@ h4 .fillStd {
 .docsContent img {
   box-shadow: 4px 5px 8px 8px $color-grey-lightest;
   margin: $spacing-unit * 0.5 $spacing-unit;
+  max-width: $docs-width - 2 * $spacing-unit;
+  box-sizing: content-box;
 }
 
 img.no-shadow {
@@ -1386,4 +1388,17 @@ input[type=checkbox]:checked + .formItem-checkbox {
 }
 .helpfulForm-button--no:hover {
   background-color: rgba($color-red, 0.3);
+}
+
+table {
+  margin: $spacing-unit;
+  border-spacing: 0;
+}
+thead th {
+  border-bottom: 1px solid black;
+}
+th, td {
+  padding: $spacing-unit / 4;
+  text-align: center;
+  min-width: $spacing-unit * 4;
 }
