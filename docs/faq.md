@@ -31,6 +31,21 @@ rename it.
 
 ---
 
+### Q: I immediately get error messages like "WARNING: Image not used in any deploy config". What does this mean?
+
+To start your app, Tilt needs both:
+
+1) Instructions on how to build an image (like a `docker_build` config)
+
+2) Instructions on how to run your image (like a `k8s_yaml` config)
+
+This error message means that your Tiltfile has instructions for building an image, but
+no instructions for how to run it. It's like an "unused variable" warning.
+
+Did you forget the Kubernetes YAML? Or did you just misspell the image name?
+
+---
+
 ### Q: I'm getting push errors like "unauthorized: You don't have the needed permissions". What do I do?
 
 If Tilt is trying to do a push, that means it thinks you wanted to deploy to a
