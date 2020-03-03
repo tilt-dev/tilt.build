@@ -3,9 +3,6 @@ title: Frequently Asked Questions
 layout: docs
 ---
 
-Troubleshooting
-----------------------------
-
 ### Q: How do I get help with Tilt?
 
 For real-time support, find us on the Kubernetes slack. Get an invite at [slack.k8s.io](http://slack.k8s.io) and find
@@ -17,6 +14,9 @@ For help with private issues (like security vulnerabilities or just concerning n
 please email [help@tilt.dev](mailto:help@tilt.dev).
 
 ---
+
+Common Error Messages
+---------------------
 
 ### Q: When I run `tilt version`, I see "template engine not found for: version". What do I do?
 
@@ -60,6 +60,20 @@ If you're using Minikube, `minikube stop` and `minikube start` will restart the
 environment. `minikube delete` will reset the cluster state.
 
 ---
+
+How do I...?
+---------------------
+
+### Q: How do I configure my app dynamically?
+
+The [Tiltfile API](api.html) has several built-in functions for reading configuration:
+
+- Read an environment variable with `os.environ.get('ENV_VAR', '')`
+- Read a file with `read_file('./path/to/file')`
+- Read a JSON or YAML file with `read_json('./path/to/file')` or `read_yaml('./path/to/file')`
+- Use `local()` to run local shell commands.
+
+You can even define your own flags to `tilt up` with the [config api](tiltfile_config.html).
 
 ### Q: Tilt says it's building images. But I can't find them with the Docker CLI. What's going on?
 
