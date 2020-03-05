@@ -1145,6 +1145,9 @@ h4 .fillStd {
   max-width: $docs-width - 2 * $spacing-unit;
   box-sizing: content-box;
 }
+.docsContent figcaption {
+  margin: $spacing-unit / 4 $spacing-unit;
+}
 
 img.no-shadow {
   box-shadow: none;

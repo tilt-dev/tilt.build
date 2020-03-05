@@ -79,7 +79,12 @@ watch your server come up there.
 When it's ready, you will see the status icon turn green. The logs in the
 botton pane will display "Serving files on port 8000."
 
-[![The server is up! Click the screenshot to see an interactive snapshot.](assets/docimg/example-static-html-image-1.png)](https://cloud.tilt.dev/snapshot/AejkyuULr2AjWu50Eck=){:.is-image}
+<figure>
+  <a class="is-image" href="https://cloud.tilt.dev/snapshot/AejkyuULr2AjWu50Eck=">
+    <img src="assets/docimg/example-static-html-image-1.png">
+  </a>
+  <figcaption>The server is up! Click the screenshot to see an interactive snapshot.</figcaption>
+</figure>
 
 ## Step 1: Let's Add Benchmark Trickery
 
@@ -109,7 +114,12 @@ argument is the script that it runs.
 
 Let's click the button on the `deploy` resource and see what happens!
 
-[![Step 1](assets/docimg/example-static-html-image-2.png)](https://cloud.tilt.dev/snapshot/AcD7yuUL6_d3neimWHk=){:.is-image}
+<figure>
+  <a class="is-image" href="https://cloud.tilt.dev/snapshot/AcD7yuUL6_d3neimWHk=">
+    <img src="assets/docimg/example-static-html-image-2.png">
+  </a>
+  <figcaption>Step 1 complete. Click the screenshot to see an interactive snapshot.</figcaption>
+</figure>
 
 | Approach | Deploy Time |
 |---|---|
@@ -146,7 +156,12 @@ The third step congratulates you on finishing this guide!
 
 Let's see what this looks like:
 
-[![Step 2](assets/docimg/example-static-html-image-3.png)](https://cloud.tilt.dev/snapshot/AZik6-ULEyDHLV-ILmY=){:.is-image}
+<figure>
+  <a class="is-image" href="https://cloud.tilt.dev/snapshot/AZik6-ULEyDHLV-ILmY=">
+    <img src="assets/docimg/example-static-html-image-3.png">
+  </a>
+  <figcaption>Step 2 complete. Click the screenshot to see an interactive snapshot.</figcaption>
+</figure>
 
 Tilt was able to update the container in less than a second!
 
