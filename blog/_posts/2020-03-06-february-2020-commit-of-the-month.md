@@ -37,4 +37,4 @@ We wanted our web UI to do that progress display justice, so there was really on
 
 ![Pod rollout status updating in real time](/assets/images/february-2020-commit-of-the-month/pod-rollout.gif)
 
-We hope you enjoy the newer, more transparent Tilt---thanks [**@nicks**](https://github.com/nicks)! Comments, questions, feature requests? [Let us know](https://tilt.dev/contact)!
+We hope you enjoy the newer, more transparent Tilt---thanks [**@nicks**](https://github.com/nicks) and [**@hyu**](https://github.com/hyu)! Comments, questions, feature requests? [Let us know](https://tilt.dev/contact)!
