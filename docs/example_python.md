@@ -55,7 +55,7 @@ To start this server on Kubernetes, we need 3 configs:
 ```python
 docker_build('example-python-image', '.')
 k8s_yaml('kubernetes.yaml')
-k8s_resource('example-python', port_forwards=5000)
+k8s_resource('example-python', port_forwards=8000)
 ```
 
 The first line tells Tilt to build an image with the name `example-python-image`
@@ -67,7 +67,7 @@ yaml. The image name in the `docker_build` call must match the container `image`
 reference in the `example-python` Deployment.
 
 The last line configures port-forwarding so that your server is
-reachable at http://localhost:5000/. The resource name in the `k8s_resource` call
+reachable at http://localhost:8000/. The resource name in the `k8s_resource` call
 must match the Deployment's `metadata.name` in `kubernetes.yaml`.
 
 Try it! Run:
@@ -111,7 +111,7 @@ local_resource(
   'date +%s > start-time.txt'
 )
 …
-k8s_resource('example-python', port_forwards=5000, resource_deps=['deploy'])
+k8s_resource('example-python', port_forwards=8000, resource_deps=['deploy'])
 ```
 
 The `local_resource()` call creates a local resource named `deploy`. The second
