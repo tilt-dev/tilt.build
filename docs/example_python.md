@@ -100,8 +100,7 @@ Tilt can run commands locally, so that in addition to running things in your clu
 
 In this example, we use [`local_resource`](local_resource.html), which lets you locally run scripts, shell code, or servers. We add a `local_resource` to our
 [Tiltfile](https://github.com/windmilleng/tilt-example-python/blob/master/1-measured/Tiltfile)
-that records the current time, then kicks off an update. We've also modified our server itself to
-read that start time and print the time elapsed.
+that records the current time, then kicks off an update.
 
 ```python
 # Records the current time, then kicks off a server update.
@@ -117,6 +116,23 @@ k8s_resource('example-python', port_forwards=5000, resource_deps=['deploy'])
 
 The `local_resource()` call creates a local resource named `deploy`. The second
 argument is the command that it runs.
+
+We've also modified our server itself to read that start time and print the time elapsed:
+```python
+def get_update_time_secs() -> float:
+    with open('/app/start-time.txt', 'r') as file:
+        start_ns_since_epoch = float(file.read().strip())
+
+    start_secs_since_epoch = start_ns_since_epoch / 10**9
+    now_secs_since_epoch = time.time()
+
+    return round(now_secs_since_epoch - start_secs_since_epoch, 2)
+...
+if __name__ == "__main__":
+    UPDATE_TIME = get_update_time_secs()
+    app.run(port=8000)
+```
+Whenever the app starts up, it calls `get_update_time_secs()`, does the math to figure out the time elapsed since the timestamp in `start-time.txt`, and stores that value in a global variable; when the app serves `index.html`, it passes that value into the HTML template so that it shows up in the webpage.
 
 See that button next to the `deploy` resource?
 <figure>
