@@ -17,7 +17,7 @@ We'll use Tilt to:
 - Measure the time from a code change to a new process
 - Optimize that time for fast feedback
 
-Obviously, this is a silly example. But it can be a useful example to confirm that Tilt is working
+Obviously, this particular server doesn't do much, but it's still a useful example to confirm that Tilt is working
 as expected in your environment.
 
 All the code is in this repo:
@@ -85,8 +85,12 @@ watch your server come up there.
 When the server is ready, you will see the status icon turn green. The log pane will display some output from Flask, starting with:
 > Serving Flask app "app"
 
-[![The server is up! (Click the screenshot to see an interactive snapshot.)](assets/docimg/example-python-1-serverup.png)](https://cloud.tilt.dev/snapshot/AZSXjOYLDi6w9IoCnCI=){:.is-image}
-*The server is up! (Click the screenshot to see an interactive view.)*
+<figure>
+  <a class="is-image" title="The server is up!" href="https://cloud.tilt.dev/snapshot/AZSXjOYLDi6w9IoCnCI=">
+    <img src="assets/docimg/example-python-1-serverup.png">
+  </a>
+  <figcaption>The server is up! (Click the screenshot to see an interactive view.)</figcaption>
+</figure>
 
 ## Step 1: Let's Add Benchmark Trickery
 
@@ -115,12 +119,19 @@ The `local_resource()` call creates a local resource named `deploy`. The second
 argument is the command that it runs.
 
 See that button next to the `deploy` resource?
-![Button to trigger a deploy](assets/docimg/example-python-2-deploy-button.png)
+<figure>
+  <img src="assets/docimg/example-python-2-deploy-button.png" title="Button to trigger a deploy">
+  <figcaption>Button to trigger a deploy</figcaption>
+</figure>
 
 Let's click it and see what happens!
 
-[![Result of clicking the button  on the “deploy” resource](assets/docimg/example-python-3-naive-deploy.png)](https://cloud.tilt.dev/snapshot/AcyUjOYLaeKVxQ1XZjk=){:.is-image}
-*Clicking the button triggers the "deploy" local_resource, which in turn kicks off an update to the server. (Click the screenshot to see an interactive view.)*
+<figure>
+  <a class="is-image" title="Result of clicking the button  on the “deploy” resource" href="https://cloud.tilt.dev/snapshot/AcyUjOYLaeKVxQ1XZjk=">
+    <img src="assets/docimg/example-python-3-naive-deploy.png">
+  </a>
+  <figcaption>Clicking the button triggers the "deploy" local_resource, which in turn kicks off an update to the server. (Click the screenshot to see an interactive view.)</figcaption>
+</figure>
 
 | Approach | Deploy Time (after initial)
 |---|---|
@@ -135,18 +146,18 @@ and wait for Kubernetes to schedule the pod.
 
 With Tilt, we can skip all of these steps, and instead [live-update](https://docs.tilt.dev/live_update_tutorial.html) the pod in place.
 
-[Our new Tiltfile](https://github.com/windmilleng/tilt-example-html/blob/master/2-recommended/Tiltfile) contains the following new code:
+[Our new Tiltfile](https://github.com/windmilleng/tilt-example-python/blob/master/2-recommended/Tiltfile) contains the following new code:
 
 ```python
-# Add live_update rules to our docker_build
+# Add a live_update rule to our docker_build
 congrats = "🎉 Congrats, you ran a live_update! 🎉"
 docker_build('example-python-image', '.', live_update=[
     sync('.', '/app'),
-    run('cd /app && pip install -r requirements.txt', trigger='/app/requirements.txt'),
+    run('cd /app && pip install -r requirements.txt', trigger='./requirements.txt'),
 
     # if all that changed was start-time.txt, make sure the server
     # reloads so that it will reflect the new startup time
-    run('touch /app/app.py', trigger='start-time.txt'),
+    run('touch /app/app.py', trigger='./start-time.txt'),
 
     # add a congrats message!
     run('sed -i "s/Hello cats!/{}/g" /app/templates/index.html'.format(congrats)),
@@ -161,8 +172,12 @@ We've added a new parameter to `docker_build()` with four `live_update` steps th
 
 Let's see what this looks like:
 
-[![Tilt state after a live_update](assets/docimg/example-python-4-liveupdate.png)](https://cloud.tilt.dev/snapshot/AdSLjOYLYo5KREvMpd4=){:.is-image}
-*The result of a live_update. (Click the screenshot to see an interactive view.)*
+<figure>
+  <a class="is-image" title="Tilt state after a live_update" href="https://cloud.tilt.dev/snapshot/AdSLjOYLYo5KREvMpd4=">
+    <img src="assets/docimg/example-python-4-liveupdate.png">
+  </a>
+  <figcaption>The result of a live_update. (Click the screenshot to see an interactive view.)</figcaption>
+</figure>
 
 Tilt was able to update the container in less than two seconds! (And a chunk of that time was overhead from Flask, not from Tilt.)
 
