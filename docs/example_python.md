@@ -158,6 +158,7 @@ Let's click it and see what happens!
 | Approach | Deploy Time (after initial)
 |---|---|
 | Naive | 10-11s |
+{:.benchmark-report}
 
 If you look closely, the elapsed time displayed in the Tilt sidebar is different
 than the benchmark our app logged. That's OK! In multi-service development,
@@ -220,6 +221,7 @@ Tilt was able to update the container in less than two seconds! (And a chunk of 
 |---|---|
 | Naive | 10-11s |
 | With live_update | 1-2s |
+{:.benchmark-report}
 
 You can try the server here:
 
