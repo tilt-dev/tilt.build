@@ -28,4 +28,4 @@ We don't recommend changing extensions directly in `tilt_modules`. If you want t
 Tilt doesn't support versioning of extensions currently. If you are interested in versioning, [let us know](https://tilt.dev/contact).
 
 ## Next Steps
-If you have an idea for a new extension, [give us a shout](https://tilt.dev/contact). If you'd like to create a new extension, visit [Writing Tilt Extensions](writing_tilt_extensions.html).
+If you have an extension request, [give us a shout](https://tilt.dev/contact). If you'd like to contribute a new extension, visit [Writing Tilt Extensions](writing_tilt_extensions.html).
