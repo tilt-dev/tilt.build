@@ -149,20 +149,10 @@ Let's click it and see what happens!
   <figcaption>Clicking the button triggers the "deploy" local_resource, which in turn kicks off an update to the server. (Click the screenshot to see an interactive view.)</figcaption>
 </figure>
 
-<table class="benchmark-report">
-  <thead>
-    <tr>
-      <th>Approach</th>
-      <th>Deploy Time (after initial)</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Naive</td>
-      <td>10-11s</td>
-    </tr>
-  </tbody>
-</table>
+| Approach | Deploy Time (after initial)
+|---|---|
+| Naive | 10-11s |
+{:.benchmark-report}
 
 Can we do better?
 
@@ -212,24 +202,11 @@ Tilt was able to update the container in less than two seconds! (And a chunk of 
 
 ### Final Score
 
-<table class="benchmark-report">
-  <thead>
-    <tr>
-      <th>Approach</th>
-      <th>Deploy Time (after initial)</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Naive</td>
-      <td>10-11s</td>
-    </tr>
-    <tr>
-      <td>With live_update</td>
-      <td>1-2s</td>
-    </tr>
-  </tbody>
-</table>
+| Approach | Deploy Time (after initial)
+|---|---|
+| Naive | 10-11s |
+| With live_update | 1-2s |
+{:.benchmark-report}
 
 You can try the server here:
 
