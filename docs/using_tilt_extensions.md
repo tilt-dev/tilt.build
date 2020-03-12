@@ -3,7 +3,7 @@ title: Using Tilt Extensions
 layout: docs
 ---
 
-Tilt Extensions are packaged functions that you can easily import, source control, and use in your Tiltfile to make a better Tiltfile, faster.
+Tilt Extensions are packaged functions that you can easily use from your Tiltfile to make a better Tiltfile, faster.
 
 ## Finding an Extension
 The [tilt-extensions README](https://github.com/windmilleng/tilt-extensions/blob/master/README.md) lists every published Tilt extension, along with a short a blurb. The full source of the extension is also available in the repo.
