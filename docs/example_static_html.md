@@ -90,13 +90,17 @@ botton pane will display "Serving files on port 8000."
 
 Before we try to make this faster, let's measure it.
 
-Tilt can run commands locally, so that you can integrate your existing scripts. 
+In addition to running things in your cluster, Tilt can run commands locally. 
+You can direct Tilt to execute existing scripts or arbitrary shell commands on your own machine.
 
-In this example, we use [`local_resource`](local_resource.html), which lets you
-trigger local jobs, or run local servers. We add a `local_resource` to our
+We want to measure the time from code change to new process. To do that, we'll
+use [`local_resource`](local_resource.html), which lets you locally
+run scripts, shell code, or servers, and manage them from your sidebar like any
+other Tilt resource.
+
+We add a `local_resource` to our
 [Tiltfile](https://github.com/windmilleng/tilt-example-html/blob/master/1-measured/Tiltfile)
-that records when an update starts. We've also modified our server itself to
-read that start time and print the time elapsed.
+that records when an update starts.
 
 ```python
 k8s_resource('example-html', port_forwards=8000, resource_deps=['deploy'])
@@ -112,6 +116,9 @@ local_resource(
 The `local_resource()` call creates a local resource named `deploy`. The second
 argument is the script that it runs.
 
+We've also modified our server itself to read that start time and print the time
+elapsed.
+
 Let's click the button on the `deploy` resource and see what happens!
 
 <figure>
@@ -125,7 +132,16 @@ Let's click the button on the `deploy` resource and see what happens!
 |---|---|
 | Naive | 1-2s |
 
-Can we do better?
+If you look closely, the elapsed time displayed in the Tilt sidebar is different
+than the benchmark our app logged. That's OK! In multi-service development,
+there are many benchmarks we care about -- the time to build the image, the time
+to schedule the process, and the time until the server is ready to serve
+traffic. 
+
+The Tilt sidebar gives you some default benchmarks, and the tools to capture
+your own benchmarks.
+
+Our benchmarks show this is a bit slow. Can we do better?
 
 ## Step 2: Let's Optimize It
 

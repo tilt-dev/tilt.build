@@ -96,9 +96,15 @@ When the server is ready, you will see the status icon turn green. The log pane 
 
 Before we try to make this faster, let's measure it.
 
-Tilt can run commands locally, so that in addition to running things in your cluster, you can execute existing scripts or arbitrary shell commands on your own machine.
+In addition to running things in your cluster, Tilt can run commands locally. 
+You can direct Tilt to execute existing scripts or arbitrary shell commands on your own machine.
 
-In this example, we use [`local_resource`](local_resource.html), which lets you locally run scripts, shell code, or servers. We add a `local_resource` to our
+We want to measure the time from code change to new process. To do that, we'll
+use [`local_resource`](local_resource.html), which lets you locally
+run scripts, shell code, or servers, and manage them from your sidebar like any
+other Tilt resource.
+
+First, we add a `local_resource` to our
 [Tiltfile](https://github.com/windmilleng/tilt-example-python/blob/master/1-measured/Tiltfile)
 that records the current time, then kicks off an update.
 
@@ -153,7 +159,16 @@ Let's click it and see what happens!
 |---|---|
 | Naive | 10-11s |
 
-Can we do better?
+If you look closely, the elapsed time displayed in the Tilt sidebar is different
+than the benchmark our app logged. That's OK! In multi-service development,
+there are many benchmarks we care about -- the time to build the image, the time
+to schedule the process, and the time until the server is ready to serve
+traffic. 
+
+The Tilt sidebar gives you some default benchmarks, and the tools to capture
+your own benchmarks.
+
+Our benchmarks show this is slow. Can we do better?
 
 ## Step 2: Let's Optimize It
 
