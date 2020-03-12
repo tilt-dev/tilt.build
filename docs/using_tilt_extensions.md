@@ -23,7 +23,7 @@ The `tilt_modules` directory should be committed to your repo (**not** `gitignor
 
 ## Changing an Extension
 
-We don't recommend changing extensions directly in `tilt_modules`. If you want to customize an extension you are already using, consider [contributing a change or a brand new extension](writing_tilt_extensions.html). Once the change is merged into [windmilleng/tilt-extensions](https://github.com/windmilleng/tilt-extensions/), get the updated or new extension (first deleting your local version in `tilt_modules` as necessary). Commit your changes to source control so that they will propagate to your team.
+We don't recommend changing extensions directly in `tilt_modules`. If you want to customize an extension you are already using, consider [contributing a new extension](writing_tilt_extensions.html).
 
 Tilt doesn't support versioning of extensions currently. If you are interested in versioning, [let us know](https://tilt.dev/contact).
 
