@@ -57,7 +57,7 @@ in the directory `.` (the current directory).
 
 The second line tells Tilt to load the Kubernetes
 [Deployment](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/#creating-a-deployment)
-yaml. The image name in the `docker_build` call must match the container `image`
+YAML. The image name in the `docker_build` call must match the container `image`
 reference in the `example-html` Deployment.
 
 The last line configures port-forwarding so that your server is
@@ -77,7 +77,7 @@ status and logs. Your terminal will also turn into a status box if you'd like to
 watch your server come up there.
 
 When it's ready, you will see the status icon turn green. The logs in the
-botton pane will display "Serving files on port 8000."
+bottom pane will display "Serving files on port 8000."
 
 <figure>
   <a class="is-image" href="https://cloud.tilt.dev/snapshot/AejkyuULr2AjWu50Eck=">
@@ -139,7 +139,7 @@ there are many benchmarks we care about -- the time to build the image, the time
 to schedule the process, and the time until the server is ready to serve
 traffic. 
 
-The Tilt sidebar gives you some default benchmarks, and the tools to capture
+The Tilt sidebar gives you some default benchmarks, _and_ the tools to capture
 your own benchmarks.
 
 Our benchmarks show this is a bit slow. Can we do better?
