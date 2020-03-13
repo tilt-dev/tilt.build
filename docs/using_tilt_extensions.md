@@ -21,11 +21,11 @@ load('ext://hello_world', 'hi')
 
 The `tilt_modules` directory should be committed to your repo (**not** `gitignore`'d) to ensure that your teammates don't have to download it in the future, and to ensure that everyone on your team is using the same version of the extension.
 
+Tilt doesn't support versioning of extensions currently. If you are interested in versioning, [let us know](https://tilt.dev/contact).
+
 ## Changing an Extension
 
 We don't recommend changing extensions directly in `tilt_modules`. If you want to customize an extension you are already using, consider [contributing a new extension](writing_tilt_extensions.html).
-
-Tilt doesn't support versioning of extensions currently. If you are interested in versioning, [let us know](https://tilt.dev/contact).
 
 ## Next Steps
 If you have an extension request, [give us a shout](https://tilt.dev/contact). If you'd like to contribute a new extension, visit [Writing Tilt Extensions](writing_tilt_extensions.html).
