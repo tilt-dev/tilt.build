@@ -43,7 +43,7 @@ def serve():
 
 
 if __name__ == "__main__":
-    app.run()
+    app.run(port=8000)
 ```
 
 To start this server on Kubernetes, we need 3 configs:
@@ -87,7 +87,7 @@ When the server is ready, you will see the status icon turn green. The log pane 
 
 <figure>
   <a class="is-image" title="The server is up!" href="https://cloud.tilt.dev/snapshot/AZSXjOYLDi6w9IoCnCI=">
-    <img src="assets/docimg/example-python-1-serverup.png">
+    <img src="assets/docimg/example-python-serverup.png">
   </a>
   <figcaption>The server is up! (Click the screenshot to see an interactive view.)</figcaption>
 </figure>
@@ -117,7 +117,8 @@ local_resource(
   'date +%s > start-time.txt'
 )
 …
-k8s_resource('example-python', port_forwards=8000, resource_deps=['deploy'])
+k8s_resource('example-python', port_forwards=8000,
+             resource_deps=['deploy'])
 ```
 
 The `local_resource()` call creates a local resource named `deploy`. The second
@@ -142,7 +143,7 @@ Whenever the app starts up, it calls `get_update_time_secs()`, does the math to 
 
 See that button next to the `deploy` resource?
 <figure>
-  <img src="assets/docimg/example-python-2-deploy-button.png" title="Button to trigger a deploy">
+  <img src="assets/docimg/example-python-deploy-button.png" title="Button to trigger a deploy">
   <figcaption>Button to trigger a deploy</figcaption>
 </figure>
 
@@ -150,7 +151,7 @@ Let's click it and see what happens!
 
 <figure>
   <a class="is-image" title="Result of clicking the button  on the “deploy” resource" href="https://cloud.tilt.dev/snapshot/AcyUjOYLaeKVxQ1XZjk=">
-    <img src="assets/docimg/example-python-3-naive-deploy.png">
+    <img src="assets/docimg/example-python-naive-deploy.png">
   </a>
   <figcaption>Clicking the button triggers the "deploy" local_resource, which in turn kicks off an update to the server. (Click the screenshot to see an interactive view.)</figcaption>
 </figure>
@@ -171,21 +172,70 @@ your own benchmarks.
 
 Our benchmarks show this is slow. Can we do better?
 
-## Step 2: Let's Optimize It
+## Step 2: Why Is the Docker Build So Slow?
+
+The first thing I notice is that when I click "deploy" is that I see a bunch of junk on my screen from the `docker_build` call running `pip install`. Didn't we just run `pip install`? My `requirements.txt` didn't change, why do we have to we have to install our dependencies _again_? I thought Docker was supposed to be _good_ at caching!
+
+Well, Docker _is_ good at caching, but it can only do so much. Our current Dockerfile looks like this:
+
+```
+ADD . .
+RUN pip install -r requirements.txt
+```
+Docker builds up images step by step; here, it executes the `ADD` directive and then checks to see if the current state of the image it's building matches the cache. If yes, it knows it can use the cached result of `pip install` instead of running it afresh---after all, StateX + `pip install` = StateY.
+
+So why do we run `pip install` every time? It's because adding the entire current directory (`.`) to the Docker image breaks the cache, since `start-time.txt` will be different every time! If we [change the Dockerfile to look like this]((https://github.com/windmilleng/tilt-example-python/blob/master/2-optimize-dockerfile/Dockerfile)):
+```
+ADD requirements.txt .
+RUN pip install -r requirements.txt
+
+ADD . .
+```
+then we only break the cache---and therefore, we only run `pip install`---when _requirements.txt_ changes, rather than when _anything in the directory_ changes.
+
+Here's what it looks like when we build with our new Dockerfile:
+
+<figure>
+  <a class="is-image" title="Result of clicking the button  on the “deploy” resource" href="https://cloud.tilt.dev/snapshot/AZjdiecL6XcZBu5kO3Y=">
+    <img src="assets/docimg/example-python-optimized-dockerfile.png">
+  </a>
+  <figcaption>"RUN pip install..." now uses the cache instead of actually running a long, slow command. (Click the screenshot to see an interactive view.)</figcaption>
+</figure>
+
+Note that the Docker build output says:
+```
+Step 4/7 : RUN pip install -r requirements.txt
+    ---> Using cache
+    ---> ea05580f0c3a
+```
+This is how we can tell our optimization worked---Docker is using the cache to take its best guess at the result of the `pip install` call, rather than running `pip install` for the same requirements ad nauseam.
+
+Here's what our timing looks like now:
+
+| Approach | Deploy Time (after initial)
+|---|---|
+| Naive | 10-11s |
+| Optimized Dockerfile | 2.5-3.1s |
+{:.benchmark-report}
+
+Pretty good! But Tilt has some tricks up its sleeve to make it even faster.
+
+## Step 3: Let's Optimize It EVEN MORE
 
 When we make a change to a file, we currently have to build an image, deploy new Kubernetes configs,
 and wait for Kubernetes to schedule the pod.
 
 With Tilt, we can skip all of these steps, and instead [live-update](https://docs.tilt.dev/live_update_tutorial.html) the pod in place.
 
-[Our new Tiltfile](https://github.com/windmilleng/tilt-example-python/blob/master/2-recommended/Tiltfile) contains the following new code:
+[Our new Tiltfile](https://github.com/windmilleng/tilt-example-python/blob/master/3-recommended/Tiltfile) contains the following new code:
 
 ```python
 # Add a live_update rule to our docker_build
 congrats = "🎉 Congrats, you ran a live_update! 🎉"
 docker_build('example-python-image', '.', live_update=[
     sync('.', '/app'),
-    run('cd /app && pip install -r requirements.txt', trigger='./requirements.txt'),
+    run('cd /app && pip install -r requirements.txt',
+        trigger='./requirements.txt'),
 
     # if all that changed was start-time.txt, make sure the server
     # reloads so that it will reflect the new startup time
@@ -206,7 +256,7 @@ Let's see what this looks like:
 
 <figure>
   <a class="is-image" title="Tilt state after a live_update" href="https://cloud.tilt.dev/snapshot/AdSLjOYLYo5KREvMpd4=">
-    <img src="assets/docimg/example-python-4-liveupdate.png">
+    <img src="assets/docimg/example-python-liveupdate.png">
   </a>
   <figcaption>The result of a live_update. (Click the screenshot to see an interactive view.)</figcaption>
 </figure>
@@ -220,12 +270,13 @@ Tilt was able to update the container in less than two seconds! (And a chunk of 
 | Approach | Deploy Time (after initial)
 |---|---|
 | Naive | 10-11s |
+| Optimized Dockerfile | 2.5-3.1s |
 | With live_update | 1-2s |
 {:.benchmark-report}
 
 You can try the server here:
 
-[Recommended Structure](https://github.com/windmilleng/tilt-example-python/blob/master/2-recommended)
+[Recommended Structure](https://github.com/windmilleng/tilt-example-python/blob/master/3-recommended)
 
 Obviously, this is the simplest possible server we could write; but we hope that this gives you a starting point for running your Flask app (or other Python app) via Tilt!
 
