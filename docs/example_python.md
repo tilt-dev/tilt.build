@@ -208,34 +208,45 @@ Pretty good! But Tilt has some tricks up its sleeve to make it even faster.
 When we make a change to a file, we currently have to build an image, deploy new Kubernetes configs,
 and wait for Kubernetes to schedule the pod.
 
-With Tilt, we can skip all of these steps, and instead [live-update](https://docs.tilt.dev/live_update_tutorial.html) the pod in place.
+With Tilt, we can skip all of these steps, and instead [live_update](https://docs.tilt.dev/live_update_tutorial.html) the pod in place.
 
 [Our new Tiltfile](https://github.com/windmilleng/tilt-example-python/blob/master/3-recommended/Tiltfile) contains the following new code:
 
 ```python
 # Add a live_update rule to our docker_build
 congrats = "🎉 Congrats, you ran a live_update! 🎉"
-docker_build('example-python-image', '.', live_update=[
-    sync('.', '/app'),
-    run('cd /app && pip install -r requirements.txt',
-        trigger='./requirements.txt'),
+docker_build('example-python-image', '.', build_args={'flask_env': 'development'},
+    live_update=[
+        sync('.', '/app'),
+        run('cd /app && pip install -r requirements.txt',
+            trigger='./requirements.txt'),
 
-    # if all that changed was start-time.txt, make sure the server
-    # reloads so that it will reflect the new startup time
-    run('touch /app/app.py', trigger='./start-time.txt'),
+        # if all that changed was start-time.txt, make sure the server
+        # reloads so that it will reflect the new startup time
+        run('touch /app/app.py', trigger='./start-time.txt'),
 
-    # add a congrats message!
-    run('sed -i "s/Hello cats!/{}/g" /app/templates/index.html'.format(congrats)),
+        # add a congrats message!
+        run('sed -i "s/Hello cats!/{}/g" /app/templates/index.html'.
+            format(congrats)),
 ])
 ```
 
-We've added a new parameter to `docker_build()` with four `live_update` steps that are, in order:
+We've added two new parameters to `docker_build()`. Let's look at the more complex, `live_update`, which contains an array of four steps. When a [live_update](https://docs.tilt.dev/live_update_tutorial.html) is triggered, Tilt will, in order:
 1. Sync the code from the current directory (`.`) into the container at directory `/app`.
 2. IF `requirements.txt` has change, run `pip install`
 3. Poke `app.py` if necessary to make sure that Flask reloads the server
-4. Congratulation you on finishing this guide!
+4. Congratulate you on finishing this guide!
 
-Let's see what this looks like:
+The second additional parameter, `build_args={'flask_env': 'development'}`, corresponds to this Dockerfile change:
+```
+# Default value; will be overridden by build-args, if passed
+ARG flask_env=production
+
+ENV FLASK_ENV $flask_env
+```
+Together, these changes mean that when we build this Dockerfile via this Tiltfile, we set the environment variable `FLASK_ENV=development`, which does a couple of things; most notably for our purposes, it enables hot reloading, so we change `app.py` in place and not have to worry about restarting the server ourselves. (This is a bit of a roundabout way to achieve our goal, but it keeps the app and Dockerfile flexibile enough to be used in production without changes.)
+
+Let's see what this new configuration looks like:
 
 <figure>
   <a class="is-image" title="Tilt state after a live_update" href="https://cloud.tilt.dev/snapshot/AdSLjOYLYo5KREvMpd4=">
@@ -263,7 +274,14 @@ You can try the server here:
 
 Obviously, this is the simplest possible server we could write; but we hope that this gives you a starting point for running your Flask app (or other Python app) via Tilt!
 
-Other examples:
+## Further Reading
+
+### Other sample Python projects:
+- [abc123](https://github.com/windmilleng/abc123) is a mini microservice app with a Python server called `numbers`
+- The [Live Update Tutorial](http://localhost:4001/live_update_tutorial.html) walks you through optimizing a Python server
+- [Servantes](https://github.com/windmilleng/servantes), our multi-language microservice demo app, contains a Python service called `hypothesizer`
+
+### Examples in other languages:
 
 <ul>
   {% for page in site.data.examples %}
