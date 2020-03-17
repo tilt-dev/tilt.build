@@ -2805,9 +2805,13 @@ returns the non-matching YAML as the second return value.
 <span class="n">foobar_yaml</span><span class="p">,</span> <span class="n">rest</span> <span class="o">=</span> <span class="n">filter_yaml</span><span class="p">(</span><span class="s1">&apos;all.yaml&apos;</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="p">{</span><span class="s1">&apos;app&apos;</span><span class="p">:</span> <span class="s1">&apos;foobar&apos;</span><span class="p">}</span>
 <span class="n">k8s_yaml</span><span class="p">(</span><span class="n">foobar_yaml</span><span class="p">)</span>
 
-<span class="c1"># extract YAMLs of kind &quot;deployment&quot; with metadata.name &quot;baz&quot;</span>
+<span class="c1"># extract YAMLs of kind &quot;deployment&quot; with metadata.name regex-matching &quot;baz&quot;, also matching &quot;bazzoo&quot; and &quot;bar-baz&quot;</span>
 <span class="n">baz_yaml</span><span class="p">,</span> <span class="n">rest</span> <span class="o">=</span> <span class="n">filter_yaml</span><span class="p">(</span><span class="n">rest</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&apos;baz&apos;</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s1">&apos;deployment&apos;</span><span class="p">)</span>
 <span class="n">k8s_yaml</span><span class="p">(</span><span class="n">baz_yaml</span><span class="p">)</span>
+
+<span class="c1"># extract YAMLs of kind &quot;deployment&quot; exactly matching metadata.name &quot;foo&quot;</span>
+<span class="n">foo_yaml</span><span class="p">,</span> <span class="n">rest</span> <span class="o">=</span> <span class="n">filter_yaml</span><span class="p">(</span><span class="n">rest</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&apos;^foo$&apos;</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s1">&apos;deployment&apos;</span><span class="p">)</span>
+<span class="n">k8s_yaml</span><span class="p">(</span><span class="n">foo_yaml</span><span class="p">)</span>
 </pre>
             </div>
            </div>
