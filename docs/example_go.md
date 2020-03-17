@@ -158,8 +158,10 @@ Our benchmarks show this is slow. Can we do better?
 What's taking up so much time? The logs show that when we make the change to a file, we:
 
 1) Copy the source files to the image.
+
 2) Download the `gorilla/mux` dependency.
-3) Re-compile the Go binary from scratch.
+
+3) Compile the Go binary from scratch.
 
 But the Go team has done a lot of work to make caching dependencies and
 incremental compiles fast.  How can we better use the Go tools how they're meant
