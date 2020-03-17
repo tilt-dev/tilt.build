@@ -40,15 +40,32 @@ Docker image store, then push the image to the appropriate image registry.
 You can also use this pattern to use `docker` flags that the `docker_build()`
 function doesn't support.
 
+### Jib, Bazel, or any other builder that interoperates with Docker
 
-### Bazel (or any image builder that interoperates with Docker)
+Many tools can create Docker images, then write them to the local Docker image
+store.
 
-[Bazel](https://github.com/google/bazel) is a general-purpose build system.
+For example, [Jib](https://github.com/GoogleContainerTools/jib) has plugins that integrate
+with your existing Java tooling and create Java-based images.
 
-Bazel's [rules_docker](https://github.com/bazelbuild/rules_docker) extension assembles Docker images and
-writes them to the local Docker image store.
+The [tilt-example-java](https://github.com/windmilleng/tilt-example-java) repo has an example
+[Tiltfile](https://github.com/windmilleng/tilt-example-java/blob/master/101-jib/Tiltfile)
+that uses `custom_build` to generate images with Gradle and Jib:
 
-See the tutorial on how to use `custom_build` to [build images with Bazel](integrating_bazel_with_tilt.html).
+```
+custom_build(
+  'example-java-image',
+  './gradlew jibDockerBuild --image $EXPECTED_REF',
+  deps=['src'])
+```
+
+[Bazel](https://github.com/google/bazel), the general-purpose build system, also
+takes this approach. Bazel's
+[rules_docker](https://github.com/bazelbuild/rules_docker) extension assembles
+Docker images and writes them to the local Docker image store.
+
+See the tutorial on how to use `custom_build` to [build images with
+Bazel](integrating_bazel_with_tilt.html).
 
 ### Buildah (or any image builder indepdendent of Docker)
 
