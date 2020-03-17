@@ -281,7 +281,7 @@ You can try the server here:
 
 Congratulations on finishing this guide!
 
-### Futher Reading
+## Further Reading
 
 This guide recommends an approach to Go development that shines with Tilt.
 
@@ -290,13 +290,13 @@ their trade-offs, we're working on a talk and workshop:
 
 [The Quest For The Fastest Deployment Time](https://github.com/windmilleng/fast)
 
-Other sample Go projects:
+### Other sample Go projects:
 
 - [abc123](https://github.com/windmilleng/abc123) a mini microservice app with a Go server called `fe`.
 - The [Live Update Tutorial](live_update_tutorial.html), which optimizes a Go server.
 - [Servantes](https://github.com/windmilleng/servantes), our multi-language microservice demo app.
 
-Examples in other languages:
+### Examples in other languages:
 
 <ul>
   {% for page in site.data.examples %}
