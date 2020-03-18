@@ -268,7 +268,7 @@ def filter_yaml(yaml: Union[str, List[str], Blob], labels: dict=None, name: str=
     # extract YAMLs of kind "deployment" with metadata.name regex-matching "baz", also matching "bazzoo" and "bar-baz"
     baz_yaml, rest = filter_yaml(rest, name='baz', kind='deployment')
     k8s_yaml(baz_yaml)
-    
+
     # extract YAMLs of kind "deployment" exactly matching metadata.name "foo"
     foo_yaml, rest = filter_yaml(rest, name='^foo$', kind='deployment')
     k8s_yaml(foo_yaml)
@@ -520,7 +520,7 @@ def encode_yaml_stream(objs: List[StructuredDataType]) -> Blob:
   """
   pass
 
-def default_registry(registry: str) -> None:
+def default_registry(registry: str, host_from_cluster: str = None) -> None:
   """Specifies that any images that Tilt builds should be renamed so that they have the specified Docker registry.
 
   This is useful if, e.g., a repo is configured to push to Google Container Registry, but you want to use Elastic Container Registry instead, without having to edit a bunch of configs. For example, ``default_registry("gcr.io/myrepo")`` would cause ``docker.io/alpine`` to be rewritten to ``gcr.io/myrepo/docker.io_alpine``
@@ -529,6 +529,7 @@ def default_registry(registry: str) -> None:
 
   Args:
     registry: The registry that all built images should be renamed to use.
+    host_from_cluster: The registry to use when referencing images from inside the cluster (i.e. in Kubernetes YAML). For more on this use case, `see this guide <personal_registry.html#different-urls-from-inside-your-cluster>`_.
 
   Images are renamed following these rules:
 
@@ -536,7 +537,7 @@ def default_registry(registry: str) -> None:
 
   2. Prepend the value of ``registry`` and a ``/``.
 
-  e.g., with ``default_registry('gcr.io/myorg')``, ``user-service`` becomes ``gcr.io/myorg/user-service``.
+  e.g., with ``default_registry('gcr.io/myorg')``, an image called ``user-service`` becomes ``gcr.io/myorg/user-service``.
 
   (Note: this logic is currently crude, on the assumption that development image names are ephemeral and unimportant. `Please let us know <https://github.com/windmilleng/tilt/issues>`_ if they don't suit you!)
   """

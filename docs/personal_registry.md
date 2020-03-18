@@ -42,6 +42,16 @@ tilt_option.json
 
 Team members don't need to set anything, but new users can change it without modifying the Tiltfile.
 
+### Different URLs from Inside Your Cluster
+
+Some clusters/registries require that your Kubernetes YAML reference images by a different name: e.g. you might push your image to `localhost:5000/my-image` but reference it from within your YAML as `registry:5000/my-image`. Tilt supports this use case; use the `host_from_cluster` parameter of `default_registry` to configure the registry as referenced from your K8s YAML. E.g. for the example above, you would call:
+```python
+default_registry(
+    'localhost:5000',
+    host_from_cluster='registry:5000'
+)
+```
+
 ## Config in Files, not Flags
 Other tools might make this a command-line flag, or an environment variable. Tilt encourages you to put it in a file. Why the difference? Tilt wants to be a responsive tool. You can't change a command-line flag without restarting the tool, and we want you to be able to use Tilt without restarting.
 
