@@ -44,7 +44,7 @@ Team members don't need to set anything, but new users can change it without mod
 
 ### Different URLs from Inside Your Cluster
 
-Some clusters/registries require that your Kubernetes YAML reference images by a different name: e.g. you might push your image to `localhost:5000/my-image` but reference it from within your YAML as `registry:5000/my-image`. Tilt supports this use case; use the `host_from_cluster` parameter of `default_registry` to configure the registry as referenced from your K8s YAML. E.g. for the example above, you would call:
+Some clusters/registries require that your Kubernetes YAML reference images by a different name: e.g. you might push your image to `localhost:5000/my-image` but reference it from within your YAML as `registry:5000/my-image`. Tilt supports this use case; use the `host_from_cluster` parameter of `default_registry` to configure the registry host as referenced from your K8s YAML. E.g. for the example above, you would call:
 ```python
 default_registry(
     'localhost:5000',

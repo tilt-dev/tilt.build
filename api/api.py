@@ -520,7 +520,7 @@ def encode_yaml_stream(objs: List[StructuredDataType]) -> Blob:
   """
   pass
 
-def default_registry(registry: str, host_from_cluster: str = None) -> None:
+def default_registry(host: str, host_from_cluster: str = None) -> None:
   """Specifies that any images that Tilt builds should be renamed so that they have the specified Docker registry.
 
   This is useful if, e.g., a repo is configured to push to Google Container Registry, but you want to use Elastic Container Registry instead, without having to edit a bunch of configs. For example, ``default_registry("gcr.io/myrepo")`` would cause ``docker.io/alpine`` to be rewritten to ``gcr.io/myrepo/docker.io_alpine``
@@ -528,14 +528,14 @@ def default_registry(registry: str, host_from_cluster: str = None) -> None:
   For more info, see our `Using a Personal Registry Guide <personal_registry.html>`_.
 
   Args:
-    registry: The registry that all built images should be renamed to use.
-    host_from_cluster: The registry to use when referencing images from inside the cluster (i.e. in Kubernetes YAML). For more on this use case, `see this guide <personal_registry.html#different-urls-from-inside-your-cluster>`_.
+    host: host of the registry that all built images should be renamed to use.
+    host_from_cluster: registry host to use when referencing images from inside the cluster (i.e. in Kubernetes YAML). Only include this arg if it is different from ``host``. For more on this use case, `see this guide <personal_registry.html#different-urls-from-inside-your-cluster>`_.
 
   Images are renamed following these rules:
 
   1. Replace ``/`` and ``@`` with ``_``.
 
-  2. Prepend the value of ``registry`` and a ``/``.
+  2. Prepend the value of ``host`` and a ``/``.
 
   e.g., with ``default_registry('gcr.io/myorg')``, an image called ``user-service`` becomes ``gcr.io/myorg/user-service``.
 
