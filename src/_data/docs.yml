@@ -37,6 +37,9 @@
     href: local_resource.html
   - title: Tiltfile Configs
     href: tiltfile_config.html
+  # todo: this will go under its own Debuggers section when we have enough articles to merit it
+  - title: Python Debuggers
+    href: debuggers_python.html
 - title: Tilt Cookbooks
   items:
   - title: Tiltfile Concepts
