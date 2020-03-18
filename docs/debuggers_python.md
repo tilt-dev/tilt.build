@@ -44,6 +44,6 @@ Congrats, now you can add breakpoints with your chosen debugger, and connect to 
    RemotePdb('127.0.0.1', 5555).set_trace()
     ```
 2. Connect to port 5555 via TCP
-    * with Netcat: `nc -c 127.0.0.1 5555`
+    * with Netcat: `nc 127.0.0.1 5555`
     * with Telnet: `telnet 127.0.0.1 5555`
     * with Socat: `socat readline tcp:127.0.0.1:5555`
