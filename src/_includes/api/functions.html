@@ -1073,6 +1073,10 @@ documents, separated by
            <em>
             registry
            </em>
+           ,
+           <em>
+            host_from_cluster=None
+           </em>
            <span class="sig-paren">
             )
            </span>
@@ -1120,16 +1124,42 @@ documents, separated by
                Parameters:
               </th>
               <td class="field-body">
-               <strong>
-                registry
-               </strong>
-               (
-               <code class="xref py py-class docutils literal notranslate">
-                <span class="pre">
-                 str
-                </span>
-               </code>
-               ) &#x2013; The registry that all built images should be renamed to use.
+               <ul class="first last simple">
+                <li>
+                 <strong>
+                  registry
+                 </strong>
+                 (
+                 <code class="xref py py-class docutils literal notranslate">
+                  <span class="pre">
+                   str
+                  </span>
+                 </code>
+                 ) &#x2013; The registry that all built images should be renamed to use.
+                </li>
+                <li>
+                 <strong>
+                  host_from_cluster
+                 </strong>
+                 (
+                 <code class="xref py py-data docutils literal notranslate">
+                  <span class="pre">
+                   Optional
+                  </span>
+                 </code>
+                 [
+                 <code class="xref py py-class docutils literal notranslate">
+                  <span class="pre">
+                   str
+                  </span>
+                 </code>
+                 ]) &#x2013; The registry to use when referencing images from inside the cluster (i.e. in Kubernetes YAML). For more on this use case,
+                 <a class="reference external" href="personal_registry.html#different-urls-from-inside-your-cluster">
+                  see this guide
+                 </a>
+                 .
+                </li>
+               </ul>
               </td>
              </tr>
             </tbody>
@@ -1182,7 +1212,7 @@ documents, separated by
               default_registry(&apos;gcr.io/myorg&apos;)
              </span>
             </code>
-            ,
+            , an image called
             <code class="docutils literal notranslate">
              <span class="pre">
               user-service
