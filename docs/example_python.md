@@ -231,7 +231,9 @@ docker_build('example-python-image', '.', build_args={'flask_env': 'development'
 ])
 ```
 
-We've added two new parameters to `docker_build()`. Let's look at the more complex, `live_update`, which contains an array of four steps. When a [live_update](https://docs.tilt.dev/live_update_tutorial.html) is triggered, Tilt will, in order:
+We've added two new parameters to `docker_build()`: `build args` amd `live_update`. Let's look at the latter first.
+
+When a [live_update](https://docs.tilt.dev/live_update_tutorial.html) is triggered, Tilt will, in order:
 1. Sync the code from the current directory (`.`) into the container at directory `/app`.
 2. IF `requirements.txt` has change, run `pip install`
 3. Poke `app.py` if necessary to make sure that Flask reloads the server
@@ -244,7 +246,7 @@ ARG flask_env=production
 
 ENV FLASK_ENV $flask_env
 ```
-Together, these changes mean that when we build this Dockerfile via this Tiltfile, we set the environment variable `FLASK_ENV=development`, which does a couple of things; most notably for our purposes, it enables hot reloading, so we change `app.py` in place and not have to worry about restarting the server ourselves. (This is a bit of a roundabout way to achieve our goal, but it keeps the app and Dockerfile flexibile enough to be used in production without changes.)
+Together, these changes mean that when we build this Dockerfile via this Tiltfile, our Flask app will run in development mode.  When in development mode, Flask watches for file changes and reloads the server when necessary.
 
 Let's see what this new configuration looks like:
 
@@ -278,7 +280,7 @@ Obviously, this is the simplest possible server we could write; but we hope that
 
 ### Other sample Python projects:
 - [abc123](https://github.com/windmilleng/abc123) is a mini microservice app with a Python server called `numbers`
-- The [Live Update Tutorial](http://localhost:4001/live_update_tutorial.html) walks you through optimizing a Python server
+- Our [blog post about Live Update](https://blog.tilt.dev/2019/04/02/fast-kubernetes-development-with-live-update.html) includes an [example Python server](https://github.com/windmilleng/live_update/tree/master/python)
 - [Servantes](https://github.com/windmilleng/servantes), our multi-language microservice demo app, contains a Python service called `hypothesizer`
 
 ### Examples in other languages:
