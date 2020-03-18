@@ -174,24 +174,13 @@ Our benchmarks show this is slow. Can we do better?
 
 ## Step 2: Why Is the Docker Build So Slow?
 
-The first thing I notice is that when I click "deploy" is that I see a bunch of junk on my screen from the `docker_build` call running `pip install`. Didn't we just run `pip install`? My `requirements.txt` didn't change, why do we have to we have to install our dependencies _again_? I thought Docker was supposed to be _good_ at caching!
-
-Well, Docker _is_ good at caching, but it can only do so much. Our current Dockerfile looks like this:
-
-```
-ADD . .
-RUN pip install -r requirements.txt
-```
-Docker builds up images step by step; here, it executes the `ADD` directive and then checks to see if the current state of the image it's building matches the cache. If yes, it knows it can use the cached result of `pip install` instead of running it afresh---after all, StateX + `pip install` = StateY.
-
-So why do we run `pip install` every time? It's because adding the entire current directory (`.`) to the Docker image breaks the cache, since `start-time.txt` will be different every time! If we [change the Dockerfile to look like this]((https://github.com/windmilleng/tilt-example-python/blob/master/2-optimize-dockerfile/Dockerfile)):
+The first thing I notice when I click "deploy" is a bunch of logs from `pip install`; and not just once, but _every dang time_. This is a hint that we can optimize our Dockerfile to be smarter about caching. With a little rearranging, our [new Dockerfile]((https://github.com/windmilleng/tilt-example-python/blob/master/2-optimize-dockerfile/Dockerfile)) looks like this:
 ```
 ADD requirements.txt .
 RUN pip install -r requirements.txt
 
 ADD . .
 ```
-then we only break the cache---and therefore, we only run `pip install`---when _requirements.txt_ changes, rather than when _anything in the directory_ changes.
 
 Here's what it looks like when we build with our new Dockerfile:
 
@@ -202,13 +191,7 @@ Here's what it looks like when we build with our new Dockerfile:
   <figcaption>"RUN pip install..." now uses the cache instead of actually running a long, slow command. (Click the screenshot to see an interactive view.)</figcaption>
 </figure>
 
-Note that the Docker build output says:
-```
-Step 4/7 : RUN pip install -r requirements.txt
-    ---> Using cache
-    ---> ea05580f0c3a
-```
-This is how we can tell our optimization worked---Docker is using the cache to take its best guess at the result of the `pip install` call, rather than running `pip install` for the same requirements ad nauseam.
+Hooray, we're now using the cache instead of running `pip install` for every single build. (For more on the principles at work here, [check out this guide](https://pythonspeed.com/articles/docker-caching-model/).)
 
 Here's what our timing looks like now:
 
