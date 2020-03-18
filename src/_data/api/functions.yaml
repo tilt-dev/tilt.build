@@ -45,6 +45,7 @@ functions:
 - watch_file
 - workload_to_resource_function
 - os.getcwd
+- os.path.realpath
 - config.define_string_list
 - config.parse
 - config.set_enabled_resources
