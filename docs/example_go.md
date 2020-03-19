@@ -48,7 +48,7 @@ To start this server on Kubernetes, we need 3 configs:
 
 2) A [Kubernetes deployment](https://github.com/windmilleng/tilt-example-go/blob/master/0-base/deployments/kubernetes.yaml) that runs the image
 
-3) And finally, a [Tiltfile](https://github.com/windmilleng/tilt-example-go/blob/master/0-base/Tiltfile) that ties them together
+3) And finally, a [Tiltfile](https://github.com/windmilleng/tilt-example-go/blob/master/0-base/Tiltfile) that ties them together:
 
 ```python
 docker_build('example-go-image', '.', 
@@ -223,7 +223,8 @@ Let's see what this looks like!
 When we make a change to a file, we currently have to build an image, deploy new Kubernetes configs,
 and wait for Kubernetes to schedule the pod.
 
-With Tilt, we can skip all of these steps, live-updating the pod in place.
+With Tilt, we can skip all of these steps, and instead
+[live_update](live_update_tutorial.html) the pod in place.
 
 Here's our [new Tiltfile](https://github.com/windmilleng/tilt-example-go/blob/master/3-recommended/Tiltfile) 
 with the following new code:

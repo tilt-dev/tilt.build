@@ -208,7 +208,8 @@ Pretty good! But Tilt has some tricks up its sleeve to make it even faster.
 When we make a change to a file, we currently have to build an image, deploy new Kubernetes configs,
 and wait for Kubernetes to schedule the pod.
 
-With Tilt, we can skip all of these steps, and instead [live_update](https://docs.tilt.dev/live_update_tutorial.html) the pod in place.
+With Tilt, we can skip all of these steps, and instead
+[live_update](live_update_tutorial.html) the pod in place.
 
 [Our new Tiltfile](https://github.com/windmilleng/tilt-example-python/blob/master/3-recommended/Tiltfile) contains the following new code:
 
