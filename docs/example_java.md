@@ -223,47 +223,129 @@ Let's see what this looks like!
 | Local Compile | 13.4s |
 {:.benchmark-report}
 
+## Step 3: Why Is the Docker Build So Slow?
 
-## Step 3: Let's Live Update It
+Currently, our image contains a fat exectuable Jar.
 
-When we make a change to a file, we currently have to build an image, deploy new Kubernetes configs,
-and wait for Kubernetes to schedule the pod.
+If we unpacked the fat Jar, we would find that the Jar contains many files
+internally. These files naturally lend themselves to Docker layers. 
+Java Jars were using layer caches before Docker made them cool. How can we take
+advantage of this?
 
-With Tilt, we can skip all of these steps, and instead
-[live_update](live_update_tutorial.html) the pod in place.
-
-Here's our [new Tiltfile](https://github.com/windmilleng/tilt-example-java/blob/master/3-recommended/Tiltfile) 
-with the following new code:
+We've updated [our
+Tiltfile](https://github.com/windmilleng/tilt-example-java/blob/master/3-unpacked/Tiltfile)
+to unpack the Jar in the `build/jar` directory:
 
 ```python
-docker_build(
-  'example-java-image',
-  './build/libs',
-  dockerfile='./Dockerfile',
-  live_update=[
-    sync('./build/libs', '/app')
-  ],
-  entrypoint = 'find *.jar | entr -r java -jar example-0.0.1-SNAPSHOT.jar')
+local_resource(
+  'example-java-compile',
+  './gradlew bootJar && ' +
+  'unzip -o build/libs/example-0.0.1-SNAPSHOT.jar -d build/jar',
+  deps=['src', 'build.gradle'],
+  resource_deps = ['deploy'])
 ```
 
-We've added a `live_update` parameter to `docker_build()` with a `sync` steps.
-They copy the executable Jars from the `./build/libs` into the container.
+We've also updated our [Dockerfile](https://github.com/windmilleng/tilt-example-java/blob/master/3-unpacked/Dockerfile):
 
-We've also added a new parameter: `entrypoint="find *.jar | entr -r java -jar example-0.0.1-SNAPSHOT.jar"`.
+```
+FROM openjdk:8-jre-alpine
 
-`entr` is a tool that automatically restarts a shell command whenever the watched
-file changes. This command restarts our server every time the pod is updated.
+WORKDIR /app
+ADD BOOT-INF/lib /app/lib
+ADD META-INF /app/META-INF
+ADD BOOT-INF/classes /app
 
-Let's see what this looks like:
+ENTRYPOINT java -cp .:./lib/* dev.tilt.example.ExampleApplication
+```
+
+This Dockerfile adds files from `build/jar` in order from least frequently
+used to most frequently used, to improve caching.
+
+The Dockerfile also has a new the entrypoint to load the main application class,
+since we're no longer using an executable Jar.
+
+Let's see what this looks like!
 
 <figure>
-  <a class="is-image" href="https://cloud.tilt.dev/snapshot/AYrwiucLRvXo5pwSu3A=">
+  <a class="is-image" href="https://cloud.tilt.dev/snapshot/AcaQnucLOBUS4TGQauw=">
     <img src="assets/docimg/example-java-image-4.png">
   </a>
   <figcaption>Step 3 complete. Click the screenshot to see an interactive snapshot.</figcaption>
 </figure>
 
-Tilt was able to update the container in less than 10 seconds!
+| Approach | Deploy Time |
+|---|---|
+| Naive | 87.7s |
+| Local Compile | 13.4s |
+| Optimized Dockerfile | 6.5s |
+{:.benchmark-report}
+
+If you don't want to optimize the Dockerfile yourself,
+check out [Jib](https://github.com/GoogleContainerTools/jib)!
+
+Jib is a Java image builder that re-packs Java Jars as container images using
+similar tricks. There are Jib plugins for Maven and Gradle.  The
+[tilt-example-java](https://github.com/windmilleng/tilt-example-java) repo has
+an example
+[Tiltfile](https://github.com/windmilleng/tilt-example-java/blob/master/101-jib/Tiltfile)
+that uses `custom_build` to generate images with Jib.
+
+## Step 4: Let's Live Update It
+
+When we make a change to a file, we currently have to build an image, deploy new
+Kubernetes configs, and wait for Kubernetes to schedule the pod.
+
+With Tilt, we can skip all of these steps, and instead
+[live_update](live_update_tutorial.html) the pod in place.
+
+Here's our [new Tiltfile](https://github.com/windmilleng/tilt-example-java/blob/master/4-recommended/Tiltfile) 
+with the following new code:
+
+```python
+local_resource(
+  'example-java-compile',
+  './gradlew bootJar && ' +
+  'unzip -o build/libs/example-0.0.1-SNAPSHOT.jar -d build/jar-staging && ' +
+  'rsync --inplace --checksum -r build/jar-staging/ build/jar',
+  deps=['src', 'build.gradle'],
+  resource_deps = ['deploy'])
+  
+docker_build(
+  'example-java-image',
+  './build/jar',
+  dockerfile='./Dockerfile',
+  live_update=[
+    sync('./build/jar/BOOT-INF/lib', '/app/lib'),
+    sync('./build/jar/META-INF', '/app/META-INF'),
+    sync('./build/jar/BOOT-INF/classes', '/app'),
+  ],
+  entrypoint = 'find . | entr -r java -noverify -cp .:./lib/* dev.tilt.example.ExampleApplication')
+```
+
+We've added a `live_update` parameter to `docker_build()` with `sync` steps.
+They copy the library and compiled `.class `files from the `./build/jar`
+directory into the container.
+
+We've also added a new parameter: `entrypoint="find . | entr -r java -noverify -cp .:./lib/* dev.tilt.example.ExampleApplication"`
+
+`entr` is a tool that automatically restarts a shell command whenever the watched
+file changes. This command restarts our server every time the pod is updated.
+
+Lastly, our `local_resource` first unzips the jar to `build/jar-staging`, and
+then uses `rsync --checksum` to copy that to `build/jar`.
+Tilt's live_update will copy any files that have been touched.
+`rsync --checksum` copies the directory, but doesn't touch any files that haven't changed.
+
+Let's see what this looks like:
+
+<figure>
+  <a class="is-image" href="https://cloud.tilt.dev/snapshot/AeKPnucLESM6hHyx8HY=">
+    <img src="assets/docimg/example-java-image-5.png">
+  </a>
+  <figcaption>Step 4 complete. Click the screenshot to see an interactive snapshot.</figcaption>
+</figure>
+
+Tilt was able to update the container in less than 5 seconds!
 
 ## Our Recommendation
 
@@ -273,31 +355,31 @@ Tilt was able to update the container in less than 10 seconds!
 |---|---|
 | Naive | 87.7s |
 | Local Compile | 13.4s |
-| With live_update | 9.0s |
+| Optimized Dockerfile | 6.5s |
+| With live_update | 4.8s |
 {:.benchmark-report}
 
 You can try the server here:
 
-[Recommended Structure](https://github.com/windmilleng/tilt-example-java/blob/master/3-recommended)
+[Recommended Structure](https://github.com/windmilleng/tilt-example-java/blob/master/4-recommended)
 
 Congratulations on finishing this guide!
 
 ### Futher Reading
 
-This guide is still a work in progress. There are more optimizations we want to
-add.
+This guide recommends an approach to Java development that shines with Tilt.
 
-Currently, we use Spring's "fat Jar." If we unpacked the fat Jar, we would find
-that the Jar contains many files internally. These files naturally lend themselves
-to Docker layers. These files could be live-updated into the container individually.
-They could even be live-loaded into the JVM, so that the JVM doesn't need to
-reload the Spring libraries each time.
+There are even more optimizations you can add. Many are toolchain-specific. 
+We've heard that you can get the JVM to hot-reload class files
+(e.g. with [Spring Loaded](https://github.com/spring-projects/spring-loaded)) 
+but we've had mixed results using this with live_update.
 
-For a discussion of Docker optimization, see:
+For more discussion of Docker optimization, see:
 
 - [Spring Boot Docker](https://spring.io/guides/topicals/spring-boot-docker/), a
-  discussion of how to better optimize Spring Boot apps for Docker, but many of
-  the lessons are generally applicable to Java apps.
+  discussion of how to better optimize Spring Boot apps for Docker. We used
+  many of the lessons in this guide. There are still more tricks for improving
+  performance in containers.
 - [Jib](https://github.com/GoogleContainerTools/jib), a Java image builder
   that re-packs Java Jars as container images, and integrates well with
   existing Maven or Gradle builds.
