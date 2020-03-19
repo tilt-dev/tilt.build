@@ -1071,7 +1071,7 @@ documents, separated by
             (
            </span>
            <em>
-            registry
+            host
            </em>
            ,
            <em>
@@ -1127,7 +1127,7 @@ documents, separated by
                <ul class="first last simple">
                 <li>
                  <strong>
-                  registry
+                  host
                  </strong>
                  (
                  <code class="xref py py-class docutils literal notranslate">
@@ -1135,7 +1135,7 @@ documents, separated by
                    str
                   </span>
                  </code>
-                 ) &#x2013; The registry that all built images should be renamed to use.
+                 ) &#x2013; host of the registry that all built images should be renamed to use.
                 </li>
                 <li>
                  <strong>
@@ -1153,7 +1153,13 @@ documents, separated by
                    str
                   </span>
                  </code>
-                 ]) &#x2013; The registry to use when referencing images from inside the cluster (i.e. in Kubernetes YAML). For more on this use case,
+                 ]) &#x2013; registry host to use when referencing images from inside the cluster (i.e. in Kubernetes YAML). Only include this arg if it is different from
+                 <code class="docutils literal notranslate">
+                  <span class="pre">
+                   host
+                  </span>
+                 </code>
+                 . For more on this use case,
                  <a class="reference external" href="personal_registry.html#different-urls-from-inside-your-cluster">
                   see this guide
                  </a>
@@ -1193,7 +1199,7 @@ documents, separated by
              Prepend the value of
              <code class="docutils literal notranslate">
               <span class="pre">
-               registry
+               host
               </span>
              </code>
              and a
