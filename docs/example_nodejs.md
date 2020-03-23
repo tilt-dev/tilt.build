@@ -34,7 +34,19 @@ To skip straight to the fully optimized setup, go to this subdirectory:
 Our server is just a few lines long, and all it does is serve us an HTML page:
 
 ```javascript
-// TODO
+const express = require('express');
+const app = express();
+const path = require('path');
+
+app.use(express.static('public'));
+
+app.get('/', function(req, res) {
+    res.sendFile(path.join(__dirname + '/index.html'));
+});
+
+app.listen(8000, () => {
+    console.log('Server running at http://localhost:8000/');
+});
 ```
 
 To start this server on Kubernetes, we need 3 configs:
@@ -116,11 +128,30 @@ k8s_resource('example-nodejs', port_forwards=8000,
 The `local_resource()` call creates a local resource named `deploy`. The second
 argument is the command that it runs.
 
-We've also modified our server itself to read that start time and print the time elapsed:
+We've also modified our server itself to read that start time and display the time elapsed in the HTML it serves:
 ```javascript
-// TODO
+const fs = require('fs');
+let timeSince = 'N/A';
+...
+app.get('/', function(req, res) {
+    res.render('index.mustache', {
+        time: timeSince,
+    });
+});
+
+app.listen(8000, () => {
+    timeSince = getSecsSinceDeploy();
+    console.log('Server running at http://localhost:8000/');
+});
+
+function getSecsSinceDeploy() {
+    let curTimeMs = new Date().getTime();
+    let contents = fs.readFileSync('/app/start-time.txt', 'utf8');
+    let startTimeMs  = parseInt(contents.trim()) / 10**6;
+    return ((curTimeMs - startTimeMs) / 10**3).toFixed(2)
+}
 ```
-Whenever the app starts up, it calls `getSecsSinceDeploy()`, does the math to figure out the time elapsed since the timestamp in `start-time.txt`, and stores that value in a global variable; the app then templates that value into `index.mustache` so that it shows up in the served webpage.
+Whenever the app starts up, it calls `getSecsSinceDeploy()`, does the math to figure out the time elapsed since the timestamp in `start-time.txt`, and stores that value in a global variable; the app then templates that value into `index.mustache` so that it shows up in the served webpage. (We've added a new dep for this purpose: the templating engine [mustache-express](https://www.npmjs.com/package/mustache-express).)
 
 See that button next to the `deploy` resource? Let's click it and see what happens!
 
@@ -133,7 +164,7 @@ See that button next to the `deploy` resource? Let's click it and see what happe
 
 | Approach | Deploy Time (after initial)
 |---|---|
-| Naive | 🤷‍♀️ |
+| Naive | 11.31-14.21s |
 {:.benchmark-report}
 
 If you look closely, the elapsed time displayed in the Tilt sidebar is different
@@ -149,9 +180,19 @@ Our benchmarks show this is slow. Can we do better?
 
 ## Step 2: Why Is the Docker Build So Slow?
 
-The first thing I notice when I click "deploy" is a bunch of logs from `yarn install`; and not just once, but _every dang time_. This is a hint that we can optimize our Dockerfile to be smarter about caching. With a little rearranging, our [new Dockerfile]((https://github.com/windmilleng/tilt-example-nodejs/blob/master/2-optimize-dockerfile/Dockerfile)) looks like this:
+The first thing I notice when I click "deploy" is a bunch of logs from `yarn install`; and not just once, but _every dang time_. This is a hint that we can optimize our Dockerfile to be smarter about caching. With a little rearranging, our [new Dockerfile]((https://github.com/windmilleng/tilt-example-nodejs/blob/master/2-optimized-dockerfile/Dockerfile)) looks like this:
 ```
-# TODO
+FROM node:10
+
+WORKDIR /app
+
+ADD package.json .
+ADD yarn.lock .
+RUN yarn install
+
+ADD . .
+
+ENTRYPOINT [ "node", "/app/index.js" ]
 ```
 
 Here's what it looks like when we build with our new Dockerfile:
@@ -169,8 +210,8 @@ Here's what our timing looks like now:
 
 | Approach | Deploy Time (after initial)
 |---|---|
-| Naive | 🤷‍♀ |
-| Optimized Dockerfile | 🤷‍♀ |
+| Naive | 11.31-14.21s |
+| Optimized Dockerfile | 3.25-4.12s |
 {:.benchmark-report}
 
 Pretty good! But Tilt has some tricks up its sleeve to make it even faster.
@@ -188,9 +229,25 @@ The first thing we need to do is change how our app is invoked: we're going to r
 [Our new Tiltfile](https://github.com/windmilleng/tilt-example-nodejs/blob/master/3-recommended/Tiltfile) contains the following new code:
 
 ```python
-# TODO
+# Add a live_update rule to our docker_build
+congrats = "🎉 Congrats, you ran a live_update! 🎉"
+docker_build('example-nodejs-image', '.',
+    build_args={'node_env': 'development'},
+    entrypoint='yarn run nodemon /app/index.js',
+    live_update=[
+        sync('.', '/app'),
+        run('cd /app && yarn install', trigger=['./package.json', './yarn.lock']),
+
+        # if all that changed was start-time.txt, make sure the server
+        # reloads so that it will reflect the new startup time
+        run('touch /app/index.js', trigger='./start-time.txt'),
+
+        # add a congrats message!
+        run('sed -i "s/Hello cats!/{}/g" /app/views/index.mustache'.
+            format(congrats)),
+])
 ```
-We've added two new parameters to `docker_build` that tell the container to use nodemon:
+We've added some new parameters to `docker_build` that tell the container to use nodemon:
 1. the `entrypoint` parameter overrides the `ENTRYPOINT` specified in the Dockerfile; now when the container executes, it will run `yarn run nodemon /app/index.js`
 2. the `build_args` parameter corresponds to this Dockerfile change:
     ```
@@ -226,8 +283,8 @@ Tilt was able to update the container in less than two seconds! (And a chunk of 
 
 | Approach | Deploy Time (after initial)
 |---|---|
-| Naive | 🤷‍♀ |
-| Optimized Dockerfile | 🤷‍♀ |
+| Naive | 11.31-14.21s |
+| Optimized Dockerfile | 3.25-4.12s |
 | With live_update | 1.1-1.8s |
 {:.benchmark-report}
 
