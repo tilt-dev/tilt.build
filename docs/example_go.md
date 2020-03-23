@@ -253,7 +253,7 @@ We've also added a new parameter: `entrypoint="find . | entr -r ./build/tilt-exa
 `entr` is a tool that automatically restarts a shell command whenever the watched
 file changes. This command restarts our server every time the pod is updated.
 
-Let's see what this looks like:
+Let's see what this new configuration looks like in action:
 
 <figure>
   <a class="is-image" href="https://cloud.tilt.dev/snapshot/AbC5yOYLwib41yocobg=">

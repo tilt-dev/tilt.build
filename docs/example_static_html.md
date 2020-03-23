@@ -172,7 +172,7 @@ The second step runs our script to report the deployment time.
 
 The third step congratulates you on finishing this guide!
 
-Let's see what this looks like:
+Let's see what this new configuration looks like in action:
 
 <figure>
   <a class="is-image" href="https://cloud.tilt.dev/snapshot/AZik6-ULEyDHLV-ILmY=">

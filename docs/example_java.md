@@ -336,7 +336,7 @@ then uses `rsync --checksum` to copy that to `build/jar`.
 Tilt's live_update will copy any files that have been touched.
 `rsync --checksum` copies the directory, but doesn't touch any files that haven't changed.
 
-Let's see what this looks like:
+Let's see what this new configuration looks like in action:
 
 <figure>
   <a class="is-image" href="https://cloud.tilt.dev/snapshot/AeKPnucLESM6hHyx8HY=">
