@@ -28,6 +28,8 @@ To skip straight to the fully optimized setup, go to this subdirectory:
 
 [Recommended Tiltfile](https://github.com/windmilleng/tilt-example-nodejs/tree/master/3-recommended)
 
+_Quick note: Tilt's first deployment of a service takes a few seconds longer than subsequent ones, due to some behind-the-scenes setup. Measurements in this guide focus on non-initial builds._
+
 ## Step 0: The Simplest Deployment
 
 Our server is just a few lines long, and all it does is serve us an HTML page:
