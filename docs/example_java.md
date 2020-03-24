@@ -28,6 +28,8 @@ To skip straight to the fully optimized setup, go to this subdirectory:
 
 [Recommended Tiltfile](https://github.com/windmilleng/tilt-example-java/blob/master/3-recommended/Tiltfile)
 
+_Quick note: Tilt's first deployment of a service takes a few seconds longer than subsequent ones, due to some behind-the-scenes setup. Measurements in this guide focus on non-initial builds._
+
 ## Step 0: The Simplest Deployment
 
 Our server uses Sprint Web for routing requests.
@@ -365,7 +367,7 @@ You can try the server here:
 
 Congratulations on finishing this guide!
 
-### Futher Reading
+## Further Reading
 
 This guide recommends an approach to Java development that shines with Tilt.
 
@@ -386,7 +388,7 @@ For more discussion of Docker optimization, see:
 - [A Jib/Tiltfile example](https://github.com/windmilleng/tilt-example-java/blob/master/101-jib/Tiltfile),
   which demonstrates how to use custom_build to integrate with Jib.
   
-Examples in other languages:
+### Examples in other languages:
 
 <ul>
   {% for page in site.data.examples %}

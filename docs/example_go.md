@@ -26,6 +26,8 @@ To skip straight to the fully optimized setup, go to this subdirectory:
 
 [Recommended Tiltfile](https://github.com/windmilleng/tilt-example-go/blob/master/3-recommended/Tiltfile)
 
+_Quick note: Tilt's first deployment of a service takes a few seconds longer than subsequent ones, due to some behind-the-scenes setup. Measurements in this guide focus on non-initial builds._
+
 ## Step 0: The Simplest Deployment
 
 Our server uses [gorilla/mux](http://www.gorillatoolkit.org/pkg/mux) for routing requests:
