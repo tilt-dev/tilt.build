@@ -18,8 +18,7 @@ We'll use Tilt to:
 - Measure the time from a code change to a new process
 - Optimize that time for fast feedback
 
-Obviously, this particular server doesn't do much, but it's still a useful example to confirm that Tilt is working
-as expected in your environment.
+This particular example server doesn't do much, but it's useful to confirm that Tilt is working as expected in your environment.
 
 All the code is in this repo:
 
@@ -40,7 +39,7 @@ const path = require('path');
 
 app.use(express.static('public'));
 
-app.get('/', function(req, res) {
+app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname + '/index.html'));
 });
 
@@ -133,7 +132,7 @@ We've also modified our server itself to read that start time and display the ti
 const fs = require('fs');
 let timeSince = 'N/A';
 ...
-app.get('/', function(req, res) {
+app.get('/', (req, res) => {
     res.render('index.mustache', {
         time: timeSince,
     });
@@ -216,7 +215,7 @@ Here's what our timing looks like now:
 
 Pretty good! But Tilt has some tricks up its sleeve to make it even faster.
 
-## Step 3: Let's Optimize It EVEN MORE
+## Step 3: Let's Optimize It _Even More_
 
 When we make a change to a file, we currently have to build an image, deploy new Kubernetes configs,
 and wait for Kubernetes to schedule the pod.
@@ -258,9 +257,9 @@ We've added some new parameters to `docker_build` that tell the container to use
     ```
    Together, these changes mean that when we build this Dockerfile via this Tiltfile, we set the env var `$NODE_ENV=development`, and our `yarn install` call will install dev dependencies.
 
-With the help of Tilt, we've done a pretty cool thing: we've set it up so this Dockerfile can run the app for development (when invoked via Tilt) or for production (when invoked otherwise)---because we at Tilt think that the closer your dev and prod configs are, the more unpleasant surprises you avoid.
+With the help of Tilt, we've done a pretty cool thing: we've set it up so this Dockerfile can run the app for development (when invoked via Tilt) or for production (when invoked otherwise).
 
-The other new addition to our Tiltfile is the `live_update` arg to `docker_build`, which enables super-fast in-place updates of your app. When a [live_update](https://docs.tilt.dev/live_update_tutorial.html) is triggered, Tilt will, in order:
+The other new addition to our Tiltfile is the `live_update` argument to `docker_build`, which enables super-fast in-place updates of your app. When a [live_update](https://docs.tilt.dev/live_update_tutorial.html) is triggered, Tilt will, in order:
 1. Sync the code from the current directory (`.`) into the container at directory `/app`
 2. IF `package.json` or `yarn.lock` has changed, run `yarn install`
 3. Poke `index.js` if necessary to make sure that nodemon reloads the server
@@ -275,7 +274,7 @@ Let's see what this new configuration looks like in action:
   <figcaption>The result of a live_update. (Click the screenshot to see an interactive view.)</figcaption>
 </figure>
 
-Tilt was able to update the container in less than two seconds! (And a chunk of that time was overhead from nodemon, not from Tilt.)
+Tilt and nodemon together updated the container in less than two seconds!
 
 ## Our Recommendation
 
@@ -292,7 +291,7 @@ You can try the server here:
 
 [Recommended Structure](https://github.com/windmilleng/tilt-example-nodejs/blob/master/3-recommended)
 
-Obviously, this is the simplest possible server we could write; but we hope that this gives you a starting point for running your NodeJS app via Tilt!
+This is a very simple example, but we hope it gives you a good starting point for running your NodeJS app via Tilt!
 
 ## Further Reading
 

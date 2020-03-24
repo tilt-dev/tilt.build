@@ -17,8 +17,7 @@ We'll use Tilt to:
 - Measure the time from a code change to a new process
 - Optimize that time for fast feedback
 
-Obviously, this particular server doesn't do much, but it's still a useful example to confirm that Tilt is working
-as expected in your environment.
+This particular example server doesn't do much, but it's useful to confirm that Tilt is working as expected in your environment.
 
 All the code is in this repo:
 
@@ -203,7 +202,7 @@ Here's what our timing looks like now:
 
 Pretty good! But Tilt has some tricks up its sleeve to make it even faster.
 
-## Step 3: Let's Optimize It EVEN MORE
+## Step 3: Let's Optimize It _Even More_
 
 When we make a change to a file, we currently have to build an image, deploy new Kubernetes configs,
 and wait for Kubernetes to schedule the pod.
@@ -232,7 +231,7 @@ docker_build('example-python-image', '.', build_args={'flask_env': 'development'
 ])
 ```
 
-We've added two new parameters to `docker_build()`: `build_args` amd `live_update`. Let's look at the latter first.
+We've added two new parameters to `docker_build()`: `build_args` and `live_update`. Let's look at the latter first.
 
 When a [live_update](https://docs.tilt.dev/live_update_tutorial.html) is triggered, Tilt will, in order:
 1. Sync the code from the current directory (`.`) into the container at directory `/app`.
@@ -275,7 +274,7 @@ You can try the server here:
 
 [Recommended Structure](https://github.com/windmilleng/tilt-example-python/blob/master/3-recommended)
 
-Obviously, this is the simplest possible server we could write; but we hope that this gives you a starting point for running your Flask app (or other Python app) via Tilt!
+This is a very simple example, but we hope it gives you a good starting point for running your Flask app (or other Python app) via Tilt!
 
 ## Further Reading
 
