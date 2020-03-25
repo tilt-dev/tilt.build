@@ -28,8 +28,6 @@ To skip straight to the fully optimized setup, go to this subdirectory:
 
 [Recommended Tiltfile](https://github.com/windmilleng/tilt-example-java/blob/master/3-recommended/Tiltfile)
 
-_Quick note: Tilt's first deployment of a service takes a few seconds longer than subsequent ones, due to some behind-the-scenes setup. Measurements in this guide focus on non-initial builds._
-
 ## Step 0: The Simplest Deployment
 
 Our server uses Sprint Web for routing requests.
@@ -151,7 +149,7 @@ Let's click the button on the `deploy` resource and see what happens!
   <figcaption>Step 1 complete. Click the screenshot to see an interactive snapshot.</figcaption>
 </figure>
 
-| Approach | Deploy Time |
+| Approach | Deploy Time[^1] |
 |---|---|
 | Naive | 87.7s |
 {:.benchmark-report}
@@ -399,3 +397,5 @@ For more discussion of Docker optimization, see:
      {% endif %}
   {% endfor %}
 </ul>
+
+[^1]: Tilt's first deployment of a service takes a few seconds longer than subsequent ones, due to some behind-the-scenes setup. Measurements in this guide focus on non-initial builds.
