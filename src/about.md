@@ -23,7 +23,6 @@ but also have teammates in Berlin, Germany and Richmond, VA.
 
   <ul>
     <li><a href="frontend-eng.html">Frontend Engineer</a></li>
-    <li><a href="devtools-eng.html">Developer Tools Engineer</a></li>
   </ul>
 </div>
 
