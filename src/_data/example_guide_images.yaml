@@ -8,6 +8,9 @@ default:
   dockerfile:
     title: A Docker build making good use of caching
     caption: Dependency installation now uses the cache instead of actually running a long, slow command. (Click the screenshot to see an interactive view.)
+  optimized:
+    title: Step 2 complete.
+    caption: Step 2 complete. (Click the screenshot to see an interactive snapshot.)
   live_update:
     title: Tilt state after a live_update
     caption: The result of a live_update. (Click the screenshot to see an interactive view.)
@@ -51,8 +54,6 @@ java:
   optimized:
     img: example-java-image-3.png
     url: https://cloud.tilt.dev/snapshot/AabuiucL7NKgfiTa1uI=
-    title: Step 2 complete.
-    caption: Step 2 complete. (Click the screenshot to see an interactive snapshot.)
   unpacked:
     img: example-java-image-4.png
     url: https://cloud.tilt.dev/snapshot/AcaQnucLOBUS4TGQauw=
@@ -61,3 +62,16 @@ java:
   live_update:
     img: example-java-image-5.png
     url: https://cloud.tilt.dev/snapshot/AeKPnucLESM6hHyx8HY=
+go:
+  base:
+    img: example-go-image-1.png
+    url: https://cloud.tilt.dev/snapshot/AZzpx-YL_-WxDmRFwlk=
+  measured:
+    img: example-go-image-2.png
+    url: https://cloud.tilt.dev/snapshot/AaLb3ucLQ6BD9uBuppM=
+  optimized:
+    img: example-go-image-3.png
+    url: https://cloud.tilt.dev/snapshot/AcK4yOYLQObve-87cQ4=
+  live_update:
+    img: example-go-image-4.png
+    url: https://cloud.tilt.dev/snapshot/AbC5yOYLwib41yocobg=

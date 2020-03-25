@@ -1,6 +1,7 @@
 ---
 title: "Example: Go"
 layout: docs
+lang: go
 ---
 
 The best indicator of a healthy development workflow is a short feedback loop.
@@ -84,12 +85,8 @@ watch your server come up there.
 When it's ready, you will see the status icon turn green. The logs in the
 bottom pane will display "Serving files on port 8000."
 
-<figure>
-  <a class="is-image" href="https://cloud.tilt.dev/snapshot/AZzpx-YL_-WxDmRFwlk=">
-    <img src="assets/docimg/example-go-image-1.png">
-  </a>
-  <figcaption>The server is up! Click the screenshot to see an interactive snapshot.</figcaption>
-</figure>
+{% assign case = "base" %}
+{% include example_guide_image.html %}
 
 ## Step 1: Let's Add Benchmark Trickery
 
@@ -124,12 +121,8 @@ elapsed, then display this in both logs and HTML.
 
 Let's click the button on the `deploy` resource and see what happens!
 
-<figure>
-  <a class="is-image" href="https://cloud.tilt.dev/snapshot/AbakyOYLWWvW6J2BJFo=">
-    <img src="assets/docimg/example-go-image-2.png">
-  </a>
-  <figcaption>Step 1 complete. Click the screenshot to see an interactive snapshot.</figcaption>
-</figure>
+{% assign case = "measured" %}
+{% include example_guide_image.html %}
 
 | Approach | Deploy Time[^1] |
 |---|---|
@@ -197,12 +190,9 @@ directories.
 
 Let's see what this looks like!
 
-<figure>
-  <a class="is-image" href="https://cloud.tilt.dev/snapshot/AcK4yOYLQObve-87cQ4=">
-    <img src="assets/docimg/example-go-image-3.png">
-  </a>
-  <figcaption>Step 2 complete. Click the screenshot to see an interactive snapshot.</figcaption>
-</figure>
+{% assign case = "optimized" %}
+{% include example_guide_image.html %}
+
 
 | Approach | Deploy Time |
 |---|---|
@@ -248,12 +238,8 @@ file changes. This command restarts our server every time the pod is updated.
 
 Let's see what this new configuration looks like in action:
 
-<figure>
-  <a class="is-image" href="https://cloud.tilt.dev/snapshot/AbC5yOYLwib41yocobg=">
-    <img src="assets/docimg/example-go-image-4.png">
-  </a>
-  <figcaption>Step 3 complete. Click the screenshot to see an interactive snapshot.</figcaption>
-</figure>
+{% assign case = "live_update" %}
+{% include example_guide_image.html %}
 
 Tilt was able to update the container in less than 2 seconds!
 
