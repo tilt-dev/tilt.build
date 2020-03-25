@@ -137,7 +137,7 @@ Let's click the button on the `deploy` resource and see what happens!
   <figcaption>Step 1 complete. Click the screenshot to see an interactive snapshot.</figcaption>
 </figure>
 
-| Approach | Deploy Time |
+| Approach | Deploy Time[^1] |
 |---|---|
 | Naive | 4.2s |
 {:.benchmark-report}
@@ -281,7 +281,7 @@ You can try the server here:
 
 Congratulations on finishing this guide!
 
-### Futher Reading
+## Further Reading
 
 This guide recommends an approach to Go development that shines with Tilt.
 
@@ -290,13 +290,13 @@ their trade-offs, we're working on a talk and workshop:
 
 [The Quest For The Fastest Deployment Time](https://github.com/windmilleng/fast)
 
-Other sample Go projects:
+### Other sample Go projects:
 
 - [abc123](https://github.com/windmilleng/abc123) a mini microservice app with a Go server called `fe`.
 - The [Live Update Tutorial](live_update_tutorial.html), which optimizes a Go server.
 - [Servantes](https://github.com/windmilleng/servantes), our multi-language microservice demo app.
 
-Examples in other languages:
+### Examples in other languages:
 
 <ul>
   {% for page in site.data.examples %}
@@ -307,3 +307,5 @@ Examples in other languages:
      {% endif %}
   {% endfor %}
 </ul>
+
+[^1]: Tilt's first deployment of a service takes a few seconds longer than subsequent ones, due to some behind-the-scenes setup. Measurements in this guide focus on non-initial builds.
