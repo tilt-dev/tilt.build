@@ -1,6 +1,7 @@
 ---
 title: "Example: Java"
 layout: docs
+lang: java
 ---
 
 The best indicator of a healthy development workflow is a short feedback loop.
@@ -95,12 +96,8 @@ watch your server come up there.
 When it's ready, you will see the status icon turn green. The logs in the
 bottom pane will display "Tomcat initialized with port(s): 8000."
 
-<figure>
-  <a class="is-image" href="https://cloud.tilt.dev/snapshot/AfbdiucLHi33cqQwrG4=">
-    <img src="assets/docimg/example-java-image-1.png">
-  </a>
-  <figcaption>The server is up! Click the screenshot to see an interactive snapshot.</figcaption>
-</figure>
+{% assign case = "base" %}
+{% include example_guide_image.html %}
 
 ## Step 1: Let's Add Benchmark Trickery
 
@@ -135,12 +132,8 @@ elapsed, then display this in both logs and HTML.
 
 Let's click the button on the `deploy` resource and see what happens!
 
-<figure>
-  <a class="is-image" href="https://cloud.tilt.dev/snapshot/AeDqiucLr-00XLJpiWc=">
-    <img src="assets/docimg/example-java-image-2.png">
-  </a>
-  <figcaption>Step 1 complete. Click the screenshot to see an interactive snapshot.</figcaption>
-</figure>
+{% assign case = "measured" %}
+{% include example_guide_image.html %}
 
 | Approach | Deploy Time[^1] |
 |---|---|
@@ -202,12 +195,8 @@ Finally, we've modified the Dockerfile to only copy the executable jar.
 
 Let's see what this looks like!
 
-<figure>
-  <a class="is-image" href="https://cloud.tilt.dev/snapshot/AabuiucL7NKgfiTa1uI=">
-    <img src="assets/docimg/example-java-image-3.png">
-  </a>
-  <figcaption>Step 2 complete. Click the screenshot to see an interactive snapshot.</figcaption>
-</figure>
+{% assign case = "optimized" %}
+{% include example_guide_image.html %}
 
 | Approach | Deploy Time |
 |---|---|
@@ -217,7 +206,7 @@ Let's see what this looks like!
 
 ## Step 3: Why Is the Docker Build So Slow?
 
-Currently, our image contains a fat exectuable Jar.
+Currently, our image contains a fat executable Jar.
 
 If we unpacked the fat Jar, we would find that the Jar contains many files
 internally. These files naturally lend themselves to Docker layers. 
@@ -258,12 +247,8 @@ since we're no longer using an executable Jar.
 
 Let's see what this looks like!
 
-<figure>
-  <a class="is-image" href="https://cloud.tilt.dev/snapshot/AcaQnucLOBUS4TGQauw=">
-    <img src="assets/docimg/example-java-image-4.png">
-  </a>
-  <figcaption>Step 3 complete. Click the screenshot to see an interactive snapshot.</figcaption>
-</figure>
+{% assign case = "unpacked" %}
+{% include example_guide_image.html %}
 
 | Approach | Deploy Time |
 |---|---|
@@ -330,12 +315,8 @@ Tilt's live_update will copy any files that have been touched.
 
 Let's see what this new configuration looks like in action:
 
-<figure>
-  <a class="is-image" href="https://cloud.tilt.dev/snapshot/AeKPnucLESM6hHyx8HY=">
-    <img src="assets/docimg/example-java-image-5.png">
-  </a>
-  <figcaption>Step 4 complete. Click the screenshot to see an interactive snapshot.</figcaption>
-</figure>
+{% assign case = "live_update" %}
+{% include example_guide_image.html %}
 
 Tilt was able to update the container in less than 5 seconds!
 

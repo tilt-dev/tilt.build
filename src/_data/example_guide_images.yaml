@@ -41,3 +41,23 @@ python:
     img: example-python-deploy-button.png
     title: Button to trigger a deploy
     caption: Button to trigger a deploy
+java:
+  base:
+    img: example-java-image-1.png
+    url: https://cloud.tilt.dev/snapshot/AfbdiucLHi33cqQwrG4=
+  measured:
+    img: example-java-image-2.png
+    url: https://cloud.tilt.dev/snapshot/AeDqiucLr-00XLJpiWc=
+  optimized:
+    img: example-java-image-3.png
+    url: https://cloud.tilt.dev/snapshot/AabuiucL7NKgfiTa1uI=
+    title: Step 2 complete.
+    caption: Step 2 complete. (Click the screenshot to see an interactive snapshot.)
+  unpacked:
+    img: example-java-image-4.png
+    url: https://cloud.tilt.dev/snapshot/AcaQnucLOBUS4TGQauw=
+    title: Step 3 complete.
+    caption: Step 3 complete. (Click the screenshot to see an interactive snapshot.)
+  live_update:
+    img: example-java-image-5.png
+    url: https://cloud.tilt.dev/snapshot/AeKPnucLESM6hHyx8HY=
