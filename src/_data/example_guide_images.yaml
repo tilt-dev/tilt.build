@@ -24,3 +24,7 @@ nodejs:
   live_update:
     img: example-nodejs-3-liveupdate.png
     url: https://cloud.tilt.dev/snapshot/AYqb3OcLW4OITnmpIAE=
+csharp:
+  base:
+    img: example-csharp-0-base.png
+    url: https://cloud.tilt.dev/snapshot/AeCx3ucLBiMYtPnPTuc=
