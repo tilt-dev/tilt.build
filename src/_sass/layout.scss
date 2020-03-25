@@ -1405,4 +1405,14 @@ table.benchmark-report {
     text-align: center;
     min-width: $spacing-unit * 4;
   }
+
+  // keep footnotes from messing up alignment of text in cells
+  sup, sub {
+    vertical-align: baseline;
+    position: relative;
+    top: -0.4em;
+  }
+  sub {
+    top: 0.4em;
+  }
 }

@@ -85,7 +85,7 @@ When the server is ready, you will see the status icon turn green. The log pane 
 > Serving Flask app "app"
 
 <figure>
-  <a class="is-image" title="The server is up!" href="https://cloud.tilt.dev/snapshot/AZSXjOYLDi6w9IoCnCI=">
+  <a class="is-image" title="The server is up!" href="https://cloud.tilt.dev/snapshot/AcTG0ucLlISGcy3NXSU=">
     <img src="assets/docimg/example-python-serverup.png">
   </a>
   <figcaption>The server is up! (Click the screenshot to see an interactive view.)</figcaption>
@@ -149,13 +149,13 @@ See that button next to the `deploy` resource?
 Let's click it and see what happens!
 
 <figure>
-  <a class="is-image" title="Result of clicking the button  on the “deploy” resource" href="https://cloud.tilt.dev/snapshot/AcyUjOYLaeKVxQ1XZjk=">
+  <a class="is-image" title="Result of clicking the button  on the “deploy” resource" href="https://cloud.tilt.dev/snapshot/AeTJ0ucLJor0hnfdg7s=">
     <img src="assets/docimg/example-python-naive-deploy.png">
   </a>
   <figcaption>Clicking the button triggers the "deploy" local_resource, which in turn kicks off an update to the server. (Click the screenshot to see an interactive view.)</figcaption>
 </figure>
 
-| Approach | Deploy Time (after initial)
+| Approach | Deploy Time[^1]
 |---|---|
 | Naive | 10-11s |
 {:.benchmark-report}
@@ -184,7 +184,7 @@ ADD . .
 Here's what it looks like when we build with our new Dockerfile:
 
 <figure>
-  <a class="is-image" title="Result of clicking the button  on the “deploy” resource" href="https://cloud.tilt.dev/snapshot/AZjdiecL6XcZBu5kO3Y=">
+  <a class="is-image" title="A Docker build making smart use of caching" href="https://cloud.tilt.dev/snapshot/AZjdiecL6XcZBu5kO3Y=">
     <img src="assets/docimg/example-python-optimized-dockerfile.png">
   </a>
   <figcaption>"RUN pip install..." now uses the cache instead of actually running a long, slow command. (Click the screenshot to see an interactive view.)</figcaption>
@@ -194,7 +194,7 @@ Hooray, we're now using the cache instead of running `pip install` for every sin
 
 Here's what our timing looks like now:
 
-| Approach | Deploy Time (after initial)
+| Approach | Deploy Time
 |---|---|
 | Naive | 10-11s |
 | Optimized Dockerfile | 2.5-3.1s |
@@ -251,7 +251,7 @@ Together, these changes mean that when we build this Dockerfile via this Tiltfil
 Let's see what this new configuration looks like in action:
 
 <figure>
-  <a class="is-image" title="Tilt state after a live_update" href="https://cloud.tilt.dev/snapshot/AdSLjOYLYo5KREvMpd4=">
+  <a class="is-image" title="Tilt state after a live_update" href="https://cloud.tilt.dev/snapshot/AfLO0ucLqMHzz2JA5ls=">
     <img src="assets/docimg/example-python-liveupdate.png">
   </a>
   <figcaption>The result of a live_update. (Click the screenshot to see an interactive view.)</figcaption>
@@ -263,7 +263,7 @@ Tilt was able to update the container in less than two seconds! (And a chunk of 
 
 ### Final Score
 
-| Approach | Deploy Time (after initial)
+| Approach | Deploy Time
 |---|---|
 | Naive | 10-11s |
 | Optimized Dockerfile | 2.5-3.1s |
@@ -294,3 +294,5 @@ This is a very simple example, but we hope it gives you a good starting point fo
      {% endif %}
   {% endfor %}
 </ul>
+
+[^1]: Tilt's first deployment of a service takes a few seconds longer than subsequent ones, due to some behind-the-scenes setup. Measurements in this guide focus on non-initial builds.

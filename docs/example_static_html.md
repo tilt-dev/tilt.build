@@ -128,7 +128,7 @@ Let's click the button on the `deploy` resource and see what happens!
   <figcaption>Step 1 complete. Click the screenshot to see an interactive snapshot.</figcaption>
 </figure>
 
-| Approach | Deploy Time |
+| Approach | Deploy Time[^1] |
 |---|---|
 | Naive | 1-2s |
 {:.benchmark-report}
@@ -211,3 +211,5 @@ Other examples:
      {% endif %}
   {% endfor %}
 </ul>
+
+[^1]: Tilt's first deployment of a service takes a few seconds longer than subsequent ones, due to some behind-the-scenes setup. Measurements in this guide focus on non-initial builds.
