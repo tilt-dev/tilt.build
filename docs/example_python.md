@@ -17,8 +17,7 @@ We'll use Tilt to:
 - Measure the time from a code change to a new process
 - Optimize that time for fast feedback
 
-Obviously, this particular server doesn't do much, but it's still a useful example to confirm that Tilt is working
-as expected in your environment.
+This particular example server doesn't do much, but it's useful to confirm that Tilt is working as expected in your environment.
 
 All the code is in this repo:
 
@@ -174,7 +173,7 @@ Our benchmarks show this is slow. Can we do better?
 
 ## Step 2: Why Is the Docker Build So Slow?
 
-The first thing I notice when I click "deploy" is a bunch of logs from `pip install`; and not just once, but _every dang time_. This is a hint that we can optimize our Dockerfile to be smarter about caching. With a little rearranging, our [new Dockerfile]((https://github.com/windmilleng/tilt-example-python/blob/master/2-optimize-dockerfile/Dockerfile)) looks like this:
+The first thing I notice when I click "deploy" is a bunch of logs from `pip install`; and not just once, but _every dang time_. This is a hint that we can optimize our Dockerfile to be smarter about caching. With a little rearranging, our [new Dockerfile]((https://github.com/windmilleng/tilt-example-python/blob/master/2-optimized-dockerfile/Dockerfile)) looks like this:
 ```
 ADD requirements.txt .
 RUN pip install -r requirements.txt
@@ -203,7 +202,7 @@ Here's what our timing looks like now:
 
 Pretty good! But Tilt has some tricks up its sleeve to make it even faster.
 
-## Step 3: Let's Optimize It EVEN MORE
+## Step 3: Let's Optimize It _Even More_
 
 When we make a change to a file, we currently have to build an image, deploy new Kubernetes configs,
 and wait for Kubernetes to schedule the pod.
@@ -232,11 +231,11 @@ docker_build('example-python-image', '.', build_args={'flask_env': 'development'
 ])
 ```
 
-We've added two new parameters to `docker_build()`: `build args` amd `live_update`. Let's look at the latter first.
+We've added two new parameters to `docker_build()`: `build_args` and `live_update`. Let's look at the latter first.
 
 When a [live_update](https://docs.tilt.dev/live_update_tutorial.html) is triggered, Tilt will, in order:
 1. Sync the code from the current directory (`.`) into the container at directory `/app`.
-2. IF `requirements.txt` has change, run `pip install`
+2. IF `requirements.txt` has changed, run `pip install`
 3. Poke `app.py` if necessary to make sure that Flask reloads the server
 4. Congratulate you on finishing this guide!
 
@@ -249,7 +248,7 @@ ENV FLASK_ENV $flask_env
 ```
 Together, these changes mean that when we build this Dockerfile via this Tiltfile, our Flask app will run in development mode.  When in development mode, Flask watches for file changes and reloads the server when necessary.
 
-Let's see what this new configuration looks like:
+Let's see what this new configuration looks like in action:
 
 <figure>
   <a class="is-image" title="Tilt state after a live_update" href="https://cloud.tilt.dev/snapshot/AfLO0ucLqMHzz2JA5ls=">
@@ -275,7 +274,7 @@ You can try the server here:
 
 [Recommended Structure](https://github.com/windmilleng/tilt-example-python/blob/master/3-recommended)
 
-Obviously, this is the simplest possible server we could write; but we hope that this gives you a starting point for running your Flask app (or other Python app) via Tilt!
+This is a very simple example, but we hope it gives you a good starting point for running your Flask app (or other Python app) via Tilt!
 
 ## Further Reading
 
