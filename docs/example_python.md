@@ -1,6 +1,7 @@
 ---
 title: "Example: Python + Flask"
 layout: docs
+lang: python
 ---
 
 The best indicator of a healthy development workflow is a short feedback loop.
@@ -84,12 +85,8 @@ watch your server come up there.
 When the server is ready, you will see the status icon turn green. The log pane will display some output from Flask, starting with:
 > Serving Flask app "app"
 
-<figure>
-  <a class="is-image" title="The server is up!" href="https://cloud.tilt.dev/snapshot/AcTG0ucLlISGcy3NXSU=">
-    <img src="assets/docimg/example-python-serverup.png">
-  </a>
-  <figcaption>The server is up! (Click the screenshot to see an interactive view.)</figcaption>
-</figure>
+{% assign case = "base" %}
+{% include example_guide_image.html %}
 
 ## Step 1: Let's Add Benchmark Trickery
 
@@ -135,19 +132,14 @@ if __name__ == "__main__":
 Whenever the app starts up, it calls `get_update_time_secs()`, does the math to figure out the time elapsed since the timestamp in `start-time.txt`, and stores that value in a global variable; when the app serves `index.html`, it passes that value into the HTML template so that it shows up in the webpage.
 
 See that button next to the `deploy` resource?
-<figure>
-  <img src="assets/docimg/example-python-deploy-button.png" title="Button to trigger a deploy">
-  <figcaption>Button to trigger a deploy</figcaption>
-</figure>
+
+{% assign case = "deploy_button" %}
+{% include example_guide_image.html %}
 
 Let's click it and see what happens!
 
-<figure>
-  <a class="is-image" title="Result of clicking the button  on the “deploy” resource" href="https://cloud.tilt.dev/snapshot/AeTJ0ucLJor0hnfdg7s=">
-    <img src="assets/docimg/example-python-naive-deploy.png">
-  </a>
-  <figcaption>Clicking the button triggers the "deploy" local_resource, which in turn kicks off an update to the server. (Click the screenshot to see an interactive view.)</figcaption>
-</figure>
+{% assign case = "measured" %}
+{% include example_guide_image.html %}
 
 | Approach | Deploy Time[^1]
 |---|---|
@@ -176,12 +168,8 @@ ADD . .
 
 Here's what it looks like when we build with our new Dockerfile:
 
-<figure>
-  <a class="is-image" title="A Docker build making smart use of caching" href="https://cloud.tilt.dev/snapshot/AZjdiecL6XcZBu5kO3Y=">
-    <img src="assets/docimg/example-python-optimized-dockerfile.png">
-  </a>
-  <figcaption>"RUN pip install..." now uses the cache instead of actually running a long, slow command. (Click the screenshot to see an interactive view.)</figcaption>
-</figure>
+{% assign case = "dockerfile" %}
+{% include example_guide_image.html %}
 
 Hooray, we're now using the cache instead of running `pip install` for every single build. (For more on the principles at work here, [check out this guide](https://pythonspeed.com/articles/docker-caching-model/).)
 
@@ -243,12 +231,8 @@ Together, these changes mean that when we build this Dockerfile via this Tiltfil
 
 Let's see what this new configuration looks like in action:
 
-<figure>
-  <a class="is-image" title="Tilt state after a live_update" href="https://cloud.tilt.dev/snapshot/AfLO0ucLqMHzz2JA5ls=">
-    <img src="assets/docimg/example-python-liveupdate.png">
-  </a>
-  <figcaption>The result of a live_update. (Click the screenshot to see an interactive view.)</figcaption>
-</figure>
+{% assign case = "live_update" %}
+{% include example_guide_image.html %}
 
 Tilt was able to update the container in less than two seconds! (And a chunk of that time was overhead from Flask, not from Tilt.)
 
