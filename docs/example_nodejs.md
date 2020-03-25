@@ -1,7 +1,7 @@
-
 ---
 title: "Example: NodeJS"
 layout: docs
+lang: nodejs
 ---
 
 The best indicator of a healthy development workflow is a short feedback loop.
@@ -87,12 +87,8 @@ watch your server come up there.
 When the server is ready, you will see the status icon turn green. The log pane will display:
 > Server running at http://localhost:8000/
 
-<figure>
-  <a class="is-image" title="The server is up!" href="https://cloud.tilt.dev/snapshot/todo">
-    <img src="assets/docimg/example-nodejs-serverup.png">
-  </a>
-  <figcaption>The server is up! (Click the screenshot to see an interactive view.)</figcaption>
-</figure>
+{% assign case = "base" %}
+{% include example_guide_image.html %}
 
 ## Step 1: Let's Add Benchmark Trickery
 
@@ -150,16 +146,12 @@ function getSecsSinceDeploy() {
     return ((curTimeMs - startTimeMs) / 10**3).toFixed(2)
 }
 ```
-Whenever the app starts up, it calls `getSecsSinceDeploy()`, does the math to figure out the time elapsed since the timestamp in `start-time.txt`, and stores that value in a global variable; the app then templates that value into `index.mustache` so that it shows up in the served webpage. (We've added a new dep for this purpose: the templating engine [mustache-express](https://www.npmjs.com/package/mustache-express).)
+Whenever the app starts up, it calls `getSecsSinceDeploy()`, calculates the time elapsed, and displays that value in the served webpage. (We've added a new dep for this purpose: the templating engine [mustache-express](https://www.npmjs.com/package/mustache-express).)
 
 See that button next to the `deploy` resource? Let's click it and see what happens!
 
-<figure>
-  <a class="is-image" title="Result of clicking the button  on the “deploy” resource" href="https://cloud.tilt.dev/snapshot/todo">
-    <img src="assets/docimg/example-nodejs-naive-deploy.png">
-  </a>
-  <figcaption>Clicking the button triggers the "deploy" local_resource, which in turn kicks off an update to the server. (Click the screenshot to see an interactive view.)</figcaption>
-</figure>
+{% assign content = site.data.example_guides.nodejs.measured %}
+{% include example_guide_image.html %}
 
 | Approach | Deploy Time[^1]
 |---|---|
@@ -196,14 +188,10 @@ ENTRYPOINT [ "node", "/app/index.js" ]
 
 Here's what it looks like when we build with our new Dockerfile:
 
-<figure>
-  <a class="is-image" title="Result of clicking the button  on the “deploy” resource" href="https://cloud.tilt.dev/snapshot/todo">
-    <img src="assets/docimg/example-nodejs-optimized-dockerfile.png">
-  </a>
-  <figcaption>"RUN pip install..." now uses the cache instead of actually running a long, slow command. (Click the screenshot to see an interactive view.)</figcaption>
-</figure>
+{% assign case = "dockerfile" %}
+{% include example_guide_image.html %}
 
-Hooray, we're now using the cache instead of running `yarn install` for every single build. (For more on the principles at work here, [check out this guide](http://bitjudo.com/blog/2014/03/13/building-efficient-dockerfiles-node-dot-js/).)
+Hooray, we're now using the cache instead of running `yarn install` for every single build. (For more on the principles at work here, [check out this guide](https://nodejs.org/en/docs/guides/nodejs-docker-webapp/#creating-a-dockerfile).)
 
 Here's what our timing looks like now:
 
@@ -247,8 +235,8 @@ docker_build('example-nodejs-image', '.',
 ])
 ```
 We've added some new parameters to `docker_build` that tell the container to use nodemon:
-1. the `entrypoint` parameter overrides the `ENTRYPOINT` specified in the Dockerfile; now when the container executes, it will run `yarn run nodemon /app/index.js`
-2. the `build_args` parameter corresponds to this Dockerfile change:
+1. The `entrypoint` parameter overrides the `ENTRYPOINT` specified in the Dockerfile; now when the container executes, it will run `yarn run nodemon /app/index.js`
+2. The `build_args` parameter corresponds to this Dockerfile change:
     ```
     # Default value; will be overridden by build_args, if passed
     ARG node_env=production
@@ -267,12 +255,8 @@ The other new addition to our Tiltfile is the `live_update` argument to `docker_
 
 Let's see what this new configuration looks like in action:
 
-<figure>
-  <a class="is-image" title="Tilt state after a live_update" href="https://cloud.tilt.dev/snapshot/todo">
-    <img src="assets/docimg/example-nodejs-liveupdate.png">
-  </a>
-  <figcaption>The result of a live_update. (Click the screenshot to see an interactive view.)</figcaption>
-</figure>
+{% assign case = "live_update" %}
+{% include example_guide_image.html %}
 
 Tilt and nodemon together updated the container in less than two seconds!
 

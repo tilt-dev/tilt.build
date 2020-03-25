@@ -1,0 +1,24 @@
+{% assign defaults = site.data.example_guide_images.default[case] %}
+{% assign content = site.data.example_guide_images[page.lang][case] %}
+
+{% if content.title %}{% assign title = content.title %}
+{% else %}{% assign title = defaults.title %}
+{% endif %}
+
+{% if content.caption %}{% assign caption = content.caption %}
+{% else %}{% assign caption = defaults.caption %}
+{% endif %}
+
+<figure>
+    {% if content.url %}
+    <a class="is-image" href="{{ content.url }}">
+    {% endif %}
+
+    <img src="assets/docimg/{{ content.img }}" title="{{ title }}">
+
+    {% if content.url %}
+    </a>
+    {% endif %}
+
+    <figcaption>{{ caption }}</figcaption>
+</figure>
