@@ -28,8 +28,6 @@ To skip straight to the fully optimized setup, go to this subdirectory:
 
 [Recommended Tiltfile](https://github.com/windmilleng/tilt-example-nodejs/tree/master/3-recommended)
 
-_Quick note: Tilt's first deployment of a service takes a few seconds longer than subsequent ones, due to some behind-the-scenes setup. Measurements in this guide focus on non-initial builds._
-
 ## Step 0: The Simplest Deployment
 
 Our server is just a few lines long, and all it does is serve us an HTML page:
@@ -163,7 +161,7 @@ See that button next to the `deploy` resource? Let's click it and see what happe
   <figcaption>Clicking the button triggers the "deploy" local_resource, which in turn kicks off an update to the server. (Click the screenshot to see an interactive view.)</figcaption>
 </figure>
 
-| Approach | Deploy Time (after initial)
+| Approach | Deploy Time[^1]
 |---|---|
 | Naive | 11.31-14.21s |
 {:.benchmark-report}
@@ -209,7 +207,7 @@ Hooray, we're now using the cache instead of running `yarn install` for every si
 
 Here's what our timing looks like now:
 
-| Approach | Deploy Time (after initial)
+| Approach | Deploy Time
 |---|---|
 | Naive | 11.31-14.21s |
 | Optimized Dockerfile | 3.25-4.12s |
@@ -282,7 +280,7 @@ Tilt and nodemon together updated the container in less than two seconds!
 
 ### Final Score
 
-| Approach | Deploy Time (after initial)
+| Approach | Deploy Time
 |---|---|
 | Naive | 11.31-14.21s |
 | Optimized Dockerfile | 3.25-4.12s |
@@ -312,3 +310,5 @@ This is a very simple example, but we hope it gives you a good starting point fo
      {% endif %}
   {% endfor %}
 </ul>
+
+[^1]: Tilt's first deployment of a service takes a few seconds longer than subsequent ones, due to some behind-the-scenes setup. Measurements in this guide focus on non-initial builds.
