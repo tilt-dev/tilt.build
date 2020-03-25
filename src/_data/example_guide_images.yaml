@@ -75,3 +75,13 @@ go:
   live_update:
     img: example-go-image-4.png
     url: https://cloud.tilt.dev/snapshot/AbC5yOYLwib41yocobg=
+static_html:
+  base:
+    img: example-static-html-image-1.png
+    url: https://cloud.tilt.dev/snapshot/AejkyuULr2AjWu50Eck=
+  measured:
+    img: example-static-html-image-2.png
+    url: https://cloud.tilt.dev/snapshot/AcD7yuUL6_d3neimWHk=
+  live_update:
+    img: example-static-html-image-3.png
+    url: https://cloud.tilt.dev/snapshot/AZik6-ULEyDHLV-ILmY=
