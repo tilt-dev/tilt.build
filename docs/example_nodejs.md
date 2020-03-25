@@ -245,8 +245,6 @@ We've added some new parameters to `docker_build` that tell the container to use
     ```
    Together, these changes mean that when we build this Dockerfile via this Tiltfile, we set the env var `$NODE_ENV=development`, and our `yarn install` call will install dev dependencies.
 
-With the help of Tilt, we've done a pretty cool thing: we've set it up so this Dockerfile can run the app for development (when invoked via Tilt) or for production (when invoked otherwise).
-
 The other new addition to our Tiltfile is the `live_update` argument to `docker_build`, which enables super-fast in-place updates of your app. When a [live_update](https://docs.tilt.dev/live_update_tutorial.html) is triggered, Tilt will, in order:
 1. Sync the code from the current directory (`.`) into the container at directory `/app`
 2. IF `package.json` or `yarn.lock` has changed, run `yarn install`

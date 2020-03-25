@@ -246,7 +246,7 @@ ARG flask_env=production
 
 ENV FLASK_ENV $flask_env
 ```
-Together, these changes mean that when we build this Dockerfile via this Tiltfile, our Flask app will run in development mode.  When in development mode, Flask watches for file changes and reloads the server when necessary. (With the help of Tilt, we've done a pretty cool thing: we've set it up so this Dockerfile can run the app for development---when invoked via Tilt---or for production---when invoked otherwise.)
+Together, these changes mean that when we build this Dockerfile via this Tiltfile, our Flask app will run in development mode.  When in development mode, Flask watches for file changes and reloads the server when necessary.
 
 Let's see what this new configuration looks like in action:
 
