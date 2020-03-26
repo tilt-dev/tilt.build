@@ -18,7 +18,7 @@ We'll use Tilt to:
 
 - Run the server on Kubernetes
 - Measure the time from a code change to a new process
-- Optimize that time for fast feedback
+- Optimize that time for faster feedback
 
 All the code is in this repo:
 
@@ -54,7 +54,7 @@ public class IndexController {
 }
 ```
 
-To start this server on Kubernetes, we need 3 configs:
+To start this server on Kubernetes, we need three config files:
 
 1) A [Dockerfile](https://github.com/windmilleng/tilt-example-java/blob/master/0-base/Dockerfile) that builds the image
 
@@ -69,7 +69,7 @@ k8s_resource('example-java', port_forwards=8000)
 ```
 
 The first line tells Tilt to build an image with the name `example-java-image`
-in the directory `.` (the current directory).
+in the current directory.
 
 The second line tells Tilt to load the Kubernetes
 [Deployment](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/#creating-a-deployment)
@@ -77,7 +77,7 @@ YAML. The image name in the `docker_build` call must match the container `image`
 reference in the `example-java` Deployment.
 
 The last line configures port-forwarding so that your server is
-reachable at http://localhost:8000/. The resource name in the `k8s_resource` call
+reachable at `localhost:8000`. The resource name in the `k8s_resource` call
 must match the Deployment's `metadata.name` in `kubernetes.yaml`.
 
 Try it! Run:
@@ -106,14 +106,7 @@ bottom pane will display "Tomcat initialized with port(s): 8000."
 
 Before we try to make this faster, let's measure it.
 
-In addition to running things in your cluster, Tilt can run commands locally.
-You can direct Tilt to execute existing scripts or arbitrary shell commands on
-your own machine.
-
-We want to measure the time from code change to new process. To do that, we'll
-use [`local_resource`](local_resource.html), which lets you locally
-run scripts, shell code, or servers, and manage them from your sidebar like any
-other Tilt resource.
+Using [`local_resource`](local_resource.html), you can direct Tilt to execute existing scripts or arbitrary shell commands on your own machine, and manage them from your sidebar like any other Tilt resource. We're going to use this functionality to benchmark our deployments.
 
 First, we add a `local_resource` to our
 [Tiltfile](https://github.com/windmilleng/tilt-example-java/blob/master/1-measured/Tiltfile)
@@ -160,8 +153,7 @@ there are many benchmarks we care about -- the time to build the image, the time
 to schedule the process, and the time until the server is ready to serve
 traffic. 
 
-The Tilt sidebar gives you some default benchmarks, _and_ the tools to capture
-your own benchmarks.
+Tilt offers you some default benchmarks, _and_ the tools to capture your own.
 
 Our benchmarks show this is slow. Can we do better?
 
