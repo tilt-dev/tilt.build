@@ -125,7 +125,7 @@ elapsed, then display this in both logs and HTML.
 Let's click the button on the `deploy` resource and see what happens!
 
 <figure>
-  <a class="is-image" href="https://cloud.tilt.dev/snapshot/AbakyOYLWWvW6J2BJFo=">
+  <a class="is-image" href="https://cloud.tilt.dev/snapshot/AaLb3ucLQ6BD9uBuppM=">
     <img src="assets/docimg/example-go-image-2.png">
   </a>
   <figcaption>Step 1 complete. Click the screenshot to see an interactive snapshot.</figcaption>
