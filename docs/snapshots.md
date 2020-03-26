@@ -24,8 +24,8 @@ If you click this button a modal will appear.
 
 ![snapshot modal](assets/img/snapshot-modal.png)
 
-If you haven't already connected Tilt to TiltCloud, you'll need to click a couple
-buttons to create a TiltCloud account:
+If you haven't already connected Tilt to Tilt Cloud, you'll need to click a couple
+buttons to create a Tilt Cloud account:
 
 ![link to TiltCloud](assets/img/link-to-tiltcloud.png)
 
@@ -35,7 +35,7 @@ URL that looks something like this: [https://cloud.tilt.dev/snapshot/AYSV59gLhM3
 Click the button that appeared to see the snapshot. Or you can take the generated link, post it in a Slack channel, bug report or on Twitter so _anyone_ will be able to what you were seeing in Tilt when you ran in to an issue.
 
 ## Managing Snapshots
-You can view and delete all of the snapshots associated with your account on TiltCloud. Go to [https://cloud.tilt.dev/snapshots](https://cloud.tilt.dev/snapshots) (this is also linked from the bottom of the "Share Snapshot" window). This will display a list of all of your snapshots, with a button to delete the ones you don't want anymore.
+You can view and delete all of the snapshots associated with your account on Tilt Cloud. Go to [https://cloud.tilt.dev/snapshots](https://cloud.tilt.dev/snapshots) (this is also linked from the bottom of the "Share Snapshot" window). This will display a list of all of your snapshots, with a button to delete the ones you don't want anymore.
 
 ![snapshots list](assets/img/snapshots-list.png)
 
@@ -56,7 +56,7 @@ directive to your Tiltfile.
 ### Q: If I delete a snapshot is any data retained?
 No. If you delete a snapshot all associated data is removed from the data store. There is no soft delete.
 
-### Q: What data do you store when I create a TiltCloud account?
+### Q: What data do you store when I create a Tilt Cloud account?
 Our database table for users looks like this:
 
 ```

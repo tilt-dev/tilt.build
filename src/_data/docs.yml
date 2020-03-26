@@ -29,8 +29,6 @@
     href: file_changes.html
   - title: Play and Pause Resources with Manual Update Control
     href: manual_update_control.html
-  - title: Share Errors and Cluster State with Snapshots
-    href: snapshots.html
   - title: Resource Dependencies
     href: resource_dependencies.html
   - title: Local or Occasional Workflows with Local Resource
@@ -40,6 +38,18 @@
   # todo: this will go under its own Debuggers section when we have enough articles to merit it
   - title: Python Debuggers
     href: debuggers_python.html
+
+- title: Tilt Cloud
+  items:
+  - title: Sign in to Tilt Cloud
+    href: sign_in_tilt_cloud.html
+  - title: Tilt Teams
+    href: tilt_teams.html
+  - title: Last Seen Versions
+    href: last_seen_versions.html    
+  - title: Share Errors and Cluster State with Snapshots
+    href: snapshots.html
+
 - title: Tilt Cookbooks
   items:
   - title: Tiltfile Concepts
