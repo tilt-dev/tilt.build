@@ -10,5 +10,5 @@ Tilt is designed to have a single [team](./teams.html) be associated with a sing
 Commit the change so that all folks who run Tilt will now have that in their Tiltfile. You'll now be able to see when a user last ran Tilt and the version of Tilt they are using.
 
 <figure>
-    <img src="/assets/img/last-seen-versions.png" class="no-shadow" alt="New team">
+    <img src="/assets/img/last-seen-versions.png" class="no-shadow" alt="Last seen versions">
 </figure>
