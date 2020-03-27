@@ -22,11 +22,11 @@ We'll use Tilt to:
 
 All the code is in this repo:
 
-[tilt-example-java](https://github.com/windmilleng/tilt-example-java)
+[tilt-example-java](https://github.com/windmilleng/tilt-example-java){:.attached-above}
 
 To skip straight to the fully optimized setup, go to this subdirectory:
 
-[Recommended Tiltfile](https://github.com/windmilleng/tilt-example-java/blob/master/3-recommended/Tiltfile)
+[Recommended Tiltfile](https://github.com/windmilleng/tilt-example-java/blob/master/3-recommended/Tiltfile){:.attached-above}
 
 ## Step 0: The Simplest Deployment
 
@@ -361,7 +361,7 @@ Tilt was able to update the container in less than 5 seconds!
 
 You can try the server here:
 
-[Recommended Structure](https://github.com/windmilleng/tilt-example-java/blob/master/4-recommended)
+[Recommended Structure](https://github.com/windmilleng/tilt-example-java/blob/master/4-recommended){:.attached-above}
 
 Congratulations on finishing this guide!
 
