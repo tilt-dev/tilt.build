@@ -161,7 +161,7 @@ local_resource(
 )
 ```
 
-We've added a `local_resource()` that compiles the executable Jar locally with Gradle.
+We've added a `local_resource()` that compiles the executable Jar locally with Gradle. This is p
 
 We've adjusted the [Dockerfile](https://github.com/windmilleng/tilt-example-csharp/blob/master/2-build-locally/Dockerfile) so that it only includes the build output under `out`:
 
@@ -170,6 +170,12 @@ FROM mcr.microsoft.com/dotnet/core/aspnet:3.1
 COPY . /app/out
 WORKDIR /app/out
 ENTRYPOINT ["dotnet", "hello-tilt.dll"]
+```
+
+We also modified the context that we pass the `docker_build` call to only include the output directory:
+
+```python
+docker_build('hello-tilt', 'out', dockerfile='Dockerfile')
 ```
 
 Let's see what this looks like!
