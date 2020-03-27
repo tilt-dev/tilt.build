@@ -76,7 +76,7 @@ The first line tells Tilt to build an image with the name `hello-tilt` in the di
 
 The second line tells Tilt to load the Kubernetes Deployment YAML. The image name in the `docker_build` call must match the container `image` reference in the `hello-tilt` Deployment.
 
-The last line configures port-forwarding so that your server is reachable at `localhost:8080`. The resource name in the `k8s_resource` call must match the Deployment's `metadata.name.
+The last line configures port-forwarding so that your server is reachable at `localhost:8080`. The resource name in the `k8s_resource` call must match the Deployment's `metadata.name`.
 
 Try it! Run:
 
