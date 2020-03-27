@@ -85,8 +85,12 @@ watch your server come up there.
 When the server is ready, you will see the status icon turn green. The log pane will display some output from Flask, starting with:
 > Serving Flask app "app"
 
-{% assign case = "base" %}
-{% include example_guide_image.html %}
+{% include example_guide_image.html
+    img="example-python-0-base.png"
+    url="https://cloud.tilt.dev/snapshot/AcTG0ucLlISGcy3NXSU="
+    title="The server is up!"
+    caption="The server is up! (Click the screenshot to see an interactive view.)"
+%}
 
 ## Step 1: Let's Add Benchmark Trickery
 
@@ -138,8 +142,12 @@ See that button next to the `deploy` resource?
 
 Let's click it and see what happens!
 
-{% assign case = "measured" %}
-{% include example_guide_image.html %}
+{% include example_guide_image.html
+    img="example-python-1-measured.png"
+    url="https://cloud.tilt.dev/snapshot/AeTJ0ucLJor0hnfdg7s="
+    title="Result of clicking the button on the 'deploy' resource."
+    caption="Clicking the button triggers the 'deploy' local_resource, which in turn kicks off an update to the server. (Click the screenshot to see an interactive view.)"
+%}
 
 | Approach | Deploy Time[^1]
 |---|---|
@@ -168,8 +176,12 @@ ADD . .
 
 Here's what it looks like when we build with our new Dockerfile:
 
-{% assign case = "dockerfile" %}
-{% include example_guide_image.html %}
+{% include example_guide_image.html
+    img="example-python-2-dockerfile.png"
+    url="https://cloud.tilt.dev/snapshot/AZjdiecL6XcZBu5kO3Y="
+    title="A Docker build making good use of caching."
+    caption="Dependency installation now uses the cache instead of actually running a long, slow command. (Click the screenshot to see an interactive view.)"
+%}
 
 Hooray, we're now using the cache instead of running `pip install` for every single build. (For more on the principles at work here, [check out this guide](https://pythonspeed.com/articles/docker-caching-model/).)
 
@@ -231,8 +243,12 @@ Together, these changes mean that when we build this Dockerfile via this Tiltfil
 
 Let's see what this new configuration looks like in action:
 
-{% assign case = "live_update" %}
-{% include example_guide_image.html %}
+{% include example_guide_image.html
+    img="example-python-3-liveupdate.png"
+    url="https://cloud.tilt.dev/snapshot/AfLO0ucLqMHzz2JA5ls="
+    title="Tilt state after a live_update."
+    caption="The result of a live_update. (Click the screenshot to see an interactive view.)."
+%}
 
 Tilt was able to update the container in less than two seconds! (And a chunk of that time was overhead from Flask, not from Tilt.)
 

@@ -1,5 +1,7 @@
-{% if not include.title %}
-    {% assign include.title = include.caption %}
+{% assign title = include.caption %}
+
+{% if include.title %}
+    {% assign title = include.title %}
 {% endif %}
 
 <figure>
@@ -7,7 +9,7 @@
     <a class="is-image" href="{{ include.url }}">
     {% endif %}
 
-    <img src="assets/docimg/{{ include.img }}" title="{{ include.title }}">
+    <img src="assets/docimg/{{ include.img }}" title="{{ title }}">
 
     {% if include.url %}
     </a>

@@ -84,7 +84,12 @@ watch your server come up there.
 When it's ready, you will see the status icon turn green. The logs in the
 bottom pane will display "Serving files on port 8000."
 
-{% include example_guide_image.html img="example-go-image-1.png" url="https://cloud.tilt.dev/snapshot/AZzpx-YL_-WxDmRFwlk=" caption="The server is up! (Click the screenshot to see an interactive view.)" title="The server is up!" %}
+{% include example_guide_image.html
+    img="example-go-image-1.png"
+    url="https://cloud.tilt.dev/snapshot/AZzpx-YL_-WxDmRFwlk="
+    title="The server is up!"
+    caption="The server is up! (Click the screenshot to see an interactive view.)"
+%}
 
 ## Step 1: Let's Add Benchmark Trickery
 
@@ -119,8 +124,12 @@ elapsed, then display this in both logs and HTML.
 
 Let's click the button on the `deploy` resource and see what happens!
 
-{% assign case = "measured" %}
-{% include example_guide_image.html %}
+{% include example_guide_image.html
+    img="example-go-image-2.png"
+    url="https://cloud.tilt.dev/snapshot/Ady3yOYL5yQatiGjVL0="
+    title="Result of clicking the button on the 'deploy' resource."
+    caption="Clicking the button triggers the 'deploy' local_resource, which in turn kicks off an update to the server. (Click the screenshot to see an interactive view.)"
+%}
 
 | Approach | Deploy Time[^1] |
 |---|---|
@@ -188,8 +197,12 @@ directories.
 
 Let's see what this looks like!
 
-{% assign case = "optimized" %}
-{% include example_guide_image.html %}
+{% include example_guide_image.html
+    img="example-go-image-3.png"
+    url="https://cloud.tilt.dev/snapshot/AcK4yOYLQObve-87cQ4="
+    title="Step 2 complete."
+    caption="Step 2 complete. (Click the screenshot to see an interactive snapshot.)"
+%}
 
 
 | Approach | Deploy Time |
@@ -236,8 +249,12 @@ file changes. This command restarts our server every time the pod is updated.
 
 Let's see what this new configuration looks like in action:
 
-{% assign case = "live_update" %}
-{% include example_guide_image.html %}
+{% include example_guide_image.html
+    img="example-go-image-4.png"
+    url="https://cloud.tilt.dev/snapshot/AbC5yOYLwib41yocobg="
+    title="Tilt state after a live_update."
+    caption="The result of a live_update. (Click the screenshot to see an interactive view.)"
+%}
 
 Tilt was able to update the container in less than 2 seconds!
 

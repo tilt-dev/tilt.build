@@ -87,8 +87,12 @@ watch your server come up there.
 When the server is ready, you will see the status icon turn green. The log pane will display:
 > Server running at http://localhost:8000/
 
-{% assign case = "base" %}
-{% include example_guide_image.html %}
+{% include example_guide_image.html
+    img="example-nodejs-0-base.png"
+    url="https://cloud.tilt.dev/snapshot/AaCZ3OcLBq71xO1QuQo="
+    title="The server is up!"
+    caption="The server is up! (Click the screenshot to see an interactive view.)"
+%}
 
 ## Step 1: Let's Add Benchmark Trickery
 
@@ -144,8 +148,12 @@ Whenever the app starts up, it calls `getSecsSinceDeploy()`, calculates the time
 
 See that button next to the `deploy` resource? Let's click it and see what happens!
 
-{% assign content = site.data.example_guides.nodejs.measured %}
-{% include example_guide_image.html %}
+{% include example_guide_image.html
+    img="example-nodejs-1-measured.png"
+    url="https://cloud.tilt.dev/snapshot/AaSV3OcLJGqj-U_V8Tg="
+    title="Result of clicking the button on the 'deploy' resource."
+    caption="Clicking the button triggers the 'deploy' local_resource, which in turn kicks off an update to the server. (Click the screenshot to see an interactive view.)"
+%}
 
 | Approach | Deploy Time[^1]
 |---|---|
@@ -181,8 +189,12 @@ ENTRYPOINT [ "node", "/app/index.js" ]
 
 Here's what it looks like when we build with our new Dockerfile:
 
-{% assign case = "dockerfile" %}
-{% include example_guide_image.html %}
+{% include example_guide_image.html
+    img="example-nodejs-2-dockerfile.png"
+    url="https://cloud.tilt.dev/snapshot/AZ6a3OcLaxcONn6KqF8="
+    title="A Docker build making good use of caching."
+    caption="Dependency installation now uses the cache instead of actually running a long, slow command. (Click the screenshot to see an interactive view.)"
+%}
 
 Hooray, we're now using the cache instead of running `yarn install` for every single build. (For more on the principles at work here, [check out this guide](https://nodejs.org/en/docs/guides/nodejs-docker-webapp/#creating-a-dockerfile).)
 
@@ -246,8 +258,12 @@ The other new addition to our Tiltfile is the `live_update` argument to `docker_
 
 Let's see what this new configuration looks like in action:
 
-{% assign case = "live_update" %}
-{% include example_guide_image.html %}
+{% include example_guide_image.html
+    img="example-nodejs-3-liveupdate.png"
+    url="https://cloud.tilt.dev/snapshot/AYqb3OcLW4OITnmpIAE="
+    title="Tilt state after a live_update."
+    caption="The result of a live_update. (Click the screenshot to see an interactive view.)"
+%}
 
 Tilt and nodemon together updated the container in less than two seconds!
 

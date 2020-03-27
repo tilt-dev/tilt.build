@@ -34,7 +34,6 @@ To skip straight to the fully optimized setup, go to this subdirectory:
 Our server uses Sprint Web for routing requests.
 
 ```java
- 
 package dev.tilt.example;
 
 import org.springframework.stereotype.Controller;
@@ -96,8 +95,12 @@ watch your server come up there.
 When it's ready, you will see the status icon turn green. The logs in the
 bottom pane will display "Tomcat initialized with port(s): 8000."
 
-{% assign case = "base" %}
-{% include example_guide_image.html %}
+{% include example_guide_image.html
+    img="example-java-image-1.png"
+    url="https://cloud.tilt.dev/snapshot/AfbdiucLHi33cqQwrG4="
+    title="The server is up!"
+    caption="The server is up! (Click the screenshot to see an interactive view.)"
+%}
 
 ## Step 1: Let's Add Benchmark Trickery
 
@@ -132,8 +135,12 @@ elapsed, then display this in both logs and HTML.
 
 Let's click the button on the `deploy` resource and see what happens!
 
-{% assign case = "measured" %}
-{% include example_guide_image.html %}
+{% include example_guide_image.html
+    img="example-java-image-2.png"
+    url="https://cloud.tilt.dev/snapshot/AeDqiucLr-00XLJpiWc="
+    title="Result of clicking the button on the 'deploy' resource."
+    caption="Clicking the button triggers the 'deploy' local_resource, which in turn kicks off an update to the server. (Click the screenshot to see an interactive view.)"
+%}
 
 | Approach | Deploy Time[^1] |
 |---|---|
@@ -195,8 +202,12 @@ Finally, we've modified the Dockerfile to only copy the executable jar.
 
 Let's see what this looks like!
 
-{% assign case = "optimized" %}
-{% include example_guide_image.html %}
+{% include example_guide_image.html
+    img="example-java-image-3.png"
+    url="https://cloud.tilt.dev/snapshot/AabuiucL7NKgfiTa1uI="
+    title="Step 2 complete."
+    caption="Step 2 complete. (Click the screenshot to see an interactive snapshot.)"
+%}
 
 | Approach | Deploy Time |
 |---|---|
@@ -247,8 +258,12 @@ since we're no longer using an executable Jar.
 
 Let's see what this looks like!
 
-{% assign case = "unpacked" %}
-{% include example_guide_image.html %}
+{% include example_guide_image.html
+    img="example-java-image-4.png"
+    url="https://cloud.tilt.dev/snapshot/AcaQnucLOBUS4TGQauw="
+    title="Step 3 complete."
+    caption="Step 3 complete. (Click the screenshot to see an interactive snapshot.)"
+%}
 
 | Approach | Deploy Time |
 |---|---|
@@ -315,8 +330,12 @@ Tilt's live_update will copy any files that have been touched.
 
 Let's see what this new configuration looks like in action:
 
-{% assign case = "live_update" %}
-{% include example_guide_image.html %}
+{% include example_guide_image.html
+    img="example-java-image-5.png"
+    url="https://cloud.tilt.dev/snapshot/AeKPnucLESM6hHyx8HY="
+    title="Tilt state after a live_update."
+    caption="The result of a live_update. (Click the screenshot to see an interactive view.)"
+%}
 
 Tilt was able to update the container in less than 5 seconds!
 
