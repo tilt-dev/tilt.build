@@ -161,7 +161,7 @@ local_resource(
 )
 ```
 
-We've added a `local_resource()` that compiles the executable Jar locally with Gradle. This is p
+We've added a `local_resource()` that compiles the executable Jar locally with Gradle.
 
 We've adjusted the [Dockerfile](https://github.com/windmilleng/tilt-example-csharp/blob/master/2-build-locally/Dockerfile) so that it only includes the build output under `out`:
 
