@@ -3,13 +3,17 @@ title: Tilt
 layout: home
 ---
 
-# Tilt Up and Get Stuff Done
+# Microservices, Managed
 
-## Tilt manages local development instances for teams that deploy to Kubernetes.
+## The Missing Tool for Kubernetes Dev
 
 <div class="u-blockTwoThirds">
-Get started easily, get more done, and never play twenty questions with <code>kubectl</code> ever again.
+Tilt lets everyone on your team run, update, and explore your app, as they edit.
+<br>
+<br>
+Teams that use CI for Production need Tilt for Development.
 </div>
+
 
 <div class="flexblock u-marginTop1_25 u-marginBottom1_5">
 <a href="{{site.docsurl}}install.html" class="brandButton u-marginBottomUnit u-marginRightUnit">
@@ -34,14 +38,11 @@ Get started easily, get more done, and never play twenty questions with <code>ku
   <div class="col-3of4 u-maxWidth100OnMobile">
   <h3 class="u-minHeight72OnMobile">
     <div class="h3-icon u-showOnlyOnMobile">{% svg assets/svg/local.svg width="65" height="72" %}</div>
-    Transition easily from any setup
+    The Right Tool
   </h3>
 
   <div class="u-marginBottom0_5">
-  Tilt is super fast to set up for greenfield projects, but it really shines
-  when your setup requires some “extra love” (and even then it’s still pretty
-  quick!) Any setup, any architecture, no matter how complex.
-  Any engineer can run <code>tilt up</code> to see the app live instantly.
+  Run your whole app, from database to frontend, in one place. Edit in your IDE and see your services update. Use a gorgeous web UI to dig into components. Tilt gets distributed system development.
   </div>
 
   <div>
@@ -57,13 +58,11 @@ Get started easily, get more done, and never play twenty questions with <code>ku
   <div class="col-3of4 u-maxWidth100OnMobile">
   <h3 class="u-minHeight72OnMobile">
     <div class="h3-icon u-showOnlyOnMobile">{% svg assets/svg/shareable.svg width="65" height="72" %}</div>
-    Update services quickly
+    Move Fast
   </h3>
 
   <div class="u-marginBottom0_5">
-  Tilt watches your filesystem and updates your servers in seconds so you can spend
-  more time getting stuff done and less time watching paint dry. Tilt makes even
-  the most complicated setups feel snappy again — and that’s no easy task.
+  Stop waiting for image builds by updating servers in seconds. Stop playing 20 questions with kubectl and see your errors in one UI automatically, wherever they come from. Tilt keeps you in sync and in flow.
   </div>
 
   <div>
@@ -79,13 +78,12 @@ Get started easily, get more done, and never play twenty questions with <code>ku
   <div class="col-3of4 u-maxWidth100OnMobile">
   <h3 class="u-minHeight72OnMobile">
     <div class="h3-icon u-showOnlyOnMobile">{% svg assets/svg/observable.svg width="65" height="72" %}</div>
-    See problems instantly
+    Ready For Your Team
   </h3>
 
   <div class="u-marginBottom0_5">
-  Stop playing 20 questions with <code>kubectl</code> each time your app misbehaves.
-  Tilt collects problems from across tools and services into one UI.
-  One place to see build breakages, yaml typos, crash loops, and request exceptions.
+  Use the flexibility of a Tiltfile to recycle existing configs, scripts, and patterns. Offer the options your teammates want. Support users and measure KPIs with the Tilt Cloud SaaS. Tilt knows dev is a team sport.
+
   </div>
 
   <div>
