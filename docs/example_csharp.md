@@ -60,7 +60,7 @@ namespace hello_tilt.Pages
 }
 ```
 
-To start this server on Kubernetes, we need three configs:
+To start this server on Kubernetes, we need three config files:
 
 1. A [Dockerfile](https://github.com/windmilleng/tilt-example-csharp/blob/master/0-base/hello-tilt/Dockerfile) that builds the image
 2. A [Kubernetes deployment](https://github.com/windmilleng/tilt-example-csharp/blob/master/0-base/kubernetes.yaml) that runs the image
