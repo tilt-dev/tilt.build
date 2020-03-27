@@ -1,7 +1,6 @@
 ---
 title: "Example: Go"
 layout: docs
-lang: go
 ---
 
 The best indicator of a healthy development workflow is a short feedback loop.
@@ -85,8 +84,7 @@ watch your server come up there.
 When it's ready, you will see the status icon turn green. The logs in the
 bottom pane will display "Serving files on port 8000."
 
-{% assign case = "base" %}
-{% include example_guide_image.html %}
+{% include example_guide_image.html img="example-go-image-1.png" url="https://cloud.tilt.dev/snapshot/AZzpx-YL_-WxDmRFwlk=" caption="The server is up! (Click the screenshot to see an interactive view.)" title="The server is up!" %}
 
 ## Step 1: Let's Add Benchmark Trickery
 

@@ -1,24 +1,17 @@
-{% assign defaults = site.data.example_guide_images.default[case] %}
-{% assign content = site.data.example_guide_images[page.lang][case] %}
-
-{% if content.title %}{% assign title = content.title %}
-{% else %}{% assign title = defaults.title %}
-{% endif %}
-
-{% if content.caption %}{% assign caption = content.caption %}
-{% else %}{% assign caption = defaults.caption %}
+{% if not include.title %}
+    {% assign include.title = include.caption %}
 {% endif %}
 
 <figure>
-    {% if content.url %}
-    <a class="is-image" href="{{ content.url }}">
+    {% if include.url %}
+    <a class="is-image" href="{{ include.url }}">
     {% endif %}
 
-    <img src="assets/docimg/{{ content.img }}" title="{{ title }}">
+    <img src="assets/docimg/{{ include.img }}" title="{{ include.title }}">
 
-    {% if content.url %}
+    {% if include.url %}
     </a>
     {% endif %}
 
-    <figcaption>{{ caption }}</figcaption>
+    <figcaption>{{ include.caption }}</figcaption>
 </figure>
