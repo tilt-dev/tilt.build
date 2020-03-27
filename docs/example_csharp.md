@@ -16,7 +16,7 @@ We'll use Tilt to:
 
 - Run the server on Kubernetes
 - Measure the time from a code change to a new process
-- Optimize that time for fast feedback
+- Optimize that time for faster feedback
 
 This particular example server doesn't do much, but it's useful to confirm that Tilt is working as expected in your environment.
 
