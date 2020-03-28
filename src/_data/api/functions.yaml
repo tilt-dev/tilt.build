@@ -36,6 +36,7 @@ functions:
 - read_yaml_stream
 - restart_container
 - run
+- set_team
 - struct
 - sync
 - trigger_mode
