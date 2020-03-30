@@ -9,7 +9,7 @@ The continuously changing general product direction of Tilt and Tilt Cloud is ba
 Comment on linked issues or [create a new one](https://github.com/windmilleng/tilt). [Contact us](/contact.html) using your preferred method, including emailing Victor Wu, Head of Product at <a href="mailto:victor@tilt.dev">victor@tilt.dev</a>. 
 
 ## Tilt Cloud
-Tilt Cloud is the integrated companion experience to Tilt, empowering software developers to better collaborate in teams, and help developer experience (DX) owners manage consistent and elevated DX experiences across a software organization. Tilt Cloud solves problems in three broad categories: Release, support, and measure.
+[Tilt Cloud](https://docs.tilt.dev/sign_in_tilt_cloud.html) is the integrated companion experience to Tilt, empowering software developers to better collaborate in teams, and help developer experience (DX) owners manage consistent and elevated DX experiences across a software organization. Tilt Cloud solves problems in three broad categories: Release, support, and measure.
 
 ### Release
 Ensure folks are using the right version of Tilt.
