@@ -119,12 +119,12 @@ We've also modified our server to read that start itme, calculate the time elaps
 
 Let's click the button on the `deploy` resource and see what happens!
 
-<figure>
-  <a class="is-image" href="https://cloud.tilt.dev/snapshot/AdKa5ucLVfFH0lRxn7I=">
-    <img src="assets/docimg/example-csharp-image-2.png">
-  </a>
-  <figcaption>Step 1 complete. Click the screenshot to see an interactive snapshot.</figcaption>
-</figure>
+{% include example_guide_image.html
+    img="example-csharp-image-2.png"
+    url="https://cloud.tilt.dev/snapshot/AdKa5ucLVfFH0lRxn7I="
+    title="Step 1 complete."
+    caption="Step 1 complete. Click the screenshot to see an interactive snapshot"
+%}
 
 | Approach | Deploy Time[^1] |
 |---|---|
@@ -161,7 +161,7 @@ local_resource(
 )
 ```
 
-We've added a `local_resource()` that compiles the executable Jar locally with Gradle.
+We've added a `local_resource()` that compiles the executable locally with `dotnet`.
 
 We've adjusted the [Dockerfile](https://github.com/windmilleng/tilt-example-csharp/blob/master/2-build-locally/Dockerfile) so that it only includes the build output under `out`:
 
@@ -180,12 +180,12 @@ docker_build('hello-tilt', 'out', dockerfile='Dockerfile')
 
 Let's see what this looks like!
 
-<figure>
-  <a class="is-image" href="https://cloud.tilt.dev/snapshot/AdC35ucLJSe0a4XNTFc=">
-    <img src="assets/docimg/example-csharp-image-3.png">
-  </a>
-  <figcaption>Step 2 complete. Click the screenshot to see an interactive snapshot.</figcaption>
-</figure>
+{% include example_guide_image.html
+    img="example-csharp-image-3.png"
+    url="https://cloud.tilt.dev/snapshot/AdC35ucLJSe0a4XNTFc="
+    title="Step 2 complete."
+    caption="Step 2 complete. Click the screenshot to see an interactive snapshot"
+%}
 
 | Approach | Deploy Time |
 |---|---|
@@ -222,12 +222,12 @@ file changes. This command restarts our server every time the pod is updated.
 
 Let's see what this new configuration looks like in action:
 
-<figure>
-  <a class="is-image" href="https://cloud.tilt.dev/snapshot/AYSC5-cLzxRU0Wiuvrg=">
-    <img src="assets/docimg/example-csharp-image-4.png">
-  </a>
-  <figcaption>Step 3 complete. Click the screenshot to see an interactive snapshot.</figcaption>
-</figure>
+{% include example_guide_image.html
+    img="example-csharp-image-4.png"
+    url="https://cloud.tilt.dev/snapshot/AYSC5-cLzxRU0Wiuvrg="
+    title="Step 3 complete."
+    caption="Step 3 complete. Click the screenshot to see an interactive snapshot"
+%}
 
 Tilt was able to update the container in less than 5 seconds!
 
