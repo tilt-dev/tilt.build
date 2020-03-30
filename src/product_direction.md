@@ -4,7 +4,7 @@ title: Product Direction
 permalink: /product_direction
 ---
 
-The continuously changing general product direction of Tilt and Tilt Cloud is based on conversations with existing and potential users, and our current thinking of multi-service development. We are constantly considering new ideas; this is an interesting subset.
+The continuously changing product direction of Tilt and Tilt Cloud is based on conversations with existing and potential users, and our current thinking of multi-service development. We are always considering new ideas and plans; this is an interesting subset.
 
 Comment on linked issues or [create a new one](https://github.com/windmilleng/tilt). [Contact us](/contact.html) using your preferred method, including emailing Victor Wu, Head of Product at <a href="mailto:victor@tilt.dev">victor@tilt.dev</a>. 
 
@@ -29,4 +29,4 @@ We aim to support Tilt for all popular development platforms. Tilt is [currently
 - [Windows Support](https://github.com/windmilleng/tilt/issues/1961)
 
 ## Extensions
-We are working Tilt Extensions, a mechanism to package custom functions so that you can re-use them in your Tiltfile. The functions are meant to be open sourced, to foster sharing ideas within the Tilt community, and encouraging best practices.
+We are working on Tilt Extensions, a mechanism to package custom functions so that you can re-use them in your Tiltfile. The functions are meant to be open sourced, to foster sharing ideas within the Tilt community, and encourage best practices.
