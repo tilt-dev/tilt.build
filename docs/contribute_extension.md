@@ -20,7 +20,7 @@ README.md
 
 Create and submit a pull request to the repo, and @-mention `@victorwuky` for review.
 
-Currently there's no way to directly test the end-to-end workflow of using an extension. Tilters will ensure that the extension is working correctly before publishing it.
+Currently there's no way to directly test the end-to-end workflow of using an extension. The Tilt team will ensure that the extension is working correctly before publishing it.
 
 ## Next steps
 
