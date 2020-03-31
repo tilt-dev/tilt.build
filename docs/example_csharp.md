@@ -101,7 +101,7 @@ info: Microsoft.Hosting.Lifetime[0]
 
 Before we try to make this faster, let's measure it.
 
-Using [`local_resource`](local_house.html), you can direct Tilt to execute existing scripts or arbitrary shell commands on your own machine, and manage them from your sidebar like any other Tilt resource. We're going to use this functionality to benchmark our deploys.
+Using [`local_resource`](local_resource.html), you can direct Tilt to execute existing scripts or arbitrary shell commands on your own machine, and manage them from your sidebar like any other Tilt resource. We're going to use this functionality to benchmark our deploys.
 
 First we add a `local_resource` to our [Tiltfile](https://github.com/windmilleng/tilt-example-csharp/blob/master/1-measure/Tiltfile) that records the start time in a C# file.
 
