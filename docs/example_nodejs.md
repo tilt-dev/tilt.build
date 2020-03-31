@@ -22,11 +22,11 @@ This particular example server doesn't do much, but it's useful to confirm that 
 
 All the code is in this repo:
 
-[tilt-example-nodejs](https://github.com/windmilleng/tilt-example-nodejs)
+[tilt-example-nodejs](https://github.com/windmilleng/tilt-example-nodejs){:.attached-above}
 
 To skip straight to the fully optimized setup, go to this subdirectory:
 
-[Recommended Tiltfile](https://github.com/windmilleng/tilt-example-nodejs/tree/master/3-recommended)
+[Recommended Tiltfile](https://github.com/windmilleng/tilt-example-nodejs/tree/master/3-recommended){:.attached-above}
 
 ## Step 0: The Simplest Deployment
 
@@ -264,7 +264,7 @@ Tilt and nodemon together updated the container in less than two seconds!
 
 You can try the server here:
 
-[Recommended Structure](https://github.com/windmilleng/tilt-example-nodejs/blob/master/3-recommended)
+[Recommended Structure](https://github.com/windmilleng/tilt-example-nodejs/blob/master/3-recommended){:.attached-above}
 
 This is a very simple example, but we hope it gives you a good starting point for running your NodeJS app via Tilt!
 

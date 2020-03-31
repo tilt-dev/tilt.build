@@ -23,11 +23,11 @@ as expected in your environment.
 
 All the code is in this repo:
 
-[tilt-example-html](https://github.com/windmilleng/tilt-example-html)
+[tilt-example-html](https://github.com/windmilleng/tilt-example-html){:.attached-above}
 
 To skip straight to the fully optimized setup, go to this subdirectory:
 
-[Recommended Tiltfile](https://github.com/windmilleng/tilt-example-html/blob/master/2-recommended/Tiltfile)
+[Recommended Tiltfile](https://github.com/windmilleng/tilt-example-html/blob/master/2-recommended/Tiltfile){:.attached-above}
 
 ## Step 0: The Simplest Deployment
 
@@ -188,7 +188,7 @@ Tilt was able to update the container in less than a second!
 
 You can try the server here:
 
-[Recommended Structure](https://github.com/windmilleng/tilt-example-html/blob/master/2-recommended)
+[Recommended Structure](https://github.com/windmilleng/tilt-example-html/blob/master/2-recommended){:.attached-above}
 
 Obviously, our busybox example is very silly. We just wanted to show you how
 Tilt can work with any language, even a silly one.
