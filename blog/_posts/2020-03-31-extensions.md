@@ -1,12 +1,12 @@
 ---
-slug: extensions
+slug: more-customizable-tiltfiles-with-extensions
 date: 2020-03-31
 author: victor
 layout: blog
 title: "More customizable Tiltfiles with Extensions"
 subtitle: "Share Tiltfile code snippets with the Tilt community in a streamlined platform. And get a free t-shirt!"
-image: "/assets/images/add-your-own-options-to-your-tilt-config/alexey-ruban-73o_FzZ5x-w-unsplash.jpg"
-image_caption: "Photo by <a href='https://unsplash.com/@intelligenciya?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText'>Alexey Ruban</a> on <a href='https://unsplash.com/?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText'>Unsplash</a>"
+image: "/assets/images/more-customizable-tiltfiles-with-extensions/michael-dziedzic-XTblNijO9IE-unsplash.jpg"
+image_caption: "Photo by <a href='https://unsplash.com/@lazycreekimages?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText'>Michael Dziedzic</a> on <a href='https://unsplash.com/?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText'>Unsplash</a>"
 tags:
   - tilt  
 keywords:
