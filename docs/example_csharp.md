@@ -22,11 +22,11 @@ This particular example server doesn't do much, but it's useful to confirm that 
 
 All the code is in this repo:
 
-[tilt-example-csharp](https://github.com/windmilleng/tilt-example-csharp)
+[tilt-example-csharp](https://github.com/windmilleng/tilt-example-csharp){:.attached-above}
 
 To skip straight to the fully optimized setup, go to this subdirectory:
 
-[Recommended Tiltfile](https://github.com/windmilleng/tilt-example-csharp/tree/master/3-live-update)
+[Recommended Tiltfile](https://github.com/windmilleng/tilt-example-csharp/tree/master/3-live-update){:.attached-above}
 
 # Step 0: The Simplest Deployment
 
@@ -94,8 +94,12 @@ info: Microsoft.Hosting.Lifetime[0]
       Now listening on: http://[::]:
 ```
 
-{% assign case = "base" %}
-{% include example_guide_image.html %}
+{% include example_guide_image.html
+    img="example-csharp-0-base.png"
+    url="https://cloud.tilt.dev/snapshot/AeCx3ucLBiMYtPnPTuc="
+    title="The server is up!"
+    caption="The server is up! (Click the screenshot to see an interactive view.)"
+%}
 
 ## Step 1: Let's Add Benchmark Trickery
 
@@ -243,7 +247,8 @@ Tilt was able to update the container in less than 5 seconds!
 {:.benchmark-report}
 
 You can try the server here:
-[Recommended Structure](https://github.com/windmilleng/tilt-example-csharp/tree/master/3-live-update)
+
+[Recommended Structure](https://github.com/windmilleng/tilt-example-csharp/tree/master/3-live-update){:.attached-above}
 
 Congratulations on finishing this guide!
 
