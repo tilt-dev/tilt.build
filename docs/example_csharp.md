@@ -22,11 +22,11 @@ This particular example server doesn't do much, but it's useful to confirm that 
 
 All the code is in this repo:
 
-[tilt-example-csharp](https://github.com/windmilleng/tilt-example-csharp)
+[tilt-example-csharp](https://github.com/windmilleng/tilt-example-csharp){:.attached-above}
 
 To skip straight to the fully optimized setup, go to this subdirectory:
 
-[Recommended Tiltfile](https://github.com/windmilleng/tilt-example-csharp/tree/master/3-live-update)
+[Recommended Tiltfile](https://github.com/windmilleng/tilt-example-csharp/tree/master/3-live-update){:.attached-above}
 
 # Step 0: The Simplest Deployment
 
@@ -94,14 +94,18 @@ info: Microsoft.Hosting.Lifetime[0]
       Now listening on: http://[::]:
 ```
 
-{% assign case = "base" %}
-{% include example_guide_image.html %}
+{% include example_guide_image.html
+    img="example-csharp-0-base.png"
+    url="https://cloud.tilt.dev/snapshot/AeCx3ucLBiMYtPnPTuc="
+    title="The server is up!"
+    caption="The server is up! (Click the screenshot to see an interactive view.)"
+%}
 
 ## Step 1: Let's Add Benchmark Trickery
 
 Before we try to make this faster, let's measure it.
 
-Using [`local_resource`](local_house.html), you can direct Tilt to execute existing scripts or arbitrary shell commands on your own machine, and manage them from your sidebar like any other Tilt resource. We're going to use this functionality to benchmark our deploys.
+Using [`local_resource`](local_resource.html), you can direct Tilt to execute existing scripts or arbitrary shell commands on your own machine, and manage them from your sidebar like any other Tilt resource. We're going to use this functionality to benchmark our deploys.
 
 First we add a `local_resource` to our [Tiltfile](https://github.com/windmilleng/tilt-example-csharp/blob/master/1-measure/Tiltfile) that records the start time in a C# file.
 
@@ -243,7 +247,8 @@ Tilt was able to update the container in less than 5 seconds!
 {:.benchmark-report}
 
 You can try the server here:
-[Recommended Structure](https://github.com/windmilleng/tilt-example-csharp/tree/master/3-live-update)
+
+[Recommended Structure](https://github.com/windmilleng/tilt-example-csharp/tree/master/3-live-update){:.attached-above}
 
 Congratulations on finishing this guide!
 
