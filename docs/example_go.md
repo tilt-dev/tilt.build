@@ -20,11 +20,11 @@ We'll use Tilt to:
 
 All the code is in this repo:
 
-[tilt-example-go](https://github.com/windmilleng/tilt-example-go)
+[tilt-example-go](https://github.com/windmilleng/tilt-example-go){:.attached-above}
 
 To skip straight to the fully optimized setup, go to this subdirectory:
 
-[Recommended Tiltfile](https://github.com/windmilleng/tilt-example-go/blob/master/3-recommended/Tiltfile)
+[Recommended Tiltfile](https://github.com/windmilleng/tilt-example-go/blob/master/3-recommended/Tiltfile){:.attached-above}
 
 ## Step 0: The Simplest Deployment
 
@@ -271,7 +271,7 @@ Tilt was able to update the container in less than 2 seconds!
 
 You can try the server here:
 
-[Recommended Structure](https://github.com/windmilleng/tilt-example-go/blob/master/3-recommended)
+[Recommended Structure](https://github.com/windmilleng/tilt-example-go/blob/master/3-recommended){:.attached-above}
 
 Congratulations on finishing this guide!
 
@@ -282,7 +282,7 @@ This guide recommends an approach to Go development that shines with Tilt.
 If you're curious about other approaches to multi-service Go development and
 their trade-offs, we're working on a talk and workshop:
 
-[The Quest For The Fastest Deployment Time](https://github.com/windmilleng/fast)
+[The Quest For The Fastest Deployment Time](https://github.com/windmilleng/fast){:.attached-above}
 
 ### Other sample Go projects:
 

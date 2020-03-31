@@ -1416,3 +1416,10 @@ table.benchmark-report {
     top: 0.4em;
   }
 }
+
+a.attached-above {
+  display: block;
+  text-indent: 2em;
+  font-weight: bold;
+  margin-top: - $spacing-unit / 2
+}

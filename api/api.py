@@ -31,6 +31,13 @@ def fall_back_on(files: Union[str, List[str]]) -> LiveUpdateStep:
   """
   pass
 
+def set_team(team_id: str) -> None:
+  """Associates this Tiltfile with the `team <teams.html>`_ identified by `team_id`.
+
+  Sends usage information to Tilt Cloud periodically.
+  """
+  pass  
+
 def sync(local_path: str, remote_path: str) -> LiveUpdateStep:
   """Specify that any changes to `localPath` should be synced to `remotePath`
 

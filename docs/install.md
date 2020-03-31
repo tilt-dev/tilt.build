@@ -8,27 +8,29 @@ Tilt is currently available for macOS and Linux. Windows support is available in
 You'll also need:
 
 - Docker, to build containers
-- Kubectl, to get information about your cluster
-- A local Kubernetes cluster (on macOS, Docker For Mac works for this!)
+- kubectl, to get information about your cluster
+- A local Kubernetes cluster (on macOS, Docker for Mac works for this!)
 
-On macOS
+macOS
 --------
 
-- Install [Docker For Mac](https://docs.docker.com/docker-for-mac/install/)
-- In the Docker For Mac preferences, click [Enable Kubernetes](https://docs.docker.com/docker-for-mac/#kubernetes)
-- Make Docker For Mac your local Kubernetes cluster:
+[Docker for Mac](https://docs.docker.com/docker-for-mac/install/) contains Docker, kubectl, and a Kubernetes cluster.
+
+- Install [Docker for Mac](https://docs.docker.com/docker-for-mac/install/)
+- In the preferences, click [Enable Kubernetes](https://docs.docker.com/docker-for-mac/#kubernetes)
+- Make Docker for Mac your local Kubernetes cluster:
 
 ```bash
 kubectl config use-context docker-desktop
 ```
 
-Installing the `tilt` binary is a one-step command:
+- Install `tilt` with:
 
 ```bash
 curl -fsSL https://raw.githubusercontent.com/windmilleng/tilt/master/scripts/install.sh | bash
 ```
 
-On Linux
+Linux
 --------
 
 - Install [Docker](https://docs.docker.com/install/)
@@ -51,7 +53,7 @@ mv ~/.kube/temp-config ~/.kube/config && \
 kubectl config use-context microk8s
 ```
 
-Installing the `tilt` binary is a one-step command:
+- Install `tilt` with:
 
 ```bash
 curl -fsSL https://raw.githubusercontent.com/windmilleng/tilt/master/scripts/install.sh | bash
@@ -63,7 +65,7 @@ Windows (alpha)
 Each [Tilt release](https://github.com/windmilleng/tilt/releases) contains an alpha build for Windows.
 It is not actively being developed at the moment. If you are interested in Windows support, [contact us](https://tilt.dev/contact) or upvote this [GitHub issue](https://github.com/windmilleng/tilt/issues/1961).
 
-Verifying
+Verify
 ---------
 
 After you install Tilt, verify that you installed it correctly with:
@@ -86,8 +88,8 @@ You're ready to start using Tilt! Try our [Tutorial](tutorial.html) to setup you
 
 ---
 
-Alternative Installation
-------------------------
+Alternative Installations
+-------------------------
 
 The [1-step installation script](https://github.com/windmilleng/tilt/blob/master/scripts/install.sh)
 will install the most recent version of Tilt.

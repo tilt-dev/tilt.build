@@ -22,11 +22,11 @@ This particular example server doesn't do much, but it's useful to confirm that 
 
 All the code is in this repo:
 
-[tilt-example-python](https://github.com/windmilleng/tilt-example-python)
+[tilt-example-python](https://github.com/windmilleng/tilt-example-python){:.attached-above}
 
 To skip straight to the fully optimized setup, go to this subdirectory:
 
-[Recommended Tiltfile](https://github.com/windmilleng/tilt-example-python/tree/master/2-recommended)
+[Recommended Tiltfile](https://github.com/windmilleng/tilt-example-python/tree/master/2-recommended){:.attached-above}
 
 ## Step 0: The Simplest Deployment
 
@@ -265,7 +265,7 @@ Tilt was able to update the container in less than two seconds! (And a chunk of 
 
 You can try the server here:
 
-[Recommended Structure](https://github.com/windmilleng/tilt-example-python/blob/master/3-recommended)
+[Recommended Structure](https://github.com/windmilleng/tilt-example-python/blob/master/3-recommended){:.attached-above}
 
 This is a very simple example, but we hope it gives you a good starting point for running your Flask app (or other Python app) via Tilt!
 
