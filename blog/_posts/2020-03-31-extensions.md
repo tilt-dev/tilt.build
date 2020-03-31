@@ -17,6 +17,8 @@ keywords:
 
 Since [releasing Tilt](/2018/08/28/how-tilt-updates-kubernetes-in-seconds-not-minutes.html), we’ve seen the Tilt community actively share code snippets of Tiltfile functionality in [Slack #tilt](https://kubernetes.slack.com/messages/CESBL84MV/), including ideas such as forcing resources into different namespaces, injecting sidecars, and even running tests. So we've created the open source Extensions platform to encourage this community collaboration in more structured fashion.
 
+Tilt Extensions is available starting in v0.12.11. [Upgrade](https://docs.tilt.dev/upgrade.html) to the latest version.
+
 ## What's an extension, exactly? And how do you use it?
 An extension is simply a packaged function you call from within your Tiltfile. Simply import the extension (specifying the extension name and function name), and call it, all right inside your Tiltfile. 
 
