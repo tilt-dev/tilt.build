@@ -2,7 +2,7 @@
   items:
   - title: Install
     href: install.html
-  - title: Upgrading
+  - title: Upgrade
     href: upgrade.html
   - title: "Tutorial: The First 15 Minutes"
     href: tutorial.html
@@ -38,6 +38,10 @@
   # todo: this will go under its own Debuggers section when we have enough articles to merit it
   - title: Python Debuggers
     href: debuggers_python.html
+  - title: Extensions
+    href: extensions.html
+  - title: Contribute an Extension
+    href: contribute_extension.html    
 
 - title: Tilt Cloud
   items:
