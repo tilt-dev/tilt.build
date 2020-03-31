@@ -19,7 +19,6 @@ keywords:
   - transparency
   - visibility
 ---
-
 This post discusses two exciting commits (one of which is technically from January 🤐) which are two sides of the same coin: [e77be9fe](https://github.com/windmilleng/tilt/commit/e77be9fe2d97f5893ea99f131a1ef2ffdb4ec576) and [467f1913](https://github.com/windmilleng/tilt/commit/467f1913ea08b562e2e16b26d8d7e458b92c941b) print `docker push` and `docker pull` progress (respectively) to the Web UI, so you're not in the dark about where your deployment time is going.
 
 Tilt tries to make microservice development as fast as possible, but sometimes there's just stuff you've gotta wait around for. However, when you inevitably have to wait around for something, you should know exactly what you're waiting for and how it's progressing (and that your process isn't just permanently hung somewhere).
