@@ -13,7 +13,7 @@ macOS
 ### If you installed with the install script or directly with a release binary
 
 ```bash
-curl -L https://github.com/windmilleng/tilt/releases/download/v0.12.10/tilt.0.12.10.mac.x86_64.tar.gz | tar -xzv tilt && \
+curl -L https://github.com/windmilleng/tilt/releases/download/v0.12.11/tilt.0.12.11.mac.x86_64.tar.gz | tar -xzv tilt && \
   sudo mv tilt /usr/local/bin/tilt
 ```
 
@@ -28,7 +28,7 @@ Linux
 -----
 
 ```bash
-curl -L https://github.com/windmilleng/tilt/releases/download/v0.12.10/tilt.0.12.10.linux.x86_64.tar.gz | tar -xzv tilt && \
+curl -L https://github.com/windmilleng/tilt/releases/download/v0.12.11/tilt.0.12.11.linux.x86_64.tar.gz | tar -xzv tilt && \
     sudo mv tilt /usr/local/bin/tilt
 ```
 
