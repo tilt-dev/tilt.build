@@ -6,7 +6,7 @@ layout: blog
 title: "Accessibility Matters"
 subtitle: "Commit of the Month: Improve Accessibility of Status Icons"
 image: /assets/images/march-2020-commit-of-the-month/featuredImage.jpg
-image_caption: "TODO"
+image_caption: "A colorblind test. Photo by daltonien on <a href='https://flickr.com/photos/nicolasdumond79/13782659973'>Flickr</a>."
 image_type: "contain"
 tags:
   - tilt
