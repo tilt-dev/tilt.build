@@ -25,7 +25,7 @@ Can you tell at a glance which of these resources are up, and which ones have er
 
 ![A photo of the Tilt UI with green and red icons next to each resource modified to show what it might look like to a colorblind person](/assets/images/march-2020-commit-of-the-month/colorblind1-mod.png)
 
-While we expect most people to be using the Web UI (which is more fully featured and happened to not exhibit this problem by dint of a different design) if your workflow lives in the terminal we want to support that too. So in [842b83131f78431dd1ba8522e6288226a09c4cfc](https://github.com/windmilleng/tilt/commit/842b83131f78431dd1ba8522e6288226a09c4cfc) we improved the terminal UI’s accessibility by adding status icons that are structurally distinct from one another in addition to having distinct hues. Now Tilt’s status icons look like this:
+While we expect most people to be using the Web UI (which is more fully featured though it exhibited a similar problem that was [fixed in a different commit](https://github.com/windmilleng/tilt/commit/0c1985c3e2ddeeedce7fb5633753d23730887f62)) if your workflow lives in the terminal we want to support that too. So in [842b83131f78431dd1ba8522e6288226a09c4cfc](https://github.com/windmilleng/tilt/commit/842b83131f78431dd1ba8522e6288226a09c4cfc) we improved the terminal UI’s accessibility by adding status icons that are structurally distinct from one another in addition to having distinct hues. Now Tilt’s status icons look like this:
 
 ![A photo of the Tilt new UI with green and red icons of different shapes for each different state](/assets/images/march-2020-commit-of-the-month/now.png)
 
