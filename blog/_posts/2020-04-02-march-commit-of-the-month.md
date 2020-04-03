@@ -29,7 +29,7 @@ While we expect most people to be using the Web UI (which is more fully featured
 
 ![A photo of the Tilt new UI with green and red icons of different shapes for each different state](/assets/images/march-2020-commit-of-the-month/now.png)
 
-Even in grayscale it’s now easy to tell that these icons represent different states.
+Even in grayscale, it’s now easy to tell that these icons represent different states.
 
 Thanks to Han Yu and Nick Santos for their work on this! 
 
