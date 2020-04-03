@@ -166,7 +166,7 @@ Our benchmarks show this is slow. Can we do better?
 
 ## Step 2: Why Is the Docker Build So Slow?
 
-The first thing I notice when I click "deploy" is a bunch of logs from `pip install`; and not just once, but _every dang time_. This is a hint that we can optimize our Dockerfile to be smarter about caching. With a little rearranging, our [new Dockerfile]((https://github.com/windmilleng/tilt-example-python/blob/master/2-optimized-dockerfile/Dockerfile)) looks like this:
+The first thing I notice when I click "deploy" is a bunch of logs from `pip install`; and not just once, but _every dang time_. This is a hint that we can optimize our Dockerfile to be smarter about caching. With a little rearranging, our [new Dockerfile](https://github.com/windmilleng/tilt-example-python/blob/master/2-optimize-dockerfile/Dockerfile) looks like this:
 ```
 ADD requirements.txt .
 RUN pip install -r requirements.txt
