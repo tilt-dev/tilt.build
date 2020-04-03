@@ -21,7 +21,7 @@ Details matter. Especially when those details impact usability. That’s why we 
 
 ![A photo of the Tilt UI with green and red icons next to each resource](/assets/images/march-2020-commit-of-the-month/colorblind1.png)
 
-Can you tell at a glance which of these resources are up, and which ones have errored? It’s hard. If you were red-green colorblind it would be even harder. It might look something like this:
+Can you tell at a glance which of these resources are up, and which ones have errored? It’s hard. If you were red-green colorblind, it would be even harder. It might look something like this:
 
 ![A photo of the Tilt UI with green and red icons next to each resource modified to show what it might look like to a colorblind person](/assets/images/march-2020-commit-of-the-month/colorblind1-mod.png)
 
