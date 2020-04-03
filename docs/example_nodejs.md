@@ -172,7 +172,7 @@ Our benchmarks show this is slow. Can we do better?
 
 ## Step 2: Why Is the Docker Build So Slow?
 
-The first thing I notice when I click "deploy" is a bunch of logs from `yarn install`; and not just once, but _every dang time_. This is a hint that we can optimize our Dockerfile to be smarter about caching. With a little rearranging, our [new Dockerfile]((https://github.com/windmilleng/tilt-example-nodejs/blob/master/2-optimized-dockerfile/Dockerfile)) looks like this:
+The first thing I notice when I click "deploy" is a bunch of logs from `yarn install`; and not just once, but _every dang time_. This is a hint that we can optimize our Dockerfile to be smarter about caching. With a little rearranging, our [new Dockerfile](https://github.com/windmilleng/tilt-example-nodejs/blob/master/2-optimized-dockerfile/Dockerfile) looks like this:
 ```
 FROM node:10
 
