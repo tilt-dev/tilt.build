@@ -19,7 +19,7 @@ keywords:
 
 Details matter. Especially when those details impact usability. That’s why we paid close attention when we got reports that Tilt’s terminal UI was not colorblind friendly. Take a look at this screenshot:
 
-![A photo of the Tilt UI with green and red icons next to each resource](/assets/images//march-2020-commit-of-the-month/colorblind1.png)
+![A photo of the Tilt UI with green and red icons next to each resource](/assets/images/march-2020-commit-of-the-month/colorblind1.png)
 
 Can you tell at a glance which of these resources are up, and which ones have errored? It’s hard. If you were red-green colorblind it would be even harder. It might look something like this:
 
