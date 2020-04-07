@@ -94,6 +94,18 @@ patterns.
 For this specific `docker_build()` call, files that match these patterns will
 not trigger rebuilds, and will be excluded from the Docker build context.
 
+The patterns are evaluated relative to the `context` argument passed to `docker_build`. For instance, given the call:
+```python
+docker_build(
+    'image-foo',
+    './foo',  # context
+    only=['bar']
+)
+```
+Tilt will ignore the file `foo/bar`.
+
+(Note that `custom_build` handles the `ignore` parameter a little differently than `docker_build` does; for more info, see our [Custom Build Guide](custom_build.html#adjust-filewatching-wtih-ignore)).
+
 ### docker_build and only=
 
 The `docker_build()` call's `only=` parameter excludes everything *but* the file
@@ -101,8 +113,11 @@ paths specified in `only`.
 
 For example,
 
-```
-docker_build('image-name', '.', only=['./src', './static-files'])
+```python
+docker_build(
+    'image-foo',
+    './foo',
+    only=['./src', './static-files'])
 ```
 
 is equivalent to having a `.dockerignore` file that looks like:
@@ -114,6 +129,8 @@ is equivalent to having a `.dockerignore` file that looks like:
 ```
 
 The `only=` parameter accepts paths, not glob patterns.
+
+Again, these paths are evaluated relative to the `context` passed to `docker_build`; in the call above, the only directories included in the resulting image are `foo/src` and `foo/static-files`.
 
 ### .tiltignore
 
