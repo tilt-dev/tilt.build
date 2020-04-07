@@ -93,7 +93,7 @@ def docker_build(ref: str, context: str, build_args: Dict[str, str] = {}, docker
 
     docker build /path/to/code -t myregistry/myproj/backend
 
-  For more information on the `ignore` and `only` parameters, see our `Guide to File Changes <http://localhost:4001/file_changes.html>`_.
+  For more information on the `ignore` and `only` parameters, see our `Guide to File Changes </file_changes.html>`_.
 
   Note that you can't set both the `dockerfile` and `dockerfile_contents` arguments (will throw an error).
 
