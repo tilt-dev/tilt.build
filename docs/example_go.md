@@ -24,7 +24,7 @@ All the code is in this repo:
 
 To skip straight to the fully optimized setup, go to this subdirectory:
 
-[Recommended Tiltfile](https://github.com/windmilleng/tilt-example-go/blob/master/3-recommended/Tiltfile){:.attached-above}
+[Recommended Setup](https://github.com/windmilleng/tilt-example-go/blob/master/3-recommended){:.attached-above}
 
 ## Step 0: The Simplest Deployment
 
