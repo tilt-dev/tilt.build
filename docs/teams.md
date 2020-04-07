@@ -10,3 +10,5 @@ Many Tilt Cloud features will be based on the concept of a Tilt team. Once you'v
 </figure>
 
 Currently, the team page shows the last [Last Seen Versions](/last_seen_versions.html) of Tilt for team members. Team membership is defined in [Last Seen Versions](/last_seen_versions.html) too.
+
+A team page is only accessible by the team owner.
