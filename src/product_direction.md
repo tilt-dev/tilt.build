@@ -32,3 +32,13 @@ Understand how developers are doing development, surfacing inefficiencies, in or
 ## Tilt for Windows
 We aim to support Tilt for all popular development platforms. Tilt is [currently available for macOS and Linux](https://docs.tilt.dev/install.html). Windows support is in alpha, but we plan to support it fully.
 - [Windows Support](https://github.com/windmilleng/tilt/issues/1961)
+
+## Better extensions development experience
+As described in https://docs.tilt.dev/contribute_extension.html, contributors cannot actually verify that an extension actually works before submitting a PR. This should be improved.
+- [Development of extensions allows you test that it actually works before submitting a PR](https://github.com/windmilleng/tilt/issues/3188)
+
+## Tilt 1.0
+We will soon be able to show Tilt to the greater development community, and we want to signal that with a 1.0 release. In particular, Tilt 1.0 should:
+- Work for your platform
+- Work for your development language
+- Work for your app size (from one to many services)
