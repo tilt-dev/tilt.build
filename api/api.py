@@ -269,7 +269,7 @@ def filter_yaml(yaml: Union[str, List[str], Blob], labels: dict=None, name: str=
   For example, if you have a file of *all* your YAML, but only want to pass a few elements to Tilt: ::
 
     # extract all YAMLs matching labels "app=foobar"
-    foobar_yaml, rest = filter_yaml('all.yaml', labels={'app': 'foobar'}
+    foobar_yaml, rest = filter_yaml('all.yaml', labels={'app': 'foobar'})
     k8s_yaml(foobar_yaml)
 
     # extract YAMLs of kind "deployment" with metadata.name regex-matching "baz", also matching "bazzoo" and "bar-baz"
