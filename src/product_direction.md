@@ -8,6 +8,11 @@ The continuously changing product direction of Tilt and Tilt Cloud is based on c
 
 Comment on linked issues or [create a new one](https://github.com/windmilleng/tilt). [Contact us](/contact.html) using your preferred method, including emailing Victor Wu, Head of Product at <a href="mailto:victor@tilt.dev">victor@tilt.dev</a>. 
 
+## Recent releases
+- [Extensions](https://blog.tilt.dev/2020/04/01/more-customizable-tiltfiles-with-extensions.html)
+- [Tilt configs](https://blog.tilt.dev/2020/02/21/add-your-own-options-to-your-tilt-config.html)
+- [Improved integration with Kind](https://blog.tilt.dev/2020/02/11/delete-clusters-faster-with-kind.html)
+
 ## Tilt Cloud
 [Tilt Cloud](https://docs.tilt.dev/sign_in_tilt_cloud.html) is the integrated companion experience to Tilt, empowering software developers to better collaborate in teams, and help developer experience (DX) owners manage consistent and elevated DX experiences across a software organization. Tilt Cloud solves problems in three broad categories: Release, support, and measure.
 
@@ -27,6 +32,3 @@ Understand how developers are doing development, surfacing inefficiencies, in or
 ## Tilt for Windows
 We aim to support Tilt for all popular development platforms. Tilt is [currently available for macOS and Linux](https://docs.tilt.dev/install.html). Windows support is in alpha, but we plan to support it fully.
 - [Windows Support](https://github.com/windmilleng/tilt/issues/1961)
-
-## Extensions
-We are working on Tilt Extensions, a mechanism to package custom functions so that you can re-use them in your Tiltfile. The functions are meant to be open sourced, to foster sharing ideas within the Tilt community, and encourage best practices.
