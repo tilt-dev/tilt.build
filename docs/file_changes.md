@@ -104,7 +104,7 @@ docker_build(
 ```
 Tilt will ignore the file `foo/bar`.
 
-(Note that `custom_build` handles the `ignore` parameter a little differently than `docker_build` does; for more info, see our [Custom Build Guide](custom_build.html#adjust-filewatching-wtih-ignore)).
+(Note that `custom_build` handles the `ignore` parameter a little differently than `docker_build` does; for more info, see our [Custom Build Guide](custom_build.html#adjust-file-watching-wtih-ignore)).
 
 ### docker_build and only=
 
