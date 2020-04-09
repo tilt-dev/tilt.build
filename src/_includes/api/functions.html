@@ -2838,7 +2838,7 @@ returns the non-matching YAML as the second return value.
            <div class="highlight-default notranslate">
             <div class="highlight">
              <pre><span></span><span class="c1"># extract all YAMLs matching labels &quot;app=foobar&quot;</span>
-<span class="n">foobar_yaml</span><span class="p">,</span> <span class="n">rest</span> <span class="o">=</span> <span class="n">filter_yaml</span><span class="p">(</span><span class="s1">&apos;all.yaml&apos;</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="p">{</span><span class="s1">&apos;app&apos;</span><span class="p">:</span> <span class="s1">&apos;foobar&apos;</span><span class="p">}</span>
+<span class="n">foobar_yaml</span><span class="p">,</span> <span class="n">rest</span> <span class="o">=</span> <span class="n">filter_yaml</span><span class="p">(</span><span class="s1">&apos;all.yaml&apos;</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="p">{</span><span class="s1">&apos;app&apos;</span><span class="p">:</span> <span class="s1">&apos;foobar&apos;</span><span class="p">})</span>
 <span class="n">k8s_yaml</span><span class="p">(</span><span class="n">foobar_yaml</span><span class="p">)</span>
 
 <span class="c1"># extract YAMLs of kind &quot;deployment&quot; with metadata.name regex-matching &quot;baz&quot;, also matching &quot;bazzoo&quot; and &quot;bar-baz&quot;</span>
