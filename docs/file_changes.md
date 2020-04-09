@@ -63,7 +63,7 @@ the Docker context.
 
 Tilt has a hard-coded list of temp files in common text editors (Emacs, Vim, etc.).
 
-As devtools developers outselves, we want to be able to add hidden files to the
+As devtools developers ourselves, we want to be able to add hidden files to the
 repo, and not have those hidden files affect other devtools. For example, we
 don't think Emacs developers wanted their temp files to break Docker
 caching. Lots of users get confused when this happens, because it's not a file
