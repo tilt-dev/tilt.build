@@ -25,15 +25,21 @@ k8s_resource('frontend', port_forwards=8080)
 ```
 
 ## Hello World
-Run `tilt up` to enter Tilt's Heads-Up Display. Instead of writing your configuration all at once, we'll use Tilt interactively. Each time you save your configuration, Tilt will reexecute it.
+In your terminal, run `tilt up`. A browser tab will open showing Tilt. (Hit `enter` anytime in the terminal to open a new browser tab with Tilt if you close it by mistake.) Instead of writing your Tilt configuration all at once, we'll use Tilt interactively. Each time you save your configuration, Tilt will reexecute it.
 
+Right now, Tilt should be complaining that there's no file named `Tiltfile`. 
 
-Right now, Tilt should be complaining there's no file named `Tiltfile`. Open it in your editor and write:
+<figure>
+  <img src="/assets/img/no-tiltfile.png" class="no-shadow" alt="Last seen versions">
+</figure>
+
+Create a new file named `Tiltfile` in your project directory with a single line:
+
 ```python
 print('Hello Tiltfile')
 ```
 
-Now save the file. Congrats, you just ran your first `Tiltfile`. Tilt's configurations are programs in [Starlark](https://github.com/bazelbuild/starlark#tour>), a dialect of Python. Can you see "Hello Tiltfile" in Tilt's UI? Tilt is also warning you there are no declared resources. Let's add some.
+Now save the file. Congrats, you just ran your first Tiltfile since Tilt has automatically reexecuted with it. Tilt's configurations are programs in [Starlark](https://github.com/bazelbuild/starlark#tour>), a dialect of Python. Go back to your browser to see "Hello Tiltfile" in Tilt. Tilt is also warning you there are no declared resources. Let's add some.
 
 ## Step 1: Deploy
 The function `k8s_yaml` registers Kubernetes objects you want to deploy:
@@ -76,7 +82,7 @@ You can also use `k8s_resource` to forward multiple ports. Cf. the [Resources](t
 
 ## Congrats
 
-Tilt is now setup for your project. Try exploring Tilt's UI (there's a context-sensitive legend in the bottom right). Introduce a build error and then a runtime crash; see Tilt's UI respond and surface the relevant problem.
+Tilt is now setup for your project. Explore Tilt further. Introduce a build error and then a runtime crash; see Tilt respond and surface the relevant problem.
 
 ## Next Steps
 
