@@ -571,7 +571,40 @@ then re-tag it with its own tag before pushing to your cluster. See
                  <a class="reference external" href="https://docs.docker.com/engine/reference/builder/#dockerignore-file">
                   dockerignore syntax
                  </a>
-                 .
+                 . Patterns/filepaths will be evaluated relative to each
+                 <code class="docutils literal notranslate">
+                  <span class="pre">
+                   dep
+                  </span>
+                 </code>
+                 (e.g. if you specify
+                 <code class="docutils literal notranslate">
+                  <span class="pre">
+                   deps=[&apos;dep1&apos;,
+                  </span>
+                  <span class="pre">
+                   &apos;dep2&apos;]
+                  </span>
+                 </code>
+                 and
+                 <code class="docutils literal notranslate">
+                  <span class="pre">
+                   ignores=[&apos;foobar&apos;]
+                  </span>
+                 </code>
+                 , Tilt will ignore both
+                 <code class="docutils literal notranslate">
+                  <span class="pre">
+                   deps1/foobar
+                  </span>
+                 </code>
+                 and
+                 <code class="docutils literal notranslate">
+                  <span class="pre">
+                   dep2/foobar
+                  </span>
+                 </code>
+                 ).
                 </li>
                 <li>
                  <strong>
@@ -1396,6 +1429,39 @@ ensures a pretty high bar of intent.
             Builds a docker image.
            </p>
            <p>
+            The invocation
+           </p>
+           <div class="highlight-python notranslate">
+            <div class="highlight">
+             <pre><span></span><span class="n">docker_build</span><span class="p">(</span><span class="s1">&apos;myregistry/myproj/backend&apos;</span><span class="p">,</span> <span class="s1">&apos;/path/to/code&apos;</span><span class="p">)</span>
+</pre>
+            </div>
+           </div>
+           <p>
+            is roughly equivalent to the shell call
+           </p>
+           <div class="highlight-bash notranslate">
+            <div class="highlight">
+             <pre><span></span>docker build /path/to/code -t myregistry/myproj/backend
+</pre>
+            </div>
+           </div>
+           <p>
+            For more information on the
+            <cite>
+             ignore
+            </cite>
+            and
+            <cite>
+             only
+            </cite>
+            parameters, see our
+            <a class="reference external" href="/file_changes.html">
+             Guide to File Changes
+            </a>
+            .
+           </p>
+           <p>
             Note that you can&#x2019;t set both the
             <cite>
              dockerfile
@@ -1407,47 +1473,7 @@ ensures a pretty high bar of intent.
             arguments (will throw an error).
            </p>
            <p>
-            Example:
-            <code class="docutils literal notranslate">
-             <span class="pre">
-              docker_build(&apos;myregistry/myproj/backend&apos;,
-             </span>
-             <span class="pre">
-              &apos;/path/to/code&apos;)
-             </span>
-            </code>
-            is roughly equivalent to the call
-            <code class="docutils literal notranslate">
-             <span class="pre">
-              docker
-             </span>
-             <span class="pre">
-              build
-             </span>
-             <span class="pre">
-              /path/to/code
-             </span>
-             <span class="pre">
-              -t
-             </span>
-             <span class="pre">
-              myregistry/myproj/backend
-             </span>
-            </code>
-           </p>
-           <p>
-            Note: If you&#x2019;re using the the
-            <cite>
-             ignore
-            </cite>
-            and
-            <cite>
-             only
-            </cite>
-            parameters to do context filtering and you have tricky cases, reach out to us. The implementation is complex and there might be edge cases.
-           </p>
-           <p>
-            Note: the
+            Note also that the
             <cite>
              entrypoint
             </cite>
@@ -1644,7 +1670,13 @@ ensures a pretty high bar of intent.
                   <a class="reference external" href="https://docs.docker.com/engine/reference/builder/#dockerignore-file">
                    dockerignore syntax
                   </a>
-                  .
+                  . Patterns will be evaluated relative to the
+                  <code class="docutils literal notranslate">
+                   <span class="pre">
+                    context
+                   </span>
+                  </code>
+                  parameter.
                  </p>
                 </li>
                 <li>
@@ -1675,7 +1707,13 @@ ensures a pretty high bar of intent.
                    str
                   </span>
                  </code>
-                 ]]) &#x2013; set of file paths that should be considered for the build. All other changes will not trigger a build and will not be included in images. Inverse of ignore parameter. Only accepts real paths, not file globs.
+                 ]]) &#x2013; set of file paths that should be considered for the build. All other changes will not trigger a build and will not be included in images. Inverse of ignore parameter. Only accepts real paths, not file globs. Patterns will be evaluated relative to the
+                 <code class="docutils literal notranslate">
+                  <span class="pre">
+                   context
+                  </span>
+                 </code>
+                 parameter.
                 </li>
                 <li>
                  <strong>
@@ -4581,7 +4619,7 @@ See the
                   <a class="reference external" href="https://docs.docker.com/engine/reference/builder/#dockerignore-file">
                    dockerignore syntax
                   </a>
-                  .
+                  . Patterns will be evaluated relative to the Tiltfile.
                  </p>
                 </li>
                 <li>

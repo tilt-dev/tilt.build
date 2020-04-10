@@ -123,6 +123,22 @@ Tilt's `docker_build` supports other options. The most impactful is [Live Update
 
 `custom_build` supports most other options of `docker_build`, and a few specific to non-Docker container builders. If you find an option you think should exist but doesn't, let us know in the `#tilt` channel in [Kubernetes Slack](http://slack.k8s.io).
 
+### Adjust File Watching with `ignore`
+While most of the points in our [Debugging File Changes](/file_changes.html) guide hold true for `custom_build`, the `ignore` parameter (which adjusts the set of files watched for a given build) works a bit differently, and is worth discussing briefly.
+
+The `ignore` parameter takes a pattern or list of patterns (following [`.dockerignore` syntax](https://docs.docker.com/engine/reference/builder/#dockerignore-file); files matching any of these patterns will _not_ trigger a build.
+
+Of note, these patterns are evaluated relative to each ``dep``. E.g. given the following call:
+```python
+custom_build(
+    'image-foo',
+    'docker build -t $EXPECTED_REF .',
+    deps==['dep1', 'dep2'],
+    ignores=['baz']
+)
+```
+Tilt will ignore `dep1/baz` and `dep2/baz`.
+
 ## Why Tilt uses One-Time Tags
 This section describes for the curious why Tilt uses tags the way it does, instead of using a fixed reference.
 Kubernetes (and the [OCI model](https://github.com/opencontainers/image-spec) generally) support multiple ways to reference an image:
