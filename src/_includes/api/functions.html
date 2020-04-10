@@ -1456,7 +1456,7 @@ ensures a pretty high bar of intent.
              only
             </cite>
             parameters, see our
-            <a class="reference external" href="http://localhost:4001/file_changes.html">
+            <a class="reference external" href="/file_changes.html">
              Guide to File Changes
             </a>
             .
@@ -1670,13 +1670,13 @@ ensures a pretty high bar of intent.
                   <a class="reference external" href="https://docs.docker.com/engine/reference/builder/#dockerignore-file">
                    dockerignore syntax
                   </a>
-                  . Patterns will be evaluated relative to
+                  . Patterns will be evaluated relative to the
                   <code class="docutils literal notranslate">
                    <span class="pre">
                     context
                    </span>
                   </code>
-                  .
+                  parameter.
                  </p>
                 </li>
                 <li>
@@ -1707,13 +1707,13 @@ ensures a pretty high bar of intent.
                    str
                   </span>
                  </code>
-                 ]]) &#x2013; set of file paths that should be considered for the build. All other changes will not trigger a build and will not be included in images. Inverse of ignore parameter. Only accepts real paths, not file globs. Patterns will be evaluated relative to
+                 ]]) &#x2013; set of file paths that should be considered for the build. All other changes will not trigger a build and will not be included in images. Inverse of ignore parameter. Only accepts real paths, not file globs. Patterns will be evaluated relative to the
                  <code class="docutils literal notranslate">
                   <span class="pre">
                    context
                   </span>
                  </code>
-                 .
+                 parameter.
                 </li>
                 <li>
                  <strong>
@@ -4619,7 +4619,7 @@ See the
                   <a class="reference external" href="https://docs.docker.com/engine/reference/builder/#dockerignore-file">
                    dockerignore syntax
                   </a>
-                  .
+                  . Patterns will be evaluated relative to the Tiltfile.
                  </p>
                 </li>
                 <li>
