@@ -3,7 +3,7 @@ title: Teams
 layout: docs
 ---
 
-Many Tilt Cloud features will be based on the concept of a Tilt team. Once you've signed in to Tilt Cloud, create a team by navigating to [cloud.tilt.dev/team/new](https://cloud.tilt.dev/team/new), entering a team name, and clicking Create My Team. This will bring you to the team page of your new team. You are the team owner as a result. To navigate to an existing team that you own, hover over the Teams dropdown at the top right of the screen.
+Many Tilt Cloud features will be based on the concept of a Tilt team. Once you've signed in to Tilt Cloud, create a team by selecting the option at the top right, entering a team name, and clicking Create My Team. This will bring you to the team page of your new team. You are the team owner as a result. To navigate to an existing team that you own, hover over the Teams dropdown at the top right of the screen.
 
 You can also change the team name on this page. 
 
