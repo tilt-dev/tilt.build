@@ -776,7 +776,12 @@ def version_settings(check_updates: bool = True, constraint: str = "") -> None:
                    available.
     constraint: If non-empty, Tilt will check its currently running version against
                 this constraint and generate an error if it doesn't match.
-                See the `constraint syntax documentation <https://github.com/blang/semver#ranges>`_.
+                Examples:
+
+                - `<0.13.0` - less than 0.13.0
+                - `>=0.12.0` - at least 0.12.0
+                
+                See more at the `constraint syntax documentation <https://github.com/blang/semver#ranges>`_.
   """
 
 def struct(**kwargs) -> Any:
