@@ -767,12 +767,16 @@ def analytics_settings(enable: bool) -> None:
   """
   pass
 
-def version_settings(check_updates: bool) -> None:
-  """Controls whether Tilt will display a notification in the web UI when there is a new version available.
-  By default this is set to True.
+def version_settings(check_updates: bool = True, constraint: str = "") -> None:
+  """Controls Tilt's behavior with regard to its own version.
 
   Args:
-    check_updates: whether or not to check for new versions of Tilt on GitHub.
+    check_updates: If true, Tilt will check GitHub for new versions of itself
+                   and display a notification in the web UI when an upgrade is
+                   available.
+    constraint: If non-empty, Tilt will check its currently running version against
+                this constraint and generate an error if it doesn't match.
+                See the `constraint syntax documentation <https://github.com/blang/semver#ranges>`_.
   """
 
 def struct(**kwargs) -> Any:
