@@ -5939,7 +5939,11 @@ a local resource command).
             (
            </span>
            <em>
-            check_updates
+            check_updates=True
+           </em>
+           ,
+           <em>
+            constraint=&apos;&apos;
            </em>
            <span class="sig-paren">
             )
@@ -5950,8 +5954,7 @@ a local resource command).
           </dt>
           <dd>
            <p>
-            Controls whether Tilt will display a notification in the web UI when there is a new version available.
-By default this is set to True.
+            Controls Tilt&#x2019;s behavior with regard to its own version.
            </p>
            <table class="docutils field-list" frame="void" rules="none">
             <col class="field-name">
@@ -5962,16 +5965,60 @@ By default this is set to True.
                Parameters:
               </th>
               <td class="field-body">
-               <strong>
-                check_updates
-               </strong>
-               (
-               <code class="xref py py-class docutils literal notranslate">
-                <span class="pre">
-                 bool
-                </span>
-               </code>
-               ) &#x2013; whether or not to check for new versions of Tilt on GitHub.
+               <ul class="first simple">
+                <li>
+                 <strong>
+                  check_updates
+                 </strong>
+                 (
+                 <code class="xref py py-class docutils literal notranslate">
+                  <span class="pre">
+                   bool
+                  </span>
+                 </code>
+                 ) &#x2013; If true, Tilt will check GitHub for new versions of itself
+and display a notification in the web UI when an upgrade is
+available.
+                </li>
+                <li>
+                 <strong>
+                  constraint
+                 </strong>
+                 (
+                 <code class="xref py py-class docutils literal notranslate">
+                  <span class="pre">
+                   str
+                  </span>
+                 </code>
+                 ) &#x2013;
+                 <p>
+                  If non-empty, Tilt will check its currently running version against
+this constraint and generate an error if it doesn&#x2019;t match.
+Examples:
+                 </p>
+                 <ul>
+                  <li>
+                   <cite>
+                    &lt;0.13.0
+                   </cite>
+                   - less than 0.13.0
+                  </li>
+                  <li>
+                   <cite>
+                    &gt;=0.12.0
+                   </cite>
+                   - at least 0.12.0
+                  </li>
+                 </ul>
+                 <p>
+                  See more at the
+                  <a class="reference external" href="https://github.com/blang/semver#ranges">
+                   constraint syntax documentation
+                  </a>
+                  .
+                 </p>
+                </li>
+               </ul>
               </td>
              </tr>
              <tr class="field-even field">
@@ -5979,11 +6026,13 @@ By default this is set to True.
                Return type:
               </th>
               <td class="field-body">
-               <code class="docutils literal notranslate">
-                <span class="pre">
-                 None
-                </span>
-               </code>
+               <p class="first last">
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  None
+                 </span>
+                </code>
+               </p>
               </td>
              </tr>
             </tbody>
