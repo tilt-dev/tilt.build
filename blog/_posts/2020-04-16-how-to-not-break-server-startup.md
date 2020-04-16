@@ -57,7 +57,7 @@ We're going to briefly walk you through each piece.
 
 ### `tilt ci` Command
 
-Tilt now has a new command: `tilt ci`.
+Tilt now has a new command: [`tilt ci`](https://docs.tilt.dev/cli/tilt_ci.html).
 
 If `tilt up` is for an interactive multi-service development environment, 
 `tilt ci` is for testing that same environment in CI.
@@ -101,7 +101,7 @@ For specific details on how to get a Kind cluster set up on your own CI environm
 
 ## See it in Action
 
-`tilt ci` is available in [Tilt
+[`tilt ci`](https://docs.tilt.dev/cli/tilt_ci.html) is available in [Tilt
 v0.13.0](https://github.com/windmilleng/tilt/releases/tag/v0.13.0) and higher.
 
 We're not just advocates for the local Kubernetes dev club. We're also clients! 👨‍🦲
