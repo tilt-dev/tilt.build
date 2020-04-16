@@ -119,6 +119,9 @@ We recently developed guides for servers written in:
 - and [C#](https://github.com/windmilleng/tilt-example-csharp)
 
 All of them use `tilt ci` with a Kind cluster to test that the servers start
-up. Check out the guides if you need working examples!
+up. With each Tilt release, we create a [Tilt Docker
+image](https://hub.docker.com/repository/docker/tiltdev/tilt/general) that
+contains Tilt and Kind for use in CI. Check out the guides if you need a working
+example!
 
 
