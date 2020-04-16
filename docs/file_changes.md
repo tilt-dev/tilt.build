@@ -99,7 +99,7 @@ The patterns are evaluated relative to the `context` argument passed to `docker_
 docker_build(
     'image-foo',
     './foo',  # context
-    only=['bar']
+    ignore=['bar']
 )
 ```
 Tilt will ignore the file `foo/bar`.
