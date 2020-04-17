@@ -1,6 +1,8 @@
 <script>
 let helpfulFormSend = function(el, action) {
-  ga('send', 'event', 'helpfulForm', action);
+  gtag('event', action, {
+    'event_category': 'helpfulForm'
+  });
   if (action == 'no') {
     el.parentNode.innerHTML = "<div>We're sad to hear that.<br>Please <a href='/#community'>reach out</a> to us if you need help.</div>"
   } else {
