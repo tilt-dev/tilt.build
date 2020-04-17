@@ -11,6 +11,6 @@ You can also change the team name on this page.
     <img src="/assets/img/new-team.png" class="no-shadow" alt="New team">
 </figure>
 
-Currently, the team page shows the last [Last Seen Versions](/last_seen_versions.html) of Tilt for team members. Team membership is defined in [Last Seen Versions](/last_seen_versions.html) too.
+Currently, the team page shows the [Last Seen Versions](/last_seen_versions.html) of Tilt for team members. Team membership is defined in [Last Seen Versions](/last_seen_versions.html) too.
 
 A team page is only accessible by the team owner.
