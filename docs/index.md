@@ -6,7 +6,7 @@ layout: docs
 Local Kubernetes development with no stress.
 
 [Tilt]({{site.landingurl}}) helps you develop your microservices locally,
-especially if [you deploy to Kubernetes (or are planning to)](https://blog.tilt.dev/2020/02/12/local-dev.html).
+especially if [you deploy to Kubernetes or are planning to](https://blog.tilt.dev/2020/02/12/local-dev.html).
 Run `tilt up` to start working on your services in a complete dev environment
 configured for your team.
 
