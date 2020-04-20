@@ -345,7 +345,7 @@ def load(path: str, *args):
   """
 
 def local(cmd: str, quiet: bool = False) -> Blob:
-  """Runs cmd, waits for it to finish, and returns its stdout as a ``Blob``
+  """Runs cmd on the *host* machine, waits for it to finish, and returns its stdout as a ``Blob``
 
   Args:
     cmd: Command to run.
