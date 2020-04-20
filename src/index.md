@@ -12,20 +12,16 @@ Get started easily, get more done, and never play twenty questions with <code>ku
 </div>
 
 <div class="flexblock u-marginTop1_25 u-marginBottom1_5">
-<a href="{{site.docsurl}}install.html" class="brandButton u-marginBottomUnit u-marginRightUnit">
-  {% include brandButtonBg.html %}
-  <div class="buttonLabel brandButton-text">
-    Try Tilt Now
-  </div>
-</a>
-
-<div class="flexblock u-marginTop1_25 u-marginBottom1_5">
 <a href="https://cloud.tilt.dev/team/new" class="brandButton u-marginBottomUnit u-marginRightUnit">
   {% include brandButtonBg.html %}
   <div class="buttonLabel brandButton-text">
-    Tilt for Work
+    Get Tilt for Your Team
   </div>
 </a>
+
+<h3 class="ctaLink u-marginBottomUnit">
+    &gt; <a href="https://github.com/windmilleng/tilt">Check out our GitHub</a> & <a href="{{site.docsurl}}install.html">Install Docs</a>
+</h3>
 
 </div>
 
