@@ -1,4 +1,7 @@
 <head>
+  {%- include google-tag-manager-head.html -%}
+  {%- include google-analytics.html -%}
+  
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -8,8 +11,6 @@
     <link rel="stylesheet" href="{{ "/assets/css/slideshow.css" | relative_url }}">
   {% endif %}
   {%- feed_meta -%}
-  {%- include google-tag-manager-head.html -%}
-  {%- include google-analytics.html -%}
 
   <link rel="stylesheet" href="https://use.typekit.net/pmf0bfo.css">
 </head>
