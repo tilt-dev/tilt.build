@@ -34,6 +34,8 @@ When an AppDev runs into preventable trouble that wastes their time, they lose f
 #### Team Version Visibility
 The first feature of Tilt Cloud is Team Version Visibility. When you open your Tilt Cloud Team page (or [create a new one first](https://cloud.tilt.dev/team/new)), you'll see the users who've used Tilt with your team recently, along with the version they're using.
 
+![Last seen versions](/assets/img/last-seen-versions.png)
+
 #### Team Version Management
 Weekly Tilt releases bring improvements, and occasionally incompatibilities with your existing project. You'll be able to test new releases of Tilt before they're suggested to every AppDev on your team. All good? Click to promote the new version to your team. Find a problem? Contact us and we'll fix it before it affects your team.
 
