@@ -5,8 +5,8 @@ author: dan
 layout: blog
 title: "Tilt Cloud: Infrastructure for when Production is a Coworker's Laptop"
 subtitle: "Release, Support, Measure"
-image: "/assets/images/more-customizable-tiltfiles-with-extensions/michael-dziedzic-XTblNijO9IE-unsplash.jpg"
-image_caption: "Photo by <a href='https://unsplash.com/@lazycreekimages?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText'>Michael Dziedzic</a> on <a href='https://unsplash.com/?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText'>Unsplash</a>"
+image: "/assets/images/tilt-cloud/you-x-ventures-Oalh2MojUuk-unsplash.jpg"
+image_caption: "Photo by <a href='https://unsplash.com/@youxventures?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText'>You X Ventures</a> on <a href='https://unsplash.com/?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText'>Unsplash</a>"
 tags:
   - tilt
   - tiltcloud
