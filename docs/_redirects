@@ -1,2 +1,4 @@
 # For SEO, recommended by netlify
 https://docs.tilt.build/* https://docs.tilt.dev/:splat 301!
+
+/nodejs_microservice_hotreloading.html /example_nodejs.html

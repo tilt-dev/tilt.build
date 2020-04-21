@@ -41,7 +41,7 @@
   - title: Extensions
     href: extensions.html
   - title: Contribute an Extension
-    href: contribute_extension.html    
+    href: contribute_extension.html
 
 - title: Tilt Cloud
   items:
@@ -62,8 +62,6 @@
     href: helm.html
   - title: With Docker Compose
     href: docker_compose.html
-  - title: "How to: Node.js Microservice with Hot Reloading"
-    href: nodejs_microservice_hotreloading.html
   - title: "How to: Building on a Base Image"
     href: dependent_images.html
   - title: "How to: Using a Personal Registry"
