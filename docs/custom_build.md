@@ -133,7 +133,7 @@ Of note, these patterns are evaluated relative to each ``dep``. E.g. given the f
 custom_build(
     'image-foo',
     'docker build -t $EXPECTED_REF .',
-    deps==['dep1', 'dep2'],
+    deps=['dep1', 'dep2'],
     ignores=['baz']
 )
 ```

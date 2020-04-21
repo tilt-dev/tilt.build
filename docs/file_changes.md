@@ -50,6 +50,14 @@ a directory to build. Tilt will watch the entire directory.
 Whenever a file in that directory changes, Tilt will re-build the image,
 then deploy any Kubernetes resources that depend on that image.
 
+### Custom and Local Resource Builds
+
+When you build other types of resources (like `custom_build()` and
+`local_resource()`), you can specify a file system path or a list of paths as
+`deps`.
+
+Whenever a file under that path changes, Tilt will re-run the specified scripts.
+
 ## Ignoring Files
 
 ### .git
@@ -104,11 +112,17 @@ docker_build(
 ```
 Tilt will ignore the file `foo/bar`.
 
-(Note that `custom_build` handles the `ignore` parameter a little differently than `docker_build` does; for more info, see our [Custom Build Guide](custom_build.html#adjust-file-watching-wtih-ignore)).
+### ignore= and other build types
+
+Both `custom_build()` and `local_resource()` also support the `ignore=`
+parameter.
+
+They handle it a a little differently than `docker_build` does. See our [Custom
+Build Guide](custom_build.html#adjust-file-watching-with-ignore).
 
 ### docker_build and only=
 
-The `docker_build()` call's `only=` parameter excludes everything *but* the file
+The `docker_build()` call's `only=` parameter excludes everything *but* the 
 paths specified in `only`.
 
 For example,
@@ -130,7 +144,18 @@ is equivalent to having a `.dockerignore` file that looks like:
 
 The `only=` parameter accepts paths, not glob patterns.
 
-Again, these paths are evaluated relative to the `context` passed to `docker_build`; in the call above, the only directories included in the resulting image are `foo/src` and `foo/static-files`.
+Again, these paths are evaluated relative to the `context` passed to
+`docker_build`; in the call above, the only directories included in the
+resulting image are `foo/src` and `foo/static-files`.
+
+### only= and other build types
+
+Other build types don't have an `only=` parameter.
+
+
+For `docker_build`, `only=` filters what files are available to the docker
+build within the build context. Other types of builds are simply able to access
+all files, and `deps=` specifies which paths trigger them.
 
 ### .tiltignore
 
