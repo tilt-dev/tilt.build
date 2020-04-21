@@ -286,7 +286,10 @@ This is a very simple example, but we hope it gives you a good starting point fo
 
 ## Further Reading
 
-### Other sample NodeJS projects:
+### Other sample JS projects:
+
+- [Demo React app](https://github.com/windmilleng/tilt-frontend-demo)
+- [Demo Vue.js app](https://github.com/windmilleng/tilt-vuejs-demo)
 - [abc123](https://github.com/windmilleng/abc123) is a mini microservice app with a NodeJS server called `letters`
 - [Servantes](https://github.com/windmilleng/servantes), our multi-language microservice demo app, contains a NodeJS service called `spoonerisms`
 
