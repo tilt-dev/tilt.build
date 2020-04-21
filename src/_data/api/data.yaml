@@ -1,2 +1,3 @@
 data:
 - os.environ
+- os.name
