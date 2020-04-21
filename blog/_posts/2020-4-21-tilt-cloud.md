@@ -50,4 +50,4 @@ When a user says something like  "is deploying the Shopping Cart Service suppose
 DevEx efforts often rely on anecdotes. Oftentimes the first sign there's a problem is when a senior engineer complains to a Director or VP, which then gets routed to the build team as a Code Red. Tilt Cloud will let you analyze the data so you can fix regressions proactively, drive adoption of new workflows, and claim credit for improvements. DevEx engineers can more easily demonstrate their impact when data tells the story.
 
 ## Getting Started with Tilt Cloud
-If you want to use and shape a tool that helps you manage your DevEx efforts more effectively, [create a team now](https://cloud.tilt.dev/team/new).
+If you want to use and shape a tool that helps you manage your DevEx efforts more effectively, [create a team now](https://cloud.tilt.dev/team/new). Read our [docs](https://docs.tilt.dev/sign_in_tilt_cloud.html).
