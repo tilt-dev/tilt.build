@@ -23,7 +23,7 @@ Tilt Cloud will help DevEx teams
 * Support users when they encounter problems
 * Measure the ground truth across all users
 
-We're announcing Tilt Cloud early to work with a handful of design partners. Many of these features are prospective, and we're looking for help prioritizing these features. If you want to upgrade your Tilt experience and shape the direction of Tilt Cloud, [create a Team now](https://cloud.tilt.dev/team/new). We'll reach out to discuss how we can work together.
+We're announcing Tilt Cloud early to work with a handful of design partners. Many of these features are prospective, and we're looking for help prioritizing these features. If you want to upgrade your Tilt experience and shape the direction of Tilt Cloud, [create a team now](https://cloud.tilt.dev/team/new). We'll reach out to discuss how we can work together.
 
 ## DevEx teams need Infrastructure
 For AppDev's creating an eCommerce app, the user is a shopper on a smartphone. For DevEx engineers, the user is a software developer. For each, writing code is just one step to deliver. You also need infrastructure that helps you manage your user's experience. Few companies can justify the investment to build this parallel infrastructure for DevEx, and there haven't been commercial offerings. Let's look at some concrete ways this infrastructure will help DevEx teams manage their offering.
@@ -50,4 +50,4 @@ When a user says something like  "is deploying the Shopping Cart Service suppose
 DevEx efforts often rely on anecdotes. Oftentimes the first sign there's a problem is when a senior engineer complains to a Director or VP, which then gets routed to the build team as a Code Red. Tilt Cloud will let you analyze the data so you can fix regressions proactively, drive adoption of new workflows, and claim credit for improvements. DevEx engineers can more easily demonstrate their impact when data tells the story.
 
 ## Getting Started with Tilt Cloud
-If you want to use and shape a tool that helps you manage your DevEx efforts more effectively, [create a new team](https://cloud.tilt.dev/team/new) now.
+If you want to use and shape a tool that helps you manage your DevEx efforts more effectively, [create a team now](https://cloud.tilt.dev/team/new).
