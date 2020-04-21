@@ -64,5 +64,5 @@ Our database table for users looks like this:
 ----+----------------+----------+------------------+--------------------
   2 | Mary Miranda   | github   | 1234567          | mmiranda
   ```
-### Q: I'm sometimes seeing 500 errors when creating a snapshot. Is that expected?
+### Q: Sometimes I get a 500 error when creating a snapshot. Is that expected?
 There's a [known bug](https://github.com/windmilleng/tilt/issues/3194) for larger snapshots.
