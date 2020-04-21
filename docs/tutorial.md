@@ -30,7 +30,7 @@ In your terminal, run `tilt up`. A browser tab will open showing Tilt. (Hit `ent
 Right now, Tilt should be complaining that there's no file named `Tiltfile`. 
 
 <figure>
-  <img src="/assets/img/no-tiltfile.png" class="no-shadow" alt="Last seen versions">
+  <img src="/assets/img/no-tiltfile.png" class="no-shadow" alt="No Tiltfile">
 </figure>
 
 Create a new file named `Tiltfile` in your project directory with a single line:
@@ -42,7 +42,7 @@ print('Hello Tiltfile')
 Now save the file. Congrats, you just ran your first Tiltfile since Tilt has automatically reexecuted with it. Tilt's configurations are programs in [Starlark](https://github.com/bazelbuild/starlark#tour>), a dialect of Python. Go back to your browser to see "Hello Tiltfile" in Tilt. Tilt is also warning you there are no declared resources. Let's add some.
 
 ## Step 1: Deploy
-The function `k8s_yaml` registers Kubernetes objects you want to deploy:
+The [Tiltfile API](api.html) function [`k8s_yaml`](api.html#api.k8s_yaml) registers Kubernetes objects you want to deploy:
 ```python
 k8s_yaml('app.yaml')
 ```
@@ -61,7 +61,7 @@ k8s_yaml(helm('chart_dir'))
 Use the pattern that matches your project (if you're not sure, feel free to ask in [Slack](index.html#community)). You can see when it works because Tilt will display the registered objects.
 
 ## Step 2: Build
-The function `docker_build` tells Tilt how to build a container image. Tilt automatically builds the image, injects the ID into Kubernetes objects and deploys. (The [Build](tiltfile_concepts.html#build) section of "Tiltfile Concepts" describes optional arguments.)
+The function [`docker_build`](api.html#api.docker_build) tells Tilt how to build a container image. Tilt automatically builds the image, injects the ID into Kubernetes objects and deploys. (The [Build](tiltfile_concepts.html#build) section of "Tiltfile Concepts" describes optional arguments.)
 
 ```python
 # docker build -t companyname/frontend ./frontend
@@ -71,7 +71,7 @@ docker_build('companyname/frontend', 'frontend')
  Try editing a source file; you should see Tilt automatically build and deploy as soon as you save. Add additional images; you should have one `docker_build` call for each container image you're developing.
 
 ## Step 3: Watch (Optional)
-Tilt can give you consistent port forwards to running pods (whether they're running locally or in the cloud). Call the `k8s_resource` function with the name of the resource you want to access (taken from the UI):
+Tilt can give you consistent port forwards to running pods (whether they're running locally or in the cloud). Call the function [`k8s_resource`](api.html#api.k8s_resource) with the name of the resource you want to access (taken from the UI):
 ```python
 k8s_resource('frontend', port_forwards='9000')
 ```
