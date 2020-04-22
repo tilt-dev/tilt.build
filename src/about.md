@@ -13,19 +13,6 @@ We’re small ({{total}} people, VC-backed). We’re based in NYC,
 but also have teammates in Berlin, Germany and Richmond, VA.
 </div>
 
-<div class="brandBox u-marginBottom2">
-  {% include brandBoxBg.html %}
-  <h2 class="section u-marginBottom0_5">And we're currently hiring!</h2>
-
-  <h3>
-    See our open roles for:
-  </h3>
-
-  <ul>
-    <li><a href="frontend-eng.html">Frontend Engineer</a></li>
-  </ul>
-</div>
-
 <div class="row">
   <div class="bio col-1of3 u-marginBottom1_25">
     <img class="bio-image" src="/assets/img/dan.jpg">
