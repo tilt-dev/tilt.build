@@ -732,7 +732,8 @@ def disable_snapshots() -> None:
     ensures a pretty high bar of intent.
     """
 
-def docker_prune_settings(disable: bool=True, max_age_mins: int=360, num_builds: int=0, interval_hrs: int=1) -> None:
+def docker_prune_settings(disable: bool=True, max_age_mins: int=360,
+                          num_builds: int=0, interval_hrs: int=1, keep_recent: int=2) -> None:
   """
   Configures Tilt's Docker Pruner, which runs occasionally in the background and prunes Docker images associated
   with your current project.
@@ -742,7 +743,8 @@ def docker_prune_settings(disable: bool=True, max_age_mins: int=360, num_builds:
 
   The pruner will prune:
     - stopped containers built by Tilt that are at least ``max_age_mins`` mins old
-    - images built by Tilt and associated with this Tilt run that are at least ``max_age_mins`` mins old
+    - images built by Tilt and associated with this Tilt run that are at least ``max_age_mins`` mins old,
+      and not in the ``keep_recent`` most recent builds for that image name
     - dangling build caches that are at least ``max_age_mins`` mins old
 
   Args:
@@ -750,6 +752,7 @@ def docker_prune_settings(disable: bool=True, max_age_mins: int=360, num_builds:
     max_age_mins: maximum age, in minutes, of images/containers to retain. Defaults to 360 mins., i.e. 6 hours
     num_builds: number of Docker builds after which to run a prune. (If unset, the pruner instead runs every ``interval_hrs`` hours)
     interval_hrs: run a Docker Prune every ``interval_hrs`` hours (unless ``num_builds`` is set, in which case use the "prune every X builds" logic). Defaults to 1 hour
+    keep_recent: when pruning, retain at least the ``keep_recent`` most recent images for each image name. Defaults to 2
   """
   pass
 
@@ -780,7 +783,7 @@ def version_settings(check_updates: bool = True, constraint: str = "") -> None:
 
                 - `<0.13.0` - less than 0.13.0
                 - `>=0.12.0` - at least 0.12.0
-                
+
                 See more at the `constraint syntax documentation <https://github.com/blang/semver#ranges>`_.
   """
 

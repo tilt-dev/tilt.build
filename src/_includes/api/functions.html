@@ -2114,6 +2114,10 @@ the DockerImage ref).
            <em>
             interval_hrs=1
            </em>
+           ,
+           <em>
+            keep_recent=2
+           </em>
            <span class="sig-paren">
             )
            </span>
@@ -2170,7 +2174,14 @@ Subsequently, it runs after every
                  max_age_mins
                 </span>
                </code>
-               mins old
+               mins old,
+and not in the
+               <code class="docutils literal notranslate">
+                <span class="pre">
+                 keep_recent
+                </span>
+               </code>
+               most recent builds for that image name
               </li>
               <li>
                dangling build caches that are at least
@@ -2259,6 +2270,24 @@ Subsequently, it runs after every
                   </span>
                  </code>
                  is set, in which case use the &#x201C;prune every X builds&#x201D; logic). Defaults to 1 hour
+                </li>
+                <li>
+                 <strong>
+                  keep_recent
+                 </strong>
+                 (
+                 <code class="xref py py-class docutils literal notranslate">
+                  <span class="pre">
+                   int
+                  </span>
+                 </code>
+                 ) &#x2013; when pruning, retain at least the
+                 <code class="docutils literal notranslate">
+                  <span class="pre">
+                   keep_recent
+                  </span>
+                 </code>
+                 most recent images for each image name. Defaults to 2
                 </li>
                </ul>
               </td>
