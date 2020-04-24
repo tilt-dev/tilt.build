@@ -1,5 +1,12 @@
 from typing import Dict
 
+name: str = ""
+"""The name of the operating system. 'posix' (for Linux and MacOS) or 'nt' (for Windows).
+
+Designed for consistency with
+`os.name in Python <https://docs.python.org/3/library/os.html#os.name>`_.
+"""
+
 environ = Dict[str, str]
 """A dictionary of your environment variables.
 
