@@ -89,7 +89,7 @@ recent CI invocation, or refer to standard images.)
 * `tilt up -- consumer --to-edit b --to-edit c`: run consumer services and set
   up b and c for editing.
 * `tilt down -- consumer`: Delete consumer services but leave any other services alone.
-  
+
 #### Tiltfile
 ```python
 config.define_string_list("to-run", args=True)
@@ -146,12 +146,25 @@ cfg = config.parse()
 config.set_enabled_resources(cfg.get('args', []))
 ```
 
+## Flag types
+Here are some sample usages of different types of flags that are supported:
+```python
+# list of string
+# tilt up -- --foo a --foo b
+config.define_string_list("foo")
+# single string
+# tilt up -- --foo bar
+config.define_string("foo")
+# bool
+# tilt up -- --local
+config.define_bool("local")
+```
+
 ## Future Directions
 This section describes places we expect the config to go. Let us know if any of
 these would be particularly helpful to you and your team.
 ### More Kinds of Settings
-You should be able to define more kinds of settings. For example, a bool, an
-an enum, or a singly-valued string. By moving error-checking to the built-in
+You should be able to define more kinds of settings. For example, an enum. By moving error-checking to the built-in
 library, you can make your Tiltfile shorter and more correct.
 ### Better Config Manipulation/Discovery
 Your users should be able to understand what reasonable values are. This could
