@@ -1,14 +1,33 @@
 ---
-title: Writing Tilt Extensions (Preview)
+title: Contribute an Extension
 layout: docs
 ---
-Extensions are a simple way to bundle up Tiltfile functionality that should be shared with the world.
 
-Lots of Tilt users have implemented useful Tiltfile functionality that'd be great for others to be able to use as well. We've seen functions that force resources in to different namespaces, inject sidecars or even run tests. We created extensions to make it easy for Tiltfile authors to share those ideas, and for new Tiltfile authors to stand on the shoulders of giants by building on top of them.
+This page explains how to contribute an open source extension. If you're interested in only using extensions, visit [Extensions](extensions.html).
 
-Let's take a look at a simple example that shows how to make an extension in Tilt. We'll follow it up with a more complicated example.
+## Create and test a function in your Tiltfile
+Tiltfiles are written in a Python dialect called [Starlark](https://github.com/bazelbuild/starlark/blob/master/spec.mdl). And so for the purpose of writing a new extension, it is no different from writing your Tiltfile, namely following typical Python syntax.
 
-## Simple Example: API Server Logs
+Create a new function, following the `def func_name(args):` syntax and add it to your Tiltfile. (Refer to any [existing extension](https://github.com/windmilleng/tilt-extensions) as an example.) Invoke the function later in your Tiltfile. Run Tilt as normal, and verify that the function works as expected.
+
+## Package your function and submit a pull request
+Clone the [tilt-extensions repo](https://github.com/windmilleng/tilt-extensions), and create a new extension, following the directory structure of other existing extensions. Namely, there should be a root-level directory with the name of your extension, and a Tiltfile inside that directory. Copy the function you previously tested into that Titfile. Also update [README.md](https://github.com/windmilleng/tilt-extensions/blob/master/README.md), explaining your extension. I.e. you should have these changes:
+
+```
+extension_name/Tiltfile
+README.md
+```
+
+Create and submit a pull request to the repo, and @-mention `@victorwuky` for review.
+
+Currently there's no way to directly test the end-to-end workflow of using an extension. The Tilt team will ensure that the extension is working correctly before publishing it.
+
+## Next steps
+
+If you run into any problems, [contact us](https://tilt.dev/contact). If you have an extension idea (but aren't interested in contributing), [request it](https://github.com/windmilleng/tilt/issues).
+
+
+## Example extension: API Server Logs
 Depending on the kind of Kubernetes work you're doing it can be valuable to see the Kubernetes API Server logs. For example, if you were iterating on a Kubernetes controller that interacts heavily with the Kubernetes API. By default Tilt doesn't display those logs because they don't come from a resource that Tilt deployed. However, it's pretty easy to get tilt to display them using a `local_resource`:
 
 ```python
@@ -29,9 +48,7 @@ def api_server_logs():
   local_resource('API Server Logs', '', serve_cmd='kubectl logs -f -n %s' % api_server_pod_name )
 ```
 
-That's it. You've created your first Tilt extension! Simply brush up on the Extension Repo [README](https://github.com/windmilleng/tilt-extensions/blob/master/README.md) and [open a PR](https://github.com/windmilleng/tilt-extensions/compare) to make this extension available to all Tilt users.
-
-## Slightly More Complicated Example: Jest Test Runner
+## Example extension: Jest Test Runner
 
 Tilt is great at building your code and running your services, and with extensions it's easy to make Tilt great at running your tests. Let's use the [Jest](https://jestjs.io/) JavaScript test runner as an example.
 
@@ -49,6 +66,3 @@ def jest(path):
 ```
 
 Now Tilt is running your tests, how cool is that?
-
-## Next Steps
-If you run into any challenges while writing an extension, or have an idea for an extension but can't implement is, [contact us](debug_faq.md#where-can-i-ask-questions)!

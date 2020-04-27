@@ -31,6 +31,13 @@ def fall_back_on(files: Union[str, List[str]]) -> LiveUpdateStep:
   """
   pass
 
+def set_team(team_id: str) -> None:
+  """Associates this Tiltfile with the `team <teams.html>`_ identified by `team_id`.
+
+  Sends usage information to Tilt Cloud periodically.
+  """
+  pass
+
 def sync(local_path: str, remote_path: str) -> LiveUpdateStep:
   """Specify that any changes to `localPath` should be synced to `remotePath`
 
@@ -74,13 +81,23 @@ def restart_container() -> LiveUpdateStep:
 def docker_build(ref: str, context: str, build_args: Dict[str, str] = {}, dockerfile: str = "Dockerfile", dockerfile_contents: Union[str, Blob] = "", live_update: List[LiveUpdateStep]=[], match_in_env_vars: bool = False, ignore: Union[str, List[str]] = [], only: Union[str, List[str]] = [], entrypoint: str = "", target: str = "", ssh: Union[str, List[str]] = "", network: str = "", secret: Union[str, List[str]] = "", extra_tag: Union[str, List[str]] = "", container_args: List[str] = None) -> None:
   """Builds a docker image.
 
+  The invocation
+
+  .. code-block:: python
+
+    docker_build('myregistry/myproj/backend', '/path/to/code')
+
+  is roughly equivalent to the shell call
+
+  .. code-block:: bash
+
+    docker build /path/to/code -t myregistry/myproj/backend
+
+  For more information on the `ignore` and `only` parameters, see our `Guide to File Changes </file_changes.html>`_.
+
   Note that you can't set both the `dockerfile` and `dockerfile_contents` arguments (will throw an error).
 
-  Example: ``docker_build('myregistry/myproj/backend', '/path/to/code')`` is roughly equivalent to the call ``docker build /path/to/code -t myregistry/myproj/backend``
-
-  Note: If you're using the the `ignore` and `only` parameters to do context filtering and you have tricky cases, reach out to us. The implementation is complex and there might be edge cases.
-
-  Note: the `entrypoint` parameter is not supported for Docker Compose resources. If you need it for your use case, let us know.
+  Note also that the `entrypoint` parameter is not supported for Docker Compose resources. If you need it for your use case, let us know.
 
   Args:
     ref: name for this image (e.g. 'myproj/backend' or 'myregistry/myproj/backend'). If this image will be used in a k8s resource(s), this ref must match the ``spec.container.image`` param for that resource(s).
@@ -90,8 +107,8 @@ def docker_build(ref: str, context: str, build_args: Dict[str, str] = {}, docker
     dockerfile_contents: raw contents of the Dockerfile to use for this build.
     live_update: set of steps for updating a running container (see `Live Update documentation <live_update_reference.html>`_).
     match_in_env_vars: specifies that k8s objects can reference this image in their environment variables, and Tilt will handle those variables the same as it usually handles a k8s container spec's ``image`` s.
-    ignore: set of file patterns that will be ignored. Ignored files will not trigger builds and will not be included in images. Follows the `dockerignore syntax <https://docs.docker.com/engine/reference/builder/#dockerignore-file>`_.
-    only: set of file paths that should be considered for the build. All other changes will not trigger a build and will not be included in images. Inverse of ignore parameter. Only accepts real paths, not file globs.
+    ignore: set of file patterns that will be ignored. Ignored files will not trigger builds and will not be included in images. Follows the `dockerignore syntax <https://docs.docker.com/engine/reference/builder/#dockerignore-file>`_. Patterns will be evaluated relative to the ``context`` parameter.
+    only: set of file paths that should be considered for the build. All other changes will not trigger a build and will not be included in images. Inverse of ignore parameter. Only accepts real paths, not file globs. Patterns will be evaluated relative to the ``context`` parameter.
     entrypoint: command to run when this container starts. Takes precedence over the container's ``CMD`` or ``ENTRYPOINT``, and over a `container command specified in k8s YAML <https://kubernetes.io/docs/tasks/inject-data-application/define-command-argument-container/>`_. Will be evaluated in a shell context: e.g. ``entrypoint="foo.sh bar"`` will be executed in the container as ``/bin/sh -c 'foo.sh bar'``.
     target: Specify a build stage in the Dockerfile. Equivalent to the ``docker build --target`` flag.
     ssh: Include SSH secrets in your build. Use ssh='default' to clone private repositories inside a Dockerfile. Uses the syntax in the `docker build --ssh flag <https://docs.docker.com/develop/develop-images/build_enhancements/#using-ssh-to-access-private-data-in-builds>`_.
@@ -262,12 +279,16 @@ def filter_yaml(yaml: Union[str, List[str], Blob], labels: dict=None, name: str=
   For example, if you have a file of *all* your YAML, but only want to pass a few elements to Tilt: ::
 
     # extract all YAMLs matching labels "app=foobar"
-    foobar_yaml, rest = filter_yaml('all.yaml', labels={'app': 'foobar'}
+    foobar_yaml, rest = filter_yaml('all.yaml', labels={'app': 'foobar'})
     k8s_yaml(foobar_yaml)
 
-    # extract YAMLs of kind "deployment" with metadata.name "baz"
+    # extract YAMLs of kind "deployment" with metadata.name regex-matching "baz", also matching "bazzoo" and "bar-baz"
     baz_yaml, rest = filter_yaml(rest, name='baz', kind='deployment')
     k8s_yaml(baz_yaml)
+
+    # extract YAMLs of kind "deployment" exactly matching metadata.name "foo"
+    foo_yaml, rest = filter_yaml(rest, name='^foo$', kind='deployment')
+    k8s_yaml(foo_yaml)
 
   Args:
     yaml: Path(s) to YAML, or YAML as a ``Blob``.
@@ -324,7 +345,7 @@ def load(path: str, *args):
   """
 
 def local(cmd: str, quiet: bool = False) -> Blob:
-  """Runs cmd, waits for it to finish, and returns its stdout as a ``Blob``
+  """Runs cmd on the *host* machine, waits for it to finish, and returns its stdout as a ``Blob``
 
   Args:
     cmd: Command to run.
@@ -516,7 +537,7 @@ def encode_yaml_stream(objs: List[StructuredDataType]) -> Blob:
   """
   pass
 
-def default_registry(registry: str) -> None:
+def default_registry(host: str, host_from_cluster: str = None) -> None:
   """Specifies that any images that Tilt builds should be renamed so that they have the specified Docker registry.
 
   This is useful if, e.g., a repo is configured to push to Google Container Registry, but you want to use Elastic Container Registry instead, without having to edit a bunch of configs. For example, ``default_registry("gcr.io/myrepo")`` would cause ``docker.io/alpine`` to be rewritten to ``gcr.io/myrepo/docker.io_alpine``
@@ -524,15 +545,16 @@ def default_registry(registry: str) -> None:
   For more info, see our `Using a Personal Registry Guide <personal_registry.html>`_.
 
   Args:
-    registry: The registry that all built images should be renamed to use.
+    host: host of the registry that all built images should be renamed to use.
+    host_from_cluster: registry host to use when referencing images from inside the cluster (i.e. in Kubernetes YAML). Only include this arg if it is different from ``host``. For more on this use case, `see this guide <personal_registry.html#different-urls-from-inside-your-cluster>`_.
 
   Images are renamed following these rules:
 
   1. Replace ``/`` and ``@`` with ``_``.
 
-  2. Prepend the value of ``registry`` and a ``/``.
+  2. Prepend the value of ``host`` and a ``/``.
 
-  e.g., with ``default_registry('gcr.io/myorg')``, ``user-service`` becomes ``gcr.io/myorg/user-service``.
+  e.g., with ``default_registry('gcr.io/myorg')``, an image called ``user-service`` becomes ``gcr.io/myorg/user-service``.
 
   (Note: this logic is currently crude, on the assumption that development image names are ephemeral and unimportant. `Please let us know <https://github.com/windmilleng/tilt/issues>`_ if they don't suit you!)
   """
@@ -569,7 +591,7 @@ def custom_build(ref: str, command: str, deps: List[str], tag: str = "", disable
     skips_local_docker: Whether your build command writes the image to your local Docker image store. Set this to true if you're using a cloud-based builder or independent image builder like ``buildah``.
     live_update: set of steps for updating a running container (see `Live Update documentation <live_update_reference.html>`_).
     match_in_env_vars: specifies that k8s objects can reference this image in their environment variables, and Tilt will handle those variables the same as it usually handles a k8s container spec's ``image`` s.
-    ignore: set of file patterns that will be ignored. Ignored files will not trigger builds and will not be included in images. Follows the `dockerignore syntax <https://docs.docker.com/engine/reference/builder/#dockerignore-file>`_.
+    ignore: set of file patterns that will be ignored. Ignored files will not trigger builds and will not be included in images. Follows the `dockerignore syntax <https://docs.docker.com/engine/reference/builder/#dockerignore-file>`_. Patterns/filepaths will be evaluated relative to each ``dep`` (e.g. if you specify ``deps=['dep1', 'dep2']`` and ``ignores=['foobar']``, Tilt will ignore both ``deps1/foobar`` and ``dep2/foobar``).
     entrypoint: command to run when this container starts. Takes precedence over the container's ``CMD`` or ``ENTRYPOINT``, and over a `container command specified in k8s YAML <https://kubernetes.io/docs/tasks/inject-data-application/define-command-argument-container/>`_. Will be evaluated in a shell context: e.g. ``entrypoint="foo.sh bar"`` will be executed in the container as ``/bin/sh -c 'foo.sh bar'``.
   """
   pass
@@ -693,7 +715,7 @@ def local_resource(name: str, cmd: str = "", deps: Union[str, List[str]] = None,
       `Manual Update Control docs <manual_update_control.html>`_.
     resource_deps: a list of resources on which this resource depends.
       See the `Resource Dependencies docs <resource_dependencies.html>`_.
-    ignore: set of file patterns that will be ignored. Ignored files will not trigger runs. Follows the `dockerignore syntax <https://docs.docker.com/engine/reference/builder/#dockerignore-file>`_.
+    ignore: set of file patterns that will be ignored. Ignored files will not trigger runs. Follows the `dockerignore syntax <https://docs.docker.com/engine/reference/builder/#dockerignore-file>`_. Patterns will be evaluated relative to the Tiltfile.
     auto_init: whether this resource runs on ``tilt up``. Defaults to ``True``. Note that ``auto_init=False`` is only compatible with ``trigger_mode=TRIGGER_MODE_MANUAL``.
     serve_cmd: Tilt will run this command on update and expect it to not exit
   """
@@ -710,7 +732,8 @@ def disable_snapshots() -> None:
     ensures a pretty high bar of intent.
     """
 
-def docker_prune_settings(disable: bool=True, max_age_mins: int=360, num_builds: int=0, interval_hrs: int=1) -> None:
+def docker_prune_settings(disable: bool=True, max_age_mins: int=360,
+                          num_builds: int=0, interval_hrs: int=1, keep_recent: int=2) -> None:
   """
   Configures Tilt's Docker Pruner, which runs occasionally in the background and prunes Docker images associated
   with your current project.
@@ -720,7 +743,8 @@ def docker_prune_settings(disable: bool=True, max_age_mins: int=360, num_builds:
 
   The pruner will prune:
     - stopped containers built by Tilt that are at least ``max_age_mins`` mins old
-    - images built by Tilt and associated with this Tilt run that are at least ``max_age_mins`` mins old
+    - images built by Tilt and associated with this Tilt run that are at least ``max_age_mins`` mins old,
+      and not in the ``keep_recent`` most recent builds for that image name
     - dangling build caches that are at least ``max_age_mins`` mins old
 
   Args:
@@ -728,6 +752,7 @@ def docker_prune_settings(disable: bool=True, max_age_mins: int=360, num_builds:
     max_age_mins: maximum age, in minutes, of images/containers to retain. Defaults to 360 mins., i.e. 6 hours
     num_builds: number of Docker builds after which to run a prune. (If unset, the pruner instead runs every ``interval_hrs`` hours)
     interval_hrs: run a Docker Prune every ``interval_hrs`` hours (unless ``num_builds`` is set, in which case use the "prune every X builds" logic). Defaults to 1 hour
+    keep_recent: when pruning, retain at least the ``keep_recent`` most recent images for each image name. Defaults to 2
   """
   pass
 
@@ -745,12 +770,21 @@ def analytics_settings(enable: bool) -> None:
   """
   pass
 
-def version_settings(check_updates: bool) -> None:
-  """Controls whether Tilt will display a notification in the web UI when there is a new version available.
-  By default this is set to True.
+def version_settings(check_updates: bool = True, constraint: str = "") -> None:
+  """Controls Tilt's behavior with regard to its own version.
 
   Args:
-    check_updates: whether or not to check for new versions of Tilt on GitHub.
+    check_updates: If true, Tilt will check GitHub for new versions of itself
+                   and display a notification in the web UI when an upgrade is
+                   available.
+    constraint: If non-empty, Tilt will check its currently running version against
+                this constraint and generate an error if it doesn't match.
+                Examples:
+
+                - `<0.13.0` - less than 0.13.0
+                - `>=0.12.0` - at least 0.12.0
+
+                See more at the `constraint syntax documentation <https://github.com/blang/semver#ranges>`_.
   """
 
 def struct(**kwargs) -> Any:

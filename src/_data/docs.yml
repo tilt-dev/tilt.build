@@ -2,7 +2,7 @@
   items:
   - title: Install
     href: install.html
-  - title: Upgrading
+  - title: Upgrade
     href: upgrade.html
   - title: "Tutorial: The First 15 Minutes"
     href: tutorial.html
@@ -29,14 +29,29 @@
     href: file_changes.html
   - title: Play and Pause Resources with Manual Update Control
     href: manual_update_control.html
-  - title: Share Errors and Cluster State with Snapshots
-    href: snapshots.html
   - title: Resource Dependencies
     href: resource_dependencies.html
   - title: Local or Occasional Workflows with Local Resource
     href: local_resource.html
   - title: Tiltfile Configs
     href: tiltfile_config.html
+  # todo: this will go under its own Debuggers section when we have enough articles to merit it
+  - title: Python Debuggers
+    href: debuggers_python.html
+  - title: Extensions
+    href: extensions.html
+  - title: Contribute an Extension
+    href: contribute_extension.html
+
+- title: Tilt Cloud
+  items:
+  - title: Sign in to Tilt Cloud
+    href: sign_in_tilt_cloud.html
+  - title: Teams
+    href: teams.html
+  - title: Share Errors and Cluster State with Snapshots
+    href: snapshots.html
+
 - title: Tilt Cookbooks
   items:
   - title: Tiltfile Concepts
@@ -47,8 +62,6 @@
     href: helm.html
   - title: With Docker Compose
     href: docker_compose.html
-  - title: "How to: Node.js Microservice with Hot Reloading"
-    href: nodejs_microservice_hotreloading.html
   - title: "How to: Building on a Base Image"
     href: dependent_images.html
   - title: "How to: Using a Personal Registry"

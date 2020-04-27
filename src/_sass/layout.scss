@@ -1393,15 +1393,33 @@ input[type=checkbox]:checked + .formItem-checkbox {
   background-color: rgba($color-red, 0.3);
 }
 
-table {
+table.benchmark-report {
   margin: $spacing-unit;
   border-spacing: 0;
+  thead th {
+    border-bottom: 1px solid black;
+  }
+
+  th, td {
+    padding: $spacing-unit / 4;
+    text-align: center;
+    min-width: $spacing-unit * 4;
+  }
+
+  // keep footnotes from messing up alignment of text in cells
+  sup, sub {
+    vertical-align: baseline;
+    position: relative;
+    top: -0.4em;
+  }
+  sub {
+    top: 0.4em;
+  }
 }
-thead th {
-  border-bottom: 1px solid black;
-}
-th, td {
-  padding: $spacing-unit / 4;
-  text-align: center;
-  min-width: $spacing-unit * 4;
+
+a.attached-above {
+  display: block;
+  text-indent: 2em;
+  font-weight: bold;
+  margin-top: - $spacing-unit / 2
 }

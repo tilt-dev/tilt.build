@@ -1,0 +1,19 @@
+{% assign title = include.caption %}
+
+{% if include.title %}
+    {% assign title = include.title %}
+{% endif %}
+
+<figure>
+    {% if include.url %}
+    <a class="is-image" href="{{ include.url }}">
+    {% endif %}
+
+    <img src="assets/docimg/{{ include.img }}" title="{{ title }}">
+
+    {% if include.url %}
+    </a>
+    {% endif %}
+
+    <figcaption>{{ include.caption }}</figcaption>
+</figure>

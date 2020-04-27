@@ -1,39 +1,41 @@
 ---
-title: Upgrading
+title: Upgrade
 layout: docs
 ---
 
-You can find a list of Tilt releases on [Tilt's GitHub Releases page](https://github.com/windmilleng/tilt/releases).
+You can find a list of Tilt releases on [Tilt's GitHub Releases page](https://github.com/windmilleng/tilt/releases). 
 
-On MacOS
---------
+Based on how you previously [installed Tilt](install.html), upgrade to the latest version with one of these commands. 
 
-### Option A) If you installed Tilt via Homebrew
+macOS
+-----
+
+### If you installed with the install script or directly with a release binary
+
+```bash
+curl -L https://github.com/windmilleng/tilt/releases/download/v0.13.3/tilt.0.13.3.mac.x86_64.tar.gz | tar -xzv tilt && \
+  sudo mv tilt /usr/local/bin/tilt
+```
+
+### If you installed via Homebrew
 
 ```
 $ brew update && brew upgrade windmilleng/tap/tilt
 $ brew install windmilleng/tap/tilt
 ```
 
-### Option B) Installing Tilt from release binaries
+Linux
+-----
 
 ```bash
-curl -L https://github.com/windmilleng/tilt/releases/download/v0.12.5/tilt.0.12.5.mac.x86_64.tar.gz | tar -xzv tilt && \
-  sudo mv tilt /usr/local/bin/tilt
-```
-
-On Linux
---------
-
-```bash
-curl -L https://github.com/windmilleng/tilt/releases/download/v0.12.5/tilt.0.12.5.linux.x86_64.tar.gz | tar -xzv tilt && \
+curl -L https://github.com/windmilleng/tilt/releases/download/v0.13.3/tilt.0.13.3.linux.x86_64.tar.gz | tar -xzv tilt && \
     sudo mv tilt /usr/local/bin/tilt
 ```
 
-Verifying
----------
+Verify
+------
 
-After you install Tilt, verify that you installed it correctly with:
+Verify you have upgraded to the [latest version](https://github.com/windmilleng/tilt/releases) with:
 
 ```bash
 tilt version

@@ -40,15 +40,32 @@ Docker image store, then push the image to the appropriate image registry.
 You can also use this pattern to use `docker` flags that the `docker_build()`
 function doesn't support.
 
+### Jib, Bazel, or any other builder that interoperates with Docker
 
-### Bazel (or any image builder that interoperates with Docker)
+Many tools can create Docker images, then write them to the local Docker image
+store.
 
-[Bazel](https://github.com/google/bazel) is a general-purpose build system.
+For example, [Jib](https://github.com/GoogleContainerTools/jib) has plugins that integrate
+with your existing Java tooling and create Java-based images.
 
-Bazel's [rules_docker](https://github.com/bazelbuild/rules_docker) extension assembles Docker images and
-writes them to the local Docker image store.
+The [tilt-example-java](https://github.com/windmilleng/tilt-example-java) repo has an example
+[Tiltfile](https://github.com/windmilleng/tilt-example-java/blob/master/101-jib/Tiltfile)
+that uses `custom_build` to generate images with Gradle and Jib:
 
-See the tutorial on how to use `custom_build` to [build images with Bazel](integrating_bazel_with_tilt.html).
+```
+custom_build(
+  'example-java-image',
+  './gradlew jibDockerBuild --image $EXPECTED_REF',
+  deps=['src'])
+```
+
+[Bazel](https://github.com/google/bazel), the general-purpose build system, also
+takes this approach. Bazel's
+[rules_docker](https://github.com/bazelbuild/rules_docker) extension assembles
+Docker images and writes them to the local Docker image store.
+
+See the tutorial on how to use `custom_build` to [build images with
+Bazel](integrating_bazel_with_tilt.html).
 
 ### Buildah (or any image builder indepdendent of Docker)
 
@@ -105,6 +122,22 @@ Other tools want to have an image ref hard-coded in configuration. They'll build
 Tilt's `docker_build` supports other options. The most impactful is [Live Update](live_update_tutorial.html), which lets you update code in Kubernetes without doing a full image build.  `custom_build` supports this as well, using the same syntax.
 
 `custom_build` supports most other options of `docker_build`, and a few specific to non-Docker container builders. If you find an option you think should exist but doesn't, let us know in the `#tilt` channel in [Kubernetes Slack](http://slack.k8s.io).
+
+### Adjust File Watching with `ignore`
+While most of the points in our [Debugging File Changes](/file_changes.html) guide hold true for `custom_build`, the `ignore` parameter (which adjusts the set of files watched for a given build) works a bit differently, and is worth discussing briefly.
+
+The `ignore` parameter takes a pattern or list of patterns (following [`.dockerignore` syntax](https://docs.docker.com/engine/reference/builder/#dockerignore-file); files matching any of these patterns will _not_ trigger a build.
+
+Of note, these patterns are evaluated relative to each ``dep``. E.g. given the following call:
+```python
+custom_build(
+    'image-foo',
+    'docker build -t $EXPECTED_REF .',
+    deps=['dep1', 'dep2'],
+    ignores=['baz']
+)
+```
+Tilt will ignore `dep1/baz` and `dep2/baz`.
 
 ## Why Tilt uses One-Time Tags
 This section describes for the curious why Tilt uses tags the way it does, instead of using a fixed reference.

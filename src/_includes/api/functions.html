@@ -571,7 +571,40 @@ then re-tag it with its own tag before pushing to your cluster. See
                  <a class="reference external" href="https://docs.docker.com/engine/reference/builder/#dockerignore-file">
                   dockerignore syntax
                  </a>
-                 .
+                 . Patterns/filepaths will be evaluated relative to each
+                 <code class="docutils literal notranslate">
+                  <span class="pre">
+                   dep
+                  </span>
+                 </code>
+                 (e.g. if you specify
+                 <code class="docutils literal notranslate">
+                  <span class="pre">
+                   deps=[&apos;dep1&apos;,
+                  </span>
+                  <span class="pre">
+                   &apos;dep2&apos;]
+                  </span>
+                 </code>
+                 and
+                 <code class="docutils literal notranslate">
+                  <span class="pre">
+                   ignores=[&apos;foobar&apos;]
+                  </span>
+                 </code>
+                 , Tilt will ignore both
+                 <code class="docutils literal notranslate">
+                  <span class="pre">
+                   deps1/foobar
+                  </span>
+                 </code>
+                 and
+                 <code class="docutils literal notranslate">
+                  <span class="pre">
+                   dep2/foobar
+                  </span>
+                 </code>
+                 ).
                 </li>
                 <li>
                  <strong>
@@ -1071,7 +1104,11 @@ documents, separated by
             (
            </span>
            <em>
-            registry
+            host
+           </em>
+           ,
+           <em>
+            host_from_cluster=None
            </em>
            <span class="sig-paren">
             )
@@ -1120,16 +1157,48 @@ documents, separated by
                Parameters:
               </th>
               <td class="field-body">
-               <strong>
-                registry
-               </strong>
-               (
-               <code class="xref py py-class docutils literal notranslate">
-                <span class="pre">
-                 str
-                </span>
-               </code>
-               ) &#x2013; The registry that all built images should be renamed to use.
+               <ul class="first last simple">
+                <li>
+                 <strong>
+                  host
+                 </strong>
+                 (
+                 <code class="xref py py-class docutils literal notranslate">
+                  <span class="pre">
+                   str
+                  </span>
+                 </code>
+                 ) &#x2013; host of the registry that all built images should be renamed to use.
+                </li>
+                <li>
+                 <strong>
+                  host_from_cluster
+                 </strong>
+                 (
+                 <code class="xref py py-data docutils literal notranslate">
+                  <span class="pre">
+                   Optional
+                  </span>
+                 </code>
+                 [
+                 <code class="xref py py-class docutils literal notranslate">
+                  <span class="pre">
+                   str
+                  </span>
+                 </code>
+                 ]) &#x2013; registry host to use when referencing images from inside the cluster (i.e. in Kubernetes YAML). Only include this arg if it is different from
+                 <code class="docutils literal notranslate">
+                  <span class="pre">
+                   host
+                  </span>
+                 </code>
+                 . For more on this use case,
+                 <a class="reference external" href="personal_registry.html#different-urls-from-inside-your-cluster">
+                  see this guide
+                 </a>
+                 .
+                </li>
+               </ul>
               </td>
              </tr>
             </tbody>
@@ -1163,7 +1232,7 @@ documents, separated by
              Prepend the value of
              <code class="docutils literal notranslate">
               <span class="pre">
-               registry
+               host
               </span>
              </code>
              and a
@@ -1182,7 +1251,7 @@ documents, separated by
               default_registry(&apos;gcr.io/myorg&apos;)
              </span>
             </code>
-            ,
+            , an image called
             <code class="docutils literal notranslate">
              <span class="pre">
               user-service
@@ -1360,6 +1429,39 @@ ensures a pretty high bar of intent.
             Builds a docker image.
            </p>
            <p>
+            The invocation
+           </p>
+           <div class="highlight-python notranslate">
+            <div class="highlight">
+             <pre><span></span><span class="n">docker_build</span><span class="p">(</span><span class="s1">&apos;myregistry/myproj/backend&apos;</span><span class="p">,</span> <span class="s1">&apos;/path/to/code&apos;</span><span class="p">)</span>
+</pre>
+            </div>
+           </div>
+           <p>
+            is roughly equivalent to the shell call
+           </p>
+           <div class="highlight-bash notranslate">
+            <div class="highlight">
+             <pre><span></span>docker build /path/to/code -t myregistry/myproj/backend
+</pre>
+            </div>
+           </div>
+           <p>
+            For more information on the
+            <cite>
+             ignore
+            </cite>
+            and
+            <cite>
+             only
+            </cite>
+            parameters, see our
+            <a class="reference external" href="/file_changes.html">
+             Guide to File Changes
+            </a>
+            .
+           </p>
+           <p>
             Note that you can&#x2019;t set both the
             <cite>
              dockerfile
@@ -1371,47 +1473,7 @@ ensures a pretty high bar of intent.
             arguments (will throw an error).
            </p>
            <p>
-            Example:
-            <code class="docutils literal notranslate">
-             <span class="pre">
-              docker_build(&apos;myregistry/myproj/backend&apos;,
-             </span>
-             <span class="pre">
-              &apos;/path/to/code&apos;)
-             </span>
-            </code>
-            is roughly equivalent to the call
-            <code class="docutils literal notranslate">
-             <span class="pre">
-              docker
-             </span>
-             <span class="pre">
-              build
-             </span>
-             <span class="pre">
-              /path/to/code
-             </span>
-             <span class="pre">
-              -t
-             </span>
-             <span class="pre">
-              myregistry/myproj/backend
-             </span>
-            </code>
-           </p>
-           <p>
-            Note: If you&#x2019;re using the the
-            <cite>
-             ignore
-            </cite>
-            and
-            <cite>
-             only
-            </cite>
-            parameters to do context filtering and you have tricky cases, reach out to us. The implementation is complex and there might be edge cases.
-           </p>
-           <p>
-            Note: the
+            Note also that the
             <cite>
              entrypoint
             </cite>
@@ -1608,7 +1670,13 @@ ensures a pretty high bar of intent.
                   <a class="reference external" href="https://docs.docker.com/engine/reference/builder/#dockerignore-file">
                    dockerignore syntax
                   </a>
-                  .
+                  . Patterns will be evaluated relative to the
+                  <code class="docutils literal notranslate">
+                   <span class="pre">
+                    context
+                   </span>
+                  </code>
+                  parameter.
                  </p>
                 </li>
                 <li>
@@ -1639,7 +1707,13 @@ ensures a pretty high bar of intent.
                    str
                   </span>
                  </code>
-                 ]]) &#x2013; set of file paths that should be considered for the build. All other changes will not trigger a build and will not be included in images. Inverse of ignore parameter. Only accepts real paths, not file globs.
+                 ]]) &#x2013; set of file paths that should be considered for the build. All other changes will not trigger a build and will not be included in images. Inverse of ignore parameter. Only accepts real paths, not file globs. Patterns will be evaluated relative to the
+                 <code class="docutils literal notranslate">
+                  <span class="pre">
+                   context
+                  </span>
+                 </code>
+                 parameter.
                 </li>
                 <li>
                  <strong>
@@ -2040,6 +2114,10 @@ the DockerImage ref).
            <em>
             interval_hrs=1
            </em>
+           ,
+           <em>
+            keep_recent=2
+           </em>
            <span class="sig-paren">
             )
            </span>
@@ -2096,7 +2174,14 @@ Subsequently, it runs after every
                  max_age_mins
                 </span>
                </code>
-               mins old
+               mins old,
+and not in the
+               <code class="docutils literal notranslate">
+                <span class="pre">
+                 keep_recent
+                </span>
+               </code>
+               most recent builds for that image name
               </li>
               <li>
                dangling build caches that are at least
@@ -2185,6 +2270,24 @@ Subsequently, it runs after every
                   </span>
                  </code>
                  is set, in which case use the &#x201C;prune every X builds&#x201D; logic). Defaults to 1 hour
+                </li>
+                <li>
+                 <strong>
+                  keep_recent
+                 </strong>
+                 (
+                 <code class="xref py py-class docutils literal notranslate">
+                  <span class="pre">
+                   int
+                  </span>
+                 </code>
+                 ) &#x2013; when pruning, retain at least the
+                 <code class="docutils literal notranslate">
+                  <span class="pre">
+                   keep_recent
+                  </span>
+                 </code>
+                 most recent images for each image name. Defaults to 2
                 </li>
                </ul>
               </td>
@@ -2802,12 +2905,16 @@ returns the non-matching YAML as the second return value.
            <div class="highlight-default notranslate">
             <div class="highlight">
              <pre><span></span><span class="c1"># extract all YAMLs matching labels &quot;app=foobar&quot;</span>
-<span class="n">foobar_yaml</span><span class="p">,</span> <span class="n">rest</span> <span class="o">=</span> <span class="n">filter_yaml</span><span class="p">(</span><span class="s1">&apos;all.yaml&apos;</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="p">{</span><span class="s1">&apos;app&apos;</span><span class="p">:</span> <span class="s1">&apos;foobar&apos;</span><span class="p">}</span>
+<span class="n">foobar_yaml</span><span class="p">,</span> <span class="n">rest</span> <span class="o">=</span> <span class="n">filter_yaml</span><span class="p">(</span><span class="s1">&apos;all.yaml&apos;</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="p">{</span><span class="s1">&apos;app&apos;</span><span class="p">:</span> <span class="s1">&apos;foobar&apos;</span><span class="p">})</span>
 <span class="n">k8s_yaml</span><span class="p">(</span><span class="n">foobar_yaml</span><span class="p">)</span>
 
-<span class="c1"># extract YAMLs of kind &quot;deployment&quot; with metadata.name &quot;baz&quot;</span>
+<span class="c1"># extract YAMLs of kind &quot;deployment&quot; with metadata.name regex-matching &quot;baz&quot;, also matching &quot;bazzoo&quot; and &quot;bar-baz&quot;</span>
 <span class="n">baz_yaml</span><span class="p">,</span> <span class="n">rest</span> <span class="o">=</span> <span class="n">filter_yaml</span><span class="p">(</span><span class="n">rest</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&apos;baz&apos;</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s1">&apos;deployment&apos;</span><span class="p">)</span>
 <span class="n">k8s_yaml</span><span class="p">(</span><span class="n">baz_yaml</span><span class="p">)</span>
+
+<span class="c1"># extract YAMLs of kind &quot;deployment&quot; exactly matching metadata.name &quot;foo&quot;</span>
+<span class="n">foo_yaml</span><span class="p">,</span> <span class="n">rest</span> <span class="o">=</span> <span class="n">filter_yaml</span><span class="p">(</span><span class="n">rest</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&apos;^foo$&apos;</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s1">&apos;deployment&apos;</span><span class="p">)</span>
+<span class="n">k8s_yaml</span><span class="p">(</span><span class="n">foo_yaml</span><span class="p">)</span>
 </pre>
             </div>
            </div>
@@ -4205,7 +4312,11 @@ to share across Tiltfiles.
           </dt>
           <dd>
            <p>
-            Runs cmd, waits for it to finish, and returns its stdout as a
+            Runs cmd on the
+            <em>
+             host
+            </em>
+            machine, waits for it to finish, and returns its stdout as a
             <code class="docutils literal notranslate">
              <span class="pre">
               Blob
@@ -4541,7 +4652,7 @@ See the
                   <a class="reference external" href="https://docs.docker.com/engine/reference/builder/#dockerignore-file">
                    dockerignore syntax
                   </a>
-                  .
+                  . Patterns will be evaluated relative to the Tiltfile.
                  </p>
                 </li>
                 <li>
@@ -5477,6 +5588,60 @@ restart_container
            </table>
           </dd>
          </dl><dl class="function">
+          <dt id="api.set_team">
+           <code class="descclassname">
+           </code>
+           <code class="descname">
+            set_team
+           </code>
+           <span class="sig-paren">
+            (
+           </span>
+           <em>
+            team_id
+           </em>
+           <span class="sig-paren">
+            )
+           </span>
+           <a class="headerlink" href="#api.set_team" title="Permalink to this definition">
+            &#xB6;
+           </a>
+          </dt>
+          <dd>
+           <p>
+            Associates this Tiltfile with the
+            <a class="reference external" href="teams.html">
+             team
+            </a>
+            identified by
+            <cite>
+             team_id
+            </cite>
+            .
+           </p>
+           <p>
+            Sends usage information to Tilt Cloud periodically.
+           </p>
+           <table class="docutils field-list" frame="void" rules="none">
+            <col class="field-name">
+            <col class="field-body">
+            <tbody valign="top">
+             <tr class="field-odd field">
+              <th class="field-name">
+               Return type:
+              </th>
+              <td class="field-body">
+               <code class="docutils literal notranslate">
+                <span class="pre">
+                 None
+                </span>
+               </code>
+              </td>
+             </tr>
+            </tbody>
+           </table>
+          </dd>
+         </dl><dl class="function">
           <dt id="api.struct">
            <code class="descclassname">
            </code>
@@ -5807,7 +5972,11 @@ a local resource command).
             (
            </span>
            <em>
-            check_updates
+            check_updates=True
+           </em>
+           ,
+           <em>
+            constraint=&apos;&apos;
            </em>
            <span class="sig-paren">
             )
@@ -5818,8 +5987,7 @@ a local resource command).
           </dt>
           <dd>
            <p>
-            Controls whether Tilt will display a notification in the web UI when there is a new version available.
-By default this is set to True.
+            Controls Tilt&#x2019;s behavior with regard to its own version.
            </p>
            <table class="docutils field-list" frame="void" rules="none">
             <col class="field-name">
@@ -5830,16 +5998,60 @@ By default this is set to True.
                Parameters:
               </th>
               <td class="field-body">
-               <strong>
-                check_updates
-               </strong>
-               (
-               <code class="xref py py-class docutils literal notranslate">
-                <span class="pre">
-                 bool
-                </span>
-               </code>
-               ) &#x2013; whether or not to check for new versions of Tilt on GitHub.
+               <ul class="first simple">
+                <li>
+                 <strong>
+                  check_updates
+                 </strong>
+                 (
+                 <code class="xref py py-class docutils literal notranslate">
+                  <span class="pre">
+                   bool
+                  </span>
+                 </code>
+                 ) &#x2013; If true, Tilt will check GitHub for new versions of itself
+and display a notification in the web UI when an upgrade is
+available.
+                </li>
+                <li>
+                 <strong>
+                  constraint
+                 </strong>
+                 (
+                 <code class="xref py py-class docutils literal notranslate">
+                  <span class="pre">
+                   str
+                  </span>
+                 </code>
+                 ) &#x2013;
+                 <p>
+                  If non-empty, Tilt will check its currently running version against
+this constraint and generate an error if it doesn&#x2019;t match.
+Examples:
+                 </p>
+                 <ul>
+                  <li>
+                   <cite>
+                    &lt;0.13.0
+                   </cite>
+                   - less than 0.13.0
+                  </li>
+                  <li>
+                   <cite>
+                    &gt;=0.12.0
+                   </cite>
+                   - at least 0.12.0
+                  </li>
+                 </ul>
+                 <p>
+                  See more at the
+                  <a class="reference external" href="https://github.com/blang/semver#ranges">
+                   constraint syntax documentation
+                  </a>
+                  .
+                 </p>
+                </li>
+               </ul>
               </td>
              </tr>
              <tr class="field-even field">
@@ -5847,11 +6059,13 @@ By default this is set to True.
                Return type:
               </th>
               <td class="field-body">
-               <code class="docutils literal notranslate">
-                <span class="pre">
-                 None
-                </span>
-               </code>
+               <p class="first last">
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  None
+                 </span>
+                </code>
+               </p>
               </td>
              </tr>
             </tbody>
@@ -6057,6 +6271,50 @@ If your Tiltfile runs any commands, they run from this directory.
            <p>
             While calling :meth:load or :meth:include to execute another Tiltfile,
 returns the directory of the loaded/included Tiltfile.
+           </p>
+           <table class="docutils field-list" frame="void" rules="none">
+            <col class="field-name">
+            <col class="field-body">
+            <tbody valign="top">
+             <tr class="field-odd field">
+              <th class="field-name">
+               Return type:
+              </th>
+              <td class="field-body">
+               <code class="xref py py-class docutils literal notranslate">
+                <span class="pre">
+                 str
+                </span>
+               </code>
+              </td>
+             </tr>
+            </tbody>
+           </table>
+          </dd>
+         </dl><dl class="function">
+          <dt id="modules.os.path.realpath">
+           <code class="descclassname">
+            os.path.
+           </code>
+           <code class="descname">
+            realpath
+           </code>
+           <span class="sig-paren">
+            (
+           </span>
+           <em>
+            path
+           </em>
+           <span class="sig-paren">
+            )
+           </span>
+           <a class="headerlink" href="#modules.os.path.realpath" title="Permalink to this definition">
+            &#xB6;
+           </a>
+          </dt>
+          <dd>
+           <p>
+            Return the canonical path of the specified filename, eliminating any symbolic links encountered in the path (if they are supported by the operating system).
            </p>
            <table class="docutils field-list" frame="void" rules="none">
             <col class="field-name">

@@ -19,11 +19,11 @@ When you `tilt up`, your initial build will be a full build---i.e., the specifie
 When a file changes:
    1. If it matches any of the files in a `fall_back_on` step, we will fall back to a full rebuild + deploy (i.e. the normal, non-live_update process).
    2. Otherwise, if it matches any of the local paths in `sync` steps, a live update will be executed as follows:
-        i. copy any changed files according to `sync` steps
-        ii. for every `run` step:
-            * if the `run` specifies one or more `triggers`, execute the command iff any changed files match the given triggers
-            * otherwise, simply execute the command
-        iii. restart the container if a `restart_container` step is present. (This is equivalent to re-executing the container's `ENTRYPOINT`.)
+        1. copy any changed files according to `sync` steps
+        2. for every `run` step:
+            1. if the `run` specifies one or more `triggers`, execute the command iff any changed files match the given triggers
+            2. otherwise, simply execute the command
+        3. restart the container if a `restart_container` step is present. (This is equivalent to re-executing the container's `ENTRYPOINT`.)
 
 ## LiveUpdateSteps
 Each of the functions above returns a `LiveUpdateStep` -- an object like any other, i.e. it can be assigned to a variable, etc. That means that something like this is perfectly valid syntax:
@@ -67,7 +67,7 @@ Above is an example of a valid `sync`s. A change to any of the green files will 
 
 If you have multiple Docker images that depend on each other, you can sync files from anywhere within the contexts of any of the images. (In the diagram above, Tilt is building two images; the yellow image in the `server1` directory depends on--i.e. `FROM`'s--the red image in the `common` directory.)
 
-The rule of thumb is: if Tilt it watching it, you can `sync` it. (Tilt will watch it if it's in a `docker_build.context` or `custom_build.deps`).
+The rule of thumb is: if Tilt is watching it, you can `sync` it. (Tilt will watch it if it's in a `docker_build.context` or `custom_build.deps`).
 
 
 #### Let's review
