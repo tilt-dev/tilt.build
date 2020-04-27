@@ -4,11 +4,11 @@
 
   <div class="wrapper wrapper--header">
     {% if page.layout == 'landing' %}
-    <a class="imageLink imageLink--logo-imagemark" href="{{site.landingurl}}">
+    <a class="imageLink imageLink--logo-imagemark" href="{{site.landingurl}}/">
       {% svg assets/svg/logo-imagemark.svg %}
     </a>
     {% else %}
-    <a class="imageLink imageLink--logo-wordmark-anim" href="{{site.landingurl}}">
+    <a class="imageLink imageLink--logo-wordmark-anim" href="{{site.landingurl}}/">
       {% svg assets/svg/logo-wordmark-anim.svg %}
     </a>
     {% endif %}
@@ -25,11 +25,11 @@
         {% for link in site.data.header %}
         {% assign href = link.href %}
         {% if link.landingurl %}
-        {% assign href = (href | prepend: site.landingurl) %}
+        {% assign href = (href | prepend: "/" | prepend: site.landingurl) %}
         {% elsif link.docsurl %}
-        {% assign href = (href | prepend: site.docsurl) %}
+        {% assign href = (href | prepend: "/" | prepend: site.docsurl) %}
         {% elsif link.blogurl %}
-        {% assign href = (href | prepend: site.blogurl) %}
+        {% assign href = (href | prepend: "/" | prepend: site.blogurl) %}
         {% endif %}
         <a class="headerLink headerLink--{{link.icon}} u-hideOnMobile" href="{{href}}">
           {% svg assets/svg/{{link.icon}}.svg %}
@@ -52,11 +52,11 @@
           {% for link in site.data.header %}
           {% assign href = link.href %}
           {% if link.landingurl %}
-          {% assign href = (href | prepend: site.landingurl) %}
+          {% assign href = (href | prepend: "/" | prepend: site.landingurl) %}
           {% elsif link.docsurl %}
-          {% assign href = (href | prepend: site.docsurl) %}
+          {% assign href = (href | prepend: "/" | prepend: site.docsurl) %}
           {% elsif link.blogurl %}
-          {% assign href = (href | prepend: site.blogurl) %}
+          {% assign href = (href | prepend: "/" | prepend: site.blogurl) %}
           {% endif %}
           <a class="headerLink headerLink--{{link.mobileIcon}} headerLink--mobile" href="{{href}}">
           {% svg assets/svg/{{link.mobileIcon}}.svg %}
