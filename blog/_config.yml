@@ -4,9 +4,9 @@ description: >-
   Thoughts on how to make microservices easier to run, debug, and collaborate on locally
 baseurl: ""
 url: "https://blog.tilt.dev"
-docsurl: "https://docs.tilt.dev/"
-landingurl: "https://tilt.dev/"
-blogurl: "https://blog.tilt.dev/"
+docsurl: "https://docs.tilt.dev"
+landingurl: "https://tilt.dev"
+blogurl: "https://blog.tilt.dev"
 twitter_username: tilt_dev
 github_username:  windmilleng
 google_analytics: UA-129150759-3

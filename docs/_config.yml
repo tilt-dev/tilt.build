@@ -3,10 +3,10 @@ email: hi@tilt.dev
 description: >-
   Local Kubernetes development with no stress
 baseurl: ""
-url: "https://docs.tilt.dev/"
-docsurl: "https://docs.tilt.dev/"
-landingurl: "https://tilt.dev/"
-blogurl: "https://blog.tilt.dev/"
+url: "https://docs.tilt.dev"
+docsurl: "https://docs.tilt.dev"
+landingurl: "https://tilt.dev"
+blogurl: "https://blog.tilt.dev"
 twitter_username: tilt_dev
 github_username:  windmilleng
 google_analytics: UA-129150759-2

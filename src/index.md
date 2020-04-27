@@ -20,7 +20,7 @@ Get started easily, get more done, and never play twenty questions with <code>ku
 </a>
 
 <h3 class="ctaLink u-marginBottomUnit">
-    &gt; <a href="https://github.com/windmilleng/tilt">Check out our GitHub</a> & <a href="{{site.docsurl}}install.html">Install Docs</a>
+    &gt; <a href="https://github.com/windmilleng/tilt">Check out our GitHub</a> & <a href="{{site.docsurl}}/install.html">Install Docs</a>
 </h3>
 
 </div>
@@ -43,7 +43,7 @@ Get started easily, get more done, and never play twenty questions with <code>ku
   </div>
 
   <div>
-    &gt;&hairsp;<a href="{{site.docsurl}}tutorial.html">&thinsp;Try it today&thinsp;</a>
+    &gt;&hairsp;<a href="{{site.docsurl}}/tutorial.html">&thinsp;Try it today&thinsp;</a>
   </div>
   </div>
 </div>
@@ -95,7 +95,7 @@ Get started easily, get more done, and never play twenty questions with <code>ku
 <div class="row u-marginBottom3 u-marginBottom1_75OnMobile">
   <div class="col-1of4">&nbsp;</div>
   <div class="col-3of4">
-    <a href="{{site.docsurl}}install.html" class="brandButton brandButton--red">
+    <a href="{{site.docsurl}}/install.html" class="brandButton brandButton--red">
       {% include brandButtonBg.html %}
       <div class="buttonLabel brandButton-text">
         Give it a Tilt
