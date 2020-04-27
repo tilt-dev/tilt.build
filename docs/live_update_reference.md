@@ -121,4 +121,17 @@ If your container executes a binary and your Live Update changes that binary, yo
 
 **NOTE**: `restart_container()` *only* works on containers managed by Docker. For non-Docker runtimes (e.g. containerd, CRI-O), please see the [wrapper script for simulating restart_container](https://github.com/windmilleng/rerun-process-wrapper).
 
+## More Examples
+
+If you need more specifics on how to set up Live Update with your programming
+language, all our major example projects use Live Update:
+
+<ul>
+  {% for page in site.data.examples %}
+    <li><a href="/{{page.href | escape}}">{{page.title | escape}}</a></li>
+  {% endfor %}
+</ul>
+
+---
+
 [^1]: The initial build is always a full build because Live Update needs a running container to modify. Thus, your base build (Docker/Custom Build) should be sufficient to create your dev image, and should not rely on any `sync`'d files or `run` commands. (If this is functionality you need, [let us know](https://tilt.dev/contact).)
