@@ -148,23 +148,24 @@ config.set_enabled_resources(cfg.get('args', []))
 
 ## Flag types
 Here are some sample usages of different types of flags that are supported:
-```python
-# list of string
-# tilt up -- --foo a --foo b
-config.define_string_list("foo")
-# single string
-# tilt up -- --foo bar
-config.define_string("foo")
-# bool
-# tilt up -- --local
-config.define_bool("local")
-```
+
+### list of string
+* Tiltfile syntax: `config.define_string_list("foo")`
+* `tilt` invocation: `tilt up -- --foo bar --foo baz`
+
+### single string
+* Tiltfile syntax: `config.define_string("foo")`
+* `tilt` invocation: `tilt up -- --foo bar`
+
+### bool
+* Tiltfile syntax: `config.define_bool("foo")`
+* `tilt` invocation: `tilt up -- --foo` or `tilt up -- --foo=False`
 
 ## Future Directions
 This section describes places we expect the config to go. Let us know if any of
 these would be particularly helpful to you and your team.
 ### More Kinds of Settings
-You should be able to define more kinds of settings. For example, an enum. By moving error-checking to the built-in
+You should be able to define more kinds of settings (for example, an enum). By moving error-checking to the built-in
 library, you can make your Tiltfile shorter and more correct.
 ### Better Config Manipulation/Discovery
 Your users should be able to understand what reasonable values are. This could

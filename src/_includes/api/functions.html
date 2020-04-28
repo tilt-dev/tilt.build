@@ -6391,11 +6391,15 @@ dict returned by
             .
            </p>
            <p>
-            To set a flag of this type named, e.g.,
+            For instance, at runtime, to set a flag of this type named
             <cite>
              foo
             </cite>
-            , to True, run
+            to value
+            <cite>
+             True
+            </cite>
+            , run
             <code class="docutils literal notranslate">
              <span class="pre">
               tilt
@@ -6411,6 +6415,60 @@ dict returned by
              </span>
             </code>
             .
+To set a value to
+            <code class="docutils literal notranslate">
+             <span class="pre">
+              False
+             </span>
+            </code>
+            , you can run
+            <code class="docutils literal notranslate">
+             <span class="pre">
+              tilt
+             </span>
+             <span class="pre">
+              up
+             </span>
+             <span class="pre">
+              --
+             </span>
+             <span class="pre">
+              --foo=False
+             </span>
+            </code>
+            , or use a default value, e.g.:
+            <code class="docutils literal notranslate">
+             <span class="pre">
+              `python
+             </span>
+             <span class="pre">
+              config.define_bool(&apos;foo&apos;)
+             </span>
+             <span class="pre">
+              cfg
+             </span>
+             <span class="pre">
+              =
+             </span>
+             <span class="pre">
+              config.parse()
+             </span>
+             <span class="pre">
+              do_stuff
+             </span>
+             <span class="pre">
+              =
+             </span>
+             <span class="pre">
+              cfg.get(&apos;foo&apos;,
+             </span>
+             <span class="pre">
+              False)
+             </span>
+             <span class="pre">
+              `
+             </span>
+            </code>
            </p>
            <p>
             See the
@@ -6592,11 +6650,11 @@ dict returned by
             .
            </p>
            <p>
-            To set a flag of this type named, e.g.,
+            For instance, at runtime, to set a flag of this type named
             <cite>
              foo
             </cite>
-            , at runtime to &#x201C;bar&#x201D;, run
+            to value &#x201C;bar&#x201D;, run
             <code class="docutils literal notranslate">
              <span class="pre">
               tilt

@@ -27,7 +27,7 @@ def define_string(name: str, args: bool=False, usage: str="") -> None:
     Allows the user invoking Tilt to configure a key named ``name`` to be in the
     dict returned by :meth:`parse`.
 
-    To set a flag of this type named, e.g., `foo`, at runtime to "bar", run ``tilt up -- --foo bar``.
+    For instance, at runtime, to set a flag of this type named `foo` to value "bar", run ``tilt up -- --foo bar``.
 
     See the `Tiltfile config documentation <tiltfile_config.html>`_ for examples
     and more information.
@@ -49,7 +49,13 @@ def define_bool(name: str, args: bool=False, usage: str="") -> None:
     Allows the user invoking Tilt to configure a key named ``name`` to be in the
     dict returned by :meth:`parse`.
 
-    To set a flag of this type named, e.g., `foo`, to True, run ``tilt up -- --foo``.
+    For instance, at runtime, to set a flag of this type named `foo` to value `True`, run ``tilt up -- --foo``.
+    To set a value to ``False``, you can run ``tilt up -- --foo=False``, or use a default value, e.g.:
+    ```python
+    config.define_bool('foo')
+    cfg = config.parse()
+    do_stuff = cfg.get('foo', False)
+    ```
 
     See the `Tiltfile config documentation <tiltfile_config.html>`_ for examples
     and more information.
