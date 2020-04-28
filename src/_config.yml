@@ -1,7 +1,7 @@
 title: Tilt
 email: hi@tilt.dev
 description: >-
-  Local Kubernetes development with no stress
+  Kubernetes for Prod, Tilt for Dev
 baseurl: ""
 url: "https://tilt.dev"
 docsurl: "https://docs.tilt.dev"
