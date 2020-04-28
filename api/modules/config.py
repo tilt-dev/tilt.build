@@ -20,6 +20,57 @@ def define_string_list(name: str, args: bool=False, usage: str="") -> None:
       usage: When arg parsing fails, what to print for this setting's description.
     """
 
+def define_string(name: str, args: bool=False, usage: str="") -> None:
+    """
+    Defines a config setting of type `str`.
+
+    Allows the user invoking Tilt to configure a key named ``name`` to be in the
+    dict returned by :meth:`parse`.
+
+    For instance, at runtime, to set a flag of this type named `foo` to value "bar", run ``tilt up -- --foo bar``.
+
+    See the `Tiltfile config documentation <tiltfile_config.html>`_ for examples
+    and more information.
+
+    Args:
+      name: The name of the config setting
+      args: If False, the config setting is specified by its name. (e.g., if it's named "foo",
+            ``tilt up -- --foo bar`` this setting would be ``"bar"``.)
+
+            If True, the config setting is specified by unnamed positional args. (e.g.,
+            in ``tilt up -- 1``, this setting would be ``"1"``.)
+      usage: When arg parsing fails, what to print for this setting's description.
+    """
+
+def define_bool(name: str, args: bool=False, usage: str="") -> None:
+    """
+    Defines a config setting of type `bool`.
+
+    Allows the user invoking Tilt to configure a key named ``name`` to be in the
+    dict returned by :meth:`parse`.
+
+    For instance, at runtime, to set a flag of this type named `foo` to value `True`, run ``tilt up -- --foo``.
+    To set a value to ``False``, you can run ``tilt up -- --foo=False``, or use a default value, e.g.:
+    ```python
+    config.define_bool('foo')
+    cfg = config.parse()
+    do_stuff = cfg.get('foo', False)
+    ```
+
+    See the `Tiltfile config documentation <tiltfile_config.html>`_ for examples
+    and more information.
+
+    Args:
+      name: The name of the config setting
+      args: If False, the config setting is specified by its name. (e.g., if it's named "foo",
+            ``tilt up -- --foo`` this setting would be ``True``.)
+
+            If True, the config setting is specified by unnamed positional args. (e.g.,
+            in ``tilt up -- True``, this setting would be ``True``.) (This usage
+            isn't likely to be what you want)
+      usage: When arg parsing fails, what to print for this setting's description.
+    """
+
 def parse() -> Dict[str, Any]:
     """
     Loads config settings from tilt_config.json, overlays config settings from

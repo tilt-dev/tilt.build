@@ -46,6 +46,8 @@ functions:
 - workload_to_resource_function
 - os.getcwd
 - os.path.realpath
+- config.define_bool
+- config.define_string
 - config.define_string_list
 - config.parse
 - config.set_enabled_resources

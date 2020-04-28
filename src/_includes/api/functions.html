@@ -6336,6 +6336,471 @@ returns the directory of the loaded/included Tiltfile.
            </table>
           </dd>
          </dl><dl class="function">
+          <dt id="modules.config.define_bool">
+           <code class="descclassname">
+            config.
+           </code>
+           <code class="descname">
+            define_bool
+           </code>
+           <span class="sig-paren">
+            (
+           </span>
+           <em>
+            name
+           </em>
+           ,
+           <em>
+            args=False
+           </em>
+           ,
+           <em>
+            usage=&apos;&apos;
+           </em>
+           <span class="sig-paren">
+            )
+           </span>
+           <a class="headerlink" href="#modules.config.define_bool" title="Permalink to this definition">
+            &#xB6;
+           </a>
+          </dt>
+          <dd>
+           <p>
+            Defines a config setting of type
+            <cite>
+             bool
+            </cite>
+            .
+           </p>
+           <p>
+            Allows the user invoking Tilt to configure a key named
+            <code class="docutils literal notranslate">
+             <span class="pre">
+              name
+             </span>
+            </code>
+            to be in the
+dict returned by
+            <a class="reference internal" href="#modules.config.parse" title="modules.config.parse">
+             <code class="xref py py-meth docutils literal notranslate">
+              <span class="pre">
+               parse()
+              </span>
+             </code>
+            </a>
+            .
+           </p>
+           <p>
+            For instance, at runtime, to set a flag of this type named
+            <cite>
+             foo
+            </cite>
+            to value
+            <cite>
+             True
+            </cite>
+            , run
+            <code class="docutils literal notranslate">
+             <span class="pre">
+              tilt
+             </span>
+             <span class="pre">
+              up
+             </span>
+             <span class="pre">
+              --
+             </span>
+             <span class="pre">
+              --foo
+             </span>
+            </code>
+            .
+To set a value to
+            <code class="docutils literal notranslate">
+             <span class="pre">
+              False
+             </span>
+            </code>
+            , you can run
+            <code class="docutils literal notranslate">
+             <span class="pre">
+              tilt
+             </span>
+             <span class="pre">
+              up
+             </span>
+             <span class="pre">
+              --
+             </span>
+             <span class="pre">
+              --foo=False
+             </span>
+            </code>
+            , or use a default value, e.g.:
+            <code class="docutils literal notranslate">
+             <span class="pre">
+              `python
+             </span>
+             <span class="pre">
+              config.define_bool(&apos;foo&apos;)
+             </span>
+             <span class="pre">
+              cfg
+             </span>
+             <span class="pre">
+              =
+             </span>
+             <span class="pre">
+              config.parse()
+             </span>
+             <span class="pre">
+              do_stuff
+             </span>
+             <span class="pre">
+              =
+             </span>
+             <span class="pre">
+              cfg.get(&apos;foo&apos;,
+             </span>
+             <span class="pre">
+              False)
+             </span>
+             <span class="pre">
+              `
+             </span>
+            </code>
+           </p>
+           <p>
+            See the
+            <a class="reference external" href="tiltfile_config.html">
+             Tiltfile config documentation
+            </a>
+            for examples
+and more information.
+           </p>
+           <table class="docutils field-list" frame="void" rules="none">
+            <col class="field-name">
+            <col class="field-body">
+            <tbody valign="top">
+             <tr class="field-odd field">
+              <th class="field-name">
+               Parameters:
+              </th>
+              <td class="field-body">
+               <ul class="first simple">
+                <li>
+                 <strong>
+                  name
+                 </strong>
+                 (
+                 <code class="xref py py-class docutils literal notranslate">
+                  <span class="pre">
+                   str
+                  </span>
+                 </code>
+                 ) &#x2013; The name of the config setting
+                </li>
+                <li>
+                 <strong>
+                  args
+                 </strong>
+                 (
+                 <code class="xref py py-class docutils literal notranslate">
+                  <span class="pre">
+                   bool
+                  </span>
+                 </code>
+                 ) &#x2013;
+                 <p>
+                  If False, the config setting is specified by its name. (e.g., if it&#x2019;s named &#x201C;foo&#x201D;,
+                  <code class="docutils literal notranslate">
+                   <span class="pre">
+                    tilt
+                   </span>
+                   <span class="pre">
+                    up
+                   </span>
+                   <span class="pre">
+                    --
+                   </span>
+                   <span class="pre">
+                    --foo
+                   </span>
+                  </code>
+                  this setting would be
+                  <code class="docutils literal notranslate">
+                   <span class="pre">
+                    True
+                   </span>
+                  </code>
+                  .)
+                 </p>
+                 <p>
+                  If True, the config setting is specified by unnamed positional args. (e.g.,
+in
+                  <code class="docutils literal notranslate">
+                   <span class="pre">
+                    tilt
+                   </span>
+                   <span class="pre">
+                    up
+                   </span>
+                   <span class="pre">
+                    --
+                   </span>
+                   <span class="pre">
+                    True
+                   </span>
+                  </code>
+                  , this setting would be
+                  <code class="docutils literal notranslate">
+                   <span class="pre">
+                    True
+                   </span>
+                  </code>
+                  .) (This usage
+isn&#x2019;t likely to be what you want)
+                 </p>
+                </li>
+                <li>
+                 <strong>
+                  usage
+                 </strong>
+                 (
+                 <code class="xref py py-class docutils literal notranslate">
+                  <span class="pre">
+                   str
+                  </span>
+                 </code>
+                 ) &#x2013; When arg parsing fails, what to print for this setting&#x2019;s description.
+                </li>
+               </ul>
+              </td>
+             </tr>
+             <tr class="field-even field">
+              <th class="field-name">
+               Return type:
+              </th>
+              <td class="field-body">
+               <p class="first last">
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  None
+                 </span>
+                </code>
+               </p>
+              </td>
+             </tr>
+            </tbody>
+           </table>
+          </dd>
+         </dl><dl class="function">
+          <dt id="modules.config.define_string">
+           <code class="descclassname">
+            config.
+           </code>
+           <code class="descname">
+            define_string
+           </code>
+           <span class="sig-paren">
+            (
+           </span>
+           <em>
+            name
+           </em>
+           ,
+           <em>
+            args=False
+           </em>
+           ,
+           <em>
+            usage=&apos;&apos;
+           </em>
+           <span class="sig-paren">
+            )
+           </span>
+           <a class="headerlink" href="#modules.config.define_string" title="Permalink to this definition">
+            &#xB6;
+           </a>
+          </dt>
+          <dd>
+           <p>
+            Defines a config setting of type
+            <cite>
+             str
+            </cite>
+            .
+           </p>
+           <p>
+            Allows the user invoking Tilt to configure a key named
+            <code class="docutils literal notranslate">
+             <span class="pre">
+              name
+             </span>
+            </code>
+            to be in the
+dict returned by
+            <a class="reference internal" href="#modules.config.parse" title="modules.config.parse">
+             <code class="xref py py-meth docutils literal notranslate">
+              <span class="pre">
+               parse()
+              </span>
+             </code>
+            </a>
+            .
+           </p>
+           <p>
+            For instance, at runtime, to set a flag of this type named
+            <cite>
+             foo
+            </cite>
+            to value &#x201C;bar&#x201D;, run
+            <code class="docutils literal notranslate">
+             <span class="pre">
+              tilt
+             </span>
+             <span class="pre">
+              up
+             </span>
+             <span class="pre">
+              --
+             </span>
+             <span class="pre">
+              --foo
+             </span>
+             <span class="pre">
+              bar
+             </span>
+            </code>
+            .
+           </p>
+           <p>
+            See the
+            <a class="reference external" href="tiltfile_config.html">
+             Tiltfile config documentation
+            </a>
+            for examples
+and more information.
+           </p>
+           <table class="docutils field-list" frame="void" rules="none">
+            <col class="field-name">
+            <col class="field-body">
+            <tbody valign="top">
+             <tr class="field-odd field">
+              <th class="field-name">
+               Parameters:
+              </th>
+              <td class="field-body">
+               <ul class="first simple">
+                <li>
+                 <strong>
+                  name
+                 </strong>
+                 (
+                 <code class="xref py py-class docutils literal notranslate">
+                  <span class="pre">
+                   str
+                  </span>
+                 </code>
+                 ) &#x2013; The name of the config setting
+                </li>
+                <li>
+                 <strong>
+                  args
+                 </strong>
+                 (
+                 <code class="xref py py-class docutils literal notranslate">
+                  <span class="pre">
+                   bool
+                  </span>
+                 </code>
+                 ) &#x2013;
+                 <p>
+                  If False, the config setting is specified by its name. (e.g., if it&#x2019;s named &#x201C;foo&#x201D;,
+                  <code class="docutils literal notranslate">
+                   <span class="pre">
+                    tilt
+                   </span>
+                   <span class="pre">
+                    up
+                   </span>
+                   <span class="pre">
+                    --
+                   </span>
+                   <span class="pre">
+                    --foo
+                   </span>
+                   <span class="pre">
+                    bar
+                   </span>
+                  </code>
+                  this setting would be
+                  <code class="docutils literal notranslate">
+                   <span class="pre">
+                    &quot;bar&quot;
+                   </span>
+                  </code>
+                  .)
+                 </p>
+                 <p>
+                  If True, the config setting is specified by unnamed positional args. (e.g.,
+in
+                  <code class="docutils literal notranslate">
+                   <span class="pre">
+                    tilt
+                   </span>
+                   <span class="pre">
+                    up
+                   </span>
+                   <span class="pre">
+                    --
+                   </span>
+                   <span class="pre">
+                    1
+                   </span>
+                  </code>
+                  , this setting would be
+                  <code class="docutils literal notranslate">
+                   <span class="pre">
+                    &quot;1&quot;
+                   </span>
+                  </code>
+                  .)
+                 </p>
+                </li>
+                <li>
+                 <strong>
+                  usage
+                 </strong>
+                 (
+                 <code class="xref py py-class docutils literal notranslate">
+                  <span class="pre">
+                   str
+                  </span>
+                 </code>
+                 ) &#x2013; When arg parsing fails, what to print for this setting&#x2019;s description.
+                </li>
+               </ul>
+              </td>
+             </tr>
+             <tr class="field-even field">
+              <th class="field-name">
+               Return type:
+              </th>
+              <td class="field-body">
+               <p class="first last">
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  None
+                 </span>
+                </code>
+               </p>
+              </td>
+             </tr>
+            </tbody>
+           </table>
+          </dd>
+         </dl><dl class="function">
           <dt id="modules.config.define_string_list">
            <code class="descclassname">
             config.
