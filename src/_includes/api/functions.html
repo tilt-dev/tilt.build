@@ -5411,7 +5411,13 @@ In any other case, an error reading
           </dt>
           <dd>
            <p>
-            Specify that a container should be restarted when it is live-updated.
+            Specify that a container should be restarted when it is live-updated. In
+practice, this means that the container re-executes its
+            <cite>
+             ENTRYPOINT
+            </cite>
+            within
+the changed filesystem.
            </p>
            <p>
             May only be included in a
@@ -5419,6 +5425,28 @@ In any other case, an error reading
              live_update
             </cite>
             once, and only as the last step.
+           </p>
+           <p>
+            NOTE: this function will soon be deprecated. If you want to restart a Docker-built
+image running on Kubernetes, use the
+            <a class="reference external" href="https://github.com/windmilleng/tilt-extensions/tree/master/restart_process">
+             restart_process extension
+            </a>
+            .
+At the moment,
+            <code class="docutils literal notranslate">
+             <span class="pre">
+              restart_container
+             </span>
+            </code>
+            should only be used in conjunction
+with
+            <code class="docutils literal notranslate">
+             <span class="pre">
+              custom_build
+             </span>
+            </code>
+            or for images run by Docker Compose.
            </p>
            <p>
             Only works on containers managed by Docker. For non-Docker runtimes

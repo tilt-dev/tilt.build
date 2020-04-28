@@ -12,7 +12,6 @@ The list of `LiveUpdateSteps` must be, in order:
 - 0 or more [`fall_back_on`](api.html#api.fall_back_on) steps
 - 0 or more [`sync`](api.html#api.sync) steps
 - 0 or more [`run`](api.html#api.run) steps
-- 0 or 1 [`restart_container`](api.html#api.restart_container) steps
 
 When you `tilt up`, your initial build will be a full build---i.e., the specified Docker build or Custom build.[^1]
 
@@ -23,7 +22,6 @@ When a file changes:
         2. for every `run` step:
             1. if the `run` specifies one or more `triggers`, execute the command iff any changed files match the given triggers
             2. otherwise, simply execute the command
-        3. restart the container if a `restart_container` step is present. (This is equivalent to re-executing the container's `ENTRYPOINT`.)
 
 ## LiveUpdateSteps
 Each of the functions above returns a `LiveUpdateStep` -- an object like any other, i.e. it can be assigned to a variable, etc. That means that something like this is perfectly valid syntax:
@@ -113,13 +111,15 @@ docker_build('my-img', '.', live_update=[
 2. change to `./src/web/yarn.lock` => run the Live Update; run `setup.sh`; run `cd /app/web && yarn install`, because this file matches that command's trigger
 3. change to `./configs/foo.yaml` => whoops, this file doesn't match any `sync` steps! Even though it matches a trigger (for the third `run`), we won't do a Live Update for this change; instead, we do a full Docker build (see notes on `sync`, above, for what changes trigger a Live Update vs. a full build + deploy).
 
-### [`restart_container()`](api.html#api.restart_container)
+## Rerunning your Process
 
-This step is optional. If you have a `restart_container` step, it must come at the very end of your list of Live Update steps. When this step is present, it tells Tilt to restart the container after all the files have been sync'd, runs have been executed, etc. In practice, this means that the container re-executes its `ENTRYPOINT` within the changed filesystem.
+Some apps or invocations thereof (e.g. Javascript apps run via `nodemon`, or Flask apps run in debug mode) detect and incorporate code changes without needing to restart. For other apps, though, you'll need to re-execute them for changes to take effect.
 
-If your container executes a binary and your Live Update changes that binary, you probably want to restart the container to re-execute it. If, however, you're running a Flask or Node app that responds to filesystem changes without requiring a restart, you can probably leave this step out.
-
-**NOTE**: `restart_container()` *only* works on containers managed by Docker. For non-Docker runtimes (e.g. containerd, CRI-O), please see the [wrapper script for simulating restart_container](https://github.com/windmilleng/rerun-process-wrapper).
+Depending on your setup, there are different recommended ways of restarting your app:
+* if your image is built via a `docker_build` call, and you're running on Kubernetes, use the [`restart_process` extension](https://github.com/windmilleng/tilt-extensions/tree/master/restart_process)
+* if you're using Tilt to run Docker Compose resources, you can use the [`restart_container()`](api.html#api.restart_container) Live Update step
+* if your image is built via `custom_build` _and run in a Docker-managed container runtime_, you can also use the [`restart_container()`](api.html#api.restart_container) Live Update step
+* if you're working in a non-Docker container runtime (e.g. containerd or CRI-O), see the [wrapper script for simulating restart_container](https://github.com/windmilleng/rerun-process-wrapper)
 
 ## More Examples
 
