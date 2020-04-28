@@ -3,16 +3,17 @@ title: Tilt User Guide
 layout: docs
 ---
 
-Local Kubernetes development with no stress.
+Kubernetes for Prod, Tilt for Dev
 
-[Tilt]({{site.landingurl}}/) helps you develop your microservices locally,
-especially if [you deploy to Kubernetes or are planning to](https://blog.tilt.dev/2020/02/12/local-dev.html).
-Run `tilt up` to start working on your services in a complete dev environment
-configured for your team.
+Modern apps are made of too many services. They're everywhere and in constant
+communication.
 
-Tilt watches your files for edits, automatically builds your container images,
-and applies any changes to bring your environment
-up-to-date in real-time. Think `docker build && kubectl apply` or `docker-compose up`.
+[Tilt]({{site.landingurl}}/) powers multi-service development and makes sure they behave!
+Run `tilt up` to work in a complete dev environment configured for your team.
+
+Tilt automates all the steps from a code change to a new process: watching
+files, building container images, and bringing your environment
+up-to-date. Think `docker build && kubectl apply` or `docker-compose up`.
 
 ## Watch: Tilt in Two Minutes
 
