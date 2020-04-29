@@ -1,7 +1,7 @@
 title: Tilt Blog
 email: hi@tilt.dev
 description: >-
-  Thoughts on how to make microservices easier to run, debug, and collaborate on locally
+  Thoughts on how to make services easier to run, debug, and collaborate on locally
 baseurl: ""
 url: "https://blog.tilt.dev"
 docsurl: "https://docs.tilt.dev"

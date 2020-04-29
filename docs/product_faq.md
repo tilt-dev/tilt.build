@@ -29,7 +29,7 @@ together, and can help you better understand your system.
 
 ### What kinds of teams should use Tilt?
 
-Currently, we're focused on helping teams that develop microservices, because that's where
+Currently, we're focused on helping teams that develop multi-service apps, because that's where
 the pain is most acute.
 
 - Do you always have 5 terminal windows open to stream the logs of all your
