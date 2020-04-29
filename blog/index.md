@@ -9,7 +9,7 @@ layout: blog-list
 </div>
 
 <div class="col--blogDescription">
-Thoughts on how to make microservices easier to run, debug, and collaborate on locally
+Thoughts on how to make services easier to run, debug, and collaborate on locally
 </div>
 </div>
 
