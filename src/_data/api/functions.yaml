@@ -45,6 +45,11 @@ functions:
 - watch_file
 - workload_to_resource_function
 - os.getcwd
+- os.path.abspath
+- os.path.basename
+- os.path.dirname
+- os.path.exists
+- os.path.join
 - os.path.realpath
 - config.define_bool
 - config.define_string
