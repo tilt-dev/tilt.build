@@ -6292,6 +6292,334 @@ returns the directory of the loaded/included Tiltfile.
            </table>
           </dd>
          </dl><dl class="function">
+          <dt id="modules.os.path.abspath">
+           <code class="descclassname">
+            os.path.
+           </code>
+           <code class="descname">
+            abspath
+           </code>
+           <span class="sig-paren">
+            (
+           </span>
+           <em>
+            path
+           </em>
+           <span class="sig-paren">
+            )
+           </span>
+           <a class="headerlink" href="#modules.os.path.abspath" title="Permalink to this definition">
+            &#xB6;
+           </a>
+          </dt>
+          <dd>
+           <p>
+            Return a normalized, absolute version of the path, relative to the current working directory.
+           </p>
+           <table class="docutils field-list" frame="void" rules="none">
+            <col class="field-name">
+            <col class="field-body">
+            <tbody valign="top">
+             <tr class="field-odd field">
+              <th class="field-name">
+               Parameters:
+              </th>
+              <td class="field-body">
+               <strong>
+                path
+               </strong>
+               (
+               <code class="xref py py-class docutils literal notranslate">
+                <span class="pre">
+                 str
+                </span>
+               </code>
+               ) &#x2013; A filesystem path
+              </td>
+             </tr>
+             <tr class="field-even field">
+              <th class="field-name">
+               Return type:
+              </th>
+              <td class="field-body">
+               <code class="xref py py-class docutils literal notranslate">
+                <span class="pre">
+                 str
+                </span>
+               </code>
+              </td>
+             </tr>
+            </tbody>
+           </table>
+          </dd>
+         </dl><dl class="function">
+          <dt id="modules.os.path.basename">
+           <code class="descclassname">
+            os.path.
+           </code>
+           <code class="descname">
+            basename
+           </code>
+           <span class="sig-paren">
+            (
+           </span>
+           <em>
+            path
+           </em>
+           <span class="sig-paren">
+            )
+           </span>
+           <a class="headerlink" href="#modules.os.path.basename" title="Permalink to this definition">
+            &#xB6;
+           </a>
+          </dt>
+          <dd>
+           <p>
+            Return the basename of the path.
+           </p>
+           <table class="docutils field-list" frame="void" rules="none">
+            <col class="field-name">
+            <col class="field-body">
+            <tbody valign="top">
+             <tr class="field-odd field">
+              <th class="field-name">
+               Parameters:
+              </th>
+              <td class="field-body">
+               <strong>
+                path
+               </strong>
+               (
+               <code class="xref py py-class docutils literal notranslate">
+                <span class="pre">
+                 str
+                </span>
+               </code>
+               ) &#x2013; A filesystem path
+              </td>
+             </tr>
+             <tr class="field-even field">
+              <th class="field-name">
+               Return type:
+              </th>
+              <td class="field-body">
+               <code class="xref py py-class docutils literal notranslate">
+                <span class="pre">
+                 str
+                </span>
+               </code>
+              </td>
+             </tr>
+            </tbody>
+           </table>
+          </dd>
+         </dl><dl class="function">
+          <dt id="modules.os.path.dirname">
+           <code class="descclassname">
+            os.path.
+           </code>
+           <code class="descname">
+            dirname
+           </code>
+           <span class="sig-paren">
+            (
+           </span>
+           <em>
+            path
+           </em>
+           <span class="sig-paren">
+            )
+           </span>
+           <a class="headerlink" href="#modules.os.path.dirname" title="Permalink to this definition">
+            &#xB6;
+           </a>
+          </dt>
+          <dd>
+           <p>
+            Return the directory name of the path.
+           </p>
+           <table class="docutils field-list" frame="void" rules="none">
+            <col class="field-name">
+            <col class="field-body">
+            <tbody valign="top">
+             <tr class="field-odd field">
+              <th class="field-name">
+               Parameters:
+              </th>
+              <td class="field-body">
+               <strong>
+                path
+               </strong>
+               (
+               <code class="xref py py-class docutils literal notranslate">
+                <span class="pre">
+                 str
+                </span>
+               </code>
+               ) &#x2013; A filesystem path
+              </td>
+             </tr>
+             <tr class="field-even field">
+              <th class="field-name">
+               Return type:
+              </th>
+              <td class="field-body">
+               <code class="xref py py-class docutils literal notranslate">
+                <span class="pre">
+                 str
+                </span>
+               </code>
+              </td>
+             </tr>
+            </tbody>
+           </table>
+          </dd>
+         </dl><dl class="function">
+          <dt id="modules.os.path.exists">
+           <code class="descclassname">
+            os.path.
+           </code>
+           <code class="descname">
+            exists
+           </code>
+           <span class="sig-paren">
+            (
+           </span>
+           <em>
+            path
+           </em>
+           <span class="sig-paren">
+            )
+           </span>
+           <a class="headerlink" href="#modules.os.path.exists" title="Permalink to this definition">
+            &#xB6;
+           </a>
+          </dt>
+          <dd>
+           <p>
+            Checks if a file or directory exists at the specified path.
+           </p>
+           <p>
+            Returns false if this is a broken symlink, or if the user doesn&#x2019;t have permission
+to stat the file at this path.
+           </p>
+           <p>
+            Watches the path, and reloads the Tiltfile if the contents change.
+           </p>
+           <table class="docutils field-list" frame="void" rules="none">
+            <col class="field-name">
+            <col class="field-body">
+            <tbody valign="top">
+             <tr class="field-odd field">
+              <th class="field-name">
+               Parameters:
+              </th>
+              <td class="field-body">
+               <strong>
+                path
+               </strong>
+               (
+               <code class="xref py py-class docutils literal notranslate">
+                <span class="pre">
+                 str
+                </span>
+               </code>
+               ) &#x2013; A filesystem path
+              </td>
+             </tr>
+             <tr class="field-even field">
+              <th class="field-name">
+               Return type:
+              </th>
+              <td class="field-body">
+               <code class="xref py py-class docutils literal notranslate">
+                <span class="pre">
+                 bool
+                </span>
+               </code>
+              </td>
+             </tr>
+            </tbody>
+           </table>
+          </dd>
+         </dl><dl class="function">
+          <dt id="modules.os.path.join">
+           <code class="descclassname">
+            os.path.
+           </code>
+           <code class="descname">
+            join
+           </code>
+           <span class="sig-paren">
+            (
+           </span>
+           <em>
+            path
+           </em>
+           ,
+           <em>
+            *paths
+           </em>
+           <span class="sig-paren">
+            )
+           </span>
+           <a class="headerlink" href="#modules.os.path.join" title="Permalink to this definition">
+            &#xB6;
+           </a>
+          </dt>
+          <dd>
+           <p>
+            Join one or more path components with the OS-specific file separator.
+           </p>
+           <table class="docutils field-list" frame="void" rules="none">
+            <col class="field-name">
+            <col class="field-body">
+            <tbody valign="top">
+             <tr class="field-odd field">
+              <th class="field-name">
+               Parameters:
+              </th>
+              <td class="field-body">
+               <ul class="first simple">
+                <li>
+                 <strong>
+                  path
+                 </strong>
+                 &#x2013; A filesystem path component
+                </li>
+                <li>
+                 <strong>
+                  paths
+                 </strong>
+                 (
+                 <code class="xref py py-class docutils literal notranslate">
+                  <span class="pre">
+                   str
+                  </span>
+                 </code>
+                 ) &#x2013; A variable list of components to join
+                </li>
+               </ul>
+              </td>
+             </tr>
+             <tr class="field-even field">
+              <th class="field-name">
+               Return type:
+              </th>
+              <td class="field-body">
+               <p class="first last">
+                <code class="xref py py-class docutils literal notranslate">
+                 <span class="pre">
+                  str
+                 </span>
+                </code>
+               </p>
+              </td>
+             </tr>
+            </tbody>
+           </table>
+          </dd>
+         </dl><dl class="function">
           <dt id="modules.os.path.realpath">
            <code class="descclassname">
             os.path.
@@ -6321,6 +6649,23 @@ returns the directory of the loaded/included Tiltfile.
             <col class="field-body">
             <tbody valign="top">
              <tr class="field-odd field">
+              <th class="field-name">
+               Parameters:
+              </th>
+              <td class="field-body">
+               <strong>
+                path
+               </strong>
+               (
+               <code class="xref py py-class docutils literal notranslate">
+                <span class="pre">
+                 str
+                </span>
+               </code>
+               ) &#x2013; A filesystem path
+              </td>
+             </tr>
+             <tr class="field-even field">
               <th class="field-name">
                Return type:
               </th>
