@@ -1,8 +1,10 @@
 # tilt.build
 
-Build for the Tilt landing page
+Tilt landing page, docs page, and blog page
 
-https://tilt.build/ and https://docs.tilt.build/
+- https://tilt.dev/
+- https://docs.tilt.dev/
+- https://blog.tilt.dev/
 
 ## Developing
 
@@ -13,6 +15,8 @@ https://tilt.build/ and https://docs.tilt.build/
 The landing page will be running at http://localhost:4000/.
 
 The docs page will be running at http://localhost:4001/.
+
+The blog page will be running at http://localhost:4002/.
 
 Edits to the markdown will auto-update the HTML.
 The landing page lives under src and the docs page lives under docs.
