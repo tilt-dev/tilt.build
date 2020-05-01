@@ -230,7 +230,7 @@ To discover the registry, Tilt reads two annotatons from the node of your Kubern
 Our cluster-specific setup scripts often have a shell script snippet like:
 
 ```bash
-nodes=$(kubectl get nodes -o go-template --template='{{range .items}}{{printf "%s\n" .metadata.name}}{{end}}')
+nodes=$(kubectl get nodes -o go-template --template='{% raw %}{{range .items}}{{printf "%s\n" .metadata.name}}{{end}}{% endraw %}')
 if [ ! -z $nodes ]; then
   for node in $nodes; do
     kubectl annotate node "${node}" \
