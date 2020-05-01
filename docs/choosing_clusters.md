@@ -24,6 +24,7 @@ Advanced Level:
 - [Amazon Elastic Kubernetes Service](#remote)
 - [Azure Kubernetes Service](#remote)
 - [Google Kubernetes Engine](#remote)
+- [Custom Clusters](#custom-clusters)
 
 ---
 
@@ -189,7 +190,54 @@ Or if you need to debug something that only reproduces in a complete cluster.
 - Need to set up namespaces and access control so that each dev has their own sandbox
 - If the cluster needs to be reset, we hope you're good friends with your DevOps team
 
+---
 
+## Custom Clusters
 
+If you're rolling your own Kubernetes dev cluster, and
+want it to work with Tilt, there are two things you need to do.
 
+- Tilt needs to recognize the cluster as a dev cluster.
+- Tilt needs to be able to discover any in-cluster registry.
 
+### Whitelisting the Cluster
+
+Users have to explicitly whitelist the cluster with this line in their Tiltfile:
+
+```python
+allow_k8s_contexts('my-cluster-name')
+```
+
+If your cluster is a dev-only cluster that you think Tilt should
+recognize automatically, we accept PRs to whitelist the cluster in Tilt.
+Here's an example:
+
+[Recognize Red Hat CodeReady Containers as a local cluster](https://github.com/windmilleng/tilt/pull/3242)
+
+### Discovering the Registry
+
+A local registry is often the fastest way to speed up your dev experience.
+
+Every cluster sets up this registry slightly differently. 
+
+To discover the registry, Tilt reads two annotatons from the node of your Kubernetes cluster:
+
+- `tilt.dev/registry`: The host of the registry, as seen by your local machine.
+- `tilt.dev/registry-from-cluster`: The host of the registry, as seen by your
+  cluster. If omitted, Tilt will assume that the host is the same as
+  `tilt.dev/registry`.
+
+Our cluster-specific setup scripts often have a shell script snippet like:
+
+```bash
+nodes=$(kubectl get nodes -o go-template --template='{{range .items}}{{printf "%s\n" .metadata.name}}{{end}}')
+if [ ! -z $nodes ]; then
+  for node in $nodes; do
+    kubectl annotate node "${node}" \
+        tilt.dev/registry=localhost:5000 \
+        tilt.dev/registry-from-cluster=registry:5000
+  done
+fi
+```
+
+to help Tilt find the registry.
