@@ -3,7 +3,7 @@
 k8s_resource_assembly_version(2)
 
 default_registry('gcr.io/windmill-public-containers')
-set_team('tilt-dev')
+set_team('0584d8f6-05a2-49f5-923b-657afef098fe')
 enable_feature('update_history')
 
 # Generate the API docs.
@@ -13,6 +13,9 @@ k8s_yaml('deploy/serve.yaml')
 
 # files in common directories but specific to the API docs (all non-docs resources should ignore these)
 api_ignores = ['./src/_data/api/', './src/_includes/api/']
+
+docker_build('tilt-site-base', '.', dockerfile='deploy/base.dockerfile',
+             only=['./src/Gemfile', './src/Gemfile.lock'])
 
 docker_build('tilt-site', '.', dockerfile='deploy/site.dockerfile',
              ignore=['./api', './docs', './blog'] + api_ignores,
