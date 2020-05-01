@@ -1423,3 +1423,26 @@ a.attached-above {
   font-weight: bold;
   margin-top: - $spacing-unit / 2
 }
+
+.pagination {
+  display: flex;
+  margin: $spacing-unit auto $spacing-unit auto;
+  align-items: center;
+  justify-content: space-between;
+}
+.pagination--top {
+  margin: - $spacing-unit auto $spacing-unit auto;
+}
+.pagination-next,
+.pagination-previous {
+  display: flex;
+  align-items: center;
+}
+.pagination-link,
+.pagination-icon {
+  display: inline-block;
+}
+.pagination-icon {
+  font-size: 32px;
+  color: $color-blue;
+}
