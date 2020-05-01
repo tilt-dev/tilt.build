@@ -167,7 +167,8 @@ instructions linked above)
 By default, Tilt will not let you develop against a remote cluster.
 
 If you start Tilt while you have `kubectl` configured to talk to a remote
-cluster, you will get an error. You have to explicitly whitelist the cluster with:
+cluster, you will get an error. You have to explicitly whitelist the cluster 
+using [allow_k8s_contexts](api.html#api.allow_k8s_contexts):
 
 ```python
 allow_k8s_contexts('my-cluster-name')
