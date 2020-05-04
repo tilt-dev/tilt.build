@@ -33,3 +33,4 @@ Avoid changing extensions directly in `tilt_modules`. If you're interested in mo
 
 ## Next steps
 [Request new extensions](https://github.com/windmilleng/tilt/issues) or [contribute a new one](contribute_extension.html).
+<script src="/assets/js/links.js" async></script>

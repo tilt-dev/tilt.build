@@ -95,3 +95,5 @@ Some examples:
 
 #### show the k8s api server's logs
 ``local_resource(serve_cmd='kubectl logs -f -n kube-system kube-apiserver-docker-desktop')``
+
+<script src="/assets/js/links.js" async></script>

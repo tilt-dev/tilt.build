@@ -34,3 +34,5 @@ You'll now see all folks who run Tilt with the updated Tilfile, appear on the te
 
 New users on the team page will appear with the role `None` as they run Tilt. A team owner (`Owner`) can change any other user's role to `Member` or `Owner`.
 An `Owner` cannot change their own role. Only `Owner`s can change the team name. Both `Member`s and `Owners` can view the team page.
+
+<script src="/assets/js/links.js" async></script>

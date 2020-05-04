@@ -178,3 +178,5 @@ module could take a function that would parse a command-line into JSON.
 ### Interaction with load/include
 Tiltfiles that are used via `load`/`include` should be able to define and use
 config settigs.
+
+<script src="/assets/js/links.js" async></script>

@@ -465,6 +465,9 @@ h4,
   position: absolute;
   margin-left: -1em;
 }
+h2:hover > .permalink {
+  opacity: 1;
+}
 h3 > .permalink,
 h3 > .permalink:hover {
   color: $text-color;

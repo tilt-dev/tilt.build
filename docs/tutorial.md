@@ -97,3 +97,5 @@ If you'd like to see examples in your programming language, we have example proj
   {% endfor %}
 </ul>
 
+
+<script src="/assets/js/links.js" async></script>

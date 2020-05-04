@@ -242,3 +242,5 @@ fi
 ```
 
 to help Tilt find the registry.
+
+<script src="/assets/js/links.js" async></script>

@@ -46,3 +46,5 @@ rest of Tilt's lifetime.
 We think this feature is useful as-is, but are aware there are more possibilities
 for it. Please [reach out](https://tilt.dev/contact) if it's not meeting your
 needs!
+
+<script src="/assets/js/links.js" async></script>

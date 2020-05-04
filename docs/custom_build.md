@@ -156,3 +156,5 @@ If you have a more complex build script that you're not sure how to integrate
 with Tilt, we'd love to hear about it. Come find us in the `#tilt` channel in
 [Kubernetes Slack](http://slack.k8s.io) or
 [file an issue](https://github.com/windmilleng/tilt/issues) on GitHub.
+
+<script src="/assets/js/links.js" async></script>

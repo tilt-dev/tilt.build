@@ -11,3 +11,5 @@ Tilt Cloud will enable your team, and in particular you, as the developer experi
 - Measure: Understand how your team members are using Tilt, surfacing problems and insight to help you better optimize the overall DX. (Coming soon)
 
 Get started by [creating your team](/teams.html).
+
+<script src="/assets/js/links.js" async></script>

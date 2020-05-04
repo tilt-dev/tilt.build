@@ -61,3 +61,5 @@ Once you're ready, add a link to your README to the
 
 If you want the same guide but with project-specific instructions,
 fork the [tilt-init repo](https://github.com/windmilleng/tilt-init) and edit away!
+
+<script src="/assets/js/links.js" async></script>

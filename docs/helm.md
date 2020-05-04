@@ -163,3 +163,5 @@ If you have a Helm use-case that's not covered here, we'd love to hear about it!
 You can [file an issue](https://github.com/windmilleng/tilt/issues) on GitHub.
 
 We're also active on the Kubernetes slack in [the **#tilt** channel](https://kubernetes.slack.com/messages/CESBL84MV/). Get an invite at [slack.k8s.io](http://slack.k8s.io).
+
+<script src="/assets/js/links.js" async></script>

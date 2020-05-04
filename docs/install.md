@@ -125,3 +125,5 @@ guide](https://github.com/windmilleng/tilt/blob/master/CONTRIBUTING.md).
 Building from source requires both Go and TypeScript/JavaScript tools, and
 dynamically compiles the TypeScript on every run. We only recommend this if you
 want to make changes to Tilt.
+
+<script src="/assets/js/links.js" async></script>

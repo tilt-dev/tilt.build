@@ -40,3 +40,5 @@ Verify you have upgraded to the [latest version](https://github.com/windmilleng/
 ```bash
 tilt version
 ```
+
+<script src="/assets/js/links.js" async></script>

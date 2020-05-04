@@ -108,3 +108,5 @@ Keep an eye on build and health status as you code
   fork and edit the tilt-init repo on GitHub
   </a>!
 </div>
+
+<script src="/assets/js/links.js" async></script>
