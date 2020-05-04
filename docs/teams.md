@@ -46,4 +46,4 @@ A team owner can choose to prompt their teammates to upgrade to new Tilt release
 ## Add users to your team
 
 New users on the team page will appear with the role `None` as they run Tilt. A team owner (`Owner`) can change any other user's role to `Member` or `Owner`.
-An `Owner` cannot change their own role. Only `Owner`s can change the team name. Both `Member`s and `Owners` can view the team page.
+An `Owner` cannot change their own role. Only `Owner`s can change the team name. Both `Member`s and `Owner`s can view the team page.
