@@ -9,9 +9,8 @@ landingurl: "https://tilt.dev"
 blogurl: "https://blog.tilt.dev"
 twitter_username: tilt_dev
 github_username:  windmilleng
-google_analytics: UA-129150759-1
 google_tag_manager: GTM-TGFF78V
-optimize_id: GTM-P32RQ5Z
+optimize_anti_flicker_id: GTM-TGFF78V
 include:
   - _redirects
 
