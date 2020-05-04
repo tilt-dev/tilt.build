@@ -49,6 +49,10 @@ A snapshot is accessible to anyone who has the link, which includes an unguessab
 Providing stricter access control is on our roadmap. If this is important to you,
 [let us know](https://tilt.dev/contact)!
 
+### Q: My company doesn't allow sharing snapshot data with a SaaS. How can I disable snapshots?
+Add the [`disable_snapshots`](https://docs.tilt.dev/api.html#api.disable_snapshots)
+directive to your Tiltfile.
+
 ### Q: If I delete a snapshot is any data retained?
 No. If you delete a snapshot all associated data is removed from the data store. There is no soft delete.
 
