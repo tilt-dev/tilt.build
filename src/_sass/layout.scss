@@ -1432,6 +1432,10 @@ a.attached-above {
 }
 .pagination--top {
   margin: - $spacing-unit auto $spacing-unit auto;
+  
+  @include mobile {
+    margin-top: 0;
+  }
 }
 .pagination-next,
 .pagination-previous {
