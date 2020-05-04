@@ -3,12 +3,14 @@ title: Tilt
 layout: home
 ---
 
-# Tilt Up and Get Stuff Done
+# Multi-Service Dev Needs New Tools
 
-## Tilt manages local development instances for teams that deploy to Kubernetes.
+## If you deploy to Kubernetes in prod, you need Tilt for dev.
 
-<div class="u-blockTwoThirds">
-Get started easily, get more done, and never play twenty questions with <code>kubectl</code> ever again.
+<div class="u-blockTwoThirds"> 
+Migrating to Kubernetes? Don't onboard your app
+engineers with a <code>kubectl</code> textbook. Set up a dev environment where
+they can make changes quickly and see what's important.
 </div>
 
 <div class="flexblock u-marginTop1_25 u-marginBottom1_5">
