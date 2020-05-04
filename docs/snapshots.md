@@ -46,10 +46,10 @@ For each snapshot we store the entirety of your Tilt's state, including all logs
 
 ### Q: How private are snapshots?
 A snapshot is accessible to anyone who has the link, which includes an unguessable ID.
-Providing stricter access control is on our roadmap. If this is important to you,
-[let us know](https://tilt.dev/contact)!
+We are working on [private team snapshots](https://github.com/windmilleng/tilt/issues/3128),
+where only signed in team members have access to these team snapshots.
 
-### Q: My company doesn't allow sharing data with a SaaS. How can I disable snapshots?
+### Q: I'm worried about app devs accidentally posting snapshots with secrets or private data. How can I disable snapshots?
 Add the [`disable_snapshots`](https://docs.tilt.dev/api.html#api.disable_snapshots)
 directive to your Tiltfile.
 
