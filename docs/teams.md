@@ -31,7 +31,7 @@ You'll now see all folks who run Tilt with the updated Tiltfile, appear on the t
 
 ## Vet Tilt releases before your team upgrades
 
-Tilt's web UI will nudge users to upgrade when a new release is available.
+Tilt's web UI will nudge users to upgrade when a new release is available, at the bottom right of the screen.
 
 When running Tilt with a Tiltfile that specifies a team id, the default behavior is that users are only notified about Tilt releases once they're one week old.
 
