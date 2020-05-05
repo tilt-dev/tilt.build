@@ -391,5 +391,3 @@ For more discussion of Docker optimization, see:
 </ul>
 
 [^1]: Tilt's first deployment of a service takes a few seconds longer than subsequent ones, due to some behind-the-scenes setup. Measurements in this guide focus on non-initial builds.
-
-<script src="/assets/js/links.js" async></script>

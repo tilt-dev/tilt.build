@@ -34,5 +34,3 @@ k8s_yaml(['deployments/snack.yaml', 'deployments/spoonerisms.yaml'])
 docker_build('gcr.io/windmill-public-containers/servantes/snack', 'snack')
 docker_build('gcr.io/windmill-public-containers/servantes/spoonerisms', 'spoonerisms')
 ```
-
-<script src="/assets/js/links.js" async></script>

@@ -179,5 +179,3 @@ k8s_resource('frontend', port_forwards=['9000:8000', '9001:8001'])
 
 ## Summary
 Tilt's configuration is a program that connects your existing build and deploy configuration. We've made our functions ergonomic for simple cases and general enough to support a wide range of cases. If you're not sure how to accomplish something, we'd love to either help you find the right way, or add support for a case we've overlooked.
-
-<script src="/assets/js/links.js" async></script>

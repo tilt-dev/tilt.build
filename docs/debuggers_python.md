@@ -62,5 +62,3 @@ When using `remote-pdb`, the log line that tells you that your debugger is activ
 
 ## Future Work
 As we find more Python debuggers that fit well into Tilt-based workflows, we'll create guides/example projects for them. Have a favorite remote-connection-friendly Python debugger that you'd like to see us cover? [Let us know](https://tilt.dev/contact)!
-
-<script src="/assets/js/links.js" async></script>

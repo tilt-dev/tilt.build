@@ -174,4 +174,3 @@ Here are some examples that report these spans as:
 
 This is an experimental feature designed for larger companies.
 
-<script src="/assets/js/links.js" async></script>

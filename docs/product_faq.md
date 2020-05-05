@@ -142,4 +142,3 @@ Our demo app is called [Servantes](https://en.wikipedia.org/wiki/Miguel_de_Cerva
 
 We have plenty more puns if you ask.
 
-<script src="/assets/js/links.js" async></script>

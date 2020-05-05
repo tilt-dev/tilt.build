@@ -74,5 +74,3 @@ We will investigate every complaint, but you may not receive a direct response. 
 
 ### Attribution
 This Code of Conduct is adapted from the [Contributor Covenant (v1.4)](https://www.contributor-covenant.org/version/1/4/code-of-conduct), with additional content adapted from TODO Group’s [Open Code of Conduct](https://github.com/todogroup/opencodeofconduct) (no longer maintained).
-
-<script src="/assets/js/links.js" async></script>

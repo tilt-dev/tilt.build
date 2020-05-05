@@ -29,5 +29,3 @@ Migrating to the new behavior should mostly be a matter of:
 
 Please don't hesitate to [reach out](faq.html#q-how-do-i-get-help-with-tilt)
 if you run into any problems or confusion!
-
-<script src="/assets/js/links.js" async></script>

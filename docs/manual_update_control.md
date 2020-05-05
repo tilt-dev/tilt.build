@@ -45,5 +45,3 @@ k8s_resource('bar', trigger_mode=TRIGGER_MODE_AUTO)
 </div>
 
 When you make changes to "snack", instead of them being automatically applied, Tilt will simply indicate unapplied changes by the asterisk to the right of `snack` in the sidebar. It will not automatically apply those changes. Instead, it will wait until you click the apply button to the left of `snack`.
-
-<script src="/assets/js/links.js" async></script>

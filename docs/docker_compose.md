@@ -154,5 +154,3 @@ Run it yourself and make changes to see how it works.
 Our Docker Compose support is not as widely used as Tilt's Kubernetes support.
 
 You may hit more/different bugs, which we want to fix -- please file issues or tell us in Slack.
-
-<script src="/assets/js/links.js" async></script>

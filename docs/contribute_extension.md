@@ -66,5 +66,3 @@ def jest(path):
 ```
 
 Now Tilt is running your tests, how cool is that?
-
-<script src="/assets/js/links.js" async></script>

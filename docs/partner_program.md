@@ -39,5 +39,3 @@ slow. For more info, see ["What does Tilt send?"](telemetry_faq.html).
 
 If this sounds interesting to you, please email our CEO
 [Dan](mailto:dan@tilt.dev?subject=Tilt partner program) to get set up.
-
-<script src="/assets/js/links.js" async></script>

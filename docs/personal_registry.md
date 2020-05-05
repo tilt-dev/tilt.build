@@ -58,5 +58,3 @@ Other tools might make this a command-line flag, or an environment variable. Til
 We also want to let you write `Tiltfile`'s that support your project. If you have lots of services, you may not want to run all of them all of the time. With a `tilt_option.json` that you can change, you can switch services on or off.
 
 This functionality is in the early stages, and we'd like to make it better supported. If you have thoughts/ideas/needs, please [talk to us](index.html#community).
-
-<script src="/assets/js/links.js" async></script>

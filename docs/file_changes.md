@@ -196,5 +196,3 @@ cache? Are there files in my Docker image that shouldn't be there?
 We are open to thoughts and
 [feature requests](https://github.com/windmilleng/tilt/issues/new) on how to
 help people answer these questions!
-
-<script src="/assets/js/links.js" async></script>

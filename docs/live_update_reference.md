@@ -135,5 +135,3 @@ language, all our major example projects use Live Update:
 ---
 
 [^1]: The initial build is always a full build because Live Update needs a running container to modify. Thus, your base build (Docker/Custom Build) should be sufficient to create your dev image, and should not rely on any `sync`'d files or `run` commands. (If this is functionality you need, [let us know](https://tilt.dev/contact).)
-
-<script src="/assets/js/links.js" async></script>

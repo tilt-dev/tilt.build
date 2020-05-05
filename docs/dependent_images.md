@@ -101,5 +101,3 @@ All the source code for this example is [on GitHub](https://github.com/windmille
 
 Try running it yourself with Tilt. Make changes to both `package.json` and `server.js`
 and see how Tilt rebuilds only what has changed.
-
-<script src="/assets/js/links.js" async></script>

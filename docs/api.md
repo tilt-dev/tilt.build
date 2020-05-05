@@ -62,5 +62,3 @@ Tiltfiles are written in _Starlark_, a dialect of Python. For more information o
 ---
 
 {% include api/classes.html %}
-
-<script src="/assets/js/links.js" async></script>

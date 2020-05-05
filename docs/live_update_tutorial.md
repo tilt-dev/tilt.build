@@ -98,5 +98,3 @@ changes without restarting the process), this step is unnecessary.
 In this guide, we explored just a few of the functions we can use in a `Tiltfile`
 to keep your build fast. For even more functions and tricks,
 read the complete [Tiltfile API reference](api.html).
-
-<script src="/assets/js/links.js" async></script>

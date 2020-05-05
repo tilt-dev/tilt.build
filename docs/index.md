@@ -72,5 +72,3 @@ improve Tilt on every platform. Details in ["What does Tilt
 send?"](telemetry_faq.html).
 
 We expect everyone in our community (users, contributors, and employees alike) to abide by our [**Code of Conduct**](code_of_conduct.html).
-
-<script src="/assets/js/links.js" async></script>

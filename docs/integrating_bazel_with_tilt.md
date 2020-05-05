@@ -201,5 +201,3 @@ Now we have a [Tiltfile that fully integrates with Bazel](https://github.com/win
 
 ## Putting it all together
 And that's that! Take a look at the [full example code](https://github.com/windmilleng/bazel_example) and let us know if you have any questions.
-
-<script src="/assets/js/links.js" async></script>
