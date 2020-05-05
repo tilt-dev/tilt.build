@@ -344,11 +344,11 @@ def load(path: str, *args):
     hi() # prints "Hello world!"
   """
 
-def local(cmd: str, quiet: bool = False) -> Blob:
-  """Runs cmd on the *host* machine, waits for it to finish, and returns its stdout as a ``Blob``
+def local(command: str, quiet: bool = False) -> Blob:
+  """Runs a command on the *host* machine, waits for it to finish, and returns its stdout as a ``Blob``
 
   Args:
-    cmd: Command to run.
+    command: Command to run.
     quiet: If set to True, skips printing output to log.
   """
   pass
