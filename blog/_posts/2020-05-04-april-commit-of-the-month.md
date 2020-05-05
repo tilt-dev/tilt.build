@@ -34,7 +34,7 @@ Typical buildpacks are a set of at least three files:
 
 ## How does the Tilt pack extension work?
 
-This extension adds the `pack` function, which is used the same way as `docker_build` to allow Tilt
+This extension makes the `pack` function available in your Tiltfile, which is used the same way as `docker_build` to allow Tilt
 to automatically build a container image with a known name.
 
 ```python
