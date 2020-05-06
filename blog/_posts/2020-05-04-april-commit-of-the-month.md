@@ -38,9 +38,13 @@ This extension makes the `pack` function available in your Tiltfile, which is us
 to automatically build a container image with a known name.
 
 ```python
+load('ext://pack', 'pack')
+
 pack('example-image')
- k8s_yaml('kubernetes.yaml')
+k8s_yaml('kubernetes.yaml')
+k8s_resource('example-deployment', port_forwards=8000)
 ```
+_Example taken from the [extension README](https://github.com/windmilleng/tilt-extensions/blob/master/pack/README.md)_
 
 It's implemented as a light wrapper around `custom_build`:
 
