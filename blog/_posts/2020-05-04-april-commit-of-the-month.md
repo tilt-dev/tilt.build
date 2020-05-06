@@ -18,7 +18,7 @@ keywords:
   - buildpack
 ---
 
-In April we introduced [Tilt Extensions](https://docs.tilt.dev/extensions.html). Extensions are open-source packaged functions that extend the capability Tilt, right inside your Tiltfile. Since releasing them we've seen several great extensions contributed by members of the community and we're highlighting one of them as April's Commit of the Month: [an extension to use pack and buildbacks to build container images](https://github.com/windmilleng/tilt-extensions/commit/e1d193e508ce8468800d0985ee4714aa65d78c87) by [Gareth Rushgrove](https://twitter.com/garethr)!
+In April we introduced [Tilt Extensions](https://docs.tilt.dev/extensions.html). Extensions are open-source packaged functions that extend the capability of Tilt, right inside your Tiltfile. Since releasing them we've seen several great extensions contributed by members of the community and we're highlighting one of them as April's Commit of the Month: [an extension to use pack and buildbacks to build container images](https://github.com/windmilleng/tilt-extensions/commit/e1d193e508ce8468800d0985ee4714aa65d78c87) by [Gareth Rushgrove](https://twitter.com/garethr)!
 
 ## What is a buildpack? What is `pack`?
 
