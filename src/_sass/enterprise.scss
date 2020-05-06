@@ -1,0 +1,15 @@
+.enterprise-menu {
+    margin-top: $spacing-unit * 2;
+}
+
+.enterprise-menu-section {
+    display: flex;
+    @include mobileAndAbove {
+        display: flex;
+    }
+}
+
+.enterprise-contact {
+margin-top: $spacing-unit * 2;
+}
+

@@ -89,6 +89,12 @@ $on-docs-mobile:    $header-width + $spacing-unit;
   }
 }
 
+@mixin media-query-above($device) {
+  @media screen and (min-width: $device) {
+    @content;
+  }
+}
+
 @mixin mobile {
   @include media-query($on-mobile) {
     @content;
@@ -101,6 +107,13 @@ $on-docs-mobile:    $header-width + $spacing-unit;
   }
 }
 
+@mixin mobileAndAbove {
+  @include media-query-above($on-mobile) {
+    @content;
+  }
+}
+
+
 @mixin relative-font-size($ratio) {
   font-size: $body-font-size * $ratio;
 }
@@ -112,5 +125,6 @@ $on-docs-mobile:    $header-width + $spacing-unit;
   "api",
   "search",
   "fx",
-  "syntax"
+  "syntax",
+  "enterprise"
 ;
