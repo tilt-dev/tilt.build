@@ -33,15 +33,17 @@ You'll now see all folks who run Tilt with the updated Tiltfile, appear on the t
 
 Tilt's web UI will nudge users to upgrade when a new release is available, at the bottom right of the screen.
 
-When running Tilt with a Tiltfile that specifies a team id, the default behavior is that users are only notified about Tilt releases once they're one week old.
+When running Tilt with a Tiltfile that specifies a team id, the default behavior is that users are only notified about Tilt releases once they're one week old<sup>[\*](#minimum-suggested-version)</sup>.
 
 However, the team's *owners* are notified of Tilt releases as soon as they come out, giving them an opportunity to canary the new version before the rest of their team. If no action is taken, Tilt will begin notifying non-`Owner`s of a release once it's a week old.
 
-A team owner can choose to prompt their teammates to upgrade to new Tilt release sooner than a week. If they visit their team's page on Tilt Cloud, they will find a button to "promote" the new version to their team. If they promote, all users (not just `Owner`s) will now get the version nudge corresponding to that latest Tilt version.
+A team owner can choose to prompt their teammates to upgrade to new Tilt release sooner than a week. If they visit their team's page on Tilt Cloud, they will find a button to "promote" the new version to their team. If they promote, all users (not just `Owner`s) will now start getting the version nudge corresponding to that latest Tilt version (the next time their Tilt checks for updates, which is on startup and hourly).
 
 <figure>
     <img src="/assets/img/team-promote-version.png" class="no-shadow" alt="Promote Team Version">
 </figure>
+
+<a name="minimum-suggested-version"></a><small>\* For technical reasons, there is no 1-week waiting period on Tilt 0.13.5.</small>
 
 ## Add users to your team
 
