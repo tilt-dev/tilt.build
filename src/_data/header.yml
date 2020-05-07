@@ -21,8 +21,8 @@
   icon: blog
   mobileIcon: blog
   blogurl: true
-- name: Enterprise
-  icon: enterprise
-  mobileIcon: enterprise
-  href: enterprise
-  landingurl: true
+# - name: Enterprise
+#   icon: enterprise
+#   mobileIcon: enterprise
+#   href: enterprise
+#   landingurl: true
