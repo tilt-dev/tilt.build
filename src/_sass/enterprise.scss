@@ -2,14 +2,28 @@
     margin-top: $spacing-unit * 2;
 }
 
+.enterprise-menu-sectionTitle {
+    margin-top: $spacing-unit * 2;
+    margin-bottom: $spacing-unit * 0.5;
+    border-bottom: 6px solid $color-grey-lightest;
+
+}
+
 .enterprise-menu-section {
-    display: flex;
-    @include mobileAndAbove {
-        display: flex;
-    }
+    margin-top: $spacing-unit;
+    display: grid;
+    grid-gap:  $spacing-unit;
+    grid-template-columns: 1fr 1fr;
+}
+
+.enterprise-menu-footer {
+    margin-top: $spacing-unit * 0.5;
 }
 
 .enterprise-contact {
-margin-top: $spacing-unit * 2;
+    margin-top: $spacing-unit * 2;
+    margin-bottom: $spacing-unit * 2;
+    border: 4px solid $color-grey-lightest;
+    padding: $spacing-unit;
 }
 
