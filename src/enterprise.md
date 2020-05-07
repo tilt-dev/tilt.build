@@ -2,6 +2,7 @@
 layout: enterprise
 title: Enterprise
 permalink: /enterprise
+custom_css: https://assets.calendly.com/assets/external/widget.css
 ---
 
 # Tilt Enterprise
@@ -26,7 +27,7 @@ Manage the developer experience you deliver across your organization.
 </div>
 
 <h2 class="enterprise-menu-sectionTitle">Tilt Cloud Enterprise</h2>
-<p>Manage Tilt across your org in one web app. Use Tilt Cloud to release, support, and measure the developer experience.</p>
+<p>Manage Tilt across your org in one web app. Use <a href="https://cloud.tilt.dev/team/new" target="_blank">Tilt Cloud</a> to release, support, and measure the developer experience.</p>
 
 <div class="enterprise-menu-section">
 <div>
@@ -62,5 +63,9 @@ Manage the developer experience you deliver across your organization.
 
 
 <div class="enterprise-contact">
-Interested? <a href="mailto:hi@tilt.dev">Contact us</a> to set up a free video consultation
+Interested? <a href="mailto:hi@tilt.dev">Contact us</a>, or set up a free <a href="" onclick="Calendly.initPopupWidget({url: 'https://calendly.com/dbentley/30min'});return false;">video consultation</a>.
 </div>
+
+<!-- Calendly -->
+<script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript"></script>
+<!-- Calendly -->
