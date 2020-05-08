@@ -186,4 +186,3 @@ The most common options we see in local development are
 
 Check out our [Guide to Choosing a Local Cluster](choosing_clusters.html).
 
-<script src="/assets/js/links.js" async></script>
