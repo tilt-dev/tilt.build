@@ -18,6 +18,8 @@
     href: onboarding_checklist.html
   - title: "Guide for Application Developers"
     href: welcome_to_tilt.html
+  - title: "Kubernetes Migration Guide"
+    href: kubernetes_migration_guide.html
 
 - title: Enhancements
   items:
