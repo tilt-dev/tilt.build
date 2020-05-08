@@ -131,4 +131,3 @@ devtools teams opting-in all users on the team.
 
 The environment setting overrides both the Tiltfile and user preferences.
 
-<script src="/assets/js/links.js" async></script>
