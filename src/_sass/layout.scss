@@ -760,6 +760,10 @@ a.imageLink {
   fill: $color-red;
 }
 
+.headerLink--enterprise svg {
+    fill: $color-red;
+}
+
 .headerLink:hover svg,
 .headerLink:hover path,
 .headerLink--mobile svg,
