@@ -798,6 +798,21 @@ def struct(**kwargs) -> Any:
     print("%s %d" % (x.a, x.b)) # prints "foo 6"
   """
 
+
+def secret_settings(disable_scrub: bool = False) -> None:
+  """Configures Tilt's handling of Kubernetes Secrets. By default, Tilt scrubs
+  the text of any Secrets from the logs; e.g. if Tilt applies a Secret with contents
+  'mysecurepassword', Tilt redacts this string if ever it appears in the logs,
+  to prevent users from accidentally sharing sensitive information in snapshots etc.
+
+  Currently ``secret_settings`` only turns secret scrubbing on and off. Expect more
+  settings to be configurable from this function soon.
+
+  Args:
+    disable_scrub: if True, Tilt will *not* scrub secrets from logs.
+"""
+
+
 def update_settings(max_parallel_updates: int) -> None:
   """Configures Tilt's updates to your resources. (An update is any execution of or
   change to a resource. Examples of updates include: doing a docker build + deploy to
