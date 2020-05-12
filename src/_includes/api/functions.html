@@ -4092,13 +4092,18 @@ applies to your k8s cluster independently.
              kustomize
             </a>
             on a given directory and return the resulting YAML as a Blob
-Directory is watched (See
+Directory is watched (see
             <code class="docutils literal notranslate">
              <span class="pre">
               watch_file
              </span>
             </code>
-            ).
+            ). Checks for and uses separately installed kustomize first, if it exists. Otherwise,
+uses kubectl&#x2019;s kustomize. See
+            <a class="reference external" href="https://blog.tilt.dev/2020/02/04/are-you-my-kustomize.html">
+             blog post
+            </a>
+            .
            </p>
            <table class="docutils field-list" frame="void" rules="none">
             <col class="field-name">

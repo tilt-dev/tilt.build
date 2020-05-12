@@ -374,7 +374,8 @@ def watch_file(file_path: str) -> None:
 
 def kustomize(pathToDir: str) -> Blob:
   """Run `kustomize <https://github.com/kubernetes-sigs/kustomize>`_ on a given directory and return the resulting YAML as a Blob
-  Directory is watched (See ``watch_file``).
+  Directory is watched (see ``watch_file``). Checks for and uses separately installed kustomize first, if it exists. Otherwise,
+  uses kubectl's kustomize. See `blog post <https://blog.tilt.dev/2020/02/04/are-you-my-kustomize.html>`_.
 
   Args:
     pathToDir: Path to the directory locally (absolute, or relative to the location of the Tiltfile)."""
