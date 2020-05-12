@@ -5,7 +5,7 @@ layout: docs
 
 Tilt is a tool to help dev teams develop software, especially with multiple services that are being deployed to Kubernetes today, or will likely be doing so in the future. The [15 minute tutorial](/tutorial.html) helps you get set up with a single project. And [Tiltfile Concepts](/tiltfile_concepts.html) is a primer on using a Tiltfile to configure Tilt for your specific needs. This doc helps you, as the **devex (developer experience) engineer** or **dev team advocate**, to guide your dev team not yet on Kubernetes, **to adopt Tilt as quickly as possible**.
 
-## Avoid implementing Kubernetes and Tilt at the same time
+## Avoid rolling out Kubernetes and Tilt at the same time
 
 If your organization already deploys to Kubernetes in production, or is planning to do so soon, you may be tempted to ask your developers to use a local development Kubernetes cluster when they begin using Tilt, in order to streamline broader organizational operations. However, this is especially difficult for a dev team if they are currently developing in a non-Kubernetes environment and/or have little Kubernetes experience. **It is painful for a developer to adopt two new technologies at once, and also adapt their existing code projects accordingly in a Kubernets context.** Rolling out Tilt in this fashion, may actually backfire, since any benefits from the new setup, would be overshadowed by the pain of initial adoption experienced by the dev team. Instead, the best practice is to first introduce Tilt only.
 
