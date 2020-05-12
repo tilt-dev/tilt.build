@@ -805,8 +805,7 @@ def secret_settings(disable_scrub: bool = False) -> None:
   'mysecurepassword', Tilt redacts this string if ever it appears in the logs,
   to prevent users from accidentally sharing sensitive information in snapshots etc.
 
-  Currently ``secret_settings`` only turns secret scrubbing on and off. Expect more
-  settings to be configurable from this function soon.
+  If you need more other configuration options, `let us know <https://github.com/windmilleng/tilt/issues>`_.
 
   Args:
     disable_scrub: if True, Tilt will *not* scrub secrets from logs.
@@ -819,7 +818,7 @@ def update_settings(max_parallel_updates: int) -> None:
   Kubernetes; running a live update on an existing container; and executing
   a local resource command).
 
-  Expect more settings to be configurable from this function soon.
+  If you need more other configuration options, `let us know <https://github.com/windmilleng/tilt/issues>`_.
 
   Args:
     max_parallel_updates: maximum number of updates Tilt will execute in parallel. Default is 3. Must be a positive integer.
