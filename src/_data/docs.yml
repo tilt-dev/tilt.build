@@ -18,8 +18,8 @@
     href: onboarding_checklist.html
   - title: "Guide for Application Developers"
     href: welcome_to_tilt.html
-  - title: "Tilt Adoption Guide for Dev Teams"
-    href: tilt_adoption_guide.html
+  - title: "Help teams not yet on Kubernetes, adopt Tilt"
+    href: not_yet_kubernetes.html
 
 - title: Enhancements
   items:
