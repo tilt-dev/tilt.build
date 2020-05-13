@@ -33,3 +33,32 @@ def getcwd() -> str:
   returns the directory of the loaded/included Tiltfile.
   """
   pass
+
+def getenv(key: str, default=None) -> str:
+  """Return the value of the environment variable key if it exists, or default if it doesn’t.
+
+  Args:
+    key: An environment variable name.
+    default: The value to return if the variable doesn't exist.
+  """
+  pass
+
+def putenv(key: str, value: str):
+  """Set the environment variable named key to the string value. Takes effect
+  immediately in the Tilt process. Any new subprocesses will have this
+  environment value.
+
+  Args:
+    key: An environment variable name.
+    value: The new value.
+  """
+  pass
+
+def unsetenv(key: str, value: str):
+  """Delete the environment variable named key. Takes effect immediately in the
+  Tilt process. Any new subprocesses will not have this variable.
+
+  Args:
+    key: An environment variable name.
+  """
+  pass

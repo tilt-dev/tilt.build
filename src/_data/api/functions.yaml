@@ -45,6 +45,9 @@ functions:
 - watch_file
 - workload_to_resource_function
 - os.getcwd
+- os.getenv
+- os.putenv
+- os.unsetenv
 - os.path.abspath
 - os.path.basename
 - os.path.dirname
