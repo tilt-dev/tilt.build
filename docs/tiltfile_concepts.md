@@ -144,38 +144,89 @@ can be expanded and investigated.
 Tilt generates these bundles of work after executing your `Tiltfile`. Some Tiltfile calls
 (e.g. `local_resource`) correspond to a single resource; for other calls (e.g. `docker_build` + `k8s_yaml`), 
 Tilt must join multiple bits of work into a single resource. For Kubernetes resources, Tilt 
-does this assembly by scanning all loaded YAML for any k8s objects that it considers a workload.
-Each of these workloads becomes a Tilt resource. If Tilt finds any image build directives 
-corresponding to an image in a workload, that directive also gets added to that resource. 
-(The assembly logic is similar for Docker Compose resources. For more information, see the 
-[Docker Compose documentation](docker_compose.html).)
+does this assembly by scanning all loaded YAML for any k8s objects that it considers a workload
+(i.e. any objects that create pods). Each of these workloads becomes a Tilt resource. If Tilt
+finds any image build directives corresponding to an image in a workload, or any Kubernetes
+objects obviously affiliated with that workload (currently the only eligible objects are
+Services), they get added to that resource. (The assembly logic is similar for Docker Compose
+resources. For more information, see the [Docker Compose documentation](docker_compose.html).)
 
+### Configuring Kubernetes Resources
 In many cases, Tilt's automatic resource assembly logic will be sufficient for you to run
 your app. However, if you need to configure your Kubernetes resources on top of Tilt's
 automatic assembly, you can do so with a call to [`k8s_resource`](api.html#api.k8s_resource).
-Here we'll discuss the most common configuration arguments: `new_name` and `port_forwards`.
-For discussion of other available arguments, see the [api spec](api.html#api.k8s_resource).
 
-`new_name` allows you to specify a new resource name, in case you do not like the automatically generated one.
+Here we'll discuss the most common configuration options for Kubernetes resources:
+`new_name`, `port_forwards`, and `objects`. For discussion of other available arguments, see
+the [API spec](api.html#api.k8s_resource).
+
+`new_name` allows you to specify a new resource name, in case you do not like the
+automatically generated one:
 
 ```python
 # rename the resource "redis:deployment" to "redis"
-k8s_resource('redis:deployment', new_name='redis')
+k8s_resource(workload='redis:deployment', new_name='redis')
 ```
+
+(Use this pattern to rename individual resources; to programmatically rename all resources,
+see [`workload_to_resource_function`](api.html#api.k8s_resource).)
 
 Tilt also supports a few ways to specify `port_forwards`:
 
 ```python
 # connect localhost:9000 to the default container port
-k8s_resource('frontend', port_forwards=9000)
+k8s_resource(
+  workload='frontend',
+  port_forwards=9000
+)
 
 # connect localhost:9000 to container port 8000
-k8s_resource('frontend', port_forwards='9000:8000')
+k8s_resource(
+  workload='frontend',
+  port_forwards='9000:8000'
+)
 
 # connect localhost:9000 to container port 8000
 # and localhost:9001 to container port 8001
-k8s_resource('frontend', port_forwards=['9000:8000', '9001:8001'])
+k8s_resource(
+  workload='frontend',
+  port_forwards=['9000:8000', '9001:8001']
+)
 ```
+
+Additionally, you may want to add additional Kubernetes objects to an existing
+resource (say, group a Secret with the Deployment that makes use of it), or group
+non-workload objects into their own resource (e.g. make a CRD its own resource X,
+so a workload containing an instance of that CR may name X as a dependency). To
+accomplish this, use the `k8s_resource.objects` parameter to specify one or more
+Kubernetes objects.
+
+```python
+# associate an existing Secret and Volume with the "frontend" service
+k8s_resource(
+  workload='frontend',
+  objects=['frontend:secret', 'frontend:volume']
+)
+
+# make a new resource consisting of some objects necessary for cluster setup
+k8s_resource(
+  objects=['my-ns:namespace', 'kafka:crd', 'some-ingress:ingress'],
+  new_name=['cluster-setup'],
+)
+```
+
+#### Kubernetes Object ID Syntax
+
+To specify Kubernetes objects, use a colon-separated string consisting of one
+or more of: `$NAME[:$KIND[:$NAMESPACE[:$GROUP]]]`, e.g.:
+* "redis"
+* "redis:deployment"
+* "redis:deployment:default"
+
+You may use the minimum unique string across all Kubernetes objects: e.g. "redis"
+suffices if there's only one object named "redis", but if there's both a Deployment
+and a Service named "redis", you'd need to specify "redis:deployment". You may always
+use a *more* qualified identifier, even if a shorter one would suffice.
 
 ## Summary
 Tilt's configuration is a program that connects your existing build and deploy configuration. We've made our functions ergonomic for simple cases and general enough to support a wide range of cases. If you're not sure how to accomplish something, we'd love to either help you find the right way, or add support for a case we've overlooked.

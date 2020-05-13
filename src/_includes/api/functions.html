@@ -3641,7 +3641,11 @@ This uses the k8s json path template syntax, described
             (
            </span>
            <em>
-            workload
+            workload=&apos;&apos;
+           </em>
+           ,
+           <em>
+            objects=[]
            </em>
            ,
            <em>
@@ -3672,13 +3676,78 @@ This uses the k8s json path template syntax, described
           </dt>
           <dd>
            <p>
-            Configures the Kubernetes resource of the given name. Tilt assembles Kubernetes resources
-automatically, as described in
+            Configures or creates the specified Kubernetes resource.
+           </p>
+           <p>
+            A &#x201C;resource&#x201D; is a bundle of work managed by Tilt: a Kubernetes resource consists
+of one or more Kubernetes objects to deploy, and zero or more image build directives
+for the images referenced therein.
+           </p>
+           <p>
+            Tilt assembles Kubernetes resources automatically, as described in
             <a class="reference external" href="tiltfile_concepts.html#resources">
              Tiltfile Concepts: Resources
             </a>
-            ).
-Calling
+            . You may call
+            <code class="docutils literal notranslate">
+             <span class="pre">
+              k8s_resource
+             </span>
+            </code>
+            to configure an automatically created Kubernetes resource, or to
+create and configure a new one.
+           </p>
+           <p>
+            If modifying an existing resource, use the
+            <code class="docutils literal notranslate">
+             <span class="pre">
+              workload
+             </span>
+            </code>
+            parameter to specify which
+(recall that a &#x201C;workload&#x201D; is a pod-creating Kubernetes object, and Tilt attempts
+to automatically assemble resources around workload objects and any related image
+build directives). To create a new resource, specify one or more Kubernetes objects
+using the
+            <code class="docutils literal notranslate">
+             <span class="pre">
+              objects
+             </span>
+            </code>
+            parameter, and a name via the
+            <code class="docutils literal notranslate">
+             <span class="pre">
+              new_name
+             </span>
+            </code>
+            parameter. Thus,
+            <code class="docutils literal notranslate">
+             <span class="pre">
+              k8s_resource
+             </span>
+            </code>
+            requires either
+            <code class="docutils literal notranslate">
+             <span class="pre">
+              workload
+             </span>
+            </code>
+            OR both of
+            <code class="docutils literal notranslate">
+             <span class="pre">
+              object
+             </span>
+            </code>
+            and
+            <code class="docutils literal notranslate">
+             <span class="pre">
+              new_name
+             </span>
+            </code>
+            be specified.
+           </p>
+           <p>
+            Calling
             <code class="docutils literal notranslate">
              <span class="pre">
               k8s_resource
@@ -3689,8 +3758,31 @@ Calling
              optional
             </em>
             ; you can use this function to configure port forwarding for
-your resource, to rename it, or to adjust any of the other settings specified below.
+your resource, to rename it, or to adjust any of the other settings specified below, but in many cases,
+Tilt&#x2019;s default assembly behavior is sufficient for running your app.
            </p>
+           <p>
+            Examples:
+           </p>
+           <div class="highlight-python notranslate">
+            <div class="highlight">
+             <pre><span></span><span class="c1"># modify the resource built around the Deployment &quot;foo&quot; to forward</span>
+<span class="c1"># container port 8080 to localhost:8080</span>
+<span class="n">k8s_resource</span><span class="p">(</span><span class="n">workload</span><span class="o">=</span><span class="s1">&apos;foo:deployment&apos;</span><span class="p">,</span> <span class="n">port_forwards</span><span class="o">=</span><span class="mi">8080</span><span class="p">)</span>
+
+<span class="c1"># create a new resource called &quot;bar&quot; which contains CRD &quot;bar&quot;,</span>
+<span class="c1"># Service &quot;bar&quot;, and Secret &quot;bar-password&quot;. Note that the first</span>
+<span class="c1"># two object identifiers specify name and kind, since the name</span>
+<span class="c1"># &quot;bar&quot; is not unique; as the name &quot;bar-password&quot; is unique,</span>
+<span class="c1"># &quot;bar-password&quot; suffices as an identifier (though a fully-</span>
+<span class="c1"># qualified identifier would be accepted as well).</span>
+<span class="n">k8s_resource</span><span class="p">(</span>
+  <span class="n">objects</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;bar:crd&quot;</span><span class="p">,</span> <span class="s2">&quot;bar:service&quot;</span><span class="p">,</span> <span class="s2">&quot;bar-password&quot;</span><span class="p">],</span>
+  <span class="n">new_name</span><span class="o">=</span><span class="s2">&quot;bar&quot;</span>
+<span class="p">)</span>
+</pre>
+            </div>
+           </div>
            <table class="docutils field-list" frame="void" rules="none">
             <col class="field-name">
             <col class="field-body">
@@ -3711,26 +3803,79 @@ your resource, to rename it, or to adjust any of the other settings specified be
                    str
                   </span>
                  </code>
-                 ) &#x2013; which workload&#x2019;s resource to configure. This is a colon-separated
-string consisting of one or more of (name, kind, namespace, group), e.g.,
-&#x201C;redis&#x201D;, &#x201C;redis:deployment&#x201D;, or &#x201C;redis:deployment:default&#x201D;.
-                 <cite>
-                  k8s_resource
-                 </cite>
-                 searches all loaded k8s workload objects for an object matching
-all given fields. If there&#x2019;s exactly one,
-                 <cite>
-                  k8s_resource
-                 </cite>
-                 configures options for
-that workload. If there&#x2019;s not exactly one,
-                 <cite>
-                  k8s_resource
-                 </cite>
+                 ) &#x2013; which workload&#x2019;s resource to configure, specified in the Tilt&#x2019;s
+                 <a class="reference external" href="tiltfile_concepts.html#object-id-syntax">
+                  Kubernetes Object ID Syntax
+                 </a>
+                 .
+                 <code class="docutils literal notranslate">
+                  <span class="pre">
+                   k8s_resource
+                  </span>
+                 </code>
+                 searches all loaded Kubernetes workload objects for one
+matching the given ID. If there&#x2019;s exactly one,
+                 <code class="docutils literal notranslate">
+                  <span class="pre">
+                   k8s_resource
+                  </span>
+                 </code>
+                 configures
+options for that workload. If there&#x2019;s not exactly one,
+                 <code class="docutils literal notranslate">
+                  <span class="pre">
+                   k8s_resource
+                  </span>
+                 </code>
                  raises an error.
-(e.g., &#x201C;redis&#x201D; suffices if there&#x2019;s only one object named &#x201C;redis&#x201D;, but if
-there&#x2019;s both a deployment and a cronjob named &#x201C;redis&#x201D;, you&#x2019;d need to specify
-&#x201C;redis:deployment&#x201D;).
+                </li>
+                <li>
+                 <strong>
+                  objects
+                 </strong>
+                 (
+                 <code class="xref py py-class docutils literal notranslate">
+                  <span class="pre">
+                   List
+                  </span>
+                 </code>
+                 [
+                 <code class="xref py py-class docutils literal notranslate">
+                  <span class="pre">
+                   str
+                  </span>
+                 </code>
+                 ]) &#x2013;
+                 <p>
+                  a list of identifiers for Kubernetes objects to be added to this resource,
+specified using
+                  <a class="reference external" href="tiltfile_concepts.html#object-id-syntax">
+                   Kubernetes Object ID Syntax
+                  </a>
+                  .
+If
+                  <code class="docutils literal notranslate">
+                   <span class="pre">
+                    workload
+                   </span>
+                  </code>
+                  is specified, these objects will be added to the existing resource;
+otherwise, these objects will form a new resource with name
+                  <code class="docutils literal notranslate">
+                   <span class="pre">
+                    new_name
+                   </span>
+                  </code>
+                  . If an
+identifier matches more than one Kubernetes object, or matches an object already
+associated with a resource,
+                  <code class="docutils literal notranslate">
+                   <span class="pre">
+                    k8s_resource
+                   </span>
+                  </code>
+                  raises an error.
+                 </p>
                 </li>
                 <li>
                  <strong>
@@ -3742,7 +3887,16 @@ there&#x2019;s both a deployment and a cronjob named &#x201C;redis&#x201D;, you&
                    str
                   </span>
                  </code>
-                 ) &#x2013; if non-empty, will be used as the new name for this resource
+                 ) &#x2013; if non-empty, will be used as the new name for this resource. (To
+programmatically rename all resources, see
+                 <a class="reference internal" href="#api.workload_to_resource_function" title="api.workload_to_resource_function">
+                  <code class="xref py py-meth docutils literal notranslate">
+                   <span class="pre">
+                    workload_to_resource_function()
+                   </span>
+                  </code>
+                 </a>
+                 .)
                 </li>
                 <li>
                  <strong>
@@ -3844,7 +3998,7 @@ respectively).
                   </span>
                  </code>
                  ]]]) &#x2013; In addition to relying on Tilt&#x2019;s heuristics to automatically
-find K8S resources associated with this resource, a user may specify extra
+find Kubernetes resources associated with this resource, a user may specify extra
 labelsets to force entities to be associated with this resource. An entity
 will be associated with this resource if it has all of the labels in at
 least one of the entries specified (but still also if it meets any of
