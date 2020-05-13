@@ -344,12 +344,14 @@ def load(path: str, *args):
     hi() # prints "Hello world!"
   """
 
-def local(command: str, quiet: bool = False) -> Blob:
+def local(command: str, quiet: bool = False, command_bat: str = "") -> Blob:
   """Runs a command on the *host* machine, waits for it to finish, and returns its stdout as a ``Blob``
 
   Args:
-    command: Command to run.
+    command: Command to run. Executed with ``sh -c`` on macOS/Linux, or ``cmd /S /C`` on Windows.
     quiet: If set to True, skips printing output to log.
+    command_bat: The command to run, expressed as a Windows batch command executed
+      with ``cmd /S /C``. Takes precedence over the ``command`` parameter on Windows. Ignored on macOS/Linux.
   """
   pass
 
@@ -561,7 +563,7 @@ def default_registry(host: str, host_from_cluster: str = None) -> None:
   """
   pass
 
-def custom_build(ref: str, command: str, deps: List[str], tag: str = "", disable_push: bool = False, skips_local_docker: bool = False, live_update: List[LiveUpdateStep]=[], match_in_env_vars: bool = False, ignore: Union[str, List[str]] = [], entrypoint: str=""):
+def custom_build(ref: str, command: str, deps: List[str], tag: str = "", disable_push: bool = False, skips_local_docker: bool = False, live_update: List[LiveUpdateStep]=[], match_in_env_vars: bool = False, ignore: Union[str, List[str]] = [], entrypoint: str="", command_bat: str = ""):
   """Provide a custom command that will build an image.
 
   For examples on how to use this to integrate your own build scripts with Tilt,
@@ -584,7 +586,7 @@ def custom_build(ref: str, command: str, deps: List[str], tag: str = "", disable
 
   Args:
     ref: name for this image (e.g. 'myproj/backend' or 'myregistry/myproj/backend'). If this image will be used in a k8s resource(s), this ref must match the ``spec.container.image`` param for that resource(s).
-    command: a command that, when run in the shell, builds an image puts it in the registry as ``ref``. Must produce an image named ``$EXPECTED_REF``
+    command: a command that, when run in the shell, builds an image puts it in the registry as ``ref``. Must produce an image named ``$EXPECTED_REF``  Executed with ``sh -c`` on macOS/Linux, or ``cmd /S /C`` on Windows.
     deps: a list of files or directories to be added as dependencies to this image. Tilt will watch those files and will rebuild the image when they change. Only accepts real paths, not file globs.
     tag: Some tools can't change the image tag at runtime. They need a pre-specified tag. Tilt will set ``$EXPECTED_REF = image_name:tag``,
        then re-tag it with its own tag before pushing to your cluster. See `the bazel guide <integrating_bazel_with_tilt.html>`_ for an example.
@@ -594,6 +596,8 @@ def custom_build(ref: str, command: str, deps: List[str], tag: str = "", disable
     match_in_env_vars: specifies that k8s objects can reference this image in their environment variables, and Tilt will handle those variables the same as it usually handles a k8s container spec's ``image`` s.
     ignore: set of file patterns that will be ignored. Ignored files will not trigger builds and will not be included in images. Follows the `dockerignore syntax <https://docs.docker.com/engine/reference/builder/#dockerignore-file>`_. Patterns/filepaths will be evaluated relative to each ``dep`` (e.g. if you specify ``deps=['dep1', 'dep2']`` and ``ignores=['foobar']``, Tilt will ignore both ``deps1/foobar`` and ``dep2/foobar``).
     entrypoint: command to run when this container starts. Takes precedence over the container's ``CMD`` or ``ENTRYPOINT``, and over a `container command specified in k8s YAML <https://kubernetes.io/docs/tasks/inject-data-application/define-command-argument-container/>`_. Will be evaluated in a shell context: e.g. ``entrypoint="foo.sh bar"`` will be executed in the container as ``/bin/sh -c 'foo.sh bar'``.
+    command_bat: The command to run, expressed as a Windows batch command executed
+      with ``cmd /S /C``. Takes precedence over the ``command`` parameter on Windows. Ignored on macOS/Linux.
   """
   pass
 
@@ -694,7 +698,8 @@ def enable_feature(feature_name: str) -> None:
 def local_resource(name: str, cmd: str = "", deps: Union[str, List[str]] = None,
                    trigger_mode: TriggerMode = TRIGGER_MODE_AUTO,
                    resource_deps: List[str] = [], ignore: Union[str, List[str]] = [],
-                   auto_init: bool=True, serve_cmd: str = "") -> None:
+                   auto_init: bool=True, serve_cmd: str = "", cmd_bat: str = "",
+                   serve_cmd_bat: str = "") -> None:
   """Configures one or more commands to run on the *host* machine (not in a remote cluster).
 
   By default, Tilt performs an update on local resources on ``tilt up`` and whenever any of their ``deps`` change.
@@ -710,7 +715,7 @@ def local_resource(name: str, cmd: str = "", deps: Union[str, List[str]] = None,
 
   Args:
     name: will be used as the new name for this resource
-    cmd: command to be executed on host machine
+    cmd: command to be executed on host machine.  Executed with ``sh -c`` on macOS/Linux, or ``cmd /S /C`` on Windows.
     deps: a list of files or directories to be added as dependencies to this cmd. Tilt will watch those files and will run the cmd when they change. Only accepts real paths, not file globs.
     trigger_mode: one of ``TRIGGER_MODE_AUTO`` or ``TRIGGER_MODE_MANUAL``. For more info, see the
       `Manual Update Control docs <manual_update_control.html>`_.
@@ -718,7 +723,12 @@ def local_resource(name: str, cmd: str = "", deps: Union[str, List[str]] = None,
       See the `Resource Dependencies docs <resource_dependencies.html>`_.
     ignore: set of file patterns that will be ignored. Ignored files will not trigger runs. Follows the `dockerignore syntax <https://docs.docker.com/engine/reference/builder/#dockerignore-file>`_. Patterns will be evaluated relative to the Tiltfile.
     auto_init: whether this resource runs on ``tilt up``. Defaults to ``True``. Note that ``auto_init=False`` is only compatible with ``trigger_mode=TRIGGER_MODE_MANUAL``.
-    serve_cmd: Tilt will run this command on update and expect it to not exit
+    serve_cmd: Tilt will run this command on update and expect it to not exit.
+      Executed with ``sh -c`` on macOS/Linux, or ``cmd /S /C`` on Windows.
+    cmd_bat: The command to run, expressed as a Windows batch command executed
+      with ``cmd /S /C``. Takes precedence over the ``cmd`` parameter on Windows. Ignored on macOS/Linux.
+    serve_cmd_bat: The command to run, expressed as a Windows batch command executed
+      with ``cmd /S /C``. Takes precedence over the ``serve_cmd`` parameter on Windows. Ignored on macOS/Linux.
   """
   pass
 
