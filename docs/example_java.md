@@ -27,7 +27,7 @@ All the code is in this repo:
 
 To skip straight to the fully optimized setup, go to this subdirectory:
 
-[Recommended Setup](https://github.com/windmilleng/tilt-example-java/blob/master/3-recommended){:.attached-above}
+[Recommended Setup](https://github.com/windmilleng/tilt-example-java/blob/master/4-recommended){:.attached-above}
 
 ## Step 0: The Simplest Deployment
 
