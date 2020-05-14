@@ -108,14 +108,14 @@ If you'd prefer to download the binary manually:
 On macOS:
 
 ```bash
-curl -fsSL https://github.com/windmilleng/tilt/releases/download/v0.13.5/tilt.0.13.5.mac.x86_64.tar.gz | tar -xzv tilt && \
+curl -fsSL https://github.com/windmilleng/tilt/releases/download/v0.13.6/tilt.0.13.6.mac.x86_64.tar.gz | tar -xzv tilt && \
   sudo mv tilt /usr/local/bin/tilt
 ```
 
 On Linux:
 
 ```bash
-curl -fsSL https://github.com/windmilleng/tilt/releases/download/v0.13.5/tilt.0.13.5.linux.x86_64.tar.gz | tar -xzv tilt && \
+curl -fsSL https://github.com/windmilleng/tilt/releases/download/v0.13.6/tilt.0.13.6.linux.x86_64.tar.gz | tar -xzv tilt && \
   sudo mv tilt /usr/local/bin/tilt
 ```
 
