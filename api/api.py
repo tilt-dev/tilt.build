@@ -251,7 +251,7 @@ def k8s_resource(workload: str = "", objects: List[str] = [], new_name: str = ""
 
   Calling ``k8s_resource`` is *optional*; you can use this function to configure port forwarding for
   your resource, to rename it, or to adjust any of the other settings specified below, but in many cases,
-  Tilt's default assembly behavior is sufficient for running your app.
+  Tilt's default behavior is sufficient.
 
   Examples:
 
