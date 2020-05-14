@@ -5593,6 +5593,83 @@ restart_container
            </table>
           </dd>
          </dl><dl class="function">
+          <dt id="api.secret_settings">
+           <code class="descclassname">
+           </code>
+           <code class="descname">
+            secret_settings
+           </code>
+           <span class="sig-paren">
+            (
+           </span>
+           <em>
+            disable_scrub=False
+           </em>
+           <span class="sig-paren">
+            )
+           </span>
+           <a class="headerlink" href="#api.secret_settings" title="Permalink to this definition">
+            &#xB6;
+           </a>
+          </dt>
+          <dd>
+           <p>
+            Configures Tilt&#x2019;s handling of Kubernetes Secrets. By default, Tilt scrubs
+the text of any Secrets from the logs; e.g. if Tilt applies a Secret with contents
+&#x2018;mysecurepassword&#x2019;, Tilt redacts this string if ever it appears in the logs,
+to prevent users from accidentally sharing sensitive information in snapshots etc.
+           </p>
+           <p>
+            Currently
+            <code class="docutils literal notranslate">
+             <span class="pre">
+              secret_settings
+             </span>
+            </code>
+            only turns secret scrubbing on and off. Expect more
+settings to be configurable from this function soon.
+           </p>
+           <table class="docutils field-list" frame="void" rules="none">
+            <col class="field-name">
+            <col class="field-body">
+            <tbody valign="top">
+             <tr class="field-odd field">
+              <th class="field-name">
+               Parameters:
+              </th>
+              <td class="field-body">
+               <strong>
+                disable_scrub
+               </strong>
+               (
+               <code class="xref py py-class docutils literal notranslate">
+                <span class="pre">
+                 bool
+                </span>
+               </code>
+               ) &#x2013; if True, Tilt will
+               <em>
+                not
+               </em>
+               scrub secrets from logs.
+              </td>
+             </tr>
+             <tr class="field-even field">
+              <th class="field-name">
+               Return type:
+              </th>
+              <td class="field-body">
+               <code class="docutils literal notranslate">
+                <span class="pre">
+                 None
+                </span>
+               </code>
+              </td>
+             </tr>
+            </tbody>
+           </table>
+          </dd>
+         </dl><dl class="function">
           <dt id="api.set_team">
            <code class="descclassname">
            </code>
