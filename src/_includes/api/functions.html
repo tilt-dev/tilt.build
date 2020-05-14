@@ -6297,6 +6297,208 @@ returns the directory of the loaded/included Tiltfile.
            </table>
           </dd>
          </dl><dl class="function">
+          <dt id="modules.os.getenv">
+           <code class="descclassname">
+            os.
+           </code>
+           <code class="descname">
+            getenv
+           </code>
+           <span class="sig-paren">
+            (
+           </span>
+           <em>
+            key
+           </em>
+           ,
+           <em>
+            default=None
+           </em>
+           <span class="sig-paren">
+            )
+           </span>
+           <a class="headerlink" href="#modules.os.getenv" title="Permalink to this definition">
+            &#xB6;
+           </a>
+          </dt>
+          <dd>
+           <p>
+            Return the value of the environment variable key if it exists, or default if it doesn&#x2019;t.
+           </p>
+           <table class="docutils field-list" frame="void" rules="none">
+            <col class="field-name">
+            <col class="field-body">
+            <tbody valign="top">
+             <tr class="field-odd field">
+              <th class="field-name">
+               Parameters:
+              </th>
+              <td class="field-body">
+               <ul class="first simple">
+                <li>
+                 <strong>
+                  key
+                 </strong>
+                 (
+                 <code class="xref py py-class docutils literal notranslate">
+                  <span class="pre">
+                   str
+                  </span>
+                 </code>
+                 ) &#x2013; An environment variable name.
+                </li>
+                <li>
+                 <strong>
+                  default
+                 </strong>
+                 &#x2013; The value to return if the variable doesn&#x2019;t exist.
+                </li>
+               </ul>
+              </td>
+             </tr>
+             <tr class="field-even field">
+              <th class="field-name">
+               Return type:
+              </th>
+              <td class="field-body">
+               <p class="first last">
+                <code class="xref py py-class docutils literal notranslate">
+                 <span class="pre">
+                  str
+                 </span>
+                </code>
+               </p>
+              </td>
+             </tr>
+            </tbody>
+           </table>
+          </dd>
+         </dl><dl class="function">
+          <dt id="modules.os.putenv">
+           <code class="descclassname">
+            os.
+           </code>
+           <code class="descname">
+            putenv
+           </code>
+           <span class="sig-paren">
+            (
+           </span>
+           <em>
+            key
+           </em>
+           ,
+           <em>
+            value
+           </em>
+           <span class="sig-paren">
+            )
+           </span>
+           <a class="headerlink" href="#modules.os.putenv" title="Permalink to this definition">
+            &#xB6;
+           </a>
+          </dt>
+          <dd>
+           <p>
+            Set the environment variable named key to the string value. Takes effect
+immediately in the Tilt process. Any new subprocesses will have this
+environment value.
+           </p>
+           <table class="docutils field-list" frame="void" rules="none">
+            <col class="field-name">
+            <col class="field-body">
+            <tbody valign="top">
+             <tr class="field-odd field">
+              <th class="field-name">
+               Parameters:
+              </th>
+              <td class="field-body">
+               <ul class="first last simple">
+                <li>
+                 <strong>
+                  key
+                 </strong>
+                 (
+                 <code class="xref py py-class docutils literal notranslate">
+                  <span class="pre">
+                   str
+                  </span>
+                 </code>
+                 ) &#x2013; An environment variable name.
+                </li>
+                <li>
+                 <strong>
+                  value
+                 </strong>
+                 (
+                 <code class="xref py py-class docutils literal notranslate">
+                  <span class="pre">
+                   str
+                  </span>
+                 </code>
+                 ) &#x2013; The new value.
+                </li>
+               </ul>
+              </td>
+             </tr>
+            </tbody>
+           </table>
+          </dd>
+         </dl><dl class="function">
+          <dt id="modules.os.unsetenv">
+           <code class="descclassname">
+            os.
+           </code>
+           <code class="descname">
+            unsetenv
+           </code>
+           <span class="sig-paren">
+            (
+           </span>
+           <em>
+            key
+           </em>
+           ,
+           <em>
+            value
+           </em>
+           <span class="sig-paren">
+            )
+           </span>
+           <a class="headerlink" href="#modules.os.unsetenv" title="Permalink to this definition">
+            &#xB6;
+           </a>
+          </dt>
+          <dd>
+           <p>
+            Delete the environment variable named key. Takes effect immediately in the
+Tilt process. Any new subprocesses will not have this variable.
+           </p>
+           <table class="docutils field-list" frame="void" rules="none">
+            <col class="field-name">
+            <col class="field-body">
+            <tbody valign="top">
+             <tr class="field-odd field">
+              <th class="field-name">
+               Parameters:
+              </th>
+              <td class="field-body">
+               <strong>
+                key
+               </strong>
+               (
+               <code class="xref py py-class docutils literal notranslate">
+                <span class="pre">
+                 str
+                </span>
+               </code>
+               ) &#x2013; An environment variable name.
+              </td>
+             </tr>
+            </tbody>
+           </table>
+          </dd>
+         </dl><dl class="function">
           <dt id="modules.os.path.abspath">
            <code class="descclassname">
             os.path.
