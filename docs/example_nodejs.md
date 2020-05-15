@@ -22,11 +22,11 @@ This particular example server doesn't do much, but it's useful to confirm that 
 
 All the code is in this repo:
 
-[tilt-example-nodejs](https://github.com/windmilleng/tilt-example-nodejs){:.attached-above}
+[tilt-example-nodejs](https://github.com/tilt-dev/tilt-example-nodejs){:.attached-above}
 
 To skip straight to the fully optimized setup, go to this subdirectory:
 
-[Recommended Setup](https://github.com/windmilleng/tilt-example-nodejs/tree/master/3-recommended){:.attached-above}
+[Recommended Setup](https://github.com/tilt-dev/tilt-example-nodejs/tree/master/3-recommended){:.attached-above}
 
 ## Step 0: The Simplest Deployment
 
@@ -50,9 +50,9 @@ app.listen(8000, () => {
 
 To start this server on Kubernetes, we need three config files:
 
-1. A [Dockerfile](https://github.com/windmilleng/tilt-example-nodejs/blob/master/0-base/Dockerfile) that builds the image
-2. A [Kubernetes deployment](https://github.com/windmilleng/tilt-example-nodejs/blob/master/0-base/kubernetes.yaml) that runs the image
-3. And finally, a [Tiltfile](https://github.com/windmilleng/tilt-example-nodejs/blob/master/0-base/Tiltfile) that ties them together:
+1. A [Dockerfile](https://github.com/tilt-dev/tilt-example-nodejs/blob/master/0-base/Dockerfile) that builds the image
+2. A [Kubernetes deployment](https://github.com/tilt-dev/tilt-example-nodejs/blob/master/0-base/kubernetes.yaml) that runs the image
+3. And finally, a [Tiltfile](https://github.com/tilt-dev/tilt-example-nodejs/blob/master/0-base/Tiltfile) that ties them together:
 
 ```python
 docker_build('example-nodejs-image', '.')
@@ -75,7 +75,7 @@ must match the Deployment's `metadata.name` in `kubernetes.yaml`.
 Try it! Run:
 
 ```
-git clone https://github.com/windmilleng/tilt-example-nodejs
+git clone https://github.com/tilt-dev/tilt-example-nodejs
 cd tilt-example-nodejs/0-base
 tilt up
 ```
@@ -101,7 +101,7 @@ Before we try to make this faster, let's measure it.
 Using [`local_resource`](local_resource.html), you can direct Tilt to execute existing scripts or arbitrary shell commands on your own machine, and manage them from your sidebar like any other Tilt resource. We're going to use this functionality to benchmark our deployments.
 
 First, we add a `local_resource` to our
-[Tiltfile](https://github.com/windmilleng/tilt-example-nodejs/blob/master/1-measured/Tiltfile)
+[Tiltfile](https://github.com/tilt-dev/tilt-example-nodejs/blob/master/1-measured/Tiltfile)
 that records the current time, then kicks off an update.
 
 ```python
@@ -172,7 +172,7 @@ Our benchmarks show this is slow. Can we do better?
 
 ## Step 2: Why Is the Docker Build So Slow?
 
-The first thing I notice when I click "deploy" is a bunch of logs from `yarn install`; and not just once, but _every dang time_. This is a hint that we can optimize our Dockerfile to be smarter about caching. With a little rearranging, our [new Dockerfile](https://github.com/windmilleng/tilt-example-nodejs/blob/master/2-optimized-dockerfile/Dockerfile) looks like this:
+The first thing I notice when I click "deploy" is a bunch of logs from `yarn install`; and not just once, but _every dang time_. This is a hint that we can optimize our Dockerfile to be smarter about caching. With a little rearranging, our [new Dockerfile](https://github.com/tilt-dev/tilt-example-nodejs/blob/master/2-optimized-dockerfile/Dockerfile) looks like this:
 ```
 FROM node:10
 
@@ -216,9 +216,9 @@ and wait for Kubernetes to schedule the pod.
 With Tilt, we can skip all of these steps, and instead
 [live_update](live_update_tutorial.html) the pod in place.
 
-The first thing we need to do is change how our app is invoked: we're going to run it via [nodemon](https://nodemon.io/), a utility that monitors source files for changes and restarts your app as necessary.  In this branch, as reflected in [package.json](https://github.com/windmilleng/tilt-example-nodejs/blob/master/3-recommended/package.json), we've already run `yarn add --dev nodemon` to add nodemon as a dev dependency.
+The first thing we need to do is change how our app is invoked: we're going to run it via [nodemon](https://nodemon.io/), a utility that monitors source files for changes and restarts your app as necessary.  In this branch, as reflected in [package.json](https://github.com/tilt-dev/tilt-example-nodejs/blob/master/3-recommended/package.json), we've already run `yarn add --dev nodemon` to add nodemon as a dev dependency.
 
-[Our new Tiltfile](https://github.com/windmilleng/tilt-example-nodejs/blob/master/3-recommended/Tiltfile) contains the following new code:
+[Our new Tiltfile](https://github.com/tilt-dev/tilt-example-nodejs/blob/master/3-recommended/Tiltfile) contains the following new code:
 
 ```python
 # Add a live_update rule to our docker_build
@@ -280,7 +280,7 @@ Tilt and nodemon together updated the container in less than two seconds!
 
 You can try the server here:
 
-[Recommended Structure](https://github.com/windmilleng/tilt-example-nodejs/blob/master/3-recommended){:.attached-above}
+[Recommended Structure](https://github.com/tilt-dev/tilt-example-nodejs/blob/master/3-recommended){:.attached-above}
 
 This is a very simple example, but we hope it gives you a good starting point for running your NodeJS app via Tilt!
 
@@ -288,10 +288,10 @@ This is a very simple example, but we hope it gives you a good starting point fo
 
 ### Other sample JS projects:
 
-- [Demo React app](https://github.com/windmilleng/tilt-frontend-demo)
-- [Demo Vue.js app](https://github.com/windmilleng/tilt-vuejs-demo)
-- [abc123](https://github.com/windmilleng/abc123) is a mini microservice app with a NodeJS server called `letters`
-- [Servantes](https://github.com/windmilleng/servantes), our multi-language microservice demo app, contains a NodeJS service called `spoonerisms`
+- [Demo React app](https://github.com/tilt-dev/tilt-frontend-demo)
+- [Demo Vue.js app](https://github.com/tilt-dev/tilt-vuejs-demo)
+- [abc123](https://github.com/tilt-dev/abc123) is a mini microservice app with a NodeJS server called `letters`
+- [Servantes](https://github.com/tilt-dev/servantes), our multi-language microservice demo app, contains a NodeJS service called `spoonerisms`
 
 ### Examples in other languages:
 

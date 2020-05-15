@@ -60,4 +60,4 @@ Once you're ready, add a link to your README to the
 [Welcome to Tilt](welcome_to_tilt.html) guide.
 
 If you want the same guide but with project-specific instructions,
-fork the [tilt-init repo](https://github.com/windmilleng/tilt-init) and edit away!
+fork the [tilt-init repo](https://github.com/tilt-dev/tilt-init) and edit away!

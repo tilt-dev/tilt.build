@@ -22,7 +22,7 @@ they can make changes quickly and see what's important.
 </a>
 
 <h3 class="ctaLink u-marginBottomUnit">
-    &gt; <a href="https://github.com/windmilleng/tilt">Check out our GitHub</a> & <a href="{{site.docsurl}}/install.html">Install Docs</a>
+    &gt; <a href="https://github.com/tilt-dev/tilt">Check out our GitHub</a> & <a href="{{site.docsurl}}/install.html">Install Docs</a>
 </h3>
 
 </div>

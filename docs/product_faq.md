@@ -112,7 +112,7 @@ channel during NYC business hours (10am-5pm Monday through Friday).
 
 ### How do I file an issue?
 
-You can file an issue in [our GitHub repo](https://github.com/windmilleng/tilt/issues/new).
+You can file an issue in [our GitHub repo](https://github.com/tilt-dev/tilt/issues/new).
 
 On normal work days (Monday through Friday), a developer should acknowledge your
 issue to confirm we saw it. If you don't hear anything after a day or two, it's

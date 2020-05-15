@@ -36,13 +36,13 @@ The Kubernetes team uses Kind to test Kubernetes itself. But its fast startup
 time also makes it a good solution for local dev. Follow these instructions to
 set up Kind for use with Tilt:
 
-[**Kind Setup Instructions**](https://github.com/windmilleng/kind-local)
+[**Kind Setup Instructions**](https://github.com/tilt-dev/kind-local)
 
 ### Pros
 
 - Creating a new cluster is fast (~20 seconds). Deleting a cluster is even faster. 
 - Much more robust than Docker for Mac. Uses containerd instead of docker-shim. Short-lived clusters tend to be more reliable.
-- Supports a local image registry (with our [custom setup instructions](https://github.com/windmilleng/kind-local)).
+- Supports a local image registry (with our [custom setup instructions](https://github.com/tilt-dev/kind-local)).
   Pushing images is fast. No fiddling with image registry auth credentials.
 - Can run in [most CI environments](https://github.com/kind-ci/examples) (TravisCI, CircleCI, etc.)
 
@@ -143,12 +143,12 @@ to push to a remote registry.
 k3s is fully compliant with "full" Kubernetes, but has a lot of optional and legacy features removed.
 Follow these instructions to set up k3d for use with Tilt:
 
-[**k3d Setup Instructions**](https://github.com/windmilleng/k3d-local-registry/)
+[**k3d Setup Instructions**](https://github.com/tilt-dev/k3d-local-registry/)
 
 ### Pros
 
 - Extremely fast to start up (less than 5 seconds on most machines)
-- It's easy to run k3d with a [local registry that Tilt will auto-detect](https://github.com/windmilleng/k3d-local-registry/),
+- It's easy to run k3d with a [local registry that Tilt will auto-detect](https://github.com/tilt-dev/k3d-local-registry/),
 which means less finicky setup, and fast pushing/pulling of images
 
 ### Cons
@@ -213,7 +213,7 @@ If your cluster is a dev-only cluster that you think Tilt should
 recognize automatically, we accept PRs to whitelist the cluster in Tilt.
 Here's an example:
 
-[Recognize Red Hat CodeReady Containers as a local cluster](https://github.com/windmilleng/tilt/pull/3242)
+[Recognize Red Hat CodeReady Containers as a local cluster](https://github.com/tilt-dev/tilt/pull/3242)
 
 ### Discovering the Registry
 

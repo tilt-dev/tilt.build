@@ -23,11 +23,11 @@ We'll use Tilt to:
 
 All the code is in this repo:
 
-[tilt-example-java](https://github.com/windmilleng/tilt-example-java){:.attached-above}
+[tilt-example-java](https://github.com/tilt-dev/tilt-example-java){:.attached-above}
 
 To skip straight to the fully optimized setup, go to this subdirectory:
 
-[Recommended Setup](https://github.com/windmilleng/tilt-example-java/blob/master/3-recommended){:.attached-above}
+[Recommended Setup](https://github.com/tilt-dev/tilt-example-java/blob/master/4-recommended){:.attached-above}
 
 ## Step 0: The Simplest Deployment
 
@@ -56,11 +56,11 @@ public class IndexController {
 
 To start this server on Kubernetes, we need three config files:
 
-1) A [Dockerfile](https://github.com/windmilleng/tilt-example-java/blob/master/0-base/Dockerfile) that builds the image
+1) A [Dockerfile](https://github.com/tilt-dev/tilt-example-java/blob/master/0-base/Dockerfile) that builds the image
 
-2) A [Kubernetes deployment](https://github.com/windmilleng/tilt-example-java/blob/master/0-base/kubernetes.yaml) that runs the image
+2) A [Kubernetes deployment](https://github.com/tilt-dev/tilt-example-java/blob/master/0-base/kubernetes.yaml) that runs the image
 
-3) And finally, a [Tiltfile](https://github.com/windmilleng/tilt-example-java/blob/master/0-base/Tiltfile) that ties them together:
+3) And finally, a [Tiltfile](https://github.com/tilt-dev/tilt-example-java/blob/master/0-base/Tiltfile) that ties them together:
 
 ```python
 docker_build('example-java-image', '.')
@@ -83,7 +83,7 @@ must match the Deployment's `metadata.name` in `kubernetes.yaml`.
 Try it! Run:
 
 ```
-git clone https://github.com/windmilleng/tilt-example-java
+git clone https://github.com/tilt-dev/tilt-example-java
 cd tilt-example-java/0-base
 tilt up
 ```
@@ -109,7 +109,7 @@ Before we try to make this faster, let's measure it.
 Using [`local_resource`](local_resource.html), you can direct Tilt to execute existing scripts or arbitrary shell commands on your own machine, and manage them from your sidebar like any other Tilt resource. We're going to use this functionality to benchmark our deployments.
 
 First, we add a `local_resource` to our
-[Tiltfile](https://github.com/windmilleng/tilt-example-java/blob/master/1-measured/Tiltfile)
+[Tiltfile](https://github.com/tilt-dev/tilt-example-java/blob/master/1-measured/Tiltfile)
 that records the start time in a Java file.
 
 ```python
@@ -176,7 +176,7 @@ to be used?
 With `local_resource`, we can compile the executable Jar locally, and copy it
 to the container.
 
-Here's our [new Tiltfile](https://github.com/windmilleng/tilt-example-java/blob/master/2-optimized/Tiltfile) 
+Here's our [new Tiltfile](https://github.com/tilt-dev/tilt-example-java/blob/master/2-optimized/Tiltfile) 
 with the following new code:
 
 ```python
@@ -225,7 +225,7 @@ Java Jars were using layer caches before Docker made them cool. How can we take
 advantage of this?
 
 We've updated [our
-Tiltfile](https://github.com/windmilleng/tilt-example-java/blob/master/3-unpacked/Tiltfile)
+Tiltfile](https://github.com/tilt-dev/tilt-example-java/blob/master/3-unpacked/Tiltfile)
 to unpack the Jar in the `build/jar` directory:
 
 ```python
@@ -237,7 +237,7 @@ local_resource(
   resource_deps = ['deploy'])
 ```
 
-We've also updated our [Dockerfile](https://github.com/windmilleng/tilt-example-java/blob/master/3-unpacked/Dockerfile):
+We've also updated our [Dockerfile](https://github.com/tilt-dev/tilt-example-java/blob/master/3-unpacked/Dockerfile):
 
 ```
 FROM openjdk:8-jre-alpine
@@ -277,9 +277,9 @@ check out [Jib](https://github.com/GoogleContainerTools/jib)!
 
 Jib is a Java image builder that re-packs Java Jars as container images using
 similar tricks. There are Jib plugins for Maven and Gradle.  The
-[tilt-example-java](https://github.com/windmilleng/tilt-example-java) repo has
+[tilt-example-java](https://github.com/tilt-dev/tilt-example-java) repo has
 an example
-[Tiltfile](https://github.com/windmilleng/tilt-example-java/blob/master/101-jib/Tiltfile)
+[Tiltfile](https://github.com/tilt-dev/tilt-example-java/blob/master/101-jib/Tiltfile)
 that uses `custom_build` to generate images with Jib.
 
 ## Step 4: Let's Live Update It
@@ -290,7 +290,7 @@ Kubernetes configs, and wait for Kubernetes to schedule the pod.
 With Tilt, we can skip all of these steps, and instead
 [live_update](live_update_tutorial.html) the pod in place.
 
-Here's our [new Tiltfile](https://github.com/windmilleng/tilt-example-java/blob/master/4-recommended/Tiltfile) 
+Here's our [new Tiltfile](https://github.com/tilt-dev/tilt-example-java/blob/master/4-recommended/Tiltfile) 
 with the following new code:
 
 ```python
@@ -353,7 +353,7 @@ Tilt was able to update the container in less than 5 seconds!
 
 You can try the server here:
 
-[Recommended Structure](https://github.com/windmilleng/tilt-example-java/blob/master/4-recommended){:.attached-above}
+[Recommended Structure](https://github.com/tilt-dev/tilt-example-java/blob/master/4-recommended){:.attached-above}
 
 Congratulations on finishing this guide!
 
@@ -375,7 +375,7 @@ For more discussion of Docker optimization, see:
 - [Jib](https://github.com/GoogleContainerTools/jib), a Java image builder
   that re-packs Java Jars as container images, and integrates well with
   existing Maven or Gradle builds.
-- [A Jib/Tiltfile example](https://github.com/windmilleng/tilt-example-java/blob/master/101-jib/Tiltfile),
+- [A Jib/Tiltfile example](https://github.com/tilt-dev/tilt-example-java/blob/master/101-jib/Tiltfile),
   which demonstrates how to use custom_build to integrate with Jib.
   
 ### Examples in other languages:

@@ -8,7 +8,7 @@ docsurl: "https://docs.tilt.dev"
 landingurl: "https://tilt.dev"
 blogurl: "https://blog.tilt.dev"
 twitter_username: tilt_dev
-github_username:  windmilleng
+github_username:  tilt-dev
 google_analytics: UA-129150759-2
 include:
   - _redirects

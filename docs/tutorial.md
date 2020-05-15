@@ -87,7 +87,7 @@ Tilt is now setup for your project. Explore Tilt further. Introduce a build erro
 ## Next Steps
 
 If you had any trouble using this guide,
-now's a great time to [file bugs or feature requests](https://github.com/windmilleng/tilt/issues).
+now's a great time to [file bugs or feature requests](https://github.com/tilt-dev/tilt/issues).
 
 If you'd like to see examples in your programming language, we have example projects for:
 

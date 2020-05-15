@@ -46,7 +46,7 @@ For each snapshot we store the entirety of your Tilt's state, including all logs
 
 ### Q: How private are snapshots?
 A snapshot is accessible to anyone who has the link, which includes an unguessable ID.
-We are working on [private team snapshots](https://github.com/windmilleng/tilt/issues/3128),
+We are working on [private team snapshots](https://github.com/tilt-dev/tilt/issues/3128),
 where only signed in team members have access to these team snapshots.
 
 ### Q: I'm worried about app devs accidentally posting snapshots with secrets or private data. How can I disable snapshots?
@@ -65,4 +65,4 @@ Our database table for users looks like this:
   2 | Mary Miranda   | github   | 1234567          | mmiranda
   ```
 ### Q: Sometimes I get a 500 error when creating a snapshot. Is that expected?
-There's a [known bug](https://github.com/windmilleng/tilt/issues/3194) for larger snapshots.
+There's a [known bug](https://github.com/tilt-dev/tilt/issues/3194) for larger snapshots.

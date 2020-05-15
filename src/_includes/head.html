@@ -12,6 +12,11 @@
   {% if page.has_slideshow == true %}
     <link rel="stylesheet" href="{{ "/assets/css/slideshow.css" | relative_url }}">
   {% endif %}
+  {% if page.custom_css %}
+  {% for stylesheet in page.custom_css %}
+  <link rel="stylesheet" href="{{ stylesheet }}" media="screen" type="text/css">
+  {% endfor %}
+  {% endif %}
   {%- feed_meta -%}
 
   <link rel="stylesheet" href="https://use.typekit.net/pmf0bfo.css">

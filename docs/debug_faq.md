@@ -16,7 +16,7 @@ Join [the Kubernetes slack](http://slack.k8s.io) and
 find us in the [#tilt](https://kubernetes.slack.com/messages/CESBL84MV/)
 channel. The entire Tilt team is there, and can answer any questions you have.
 
-Or you can [file an issue](https://github.com/windmilleng/tilt/issues).
+Or you can [file an issue](https://github.com/tilt-dev/tilt/issues).
 
 ---
 

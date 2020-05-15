@@ -20,11 +20,11 @@ We'll use Tilt to:
 
 All the code is in this repo:
 
-[tilt-example-go](https://github.com/windmilleng/tilt-example-go){:.attached-above}
+[tilt-example-go](https://github.com/tilt-dev/tilt-example-go){:.attached-above}
 
 To skip straight to the fully optimized setup, go to this subdirectory:
 
-[Recommended Setup](https://github.com/windmilleng/tilt-example-go/blob/master/3-recommended){:.attached-above}
+[Recommended Setup](https://github.com/tilt-dev/tilt-example-go/blob/master/3-recommended){:.attached-above}
 
 ## Step 0: The Simplest Deployment
 
@@ -44,11 +44,11 @@ func main() {
 
 To start this server on Kubernetes, we need three config files:
 
-1) A [Dockerfile](https://github.com/windmilleng/tilt-example-go/blob/master/0-base/deployments/Dockerfile) that builds the image
+1) A [Dockerfile](https://github.com/tilt-dev/tilt-example-go/blob/master/0-base/deployments/Dockerfile) that builds the image
 
-2) A [Kubernetes deployment](https://github.com/windmilleng/tilt-example-go/blob/master/0-base/deployments/kubernetes.yaml) that runs the image
+2) A [Kubernetes deployment](https://github.com/tilt-dev/tilt-example-go/blob/master/0-base/deployments/kubernetes.yaml) that runs the image
 
-3) And finally, a [Tiltfile](https://github.com/windmilleng/tilt-example-go/blob/master/0-base/Tiltfile) that ties them together:
+3) And finally, a [Tiltfile](https://github.com/tilt-dev/tilt-example-go/blob/master/0-base/Tiltfile) that ties them together:
 
 ```python
 docker_build('example-go-image', '.', 
@@ -72,7 +72,7 @@ must match the Deployment's `metadata.name` in `kubernetes.yaml`.
 Try it! Run:
 
 ```
-git clone https://github.com/windmilleng/tilt-example-go
+git clone https://github.com/tilt-dev/tilt-example-go
 cd tilt-example-go/0-base
 tilt up
 ```
@@ -98,7 +98,7 @@ Before we try to make this faster, let's measure it.
 Using [`local_resource`](local_resource.html), you can direct Tilt to execute existing scripts or arbitrary shell commands on your own machine, and manage them from your sidebar like any other Tilt resource. We're going to use this functionality to benchmark our deployments.
 
 First, we add a `local_resource` to our
-[Tiltfile](https://github.com/windmilleng/tilt-example-go/blob/master/1-measured/Tiltfile)
+[Tiltfile](https://github.com/tilt-dev/tilt-example-go/blob/master/1-measured/Tiltfile)
 that records the start time in a Go file.
 
 ```python
@@ -163,7 +163,7 @@ to be used?
 With `local_resource`, we can compile the Go binary locally, and copy the binary to
 the container.
 
-Here's our [new Tiltfile](https://github.com/windmilleng/tilt-example-go/blob/master/2-optimized/Tiltfile) 
+Here's our [new Tiltfile](https://github.com/tilt-dev/tilt-example-go/blob/master/2-optimized/Tiltfile) 
 with the following new code:
 
 ```python
@@ -220,7 +220,7 @@ and wait for Kubernetes to schedule the pod.
 With Tilt, we can skip all of these steps, and instead
 [live_update](live_update_tutorial.html) the pod in place.
 
-Here's our [new Tiltfile](https://github.com/windmilleng/tilt-example-go/blob/master/3-recommended/Tiltfile) 
+Here's our [new Tiltfile](https://github.com/tilt-dev/tilt-example-go/blob/master/3-recommended/Tiltfile) 
 with the following new code:
 
 ```python
@@ -271,7 +271,7 @@ Tilt was able to update the container in less than 2 seconds!
 
 You can try the server here:
 
-[Recommended Structure](https://github.com/windmilleng/tilt-example-go/blob/master/3-recommended){:.attached-above}
+[Recommended Structure](https://github.com/tilt-dev/tilt-example-go/blob/master/3-recommended){:.attached-above}
 
 Congratulations on finishing this guide!
 
@@ -282,13 +282,13 @@ This guide recommends an approach to Go development that shines with Tilt.
 If you're curious about other approaches to multi-service Go development and
 their trade-offs, we're working on a talk and workshop:
 
-[The Quest For The Fastest Deployment Time](https://github.com/windmilleng/fast){:.attached-above}
+[The Quest For The Fastest Deployment Time](https://github.com/tilt-dev/fast){:.attached-above}
 
 ### Other sample Go projects:
 
-- [abc123](https://github.com/windmilleng/abc123) a mini microservice app with a Go server called `fe`.
+- [abc123](https://github.com/tilt-dev/abc123) a mini microservice app with a Go server called `fe`.
 - The [Live Update Tutorial](live_update_tutorial.html), which optimizes a Go server.
-- [Servantes](https://github.com/windmilleng/servantes), our multi-language microservice demo app.
+- [Servantes](https://github.com/tilt-dev/servantes), our multi-language microservice demo app.
 
 ### Examples in other languages:
 

@@ -8,10 +8,10 @@ This page explains how to contribute an open source extension. If you're interes
 ## Create and test a function in your Tiltfile
 Tiltfiles are written in a Python dialect called [Starlark](https://github.com/bazelbuild/starlark/blob/master/spec.mdl). And so for the purpose of writing a new extension, it is no different from writing your Tiltfile, namely following typical Python syntax.
 
-Create a new function, following the `def func_name(args):` syntax and add it to your Tiltfile. (Refer to any [existing extension](https://github.com/windmilleng/tilt-extensions) as an example.) Invoke the function later in your Tiltfile. Run Tilt as normal, and verify that the function works as expected.
+Create a new function, following the `def func_name(args):` syntax and add it to your Tiltfile. (Refer to any [existing extension](https://github.com/tilt-dev/tilt-extensions) as an example.) Invoke the function later in your Tiltfile. Run Tilt as normal, and verify that the function works as expected.
 
 ## Package your function and submit a pull request
-Clone the [tilt-extensions repo](https://github.com/windmilleng/tilt-extensions), and create a new extension, following the directory structure of other existing extensions. Namely, there should be a root-level directory with the name of your extension, and a Tiltfile inside that directory. Copy the function you previously tested into that Titfile. Also update [README.md](https://github.com/windmilleng/tilt-extensions/blob/master/README.md), explaining your extension. I.e. you should have these changes:
+Clone the [tilt-extensions repo](https://github.com/tilt-dev/tilt-extensions), and create a new extension, following the directory structure of other existing extensions. Namely, there should be a root-level directory with the name of your extension, and a Tiltfile inside that directory. Copy the function you previously tested into that Titfile. Also update [README.md](https://github.com/tilt-dev/tilt-extensions/blob/master/README.md), explaining your extension. I.e. you should have these changes:
 
 ```
 extension_name/Tiltfile
@@ -24,7 +24,7 @@ Currently there's no way to directly test the end-to-end workflow of using an ex
 
 ## Next steps
 
-If you run into any problems, [contact us](https://tilt.dev/contact). If you have an extension idea (but aren't interested in contributing), [request it](https://github.com/windmilleng/tilt/issues).
+If you run into any problems, [contact us](https://tilt.dev/contact). If you have an extension idea (but aren't interested in contributing), [request it](https://github.com/tilt-dev/tilt/issues).
 
 
 ## Example extension: API Server Logs

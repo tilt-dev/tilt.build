@@ -48,8 +48,8 @@ store.
 For example, [Jib](https://github.com/GoogleContainerTools/jib) has plugins that integrate
 with your existing Java tooling and create Java-based images.
 
-The [tilt-example-java](https://github.com/windmilleng/tilt-example-java) repo has an example
-[Tiltfile](https://github.com/windmilleng/tilt-example-java/blob/master/101-jib/Tiltfile)
+The [tilt-example-java](https://github.com/tilt-dev/tilt-example-java) repo has an example
+[Tiltfile](https://github.com/tilt-dev/tilt-example-java/blob/master/101-jib/Tiltfile)
 that uses `custom_build` to generate images with Gradle and Jib:
 
 ```
@@ -155,4 +155,4 @@ For a complete listing of all the `custom_build` parameters, see  [API reference
 If you have a more complex build script that you're not sure how to integrate
 with Tilt, we'd love to hear about it. Come find us in the `#tilt` channel in
 [Kubernetes Slack](http://slack.k8s.io) or
-[file an issue](https://github.com/windmilleng/tilt/issues) on GitHub.
+[file an issue](https://github.com/tilt-dev/tilt/issues) on GitHub.

@@ -119,7 +119,7 @@ This step is optional. If you have a `restart_container` step, it must come at t
 
 If your container executes a binary and your Live Update changes that binary, you probably want to restart the container to re-execute it. If, however, you're running a Flask or Node app that responds to filesystem changes without requiring a restart, you can probably leave this step out.
 
-**NOTE**: `restart_container()` *only* works on containers managed by Docker. For non-Docker runtimes (e.g. containerd, CRI-O), please see the [wrapper script for simulating restart_container](https://github.com/windmilleng/rerun-process-wrapper).
+**NOTE**: `restart_container()` *only* works on containers managed by Docker. For non-Docker runtimes (e.g. containerd, CRI-O), please see the [wrapper script for simulating restart_container](https://github.com/tilt-dev/rerun-process-wrapper).
 
 ## More Examples
 
