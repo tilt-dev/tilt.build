@@ -9,10 +9,10 @@ You'll also need:
 
 - Docker, to build containers
 - kubectl, to get information about your cluster
-- A local Kubernetes cluster (on macOS, Docker for Mac works for this!)
+- A local Kubernetes cluster (on macOS and Windows, Docker for Desktop works for this!)
 
 macOS
---------
+-------
 
 [Docker for Mac](https://docs.docker.com/docker-for-mac/install/) contains Docker, kubectl, and a Kubernetes cluster.
 
@@ -59,12 +59,29 @@ kubectl config use-context microk8s
 curl -fsSL https://raw.githubusercontent.com/tilt-dev/tilt/master/scripts/install.sh | bash
 ```
 
-Windows 
-----------
+Windows
+---------------
 
-Further installation instructions are forthcoming.
+Tilt's Windows support is currently a release candidate.
 
-Download the latest release: [tilt.0.13.6.windows.x86_64.zip](https://github.com/tilt-dev/tilt/releases/download/v0.13.6/tilt.0.13.6.windows.x86_64.zip)
+[Docker for Windows](https://docs.docker.com/docker-for-windows/install/) contains Docker, kubectl, and a Kubernetes cluster.
+
+- Install [Docker for Windows](https://docs.docker.com/docker-for-windows/install/)
+- In the preferences, click [Enable Kubernetes](https://docs.docker.com/docker-for-windows/#kubernetes)
+- Make Docker for Windows your local Kubernetes cluster:
+
+```bash
+kubectl config use-context docker-desktop
+```
+
+- Install `tilt` with:
+
+```bash
+iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/tilt-dev/tilt/master/scripts/install.ps1')
+```
+
+After installation, you should add the `tilt` install directory on your $PATH
+(or create an alias) to make it easier to access.
 
 Verify
 ---------
@@ -118,6 +135,14 @@ On Linux:
 ```bash
 curl -fsSL https://github.com/tilt-dev/tilt/releases/download/v0.13.6/tilt.0.13.6.linux.x86_64.tar.gz | tar -xzv tilt && \
   sudo mv tilt /usr/local/bin/tilt
+```
+
+On Windows:
+
+```powershell
+Invoke-WebRequest "https://github.com/tilt-dev/tilt/releases/download/v0.13.6/tilt.0.13.6.windows.x86_64.zip" -OutFile "tilt.zip"
+Expand-Archive "tilt.zip" -DestinationPath "tilt"
+Move-Item -Force -Path "tilt\tilt.exe" -Destination "$home\bin\tilt.exe"
 ```
 
 Finally, if you want to install `tilt` from source, see the [developers'

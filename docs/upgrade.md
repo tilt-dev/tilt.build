@@ -32,6 +32,15 @@ curl -L https://github.com/tilt-dev/tilt/releases/download/v0.13.6/tilt.0.13.6.l
     sudo mv tilt /usr/local/bin/tilt
 ```
 
+Windows
+-----
+
+```powershell
+Invoke-WebRequest "https://github.com/tilt-dev/tilt/releases/download/v0.13.6/tilt.0.13.6.windows.x86_64.zip" -OutFile "tilt.zip"
+Expand-Archive "tilt.zip" -DestinationPath "tilt"
+Move-Item -Force -Path "tilt\tilt.exe" -Destination "$home\bin\tilt.exe"
+```
+
 Verify
 ------
 
