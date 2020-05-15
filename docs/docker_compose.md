@@ -55,7 +55,7 @@ and use its own updating strategy instead of the one in the `docker-compose.yml`
 Let's look at a simple example app that runs Redis and a NodeJS-based server with Docker Compose.
 We'll use the same example as in
 [this blog post](https://codewithhugo.com/setting-up-express-and-redis-with-docker-compose/) with
-[this Git repo](https://github.com/windmilleng/express-redis-docker).
+[this Git repo](https://github.com/tilt-dev/express-redis-docker).
 
 First, we create a `Dockerfile` that sets up a NodeJS environment,
 adds the NodeJS dependencies, then adds the source code.
@@ -146,7 +146,7 @@ Tilt uses Docker Compose to run your services, so you can also use `docker-compo
 
 ## Try it Yourself
 
-All the code in this tutorial is available in [this Git repo](https://github.com/windmilleng/express-redis-docker).
+All the code in this tutorial is available in [this Git repo](https://github.com/tilt-dev/express-redis-docker).
 Run it yourself and make changes to see how it works.
 
 ## Troubleshooting

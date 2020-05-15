@@ -26,7 +26,7 @@ up-to-date. Think `docker build && kubectl apply` or `docker-compose up`.
 Installing the `tilt` binary is a one-step command:
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/windmilleng/tilt/master/scripts/install.sh | bash
+curl -fsSL https://raw.githubusercontent.com/tilt-dev/tilt/master/scripts/install.sh | bash
 ```
 
 For other installation options, see the [Installation Guide](install.html).
@@ -60,9 +60,9 @@ status of running services, errors, logs, and more.
 
 **Questions and feedback:** Join [the Kubernetes slack](http://slack.k8s.io) and
  find us in the [#tilt](https://kubernetes.slack.com/messages/CESBL84MV/)
- channel. Or [file an issue](https://github.com/windmilleng/tilt/issues).
+ channel. Or [file an issue](https://github.com/tilt-dev/tilt/issues).
 
-**Contribute:** Tilt is open source, developed on [GitHub](https://github.com/windmilleng/tilt). Check out our [contribution](https://github.com/windmilleng/tilt/blob/master/CONTRIBUTING.md) guidelines. 
+**Contribute:** Tilt is open source, developed on [GitHub](https://github.com/tilt-dev/tilt). Check out our [contribution](https://github.com/tilt-dev/tilt/blob/master/CONTRIBUTING.md) guidelines. 
 
 **Follow along:** [@tilt_dev](https://twitter.com/tilt_dev) on Twitter. Updates
 and announcements on the [Tilt blog](https://blog.tilt.dev).

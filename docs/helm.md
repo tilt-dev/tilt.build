@@ -82,7 +82,7 @@ Let's take a look at some common recipes for using the plugin API with Helm.
 
 If you prefer to play with a code sample, see
 
-[windmilleng/tilt-helm-demo](https://github.com/windmilleng/tilt-helm-demo)
+[tilt-dev/tilt-helm-demo](https://github.com/tilt-dev/tilt-helm-demo)
 
 ### Re-implementing the `helm()` built-in
 
@@ -154,12 +154,12 @@ def helmfile(file):
 k8s_yaml(helmfile("k8s/staging/helmfile.yaml"))
 ```
 
-You can try out this example yourself in [this example repo](https://github.com/windmilleng/tilt-helmfile-demo).
+You can try out this example yourself in [this example repo](https://github.com/tilt-dev/tilt-helmfile-demo).
 
 ### Further customization
 
 If you have a Helm use-case that's not covered here, we'd love to hear about it!
 
-You can [file an issue](https://github.com/windmilleng/tilt/issues) on GitHub.
+You can [file an issue](https://github.com/tilt-dev/tilt/issues) on GitHub.
 
 We're also active on the Kubernetes slack in [the **#tilt** channel](https://kubernetes.slack.com/messages/CESBL84MV/). Get an invite at [slack.k8s.io](http://slack.k8s.io).

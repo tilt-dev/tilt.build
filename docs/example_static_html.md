@@ -24,11 +24,11 @@ as expected in your environment.
 
 All the code is in this repo:
 
-[tilt-example-html](https://github.com/windmilleng/tilt-example-html){:.attached-above}
+[tilt-example-html](https://github.com/tilt-dev/tilt-example-html){:.attached-above}
 
 To skip straight to the fully optimized setup, go to this subdirectory:
 
-[Recommended Setup](https://github.com/windmilleng/tilt-example-html/blob/master/2-recommended){:.attached-above}
+[Recommended Setup](https://github.com/tilt-dev/tilt-example-html/blob/master/2-recommended){:.attached-above}
 
 ## Step 0: The Simplest Deployment
 
@@ -41,9 +41,9 @@ busybox httpd -f -p 8000
 
 To start this server on Kubernetes, we need three config files:
 
-1) A [Dockerfile](https://github.com/windmilleng/tilt-example-html/blob/master/0-base/Dockerfile) that builds the image
+1) A [Dockerfile](https://github.com/tilt-dev/tilt-example-html/blob/master/0-base/Dockerfile) that builds the image
 
-2) A [Kubernetes deployment](https://github.com/windmilleng/tilt-example-html/blob/master/0-base/kubernetes.yaml) that runs the image
+2) A [Kubernetes deployment](https://github.com/tilt-dev/tilt-example-html/blob/master/0-base/kubernetes.yaml) that runs the image
 
 3) And finally, a Tiltfile that ties them together:
 
@@ -68,7 +68,7 @@ must match the Deployment's `metadata.name` in `kubernetes.yaml`.
 Try it! Run:
 
 ```
-git clone https://github.com/windmilleng/tilt-example-html
+git clone https://github.com/tilt-dev/tilt-example-html
 cd tilt-example-html/0-base
 tilt up
 ```
@@ -94,7 +94,7 @@ Before we try to make this faster, let's measure it.
 Using [`local_resource`](local_resource.html), you can direct Tilt to execute existing scripts or arbitrary shell commands on your own machine, and manage them from your sidebar like any other Tilt resource. We're going to use this functionality to benchmark our deployments.
 
 We added a `local_resource` to our
-[Tiltfile](https://github.com/windmilleng/tilt-example-html/blob/master/1-measured/Tiltfile)
+[Tiltfile](https://github.com/tilt-dev/tilt-example-html/blob/master/1-measured/Tiltfile)
 that records when an update starts.
 
 ```python
@@ -146,7 +146,7 @@ and wait for Kubernetes to schedule the pod.
 With Tilt, we can skip all of these steps, and instead
 [live_update](live_update_tutorial.html) the pod in place.
 
-Here's our [new Tiltfile](https://github.com/windmilleng/tilt-example-html/blob/master/2-recommended/Tiltfile) 
+Here's our [new Tiltfile](https://github.com/tilt-dev/tilt-example-html/blob/master/2-recommended/Tiltfile) 
 with the following new code:
 
 ```python
@@ -189,7 +189,7 @@ Tilt was able to update the container in less than a second!
 
 You can try the server here:
 
-[Recommended Structure](https://github.com/windmilleng/tilt-example-html/blob/master/2-recommended){:.attached-above}
+[Recommended Structure](https://github.com/tilt-dev/tilt-example-html/blob/master/2-recommended){:.attached-above}
 
 Obviously, our busybox example is very silly. We just wanted to show you how
 Tilt can work with any language, even a silly one.

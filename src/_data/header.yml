@@ -11,7 +11,7 @@
 - name: GitHub
   icon: github
   mobileIcon: github
-  href: https://github.com/windmilleng/tilt
+  href: https://github.com/tilt-dev/tilt
 - name: Docs
   icon: docs-anim
   mobileIcon: docs

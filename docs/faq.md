@@ -8,7 +8,7 @@ layout: docs
 For real-time support, find us on the Kubernetes slack. Get an invite at [slack.k8s.io](http://slack.k8s.io) and find
 us in [the **#tilt** channel](https://kubernetes.slack.com/messages/CESBL84MV/).
 
-You can also file an issue in [our GitHub repo](https://github.com/windmilleng/tilt/issues/new).
+You can also file an issue in [our GitHub repo](https://github.com/tilt-dev/tilt/issues/new).
 
 For help with private issues (like security vulnerabilities or just concerning non-public code),
 please email [help@tilt.dev](mailto:help@tilt.dev).

@@ -22,11 +22,11 @@ This particular example server doesn't do much, but it's useful to confirm that 
 
 All the code is in this repo:
 
-[tilt-example-python](https://github.com/windmilleng/tilt-example-python){:.attached-above}
+[tilt-example-python](https://github.com/tilt-dev/tilt-example-python){:.attached-above}
 
 To skip straight to the fully optimized setup, go to this subdirectory:
 
-[Recommended Setup](https://github.com/windmilleng/tilt-example-python/blob/master/3-recommended){:.attached-above}
+[Recommended Setup](https://github.com/tilt-dev/tilt-example-python/blob/master/3-recommended){:.attached-above}
 
 ## Step 0: The Simplest Deployment
 
@@ -48,9 +48,9 @@ if __name__ == "__main__":
 
 To start this server on Kubernetes, we need three config files:
 
-1. A [Dockerfile](https://github.com/windmilleng/tilt-example-python/blob/master/0-base/Dockerfile) that builds the image
-2. A [Kubernetes deployment](https://github.com/windmilleng/tilt-example-python/blob/master/0-base/kubernetes.yaml) that runs the image
-3. And finally, a [Tiltfile](https://github.com/windmilleng/tilt-example-python/blob/master/0-base/Tiltfile) that ties them together:
+1. A [Dockerfile](https://github.com/tilt-dev/tilt-example-python/blob/master/0-base/Dockerfile) that builds the image
+2. A [Kubernetes deployment](https://github.com/tilt-dev/tilt-example-python/blob/master/0-base/kubernetes.yaml) that runs the image
+3. And finally, a [Tiltfile](https://github.com/tilt-dev/tilt-example-python/blob/master/0-base/Tiltfile) that ties them together:
 
 ```python
 docker_build('example-python-image', '.')
@@ -73,7 +73,7 @@ must match the Deployment's `metadata.name` in `kubernetes.yaml`.
 Try it! Run:
 
 ```
-git clone https://github.com/windmilleng/tilt-example-python
+git clone https://github.com/tilt-dev/tilt-example-python
 cd tilt-example-python/0-base
 tilt up
 ```
@@ -99,7 +99,7 @@ Before we try to make this faster, let's measure it.
 Using [`local_resource`](local_resource.html), you can direct Tilt to execute existing scripts or arbitrary shell commands on your own machine, and manage them from your sidebar like any other Tilt resource. We're going to use this functionality to benchmark our deployments.
 
 First, we add a `local_resource` to our
-[Tiltfile](https://github.com/windmilleng/tilt-example-python/blob/master/1-measured/Tiltfile)
+[Tiltfile](https://github.com/tilt-dev/tilt-example-python/blob/master/1-measured/Tiltfile)
 that records the current time, then kicks off an update.
 
 ```python
@@ -166,7 +166,7 @@ Our benchmarks show this is slow. Can we do better?
 
 ## Step 2: Why Is the Docker Build So Slow?
 
-The first thing I notice when I click "deploy" is a bunch of logs from `pip install`; and not just once, but _every dang time_. This is a hint that we can optimize our Dockerfile to be smarter about caching. With a little rearranging, our [new Dockerfile](https://github.com/windmilleng/tilt-example-python/blob/master/2-optimize-dockerfile/Dockerfile) looks like this:
+The first thing I notice when I click "deploy" is a bunch of logs from `pip install`; and not just once, but _every dang time_. This is a hint that we can optimize our Dockerfile to be smarter about caching. With a little rearranging, our [new Dockerfile](https://github.com/tilt-dev/tilt-example-python/blob/master/2-optimize-dockerfile/Dockerfile) looks like this:
 ```
 ADD requirements.txt .
 RUN pip install -r requirements.txt
@@ -203,7 +203,7 @@ and wait for Kubernetes to schedule the pod.
 With Tilt, we can skip all of these steps, and instead
 [live_update](live_update_tutorial.html) the pod in place.
 
-[Our new Tiltfile](https://github.com/windmilleng/tilt-example-python/blob/master/3-recommended/Tiltfile) contains the following new code:
+[Our new Tiltfile](https://github.com/tilt-dev/tilt-example-python/blob/master/3-recommended/Tiltfile) contains the following new code:
 
 ```python
 # Add a live_update rule to our docker_build
@@ -265,16 +265,16 @@ Tilt was able to update the container in less than two seconds! (And a chunk of 
 
 You can try the server here:
 
-[Recommended Structure](https://github.com/windmilleng/tilt-example-python/blob/master/3-recommended){:.attached-above}
+[Recommended Structure](https://github.com/tilt-dev/tilt-example-python/blob/master/3-recommended){:.attached-above}
 
 This is a very simple example, but we hope it gives you a good starting point for running your Flask app (or other Python app) via Tilt!
 
 ## Further Reading
 
 ### Other sample Python projects:
-- [abc123](https://github.com/windmilleng/abc123) is a mini microservice app with a Python server called `numbers`
-- Our [blog post about Live Update](https://blog.tilt.dev/2019/04/02/fast-kubernetes-development-with-live-update.html) includes an [example Python server](https://github.com/windmilleng/live_update/tree/master/python)
-- [Servantes](https://github.com/windmilleng/servantes), our multi-language microservice demo app, contains a Python service called `hypothesizer`
+- [abc123](https://github.com/tilt-dev/abc123) is a mini microservice app with a Python server called `numbers`
+- Our [blog post about Live Update](https://blog.tilt.dev/2019/04/02/fast-kubernetes-development-with-live-update.html) includes an [example Python server](https://github.com/tilt-dev/live_update/tree/master/python)
+- [Servantes](https://github.com/tilt-dev/servantes), our multi-language microservice demo app, contains a Python service called `hypothesizer`
 
 ### Examples in other languages:
 

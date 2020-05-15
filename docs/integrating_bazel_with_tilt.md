@@ -9,7 +9,7 @@ Bazel provides a deterministic build process that, coupled with [rules_docker](h
 _Note: Before diving in to this guide you should have run through [Tilt's Getting Started Guide](tutorial.html) and the deep dive in to [Tiltfile concepts](tiltfile_concepts.html). A familiarity with the Bazel build system will also clear a lot of things up but isn't necessary. Ready? Let's get started!_
 
 ## Building Microservices with Bazel
-Here's an [example repository](https://github.com/windmilleng/bazel_example) that contains two services (snack and vigoda) that are built with Bazel. The current development workflow is to make some changes to the code (contained in the `snack` or `vigoda` directories) then run the appopriate bazel rule to put the service in to my Kubernetes cluster. For example if I made a change to `snack/main.go` I would then run `bazel run //:snack-server.apply`. This command will build my Go code, put it in to an image, put that image in to my YAML, and run `kubectl apply` to update my Kubernetes cluster with the new YAML. Bazel handles it all by understanding the transitive dependencies of `snack-server`.
+Here's an [example repository](https://github.com/tilt-dev/bazel_example) that contains two services (snack and vigoda) that are built with Bazel. The current development workflow is to make some changes to the code (contained in the `snack` or `vigoda` directories) then run the appopriate bazel rule to put the service in to my Kubernetes cluster. For example if I made a change to `snack/main.go` I would then run `bazel run //:snack-server.apply`. This command will build my Go code, put it in to an image, put that image in to my YAML, and run `kubectl apply` to update my Kubernetes cluster with the new YAML. Bazel handles it all by understanding the transitive dependencies of `snack-server`.
 
 ## Writing the Tiltfile
 Tiltfiles only need two things: Kubernetes YAML and Docker Images. To get started we just need to figure out how to ask Bazel for those two things.
@@ -197,7 +197,7 @@ _(`bazel_labels_to_files` is some boring code that parses Bazel output that is o
 
 Now we're passing the dependencies to our `custom_build`. If any of those paths change we will build a new image and update the YAML with the new image. Same as above: if any of the dependencies of the image rule itself change Tilt will now re-execute the Tiltfile.
 
-Now we have a [Tiltfile that fully integrates with Bazel](https://github.com/windmilleng/bazel_example/blob/master/Tiltfile) and responds to changes from the filesystem.
+Now we have a [Tiltfile that fully integrates with Bazel](https://github.com/tilt-dev/bazel_example/blob/master/Tiltfile) and responds to changes from the filesystem.
 
 ## Putting it all together
-And that's that! Take a look at the [full example code](https://github.com/windmilleng/bazel_example) and let us know if you have any questions.
+And that's that! Take a look at the [full example code](https://github.com/tilt-dev/bazel_example) and let us know if you have any questions.

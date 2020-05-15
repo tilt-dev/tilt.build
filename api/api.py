@@ -72,7 +72,7 @@ def restart_container() -> LiveUpdateStep:
 
   Only works on containers managed by Docker. For non-Docker runtimes
   (e.g. containerd, CRI-O), please see the `wrapper script for simulating
-  restart_container <https://github.com/windmilleng/rerun-process-wrapper>`_.
+  restart_container <https://github.com/tilt-dev/rerun-process-wrapper>`_.
 
   For more info, see the `Live Update Reference <live_update_reference.html>`_.
   """
@@ -340,7 +340,7 @@ def load(path: str, *args):
 
   Example ::
 
-    load('ext://hello_world', 'hi') # Resolves to https://github.com/windmilleng/tilt-extensions/blob/master/hello_world/Tiltfile
+    load('ext://hello_world', 'hi') # Resolves to https://github.com/tilt-dev/tilt-extensions/blob/master/hello_world/Tiltfile
     hi() # prints "Hello world!"
   """
 
@@ -557,7 +557,7 @@ def default_registry(host: str, host_from_cluster: str = None) -> None:
 
   e.g., with ``default_registry('gcr.io/myorg')``, an image called ``user-service`` becomes ``gcr.io/myorg/user-service``.
 
-  (Note: this logic is currently crude, on the assumption that development image names are ephemeral and unimportant. `Please let us know <https://github.com/windmilleng/tilt/issues>`_ if they don't suit you!)
+  (Note: this logic is currently crude, on the assumption that development image names are ephemeral and unimportant. `Please let us know <https://github.com/tilt-dev/tilt/issues>`_ if they don't suit you!)
   """
   pass
 
@@ -806,7 +806,7 @@ def secret_settings(disable_scrub: bool = False) -> None:
   'mysecurepassword', Tilt redacts this string if ever it appears in the logs,
   to prevent users from accidentally sharing sensitive information in snapshots etc.
 
-  If you need more other configuration options, `let us know <https://github.com/windmilleng/tilt/issues>`_.
+  If you need more other configuration options, `let us know <https://github.com/tilt-dev/tilt/issues>`_.
 
   Args:
     disable_scrub: if True, Tilt will *not* scrub secrets from logs.
@@ -819,7 +819,7 @@ def update_settings(max_parallel_updates: int) -> None:
   Kubernetes; running a live update on an existing container; and executing
   a local resource command).
 
-  If you need more other configuration options, `let us know <https://github.com/windmilleng/tilt/issues>`_.
+  If you need more other configuration options, `let us know <https://github.com/tilt-dev/tilt/issues>`_.
 
   Args:
     max_parallel_updates: maximum number of updates Tilt will execute in parallel. Default is 3. Must be a positive integer.

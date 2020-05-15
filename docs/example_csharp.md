@@ -22,11 +22,11 @@ This particular example server doesn't do much, but it's useful to confirm that 
 
 All the code is in this repo:
 
-[tilt-example-csharp](https://github.com/windmilleng/tilt-example-csharp){:.attached-above}
+[tilt-example-csharp](https://github.com/tilt-dev/tilt-example-csharp){:.attached-above}
 
 To skip straight to the fully optimized setup, go to this subdirectory:
 
-[Recommended Setup](https://github.com/windmilleng/tilt-example-csharp/tree/master/3-live-update){:.attached-above}
+[Recommended Setup](https://github.com/tilt-dev/tilt-example-csharp/tree/master/3-live-update){:.attached-above}
 
 # Step 0: The Simplest Deployment
 
@@ -62,9 +62,9 @@ namespace hello_tilt.Pages
 
 To start this server on Kubernetes, we need three config files:
 
-1. A [Dockerfile](https://github.com/windmilleng/tilt-example-csharp/blob/master/0-base/hello-tilt/Dockerfile) that builds the image
-2. A [Kubernetes deployment](https://github.com/windmilleng/tilt-example-csharp/blob/master/0-base/kubernetes.yaml) that runs the image
-3. And finally, a [Tiltfile](https://github.com/windmilleng/tilt-example-csharp/blob/master/0-base/Tiltfile) that ties them together:
+1. A [Dockerfile](https://github.com/tilt-dev/tilt-example-csharp/blob/master/0-base/hello-tilt/Dockerfile) that builds the image
+2. A [Kubernetes deployment](https://github.com/tilt-dev/tilt-example-csharp/blob/master/0-base/kubernetes.yaml) that runs the image
+3. And finally, a [Tiltfile](https://github.com/tilt-dev/tilt-example-csharp/blob/master/0-base/Tiltfile) that ties them together:
 
 ```python
 docker_build('hello-tilt', './hello-tilt')
@@ -81,7 +81,7 @@ The last line configures port-forwarding so that your server is reachable at `lo
 Try it! Run:
 
 ```
-git clone https://github.com/windmilleng/tilt-example-csharp
+git clone https://github.com/tilt-dev/tilt-example-csharp
 cd tilt-example-csharp/0-base
 tilt up
 ```
@@ -107,7 +107,7 @@ Before we try to make this faster, let's measure it.
 
 Using [`local_resource`](local_resource.html), you can direct Tilt to execute existing scripts or arbitrary shell commands on your own machine, and manage them from your sidebar like any other Tilt resource. We're going to use this functionality to benchmark our deploys.
 
-First we add a `local_resource` to our [Tiltfile](https://github.com/windmilleng/tilt-example-csharp/blob/master/1-measure/Tiltfile) that records the start time in a C# file.
+First we add a `local_resource` to our [Tiltfile](https://github.com/tilt-dev/tilt-example-csharp/blob/master/1-measure/Tiltfile) that records the start time in a C# file.
 
 ```python
 local_resource(
@@ -153,7 +153,7 @@ But the C# community has done a lot of work to make caching dependendencies and 
 
 With `local_resource`, we can compile the project locally, and copy the build output files to the container.
 
-Here's our [new Tiltfile](https://github.com/windmilleng/tilt-example-csharp/blob/master/2-build-locally/Tiltfile) with the following new code:
+Here's our [new Tiltfile](https://github.com/tilt-dev/tilt-example-csharp/blob/master/2-build-locally/Tiltfile) with the following new code:
 
 ```python
 local_resource(
@@ -167,7 +167,7 @@ local_resource(
 
 We've added a `local_resource()` that compiles the executable locally with `dotnet`.
 
-We've adjusted the [Dockerfile](https://github.com/windmilleng/tilt-example-csharp/blob/master/2-build-locally/Dockerfile) so that it only includes the build output under `out`:
+We've adjusted the [Dockerfile](https://github.com/tilt-dev/tilt-example-csharp/blob/master/2-build-locally/Dockerfile) so that it only includes the build output under `out`:
 
 ```dockerfile
 FROM mcr.microsoft.com/dotnet/core/aspnet:3.1
@@ -203,7 +203,7 @@ When we make a change to a file, we currently have to build an image, deploy new
 
 With Tilt, we can skip all of these steps, and instead [live_update](live_update_tutorial.html) the pod in place.
 
-Here's our [new Tiltfile](https://github.com/windmilleng/tilt-example-csharp/blob/master/3-live-update/Tiltfile) with the following new code:
+Here's our [new Tiltfile](https://github.com/tilt-dev/tilt-example-csharp/blob/master/3-live-update/Tiltfile) with the following new code:
 
 ```python
 docker_build(
@@ -248,7 +248,7 @@ Tilt was able to update the container in less than 5 seconds!
 
 You can try the server here:
 
-[Recommended Structure](https://github.com/windmilleng/tilt-example-csharp/tree/master/3-live-update){:.attached-above}
+[Recommended Structure](https://github.com/tilt-dev/tilt-example-csharp/tree/master/3-live-update){:.attached-above}
 
 Congratulations on finishing this guide!
 

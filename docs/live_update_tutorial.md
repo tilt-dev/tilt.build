@@ -18,10 +18,10 @@ it would be too slow to recompile from scratch every time.
 That's why Tilt has a feature called Live Update for lightning-fast local
 Kubernetes development.
 
-Let's look at an example in the [tiltdemo repo](https://github.com/windmilleng/tiltdemo):
+Let's look at an example in the [tiltdemo repo](https://github.com/tilt-dev/tiltdemo):
 
 ```
-git clone https://github.com/windmilleng/tiltdemo
+git clone https://github.com/tilt-dev/tiltdemo
 cd tiltdemo
 ```
 
@@ -33,8 +33,8 @@ k8s_yaml('deployments/demoserver1.yaml')
 dm1_img_name = 'gcr.io/windmill-test-containers/tiltdemo/demoserver1'
 docker_build(dm1_img_name, '.', dockerfile='Dockerfile.server1',
   live_update=[
-    sync('cmd/demoserver1', '/go/src/github.com/windmilleng/tiltdemo/cmd/demoserver1'),
-    run('go install github.com/windmilleng/tiltdemo/cmd/demoserver1'),
+    sync('cmd/demoserver1', '/go/src/github.com/tilt-dev/tiltdemo/cmd/demoserver1'),
+    run('go install github.com/tilt-dev/tiltdemo/cmd/demoserver1'),
     restart_container(),
   ]
 )
@@ -49,8 +49,8 @@ Let's zoom in on that part of the configuration.
 ```python
 docker_build(...,
   live_update=[
-    sync('cmd/demoserver1', '/go/src/github.com/windmilleng/tiltdemo/cmd/demoserver1'),
-    run('go install github.com/windmilleng/tiltdemo/cmd/demoserver1'),
+    sync('cmd/demoserver1', '/go/src/github.com/tilt-dev/tiltdemo/cmd/demoserver1'),
+    run('go install github.com/tilt-dev/tiltdemo/cmd/demoserver1'),
     restart_container(),
   ]
 )
@@ -59,7 +59,7 @@ docker_build(...,
 These lines configure `tilt` to do incremental updates to containers running the
 image we're currently specifying (when possible). We'll step through it line by line.
 
-* `sync('cmd/demoserver1', '/go/src/github.com/windmilleng/tiltdemo/cmd/demoserver1'),`
+* `sync('cmd/demoserver1', '/go/src/github.com/tilt-dev/tiltdemo/cmd/demoserver1'),`
 
 The `sync` method copies a file or directory from outside your container to inside of your container.
 
@@ -72,7 +72,7 @@ the changed file matches `cmd/demoserver1`, to instead do a `live_update` - Tilt
 the changed files into the container and execute any appropriate `run` or `restart_container`
 steps, without actually building or pushing a docker image or performing a k8s deploy.
 
-* `run('go install github.com/windmilleng/tiltdemo/cmd/demoserver1')`
+* `run('go install github.com/tilt-dev/tiltdemo/cmd/demoserver1')`
 
 The `run` method runs shell commands inside your container.
 

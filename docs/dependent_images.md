@@ -97,7 +97,7 @@ and just do the second.
 
 ## Try it Yourself
 
-All the source code for this example is [on GitHub](https://github.com/windmilleng/nodejs-express-k8s).
+All the source code for this example is [on GitHub](https://github.com/tilt-dev/nodejs-express-k8s).
 
 Try running it yourself with Tilt. Make changes to both `package.json` and `server.js`
 and see how Tilt rebuilds only what has changed.
