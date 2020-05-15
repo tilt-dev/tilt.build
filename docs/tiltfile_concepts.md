@@ -211,7 +211,7 @@ k8s_resource(
 # make a new resource consisting of some objects necessary for cluster setup
 k8s_resource(
   objects=['my-ns:namespace', 'kafka:crd', 'some-ingress:ingress'],
-  new_name=['cluster-setup'],
+  new_name='cluster-setup',
 )
 ```
 
