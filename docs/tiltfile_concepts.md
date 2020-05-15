@@ -215,18 +215,24 @@ k8s_resource(
 )
 ```
 
-#### Kubernetes Object ID Syntax
+#### Kubernetes Object Selectors
 
-To specify Kubernetes objects, use a colon-separated string consisting of one
-or more of: `$NAME[:$KIND[:$NAMESPACE[:$GROUP]]]`, e.g.:
+Tilt specifies Kubernetes objects via _Kubernetes object selectors_.
+The most specific selector for any object is its _fullname_: a colon-separated
+string specifying `$NAME:$KIND:$NAMESPACE` (e.g.: `redis:deployment:default`).
+
+Additionally, you may specify an object using any prefix of its fullname. For above example,
+the other valid selectors for `redis:deployment:default` are:
 * "redis"
 * "redis:deployment"
-* "redis:deployment:default"
 
-You may use the minimum unique string across all Kubernetes objects: e.g. "redis"
-suffices if there's only one object named "redis", but if there's both a Deployment
-and a Service named "redis", you'd need to specify "redis:deployment". You may always
-use a *more* qualified identifier, even if a shorter one would suffice.
+More generically, a Kubernetes object selector is formatted:  `$NAME[:$KIND[:$NAMESPACE]]`.
+
+You may identify an object with the shortest unique selector across all Kubernetes
+objects: e.g. "redis" suffices if there's only one object named "redis", but if
+there's both a Deployment and a Service named "redis", you'd need to specify
+"redis:deployment". You may always use a *more* qualified selector, even if a
+shorter one would suffice.
 
 ## Summary
 Tilt's configuration is a program that connects your existing build and deploy configuration. We've made our functions ergonomic for simple cases and general enough to support a wide range of cases. If you're not sure how to accomplish something, we'd love to either help you find the right way, or add support for a case we've overlooked.

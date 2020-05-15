@@ -308,12 +308,12 @@ def k8s_resource(workload: str = "", new_name: str = "",
       `Manual Update Control docs <manual_update_control.html>`_.
     resource_deps: A list of resources on which this resource depends.
       See the `Resource Dependencies docs <resource_dependencies.html>`_.
-    objects: A list of identifiers for Kubernetes objects to be added to this resource,
-      specified using `Kubernetes Object ID Syntax <tiltfile_concepts.html#object-id-syntax>`_.
-      If an identifier matches more than one Kubernetes object, or matches an object already
-      associated with a resource, ``k8s_resource`` raises an error. If ``workload`` is specified,
-      these objects will be added to the existing resource; otherwise, these objects will form a
-      new resource with name ``new_name``.
+    objects: A list of Kubernetes objects to be added to this resource, specified via
+      `Kubernetes Object Selectors <tiltfile_concepts.html#kubernetes-object-selectors>`_.
+      If a selector matches more than one Kubernetes object, or matches an object already
+      associated with a resource, ``k8s_resource`` raises an error. If the ``workload`` is
+      specified, these objects will be added to the existing resource; otherwise, these
+      objects will form a new resource with name ``new_name``.
   """
   pass
 
