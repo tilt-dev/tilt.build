@@ -8,7 +8,7 @@ Tilt landing page, docs page, and blog page
 
 ## Developing
 
-1) Install [Tilt](https://github.com/windmilleng/tilt)
+1) Install [Tilt](https://github.com/tilt-dev/tilt)
 
 2) Run `tilt up`
 

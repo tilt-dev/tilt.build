@@ -110,7 +110,7 @@ html_show_sourcelink = False
 
 html_context = {
     "display_github": True,
-    "github_user": "windmilleng",
+    "github_user": "tilt-dev",
     "github_repo": "tilt",
     "github_version": "master",
     "conf_py_path": "/docs/",

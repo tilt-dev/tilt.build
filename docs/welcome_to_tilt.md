@@ -44,7 +44,7 @@ Think <code>docker-compose up</code> or <code>docker build . && kubectl apply</c
 </div>
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/windmilleng/tilt/master/scripts/install.sh | bash
+curl -fsSL https://raw.githubusercontent.com/tilt-dev/tilt/master/scripts/install.sh | bash
 ```
 
 <div class="detailBlock u-marginBottom1_75">
@@ -104,7 +104,7 @@ Keep an eye on build and health status as you code
   <a href="https://docs.tilt.dev/tutorial.html">Read how here.</a>
   <br><br>
   To create your own Welcome README with project-specific instructions, just
-  <a href="https://github.com/windmilleng/tilt-init">
+  <a href="https://github.com/tilt-dev/tilt-init">
   fork and edit the tilt-init repo on GitHub
   </a>!
 </div>

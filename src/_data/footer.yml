@@ -7,7 +7,7 @@
   blogurl: true
 - name: GitHub
   icon: github
-  href: https://github.com/windmilleng/tilt
+  href: https://github.com/tilt-dev/tilt
 - name: Docs
   icon: docs
   href:

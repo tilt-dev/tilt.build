@@ -78,7 +78,7 @@ caching. Lots of users get confused when this happens, because it's not a file
 they control.
 
 If you find that temp files in your editor trigger builds, please
-[file a bug](https://github.com/windmilleng/tilt/issues/new)
+[file a bug](https://github.com/tilt-dev/tilt/issues/new)
 and we will add it to the list.
 
 These temp files are still included in Docker build contexts by default.
@@ -174,9 +174,9 @@ build contexts.
 ## Try it Yourself
 
 If you'd like to try out the APIs in this guide, see
-[this example repo](https://github.com/windmilleng/ignore-examples). You can:
+[this example repo](https://github.com/tilt-dev/ignore-examples). You can:
 
-- `git clone https://github.com/windmilleng/ignore-examples`
+- `git clone https://github.com/tilt-dev/ignore-examples`
 - `tilt up` to run all the servers
 - Try editing the files and see which servers reload.
 
@@ -194,5 +194,5 @@ But there are still cases that are hard to debug:
 cache? Are there files in my Docker image that shouldn't be there?
 
 We are open to thoughts and
-[feature requests](https://github.com/windmilleng/tilt/issues/new) on how to
+[feature requests](https://github.com/tilt-dev/tilt/issues/new) on how to
 help people answer these questions!

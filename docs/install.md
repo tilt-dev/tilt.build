@@ -27,7 +27,7 @@ kubectl config use-context docker-desktop
 - Install `tilt` with:
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/windmilleng/tilt/master/scripts/install.sh | bash
+curl -fsSL https://raw.githubusercontent.com/tilt-dev/tilt/master/scripts/install.sh | bash
 ```
 
 Linux
@@ -56,7 +56,7 @@ kubectl config use-context microk8s
 - Install `tilt` with:
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/windmilleng/tilt/master/scripts/install.sh | bash
+curl -fsSL https://raw.githubusercontent.com/tilt-dev/tilt/master/scripts/install.sh | bash
 ```
 
 Windows 
@@ -92,36 +92,36 @@ You're ready to start using Tilt! Try our [Tutorial](tutorial.html) to setup you
 Alternative Installations
 -------------------------
 
-The [1-step installation script](https://github.com/windmilleng/tilt/blob/master/scripts/install.sh)
+The [1-step installation script](https://github.com/tilt-dev/tilt/blob/master/scripts/install.sh)
 will install the most recent version of Tilt.
 
 The installer first checks if you can install Tilt with Homebrew. If you'd prefer
 to run Homebrew manually, run:
 
 ```bash
-brew install windmilleng/tap/tilt
+brew install tilt-dev/tap/tilt
 ```
 
 Otherwise, the installer downloads a static `tilt` binary and puts it under `/usr/local/bin`.
-See [Tilt's GitHub Releases page](https://github.com/windmilleng/tilt/releases) for specific versions.
+See [Tilt's GitHub Releases page](https://github.com/tilt-dev/tilt/releases) for specific versions.
 If you'd prefer to download the binary manually:
 
 On macOS:
 
 ```bash
-curl -fsSL https://github.com/windmilleng/tilt/releases/download/v0.13.6/tilt.0.13.6.mac.x86_64.tar.gz | tar -xzv tilt && \
+curl -fsSL https://github.com/tilt-dev/tilt/releases/download/v0.13.6/tilt.0.13.6.mac.x86_64.tar.gz | tar -xzv tilt && \
   sudo mv tilt /usr/local/bin/tilt
 ```
 
 On Linux:
 
 ```bash
-curl -fsSL https://github.com/windmilleng/tilt/releases/download/v0.13.6/tilt.0.13.6.linux.x86_64.tar.gz | tar -xzv tilt && \
+curl -fsSL https://github.com/tilt-dev/tilt/releases/download/v0.13.6/tilt.0.13.6.linux.x86_64.tar.gz | tar -xzv tilt && \
   sudo mv tilt /usr/local/bin/tilt
 ```
 
 Finally, if you want to install `tilt` from source, see the [developers'
-guide](https://github.com/windmilleng/tilt/blob/master/CONTRIBUTING.md).
+guide](https://github.com/tilt-dev/tilt/blob/master/CONTRIBUTING.md).
 
 Building from source requires both Go and TypeScript/JavaScript tools, and
 dynamically compiles the TypeScript on every run. We only recommend this if you
