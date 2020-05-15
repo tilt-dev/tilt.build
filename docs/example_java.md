@@ -294,34 +294,39 @@ Here's our [new Tiltfile](https://github.com/tilt-dev/tilt-example-java/blob/mas
 with the following new code:
 
 ```python
+load('ext://restart_process', 'docker_build_with_restart')
+...
 local_resource(
   'example-java-compile',
-  './gradlew bootJar && ' +
+  gradlew + ' bootJar && ' +
   'unzip -o build/libs/example-0.0.1-SNAPSHOT.jar -d build/jar-staging && ' +
   'rsync --inplace --checksum -r build/jar-staging/ build/jar',
   deps=['src', 'build.gradle'],
   resource_deps = ['deploy'])
-  
-docker_build(
+
+docker_build_with_restart(
   'example-java-image',
   './build/jar',
+  entrypoint=['java', '-noverify', '-cp', '.:./lib/*', 'dev.tilt.example.ExampleApplication'],
   dockerfile='./Dockerfile',
   live_update=[
     sync('./build/jar/BOOT-INF/lib', '/app/lib'),
     sync('./build/jar/META-INF', '/app/META-INF'),
     sync('./build/jar/BOOT-INF/classes', '/app'),
   ],
-  entrypoint = 'find . | entr -r java -noverify -cp .:./lib/* dev.tilt.example.ExampleApplication')
+)
 ```
 
-We've added a `live_update` parameter to `docker_build()` with `sync` steps.
+The first thing to notice is the `live_update` parameter, which consists of some `sync` steps.
 They copy the library and compiled `.class `files from the `./build/jar`
 directory into the container.
 
-We've also added a new parameter: `entrypoint="find . | entr -r java -noverify -cp .:./lib/* dev.tilt.example.ExampleApplication"`
-
-`entr` is a tool that automatically restarts a shell command whenever the watched
-file changes. This command restarts our server every time the pod is updated.
+After syncing the files, we want to re-execute our updated binary. We accomplish this with the
+[`restart_process` extension](https://github.com/windmilleng/tilt-extensions/tree/master/restart_process)
+(for more on extensions, [see the docs](/extensions.html)).
+In particular, we swap out our `docker_build` call for a `docker_build_with_restart` call; it's
+almost exactly the same as `docker_build`, only it knows to restart our process at the end
+of a `live_update`. The `entrypoint` parameter specifies what command to re-execute.
 
 Lastly, our `local_resource` first unzips the jar to `build/jar-staging`, and
 then uses `rsync --checksum` to copy that to `build/jar`.
