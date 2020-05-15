@@ -3,7 +3,7 @@ title: Install
 layout: docs
 ---
 
-Tilt is currently available for macOS, Linux, and Windows.
+Tilt is available for [macOS](#macos), [Linux](#linux), and [Windows](#windows).
 
 You'll also need:
 
@@ -64,7 +64,7 @@ Windows
 
 Further installation instructions are forthcoming.
 
-Download the latest release: https://github.com/tilt-dev/tilt/releases/download/v0.13.6/tilt.0.13.6.windows.x86_64.zip
+Download the latest release: [tilt.0.13.6.windows.x86_64.zip](https://github.com/tilt-dev/tilt/releases/download/v0.13.6/tilt.0.13.6.windows.x86_64.zip)
 
 Verify
 ---------
