@@ -3,7 +3,7 @@ title: Install
 layout: docs
 ---
 
-Tilt is currently available for macOS and Linux. Windows support is available in alpha.
+Tilt is currently available for macOS, Linux, and Windows.
 
 You'll also need:
 
@@ -59,11 +59,12 @@ kubectl config use-context microk8s
 curl -fsSL https://raw.githubusercontent.com/windmilleng/tilt/master/scripts/install.sh | bash
 ```
 
-Windows (alpha)
----------------
+Windows 
+----------
 
-Each [Tilt release](https://github.com/windmilleng/tilt/releases) contains an alpha build for Windows.
-It is not actively being developed at the moment. If you are interested in Windows support, [contact us](https://tilt.dev/contact) or upvote this [GitHub issue](https://github.com/windmilleng/tilt/issues/1961).
+Further installation instructions are forthcoming.
+
+Download the latest release: https://github.com/tilt-dev/tilt/releases/download/v0.13.6/tilt.0.13.6.windows.x86_64.zip
 
 Verify
 ---------
