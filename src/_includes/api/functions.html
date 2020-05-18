@@ -4078,28 +4078,27 @@ See the
                    str
                   </span>
                  </code>
-                 ]) &#x2013; A list of identifiers for Kubernetes objects to be added to this resource,
-specified using
-                 <a class="reference external" href="tiltfile_concepts.html#object-id-syntax">
-                  Kubernetes Object ID Syntax
+                 ]) &#x2013; A list of Kubernetes objects to be added to this resource, specified via
+                 <a class="reference external" href="tiltfile_concepts.html#kubernetes-object-selectors">
+                  Kubernetes Object Selectors
                  </a>
                  .
-If an identifier matches more than one Kubernetes object, or matches an object already
+If a selector matches more than one Kubernetes object, or matches an object already
 associated with a resource,
                  <code class="docutils literal notranslate">
                   <span class="pre">
                    k8s_resource
                   </span>
                  </code>
-                 raises an error. If
+                 raises an error. If the
                  <code class="docutils literal notranslate">
                   <span class="pre">
                    workload
                   </span>
                  </code>
-                 is specified,
-these objects will be added to the existing resource; otherwise, these objects will form a
-new resource with name
+                 is
+specified, these objects will be added to the existing resource; otherwise, these
+objects will form a new resource with name
                  <code class="docutils literal notranslate">
                   <span class="pre">
                    new_name
@@ -5987,7 +5986,7 @@ the text of any Secrets from the logs; e.g. if Tilt applies a Secret with conten
 to prevent users from accidentally sharing sensitive information in snapshots etc.
            </p>
            <p>
-            If you need more other configuration options,
+            If you need other configuration options,
             <a class="reference external" href="https://github.com/tilt-dev/tilt/issues">
              let us know
             </a>
@@ -6369,7 +6368,7 @@ Kubernetes; running a live update on an existing container; and executing
 a local resource command).
            </p>
            <p>
-            If you need more other configuration options,
+            If you need other configuration options,
             <a class="reference external" href="https://github.com/tilt-dev/tilt/issues">
              let us know
             </a>
