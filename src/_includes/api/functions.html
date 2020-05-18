@@ -295,7 +295,7 @@ that always want telemetry enabled or disabled.
            </em>
            ,
            <em>
-            entrypoint=&apos;&apos;
+            entrypoint=[]
            </em>
            ,
            <em>
@@ -637,12 +637,30 @@ then re-tag it with its own tag before pushing to your cluster. See
                   entrypoint
                  </strong>
                  (
+                 <code class="xref py py-data docutils literal notranslate">
+                  <span class="pre">
+                   Union
+                  </span>
+                 </code>
+                 [
                  <code class="xref py py-class docutils literal notranslate">
                   <span class="pre">
                    str
                   </span>
                  </code>
-                 ) &#x2013; command to run when this container starts. Takes precedence over the container&#x2019;s
+                 ,
+                 <code class="xref py py-class docutils literal notranslate">
+                  <span class="pre">
+                   List
+                  </span>
+                 </code>
+                 [
+                 <code class="xref py py-class docutils literal notranslate">
+                  <span class="pre">
+                   str
+                  </span>
+                 </code>
+                 ]]) &#x2013; command to run when this container starts. Takes precedence over the container&#x2019;s
                  <code class="docutils literal notranslate">
                   <span class="pre">
                    CMD
@@ -658,7 +676,7 @@ then re-tag it with its own tag before pushing to your cluster. See
                  <a class="reference external" href="https://kubernetes.io/docs/tasks/inject-data-application/define-command-argument-container/">
                   container command specified in k8s YAML
                  </a>
-                 . Will be evaluated in a shell context: e.g.
+                 . If specified as a string, will be evaluated in a shell context (e.g.
                  <code class="docutils literal notranslate">
                   <span class="pre">
                    entrypoint=&quot;foo.sh
@@ -682,7 +700,7 @@ then re-tag it with its own tag before pushing to your cluster. See
                    bar&apos;
                   </span>
                  </code>
-                 .
+                 ); if specifed as an array, will be passed to the operating system as program name and args.
                 </li>
                 <li>
                  <strong>
@@ -1448,7 +1466,7 @@ ensures a pretty high bar of intent.
            </em>
            ,
            <em>
-            entrypoint=&apos;&apos;
+            entrypoint=[]
            </em>
            ,
            <em>
@@ -1777,12 +1795,30 @@ ensures a pretty high bar of intent.
                   entrypoint
                  </strong>
                  (
+                 <code class="xref py py-data docutils literal notranslate">
+                  <span class="pre">
+                   Union
+                  </span>
+                 </code>
+                 [
                  <code class="xref py py-class docutils literal notranslate">
                   <span class="pre">
                    str
                   </span>
                  </code>
-                 ) &#x2013;
+                 ,
+                 <code class="xref py py-class docutils literal notranslate">
+                  <span class="pre">
+                   List
+                  </span>
+                 </code>
+                 [
+                 <code class="xref py py-class docutils literal notranslate">
+                  <span class="pre">
+                   str
+                  </span>
+                 </code>
+                 ]]) &#x2013;
                  <p>
                   command to run when this container starts. Takes precedence over the container&#x2019;s
                   <code class="docutils literal notranslate">
@@ -1800,7 +1836,7 @@ ensures a pretty high bar of intent.
                   <a class="reference external" href="https://kubernetes.io/docs/tasks/inject-data-application/define-command-argument-container/">
                    container command specified in k8s YAML
                   </a>
-                  . Will be evaluated in a shell context: e.g.
+                  . If specified as a string, will be evaluated in a shell context (e.g.
                   <code class="docutils literal notranslate">
                    <span class="pre">
                     entrypoint=&quot;foo.sh
@@ -1824,7 +1860,7 @@ ensures a pretty high bar of intent.
                     bar&apos;
                    </span>
                   </code>
-                  .
+                  ); if specifed as an array, will be passed to the operating system as program name and args.
                  </p>
                 </li>
                 <li>
