@@ -70,4 +70,4 @@ We saw Google change office productivity tools by building a technical foundatio
 
 Interested? Curious? [We’d love to chat](https://windmill.engineering/contact). You can find us at [Work-Bench](https://www.work-bench.com/) in New York City. Follow us [@windmill_eng](https://twitter.com/windmill_eng).
 
-![](/assets/images/introducing-windmill/1*yD6p1m8vR9yAS8ciOzl0zQ@2x.png)
+![](/assets/images/introducing-windmill/1_yD6p1m8vR9yAS8ciOzl0zQ@2x.png)

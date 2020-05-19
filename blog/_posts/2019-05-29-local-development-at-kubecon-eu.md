@@ -22,7 +22,7 @@ keywords:
 
 The Tilt engineering team is back from KubeCon in Barcelona. Thanks for everyone who visited our booth to press our button!
 
-![[https://twitter.com/jazzdan/status/1131567233350668288](https://twitter.com/jazzdan/status/1131567233350668288)](/assets/images/local-development-at-kubecon-eu/1*NIX8WIDMr8IUOPVRwHeBbw.jpeg)*[https://twitter.com/jazzdan/status/1131567233350668288](https://twitter.com/jazzdan/status/1131567233350668288)*
+![[https://twitter.com/jazzdan/status/1131567233350668288](https://twitter.com/jazzdan/status/1131567233350668288)](/assets/images/local-development-at-kubecon-eu/1_NIX8WIDMr8IUOPVRwHeBbw.jpeg)*[https://twitter.com/jazzdan/status/1131567233350668288](https://twitter.com/jazzdan/status/1131567233350668288)*
 
 We went to KubeCon to learn more about real-world struggles for engineers building services on Kubernetes.
 

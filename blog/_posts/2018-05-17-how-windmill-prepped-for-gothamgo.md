@@ -7,9 +7,9 @@ canonical_url: "https://medium.com/windmill-engineering/how-windmill-prepped-for
 title: "How Windmill Prepped for GothamGo"
 image_needs_slug: true
 images:
-  - 0*M074ur4hu5eHFvxJ.jpg
+  - 0_M074ur4hu5eHFvxJ.jpg
   - featuredImage.jpg
-  - 0*hWp3mx7TMlqSWcug.jpg
+  - 0_hWp3mx7TMlqSWcug.jpg
 tags:
   - startup
   - devtools
@@ -52,7 +52,7 @@ With a framework in mind, we then turned to booth design.
 
 Last year at GothamGo, our founders went full science fair, with great success.
 
-![Nick and Dan at GothamGo ‘17](/assets/images/how-windmill-prepped-for-gothamgo/0*M074ur4hu5eHFvxJ.jpg)*Nick and Dan at GothamGo ‘17*
+![Nick and Dan at GothamGo ‘17](/assets/images/how-windmill-prepped-for-gothamgo/0_M074ur4hu5eHFvxJ.jpg)*Nick and Dan at GothamGo ‘17*
 
 This year we wanted something with a similar vibe — not a big fancy banner with our company name on it, but something more personal and more interesting.
 
@@ -90,7 +90,7 @@ Our sub-committee brought back a booth proposal with a bunch of neat stuff, incl
 
 …and more! In the end though, we decided to strike almost all of their proposals.
 
-![The initial booth proposal. Note a handful of things already crossed out.](/assets/images/how-windmill-prepped-for-gothamgo/0*hWp3mx7TMlqSWcug.jpg)*The initial booth proposal. Note a handful of things already crossed out.*
+![The initial booth proposal. Note a handful of things already crossed out.](/assets/images/how-windmill-prepped-for-gothamgo/0_hWp3mx7TMlqSWcug.jpg)*The initial booth proposal. Note a handful of things already crossed out.*
 
 Any of the things suggested would be great booth components and conversation starters in their own right; but all together, it was just too much! If someone came up to our booth, we *didn’t* want to overwhelm them with choice; instead, we wanted a booth that funneled visitors into our desired modes of interaction. In the end, we opted to keep our booth lean, with only three major components: the psychiatry booth sign itself (“Dev Tools Help 5¢”); the screencast of Windmill Alpha in action; and a handout asking people for dev tools horror stories and directing them to our contact form.
 

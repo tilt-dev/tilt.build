@@ -7,7 +7,7 @@ canonical_url: "https://medium.com/windmill-engineering/whats-easier-than-clicki
 title: "What’s Easier than Clicking “Run Test”? Not Clicking It."
 image_needs_slug: true
 images:
-  - 1*KMMk--1EiY0CwrGZC-QJgA.gif
+  - 1_KMMk--1EiY0CwrGZC-QJgA.gif
   - featuredImage.gif
 tags:
   - testing
@@ -31,7 +31,7 @@ Introducing [Go Autotest for VS Code](https://marketplace.visualstudio.com/items
 
 Autorun is simple: every time you open a Go file that contains tests the extension will run those tests in the background and provide the result as a CodeLens atop the test function.
 
-![](/assets/images/whats-easier-than-clicking-run-test-not-clicking-it/1*KMMk--1EiY0CwrGZC-QJgA.gif)
+![](/assets/images/whats-easier-than-clicking-run-test-not-clicking-it/1_KMMk--1EiY0CwrGZC-QJgA.gif)
 
 Test pinning allows you to focus on just one test and see the new result immediately on save of any file. This is useful when you’re just trying to get that *one pesky test* to pass*.*
 

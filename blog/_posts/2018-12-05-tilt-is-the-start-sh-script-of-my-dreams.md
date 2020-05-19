@@ -7,11 +7,11 @@ canonical_url: "https://medium.com/windmill-engineering/tilt-is-the-start-sh-scr
 title: "Tilt is the `start.sh` Script of my Dreams"
 image_needs_slug: true
 images:
-  - 1*Hu6PC-bmdzhrUoaQzUi7hA.png
-  - 1*tO_khyEJs281wPBheBPXDQ.png
-  - 1*ytSR_5nrIB2TRytHvCiQpg.png
-  - 1*PQz8kxs1o-aP4JU-s_3QNQ.png
-  - 1*bd7CA1YFEfje6Rd3WiVbXg.png
+  - 1_Hu6PC-bmdzhrUoaQzUi7hA.png
+  - 1_tO_khyEJs281wPBheBPXDQ.png
+  - 1_ytSR_5nrIB2TRytHvCiQpg.png
+  - 1_PQz8kxs1o-aP4JU-s_3QNQ.png
+  - 1_bd7CA1YFEfje6Rd3WiVbXg.png
   - featuredImage.png
 image_type: "contain"
 tags:
@@ -25,7 +25,7 @@ keywords:
   - minikube
   - microservices
 ---
-  
+
 I heard Alex Clemmer give a talk at the NYC Kubernetes Meetup a few weeks ago. He started with a slide I loved:
 
 **“Kubernetes competes with Bash”**
@@ -42,23 +42,23 @@ Every server I’ve worked on has some Bash script, `start.sh`.
 
 It starts simple enough.
 
-![](/assets/images/tilt-is-the-start-sh-script-of-my-dreams/1*Hu6PC-bmdzhrUoaQzUi7hA.png)
+![](/assets/images/tilt-is-the-start-sh-script-of-my-dreams/1_Hu6PC-bmdzhrUoaQzUi7hA.png)
 
 Then you add a dependency on a database, then an API server. Of course it’s important to parallelize the builds!
 
-![](/assets/images/tilt-is-the-start-sh-script-of-my-dreams/1*tO_khyEJs281wPBheBPXDQ.png)
+![](/assets/images/tilt-is-the-start-sh-script-of-my-dreams/1_tO_khyEJs281wPBheBPXDQ.png)
 
 Sometimes the backend servers misbehave. You’re sick of wasting time poking at the server without realizing that the database went down in the background. So you add a healthcheck.
 
-![](/assets/images/tilt-is-the-start-sh-script-of-my-dreams/1*ytSR_5nrIB2TRytHvCiQpg.png)
+![](/assets/images/tilt-is-the-start-sh-script-of-my-dreams/1_ytSR_5nrIB2TRytHvCiQpg.png)
 
 Then the team’s designer runs the server. The script fails. Why? Because they have the wrong version of the Go compiler installed. So you start adding dependency checks for all the things you need.
 
-![](/assets/images/tilt-is-the-start-sh-script-of-my-dreams/1*PQz8kxs1o-aP4JU-s_3QNQ.png)
+![](/assets/images/tilt-is-the-start-sh-script-of-my-dreams/1_PQz8kxs1o-aP4JU-s_3QNQ.png)
 
 Now your junior backend engineer starts writing SQL queries. Sometimes they’re malformed. It would be great if we could get some of the Postgres server logs interspersed with the server logs.
 
-![](/assets/images/tilt-is-the-start-sh-script-of-my-dreams/1*bd7CA1YFEfje6Rd3WiVbXg.png)
+![](/assets/images/tilt-is-the-start-sh-script-of-my-dreams/1_bd7CA1YFEfje6Rd3WiVbXg.png)
 
 Congratulations!
 
@@ -66,7 +66,7 @@ You’ve built a miniature process orchestration engine on your local machine!!
 
 And it’s written in a complicated Bash script that only you know how to maintain.
 
-![](/assets/images/tilt-is-the-start-sh-script-of-my-dreams/1*eZeg5hDlvrCIm-Nxg-fItQ.png)
+![](/assets/images/tilt-is-the-start-sh-script-of-my-dreams/1_eZeg5hDlvrCIm-Nxg-fItQ.png)
 
 How could we do better next time?
 

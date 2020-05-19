@@ -36,7 +36,7 @@ sh("echo hello mish")
 
 Switch into the `mish` window and hit `r` to rerun.
 
-![selecting a workflow](/assets/images/mish-flexible-shell-notebooks/1*1iZGUcjmLf8mvYYjtU0ZLg.gif)*selecting a workflow*
+![selecting a workflow](/assets/images/mish-flexible-shell-notebooks/1_1iZGUcjmLf8mvYYjtU0ZLg.gif)*selecting a workflow*
 
 ## Workflows
 
@@ -74,4 +74,4 @@ What will make `mish` click for you? Maybe it’s the way it can take fewer keys
 
 Make sure to let us know by filling out our [5-minute survey](https://docs.google.com/forms/d/e/1FAIpQLSf8UXLG0FOeMswoW7LuUP02CeUwKBccJishJKDE_VyOqe7g_g/viewform?usp=sf_link).
 
-![](/assets/images/mish-flexible-shell-notebooks/1*KbCt7S4W2Eh8EK7mqor4Pg.png)
+![](/assets/images/mish-flexible-shell-notebooks/1_KbCt7S4W2Eh8EK7mqor4Pg.png)
