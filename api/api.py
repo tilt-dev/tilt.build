@@ -78,7 +78,7 @@ def restart_container() -> LiveUpdateStep:
   """
   pass
 
-def docker_build(ref: str, context: str, build_args: Dict[str, str] = {}, dockerfile: str = "Dockerfile", dockerfile_contents: Union[str, Blob] = "", live_update: List[LiveUpdateStep]=[], match_in_env_vars: bool = False, ignore: Union[str, List[str]] = [], only: Union[str, List[str]] = [], entrypoint: str = "", target: str = "", ssh: Union[str, List[str]] = "", network: str = "", secret: Union[str, List[str]] = "", extra_tag: Union[str, List[str]] = "", container_args: List[str] = None) -> None:
+def docker_build(ref: str, context: str, build_args: Dict[str, str] = {}, dockerfile: str = "Dockerfile", dockerfile_contents: Union[str, Blob] = "", live_update: List[LiveUpdateStep]=[], match_in_env_vars: bool = False, ignore: Union[str, List[str]] = [], only: Union[str, List[str]] = [], entrypoint: Union[str, List[str]] = [], target: str = "", ssh: Union[str, List[str]] = "", network: str = "", secret: Union[str, List[str]] = "", extra_tag: Union[str, List[str]] = "", container_args: List[str] = None) -> None:
   """Builds a docker image.
 
   The invocation
@@ -109,7 +109,7 @@ def docker_build(ref: str, context: str, build_args: Dict[str, str] = {}, docker
     match_in_env_vars: specifies that k8s objects can reference this image in their environment variables, and Tilt will handle those variables the same as it usually handles a k8s container spec's ``image`` s.
     ignore: set of file patterns that will be ignored. Ignored files will not trigger builds and will not be included in images. Follows the `dockerignore syntax <https://docs.docker.com/engine/reference/builder/#dockerignore-file>`_. Patterns will be evaluated relative to the ``context`` parameter.
     only: set of file paths that should be considered for the build. All other changes will not trigger a build and will not be included in images. Inverse of ignore parameter. Only accepts real paths, not file globs. Patterns will be evaluated relative to the ``context`` parameter.
-    entrypoint: command to run when this container starts. Takes precedence over the container's ``CMD`` or ``ENTRYPOINT``, and over a `container command specified in k8s YAML <https://kubernetes.io/docs/tasks/inject-data-application/define-command-argument-container/>`_. Will be evaluated in a shell context: e.g. ``entrypoint="foo.sh bar"`` will be executed in the container as ``/bin/sh -c 'foo.sh bar'``.
+    entrypoint: command to run when this container starts. Takes precedence over the container's ``CMD`` or ``ENTRYPOINT``, and over a `container command specified in k8s YAML <https://kubernetes.io/docs/tasks/inject-data-application/define-command-argument-container/>`_. If specified as a string, will be evaluated in a shell context (e.g. ``entrypoint="foo.sh bar"`` will be executed in the container as ``/bin/sh -c 'foo.sh bar'``); if specifed as a list, will be passed to the operating system as program name and args.
     target: Specify a build stage in the Dockerfile. Equivalent to the ``docker build --target`` flag.
     ssh: Include SSH secrets in your build. Use ssh='default' to clone private repositories inside a Dockerfile. Uses the syntax in the `docker build --ssh flag <https://docs.docker.com/develop/develop-images/build_enhancements/#using-ssh-to-access-private-data-in-builds>`_.
     network: Set the networking mode for RUN instructions. Equivalent to the ``docker build --network`` flag.
@@ -344,11 +344,11 @@ def load(path: str, *args):
     hi() # prints "Hello world!"
   """
 
-def local(command: str, quiet: bool = False, command_bat: str = "") -> Blob:
+def local(command: Union[str, List[str]], quiet: bool = False, command_bat: str = "") -> Blob:
   """Runs a command on the *host* machine, waits for it to finish, and returns its stdout as a ``Blob``
 
   Args:
-    command: Command to run. Executed with ``sh -c`` on macOS/Linux, or ``cmd /S /C`` on Windows.
+    command: Command to run. If a string, executed with ``sh -c`` on macOS/Linux, or ``cmd /S /C`` on Windows; if a list, will be passed to the operating system as program name and args.
     quiet: If set to True, skips printing output to log.
     command_bat: The command to run, expressed as a Windows batch command executed
       with ``cmd /S /C``. Takes precedence over the ``command`` parameter on Windows. Ignored on macOS/Linux.
@@ -563,7 +563,7 @@ def default_registry(host: str, host_from_cluster: str = None) -> None:
   """
   pass
 
-def custom_build(ref: str, command: str, deps: List[str], tag: str = "", disable_push: bool = False, skips_local_docker: bool = False, live_update: List[LiveUpdateStep]=[], match_in_env_vars: bool = False, ignore: Union[str, List[str]] = [], entrypoint: str="", command_bat: str = ""):
+def custom_build(ref: str, command: str, deps: List[str], tag: str = "", disable_push: bool = False, skips_local_docker: bool = False, live_update: List[LiveUpdateStep]=[], match_in_env_vars: bool = False, ignore: Union[str, List[str]] = [], entrypoint: Union[str, List[str]] = [], command_bat: str = ""):
   """Provide a custom command that will build an image.
 
   For examples on how to use this to integrate your own build scripts with Tilt,
@@ -595,7 +595,7 @@ def custom_build(ref: str, command: str, deps: List[str], tag: str = "", disable
     live_update: set of steps for updating a running container (see `Live Update documentation <live_update_reference.html>`_).
     match_in_env_vars: specifies that k8s objects can reference this image in their environment variables, and Tilt will handle those variables the same as it usually handles a k8s container spec's ``image`` s.
     ignore: set of file patterns that will be ignored. Ignored files will not trigger builds and will not be included in images. Follows the `dockerignore syntax <https://docs.docker.com/engine/reference/builder/#dockerignore-file>`_. Patterns/filepaths will be evaluated relative to each ``dep`` (e.g. if you specify ``deps=['dep1', 'dep2']`` and ``ignores=['foobar']``, Tilt will ignore both ``deps1/foobar`` and ``dep2/foobar``).
-    entrypoint: command to run when this container starts. Takes precedence over the container's ``CMD`` or ``ENTRYPOINT``, and over a `container command specified in k8s YAML <https://kubernetes.io/docs/tasks/inject-data-application/define-command-argument-container/>`_. Will be evaluated in a shell context: e.g. ``entrypoint="foo.sh bar"`` will be executed in the container as ``/bin/sh -c 'foo.sh bar'``.
+    entrypoint: command to run when this container starts. Takes precedence over the container's ``CMD`` or ``ENTRYPOINT``, and over a `container command specified in k8s YAML <https://kubernetes.io/docs/tasks/inject-data-application/define-command-argument-container/>`_. If specified as a string, will be evaluated in a shell context (e.g. ``entrypoint="foo.sh bar"`` will be executed in the container as ``/bin/sh -c 'foo.sh bar'``); if specifed as a list, will be passed to the operating system as program name and args.
     command_bat: The command to run, expressed as a Windows batch command executed
       with ``cmd /S /C``. Takes precedence over the ``command`` parameter on Windows. Ignored on macOS/Linux.
   """
@@ -695,7 +695,8 @@ def enable_feature(feature_name: str) -> None:
   """
   pass
 
-def local_resource(name: str, cmd: str = "", deps: Union[str, List[str]] = None,
+def local_resource(name: str, cmd: Union[str, List[str]],
+                   deps: Union[str, List[str]] = None,
                    trigger_mode: TriggerMode = TRIGGER_MODE_AUTO,
                    resource_deps: List[str] = [], ignore: Union[str, List[str]] = [],
                    auto_init: bool=True, serve_cmd: str = "", cmd_bat: str = "",
@@ -715,7 +716,7 @@ def local_resource(name: str, cmd: str = "", deps: Union[str, List[str]] = None,
 
   Args:
     name: will be used as the new name for this resource
-    cmd: command to be executed on host machine.  Executed with ``sh -c`` on macOS/Linux, or ``cmd /S /C`` on Windows.
+    cmd: command to be executed on host machine.  If a string, executed with ``sh -c`` on macOS/Linux, or ``cmd /S /C`` on Windows; if a list, will be passed to the operating system as program name and args.
     deps: a list of files or directories to be added as dependencies to this cmd. Tilt will watch those files and will run the cmd when they change. Only accepts real paths, not file globs.
     trigger_mode: one of ``TRIGGER_MODE_AUTO`` or ``TRIGGER_MODE_MANUAL``. For more info, see the
       `Manual Update Control docs <manual_update_control.html>`_.
