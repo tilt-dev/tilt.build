@@ -8,9 +8,9 @@ title: "Can Microservices Make Things Simpler?"
 image_needs_slug: true
 images:
   - featuredImage.png
-  - 1*9aBt8gH0RfsBhoyhboBfJg.gif
-  - 1*b0Ge745IQ8mMnsf2zchWEw.png
-  - 0*hpmaQOdQyFHa7B_2.png
+  - 1_9aBt8gH0RfsBhoyhboBfJg.gif
+  - 1_b0Ge745IQ8mMnsf2zchWEw.png
+  - 0_hpmaQOdQyFHa7B_2.png
 tags:
   - microservices
   - erlang
@@ -37,7 +37,7 @@ Erlang encourages a component model in two ways. First it’s easy to create nam
 
 Erlang gives you an easy out of the box way to explore this structure with the observer application. Open it up, navigate to the applications tab and you get this:
 
-![](/assets/images/can-microservices-make-things-simpler/1*-f4YHuXmE_ED-w1Z9_KZZQ.png)
+![](/assets/images/can-microservices-make-things-simpler/1_-f4YHuXmE_ED-w1Z9_KZZQ.png)
 
 Wow, this tells me a lot! So this “RealWorld” application has some concept of Repos and Endpoints. This repos thing has a pool of processes, and endpoint involve subpub in some way. This is a great jumping off point to learn more about this application.
 
@@ -49,19 +49,19 @@ Let’s compare this level of visibility to what I get out of the box with the [
 
 Right now the README [recommends](https://github.com/GoogleCloudPlatform/microservices-demo#option-1-running-locally-with-docker-for-desktop) that you use [Skaffold](https://github.com/GoogleContainerTools/skaffold) and run `skaffold dev` to start all the services.
 
-![](/assets/images/can-microservices-make-things-simpler/1*9aBt8gH0RfsBhoyhboBfJg.gif)
+![](/assets/images/can-microservices-make-things-simpler/1_9aBt8gH0RfsBhoyhboBfJg.gif)
 
 Wow, that’s a lot of logs! I can tell that there are a lot of services running but unfortunately it’s hard to say much beyond that as the info logs are drowning everything else out. Did all of my services start correctly? What even are the names of my services? How do they relate?
 
 We can spend some time and read through the code and configs and discover, slowly, that there are eleven services and one data store that they all talk to. But how nice would it have been if this application had presented me with an Erlang-esque view?
 
-![](/assets/images/can-microservices-make-things-simpler/1*b0Ge745IQ8mMnsf2zchWEw.png)
+![](/assets/images/can-microservices-make-things-simpler/1_b0Ge745IQ8mMnsf2zchWEw.png)
 
 From this image I know that if I want to change the cart behavior, I should probably look at the cart service. The cart service in turn depends on a service called, Redis. It’s safe to say Redis is the backing store here.
 
 This is much better. In fact this looks a lot simpler than any equivalent visualization you could auto generate from a monolithic application. In most languages the best you can hope for is a class dependency graph. That quickly turns ugly and uninformative:
 
-![](/assets/images/can-microservices-make-things-simpler/0*hpmaQOdQyFHa7B_2.png)
+![](/assets/images/can-microservices-make-things-simpler/0_hpmaQOdQyFHa7B_2.png)
 
 What does this thing do? How am I expected to use it? Where do I look if I want to change some behavior?
 

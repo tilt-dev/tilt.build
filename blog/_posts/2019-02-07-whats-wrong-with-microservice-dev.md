@@ -7,11 +7,11 @@ canonical_url: "https://medium.com/windmill-engineering/whats-wrong-with-microse
 title: "What’s Wrong With Microservice Dev?"
 image_needs_slug: true
 images:
-  - 1*2ecTbOses842YP2DyKEziA.png
-  - 1*bmz5fPs8hRMjYgVSaHxAEA.png
-  - 1*9nlX5cxWOPxi4XztMbc9bA.png
+  - 1_2ecTbOses842YP2DyKEziA.png
+  - 1_bmz5fPs8hRMjYgVSaHxAEA.png
+  - 1_9nlX5cxWOPxi4XztMbc9bA.png
   - featuredImage.png
-  - 1*40IXe2qBuWw8_LpUZvbFZg.png
+  - 1_40IXe2qBuWw8_LpUZvbFZg.png
 tags:
   - microservices
   - development
@@ -25,7 +25,7 @@ keywords:
   - workflow
   - devtools
 ---
-  
+
 Here at Windmill, we talk a lot about how much it sucks to develop on microservices. If you haven’t experienced this pain firsthand, or if you’ve never known anything better, you might wonder what we’re going on about.
 
 Well, wonder no more! Here’s a quick overview of a few different development cycles, how microservice dev stacks up (spoiler: not well), and how developing with [Tilt](http://tilt.build/) makes it suck less.
@@ -34,7 +34,7 @@ Well, wonder no more! Here’s a quick overview of a few different development c
 
 The basic loop of development is the same no matter what sort of service(s) you’re working on:
 
-![](/assets/images/whats-wrong-with-microservice-dev/1*2ecTbOses842YP2DyKEziA.png)
+![](/assets/images/whats-wrong-with-microservice-dev/1_2ecTbOses842YP2DyKEziA.png)
 
 1. edit some code
 
@@ -58,7 +58,7 @@ As you can imagine, the details look pretty different depending on the type of d
 
 ### Front-End Dev
 
-![](/assets/images/whats-wrong-with-microservice-dev/1*bmz5fPs8hRMjYgVSaHxAEA.png)
+![](/assets/images/whats-wrong-with-microservice-dev/1_bmz5fPs8hRMjYgVSaHxAEA.png)
 
 For most front-end devs, life goes like this: you write a line of code, hot-reload magic happens almost instantly, and you can see the results of your change in your browser, which tells you what code you need to change next. Lather, rinse, and repeat!
 
@@ -68,7 +68,7 @@ All in all, front-end devs have it pretty good. (Don’t get me wrong, front-end
 
 ### Backend Monolith Dev
 
-![](/assets/images/whats-wrong-with-microservice-dev/1*9nlX5cxWOPxi4XztMbc9bA.png)
+![](/assets/images/whats-wrong-with-microservice-dev/1_9nlX5cxWOPxi4XztMbc9bA.png)
 
 The development loop takes a little longer when you’re working on a monolithic backend app. You write some code, and need to manually do something to make it go; run a command or restart a script, say. Then the code compiles/the script runs (often slower for backend code than for frontend code), and you need to piece together what’s going on by looking at a combination of app behavior and logs. Luckily, if you’re developing a monolith, you can expect the logs to be in one place.
 
@@ -78,7 +78,7 @@ Finally, our feature presentation: how does microservice dev compare to all this
 
 ### Microservice Dev
 
-![](/assets/images/whats-wrong-with-microservice-dev/1*9r-gJy5fuJbHGYLOGR9wMA.png)
+![](/assets/images/whats-wrong-with-microservice-dev/1_9r-gJy5fuJbHGYLOGR9wMA.png)
 
 Say you’re making a code change that spans multiple services; that means that you need to go restart all those services, and wait for them all to compile/spin up, and then you look at the app and the logs, but you have a million panes of logs to sift through because you’re running so many services, and why isn’t the thing working, oh whoops you forgot to restart one of the services, and then you have to find its log among a million logs, and only you *then *can figure out what’s going on and make your next code change.
 
@@ -94,7 +94,7 @@ Luckily, we’ve got a solution, and that solution is [*Tilt](https://tilt.build
 
 ### Developing Microservices with Tilt
 
-![](/assets/images/whats-wrong-with-microservice-dev/1*40IXe2qBuWw8_LpUZvbFZg.png)
+![](/assets/images/whats-wrong-with-microservice-dev/1_40IXe2qBuWw8_LpUZvbFZg.png)
 
 As you can see, this flow looks a lot more similar to front-end development than to microservice development. To use Tilt, you connect your existing configs with a bit of glue code called a Tiltfile (written in a dialect of Python), and then `tilt up` and go!
 

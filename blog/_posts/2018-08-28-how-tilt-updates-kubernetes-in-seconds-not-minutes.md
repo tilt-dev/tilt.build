@@ -8,12 +8,12 @@ title: "How Tilt updates Kubernetes in Seconds, not Minutes"
 image_needs_slug: true
 images:
   - featuredImage.png
-  - 1*GXhhCXThiOY8QNXOFDPKEA.png
-  - 1*1etxOQd3bBcVFuLE10t-ZQ.png
-  - 1*b0MM1kRRTvsix3uHxJ3dSA.png
-  - 1*Hz6Ht0xggj6GO3vC8vmAUw.png
-  - 1*2HUWuW8PNzzDZzwaeYP_pg.png
-  - 1*OUhj_0ds9l4-ldyTripowQ.jpeg
+  - 1_GXhhCXThiOY8QNXOFDPKEA.png
+  - 1_1etxOQd3bBcVFuLE10t-ZQ.png
+  - 1_b0MM1kRRTvsix3uHxJ3dSA.png
+  - 1_Hz6Ht0xggj6GO3vC8vmAUw.png
+  - 1_2HUWuW8PNzzDZzwaeYP_pg.png
+  - 1_OUhj_0ds9l4-ldyTripowQ.jpeg
 tags:
   - docker
   - kubernetes
@@ -27,7 +27,7 @@ keywords:
   - developer
   - developer-tools
 ---
-  
+
 When I bring my cat a box of toys, he loves the box and ignores the toys. I wish he’d pay attention to the work I did, but I didn’t let it bother me because he’s a cat. Then I started getting the same reaction from Kubernetes developers.
 
 We built our new tool [Tilt](https://tilt.build) to make Kubernetes updates fast. Really fast. Seconds-instead-of-minutes fast. Cloud-as-fast-as-laptop fast. But when we show it to developers, they love the UI and ignore the speed.
@@ -54,7 +54,7 @@ Before we can update, we have to deploy an initial version. The Kubernetes deplo
 
 Updating kubernetes isn’t an update so much as a second deploy. Even if you just changed one file, Docker will create a new layer with your current source code and start a build from scratch. (Docker’s layers and multistage builds can help, but require much cleverness)
 
-![Two vanilla k8s deploys](/assets/images/how-tilt-updates-kubernetes-in-seconds-not-minutes/1*GXhhCXThiOY8QNXOFDPKEA.png)*Two vanilla k8s deploys*
+![Two vanilla k8s deploys](/assets/images/how-tilt-updates-kubernetes-in-seconds-not-minutes/1_GXhhCXThiOY8QNXOFDPKEA.png)*Two vanilla k8s deploys*
 
 ## Incremental Build
 
@@ -62,7 +62,7 @@ Tilt’s image build API makes it easy to use your build cache on subsequent bui
 
 Broadly speaking, Docker images are built in two steps: first, you copy over your source code; second, you run any steps to compile code or generate artifacts (e.g. “go build”, “proto gen”, “npm install”, etc.) Tilt’s `fast_build` improves both steps. In the copy step, Tilt updates just the edited file(s). In the build step Tilt injects the cache from the previous run.
 
-![The second time you make an apple pie, reuse the previously created universe](/assets/images/how-tilt-updates-kubernetes-in-seconds-not-minutes/1*1etxOQd3bBcVFuLE10t-ZQ.png)*The second time you make an apple pie, reuse the previously created universe*
+![The second time you make an apple pie, reuse the previously created universe](/assets/images/how-tilt-updates-kubernetes-in-seconds-not-minutes/1_1etxOQd3bBcVFuLE10t-ZQ.png)*The second time you make an apple pie, reuse the previously created universe*
 
 ## Incremental Deploy
 
@@ -70,7 +70,7 @@ We’re not done! Kubernetes is fast at starting new pods, but it can still take
 
 A “Synclet” runs on the same node. When you update files, the Synclet adds them to the existing pod and restarts the container. (This is an example of the [Sidecar](https://kubernetes.io/blog/2015/06/the-distributed-system-toolkit-patterns/) pattern).
 
-![Don’t tear down your house each time you want to change a doorknob](/assets/images/how-tilt-updates-kubernetes-in-seconds-not-minutes/1*b0MM1kRRTvsix3uHxJ3dSA.png)*Don’t tear down your house each time you want to change a doorknob*
+![Don’t tear down your house each time you want to change a doorknob](/assets/images/how-tilt-updates-kubernetes-in-seconds-not-minutes/1_b0MM1kRRTvsix3uHxJ3dSA.png)*Don’t tear down your house each time you want to change a doorknob*
 
 ## Skip Registry
 
@@ -78,7 +78,7 @@ Container registries are amazing for images with high fan-out, but our images ar
 
 (This optimization creates corner cases when pods die and restart. Tilt watches your cluster to handle these cases and keep your personal instance in sync.)
 
-![Mitigating the man-in-the-middle makes Mallory mad](/assets/images/how-tilt-updates-kubernetes-in-seconds-not-minutes/1*Hz6Ht0xggj6GO3vC8vmAUw.png)*Mitigating the man-in-the-middle makes Mallory mad*
+![Mitigating the man-in-the-middle makes Mallory mad](/assets/images/how-tilt-updates-kubernetes-in-seconds-not-minutes/1_Hz6Ht0xggj6GO3vC8vmAUw.png)*Mitigating the man-in-the-middle makes Mallory mad*
 
 ## Build in Cloud
 
@@ -86,7 +86,7 @@ Container registries are amazing for images with high fan-out, but our images ar
 
 Tilt manages the complexity and headaches of running build commands in your cluster so you get faster updates.
 
-![The Code is coming from inside the Cluster](/assets/images/how-tilt-updates-kubernetes-in-seconds-not-minutes/1*2HUWuW8PNzzDZzwaeYP_pg.png)*The Code is coming from inside the Cluster*
+![The Code is coming from inside the Cluster](/assets/images/how-tilt-updates-kubernetes-in-seconds-not-minutes/1_2HUWuW8PNzzDZzwaeYP_pg.png)*The Code is coming from inside the Cluster*
 
 ## Stand on our shoulders
 
@@ -102,4 +102,4 @@ Once you’re working with vanilla deploys, upgrade your builds to `fast_build`,
 
 ## Cat Photo
 
-![Purring contentedly in his cardboard castle](/assets/images/how-tilt-updates-kubernetes-in-seconds-not-minutes/1*OUhj_0ds9l4-ldyTripowQ.jpeg)*Purring contentedly in his cardboard castle*
+![Purring contentedly in his cardboard castle](/assets/images/how-tilt-updates-kubernetes-in-seconds-not-minutes/1_OUhj_0ds9l4-ldyTripowQ.jpeg)*Purring contentedly in his cardboard castle*

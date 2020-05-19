@@ -8,7 +8,7 @@ title: "12 GothamGo Talks That Could Have Used More Glitter"
 image_needs_slug: true
 images:
   - featuredImage.png
-  - 1*Xh2NMcuUBFQ81Yity29yRQ.png
+  - 1_Xh2NMcuUBFQ81Yity29yRQ.png
 tags:
   - software-engineering
   - go

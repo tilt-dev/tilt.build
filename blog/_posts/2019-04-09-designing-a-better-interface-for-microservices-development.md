@@ -8,8 +8,8 @@ title: "Designing a Better Interface for Microservices Development"
 image_needs_slug: true
 images:
   - featuredImage.png
-  - 1*V8V8DrFCWrexmV9WcuPolg.png
-  - 1*uVgLL5OZaveQgSIgTSfjXg.png
+  - 1_V8V8DrFCWrexmV9WcuPolg.png
+  - 1_uVgLL5OZaveQgSIgTSfjXg.png
 tags:
   - microservices
   - development
@@ -42,13 +42,13 @@ Tilt should show a lightweight, responsive, and trustworthy overview as you iter
 
 Early iterations of `tilt up` used to stream multiplexed logs inline in your command line. And while you could pipe this output to grep or other fave command-line tools for further analysis, having this as your sole interface to Tilt really only communicated a few things. “Hey, we’re working.” and “Okay, now we’re waiting for your next move.”
 
-![You can still see this output with `tilt up --hud=false`](/assets/images/designing-a-better-interface-for-microservices-development/1*V8V8DrFCWrexmV9WcuPolg.png)*You can still see this output with `tilt up --hud=false`*
+![You can still see this output with `tilt up --hud=false`](/assets/images/designing-a-better-interface-for-microservices-development/1_V8V8DrFCWrexmV9WcuPolg.png)*You can still see this output with `tilt up --hud=false`*
 
 The logical next evolution was to give people an overview. What’s Tilt doing in response to your file changes? What’s happening with your cluster?
 
 Our subsequent Terminal UI (TUI) shows your resources, insight into their status, and some ways to browse logs: With a resource selected, you hit “enter” and see a scrollable modal window with logs.
 
-![Tilt’s Terminal UI log modal](/assets/images/designing-a-better-interface-for-microservices-development/1*uVgLL5OZaveQgSIgTSfjXg.png)*Tilt’s Terminal UI log modal*
+![Tilt’s Terminal UI log modal](/assets/images/designing-a-better-interface-for-microservices-development/1_uVgLL5OZaveQgSIgTSfjXg.png)*Tilt’s Terminal UI log modal*
 
 ### Limitations of TUI
 
