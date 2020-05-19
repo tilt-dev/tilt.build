@@ -8,7 +8,7 @@ layout: home
 ## Tilt manages local development instances for teams that deploy to Kubernetes.
 
 <div class="u-blockTwoThirds">
-Get started easily, get more done, and never play twenty questions with <code>kubectl</code> ever again.
+Get started easily, get more done, and never play twenty questions with <code>kubectl</code> ever again!!
 </div>
 
 <div class="flexblock u-marginTop1_25 u-marginBottom1_5">

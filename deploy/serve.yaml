@@ -17,13 +17,6 @@ spec:
         ports:
         - containerPort: 4000
           name: http
-        readinessProbe:
-          initialDelaySeconds: 2
-          periodSeconds: 5
-          timeoutSeconds: 2
-          exec:
-            command:
-              - ./healthcheck.sh
 ---
 apiVersion: apps/v1
 kind: Deployment

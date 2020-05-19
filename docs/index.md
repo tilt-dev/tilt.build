@@ -3,7 +3,7 @@ title: Tilt User Guide
 layout: docs
 ---
 
-Local Kubernetes development with no stress.
+Local Kubernetes development with no stress!!!!
 
 [Tilt]({{site.landingurl}}) helps you develop your microservices locally.
 Run `tilt up` to start working on your services in a complete dev environment
@@ -60,7 +60,7 @@ status of running services, errors, logs, and more.
  find us in the [#tilt](https://kubernetes.slack.com/messages/CESBL84MV/)
  channel. Or [file an issue](https://github.com/windmilleng/tilt/issues).
 
-**Contribute:** Tilt is open source, developed on [GitHub](https://github.com/windmilleng/tilt). Check out our [contribution](https://github.com/windmilleng/tilt/blob/master/CONTRIBUTING.md) guidelines. 
+**Contribute:** Tilt is open source, developed on [GitHub](https://github.com/windmilleng/tilt). Check out our [contribution](https://github.com/windmilleng/tilt/blob/master/CONTRIBUTING.md) guidelines.
 
 **Follow along:** [@tilt_dev](https://twitter.com/tilt_dev) on Twitter. Updates
 and announcements on the [Tilt blog](https://blog.tilt.dev).

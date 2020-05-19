@@ -9,4 +9,4 @@ ADD ./src/Gemfile.lock /src/
 RUN bundle install
 ADD ./src .
 ADD healthcheck.sh .
-ENTRYPOINT bundle exec jekyll serve --config _config.yml,_config-dev.yml
+ENTRYPOINT ./test.sh

@@ -5,6 +5,7 @@ k8s_resource_assembly_version(2)
 default_registry('gcr.io/windmill-public-containers')
 set_team('tilt-dev')
 enable_feature('update_history')
+docker_prune_settings(max_age_mins=1)
 
 # Generate the API docs.
 local_resource('make-api', 'make api', ['deploy/api.dockerfile', 'Makefile', 'api'])
