@@ -10,18 +10,18 @@ Based on how you previously [installed Tilt](install.html), upgrade to the lates
 macOS
 -----
 
+### If you have Homebrew
+
+```
+$ brew update && brew upgrade tilt-dev/tap/tilt
+$ brew install tilt-dev/tap/tilt
+```
+
 ### If you installed with the install script or directly with a release binary
 
 ```bash
 curl -L https://github.com/tilt-dev/tilt/releases/download/v0.13.6/tilt.0.13.6.mac.x86_64.tar.gz | tar -xzv tilt && \
   sudo mv tilt /usr/local/bin/tilt
-```
-
-### If you installed via Homebrew
-
-```
-$ brew update && brew upgrade tilt-dev/tap/tilt
-$ brew install tilt-dev/tap/tilt
 ```
 
 Linux
@@ -34,6 +34,14 @@ curl -L https://github.com/tilt-dev/tilt/releases/download/v0.13.6/tilt.0.13.6.l
 
 Windows
 -----
+
+### If you have Scoop
+
+```
+scoop update tilt
+```
+
+### If you installed with the install script or directly with a release binary
 
 ```powershell
 Invoke-WebRequest "https://github.com/tilt-dev/tilt/releases/download/v0.13.6/tilt.0.13.6.windows.x86_64.zip" -OutFile "tilt.zip"
