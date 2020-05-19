@@ -700,7 +700,7 @@ then re-tag it with its own tag before pushing to your cluster. See
                    bar&apos;
                   </span>
                  </code>
-                 ); if specifed as an array, will be passed to the operating system as program name and args.
+                 ); if specifed as a list, will be passed to the operating system as program name and args.
                 </li>
                 <li>
                  <strong>
@@ -1860,7 +1860,7 @@ ensures a pretty high bar of intent.
                     bar&apos;
                    </span>
                   </code>
-                  ); if specifed as an array, will be passed to the operating system as program name and args.
+                  ); if specifed as a list, will be passed to the operating system as program name and args.
                  </p>
                 </li>
                 <li>
@@ -4440,12 +4440,30 @@ to share across Tiltfiles.
                   command
                  </strong>
                  (
+                 <code class="xref py py-data docutils literal notranslate">
+                  <span class="pre">
+                   Union
+                  </span>
+                 </code>
+                 [
                  <code class="xref py py-class docutils literal notranslate">
                   <span class="pre">
                    str
                   </span>
                  </code>
-                 ) &#x2013; Command to run. Executed with
+                 ,
+                 <code class="xref py py-class docutils literal notranslate">
+                  <span class="pre">
+                   List
+                  </span>
+                 </code>
+                 [
+                 <code class="xref py py-class docutils literal notranslate">
+                  <span class="pre">
+                   str
+                  </span>
+                 </code>
+                 ]]) &#x2013; Command to run. If a string, executed with
                  <code class="docutils literal notranslate">
                   <span class="pre">
                    sh
@@ -4466,7 +4484,7 @@ to share across Tiltfiles.
                    /C
                   </span>
                  </code>
-                 on Windows.
+                 on Windows; if a list, will be passed to the operating system as program name and args.
                 </li>
                 <li>
                  <strong>
@@ -4548,7 +4566,7 @@ with
            </em>
            ,
            <em>
-            cmd=&apos;&apos;
+            cmd
            </em>
            ,
            <em>
@@ -4678,12 +4696,30 @@ with
                   cmd
                  </strong>
                  (
+                 <code class="xref py py-data docutils literal notranslate">
+                  <span class="pre">
+                   Union
+                  </span>
+                 </code>
+                 [
                  <code class="xref py py-class docutils literal notranslate">
                   <span class="pre">
                    str
                   </span>
                  </code>
-                 ) &#x2013; command to be executed on host machine.  Executed with
+                 ,
+                 <code class="xref py py-class docutils literal notranslate">
+                  <span class="pre">
+                   List
+                  </span>
+                 </code>
+                 [
+                 <code class="xref py py-class docutils literal notranslate">
+                  <span class="pre">
+                   str
+                  </span>
+                 </code>
+                 ]]) &#x2013; command to be executed on host machine.  If a string, executed with
                  <code class="docutils literal notranslate">
                   <span class="pre">
                    sh
@@ -4704,7 +4740,7 @@ with
                    /C
                   </span>
                  </code>
-                 on Windows.
+                 on Windows; if a list, will be passed to the operating system as program name and args.
                 </li>
                 <li>
                  <strong>
