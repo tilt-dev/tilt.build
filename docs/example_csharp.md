@@ -223,9 +223,9 @@ The first thing to notice is the `live_update` parameter, which consists of one 
 This copies the build output from the `out` directory into the container.
 
 After syncing the files, we want to re-execute our updated binary. We accomplish this with the
-[`restart_process` extension](https://github.com/windmilleng/tilt-extensions/tree/master/restart_process)
-(for more on extensions, [see the docs](/extensions.html)).
-In particular, we swap out our `docker_build` call for a `docker_build_with_restart` call; it's
+[`restart_process` extension](https://github.com/windmilleng/tilt-extensions/tree/master/restart_process),
+which we imported with the `load` call on the first line. (For more on extensions, [see the docs](/extensions.html).)
+We swap out our `docker_build` call for function we imported, `docker_build_with_restart`: it's
 almost exactly the same as `docker_build`, only it knows to restart our process at the end
 of a `live_update`. The `entrypoint` parameter specifies what command to re-execute.
 
