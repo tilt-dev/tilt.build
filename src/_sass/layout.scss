@@ -1366,7 +1366,8 @@ input[type=checkbox] {
 input[type=checkbox]:checked + .formItem-checkbox {
   background-color: $color-green;
 }
-.language-bash code {
+.language-bash code,
+.language-powershell code {
   user-select: all;
 }
 .twitter-tweet {
