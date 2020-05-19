@@ -80,7 +80,10 @@ kubectl config use-context docker-desktop
 iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/tilt-dev/tilt/master/scripts/install.ps1')
 ```
 
-After installation, you should add the `tilt` install directory on your $PATH
+If you have [Scoop](https://scoop.sh) installed, the installer will use
+that to make Tilt easy to access and upgrade.
+
+Otherwise, you will need to add the `tilt` install directory on your $PATH
 (or create an alias) to make it easier to access.
 
 Verify
@@ -109,17 +112,36 @@ You're ready to start using Tilt! Try our [Tutorial](tutorial.html) to setup you
 Alternative Installations
 -------------------------
 
-The [1-step installation script](https://github.com/tilt-dev/tilt/blob/master/scripts/install.sh)
-will install the most recent version of Tilt.
+We offer 1-step installation scripts that will install the most recent version of Tilt.
 
-The installer first checks if you can install Tilt with Homebrew. If you'd prefer
-to run Homebrew manually, run:
+- [On macOS/Linux](https://raw.githubusercontent.com/tilt-dev/tilt/master/scripts/install.sh)
+- [On Windows](https://raw.githubusercontent.com/tilt-dev/tilt/master/scripts/install.ps1)
+
+The installer first checks if you can install Tilt with a package manager, like
+[Homebrew](https://brew.sh/) or [Scoop](https://scoop.sh). 
+
+You can also use these installers directly.
+
+### Homebrew (macOS)
 
 ```bash
 brew install tilt-dev/tap/tilt
 ```
 
-Otherwise, the installer downloads a static `tilt` binary and puts it under `/usr/local/bin`.
+### Scoop (Windows)
+
+```bash
+scoop bucket add tilt-dev https://github.com/tilt-dev/scoop-bucket
+scoop install tilt
+```
+
+### Manual Install
+
+If you don't have a package manager installed, the installer will download a
+`tilt` static bianry for you and put it in a reasonable place. (`~/.local/bin`,
+`/usr/local/bin`, or `~/bin` depending on your OS and what's already on your
+$PATH.
+
 See [Tilt's GitHub Releases page](https://github.com/tilt-dev/tilt/releases) for specific versions.
 If you'd prefer to download the binary manually:
 
