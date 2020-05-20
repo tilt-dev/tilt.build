@@ -3803,9 +3803,9 @@ Tilt&#x2019;s default behavior is sufficient.
              <pre><span></span><span class="c1"># load Deployment foo</span>
 <span class="n">k8s_yaml</span><span class="p">(</span><span class="s1">&apos;foo.yaml&apos;</span><span class="p">)</span>
 
-<span class="c1"># modify the resource built around the Deployment &quot;foo&quot; to forward</span>
-<span class="c1"># container port 8080 to localhost:8080</span>
-<span class="n">k8s_resource</span><span class="p">(</span><span class="n">workload</span><span class="o">=</span><span class="s1">&apos;foo:deployment&apos;</span><span class="p">,</span> <span class="n">port_forwards</span><span class="o">=</span><span class="mi">8080</span><span class="p">)</span>
+<span class="c1"># modify the resource called &quot;foo&quot; (auto-assembled by Tilt)</span>
+<span class="c1"># to forward container port 8080 to localhost:8080</span>
+<span class="n">k8s_resource</span><span class="p">(</span><span class="n">workload</span><span class="o">=</span><span class="s1">&apos;foo&apos;</span><span class="p">,</span> <span class="n">port_forwards</span><span class="o">=</span><span class="mi">8080</span><span class="p">)</span>
 </pre>
             </div>
            </div>
@@ -3817,13 +3817,15 @@ Tilt&#x2019;s default behavior is sufficient.
 <span class="c1"># create a new resource called &quot;bar&quot; which contains the objects</span>
 <span class="c1"># loaded above (none of which are workloads, so none of which</span>
 <span class="c1"># would be automatically assigned to a resource). Note that the</span>
-<span class="c1"># first two object identifiers specify name and kind, since the</span>
-<span class="c1"># name &quot;bar&quot; is not unique; as the name &quot;bar-password&quot; is unique,</span>
-<span class="c1"># &quot;bar-password&quot; suffices as an identifier (though a fully-</span>
-<span class="c1"># qualified identifier would be accepted as well).</span>
+<span class="c1"># first two object selectors specify both &apos;name&apos; and &apos;kind&apos;,</span>
+<span class="c1"># since just the string &quot;bar&quot; does not uniquely specify a single object.</span>
+<span class="c1"># As the object name &quot;bar-password&quot; is unique, &quot;bar-password&quot; suffices as</span>
+<span class="c1"># an object selector (though a more more qualified object selector</span>
+<span class="c1"># like &quot;bar-password:secret&quot; or &quot;bar-password:secret:default&quot; would</span>
+<span class="c1"># be accepted as well).</span>
 <span class="n">k8s_resource</span><span class="p">(</span>
-  <span class="n">objects</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;bar:crd&quot;</span><span class="p">,</span> <span class="s2">&quot;bar:service&quot;</span><span class="p">,</span> <span class="s2">&quot;bar-password&quot;</span><span class="p">],</span>
-  <span class="n">new_name</span><span class="o">=</span><span class="s2">&quot;bar&quot;</span>
+  <span class="n">objects</span><span class="o">=</span><span class="p">[</span><span class="s1">&apos;bar:crd&apos;</span><span class="p">,</span> <span class="s1">&apos;bar:service&apos;</span><span class="p">,</span> <span class="s1">&apos;bar-password&apos;</span><span class="p">],</span>
+  <span class="n">new_name</span><span class="o">=</span><span class="s1">&apos;bar&apos;</span>
 <span class="p">)</span>
 </pre>
             </div>
@@ -4079,32 +4081,33 @@ See the
                   </span>
                  </code>
                  ]) &#x2013; A list of Kubernetes objects to be added to this resource, specified via
+Tilt&#x2019;s
                  <a class="reference external" href="tiltfile_concepts.html#kubernetes-object-selectors">
-                  Kubernetes Object Selectors
+                  Kubernetes Object Selector
                  </a>
-                 .
-If a selector matches more than one Kubernetes object, or matches an object already
-associated with a resource,
-                 <code class="docutils literal notranslate">
-                  <span class="pre">
-                   k8s_resource
-                  </span>
-                 </code>
-                 raises an error. If the
+                 syntax. If the
                  <code class="docutils literal notranslate">
                   <span class="pre">
                    workload
                   </span>
                  </code>
-                 is
-specified, these objects will be added to the existing resource; otherwise, these
-objects will form a new resource with name
+                 parameter is specified, these objects will be
+added to the existing resource; otherwise, these objects will form a new
+resource with name
                  <code class="docutils literal notranslate">
                   <span class="pre">
                    new_name
                   </span>
                  </code>
-                 .
+                 . If an object selector matches more than
+one Kubernetes object, or matches an object already associated with a
+resource,
+                 <code class="docutils literal notranslate">
+                  <span class="pre">
+                   k8s_resource
+                  </span>
+                 </code>
+                 raises an error.
                 </li>
                </ul>
               </td>

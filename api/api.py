@@ -256,9 +256,9 @@ def k8s_resource(workload: str = "", new_name: str = "",
     # load Deployment foo
     k8s_yaml('foo.yaml')
 
-    # modify the resource built around the Deployment "foo" to forward
-    # container port 8080 to localhost:8080
-    k8s_resource(workload='foo:deployment', port_forwards=8080)
+    # modify the resource called "foo" (auto-assembled by Tilt)
+    # to forward container port 8080 to localhost:8080
+    k8s_resource(workload='foo', port_forwards=8080)
 
   .. code-block:: python
 
@@ -268,13 +268,15 @@ def k8s_resource(workload: str = "", new_name: str = "",
     # create a new resource called "bar" which contains the objects
     # loaded above (none of which are workloads, so none of which
     # would be automatically assigned to a resource). Note that the
-    # first two object identifiers specify name and kind, since the
-    # name "bar" is not unique; as the name "bar-password" is unique,
-    # "bar-password" suffices as an identifier (though a fully-
-    # qualified identifier would be accepted as well).
+    # first two object selectors specify both 'name' and 'kind',
+    # since just the string "bar" does not uniquely specify a single object.
+    # As the object name "bar-password" is unique, "bar-password" suffices as
+    # an object selector (though a more more qualified object selector
+    # like "bar-password:secret" or "bar-password:secret:default" would
+    # be accepted as well).
     k8s_resource(
-      objects=["bar:crd", "bar:service", "bar-password"],
-      new_name="bar"
+      objects=['bar:crd', 'bar:service', 'bar-password'],
+      new_name='bar'
     )
 
   For more examples, see `Tiltfile Concepts: Resources <tiltfile_concepts.html#resources>`_.
@@ -309,11 +311,12 @@ def k8s_resource(workload: str = "", new_name: str = "",
     resource_deps: A list of resources on which this resource depends.
       See the `Resource Dependencies docs <resource_dependencies.html>`_.
     objects: A list of Kubernetes objects to be added to this resource, specified via
-      `Kubernetes Object Selectors <tiltfile_concepts.html#kubernetes-object-selectors>`_.
-      If a selector matches more than one Kubernetes object, or matches an object already
-      associated with a resource, ``k8s_resource`` raises an error. If the ``workload`` is
-      specified, these objects will be added to the existing resource; otherwise, these
-      objects will form a new resource with name ``new_name``.
+      Tilt's `Kubernetes Object Selector <tiltfile_concepts.html#kubernetes-object-selectors>`_
+      syntax. If the ``workload`` parameter is specified, these objects will be
+      added to the existing resource; otherwise, these objects will form a new
+      resource with name ``new_name``. If an object selector matches more than
+      one Kubernetes object, or matches an object already associated with a
+      resource, ``k8s_resource`` raises an error.
   """
   pass
 
