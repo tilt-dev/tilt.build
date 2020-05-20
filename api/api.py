@@ -824,7 +824,7 @@ def secret_settings(disable_scrub: bool = False) -> None:
 """
 
 
-def update_settings(max_parallel_updates: int) -> None:
+def update_settings(max_parallel_updates: int=3, k8s_upsert_timeout_secs: int=30) -> None:
   """Configures Tilt's updates to your resources. (An update is any execution of or
   change to a resource. Examples of updates include: doing a docker build + deploy to
   Kubernetes; running a live update on an existing container; and executing
@@ -834,4 +834,5 @@ def update_settings(max_parallel_updates: int) -> None:
 
   Args:
     max_parallel_updates: maximum number of updates Tilt will execute in parallel. Default is 3. Must be a positive integer.
+    k8s_upsert_timeout_secs: timeout (in seconds) for Kubernetes upserts (i.e. ``create``/``apply`` calls). Minimum value is 1.
 """
