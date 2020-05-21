@@ -6283,7 +6283,11 @@ Can be a file (in which case just that file will be synced) or directory (in whi
             (
            </span>
            <em>
-            max_parallel_updates
+            max_parallel_updates=3
+           </em>
+           ,
+           <em>
+            k8s_upsert_timeout_secs=30
            </em>
            <span class="sig-paren">
             )
@@ -6315,16 +6319,44 @@ a local resource command).
                Parameters:
               </th>
               <td class="field-body">
-               <strong>
-                max_parallel_updates
-               </strong>
-               (
-               <code class="xref py py-class docutils literal notranslate">
-                <span class="pre">
-                 int
-                </span>
-               </code>
-               ) &#x2013; maximum number of updates Tilt will execute in parallel. Default is 3. Must be a positive integer.
+               <ul class="first simple">
+                <li>
+                 <strong>
+                  max_parallel_updates
+                 </strong>
+                 (
+                 <code class="xref py py-class docutils literal notranslate">
+                  <span class="pre">
+                   int
+                  </span>
+                 </code>
+                 ) &#x2013; maximum number of updates Tilt will execute in parallel. Default is 3. Must be a positive integer.
+                </li>
+                <li>
+                 <strong>
+                  k8s_upsert_timeout_secs
+                 </strong>
+                 (
+                 <code class="xref py py-class docutils literal notranslate">
+                  <span class="pre">
+                   int
+                  </span>
+                 </code>
+                 ) &#x2013; timeout (in seconds) for Kubernetes upserts (i.e.
+                 <code class="docutils literal notranslate">
+                  <span class="pre">
+                   create
+                  </span>
+                 </code>
+                 /
+                 <code class="docutils literal notranslate">
+                  <span class="pre">
+                   apply
+                  </span>
+                 </code>
+                 calls). Minimum value is 1.
+                </li>
+               </ul>
               </td>
              </tr>
              <tr class="field-even field">
@@ -6332,11 +6364,13 @@ a local resource command).
                Return type:
               </th>
               <td class="field-body">
-               <code class="docutils literal notranslate">
-                <span class="pre">
-                 None
-                </span>
-               </code>
+               <p class="first last">
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  None
+                 </span>
+                </code>
+               </p>
               </td>
              </tr>
             </tbody>
