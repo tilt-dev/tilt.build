@@ -216,6 +216,9 @@ k8s_resource(
 )
 ```
 
+(If using `k8s_resource` plus the `objects` parameter to create a new
+resource, note that `new_name` is required.)
+
 #### Kubernetes Object Selectors
 
 You can specify Kubernetes objects via a _Kubernetes object selector_. (NOTE: 
@@ -226,8 +229,7 @@ The best-qualified object selector for a given object is a colon-separated
 string of the form `$NAME:$KIND:$NAMESPACE` (e.g.: `redis:deployment:default`).
 We call this the object's _fullname_.
 
-Additionally, you may specify an object using any prefix of its fullname. For above example,
-the other valid object selectors for `redis:deployment:default` are:
+Kubernetes object selectors also have shorter forms. For instance, given the above example, the shorter forms for `redis:deployment:default` are:
 * "redis"
 * "redis:deployment"
 
@@ -237,16 +239,16 @@ $NAME[:$KIND[:$NAMESPACE]]
 ```
 (with each successive element being optional).
 
-An object selector is only valid if _uniquely identifies a single object_; that
-is, if it specifies exactly one object across all Kubernetes objects that Tilt
+An object selector is only valid if _uniquely specifies a single object_; that
+is, it specifies exactly one object across all Kubernetes objects that Tilt
 knows about. For example, the string "redis" suffices if there's only one object
 named "redis", but if there exist both a Deployment and a Service named "redis",
 you'd need to instead use a more qualified object selector like "redis:deployment".
 
 You may always use a _more_ qualified object selector, even if a shorter one would
-suffice (e.g. in the example above, while "redis:deployment" is the shortest object
+be valid (e.g. in the example above, while "redis:deployment" is the shortest object
 selector that specifies the object in question, "redis:deployment:default" would
-work as well).
+be valid as well).
 
 ## Summary
 Tilt's configuration is a program that connects your existing build and deploy configuration. We've made our functions ergonomic for simple cases and general enough to support a wide range of cases. If you're not sure how to accomplish something, we'd love to either help you find the right way, or add support for a case we've overlooked.
