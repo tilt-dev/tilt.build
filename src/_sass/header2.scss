@@ -1,0 +1,204 @@
+$header2-width:    1080px;
+
+$color-white: #ffffff;
+$color-gray: #586E75;
+$color-gray-light: #EEF1F1;
+
+$font-sansSerif: 'Noto Sans', sans-serif;
+$fontSize-small: 14px;
+
+// --------------------------------------------------
+
+.siteHeader2 {
+  width: 100%;
+  display: flex;
+  margin-right: auto;
+  margin-left: auto;
+  box-sizing: border-box;
+
+  @include mobileAndAbove {
+    max-width: $header2-width;
+    padding-left: $spacing-unit;
+    padding-right: $spacing-unit;
+    padding-top: $spacing-unit * 2;
+    padding-bottom: $spacing-unit * 2;
+  }
+}
+
+.siteHeader2-logoLink {
+  opacity: 1;
+  transition: transform $anim-duration ease-in-out, 
+    opacity $anim-duration-short ease;
+
+  &:hover {
+    background-color: transparent;
+    transform: scale(1.025);
+  }
+  &:active {
+    opacity: 0.8;
+  }
+}
+
+.siteHeader2-nav {
+  @include mobileAndAbove {
+    flex: 1;
+  }
+}
+
+.siteHeader2-navList {
+  list-style-type: none;
+
+  @include mobileAndAbove {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+
+    li + li {
+      margin-left: $spacing-unit * 0.5;
+    }
+  }
+}
+
+@mixin button--siteHeader {
+  font-family: $font-sansSerif;
+  padding-top: $spacing-unit * 0.1;
+  padding-bottom: $spacing-unit * 0.1;
+  padding-left: $spacing-unit * 0.3;
+  padding-right: $spacing-unit * 0.3;
+  border-radius: 2px;
+
+  @include mobileAndAbove {
+    font-size: $fontSize-small;
+    border: 1px solid $color-gray;
+  }
+}
+
+.siteHeader2-navLink {
+  @include button--siteHeader;
+  color: $color-gray;
+  
+  &:hover {
+    color: $color-white;
+    background-color: $color-gray;
+  }
+}
+
+.siteHeader2-navLink--github {
+  @include button--siteHeader;
+  color: $color-gray;
+
+  &:hover {
+    color: $color-white;
+    background-color: $color-gray;
+  }
+
+  @include mobileAndAbove {
+    border-color: transparent;
+    background-color: $color-gray-light;
+    margin-left: $spacing-unit * 0.75;
+    margin-right: $spacing-unit * 0.75;
+  }
+}
+
+.siteHeader2-navLink--primary {
+  @include button--siteHeader;
+  color: $color-green;
+
+  @include mobileAndAbove {
+    border-color: $color-green;
+  }
+  &:hover {
+    color: $color-white;
+    background-color: $color-green;
+  }
+}
+
+
+// --------------------------------------------------
+// MOBILE LAYOUT
+
+.siteHeader2 {
+  @include mobileAndBelow {
+    height: 100px; // Push initial content below mobile nav
+  }
+}
+
+.siteHeader2-navList {
+  @include mobileAndBelow {
+    li + li {
+      margin-top: $spacing-unit * 0.75;
+    }
+  }
+}
+
+.siteHeader2-logoAndMenuButton {
+  @include mobileAndBelow {
+    position: fixed;
+    left: 0;
+    right: 0;
+    background-color: $color-white;
+    padding-top: $spacing-unit * 0.25;
+    padding-bottom: $spacing-unit * 0.25;
+    padding-left: $spacing-unit * 0.5;
+    padding-right: $spacing-unit * 0.5;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: $z-siteHeader--mobile;
+  }
+}
+.siteHeader2-logoLink-svg {
+  @include mobileAndBelow {
+    width: 85px; // Eyeballed
+  }
+}
+
+.siteHeader2-menuButton {
+  background-color: transparent;
+  border: 0 none;
+  width: 45px;
+
+  svg {
+    width: 100%;
+  }
+  
+  @include mobileAndAbove {
+    display: none;
+  }
+}
+
+.siteHeader2-nav {
+  @include mobileAndBelow {
+    transform: translateY(-1000px); // Should be taller than any reasonable screen height
+    transition: transform $anim-duration ease;
+    opacity: 0;
+
+    .siteHeader2.has-openMenu & {
+      background-color: $color-white;
+      position: fixed;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: $z-siteHeader-nav--mobile;
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+}
+
+.siteHeader2-closeSvg {
+  display: none;
+  .siteHeader2.has-openMenu & {
+    display: inline;  
+  }
+}
+.siteHeader2-menuSvg {
+  display: inline;
+  .siteHeader2.has-openMenu & {
+    display: none;
+  }
+}
