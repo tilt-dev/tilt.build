@@ -73,6 +73,7 @@ $color-blue-lightest: #98E8ED;
 $color-green-light: #70D37B;
 $opacity-light: 0.64;
 
+
 $text-color:       $color-grey-dark;
 $background-color: #ffffff;
 
@@ -113,10 +114,25 @@ $on-docs-mobile:    $header-width + $spacing-unit;
   }
 }
 
+@mixin mobileAndBelow {
+  @include media-query($on-mobile) {
+    @content;
+  }
+}
 
 @mixin relative-font-size($ratio) {
   font-size: $body-font-size * $ratio;
 }
+
+// --------------------------------------------------
+
+$z-siteHeader--mobile: 500;
+$z-siteHeader-nav--mobile: 100;
+
+// Animation
+$anim-duration-short: 0.15s;
+$anim-duration: 0.3s;
+
 
 @import
   "base",
@@ -126,5 +142,6 @@ $on-docs-mobile:    $header-width + $spacing-unit;
   "search",
   "fx",
   "syntax",
-  "enterprise"
+  "enterprise",
+  "header2"
 ;

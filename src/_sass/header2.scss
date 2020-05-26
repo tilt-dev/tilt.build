@@ -1,0 +1,220 @@
+// These will eventually be merged into a shared SASS file, like tilt.scss
+// The new layout has a subtly different color and font-size scale,
+// so we're creating a new set of vars instead of amending what's in tilt.scss
+$header2-width:    1080px;
+
+$header2-color-white: #ffffff;
+$header2-color-gray: #586E75;
+$header2-color-gray-light: #EEF1F1;
+
+$header2-font-sansSerif: 'Noto Sans', sans-serif;
+$header2-fontSize-small: 14px;
+$header2-fontSize-default: 16px;
+
+// --------------------------------------------------
+
+.siteHeader2 {
+  width: 100%;
+  display: flex;
+  margin-right: auto;
+  margin-left: auto;
+
+  @include mobileAndAbove {
+    max-width: $header2-width;
+    padding-left: $spacing-unit;
+    padding-right: $spacing-unit;
+    padding-top: $spacing-unit * 2;
+    padding-bottom: $spacing-unit * 2;
+  }
+}
+
+.siteHeader2-logoLink {
+  opacity: 1;
+  transition: transform $anim-duration ease-in-out, 
+    opacity $anim-duration-short ease;
+
+  &:hover {
+    background-color: transparent;
+    transform: scale(1.025);
+  }
+  &:active {
+    opacity: 0.8;
+  }
+}
+
+.siteHeader2-nav {
+  @include mobileAndAbove {
+    flex: 1;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+  }
+}
+
+.siteHeader2-navList {
+  list-style-type: none;
+  margin-bottom: 0; 
+
+  @include mobileAndAbove {
+    display: flex;
+    justify-content: flex-end;
+
+    li + li {
+      margin-left: $spacing-unit / 4;
+    }
+  }
+}
+
+.siteHeader2-navLink {
+  font-family: $header2-font-sansSerif;
+  padding-top: $spacing-unit / 16;
+  padding-bottom: $spacing-unit / 16;
+  padding-left: $spacing-unit / 4;
+  padding-right: $spacing-unit / 4;
+  border-radius: 2px;
+  color: $header2-color-gray;
+  display: flex;
+  justify-content: center;
+  
+  &:hover {
+    color: $header2-color-white;
+    background-color: $header2-color-gray;
+  }
+
+  @include mobileAndAbove {
+    font-size: $header2-fontSize-default;
+    border: 1px solid $header2-color-gray;
+  }
+}
+
+.siteHeader2-navLink--github {
+  color: $header2-color-gray;
+
+  &:hover {
+    color: $header2-color-white;
+    background-color: $header2-color-gray;
+  }
+
+  @include mobileAndAbove {
+    border-color: transparent;
+    background-color: $header2-color-gray-light;
+    margin-left: $spacing-unit / 2;
+    margin-right: $spacing-unit / 2;
+  }
+}
+
+.siteHeader2-navLink-svg {
+  fill: $header2-color-gray;
+    
+  .siteHeader2-navLink--github:hover & {
+    fill: $header2-color-white;
+  }
+
+  @include mobileAndAbove {
+    padding-left: $spacing-unit / 8;
+    padding-right: $spacing-unit / 8;
+  }
+}
+
+.siteHeader2-navLink--primary {
+  color: $color-green;
+
+  &:hover {
+    color: $header2-color-white;
+    background-color: $color-green;
+  }
+
+  @include mobileAndAbove {
+    border-color: $color-green;
+  }
+}
+
+
+// --------------------------------------------------
+// MOBILE LAYOUT
+
+.siteHeader2 {
+  @include mobileAndBelow {
+    height: 100px; // Push initial content below mobile nav
+  }
+}
+
+.siteHeader2-navList {
+  @include mobileAndBelow {
+    li + li {
+      margin-top: $spacing-unit * 0.75;
+    }
+  }
+}
+
+.siteHeader2-logoAndMenuButton {
+  @include mobileAndBelow {
+    position: fixed;
+    left: 0;
+    right: 0;
+    background-color: $header2-color-white;
+    padding-top: $spacing-unit / 8;
+    padding-bottom: $spacing-unit / 8;
+    padding-left: $spacing-unit / 2;
+    padding-right: $spacing-unit / 2;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: $z-siteHeader--mobile;
+  }
+}
+.siteHeader2-logoLink-svg {
+  @include mobileAndBelow {
+    width: 85px; // Eyeballed
+  }
+}
+
+.siteHeader2-menuButton {
+  background-color: transparent;
+  border: 0 none;
+  width: 45px;
+
+  svg {
+    width: 100%;
+  }
+  
+  @include mobileAndAbove {
+    display: none;
+  }
+}
+
+.siteHeader2-nav {
+  @include mobileAndBelow {
+    transform: translateY(-1000px); // Should be taller than any reasonable screen height
+    transition: transform $anim-duration ease;
+    opacity: 0;
+
+    .siteHeader2.has-openMenu & {
+      background-color: $header2-color-white;
+      position: fixed;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: $z-siteHeader-nav--mobile;
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+}
+
+.siteHeader2-closeSvg {
+  display: none;
+  .siteHeader2.has-openMenu & {
+    display: inline;  
+  }
+}
+.siteHeader2-menuSvg {
+  display: inline;
+  .siteHeader2.has-openMenu & {
+    display: none;
+  }
+}
