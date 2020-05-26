@@ -34,15 +34,15 @@
 
         {% if link.github %}
           <li class="siteHeader2-navItem">
-            <a class="siteHeader2-navLink--github" href="{{href}}">
+            <a class="siteHeader2-navLink siteHeader2-navLink--github" href="{{href}}">
               {{link.name}}
-              <span class="github-stars">{% svg assets/svg/github-star.svg %}</span>
+              <span class="github-stars">{% svg assets/svg/github-star.svg class="siteHeader2-navLink-svg"%}</span>
               <span>{{link.githubStars}}</span>
             </a>
           </li>
         {% else %}
         <li class="siteHeader2-navItem">
-          <a class="siteHeader2-navLink{% if link.primary %}--primary{% endif %}" href="{{href}}">
+          <a class="siteHeader2-navLink {% if link.primary %}siteHeader2-navLink--primary{% endif %}" href="{{href}}">
             {{ link.name }}
           </a>
         </li>

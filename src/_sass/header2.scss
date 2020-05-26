@@ -6,6 +6,7 @@ $color-gray-light: #EEF1F1;
 
 $font-sansSerif: 'Noto Sans', sans-serif;
 $fontSize-small: 14px;
+$fontSize-default: 16px;
 
 // --------------------------------------------------
 
@@ -14,7 +15,6 @@ $fontSize-small: 14px;
   display: flex;
   margin-right: auto;
   margin-left: auto;
-  box-sizing: border-box;
 
   @include mobileAndAbove {
     max-width: $header2-width;
@@ -42,49 +42,49 @@ $fontSize-small: 14px;
 .siteHeader2-nav {
   @include mobileAndAbove {
     flex: 1;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
   }
 }
 
 .siteHeader2-navList {
   list-style-type: none;
+  margin-bottom: 0; 
 
   @include mobileAndAbove {
     display: flex;
-    align-items: center;
     justify-content: flex-end;
 
     li + li {
-      margin-left: $spacing-unit * 0.5;
+      margin-left: $spacing-unit / 4;
     }
   }
 }
 
-@mixin button--siteHeader {
-  font-family: $font-sansSerif;
-  padding-top: $spacing-unit * 0.1;
-  padding-bottom: $spacing-unit * 0.1;
-  padding-left: $spacing-unit * 0.3;
-  padding-right: $spacing-unit * 0.3;
-  border-radius: 2px;
-
-  @include mobileAndAbove {
-    font-size: $fontSize-small;
-    border: 1px solid $color-gray;
-  }
-}
-
 .siteHeader2-navLink {
-  @include button--siteHeader;
+  font-family: $font-sansSerif;
+  padding-top: $spacing-unit / 16;
+  padding-bottom: $spacing-unit / 16;
+  padding-left: $spacing-unit / 4;
+  padding-right: $spacing-unit / 4;
+  border-radius: 2px;
   color: $color-gray;
+  display: flex;
+  justify-content: center;
   
   &:hover {
     color: $color-white;
     background-color: $color-gray;
   }
+
+  @include mobileAndAbove {
+    font-size: $fontSize-default;
+    border: 1px solid $color-gray;
+  }
 }
 
 .siteHeader2-navLink--github {
-  @include button--siteHeader;
   color: $color-gray;
 
   &:hover {
@@ -95,21 +95,34 @@ $fontSize-small: 14px;
   @include mobileAndAbove {
     border-color: transparent;
     background-color: $color-gray-light;
-    margin-left: $spacing-unit * 0.75;
-    margin-right: $spacing-unit * 0.75;
+    margin-left: $spacing-unit / 2;
+    margin-right: $spacing-unit / 2;
+  }
+}
+
+.siteHeader2-navLink-svg {
+  fill: $color-gray;
+    
+  .siteHeader2-navLink--github:hover & {
+    fill: $color-white;
+  }
+
+  @include mobileAndAbove {
+    padding-left: $spacing-unit / 8;
+    padding-right: $spacing-unit / 8;
   }
 }
 
 .siteHeader2-navLink--primary {
-  @include button--siteHeader;
   color: $color-green;
 
-  @include mobileAndAbove {
-    border-color: $color-green;
-  }
   &:hover {
     color: $color-white;
     background-color: $color-green;
+  }
+
+  @include mobileAndAbove {
+    border-color: $color-green;
   }
 }
 
@@ -137,10 +150,10 @@ $fontSize-small: 14px;
     left: 0;
     right: 0;
     background-color: $color-white;
-    padding-top: $spacing-unit * 0.25;
-    padding-bottom: $spacing-unit * 0.25;
-    padding-left: $spacing-unit * 0.5;
-    padding-right: $spacing-unit * 0.5;
+    padding-top: $spacing-unit / 8;
+    padding-bottom: $spacing-unit / 8;
+    padding-left: $spacing-unit / 2;
+    padding-right: $spacing-unit / 2;
     display: flex;
     align-items: center;
     justify-content: space-between;
