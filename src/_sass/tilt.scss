@@ -116,13 +116,14 @@ $on-docs-mobile:    $header-width + $spacing-unit;
   }
 }
 
-
-@mixin relative-font-size($ratio) {
-  font-size: $body-font-size * $ratio;
 @mixin mobileAndBelow {
   @include media-query($on-mobile) {
     @content;
   }
+}
+
+@mixin relative-font-size($ratio) {
+  font-size: $body-font-size * $ratio;
 }
 
 // --------------------------------------------------
