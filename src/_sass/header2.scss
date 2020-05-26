@@ -1,12 +1,12 @@
 $header2-width:    1080px;
 
-$color-white: #ffffff;
-$color-gray: #586E75;
-$color-gray-light: #EEF1F1;
+$header2-color-white: #ffffff;
+$header2-color-gray: #586E75;
+$header2-color-gray-light: #EEF1F1;
 
-$font-sansSerif: 'Noto Sans', sans-serif;
-$fontSize-small: 14px;
-$fontSize-default: 16px;
+$header2-font-sansSerif: 'Noto Sans', sans-serif;
+$header2-fontSize-small: 14px;
+$header2-fontSize-default: 16px;
 
 // --------------------------------------------------
 
@@ -63,48 +63,48 @@ $fontSize-default: 16px;
 }
 
 .siteHeader2-navLink {
-  font-family: $font-sansSerif;
+  font-family: $header2-font-sansSerif;
   padding-top: $spacing-unit / 16;
   padding-bottom: $spacing-unit / 16;
   padding-left: $spacing-unit / 4;
   padding-right: $spacing-unit / 4;
   border-radius: 2px;
-  color: $color-gray;
+  color: $header2-color-gray;
   display: flex;
   justify-content: center;
   
   &:hover {
-    color: $color-white;
-    background-color: $color-gray;
+    color: $header2-color-white;
+    background-color: $header2-color-gray;
   }
 
   @include mobileAndAbove {
-    font-size: $fontSize-default;
-    border: 1px solid $color-gray;
+    font-size: $header2-fontSize-default;
+    border: 1px solid $header2-color-gray;
   }
 }
 
 .siteHeader2-navLink--github {
-  color: $color-gray;
+  color: $header2-color-gray;
 
   &:hover {
-    color: $color-white;
-    background-color: $color-gray;
+    color: $header2-color-white;
+    background-color: $header2-color-gray;
   }
 
   @include mobileAndAbove {
     border-color: transparent;
-    background-color: $color-gray-light;
+    background-color: $header2-color-gray-light;
     margin-left: $spacing-unit / 2;
     margin-right: $spacing-unit / 2;
   }
 }
 
 .siteHeader2-navLink-svg {
-  fill: $color-gray;
+  fill: $header2-color-gray;
     
   .siteHeader2-navLink--github:hover & {
-    fill: $color-white;
+    fill: $header2-color-white;
   }
 
   @include mobileAndAbove {
@@ -117,7 +117,7 @@ $fontSize-default: 16px;
   color: $color-green;
 
   &:hover {
-    color: $color-white;
+    color: $header2-color-white;
     background-color: $color-green;
   }
 
@@ -149,7 +149,7 @@ $fontSize-default: 16px;
     position: fixed;
     left: 0;
     right: 0;
-    background-color: $color-white;
+    background-color: $header2-color-white;
     padding-top: $spacing-unit / 8;
     padding-bottom: $spacing-unit / 8;
     padding-left: $spacing-unit / 2;
@@ -187,7 +187,7 @@ $fontSize-default: 16px;
     opacity: 0;
 
     .siteHeader2.has-openMenu & {
-      background-color: $color-white;
+      background-color: $header2-color-white;
       position: fixed;
       left: 0;
       right: 0;
