@@ -1,18 +1,3 @@
-// These will eventually be merged into a shared SASS file, like tilt.scss
-// The new layout has a subtly different color and font-size scale,
-// so we're creating a new set of vars instead of amending what's in tilt.scss
-$header2-width:    1080px;
-
-$header2-color-white: #ffffff;
-$header2-color-gray: #586E75;
-$header2-color-gray-light: #EEF1F1;
-
-$header2-font-sansSerif: 'Noto Sans', sans-serif;
-$header2-fontSize-small: 14px;
-$header2-fontSize-default: 16px;
-
-// --------------------------------------------------
-
 .siteHeader2 {
   width: 100%;
   display: flex;
