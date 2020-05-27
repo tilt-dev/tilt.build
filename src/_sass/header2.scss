@@ -60,7 +60,7 @@
   justify-content: center;
   
   &:hover {
-    color: $tilt2-color-white;
+    color: $color-white;
     background-color: $tilt2-color-gray;
   }
 
@@ -74,7 +74,7 @@
   color: $tilt2-color-gray;
 
   &:hover {
-    color: $tilt2-color-white;
+    color: $color-white;
     background-color: $tilt2-color-gray;
   }
 
@@ -90,7 +90,7 @@
   fill: $tilt2-color-gray;
     
   .siteHeader2-navLink--github:hover & {
-    fill: $tilt2-color-white;
+    fill: $color-white;
   }
 
   @include mobileAndAbove {
@@ -103,7 +103,7 @@
   color: $color-green;
 
   &:hover {
-    color: $tilt2-color-white;
+    color: $color-white;
     background-color: $color-green;
   }
 
@@ -135,7 +135,7 @@
     position: fixed;
     left: 0;
     right: 0;
-    background-color: $tilt2-color-white;
+    background-color: $color-white;
     padding-top: $spacing-unit / 8;
     padding-bottom: $spacing-unit / 8;
     padding-left: $spacing-unit / 2;
@@ -173,7 +173,7 @@
     opacity: 0;
 
     .siteHeader2.has-openMenu & {
-      background-color: $tilt2-color-white;
+      background-color: $color-white;
       position: fixed;
       left: 0;
       right: 0;

@@ -12,8 +12,16 @@
   width: 100%;
   max-width: $tilt2-page-width;
   font-family: $tilt2-font-sans;
+  font-size: $tilt2-font-size-body;
+  line-height: $tilt2-line-height-body;
 }
 
+.Home2-sectionHeading {
+  font-family: $tilt2-font-sans;
+  font-size: $tilt2-font-size-heading;
+  color: $tilt2-color-text;
+  margin-bottom: $spacing-unit / 2;
+}
 
 // Hero --------------------------------------------------
 .Home2-hero {
@@ -37,7 +45,7 @@
     font-size: $tilt2-font-size-hero-small;
     font-style: normal;
     font-weight: 900;
-    line-height: 1.35;
+    line-height: $tilt2-line-height-hero;
     color: $tilt2-color-text;
     
     @include mobileAndAbove {
@@ -111,7 +119,7 @@
   color: $tilt2-color-gray;
 
   &:hover {
-    color: $tilt2-color-white;
+    color: $color-white;
     background-color: $tilt2-color-gray;
   }
 
@@ -122,7 +130,7 @@
   border-color: $color-green;
 
   &:hover {
-    color: $tilt2-color-white;
+    color: $color-white;
     background-color: $color-green;
   }
 }
@@ -133,27 +141,29 @@
 
 // Product --------------------------------------------------
 .Home2-product {
-  position: relative;
   margin-bottom: $spacing-unit;
-
+  
   @include mobileAndAbove {
+    position: relative;
     margin-bottom: $spacing-unit * 2;
   }
 }
 .Home2-product-UI {
-  // Accomodate the shadow, making the width a bit wider than the page
-  margin-left: -$spacing-unit * 1.5;
-  margin-right: -$spacing-unit * 1.5;
+  @include mobileAndAbove {
+    // Accomodate the shadow, making the width a bit wider than the page
+    margin-left: -$spacing-unit * 1.5;
+    margin-right: -$spacing-unit * 1.5;
+  }
 }
 .Home2-product-Tiltfile {
-  position: absolute;
-  top: 30%;
-  right: -10%;
   background-image: url('/assets/img/product-tiltfile.png');
   background-repeat: no-repeat;
   background-size: 100%;
 
   @include mobileAndAbove {
+    position: absolute;
+    top: 30%;
+    right: -10%;
     width: 60%;
     max-width: 800px;
   }
@@ -163,20 +173,27 @@
   // https://stackoverflow.com/questions/600743/how-to-get-div-height-to-auto-adjust-to-background-size
   visibility: hidden;
   width: 100%;
+
+  @include mobileAndBelow {
+    display: none;
+  }
 }
 
 .Home2-product-Tiltfile-code {
   font-family: $tilt2-font-mono;
   font-size: $tilt2-font-size-body;
-  position: absolute;
-  left: $spacing-unit * 2;
-  right: $spacing-unit * 2;
-  top: $spacing-unit * 2;
-  bottom: $spacing-unit * 2;
+  
+  @include mobileAndAbove {
+    position: absolute;
+    left: $spacing-unit * 2;
+    right: $spacing-unit * 2;
+    top: $spacing-unit * 2;
+    bottom: $spacing-unit * 2;
+  }
 
   p {
     margin: 0;
-    min-height: $spacing-unit / 2;
+    min-height: $spacing-unit / 2; // Preserve blank lines
   }
 }
 
@@ -194,34 +211,149 @@
   text-align: center;
 }
 
-// Features --------------------------------------------------
-.Home2-features-menu {
+// Features Intro --------------------------------------------------
+.Home2-featuresIntro-text {
+  font-size: $tilt2-font-size-hero-smallest;
+  line-height: $tilt2-line-height-hero;
+  margin-bottom: $spacing-unit;
   
-}
-.Home2-features-introText {
-  font-size: $tilt2-font-size-hero-small;
+  @include mobileAndAbove {
+    font-size: $tilt2-font-size-hero-small;
+    margin-bottom: $spacing-unit * 2;
+  }
 }
 
-.Home2-features-introText-pillar1 {
+.Home2-featuresIntro-text-button {
+  font-family: inherit;
+  font-size: inherit;
+  background-color: transparent;
+  border: 0 none;
+}
+
+
+.Home2-featuresIntro-text-button--pillar1 {
   color: $color-pink;
 }
-.Home2-features-introText-pillar2 {
+.Home2-featuresIntro-text-button--pillar2 {
   color: $color-blue;
 }
-.Home2-features-introText-pillar3 {
+.Home2-featuresIntro-text-button--pillar3 {
   color: $color-purple;
 }
 
-.Home2-features-link--pillar1 {
-  color: $color-pink;
-  background-color: $color-pink;
-}
-.Home2-features-link--pillar2 {
-  color: $color-blue;
-  background-color: $color-blue;
-}
-.Home2-features-link--pillar3 {
-  color: $color-purple;
-  background-color: $color-purple;
+// Features --------------------------------------------------
+.Home2-features {
+  margin-bottom: $spacing-unit;
+
+  @include mobileAndAbove {
+    display: flex;
+    margin-bottom: $spacing-unit * 2;
+  } 
 }
 
+.Home2-features-navList {
+  list-style: none;
+  margin-left: 0;
+
+  @include mobileAndBelow {
+    display: none;
+  }
+  @include mobileAndAbove {
+    flex: 1;
+  }
+}
+
+.Home2-features-navItem-button {
+  @include reset-button-style;
+}
+
+.Home2-features-navItem-button--pillar1 {
+  color: $color-pink;
+
+  &:hover {
+    color: $color-white;
+    background-color: $color-pink;
+  }
+}
+.Home2-features-navItem-button--pillar2 {
+  color: $color-blue;
+  
+  &:hover {
+    color: $color-white;
+    background-color: $color-blue;
+  }
+}
+.Home2-features-navItem-button--pillar3 {
+  color: $color-purple;
+  
+  &:hover {
+    color: $color-white;
+    background-color: $color-purple;
+  }
+}
+
+.Home2-features-contentList {
+  list-style: none;
+  margin-left: 0;
+
+  @include mobileAndAbove {
+    flex: 2;
+  }
+
+  li + li {
+    margin-top: $spacing-unit;
+  }
+}
+
+.Home2-features-contentItem-title {
+  @include reset-button-style;
+  font-weight: bold;
+}
+
+// Testimonials --------------------------------------------------
+
+.Home2-testimonials {
+  margin-bottom: $spacing-unit;
+  padding: $spacing-unit;
+  background-color: $tilt2-color-gray-lightest;
+  border-radius: $tilt2-border-radius;
+  
+  @include mobileAndAbove {
+    display: flex;
+    margin-bottom: $spacing-unit * 2;
+    padding: $spacing-unit * 1.5;
+  } 
+}
+
+.Home2-testimonials-profile {
+  @include mobileAndAbove {
+    flex: 1;
+  }
+}
+.Home2-testimonials-quote {
+  padding-left: $spacing-unit;
+  padding-right: $spacing-unit;
+
+  @include mobileAndAbove {
+    flex: 6;
+  }
+}
+
+// Resources --------------------------------------------------
+
+.Home2-resources-list {
+  list-style: none;
+  margin-left: 0;
+  
+  @include mobileAndAbove {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: $spacing-unit;
+    row-gap: $spacing-unit;
+  }
+}
+
+.Home2-resources-listItem {
+  border: 1px solid $tilt2-color-gray-lightest;
+  padding: $spacing-unit;
+}
