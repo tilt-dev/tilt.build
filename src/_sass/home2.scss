@@ -256,8 +256,13 @@
 }
 
 // Features --------------------------------------------------
+
+// The interaction we want here is that the navList
+// determines the size of the content box, so we make the contentList
+// an absolutely positioned element inside Home2-features.
 .Home2-features {
   margin-bottom: $spacing-unit;
+  position: relative;
 
   @include mobileAndAbove {
     display: flex;
@@ -278,6 +283,7 @@
 
 .Home2-features-navItem-button {
   @include reset-button-style;
+  cursor: pointer;
 }
 
 .Home2-features-navItem-button--pillar1 {
@@ -307,10 +313,12 @@
 
 .Home2-features-contentList {
   @include reset-list-style;
-
-  @include mobileAndAbove {
-    flex: 2;
-  }
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 66%;
+  height: 100%;
+  overflow-y: scroll;
 
   li + li {
     margin-top: $spacing-unit;
@@ -476,6 +484,7 @@
   @include reset-button-style;
   line-height: $tilt2-line-height-body;
   width: 100%;
+  cursor: pointer;
 }
 .Home2-resources-link,
 .Home2-resources-button {
