@@ -15,7 +15,7 @@ $header2-fontSize-default: 16px;
 
 .siteHeader2 {
   width: 100%;
-  display: flex;
+  display: none;
   margin-right: auto;
   margin-left: auto;
 
@@ -26,6 +26,9 @@ $header2-fontSize-default: 16px;
     padding-top: $spacing-unit * 2;
     padding-bottom: $spacing-unit * 2;
   }
+}
+body.is-header2 .siteHeader2 {
+  display: flex;
 }
 
 .siteHeader2-logoLink {

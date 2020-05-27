@@ -36,9 +36,12 @@ li {
 /**
  * Site header
  */
-.site-header {
+.siteHeader1 {
   margin-top: $spacing-unit;
   position: relative;
+}
+body.is-header2 .siteHeader1 {
+  display: none;
 }
 
 .siteNav-float {
