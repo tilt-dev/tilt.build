@@ -44,8 +44,7 @@ layout: home2
 
 <section class="Home2-featuresIntro">
   <p class="Home2-featuresIntro-text">
-    We’re focused on three feature verticals:<br/>
-    <button class="Home2-featuresIntro-text-button Home2-featuresIntro-text-button--pillar1">Understand & orchestrate</button> your services, work <button class="Home2-featuresIntro-text-button Home2-featuresIntro-text-button--pillar2">smarter & faster</button> wherever you are and <button class="Home2-featuresIntro-text-button Home2-featuresIntro-text-button--pillar3">team-based</button> productivity.
+    We’re focused on three feature verticals:<br/><button class="Home2-featuresIntro-text-button Home2-featuresIntro-text-button--pillar1">Understand & orchestrate</button> your services, work <button class="Home2-featuresIntro-text-button Home2-featuresIntro-text-button--pillar2">smarter & faster</button> wherever you are and <button class="Home2-featuresIntro-text-button Home2-featuresIntro-text-button--pillar3">team-based</button> productivity.
   </p>
 </section>
 
