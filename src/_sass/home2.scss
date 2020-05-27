@@ -1,0 +1,359 @@
+.body--home2 {
+  padding-left: $spacing-unit / 2;
+  padding-right: $spacing-unit / 2;
+
+  @include mobileAndAbove {
+    padding-left: $spacing-unit;
+    padding-right: $spacing-unit;
+  }
+}
+
+.wrapper--home2 {
+  width: 100%;
+  max-width: $tilt2-page-width;
+  font-family: $tilt2-font-sans;
+  font-size: $tilt2-font-size-body;
+  line-height: $tilt2-line-height-body;
+}
+
+.Home2-sectionHeading {
+  font-family: $tilt2-font-sans;
+  font-size: $tilt2-font-size-heading;
+  color: $tilt2-color-text;
+  margin-bottom: $spacing-unit / 2;
+}
+
+// Hero --------------------------------------------------
+.Home2-hero {
+  display: flex;
+  align-items: center;
+  margin-bottom: $spacing-unit;
+
+  @include mobileAndBelow {
+    flex-direction: column;
+  }
+  @include mobileAndAbove {
+    margin-bottom: $spacing-unit * 2;
+  }
+}
+
+.Home2-heroText {
+  flex: 1;
+
+  .Home2-heroText-title {
+    font-family: inherit;
+    font-size: $tilt2-font-size-hero-small;
+    font-style: normal;
+    font-weight: 900;
+    line-height: $tilt2-line-height-hero;
+    color: $tilt2-color-text;
+    
+    @include mobileAndAbove {
+      font-size: $tilt2-font-size-hero;
+      max-width: 80%;
+    }
+  }
+
+  .Home2-heroText-subtitle {
+    line-height: $tilt2-line-height-body-large;
+
+    @include mobileAndAbove {
+      font-size: $tilt2-font-size-body-large;
+      max-width: 95%;
+    }
+  }
+}
+
+.Home2-heroText-subtitle-code {
+  font-family: $tilt2-font-mono;
+  font-size: inherit;
+  background-color: $tilt2-color-gray-lightest;
+  border: 1px solid $tilt2-color-gray-lighter;
+  border-radius: $tilt2-border-radius;
+  padding-left: $spacing-unit / 4;
+  padding-right: $spacing-unit / 4;
+  line-height: 1;
+}
+
+.Home2-heroIllustration {
+  width: 80%;
+  max-width: 130px;
+}
+
+
+// CTA --------------------------------------------------
+.Home2-cta {
+  margin-bottom: $spacing-unit;
+
+  @include mobileAndAbove {
+    display: flex;
+    justify-content: center;
+    margin-bottom: $spacing-unit * 2;
+  }
+}
+
+.Home2-cta-option {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  & + & {
+    @include mobileAndAbove {
+      margin-left: $spacing-unit;
+    }
+  }
+}
+
+.Home2-cta-button {
+  background-color: transparent;
+  font-family: $tilt2-font-sans;
+  font-size: $tilt2-font-size-button-large;
+  font-weight: bold;
+  line-height: 1;
+  padding-left: $spacing-unit / 2;
+  padding-right: $spacing-unit / 2;
+  padding-top: $spacing-unit / 4;
+  padding-bottom: $spacing-unit / 4;
+  border-radius: $tilt2-border-radius;
+  border: 2px solid $tilt2-color-gray-lighter;
+  color: $tilt2-color-gray;
+
+  &:hover {
+    color: $color-white;
+    background-color: $tilt2-color-gray;
+  }
+
+}
+
+.Home2-cta-button--primary {
+  color: $color-green;
+  border-color: $color-green;
+
+  &:hover {
+    color: $color-white;
+    background-color: $color-green;
+  }
+}
+
+.Home2-cta-option-text {
+  margin-top: $spacing-unit / 4;
+}
+
+// Product --------------------------------------------------
+.Home2-product {
+  margin-bottom: $spacing-unit;
+  
+  @include mobileAndAbove {
+    position: relative;
+    margin-bottom: $spacing-unit * 2;
+  }
+}
+.Home2-product-UI {
+  @include mobileAndAbove {
+    // Accomodate the shadow, making the width a bit wider than the page
+    margin-left: -$spacing-unit * 1.5;
+    margin-right: -$spacing-unit * 1.5;
+  }
+}
+.Home2-product-Tiltfile {
+  background-image: url('/assets/img/product-tiltfile.png');
+  background-repeat: no-repeat;
+  background-size: 100%;
+
+  @include mobileAndAbove {
+    position: absolute;
+    top: 30%;
+    right: -10%;
+    width: 60%;
+    max-width: 800px;
+  }
+}
+.Home2-product-Tiltfile-imgPlaceholder {
+  // Trick to set a minimum size for the element, with correct aspect ratio
+  // https://stackoverflow.com/questions/600743/how-to-get-div-height-to-auto-adjust-to-background-size
+  visibility: hidden;
+  width: 100%;
+
+  @include mobileAndBelow {
+    display: none;
+  }
+}
+
+.Home2-product-Tiltfile-code {
+  font-family: $tilt2-font-mono;
+  font-size: $tilt2-font-size-body;
+  
+  @include mobileAndAbove {
+    position: absolute;
+    left: $spacing-unit * 2;
+    right: $spacing-unit * 2;
+    top: $spacing-unit * 2;
+    bottom: $spacing-unit * 2;
+  }
+
+  p {
+    margin: 0;
+    min-height: $spacing-unit / 2; // Preserve blank lines
+  }
+}
+
+.tiltfile-comment {
+  color: $tilt2-color-gray-lighter;
+}
+.tiltfile-arg {
+  color: $color-blue;
+}
+.tiltfile-arg-value {
+  color: $color-pink;
+}
+
+.Home2-product-caption {
+  text-align: center;
+}
+
+// Features Intro --------------------------------------------------
+.Home2-featuresIntro-text {
+  font-size: $tilt2-font-size-hero-smallest;
+  line-height: $tilt2-line-height-hero;
+  margin-bottom: $spacing-unit;
+  
+  @include mobileAndAbove {
+    font-size: $tilt2-font-size-hero-small;
+    margin-bottom: $spacing-unit * 2;
+  }
+}
+
+.Home2-featuresIntro-text-button {
+  font-family: inherit;
+  font-size: inherit;
+  background-color: transparent;
+  border: 0 none;
+}
+
+
+.Home2-featuresIntro-text-button--pillar1 {
+  color: $color-pink;
+}
+.Home2-featuresIntro-text-button--pillar2 {
+  color: $color-blue;
+}
+.Home2-featuresIntro-text-button--pillar3 {
+  color: $color-purple;
+}
+
+// Features --------------------------------------------------
+.Home2-features {
+  margin-bottom: $spacing-unit;
+
+  @include mobileAndAbove {
+    display: flex;
+    margin-bottom: $spacing-unit * 2;
+  } 
+}
+
+.Home2-features-navList {
+  list-style: none;
+  margin-left: 0;
+
+  @include mobileAndBelow {
+    display: none;
+  }
+  @include mobileAndAbove {
+    flex: 1;
+  }
+}
+
+.Home2-features-navItem-button {
+  @include reset-button-style;
+}
+
+.Home2-features-navItem-button--pillar1 {
+  color: $color-pink;
+
+  &:hover {
+    color: $color-white;
+    background-color: $color-pink;
+  }
+}
+.Home2-features-navItem-button--pillar2 {
+  color: $color-blue;
+  
+  &:hover {
+    color: $color-white;
+    background-color: $color-blue;
+  }
+}
+.Home2-features-navItem-button--pillar3 {
+  color: $color-purple;
+  
+  &:hover {
+    color: $color-white;
+    background-color: $color-purple;
+  }
+}
+
+.Home2-features-contentList {
+  list-style: none;
+  margin-left: 0;
+
+  @include mobileAndAbove {
+    flex: 2;
+  }
+
+  li + li {
+    margin-top: $spacing-unit;
+  }
+}
+
+.Home2-features-contentItem-title {
+  @include reset-button-style;
+  font-weight: bold;
+}
+
+// Testimonials --------------------------------------------------
+
+.Home2-testimonials {
+  margin-bottom: $spacing-unit;
+  padding: $spacing-unit;
+  background-color: $tilt2-color-gray-lightest;
+  border-radius: $tilt2-border-radius;
+  
+  @include mobileAndAbove {
+    display: flex;
+    margin-bottom: $spacing-unit * 2;
+    padding: $spacing-unit * 1.5;
+  } 
+}
+
+.Home2-testimonials-profile {
+  @include mobileAndAbove {
+    flex: 1;
+  }
+}
+.Home2-testimonials-quote {
+  padding-left: $spacing-unit;
+  padding-right: $spacing-unit;
+
+  @include mobileAndAbove {
+    flex: 6;
+  }
+}
+
+// Resources --------------------------------------------------
+
+.Home2-resources-list {
+  list-style: none;
+  margin-left: 0;
+  
+  @include mobileAndAbove {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: $spacing-unit;
+    row-gap: $spacing-unit;
+  }
+}
+
+.Home2-resources-listItem {
+  border: 1px solid $tilt2-color-gray-lightest;
+  padding: $spacing-unit;
+}

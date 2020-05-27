@@ -1,18 +1,3 @@
-// These will eventually be merged into a shared SASS file, like tilt.scss
-// The new layout has a subtly different color and font-size scale,
-// so we're creating a new set of vars instead of amending what's in tilt.scss
-$header2-width:    1080px;
-
-$header2-color-white: #ffffff;
-$header2-color-gray: #586E75;
-$header2-color-gray-light: #EEF1F1;
-
-$header2-font-sansSerif: 'Noto Sans', sans-serif;
-$header2-fontSize-small: 14px;
-$header2-fontSize-default: 16px;
-
-// --------------------------------------------------
-
 .siteHeader2 {
   width: 100%;
   display: none;
@@ -20,11 +5,9 @@ $header2-fontSize-default: 16px;
   margin-left: auto;
 
   @include mobileAndAbove {
-    max-width: $header2-width;
-    padding-left: $spacing-unit;
-    padding-right: $spacing-unit;
+    max-width: $tilt2-header-width;
     padding-top: $spacing-unit * 2;
-    padding-bottom: $spacing-unit * 2;
+    padding-bottom: $spacing-unit;
   }
 }
 body.is-header2 .siteHeader2 {
@@ -69,48 +52,48 @@ body.is-header2 .siteHeader2 {
 }
 
 .siteHeader2-navLink {
-  font-family: $header2-font-sansSerif;
+  font-family: $tilt2-font-sans;
   padding-top: $spacing-unit / 16;
   padding-bottom: $spacing-unit / 16;
   padding-left: $spacing-unit / 4;
   padding-right: $spacing-unit / 4;
-  border-radius: 2px;
-  color: $header2-color-gray;
+  border-radius: $tilt2-border-radius;
+  color: $tilt2-color-gray;
   display: flex;
   justify-content: center;
   
   &:hover {
-    color: $header2-color-white;
-    background-color: $header2-color-gray;
+    color: $color-white;
+    background-color: $tilt2-color-gray;
   }
 
   @include mobileAndAbove {
-    font-size: $header2-fontSize-default;
-    border: 1px solid $header2-color-gray;
+    font-size: $tilt2-font-size-body;
+    border: 1px solid $tilt2-color-gray;
   }
 }
 
 .siteHeader2-navLink--github {
-  color: $header2-color-gray;
+  color: $tilt2-color-gray;
 
   &:hover {
-    color: $header2-color-white;
-    background-color: $header2-color-gray;
+    color: $color-white;
+    background-color: $tilt2-color-gray;
   }
 
   @include mobileAndAbove {
     border-color: transparent;
-    background-color: $header2-color-gray-light;
+    background-color: $tilt2-color-gray-lightest;
     margin-left: $spacing-unit / 2;
     margin-right: $spacing-unit / 2;
   }
 }
 
 .siteHeader2-navLink-svg {
-  fill: $header2-color-gray;
+  fill: $tilt2-color-gray;
     
   .siteHeader2-navLink--github:hover & {
-    fill: $header2-color-white;
+    fill: $color-white;
   }
 
   @include mobileAndAbove {
@@ -123,7 +106,7 @@ body.is-header2 .siteHeader2 {
   color: $color-green;
 
   &:hover {
-    color: $header2-color-white;
+    color: $color-white;
     background-color: $color-green;
   }
 
@@ -155,7 +138,7 @@ body.is-header2 .siteHeader2 {
     position: fixed;
     left: 0;
     right: 0;
-    background-color: $header2-color-white;
+    background-color: $color-white;
     padding-top: $spacing-unit / 8;
     padding-bottom: $spacing-unit / 8;
     padding-left: $spacing-unit / 2;
@@ -193,7 +176,7 @@ body.is-header2 .siteHeader2 {
     opacity: 0;
 
     .siteHeader2.has-openMenu & {
-      background-color: $header2-color-white;
+      background-color: $color-white;
       position: fixed;
       left: 0;
       right: 0;
