@@ -1,0 +1,14 @@
+{
+  "name": "stars",
+  "version": "1.0.0",
+  "description": "Fetch stars for the tilt-dev repo",
+  "main": "stars.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "nick@tilt.dev",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "node-fetch": "^2.6.0"
+  }
+}

@@ -8,6 +8,7 @@ enable_feature('update_history')
 
 # Generate the API docs.
 local_resource('make-api', 'make api', ['deploy/api.dockerfile', 'Makefile', 'api'])
+local_resource('make-stars', 'make stars', ['Makefile', 'stars'])
 
 k8s_yaml('deploy/serve.yaml')
 

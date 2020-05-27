@@ -1,4 +1,4 @@
-.PHONY: api
+.PHONY: api stars
 
 api:
 	docker rm tilt.api || exit 0
@@ -12,3 +12,6 @@ api:
 	docker cp tilt.api:/src/data.yaml src/_data/api/data.yaml
 	docker cp tilt.api:/src/data.html src/_includes/api/data.html
 	docker rm tilt.api
+
+stars:
+	./stars/inject_stars.sh
