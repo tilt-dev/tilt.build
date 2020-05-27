@@ -5,11 +5,9 @@
   margin-left: auto;
 
   @include mobileAndAbove {
-    max-width: $header2-width;
-    padding-left: $spacing-unit;
-    padding-right: $spacing-unit;
+    max-width: $tilt2-header-width;
     padding-top: $spacing-unit * 2;
-    padding-bottom: $spacing-unit * 2;
+    padding-bottom: $spacing-unit;
   }
 }
 
@@ -51,48 +49,48 @@
 }
 
 .siteHeader2-navLink {
-  font-family: $header2-font-sansSerif;
+  font-family: $tilt2-font-sans;
   padding-top: $spacing-unit / 16;
   padding-bottom: $spacing-unit / 16;
   padding-left: $spacing-unit / 4;
   padding-right: $spacing-unit / 4;
-  border-radius: 2px;
-  color: $header2-color-gray;
+  border-radius: $tilt2-border-radius;
+  color: $tilt2-color-gray;
   display: flex;
   justify-content: center;
   
   &:hover {
-    color: $header2-color-white;
-    background-color: $header2-color-gray;
+    color: $tilt2-color-white;
+    background-color: $tilt2-color-gray;
   }
 
   @include mobileAndAbove {
-    font-size: $header2-fontSize-default;
-    border: 1px solid $header2-color-gray;
+    font-size: $tilt2-font-size-body;
+    border: 1px solid $tilt2-color-gray;
   }
 }
 
 .siteHeader2-navLink--github {
-  color: $header2-color-gray;
+  color: $tilt2-color-gray;
 
   &:hover {
-    color: $header2-color-white;
-    background-color: $header2-color-gray;
+    color: $tilt2-color-white;
+    background-color: $tilt2-color-gray;
   }
 
   @include mobileAndAbove {
     border-color: transparent;
-    background-color: $header2-color-gray-light;
+    background-color: $tilt2-color-gray-lightest;
     margin-left: $spacing-unit / 2;
     margin-right: $spacing-unit / 2;
   }
 }
 
 .siteHeader2-navLink-svg {
-  fill: $header2-color-gray;
+  fill: $tilt2-color-gray;
     
   .siteHeader2-navLink--github:hover & {
-    fill: $header2-color-white;
+    fill: $tilt2-color-white;
   }
 
   @include mobileAndAbove {
@@ -105,7 +103,7 @@
   color: $color-green;
 
   &:hover {
-    color: $header2-color-white;
+    color: $tilt2-color-white;
     background-color: $color-green;
   }
 
@@ -137,7 +135,7 @@
     position: fixed;
     left: 0;
     right: 0;
-    background-color: $header2-color-white;
+    background-color: $tilt2-color-white;
     padding-top: $spacing-unit / 8;
     padding-bottom: $spacing-unit / 8;
     padding-left: $spacing-unit / 2;
@@ -175,7 +173,7 @@
     opacity: 0;
 
     .siteHeader2.has-openMenu & {
-      background-color: $header2-color-white;
+      background-color: $tilt2-color-white;
       position: fixed;
       left: 0;
       right: 0;

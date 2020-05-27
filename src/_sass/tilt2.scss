@@ -1,11 +1,37 @@
 // (HY) The new layout has a subtly different color and font-size scale,
 // so I'm creating a new set of vars instead of amending what's in tilt.scss
-$header2-width:    1080px;
+$tilt2-header-width: 1080px;
+$tilt2-page-width: 1080px;
 
-$header2-color-white: #ffffff;
-$header2-color-gray: #586E75;
-$header2-color-gray-light: #EEF1F1;
+$tilt2-color-white: #ffffff;
+$tilt2-color-gray-lightest: #F1F1F1;
+$tilt2-color-gray-lighter: #B4B4B4;
+$tilt2-color-gray: #586E75;
+$tilt2-color-gray-dark: #073642;
 
-$header2-font-sansSerif: 'Noto Sans', sans-serif;
-$header2-fontSize-small: 14px;
-$header2-fontSize-default: 16px;
+$tilt2-color-text: $tilt2-color-gray-dark;
+
+
+// TYPOGRAPHY
+// --------------------------------------------------
+$tilt2-font-sans: 'Noto Sans', noto-sans, sans-serif;
+$tilt2-font-mono: 'Fira Code', monospace;
+
+$tilt2-font-size-heading: 28px;
+$tilt2-font-size-heading-small: 24px;
+
+$tilt2-font-size-body: 16px;
+$tilt2-font-size-body-large: 28px;
+$tilt2-line-height-body: 1.3;
+$tilt2-line-height-body-large: 1.4;
+
+$tilt2-font-size-body-serif: 22px;
+$tilt2-line-height-body-serif: 1.6;
+
+$tilt2-font-size-hero: 48px;
+$tilt2-font-size-hero-small: 32px;
+
+$tilt2-font-size-button-large: 26px;
+
+
+$tilt2-border-radius: 2px;
