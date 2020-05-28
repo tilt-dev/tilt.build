@@ -13,6 +13,7 @@
   max-width: $tilt2-page-width;
   font-family: $tilt2-font-sans;
   font-size: $tilt2-font-size-body;
+  font-weight: $tilt2-font-weight-sans-light;
   line-height: $tilt2-line-height-body;
 }
 
@@ -20,8 +21,21 @@
   font-family: $tilt2-font-sans;
   font-size: $tilt2-font-size-heading;
   color: $tilt2-color-text;
+  margin-bottom: $spacing-unit;
+}
+
+.Home2-subsectionHeading {
+  font-family: $tilt2-font-sans;
+  font-size: $tilt2-font-size-heading-small;
+  color: $tilt2-color-gray;
+  margin-bottom: $spacing-unit;
+}
+.Home2-subsectionHeading--resources {
+  display: flex;
+  align-items: center;
   margin-bottom: $spacing-unit / 2;
 }
+
 
 // Hero --------------------------------------------------
 .Home2-hero {
@@ -44,7 +58,7 @@
     font-family: inherit;
     font-size: $tilt2-font-size-hero-small;
     font-style: normal;
-    font-weight: 900;
+    font-weight: $tilt2-font-weight-sans-black;
     line-height: $tilt2-line-height-hero;
     color: $tilt2-color-text;
     
@@ -55,6 +69,7 @@
   }
 
   .Home2-heroText-subtitle {
+    font-weight: $tilt2-font-weight-sans-light;
     line-height: $tilt2-line-height-body-large;
 
     @include mobileAndAbove {
@@ -108,7 +123,7 @@
   background-color: transparent;
   font-family: $tilt2-font-sans;
   font-size: $tilt2-font-size-button-large;
-  font-weight: bold;
+  font-weight: $tilt2-font-weight-sans-bold;
   line-height: 1;
   padding-left: $spacing-unit / 2;
   padding-right: $spacing-unit / 2;
@@ -215,6 +230,7 @@
 .Home2-featuresIntro-text {
   font-size: $tilt2-font-size-hero-smallest;
   line-height: $tilt2-line-height-hero;
+  font-weight: $tilt2-font-weight-sans-light;
   margin-bottom: $spacing-unit;
   
   @include mobileAndAbove {
@@ -224,10 +240,8 @@
 }
 
 .Home2-featuresIntro-text-button {
-  font-family: inherit;
-  font-size: inherit;
-  background-color: transparent;
-  border: 0 none;
+  @include reset-button-style;
+  font-weight: inherit;
 }
 
 
@@ -252,8 +266,7 @@
 }
 
 .Home2-features-navList {
-  list-style: none;
-  margin-left: 0;
+  @include reset-list-style;
 
   @include mobileAndBelow {
     display: none;
@@ -293,8 +306,7 @@
 }
 
 .Home2-features-contentList {
-  list-style: none;
-  margin-left: 0;
+  @include reset-list-style;
 
   @include mobileAndAbove {
     flex: 2;
@@ -307,43 +319,133 @@
 
 .Home2-features-contentItem-title {
   @include reset-button-style;
-  font-weight: bold;
+  font-weight: $tilt2-font-weight-sans-bold;
 }
 
 // Testimonials --------------------------------------------------
+.Home2-sectionHeading--testimonials {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.Home2-testimonials-navList {
+  display: flex;
+  align-items: center;
+  @include reset-list-style;
+}
+.Home2-testimonials-navItem {
+  margin-left: $spacing-unit;
+}
+.Home2-testimonials-navItem-svg {
+  fill: $tilt2-color-gray-lighter;
+}
+.Home2-testimonials-navItem-svg--clusterApi {
+  width: 40px;
+}
 
 .Home2-testimonials {
+  @include reset-list-style;
+}
+
+.Home2-testimonial {
   margin-bottom: $spacing-unit;
-  padding: $spacing-unit;
-  background-color: $tilt2-color-gray-lightest;
+  background-color: $tilt2-color-off-white;
   border-radius: $tilt2-border-radius;
-  
+  border: 1px solid $tilt2-color-gray-lightest;
+  color: $tilt2-color-gray;
+  padding: $spacing-unit / 2;
+
   @include mobileAndAbove {
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr 7fr;
+    column-gap: $spacing-unit * 2;
     margin-bottom: $spacing-unit * 2;
     padding: $spacing-unit * 1.5;
   } 
 }
 
-.Home2-testimonials-profile {
+.Home2-testimonial-profile {
+  font-size: $tilt2-font-size-body-small;
+
+  @include mobileAndBelow {
+    display: flex;
+    margin-bottom: $spacing-unit / 2;
+  }
   @include mobileAndAbove {
     flex: 1;
   }
 }
-.Home2-testimonials-quote {
-  padding-left: $spacing-unit;
-  padding-right: $spacing-unit;
 
+.Home2-testimonial-profile-photo {
+  @include mobileAndBelow {
+    flex: 1;
+    padding-right: $spacing-unit / 2;
+  }
+  @include mobileAndAbove {
+    margin-bottom: $spacing-unit / 4;
+  }
+}
+.Home2-testimonial-profileInfo {
+  @include mobileAndBelow {
+    flex: 3;
+  }
+}
+.Home2-testimonial-profileSocial {
+}
+
+.Home2-testimonial-profileInfo-name {
+  font-weight: $tilt2-font-weight-sans-bold;
+  margin-bottom: 0;
+}
+.Home2-testimonial-profileInfo-role {
+  margin-bottom: $spacing-unit / 4;
+}
+.Home2-testimonial-profileSocial-link {
+  & + & {
+    margin-left: $spacing-unit / 2;
+  }
+  &:hover {
+    background-color: transparent;
+  }
+}
+
+.Home2-testimonial-content {  
   @include mobileAndAbove {
     flex: 6;
   }
 }
+ .Home2-testimonial-content-quote {
+   font-family: $tilt2-font-serif;
+   line-height: $tilt2-line-height-body-serif;
+   margin-bottom: $spacing-unit;
+   
+   @include mobileAndAbove {
+    font-size: $tilt2-font-size-body-serif;
+   }
+ }
+ .Home2-testimonial-content-meta {
+   font-size: $tilt2-font-size-body-small;
+   line-height: $tilt2-line-height-body-serif;
+   display: flex;
+   align-items: flex-start;
+   
+   @include mobileAndAbove {
+    align-items: center;
+   }
+}
+.Home2-testimonial-content-meta-svg {
+  margin-right: $spacing-unit / 2;
+  max-width: 50px;
+  fill: $tilt2-color-gray-lighter;
+}
+.Home2-testimonial-content-meta-text {
+  margin: 0;
+ }
 
 // Resources --------------------------------------------------
 
 .Home2-resources-list {
-  list-style: none;
-  margin-left: 0;
+  @include reset-list-style;
   
   @include mobileAndAbove {
     display: grid;
@@ -352,8 +454,77 @@
     row-gap: $spacing-unit;
   }
 }
-
 .Home2-resources-listItem {
   border: 1px solid $tilt2-color-gray-lightest;
-  padding: $spacing-unit;
+  padding: $spacing-unit / 2;
+  box-shadow: 0px 0px ($spacing-unit / 2) 0px rgba(180, 180, 180, $tilt2-alpha-transparent);
+  border-radius: $tilt2-border-radius;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.Home2-resources-listItem-text {
+  margin-bottom: $spacing-unit / 4;
+}
+
+.Home2-resources-svg {
+  margin-right: $spacing-unit / 2;
+  fill: $color-blue;
+}
+
+.Home2-resources-button {
+  @include reset-button-style;
+  line-height: $tilt2-line-height-body;
+  width: 100%;
+}
+.Home2-resources-link,
+.Home2-resources-button {
+  display: block;
+  font-family: $tilt2-font-sans;
+  font-weight: $tilt2-font-weight-sans-bold;
+  font-size: $tilt2-font-size-body;
+  line-height: $tilt2-line-height-body;
+  padding-top: $spacing-unit / 4;
+  padding-bottom: $spacing-unit / 4;
+  border-radius: $tilt2-border-radius;
+  border: 1px solid $color-blue;
+  text-align: center;
+  color: $color-blue;
+  transition: color $anim-duration ease, 
+    background-color $anim-duration ease;
+
+  &:hover {
+    color: $color-white;
+    background-color: $color-blue;
+  }
+  &:active {
+    background-color: $color-blue-light;
+  }
+
+  & + & {
+    margin-top: $spacing-unit / 4;
+  }
+}
+.Home2-resources-link-meta {
+  font-weight: $tilt2-font-weight-sans-light;
+}
+.Home2-resources-label {
+  font-size: $tilt2-font-size-body-small;
+  font-weight: $tilt2-font-weight-sans-bold;
+  margin-bottom: $spacing-unit / 8;
+  display: block;
+}
+.Home2-resources-input {
+  font-family: $tilt2-font-sans;
+  font-size: $tilt2-font-size-body;
+  padding-left: $spacing-unit / 2;
+  padding-right: $spacing-unit / 2;
+  padding-top: $spacing-unit / 4;
+  padding-bottom: $spacing-unit / 4;
+  width: 100%;
+  margin-bottom: $spacing-unit / 4;
+
+  &::placeholder {
+    color: $tilt2-color-gray;
+  }
 }
