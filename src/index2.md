@@ -120,7 +120,7 @@ layout: home2
 <ul class="Home2-testimonials">
   <li class="Home2-testimonial">
     <div class="Home2-testimonial-profile">
-      <img src="/assets/img/testimonial-profile-yext.jpg" class="Home2-testimonial-profile-photo">
+      <div class="Home2-testimonial-profile-photo"><img src="/assets/img/testimonial-profile-yext.jpg"></div>
       <div class="Home2-testimonial-profileInfo">
         <p class="Home2-testimonial-profileInfo-name">Tom Elliott</p>
         <p class="Home2-testimonial-profileInfo-role">Software Eng. Lead</p>
@@ -140,7 +140,7 @@ layout: home2
   </li>
   <li class="Home2-testimonial">
     <div class="Home2-testimonial-profile">
-      <img src="/assets/img/testimonial-profile-cluster-api.jpg" class="Home2-testimonial-profile-photo">
+      <div class="Home2-testimonial-profile-photo"><img src="/assets/img/testimonial-profile-cluster-api.jpg"></div>
       <div class="Home2-testimonial-profileInfo">
         <p class="Home2-testimonial-profileInfo-name">Jason DeTiberus</p>
         <p class="Home2-testimonial-profileInfo-role">Co-Maintainer</p>
