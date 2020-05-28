@@ -44,7 +44,8 @@ layout: home2
 
 <section class="Home2-featuresIntro">
   <p class="Home2-featuresIntro-text">
-    We’re focused on three feature verticals:<br/><button class="Home2-featuresIntro-text-button Home2-featuresIntro-text-button--pillar1">Understand & orchestrate</button> your services, work <button class="Home2-featuresIntro-text-button Home2-featuresIntro-text-button--pillar2">smarter & faster</button> wherever you are and <button class="Home2-featuresIntro-text-button Home2-featuresIntro-text-button--pillar3">team-based</button> productivity.
+    We’re focused on three feature verticals:<br/>
+    <button class="Home2-featuresIntro-text-button Home2-featuresIntro-text-button--pillar1">Understand & orchestrate</button> your services, work <button class="Home2-featuresIntro-text-button Home2-featuresIntro-text-button--pillar2">smarter & faster</button> wherever you are and <button class="Home2-featuresIntro-text-button Home2-featuresIntro-text-button--pillar3">team-based</button> productivity.
   </p>
 </section>
 
@@ -108,23 +109,47 @@ layout: home2
 
 {% include index2_cta.html %}
 
-<h3 class="Home2-sectionHeading">What People Are Saying</h3>
+<h3 class="Home2-sectionHeading Home2-sectionHeading--testimonials">
+  What People Are Saying
+  <ul class="Home2-testimonials-navList">
+    <li class="Home2-testimonials-navItem">{% svg assets/svg/testimonial-yext-logo.svg class="Home2-testimonials-navItem-svg Home2-testimonials-navItem-svg--yext" %}</li>
+    <li class="Home2-testimonials-navItem">{% svg assets/svg/testimonial-kubernetes-logo.svg class="Home2-testimonials-navItem-svg Home2-testimonials-navItem-svg--clusterApi" %}</li>
+  </ul>
+</h3>
 
-<section class="Home2-testimonials">
-  <div class="Home2-testimonials-profile">
-    <img src="/assets/img/testimonial-profile-yext.jpg">
-    <p>Tom Elliott</p>
-    <p>Software Eng. Lead</p>
-    <a href="#">Twitter</a>
-    <a href="#">Website</a>
-  </div>
-
-  <div class="Home2-testimonials-quote">
-    <p>Tilt has helped us accelerate our adoption of Kubernetes by letting us iterate rapidly on configuration and cross cutting concerns, which previously proved difficult to test effectively. The versatility of Tiltfiles has helped Tilt slot into our existing workflows with ease.</p>
-
-    <p>Yext builds a Search Experience Cloud platform, which puts customers in control of their facts online. They have a team of over 900 employees.</p>
-  </div>
-</section>
+<ul class="Home2-testimonials">
+  <li class="Home2-testimonial">
+    <div class="Home2-testimonial-profile">
+      <img src="/assets/img/testimonial-profile-yext.jpg" class="Home2-testimonial-profile-photo">
+      <p class="Home2-testimonial-profile-name">Tom Elliott</p>
+      <p class="Home2-testimonial-profile-role">Software Eng. Lead</p>
+      <a href="https://twitter.com/theotherelliott" rel="noopener noreferrer" target="_blank"  class="Home2-testimonial-profile-link" >{% svg assets/svg/social-twitter.svg %}</a>
+      <a href="http://engblog.yext.com/author/telliott" rel="noopener noreferrer" target="_blank" class="Home2-testimonial-profile-link">{% svg assets/svg/social-web.svg %}</a>
+    </div>
+    <div class="Home2-testimonial-content">
+      <p class="Home2-testimonial-content-quote">Tilt has helped us accelerate our adoption of Kubernetes by letting us iterate rapidly on configuration and cross cutting concerns, which previously proved difficult to test effectively. The versatility of Tiltfiles has helped Tilt slot into our existing workflows with ease.</p>
+      <div class="Home2-testimonial-content-meta">
+        {% svg assets/svg/testimonial-yext-logo.svg class="Home2-testimonial-content-meta-svg" %}
+        <p class="Home2-testimonial-content-meta-text">Yext builds a Search Experience Cloud platform, which puts customers in control of their facts online. They have a team of over 900 employees.</p>
+      </div>
+    </div>
+  </li>
+  <li class="Home2-testimonial">
+    <div class="Home2-testimonial-profile">
+      <img src="/assets/img/testimonial-profile-cluster-api.jpg" class="Home2-testimonial-profile-photo">
+      <p class="Home2-testimonial-profile-name">Jason DeTiberus</p>
+      <p class="Home2-testimonial-profile-role">Co-Maintainer</p>
+      <a href="https://blogs.vmware.com/cloudnative/author/jasondetiberus/" rel="noopener noreferrer" target="_blank" class="Home2-testimonial-profile-link">{% svg assets/svg/social-web.svg %}</a>
+    </div>
+    <div class="Home2-testimonial-content">
+      <p class="Home2-testimonial-content-quote">Not only did Tilt help us with orchestrating the deployment of changes for testing, live_update allowed us to start testing the changes without needing to wait for image builds. Tilt enabled us to move from painstakingly long dev and test cycles to rapid iterative development across the project.</p>
+      <div class="Home2-testimonial-content-meta">
+        {% svg assets/svg/testimonial-kubernetes-logo.svg class="Home2-testimonial-content-meta-svg" %}
+        <p class="Home2-testimonial-content-meta-text">Cluster API is an open-source Kubernetes project to bring declarative, Kubernetes-style APIs to cluster creation, configuration, and management. It has over 230 contributors.</p>
+      </div>
+    </div>
+  </li>
+</ul>
 
 <h3 class="Home2-sectionHeading">Learn More</h3>
 <section class="Home2-resources">

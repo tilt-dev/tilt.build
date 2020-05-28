@@ -13,6 +13,7 @@
   max-width: $tilt2-page-width;
   font-family: $tilt2-font-sans;
   font-size: $tilt2-font-size-body;
+  font-weight: $tilt2-font-weight-sans-light;
   line-height: $tilt2-line-height-body;
 }
 
@@ -20,7 +21,7 @@
   font-family: $tilt2-font-sans;
   font-size: $tilt2-font-size-heading;
   color: $tilt2-color-text;
-  margin-bottom: $spacing-unit / 2;
+  margin-bottom: $spacing-unit;
 }
 
 // Hero --------------------------------------------------
@@ -44,7 +45,7 @@
     font-family: inherit;
     font-size: $tilt2-font-size-hero-small;
     font-style: normal;
-    font-weight: 900;
+    font-weight: $tilt2-font-weight-sans-black;
     line-height: $tilt2-line-height-hero;
     color: $tilt2-color-text;
     
@@ -55,6 +56,7 @@
   }
 
   .Home2-heroText-subtitle {
+    font-weight: $tilt2-font-weight-sans-light;
     line-height: $tilt2-line-height-body-large;
 
     @include mobileAndAbove {
@@ -108,7 +110,7 @@
   background-color: transparent;
   font-family: $tilt2-font-sans;
   font-size: $tilt2-font-size-button-large;
-  font-weight: bold;
+  font-weight: $tilt2-font-weight-sans-bold;
   line-height: 1;
   padding-left: $spacing-unit / 2;
   padding-right: $spacing-unit / 2;
@@ -215,6 +217,7 @@
 .Home2-featuresIntro-text {
   font-size: $tilt2-font-size-hero-smallest;
   line-height: $tilt2-line-height-hero;
+  font-weight: $tilt2-font-weight-sans-light;
   margin-bottom: $spacing-unit;
   
   @include mobileAndAbove {
@@ -224,10 +227,8 @@
 }
 
 .Home2-featuresIntro-text-button {
-  font-family: inherit;
-  font-size: inherit;
-  background-color: transparent;
-  border: 0 none;
+  @include reset-button-style;
+  font-weight: inherit;
 }
 
 
@@ -252,8 +253,7 @@
 }
 
 .Home2-features-navList {
-  list-style: none;
-  margin-left: 0;
+  @include reset-list-style;
 
   @include mobileAndBelow {
     display: none;
@@ -293,8 +293,7 @@
 }
 
 .Home2-features-contentList {
-  list-style: none;
-  margin-left: 0;
+  @include reset-list-style;
 
   @include mobileAndAbove {
     flex: 2;
@@ -307,44 +306,108 @@
 
 .Home2-features-contentItem-title {
   @include reset-button-style;
-  font-weight: bold;
+  font-weight: $tilt2-font-weight-sans-bold;
 }
 
 // Testimonials --------------------------------------------------
+.Home2-sectionHeading--testimonials {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.Home2-testimonials-navList {
+  display: flex;
+  align-items: center;
+  @include reset-list-style;
+}
+.Home2-testimonials-navItem {
+  margin-left: $spacing-unit;
+}
+.Home2-testimonials-navItem-svg {
+  fill: $tilt2-color-gray-lighter;
+}
+.Home2-testimonials-navItem-svg--clusterApi {
+  width: 40px;
+}
 
 .Home2-testimonials {
+  @include reset-list-style;
+}
+
+.Home2-testimonial {
   margin-bottom: $spacing-unit;
   padding: $spacing-unit;
-  background-color: $tilt2-color-gray-lightest;
+  background-color: $tilt2-color-off-white;
   border-radius: $tilt2-border-radius;
-  
+  border: 1px solid $tilt2-color-gray-lightest;
+  color: $tilt2-color-gray;
+
   @include mobileAndAbove {
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr 7fr;
+    column-gap: $spacing-unit * 2;
     margin-bottom: $spacing-unit * 2;
     padding: $spacing-unit * 1.5;
   } 
 }
 
-.Home2-testimonials-profile {
+.Home2-testimonial-profile {
+  font-size: $tilt2-font-size-body-small;
+
   @include mobileAndAbove {
     flex: 1;
   }
 }
-.Home2-testimonials-quote {
-  padding-left: $spacing-unit;
-  padding-right: $spacing-unit;
+.Home2-testimonial-profile-photo {
+  margin-bottom: $spacing-unit / 4;
+}
+.Home2-testimonial-profile-name {
+  font-weight: $tilt2-font-weight-sans-bold;
+  margin-bottom: 0;
+}
+.Home2-testimonial-profile-role {
+  margin-bottom: $spacing-unit / 4;
+}
+.Home2-testimonial-profile-link {
+  & + & {
+    margin-left: $spacing-unit / 2;
+  }
+  &:hover {
+    background-color: transparent;
+  }
+}
 
+.Home2-testimonial-content {  
   @include mobileAndAbove {
     flex: 6;
   }
 }
+ .Home2-testimonial-content-quote {
+   font-family: $tilt2-font-serif;
+   font-size: $tilt2-font-size-body-serif;
+   line-height: $tilt2-line-height-body-serif;
+   margin-bottom: $spacing-unit;
+ }
+ .Home2-testimonial-content-meta {
+   font-size: $tilt2-font-size-body-small;
+   line-height: $tilt2-line-height-body-serif;
+   display: flex;
+   align-items: center;
+}
+.Home2-testimonial-content-meta-svg {
+  margin-right: $spacing-unit / 2;
+  max-width: 50px;
+  fill: $tilt2-color-gray-lighter;
+}
+.Home2-testimonial-content-meta-text {
+  margin: 0;
+ }
 
 // Resources --------------------------------------------------
 
 .Home2-resources-list {
-  list-style: none;
-  margin-left: 0;
-  
+  @include reset-list-style;
+
   @include mobileAndAbove {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
