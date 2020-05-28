@@ -12,7 +12,6 @@ The list of `LiveUpdateSteps` must be, in order:
 - 0 or more [`fall_back_on`](api.html#api.fall_back_on) steps
 - 0 or more [`sync`](api.html#api.sync) steps
 - 0 or more [`run`](api.html#api.run) steps
-- 0 or 1 [`restart_container`](api.html#api.restart_container) steps
 
 When you `tilt up`, your initial build will be a full build---i.e., the specified Docker build or Custom build.[^1]
 
@@ -23,7 +22,6 @@ When a file changes:
         2. for every `run` step:
             1. if the `run` specifies one or more `triggers`, execute the command iff any changed files match the given triggers
             2. otherwise, simply execute the command
-        3. restart the container if a `restart_container` step is present. (This is equivalent to re-executing the container's `ENTRYPOINT`.)
 
 ## LiveUpdateSteps
 Each of the functions above returns a `LiveUpdateStep` -- an object like any other, i.e. it can be assigned to a variable, etc. That means that something like this is perfectly valid syntax:
@@ -113,13 +111,39 @@ docker_build('my-img', '.', live_update=[
 2. change to `./src/web/yarn.lock` => run the Live Update; run `setup.sh`; run `cd /app/web && yarn install`, because this file matches that command's trigger
 3. change to `./configs/foo.yaml` => whoops, this file doesn't match any `sync` steps! Even though it matches a trigger (for the third `run`), we won't do a Live Update for this change; instead, we do a full Docker build (see notes on `sync`, above, for what changes trigger a Live Update vs. a full build + deploy).
 
-### [`restart_container()`](api.html#api.restart_container)
+## Rerunning your Process
 
-This step is optional. If you have a `restart_container` step, it must come at the very end of your list of Live Update steps. When this step is present, it tells Tilt to restart the container after all the files have been sync'd, runs have been executed, etc. In practice, this means that the container re-executes its `ENTRYPOINT` within the changed filesystem.
+Some apps or invocations thereof (e.g. Javascript apps run via `nodemon`, or Flask apps run in debug mode) detect and incorporate code changes without needing to restart. For other apps, though, you'll need to re-execute them for changes to take effect.
 
-If your container executes a binary and your Live Update changes that binary, you probably want to restart the container to re-execute it. If, however, you're running a Flask or Node app that responds to filesystem changes without requiring a restart, you can probably leave this step out.
+For most setups, you'll be able to use the [`restart_process` extension](https://github.com/windmilleng/tilt-extensions/tree/master/restart_process): import the extension, replace your `docker_build` call with a `docker_build_with_restart` call, and specify the `entrypoint` parameter (i.e. the command to run on container start and _re-run_ on Live Update). (If using `custom_build`, then instead swap that call out for `custom_build_with_restart`.)
 
-**NOTE**: `restart_container()` *only* works on containers managed by Docker. For non-Docker runtimes (e.g. containerd, CRI-O), please see the [wrapper script for simulating restart_container](https://github.com/tilt-dev/rerun-process-wrapper).
+There are a few exceptions to the above; the `restart_process` extension doesn't work for:
+* Docker Compose resources; you should use the [`restart_container()`](api.html#api.restart_container) Live Update step instead
+* `custom_build` calls that specify
+    a. the `tag` parameter
+    b. `skips_local_docker=True`
+* container images without a shell (e.g. `scratch`, `distroless`)
+
+If any of the exceptions above apply to you, or `restart_process` doesn't otherwise work for your use case, read on.
+
+### Workarounds for Rerunning Your Process
+
+Tilt is flexible enough that you can employ any number of workarounds for restarting your process as part of a Live Update. The basic idea is to invoke your process such that a single command (specified as a `run` step) causes it to restart. Here are a few approaches we recommend:
+* We've written a [set of wrappers for your process](https://github.com/windmilleng/rerun-process-wrapper). Put these scripts in your container and invoke your process as:
+    ```bash
+/path/to/start.sh /path/to/bin
+    ```
+    You can then restart your process with Live Update step: `run('/path/to/restart.sh')`. (Requires that shell be available on your container.)
+* [`entr`](https://github.com/eradman/entr/) is a neat utility for (re)running processes when specified files change. You can designate an arbitrary file to trigger process restart, say `/restart.txt`, and invoke your process like this:
+    ```bash
+echo /restart.txt | entr -rz /path/to/bin
+    ```
+    You can then your process with Live Update step: `run('date > /restart.txt')`. (You'll have to ensure that `entr` is present in your Docker image, and that your arbitrary file for restarting exists.) (Requires that shell be available on your container.)
+
+Recall that you can change the command run by your container in a few ways:
+* in the Dockerfile, via `ENTRYPOINT`/`CMD`
+* in your Kubernetes YAML, via `spec.containers.[the_container].command`
+* in your Tiltfile, via the `docker_build.entrypoint` parameter (or analogously, `custom_build.entrypoint`)
 
 ## More Examples
 
