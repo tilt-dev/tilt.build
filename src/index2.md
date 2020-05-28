@@ -121,10 +121,14 @@ layout: home2
   <li class="Home2-testimonial">
     <div class="Home2-testimonial-profile">
       <img src="/assets/img/testimonial-profile-yext.jpg" class="Home2-testimonial-profile-photo">
-      <p class="Home2-testimonial-profile-name">Tom Elliott</p>
-      <p class="Home2-testimonial-profile-role">Software Eng. Lead</p>
-      <a href="https://twitter.com/theotherelliott" rel="noopener noreferrer" target="_blank"  class="Home2-testimonial-profile-link" >{% svg assets/svg/social-twitter.svg %}</a>
-      <a href="http://engblog.yext.com/author/telliott" rel="noopener noreferrer" target="_blank" class="Home2-testimonial-profile-link">{% svg assets/svg/social-web.svg %}</a>
+      <div class="Home2-testimonial-profileInfo">
+        <p class="Home2-testimonial-profileInfo-name">Tom Elliott</p>
+        <p class="Home2-testimonial-profileInfo-role">Software Eng. Lead</p>
+      </div>
+      <div class="Home2-testimonial-profileSocial">
+        <a href="https://twitter.com/theotherelliott" rel="noopener noreferrer" target="_blank"  class="Home2-testimonial-profileSocial-link" >{% svg assets/svg/social-twitter.svg %}</a>
+        <a href="http://engblog.yext.com/author/telliott" rel="noopener noreferrer" target="_blank" class="Home2-testimonial-profileSocial-link">{% svg assets/svg/social-web.svg %}</a>
+      </div>
     </div>
     <div class="Home2-testimonial-content">
       <p class="Home2-testimonial-content-quote">Tilt has helped us accelerate our adoption of Kubernetes by letting us iterate rapidly on configuration and cross cutting concerns, which previously proved difficult to test effectively. The versatility of Tiltfiles has helped Tilt slot into our existing workflows with ease.</p>
@@ -137,9 +141,13 @@ layout: home2
   <li class="Home2-testimonial">
     <div class="Home2-testimonial-profile">
       <img src="/assets/img/testimonial-profile-cluster-api.jpg" class="Home2-testimonial-profile-photo">
-      <p class="Home2-testimonial-profile-name">Jason DeTiberus</p>
-      <p class="Home2-testimonial-profile-role">Co-Maintainer</p>
-      <a href="https://blogs.vmware.com/cloudnative/author/jasondetiberus/" rel="noopener noreferrer" target="_blank" class="Home2-testimonial-profile-link">{% svg assets/svg/social-web.svg %}</a>
+      <div class="Home2-testimonial-profileInfo">
+        <p class="Home2-testimonial-profileInfo-name">Jason DeTiberus</p>
+        <p class="Home2-testimonial-profileInfo-role">Co-Maintainer</p>
+      </div>
+      <div class="Home2-testimonial-profileSocial">
+        <a href="https://blogs.vmware.com/cloudnative/author/jasondetiberus/" rel="noopener noreferrer" target="_blank" class="Home2-testimonial-profileSocial-link">{% svg assets/svg/social-web.svg %}</a>
+      </div>
     </div>
     <div class="Home2-testimonial-content">
       <p class="Home2-testimonial-content-quote">Not only did Tilt help us with orchestrating the deployment of changes for testing, live_update allowed us to start testing the changes without needing to wait for image builds. Tilt enabled us to move from painstakingly long dev and test cycles to rapid iterative development across the project.</p>

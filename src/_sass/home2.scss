@@ -336,11 +336,11 @@
 
 .Home2-testimonial {
   margin-bottom: $spacing-unit;
-  padding: $spacing-unit;
   background-color: $tilt2-color-off-white;
   border-radius: $tilt2-border-radius;
   border: 1px solid $tilt2-color-gray-lightest;
   color: $tilt2-color-gray;
+  padding: $spacing-unit / 2;
 
   @include mobileAndAbove {
     display: grid;
@@ -354,21 +354,40 @@
 .Home2-testimonial-profile {
   font-size: $tilt2-font-size-body-small;
 
+  @include mobileAndBelow {
+    display: flex;
+    margin-bottom: $spacing-unit / 2;
+  }
   @include mobileAndAbove {
     flex: 1;
   }
 }
+
 .Home2-testimonial-profile-photo {
-  margin-bottom: $spacing-unit / 4;
+  @include mobileAndBelow {
+    flex: 1;
+    padding-right: $spacing-unit / 2;
+  }
+  @include mobileAndAbove {
+    margin-bottom: $spacing-unit / 4;
+  }
 }
-.Home2-testimonial-profile-name {
+.Home2-testimonial-profileInfo {
+  @include mobileAndBelow {
+    flex: 3;
+  }
+}
+.Home2-testimonial-profileSocial {
+}
+
+.Home2-testimonial-profileInfo-name {
   font-weight: $tilt2-font-weight-sans-bold;
   margin-bottom: 0;
 }
-.Home2-testimonial-profile-role {
+.Home2-testimonial-profileInfo-role {
   margin-bottom: $spacing-unit / 4;
 }
-.Home2-testimonial-profile-link {
+.Home2-testimonial-profileSocial-link {
   & + & {
     margin-left: $spacing-unit / 2;
   }
@@ -384,15 +403,22 @@
 }
  .Home2-testimonial-content-quote {
    font-family: $tilt2-font-serif;
-   font-size: $tilt2-font-size-body-serif;
    line-height: $tilt2-line-height-body-serif;
    margin-bottom: $spacing-unit;
+   
+   @include mobileAndAbove {
+    font-size: $tilt2-font-size-body-serif;
+   }
  }
  .Home2-testimonial-content-meta {
    font-size: $tilt2-font-size-body-small;
    line-height: $tilt2-line-height-body-serif;
    display: flex;
-   align-items: center;
+   align-items: flex-start;
+   
+   @include mobileAndAbove {
+    align-items: center;
+   }
 }
 .Home2-testimonial-content-meta-svg {
   margin-right: $spacing-unit / 2;
