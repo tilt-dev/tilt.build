@@ -170,7 +170,7 @@ layout: home2
         </h4>
         <p>Already have a Dockerfile and a Kubernetes config? Set up Tilt in no time and start getting things done. </p>
       </div>
-      <a href="#" class="Home2-resources-link">Check out Docs</a>
+      <a href="{{site.docsurl}}/" class="Home2-resources-link">Check out Docs</a>
     </li>
     <li class="Home2-resources-listItem">
       <div class="Home2-resources-listItem-text">
@@ -178,9 +178,9 @@ layout: home2
           {% svg assets/svg/resources-slack.svg class="Home2-resources-icon" %}
           Chat with Us
         </h4>
-        <p>Find us in the #tilt channel inside of the Kubernetes Slack. We’re there Mon-Fri EST business hours. We don't bite.</p>
+        <p>Find us in the #tilt channel of the official Kubernetes Slack. We’re there Mon-Fri EST business hours. We don’t bite.</p>
       </div>
-      <a href="#" class="Home2-resources-link">Get Your Invite</a>
+      <a href="https://slack.k8s.io/" class="Home2-resources-link">Get Your Invite</a>
     </li>
     <li class="Home2-resources-listItem">
       <div class="Home2-resources-listItem-text">
@@ -191,9 +191,9 @@ layout: home2
         <p>Short & sweet videos about Tilt</p>
       </div>
       <div class="Home2-resources-listItem-cta">
-        <a href="#" class="Home2-resources-link">Tilt’s Main Features <span class="Home2-resources-link-meta">6m</span></a>
-        <a href="#" class="Home2-resources-link">Basic Concepts <span class="Home2-resources-link-meta">5.5m</span></a>
-        <a href="#" class="Home2-resources-link">Setting up Tilt <span class="Home2-resources-link-meta">15.5m</span></a>
+        <a href="https://www.youtube.com/watch?v=MIzf9vDs9JU" rel="noopener noreferrer" target="_blank" class="Home2-resources-link">Tilt’s Main Features <span class="Home2-resources-link-meta">6m</span></a>
+        <a href="https://www.youtube.com/watch?v=HSFGKxvxsWs&t=69s" rel="noopener noreferrer" target="_blank" class="Home2-resources-link">Basic Concepts <span class="Home2-resources-link-meta">5.5m</span></a>
+        <a href="https://www.youtube.com/watch?v=MhYIsTwwPC8" rel="noopener noreferrer" target="_blank" class="Home2-resources-link">Setting up Tilt <span class="Home2-resources-link-meta">15.5m</span></a>
       </div>
     </li>
     <li class="Home2-resources-listItem">
@@ -204,7 +204,7 @@ layout: home2
         </h4>
         <p>Have an idea or a bug to report? Check our GitHub issues. In case you want to tackle some of your own we have a collection for that.</p>
       </div>
-      <a href="#" class="Home2-resources-link">Tilt GitHub</a>
+      <a href="https://github.com/tilt-dev/tilt" rel="noopener noreferrer" target="_blank" class="Home2-resources-link">Tilt GitHub</a>
     </li>
     <li class="Home2-resources-listItem">
       <div class="Home2-resources-listItem-text">
@@ -214,7 +214,7 @@ layout: home2
         </h4>
         <p>Have questions or feature requests for Tilt? Want to use it for your company? Just want to say hi? We love hearing from you!</p>
       </div>
-      <a href="#" class="Home2-resources-link">hi@tilt.dev</a>
+      <a href="mailto:hi@tilt.dev" class="Home2-resources-link">hi@tilt.dev</a>
     </li>
     <li class="Home2-resources-listItem">
       <div class="Home2-resources-listItem-text">
