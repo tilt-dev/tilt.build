@@ -489,10 +489,15 @@
   border: 1px solid $color-blue;
   text-align: center;
   color: $color-blue;
+  transition: color $anim-duration ease, 
+    background-color $anim-duration ease;
 
   &:hover {
     color: $color-white;
     background-color: $color-blue;
+  }
+  &:active {
+    background-color: $color-blue-light;
   }
 
   & + & {
