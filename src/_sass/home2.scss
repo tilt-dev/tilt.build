@@ -510,7 +510,8 @@
 .Home2-resources-label {
   font-size: $tilt2-font-size-body-small;
   font-weight: $tilt2-font-weight-sans-bold;
-  margin-bottom: $spacing-unit / 4;
+  margin-bottom: $spacing-unit / 8;
+  display: block;
 }
 .Home2-resources-input {
   font-family: $tilt2-font-sans;

@@ -226,7 +226,7 @@ layout: home2
       </div>
       <div class="Home2-resources-listItem-cta">
         <label for="drip-email" class="Home2-resources-label">Your Email</label>
-        <input class="Home2-resources-input" type="email" id="drip-email" name="fields[email]" value="" placeholder="you@company.com" />
+        <input class="Home2-resources-input" type="email" id="drip-email" name="fields[email]" value="" placeholder="me@company.com" />
         <button class="Home2-resources-button" type="submit" data-drip-attribute="sign-up-button">
           Subscribe
         </button>
