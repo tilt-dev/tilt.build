@@ -163,36 +163,74 @@ layout: home2
 <section class="Home2-resources">
   <ul class="Home2-resources-list">
     <li class="Home2-resources-listItem">
-      <h4>Read the Docs</h4>
-      <p>Already have a Dockerfile and a Kubernetes config? Set up Tilt in no time and start getting things done. </p>
-      <button>Check out Docs! </button>
+      <div class="Home2-resources-listItem-text">
+        <h4 class="Home2-subsectionHeading Home2-subsectionHeading--resources">
+          {% svg assets/svg/resources-docs.svg class="Home2-resources-icon" %}
+          Read the Docs
+        </h4>
+        <p>Already have a Dockerfile and a Kubernetes config? Set up Tilt in no time and start getting things done. </p>
+      </div>
+      <a href="#" class="Home2-resources-link">Check out Docs</a>
     </li>
     <li class="Home2-resources-listItem">
-      <h4>Chat with Us</h4>
-      <p>Find us in the #tilt channel inside of the Kubernetes Slack. We’re there Mon-Fri EST business hours. We don't bite.</p>
-      <button>Get Your Invite</button>
+      <div class="Home2-resources-listItem-text">
+        <h4 class="Home2-subsectionHeading Home2-subsectionHeading--resources">
+          {% svg assets/svg/resources-slack.svg class="Home2-resources-icon" %}
+          Chat with Us
+        </h4>
+        <p>Find us in the #tilt channel inside of the Kubernetes Slack. We’re there Mon-Fri EST business hours. We don't bite.</p>
+      </div>
+      <a href="#" class="Home2-resources-link">Get Your Invite</a>
     </li>
     <li class="Home2-resources-listItem">
-      <h4>Screen Time</h4>
-      <p>Short & sweet videos about Tilt</p>
-      <button>Tilt’s Main Features <span>6m</span></button>
-      <button>Basic Concepts <span>5.5m</span></button>
-      <button>Setting up Tilt <span>15.5m</span></button> 
+      <div class="Home2-resources-listItem-text">
+        <h4 class="Home2-subsectionHeading Home2-subsectionHeading--resources">
+          {% svg assets/svg/resources-videos.svg class="Home2-resources-icon" %}
+          Quick Start
+        </h4>
+        <p>Short & sweet videos about Tilt</p>
+      </div>
+      <div class="Home2-resources-listItem-cta">
+        <a href="#" class="Home2-resources-link">Tilt’s Main Features <span class="Home2-resources-link-meta">6m</span></a>
+        <a href="#" class="Home2-resources-link">Basic Concepts <span class="Home2-resources-link-meta">5.5m</span></a>
+        <a href="#" class="Home2-resources-link">Setting up Tilt <span class="Home2-resources-link-meta">15.5m</span></a>
+      </div>
     </li>
     <li class="Home2-resources-listItem">
-      <h4>GitHub Issues</h4>
-      <p>Have an idea or a bug to report? Check our GitHub issues. In case you want to tackle some of your own we have a collection for that.</p>
-      <button>Tilt GitHub</button>
+      <div class="Home2-resources-listItem-text">
+        <h4 class="Home2-subsectionHeading Home2-subsectionHeading--resources">
+          {% svg assets/svg/resources-github.svg class="Home2-resources-icon" %}
+          GitHub Issues
+        </h4>
+        <p>Have an idea or a bug to report? Check our GitHub issues. In case you want to tackle some of your own we have a collection for that.</p>
+      </div>
+      <a href="#" class="Home2-resources-link">Tilt GitHub</a>
     </li>
     <li class="Home2-resources-listItem">
-      <h4>Email us</h4>
-      <p>Have questions or feature requests for Tilt? Want to use it for your company? Just want to say hi? We love hearing from you!</p>
-      <button>hi@tilt.dev</button>
+      <div class="Home2-resources-listItem-text">
+        <h4 class="Home2-subsectionHeading Home2-subsectionHeading--resources">
+          {% svg assets/svg/resources-contact.svg class="Home2-resources-icon" %}
+          Email us
+        </h4>
+        <p>Have questions or feature requests for Tilt? Want to use it for your company? Just want to say hi? We love hearing from you!</p>
+      </div>
+      <a href="#" class="Home2-resources-link">hi@tilt.dev</a>
     </li>
     <li class="Home2-resources-listItem">
-      <h4>Our Mailing List</h4>
-      <p>Keep up with Multi-Service Development and all things Tilt.</p>
-      <button>Submit</button>
+      <div class="Home2-resources-listItem-text">
+        <h4 class="Home2-subsectionHeading Home2-subsectionHeading--resources">
+          {% svg assets/svg/resources-mailing-list.svg class="Home2-resources-icon" %}
+          Our Mailing List
+        </h4>
+        <p>Keep up with Multi-Service Development and all things Tilt.</p>
+      </div>
+      <div class="Home2-resources-listItem-cta">
+        <label for="drip-email" class="Home2-resources-label">Your Email</label>
+        <input class="Home2-resources-input" type="email" id="drip-email" name="fields[email]" value="" placeholder="you@company.com" />
+        <button class="Home2-resources-button" type="submit" data-drip-attribute="sign-up-button">
+          Subscribe
+        </button>
+      </div>
     </li>
   </ul>
 </section>
