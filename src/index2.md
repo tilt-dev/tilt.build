@@ -110,8 +110,12 @@ layout: home2
         <p class="Home2-testimonial-profileInfo-role">Software Eng. Lead</p>
       </div>
       <div class="Home2-testimonial-profileSocial">
-        <a href="https://twitter.com/theotherelliott" rel="noopener noreferrer" target="_blank"  class="Home2-testimonial-profileSocial-link" >{% svg assets/svg/social-twitter.svg %}</a>
-        <a href="http://engblog.yext.com/author/telliott" rel="noopener noreferrer" target="_blank" class="Home2-testimonial-profileSocial-link">{% svg assets/svg/social-web.svg %}</a>
+        <a href="https://twitter.com/theotherelliott" rel="noopener noreferrer" target="_blank"  class="Home2-testimonial-profileSocial-link Home2-testimonial-profileSocial-link--twitter" >
+          {% svg assets/svg/social-twitter.svg %}
+        </a>
+        <a href="http://engblog.yext.com/author/telliott" rel="noopener noreferrer" target="_blank" class="Home2-testimonial-profileSocial-link Home2-testimonial-profileSocial-link--web">
+          {% svg assets/svg/social-web.svg %}
+        </a>
       </div>
     </div>
     <div class="Home2-testimonial-content">
@@ -130,7 +134,9 @@ layout: home2
         <p class="Home2-testimonial-profileInfo-role">Co-Maintainer</p>
       </div>
       <div class="Home2-testimonial-profileSocial">
-        <a href="https://blogs.vmware.com/cloudnative/author/jasondetiberus/" rel="noopener noreferrer" target="_blank" class="Home2-testimonial-profileSocial-link">{% svg assets/svg/social-web.svg %}</a>
+        <a href="https://blogs.vmware.com/cloudnative/author/jasondetiberus/" rel="noopener noreferrer" target="_blank" class="Home2-testimonial-profileSocial-link Home2-testimonial-profileSocial-link--web">
+          {% svg assets/svg/social-web.svg %}
+        </a>
       </div>
     </div>
     <div class="Home2-testimonial-content">
@@ -160,7 +166,7 @@ layout: home2
     <li class="Home2-resources-listItem">
       <div class="Home2-resources-listItem-text">
         <h4 class="Home2-subsectionHeading Home2-subsectionHeading--resources">
-          {% svg assets/svg/resources-slack.svg class="Home2-resources-svg" %}
+        {% svg assets/svg/social-slack.svg class="Home2-resources-icon" %}
           Chat with Us
         </h4>
         <p>Find us in the #tilt channel of the official Kubernetes Slack. We’re there Mon-Fri EST business hours. We don’t bite.</p>

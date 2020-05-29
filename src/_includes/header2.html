@@ -15,8 +15,8 @@
     </a>
     {% endif %}
     <button class="siteHeader2-menuButton" onclick="document.querySelector('.siteHeader2').classList.toggle('has-openMenu')">
-      {% svg assets/svg/menu.svg class="siteHeader2-menuSvg" %}
-      {% svg assets/svg/x.svg class="siteHeader2-closeSvg" %}
+      {% svg assets/svg/ui-menu.svg class="siteHeader2-menuButton-menu" %}
+      {% svg assets/svg/ui-close.svg class="siteHeader2-menuButton-close" %}
     </button>
   </div>
 
@@ -36,16 +36,16 @@
           <li class="siteHeader2-navItem">
             <a class="siteHeader2-navLink siteHeader2-navLink--github" href="{{href}}">
               {{link.name}}
-              <span class="github-stars">{% svg assets/svg/github-star.svg class="siteHeader2-navLink-svg"%}</span>
+              <span class="siteHeader2-navLink-icon">{% svg assets/svg/github-star.svg%}</span>
               <span>{{link.githubStars}}</span>
             </a>
           </li>
         {% else %}
-        <li class="siteHeader2-navItem">
-          <a class="siteHeader2-navLink {% if link.primary %}siteHeader2-navLink--primary{% endif %}" href="{{href}}">
-            {{ link.name }}
-          </a>
-        </li>
+          <li class="siteHeader2-navItem">
+            <a class="siteHeader2-navLink {% if link.primary %}siteHeader2-navLink--primary{% endif %}" href="{{href}}">
+              {{ link.name }}
+            </a>
+          </li>
         {% endif %}
       {% endfor %}
     </ul>

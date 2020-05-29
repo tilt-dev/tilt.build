@@ -81,7 +81,7 @@ body.is-header2 .siteHeader1 {
   display: none;
 }
 
-.site-footer {
+.siteFooter1 {
   margin: auto;
   font-family: $chrome-font-family;
   font-size: $chrome-font-size;
@@ -90,6 +90,9 @@ body.is-header2 .siteHeader1 {
   font-variant-ligatures: none;
   letter-spacing: 0;
   color: $color-grey-darkest;
+}
+body.is-footer2 .siteFooter1 {
+  display: none;
 }
 
 .page-content {

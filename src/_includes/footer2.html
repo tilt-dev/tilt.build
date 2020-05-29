@@ -1,0 +1,43 @@
+<footer class="siteFooter2">
+  <div class="siteFooter2-links">
+    <ul class="siteFooter2-links-navList">
+      {% for link in site.data.footer2 %}
+        {% assign href = link.href %}
+        {% if link.landingurl %}
+          {% assign href = (href | prepend: "/" | prepend: site.landingurl) %}
+        {% elsif link.docsurl %}
+          {% assign href = (href | prepend: "/" | prepend: site.docsurl) %}
+        {% elsif link.blogurl %}
+          {% assign href = (href | prepend: "/" | prepend: site.blogurl) %}
+        {% endif %}
+      
+        <li class="siteFooter2-links-navItem">
+          {% if link.github %}
+            <a class="siteFooter2-links-navLink siteFooter2-links-navLink--github" href="{{href}}">
+              {{link.name}}
+              <span class="siteHeader2-navLink-icon">{% svg assets/svg/github-star.svg %}</span>
+            <span>{{link.githubStars}}</span>
+            </a>
+          {% else %}
+            <a class="siteFooter2-links-navLink {% if link.primary %}siteFooter2-links-navLink--primary{% endif %}" href="{{href}}">
+              {{link.name}}
+            </a>
+          {% endif %}
+        </li>
+      {% endfor %}
+    </ul>
+    <ul class="siteFooter2-links-socialList">
+      <li class="siteFooter2-links-socialItem">
+        <a class="siteFooter2-links-socialLink siteFooter2-links-socialLink--twitter" href="https://twitter.com/{{site.twitter_username}}">
+          {% svg assets/svg/social-twitter.svg %}
+        </a>
+      </li>
+      <li class="siteFooter2-links-socialItem">
+        <a class="siteFooter2-links-socialLink siteFooter2-links-socialLink--slack" href="https://slack.k8s.io/">
+          {% svg assets/svg/social-slack.svg %}
+        </a>
+      </li>
+    </ul>
+  </div>
+  <p class="siteFooter2-about">Built with 🌈 from New York, Virginia, Berlin and the <span class="siteFooter2-about-cloud">☁️</span></p>
+</footer>

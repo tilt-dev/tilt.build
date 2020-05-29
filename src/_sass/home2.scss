@@ -122,7 +122,7 @@
 .Home2-cta-button {
   background-color: transparent;
   font-family: $tilt2-font-sans;
-  font-size: $tilt2-font-size-button-large;
+  font-size: $tilt2-button-font-size--large;
   font-weight: $tilt2-font-weight-sans-bold;
   line-height: 1;
   padding-left: $spacing-unit / 2;
@@ -351,7 +351,7 @@
     fill: $color-blue;
   }
 }
-.Home2-testimonials-navItem-svg {
+.Home2-testimonials-navItem .stdFill {
   fill: $tilt2-color-gray-lighter;
   transition: fill $anim-duration ease;
 }
@@ -416,8 +416,7 @@
     flex: 3;
   }
 }
-.Home2-testimonial-profileSocial {
-}
+
 
 .Home2-testimonial-profileInfo-name {
   font-weight: $tilt2-font-weight-sans-bold;
@@ -432,6 +431,20 @@
   }
   &:hover {
     background-color: transparent;
+  }
+}
+
+.Home2-testimonial-profileSocial-link--twitter {
+  .primaryStroke {
+    stroke: $color-blue
+  }
+  .fillStd {
+    fill: transparent;
+  }
+}
+.Home2-testimonial-profileSocial-link--web {
+  .fillStd {
+    fill: $color-blue;
   }
 }
 
