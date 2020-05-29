@@ -1,11 +1,12 @@
 // (HY) The new layout has a subtly different color and font-size scale,
 // so I'm creating a new set of vars instead of amending what's in tilt.scss
-$tilt2-header-width: 1080px;
 $tilt2-page-width: 1080px;
+$tilt2-header-width: $tilt2-page-width;
+$tilt2-footer-width: $tilt2-page-width;
 
 $tilt2-color-off-white: #FAFBFC;
-$tilt2-color-gray-lightest: #F1F1F1;
-$tilt2-color-gray-lighter: #B4B4B4;
+$tilt2-color-gray-lightest: #EEF1F1;
+$tilt2-color-gray-lighter: #CCDADE;
 $tilt2-color-gray: #586E75;
 $tilt2-color-gray-dark: #073642;
 
@@ -41,10 +42,23 @@ $tilt2-line-height-body-large: 1.45;
 $tilt2-font-size-body-serif: 22px;
 $tilt2-line-height-body-serif: 1.6;
 
-$tilt2-font-size-button-large: 26px;
-
+$tilt2-button-font-size--large: 26px;
+$tilt2-button-font-size: 14px;
+$tilt2-button-font-size--small: 14px;
+$tilt2-button-height--small: 26px;
 
 $tilt2-border-radius: 2px;
+
+@mixin button-small {
+  font-size: $tilt2-button-font-size--small;
+}
+
+@mixin font-body-small {
+  font-family: $tilt2-font-sans;
+  font-size: $tilt2-font-size-body-small;
+  font-weight: $tilt2-font-weight-sans-light;
+  line-height: $tilt2-line-height-body;
+}
 
 @mixin reset-button-style {
   font-family: inherit;

@@ -99,8 +99,12 @@ layout: home2
         <p class="Home2-testimonial-profileInfo-role">Software Eng. Lead</p>
       </div>
       <div class="Home2-testimonial-profileSocial">
-        <a href="https://twitter.com/theotherelliott" rel="noopener noreferrer" target="_blank"  class="Home2-testimonial-profileSocial-link" >{% svg assets/svg/social-twitter.svg %}</a>
-        <a href="http://engblog.yext.com/author/telliott" rel="noopener noreferrer" target="_blank" class="Home2-testimonial-profileSocial-link">{% svg assets/svg/social-web.svg %}</a>
+        <a href="https://twitter.com/theotherelliott" rel="noopener noreferrer" target="_blank"  class="Home2-testimonial-profileSocial-link" >
+          {% svg assets/svg/social-twitter.svg class="Home2-testimonial-profileSocial-svg Home2-testimonial-profileSocial-svg--twitter" %}
+        </a>
+        <a href="http://engblog.yext.com/author/telliott" rel="noopener noreferrer" target="_blank" class="Home2-testimonial-profileSocial-link">
+          {% svg assets/svg/social-web.svg class="Home2-testimonial-profileSocial-svg Home2-testimonial-profileSocial-svg--web" %}
+        </a>
       </div>
     </div>
     <div class="Home2-testimonial-content">
@@ -119,7 +123,9 @@ layout: home2
         <p class="Home2-testimonial-profileInfo-role">Co-Maintainer</p>
       </div>
       <div class="Home2-testimonial-profileSocial">
-        <a href="https://blogs.vmware.com/cloudnative/author/jasondetiberus/" rel="noopener noreferrer" target="_blank" class="Home2-testimonial-profileSocial-link">{% svg assets/svg/social-web.svg %}</a>
+        <a href="https://blogs.vmware.com/cloudnative/author/jasondetiberus/" rel="noopener noreferrer" target="_blank" class="Home2-testimonial-profileSocial-link">
+          {% svg assets/svg/social-web.svg class="Home2-testimonial-profileSocial-svg Home2-testimonial-profileSocial-svg--web" %}
+        </a>
       </div>
     </div>
     <div class="Home2-testimonial-content">
