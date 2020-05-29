@@ -339,20 +339,34 @@
 .Home2-testimonials-navList {
   display: flex;
   align-items: center;
-  @include reset-list-style;
 }
 .Home2-testimonials-navItem {
+  @include reset-button-style;
+  cursor: pointer;
   margin-left: $spacing-unit;
+  outline: none !important;
+
+  &:hover .Home2-testimonials-navItem-svg,
+  &.is-selected .Home2-testimonials-navItem-svg {
+    fill: $color-blue;
+  }
 }
 .Home2-testimonials-navItem-svg {
   fill: $tilt2-color-gray-lighter;
+  transition: fill $anim-duration ease;
 }
 .Home2-testimonials-navItem-svg--clusterApi {
   width: 40px;
 }
 
-.Home2-testimonials {
+.Home2-testimonialBlock {
+  overflow: hidden;
+}
+.Home2-testimonialList {
   @include reset-list-style;
+  display: flex;
+  flex-wrap: nowrap;
+  transition: transform $anim-duration ease;
 }
 
 .Home2-testimonial {
@@ -362,6 +376,10 @@
   border: 1px solid $tilt2-color-gray-lightest;
   color: $tilt2-color-gray;
   padding: $spacing-unit / 2;
+  margin-right: $spacing-unit * 2;
+  width: 100%;
+  box-sizing: border-box;
+  flex-shrink: 0;
 
   @include mobileAndAbove {
     display: grid;

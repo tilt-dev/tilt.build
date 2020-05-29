@@ -82,16 +82,27 @@ layout: home2
 
 {% include index2_cta.html %}
 
+<script async src="/assets/js/testimonials.js"></script>
+
 <h3 class="Home2-sectionHeading Home2-sectionHeading--testimonials">
   What People Are Saying
-  <ul class="Home2-testimonials-navList">
-    <li class="Home2-testimonials-navItem">{% svg assets/svg/testimonial-yext-logo.svg class="Home2-testimonials-navItem-svg Home2-testimonials-navItem-svg--yext" %}</li>
-    <li class="Home2-testimonials-navItem">{% svg assets/svg/testimonial-kubernetes-logo.svg class="Home2-testimonials-navItem-svg Home2-testimonials-navItem-svg--clusterApi" %}</li>
-  </ul>
+  <div class="Home2-testimonials-navList">
+    <button class="Home2-testimonials-navItem is-selected"
+            data-testimonial="yext"
+            onclick="testimonialScroll(this)">
+      {% svg assets/svg/testimonial-yext-logo.svg class="Home2-testimonials-navItem-svg Home2-testimonials-navItem-svg--yext" %}
+    </button>
+    <button class="Home2-testimonials-navItem" 
+            data-testimonial="cluster-api"
+            onclick="testimonialScroll(this)">
+      {% svg assets/svg/testimonial-kubernetes-logo.svg class="Home2-testimonials-navItem-svg Home2-testimonials-navItem-svg--clusterApi" %}
+    </button>
+  </div>
 </h3>
 
-<ul class="Home2-testimonials">
-  <li class="Home2-testimonial">
+<div class="Home2-testimonialBlock">
+<ul class="Home2-testimonialList">
+  <li class="Home2-testimonial" data-testimonial="yext">
     <div class="Home2-testimonial-profile">
       <div class="Home2-testimonial-profile-photo"><img src="/assets/img/testimonial-profile-yext.jpg"></div>
       <div class="Home2-testimonial-profileInfo">
@@ -111,7 +122,7 @@ layout: home2
       </div>
     </div>
   </li>
-  <li class="Home2-testimonial">
+  <li class="Home2-testimonial" data-testimonial="cluster-api">
     <div class="Home2-testimonial-profile">
       <div class="Home2-testimonial-profile-photo"><img src="/assets/img/testimonial-profile-cluster-api.jpg"></div>
       <div class="Home2-testimonial-profileInfo">
@@ -131,6 +142,7 @@ layout: home2
     </div>
   </li>
 </ul>
+</div>
 
 <h3 class="Home2-sectionHeading">Learn More</h3>
 <section class="Home2-resources">
