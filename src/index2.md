@@ -195,7 +195,7 @@ layout: home2
         </h4>
         <p>Have an idea or a bug to report? Check our GitHub issues. In case you want to tackle some of your own we have a collection for that.</p>
       </div>
-      <a href="https://github.com/tilt-dev/tilt" rel="noopener noreferrer" target="_blank" class="Home2-resources-link">Tilt GitHub</a>
+      <a href="https://github.com/{{site.github_username}}/tilt" rel="noopener noreferrer" target="_blank" class="Home2-resources-link">Tilt GitHub</a>
     </li>
     <li class="Home2-resources-listItem">
       <div class="Home2-resources-listItem-text">
