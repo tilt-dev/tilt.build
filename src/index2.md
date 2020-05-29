@@ -154,7 +154,7 @@ layout: home2
     <li class="Home2-resources-listItem">
       <div class="Home2-resources-listItem-text">
         <h4 class="Home2-subsectionHeading Home2-subsectionHeading--resources">
-          {% svg assets/svg/resources-slack.svg class="Home2-resources-icon" %}
+        {% svg assets/svg/social-slack.svg class="Home2-resources-icon" %}
           Chat with Us
         </h4>
         <p>Find us in the #tilt channel of the official Kubernetes Slack. We’re there Mon-Fri EST business hours. We don’t bite.</p>
