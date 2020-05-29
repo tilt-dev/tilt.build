@@ -76,33 +76,30 @@ body.is-footer2 .siteFooter2 {
   }
 
   &--github {
-    border-color: transparent;
-    background-color: $tilt2-color-gray-lightest;
-    margin-left: $spacing-unit / 4;
-    margin-right: $spacing-unit / 4;
     color: $tilt2-color-gray;
+    border-color: $tilt2-color-gray-lighter;
+    margin-left: $spacing-unit / 2;
+    margin-right: $spacing-unit / 2;
 
     &:hover {
       color: $color-white;
       background-color: $tilt2-color-gray;
     }
-
-    @include mobileAndAbove {
-      margin-left: $spacing-unit / 2;
-      margin-right: $spacing-unit / 2;
-    }
   }
 }
 
+.siteHeader2-navLink-divider {
+  border-right: 1px solid $tilt2-color-gray-lighter;
+  margin-right:  $spacing-unit / 4;
+}
+
 .siteFooter2-links-navLink-svg {  
-  fill: $tilt2-color-gray;
+  fill: $color-yellow;
+  padding-left: $spacing-unit / 4;
+  padding-right: $spacing-unit / 4;
 
   .siteFooter2-links-navLink--github:hover & {
     fill: $color-white;
-  }
-  @include mobileAndAbove {
-    padding-left: $spacing-unit / 8;
-    padding-right: $spacing-unit / 8;
   }
 }
 
