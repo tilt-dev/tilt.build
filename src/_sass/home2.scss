@@ -122,7 +122,7 @@
 .Home2-cta-button {
   background-color: transparent;
   font-family: $tilt2-font-sans;
-  font-size: $tilt2-button-font-size--large;
+  font-size: $tilt2-font-size-button-large;
   font-weight: $tilt2-font-weight-sans-bold;
   line-height: 1;
   padding-left: $spacing-unit / 2;
@@ -398,7 +398,8 @@
     flex: 3;
   }
 }
-
+.Home2-testimonial-profileSocial {
+}
 
 .Home2-testimonial-profileInfo-name {
   font-weight: $tilt2-font-weight-sans-bold;
@@ -413,14 +414,6 @@
   }
   &:hover {
     background-color: transparent;
-  }
-}
-.Home2-testimonial-profileSocial-svg {
-  &--twitter {
-    stroke: $color-blue;
-  }
-  &--web {
-    fill: $color-blue;  
   }
 }
 
