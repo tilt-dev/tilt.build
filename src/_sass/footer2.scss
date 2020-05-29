@@ -44,6 +44,7 @@ body.is-footer2 .siteFooter2 {
     }
   }
 }
+
 .siteFooter2-links-navLink {
   font-family: $tilt2-font-sans;
   font-size: $tilt2-button-font-size--small;
@@ -56,50 +57,47 @@ body.is-footer2 .siteFooter2 {
   display: flex;
   justify-content: center;
   border: 1px solid $tilt2-color-gray;
+  transition: background-color $anim-duration-short ease;
   
   &:hover {
     color: $color-white;
     background-color: $tilt2-color-gray;
   }
+}
 
-  &--primary {
-    color: $color-green;
+.siteFooter2-links-navLink--primary {
+  color: $color-green;
 
-    &:hover {
-      color: $color-white;
-      background-color: $color-green;
-    }
-
-    @include mobileAndAbove {
-      border-color: $color-green;
-    }
+  &:hover {
+    color: $color-white;
+    background-color: $color-green;
   }
 
-  &--github {
-    color: $tilt2-color-gray;
-    border-color: $tilt2-color-gray-lighter;
-    margin-left: $spacing-unit / 2;
-    margin-right: $spacing-unit / 2;
-
-    &:hover {
-      color: $color-white;
-      background-color: $tilt2-color-gray;
-    }
+  @include mobileAndAbove {
+    border-color: $color-green;
   }
 }
 
-.siteHeader2-navLink-divider {
+.siteFooter2-links-navLink--github {
+  color: $tilt2-color-gray;
+  border-color: $tilt2-color-gray-lighter;
+  margin-left: $spacing-unit / 2;
+  margin-right: $spacing-unit / 2;
+
+  &:hover {
+    color: $color-white;
+    background-color: $tilt2-color-gray;
+  }
+}
+
+.siteHeader2-navLink-icon {  
   border-right: 1px solid $tilt2-color-gray-lighter;
-  margin-right:  $spacing-unit / 4;
-}
-
-.siteFooter2-links-navLink-svg {  
-  fill: $color-yellow;
   padding-left: $spacing-unit / 4;
   padding-right: $spacing-unit / 4;
-
-  .siteFooter2-links-navLink--github:hover & {
-    fill: $color-white;
+  margin-right:  $spacing-unit / 4;
+  
+  .fillStd {
+    fill: $color-yellow;
   }
 }
 
@@ -116,37 +114,44 @@ body.is-footer2 .siteFooter2 {
     margin-left: $spacing-unit;
   }
 }
-.siteFooter2-links-socialLink {
-  &:hover {
-    background-color: transparent;
-  }
-}
 .siteFooter2-links-socialItem {
   & + & {
     margin-left: $spacing-unit / 2;
   }
 }
-.siteFooter2-links-socialLink-svg {
-  fill: $tilt2-color-gray-lighter;
-  width: 40px;
-  height: auto;
+.siteFooter2-links-socialLink {
+  display: flex;
+  align-items: center;
 
-  .siteFooter2-links-socialLink:hover & {
-    fill: $color-blue;
+  &:hover {
+    background-color: transparent;
+
+    .fillStd {
+      fill: $color-blue;
+    }
+  }
+  
+  .fillStd {
+    fill: $tilt2-color-gray-lighter;
+    transition: fill $anim-duration ease;
   }
 
-  // Make these two look similar in size:
-  &--twitter { width: 32px; stroke: transparent;}
-  &--slack { width: 26px; }
+  svg {
+    width: 25px;
+    height: auto;
+  }
 }
 
 
+
+// About the Team --------------------------------------------------
 .siteFooter2-about {
   @include font-body-small;
   display: flex;
   align-items: center;
 }
+
 .siteFooter2-about-cloud {
-  font-size: 24px; // Eyeballed to match size 
+  font-size: 150%; // Emoji clouds are unexpectedly small
   padding-left: $spacing-unit / 4;
 }

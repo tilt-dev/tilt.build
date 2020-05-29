@@ -73,42 +73,42 @@ body.is-header2 .siteHeader2 {
     color: $color-white;
     background-color: $tilt2-color-gray;
   }
+}
 
-  &--primary {
-    color: $color-green;
-    border-color: $color-green;
+.siteHeader2-navLink--primary {
+  color: $color-green;
+  border-color: $color-green;
 
-    &:hover {
-      color: $color-white;
-      background-color: $color-green;
-    }
-  }
-
-  &--github {
-    color: $tilt2-color-gray;
-    border-color: $tilt2-color-gray-lighter;
-    margin-left: $spacing-unit / 2;
-    margin-right: $spacing-unit / 2;
-
-    &:hover {
-      color: $color-white;
-      background-color: $tilt2-color-gray;
-    }
+  &:hover {
+    color: $color-white;
+    background-color: $color-green;
   }
 }
 
-.siteHeader2-navLink-divider {
+.siteHeader2-navLink--github {
+  color: $tilt2-color-gray;
+  border-color: $tilt2-color-gray-lighter;
+  margin-left: $spacing-unit / 2;
+  margin-right: $spacing-unit / 2;
+
+  &:hover {
+    color: $color-white;
+    background-color: $tilt2-color-gray;
+  }
+}
+
+
+.siteHeader2-navLink-icon {
   border-right: 1px solid $tilt2-color-gray-lighter;
   margin-right:  $spacing-unit / 4;
 }
 
-.siteHeader2-navLink-svg {
-  fill: $color-yellow;
+.siteHeader2-navLink {
   padding-left: $spacing-unit / 4;
   padding-right: $spacing-unit / 4;
-
-  .siteHeader2-navLink:hover & {
-    fill: $color-white;
+  
+  .fillStd {
+    fill: $color-yellow;
   }
 }
 
@@ -174,37 +174,35 @@ body.is-header2 .siteHeader2 {
 
 
 .siteHeader2-menuButton {
-  background-color: transparent;
-  border: 0 none;
-  width: 45px;
+  @include reset-button-style;
+  cursor: pointer;
   
   @include mobileAndAbove {
     display: none;
   }
+
+  .fillStd {
+    fill: $tilt2-color-gray;
+    transition: fill $anim-duration ease;
+  }
+
+  &:hover {
+    .fillStd {
+      fill: $color-blue;
+    }
+  }
 }
 
-
-.siteHeader2-menuButton-svg {
-  fill: $tilt2-color-gray;
-  width: 100%;
-  transition: fill $anim-duration ease;
-  cursor: pointer;
-
-  .siteHeader2-menuButton:hover & {
-    fill: $color-blue;
+.siteHeader2-menuButton-close {
+  display: none;
+  .siteHeader2.has-openMenu & {
+    display: inline;  
   }
+}
 
-  &--close {
+.siteHeader2-menuButton-menu {
+  display: inline;
+  .siteHeader2.has-openMenu & {
     display: none;
-    .siteHeader2.has-openMenu & {
-      display: inline;  
-    }
-  }
-
-  &--menu {
-    display: inline;
-    .siteHeader2.has-openMenu & {
-      display: none;
-    }
   }
 }

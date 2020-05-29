@@ -344,7 +344,7 @@
 .Home2-testimonials-navItem {
   margin-left: $spacing-unit;
 }
-.Home2-testimonials-navItem-svg {
+.Home2-testimonials-navItem .stdFill {
   fill: $tilt2-color-gray-lighter;
 }
 .Home2-testimonials-navItem-svg--clusterApi {
@@ -415,12 +415,18 @@
     background-color: transparent;
   }
 }
-.Home2-testimonial-profileSocial-svg {
-  &--twitter {
-    stroke: $color-blue;
+
+.Home2-testimonial-profileSocial-link--twitter {
+  .primaryStroke {
+    stroke: $color-blue
   }
-  &--web {
-    fill: $color-blue;  
+  .fillStd {
+    fill: transparent;
+  }
+}
+.Home2-testimonial-profileSocial-link--web {
+  .fillStd {
+    fill: $color-blue;
   }
 }
 
