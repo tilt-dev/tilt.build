@@ -272,42 +272,102 @@
 
 .Home2-features-navList {
   @include reset-list-style;
+}
 
-  @include mobileAndBelow {
+.Home2-features-navItem-description {
+  border: 1px solid $tilt2-color-gray-lighter;
+  border-width: 0 1px 1px 1px;
+  border-radius: 0 0 4px 4px;
+  transition: height $anim-duration ease;
+  z-index: 1;
+  position: relative;
+  height: 0;
+  overflow: hidden;
+
+  @include mobileAndAbove {
     display: none;
   }
-  @include mobileAndAbove {
-    flex: 1;
+  
+  .Home2-features-navItem.is-active & {
+    height: 100%;
+  }
+  
+  .Home2-features-navItem--pillar1.is-active & {
+    border-color: $color-pink;
+  }
+  .Home2-features-navItem--pillar2.is-active & {
+    border-color: $color-blue;
+  }
+  .Home2-features-navItem--pillar3.is-active & {
+    border-color: $color-purple;
+  }
+}
+.Home2-features-navItem-descriptionInner {
+  padding: $spacing-unit / 2;
+  transition: transform $anim-duration ease;
+  transform: translate(0, -100%);
+  
+  .Home2-features-navItem.is-active & {
+    transform: translate(0, 0);
   }
 }
 
 .Home2-features-navItem-button {
   @include reset-button-style;
+  background-color: $color-white;
   cursor: pointer;
+  padding: $spacing-unit / 2;
+  display: block;
+  border: 1px solid $tilt2-color-gray-lighter;
+  border-radius: 4px;
+  transition: color $anim-duration ease,
+              background-color $anim-duration ease,
+              border-color $anim-duration ease;
+  width: 100%;
+  position: relative;
+  z-index: 2;
+  
+  .Home2-features-navItem.is-active & {
+    border-radius: 4px 4px 0 0;
+  }
 }
 
-.Home2-features-navItem-button--pillar1 {
-  color: $color-pink;
+.Home2-features-navItem-button {
+  .Home2-features-navItem--pillar1 & {
+    color: $color-pink;
+  }
 
-  &:hover {
+  .Home2-features-navItem--pillar1:hover &,
+  .Home2-features-navItem--pillar1.is-active & {
     color: $color-white;
     background-color: $color-pink;
+    border-color: $color-pink;
   }
 }
-.Home2-features-navItem-button--pillar2 {
-  color: $color-blue;
+
+.Home2-features-navItem-button {
+  .Home2-features-navItem--pillar2 & {
+    color: $color-blue;
+  }
   
-  &:hover {
+  .Home2-features-navItem--pillar2:hover &,
+  .Home2-features-navItem--pillar2.is-active & {
     color: $color-white;
     background-color: $color-blue;
+    border-color: $color-blue;
   }
 }
-.Home2-features-navItem-button--pillar3 {
-  color: $color-purple;
+
+.Home2-features-navItem-button {
+  .Home2-features-navItem--pillar3 & {
+    color: $color-purple;
+  }
   
-  &:hover {
+  .Home2-features-navItem--pillar3:hover &,
+  .Home2-features-navItem--pillar3.is-active & {
     color: $color-white;
     background-color: $color-purple;
+    border-color: $color-purple;
   }
 }
 
@@ -322,6 +382,10 @@
 
   li + li {
     margin-top: $spacing-unit;
+  }
+  
+  @include mobileAndBelow {
+    display: none;
   }
 }
 

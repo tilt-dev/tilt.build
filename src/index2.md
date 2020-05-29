@@ -55,18 +55,24 @@ layout: home2
 <section class="Home2-features">
   <ul class="Home2-features-navList">
     {% for feature in site.data.features %}
-      <li class="Home2-features-navItem">
-        <button class="Home2-features-navItem-button Home2-features-navItem-button--pillar{{ feature.pillar }}" 
+      <li class="Home2-features-navItem Home2-features-navItem--pillar{{ feature.pillar }} js-featuresNavItem">
+        <button class="Home2-features-navItem-button js-featuresNavItemButton" 
            data-feature-target="{{forloop.index}}"
            onclick="featureScroll(this)">
            {{feature.title}}
         </button>
+        <div class="Home2-features-navItem-description">
+        <div class="Home2-features-navItem-descriptionInner">
+          {{feature.description}}
+        </div>
+        </div>
       </li>
     {% endfor %}
   </ul>
   <ul class="Home2-features-contentList">
     {% for feature in site.data.features %}
-      <li class="Home2-features-contentItem" data-feature-id="{{ forloop.index }}">
+      <li class="Home2-features-contentItem js-featuresContentItem" 
+          data-feature-id="{{ forloop.index }}">
         <button class="Home2-features-contentItem-title Home2-features-contentItem-title--pillar{{ feature.pillar }}" 
           data-feature-target="{{forloop.index}}"
           onclick="featureScroll(this)">
