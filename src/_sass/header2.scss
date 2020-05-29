@@ -16,15 +16,20 @@ body.is-header2 .siteHeader2 {
 
 .siteHeader2-logoLink {
   opacity: 1;
-  transition: transform $anim-duration ease-in-out, 
-    opacity $anim-duration-short ease;
+  transition: opacity $anim-duration-short ease;
 
   &:hover {
     background-color: transparent;
-    transform: scale(1.025);
   }
   &:active {
     opacity: 0.8;
+  }
+}
+.siteHeader2-logoLink-svg {
+    transition: transform $anim-duration ease-in-out;
+
+  .siteHeader2-logoLink:hover & {
+    transform: scale(1.05);
   }
 }
 

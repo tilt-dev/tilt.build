@@ -144,7 +144,7 @@ layout: home2
     <li class="Home2-resources-listItem">
       <div class="Home2-resources-listItem-text">
         <h4 class="Home2-subsectionHeading Home2-subsectionHeading--resources">
-          {% svg assets/svg/resources-docs.svg class="Home2-resources-icon" %}
+          {% svg assets/svg/resources-docs.svg class="Home2-resources-svg" %}
           Read the Docs
         </h4>
         <p>Already have a Dockerfile and a Kubernetes config? Set up Tilt in no time and start getting things done. </p>
@@ -164,7 +164,7 @@ layout: home2
     <li class="Home2-resources-listItem">
       <div class="Home2-resources-listItem-text">
         <h4 class="Home2-subsectionHeading Home2-subsectionHeading--resources">
-          {% svg assets/svg/resources-videos.svg class="Home2-resources-icon" %}
+          {% svg assets/svg/resources-videos.svg class="Home2-resources-svg" %}
           Quick Start
         </h4>
         <p>Short & sweet videos about Tilt</p>
@@ -178,7 +178,7 @@ layout: home2
     <li class="Home2-resources-listItem">
       <div class="Home2-resources-listItem-text">
         <h4 class="Home2-subsectionHeading Home2-subsectionHeading--resources">
-          {% svg assets/svg/resources-github.svg class="Home2-resources-icon" %}
+          {% svg assets/svg/resources-github.svg class="Home2-resources-svg" %}
           GitHub Issues
         </h4>
         <p>Have an idea or a bug to report? Check our GitHub issues. In case you want to tackle some of your own we have a collection for that.</p>
@@ -188,7 +188,7 @@ layout: home2
     <li class="Home2-resources-listItem">
       <div class="Home2-resources-listItem-text">
         <h4 class="Home2-subsectionHeading Home2-subsectionHeading--resources">
-          {% svg assets/svg/resources-contact.svg class="Home2-resources-icon" %}
+          {% svg assets/svg/resources-contact.svg class="Home2-resources-svg" %}
           Email us
         </h4>
         <p>Have questions or feature requests for Tilt? Want to use it for your company? Just want to say hi? We love hearing from you!</p>
@@ -198,17 +198,23 @@ layout: home2
     <li class="Home2-resources-listItem">
       <div class="Home2-resources-listItem-text">
         <h4 class="Home2-subsectionHeading Home2-subsectionHeading--resources">
-          {% svg assets/svg/resources-mailing-list.svg class="Home2-resources-icon" %}
+          {% svg assets/svg/resources-mailing-list.svg class="Home2-resources-svg" %}
           Our Mailing List
         </h4>
         <p>Keep up with Multi-Service Development and all things Tilt.</p>
       </div>
       <div class="Home2-resources-listItem-cta">
-        <label for="drip-email" class="Home2-resources-label">Your Email</label>
-        <input class="Home2-resources-input" type="email" id="drip-email" name="fields[email]" value="" placeholder="me@company.com" />
-        <button class="Home2-resources-button" type="submit" data-drip-attribute="sign-up-button">
-          Subscribe
-        </button>
+        <form action="https://www.getdrip.com/forms/507796156/submissions" method="post" data-drip-embedded-form="507796156">
+          <label for="drip-email" class="Home2-resources-label">Your Email</label>
+          <input class="Home2-resources-input" type="email" id="drip-email" name="fields[email]" value="" placeholder="me@company.com" />
+          <button class="Home2-resources-button" type="submit" data-drip-attribute="sign-up-button">
+            Subscribe
+          </button>
+          <div style="display: none;" aria-hidden="true">
+            <label for="website">Website</label><br />
+            <input type="text" id="website" name="website" tabindex="-1" autocomplete="false" value="" />
+          </div>
+        </form>
       </div>
     </li>
   </ul>
