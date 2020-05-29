@@ -53,41 +53,47 @@ body.is-header2 .siteHeader2 {
 
 .siteHeader2-navLink {
   font-family: $tilt2-font-sans;
-  padding-top: $spacing-unit / 16;
-  padding-bottom: $spacing-unit / 16;
   padding-left: $spacing-unit / 4;
   padding-right: $spacing-unit / 4;
+  height: $tilt2-button-height;
+  font-size: $tilt2-button-font-size; 
+  line-height: $tilt2-button-height;
   border-radius: $tilt2-border-radius;
   color: $tilt2-color-gray;
   display: flex;
   justify-content: center;
+  border: 1px solid $tilt2-color-gray;
   
   &:hover {
     color: $color-white;
     background-color: $tilt2-color-gray;
   }
 
-  @include mobileAndAbove {
-    font-size: $tilt2-font-size-body;
-    border: 1px solid $tilt2-color-gray;
+  &--primary {
+    color: $color-green;
+    border-color: $color-green;
+
+    &:hover {
+      color: $color-white;
+      background-color: $color-green;
+    }
   }
-}
-
-.siteHeader2-navLink--github {
-  color: $tilt2-color-gray;
-
-  &:hover {
-    color: $color-white;
-    background-color: $tilt2-color-gray;
-  }
-
-  @include mobileAndAbove {
+  
+  &--github {
+    color: $tilt2-color-gray;
     border-color: transparent;
     background-color: $tilt2-color-gray-lightest;
     margin-left: $spacing-unit / 2;
     margin-right: $spacing-unit / 2;
+
+    &:hover {
+      color: $color-white;
+      background-color: $tilt2-color-gray;
+    }
   }
 }
+
+
 
 .siteHeader2-navLink-svg {
   fill: $tilt2-color-gray;
@@ -102,18 +108,6 @@ body.is-header2 .siteHeader2 {
   }
 }
 
-.siteHeader2-navLink--primary {
-  color: $color-green;
-
-  &:hover {
-    color: $color-white;
-    background-color: $color-green;
-  }
-
-  @include mobileAndAbove {
-    border-color: $color-green;
-  }
-}
 
 
 // --------------------------------------------------
@@ -139,8 +133,6 @@ body.is-header2 .siteHeader2 {
     left: 0;
     right: 0;
     background-color: $color-white;
-    padding-top: $spacing-unit / 8;
-    padding-bottom: $spacing-unit / 8;
     padding-left: $spacing-unit / 2;
     padding-right: $spacing-unit / 2;
     display: flex;
@@ -152,20 +144,6 @@ body.is-header2 .siteHeader2 {
 .siteHeader2-logoLink-svg {
   @include mobileAndBelow {
     width: 85px; // Eyeballed
-  }
-}
-
-.siteHeader2-menuButton {
-  background-color: transparent;
-  border: 0 none;
-  width: 45px;
-
-  svg {
-    width: 100%;
-  }
-  
-  @include mobileAndAbove {
-    display: none;
   }
 }
 
@@ -192,15 +170,39 @@ body.is-header2 .siteHeader2 {
   }
 }
 
-.siteHeader2-closeSvg {
-  display: none;
-  .siteHeader2.has-openMenu & {
-    display: inline;  
+
+.siteHeader2-menuButton {
+  background-color: transparent;
+  border: 0 none;
+  width: 45px;
+  
+  @include mobileAndAbove {
+    display: none;
   }
 }
-.siteHeader2-menuSvg {
-  display: inline;
-  .siteHeader2.has-openMenu & {
+
+
+.siteHeader2-menuButton-svg {
+  fill: $tilt2-color-gray;
+  width: 100%;
+  transition: fill $anim-duration ease;
+  cursor: pointer;
+
+  .siteHeader2-menuButton:hover & {
+    fill: $color-blue;
+  }
+
+  &--close {
     display: none;
+    .siteHeader2.has-openMenu & {
+      display: inline;  
+    }
+  }
+
+  &--menu {
+    display: inline;
+    .siteHeader2.has-openMenu & {
+      display: none;
+    }
   }
 }
