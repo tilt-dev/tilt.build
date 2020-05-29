@@ -3,6 +3,10 @@
   max-width: $tilt2-page-width;
 }
 
+.Enterprise-sectionHeading {
+  @include font-heading;
+}
+
 // Hero --------------------------------------------------
 .Enterprise-heroTitle {
   @include font-hero;    
@@ -15,7 +19,12 @@
     margin-bottom: $spacing-unit * 2;
   }
 }
+
+// Most of the text
 .Enterprise-hero-text {
+  @include mobileAndBelow {
+    margin-bottom: $spacing-unit * 2;
+  }
   @include mobileAndAbove {
     flex: 1;
   }
@@ -36,6 +45,7 @@
       margin-right: $spacing-unit * 2;
     }
   }
+
 }
 .Enterprise-hero-cta {
   @include mobileAndAbove {
@@ -45,27 +55,26 @@
 .Enterprise-hero-cta-title {
   @include font-heading-small;
 }
+
 .calendly-inline-widget {
-  width: 320px;
   height: 600px;
+
+  @include mobileAndAbove {
+    width: 320px;
+  }
 }
 
-.Enterprise-sectionHeading {
-  @include font-heading;
-}
-
+// Feature List --------------------------------------------------
 .Enterprise-featureList {
   @include reset-list-style;
-  margin-bottom: $spacing-unit;
+  margin-bottom: $spacing-unit * 2;
 
   @include mobileAndAbove {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     column-gap: $spacing-unit;
-    margin-bottom: $spacing-unit * 2;
   }
 }
-
 .Enterprise-featureItem-title {
   @include font-heading-small;
 }

@@ -84,12 +84,11 @@
 
 // CTA --------------------------------------------------
 .Home2-cta {
-  margin-bottom: $spacing-unit;
+  margin-bottom: $spacing-unit * 2;
 
   @include mobileAndAbove {
     display: flex;
     justify-content: center;
-    margin-bottom: $spacing-unit * 2;
   }
 }
 
@@ -139,6 +138,10 @@
 .Home2-cta-option-text {
   @include font-body-small;
   margin-top: $spacing-unit / 4;
+
+  @include mobileAndBelow {
+    margin-bottom: $spacing-unit;
+  }
 }
 
 // Product --------------------------------------------------
@@ -470,6 +473,10 @@
 
 // Resources --------------------------------------------------
 
+.Home2-resources {
+  margin-bottom: $spacing-unit * 2;
+}
+
 .Home2-resources-list {
   @include reset-list-style;
   
@@ -480,6 +487,7 @@
     row-gap: $spacing-unit;
   }
 }
+
 .Home2-resources-listItem {
   border: 1px solid $tilt2-color-gray-lightest;
   padding: $spacing-unit / 2;
@@ -488,6 +496,12 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+
+  @include mobileAndBelow {
+    & + & {
+      margin-top: $spacing-unit;
+    }
+  }
 }
 .Home2-resources-listItem-text {
   margin-bottom: $spacing-unit / 4;
@@ -497,7 +511,6 @@
   margin-right: $spacing-unit / 2;
   fill: $color-blue;
 }
-
 .Home2-resources-button {
   @include reset-button-style;
   line-height: $tilt2-line-height-body;
