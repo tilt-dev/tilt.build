@@ -138,7 +138,7 @@ layout: home2
     <li class="Home2-resources-listItem">
       <div class="Home2-resources-listItem-text">
         <h4 class="Home2-subsectionHeading Home2-subsectionHeading--resources">
-          {% svg assets/svg/resources-docs.svg class="Home2-resources-icon" %}
+          {% svg assets/svg/resources-docs.svg class="Home2-resources-svg" %}
           Read the Docs
         </h4>
         <p>Already have a Dockerfile and a Kubernetes config? Set up Tilt in no time and start getting things done. </p>
@@ -148,7 +148,7 @@ layout: home2
     <li class="Home2-resources-listItem">
       <div class="Home2-resources-listItem-text">
         <h4 class="Home2-subsectionHeading Home2-subsectionHeading--resources">
-          {% svg assets/svg/resources-slack.svg class="Home2-resources-icon" %}
+          {% svg assets/svg/social-slack.svg class="Home2-resources-svg" %}
           Chat with Us
         </h4>
         <p>Find us in the #tilt channel of the official Kubernetes Slack. We’re there Mon-Fri EST business hours. We don’t bite.</p>
@@ -158,7 +158,7 @@ layout: home2
     <li class="Home2-resources-listItem">
       <div class="Home2-resources-listItem-text">
         <h4 class="Home2-subsectionHeading Home2-subsectionHeading--resources">
-          {% svg assets/svg/resources-videos.svg class="Home2-resources-icon" %}
+          {% svg assets/svg/resources-videos.svg class="Home2-resources-svg" %}
           Quick Start
         </h4>
         <p>Short & sweet videos about Tilt</p>
@@ -172,7 +172,7 @@ layout: home2
     <li class="Home2-resources-listItem">
       <div class="Home2-resources-listItem-text">
         <h4 class="Home2-subsectionHeading Home2-subsectionHeading--resources">
-          {% svg assets/svg/resources-github.svg class="Home2-resources-icon" %}
+          {% svg assets/svg/resources-github.svg class="Home2-resources-svg" %}
           GitHub Issues
         </h4>
         <p>Have an idea or a bug to report? Check our GitHub issues. In case you want to tackle some of your own we have a collection for that.</p>
@@ -182,7 +182,7 @@ layout: home2
     <li class="Home2-resources-listItem">
       <div class="Home2-resources-listItem-text">
         <h4 class="Home2-subsectionHeading Home2-subsectionHeading--resources">
-          {% svg assets/svg/resources-contact.svg class="Home2-resources-icon" %}
+          {% svg assets/svg/resources-contact.svg class="Home2-resources-svg" %}
           Email us
         </h4>
         <p>Have questions or feature requests for Tilt? Want to use it for your company? Just want to say hi? We love hearing from you!</p>
@@ -192,7 +192,7 @@ layout: home2
     <li class="Home2-resources-listItem">
       <div class="Home2-resources-listItem-text">
         <h4 class="Home2-subsectionHeading Home2-subsectionHeading--resources">
-          {% svg assets/svg/resources-mailing-list.svg class="Home2-resources-icon" %}
+          {% svg assets/svg/resources-mailing-list.svg class="Home2-resources-svg" %}
           Our Mailing List
         </h4>
         <p>Keep up with Multi-Service Development and all things Tilt.</p>
