@@ -45,6 +45,49 @@ $tilt2-line-height-body-large: 1.45;
 $tilt2-font-size-body-serif: 22px;
 $tilt2-line-height-body-serif: 1.6;
 
+@mixin font-hero {
+  font-family: $tilt2-font-sans;
+  font-weight: $tilt2-font-weight-sans-black;
+  line-height: $tilt2-line-height-hero;
+  font-size: $tilt2-font-size-hero-small;
+  color: $tilt2-color-text;
+  
+  @include mobileAndAbove {
+    font-size: $tilt2-font-size-hero;
+  }
+}
+
+@mixin font-hero-subhead {
+  font-family: $tilt2-font-sans;
+  font-weight: $tilt2-font-weight-sans-light;
+  line-height: $tilt2-line-height-body-large;
+
+  @include mobileAndAbove {
+    font-size: $tilt2-font-size-body-large;
+  }
+}
+
+@mixin font-heading {
+  font-family: $tilt2-font-sans;
+  font-weight: $tilt2-font-weight-sans-bold;
+  font-size: $tilt2-font-size-heading;
+  color: $tilt2-color-text;
+  margin-bottom: $spacing-unit;
+}
+@mixin font-heading-small {
+  font-family: $tilt2-font-sans;
+  font-weight: $tilt2-font-weight-sans-bold;
+  font-size: $tilt2-font-size-heading-small;
+  color: $tilt2-color-gray;
+  margin-bottom: $spacing-unit / 2;
+}
+
+@mixin font-body {
+  font-family: $tilt2-font-sans;
+  font-size: $tilt2-font-size-body;
+  font-weight: $tilt2-font-weight-sans-light;
+  line-height: $tilt2-line-height-body;
+}
 @mixin font-body-small {
   font-family: $tilt2-font-sans;
   font-size: $tilt2-font-size-body-small;
@@ -70,7 +113,6 @@ $tilt2-border-radius: 2px;
 
 // RESETS
 // --------------------------------------------------
-
 @mixin reset-button-style {
   font-family: inherit;
   font-size: inherit;

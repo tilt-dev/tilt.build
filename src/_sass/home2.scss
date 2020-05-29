@@ -18,17 +18,11 @@
 }
 
 .Home2-sectionHeading {
-  font-family: $tilt2-font-sans;
-  font-size: $tilt2-font-size-heading;
-  color: $tilt2-color-text;
-  margin-bottom: $spacing-unit;
+  @include font-heading;
 }
 
 .Home2-subsectionHeading {
-  font-family: $tilt2-font-sans;
-  font-size: $tilt2-font-size-heading-small;
-  color: $tilt2-color-gray;
-  margin-bottom: $spacing-unit;
+  @include font-heading-small;
 }
 .Home2-subsectionHeading--resources {
   display: flex;
@@ -55,25 +49,17 @@
   flex: 1;
 
   .Home2-heroText-title {
-    font-family: inherit;
-    font-size: $tilt2-font-size-hero-small;
-    font-style: normal;
-    font-weight: $tilt2-font-weight-sans-black;
-    line-height: $tilt2-line-height-hero;
-    color: $tilt2-color-text;
+    @include font-hero;
     
     @include mobileAndAbove {
-      font-size: $tilt2-font-size-hero;
       max-width: 80%;
     }
   }
 
   .Home2-heroText-subtitle {
-    font-weight: $tilt2-font-weight-sans-light;
-    line-height: $tilt2-line-height-body-large;
+    @include font-hero-subhead;
 
     @include mobileAndAbove {
-      font-size: $tilt2-font-size-body-large;
       max-width: 95%;
     }
   }
@@ -151,6 +137,7 @@
 }
 
 .Home2-cta-option-text {
+  @include font-body-small;
   margin-top: $spacing-unit / 4;
 }
 

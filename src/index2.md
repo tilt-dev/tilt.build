@@ -13,7 +13,7 @@ layout: home2
     </p>
   </div>
   <div class="Home2-heroIllustration">
-    <img src="/assets/img/hero-illustration.png">
+    {% svg assets/svg/illustration-hero.svg %}
   </div>
 </section>
 

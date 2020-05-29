@@ -11,10 +11,8 @@
   {% if page.has_slideshow == true %}
     <link rel="stylesheet" href="{{ "/assets/css/slideshow.css" | relative_url }}">
   {% endif %}
-  {% if page.custom_css %}
-  {% for stylesheet in page.custom_css %}
-  <link rel="stylesheet" href="{{ stylesheet }}" media="screen" type="text/css">
-  {% endfor %}
+  {% if page.has_calendly == true %}
+    <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js"></script>
   {% endif %}
   {%- feed_meta -%}
 
