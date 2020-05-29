@@ -22,11 +22,18 @@ body.is-footer2 .siteFooter2 {
   @include mobileAndBelow {
     flex-direction: column;
   }
+  @include mobileAndAbove {
+    margin-bottom: $spacing-unit;
+  }
 }
 .siteFooter2-links-navList {
   @include reset-list-style;
   display: flex;
   align-items: center;
+
+  @include mobileAndBelow {
+    margin-bottom: $spacing-unit / 2;
+  }
 }
 .siteFooter2-links-navItem {
   & + & {
@@ -104,7 +111,10 @@ body.is-footer2 .siteFooter2 {
   @include reset-list-style;
   display: flex;
   align-items: center;
-
+  
+  @include mobileAndBelow {
+    margin-bottom: $spacing-unit / 2;
+  }
   @include mobileAndAbove {
     margin-left: $spacing-unit;
   }
