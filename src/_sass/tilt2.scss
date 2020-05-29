@@ -4,16 +4,19 @@ $tilt2-page-width: 1080px;
 $tilt2-header-width: $tilt2-page-width;
 $tilt2-footer-width: $tilt2-page-width;
 
+
+// COLOR
+// --------------------------------------------------
 $tilt2-color-off-white: #FAFBFC;
 $tilt2-color-gray-lightest: #EEF1F1;
 $tilt2-color-gray-lighter: #CCDADE;
 $tilt2-color-gray: #586E75;
 $tilt2-color-gray-dark: #073642;
 
-$tilt2-alpha-transparent: 0.3;
-
 $tilt2-color-text: $tilt2-color-gray-dark;
 
+// Alpha Channel 
+$tilt2-alpha-transparent: 0.3;
 
 // TYPOGRAPHY
 // --------------------------------------------------
@@ -42,23 +45,31 @@ $tilt2-line-height-body-large: 1.45;
 $tilt2-font-size-body-serif: 22px;
 $tilt2-line-height-body-serif: 1.6;
 
-$tilt2-button-font-size--large: 26px;
-$tilt2-button-font-size: 14px;
-$tilt2-button-font-size--small: 14px;
-$tilt2-button-height--small: 26px;
-
-$tilt2-border-radius: 2px;
-
-@mixin button-small {
-  font-size: $tilt2-button-font-size--small;
-}
-
 @mixin font-body-small {
   font-family: $tilt2-font-sans;
   font-size: $tilt2-font-size-body-small;
   font-weight: $tilt2-font-weight-sans-light;
   line-height: $tilt2-line-height-body;
 }
+
+// Buttons
+$tilt2-button-font-size--large: 26px;
+$tilt2-button-height--large: 50px;
+
+$tilt2-button-font-size: 16px;
+$tilt2-button-height: 30px;
+
+$tilt2-button-font-size--small: 14px;
+$tilt2-button-height--small: 26px;
+
+// --------------------------------------------------
+
+$tilt2-border-radius: 2px;
+
+
+
+// RESETS
+// --------------------------------------------------
 
 @mixin reset-button-style {
   font-family: inherit;
