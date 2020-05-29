@@ -27,16 +27,12 @@ body.is-footer2 .siteFooter2 {
   @include reset-list-style;
   display: flex;
   align-items: center;
-}
-.siteFooter2-links-navItem {
-  & + & {
-    margin-left: $spacing-unit / 4;
 
-    @include mobileAndAbove {
-      margin-left: $spacing-unit / 2;
-    }
+  li + li {
+    margin-left: $spacing-unit / 2;
   }
 }
+
 .siteFooter2-links-navLink {
   font-family: $tilt2-font-sans;
   font-size: $tilt2-button-font-size--small;
@@ -71,18 +67,13 @@ body.is-footer2 .siteFooter2 {
   &--github {
     border-color: transparent;
     background-color: $tilt2-color-gray-lightest;
-    margin-left: $spacing-unit / 4;
-    margin-right: $spacing-unit / 4;
+    margin-left: $spacing-unit / 2;
+    margin-right: $spacing-unit / 2;
     color: $tilt2-color-gray;
 
     &:hover {
       color: $color-white;
       background-color: $tilt2-color-gray;
-    }
-
-    @include mobileAndAbove {
-      margin-left: $spacing-unit / 2;
-      margin-right: $spacing-unit / 2;
     }
   }
 }
@@ -136,10 +127,4 @@ body.is-footer2 .siteFooter2 {
 
 .siteFooter2-about {
   @include font-body-small;
-  display: flex;
-  align-items: center;
-}
-.siteFooter2-about-cloud {
-  font-size: 24px; // Eyeballed to match size 
-  padding-left: $spacing-unit / 4;
 }
