@@ -25,7 +25,14 @@ layout: home2
   </div>
 
   <div class="Home2-product-Tiltfile">
-    <img src="/assets/img/product-tiltfile.png" class="Home2-product-Tiltfile-imgPlaceholder">
+    <header class="Home2-product-Tiltfile-header">
+      <div class="Home2-product-Tiltfile-header-chromeDecoration">
+        {% svg assets/svg/chrome-button.svg class="chrome-button1" %}
+        {% svg assets/svg/chrome-button.svg class="chrome-button2" %}
+        {% svg assets/svg/chrome-button.svg class="chrome-button3" %}
+      </div>
+      Tiltfile
+    </header>
     <code class="Home2-product-Tiltfile-code">
       <p class="tiltfile-comment"># Deploy: tell Tilt what YAML to deploy</p>
       <p>k8s_yaml(<span class="tiltfile-arg">'app.yaml'</span>)</p>
