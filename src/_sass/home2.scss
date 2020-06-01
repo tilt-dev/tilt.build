@@ -156,59 +156,60 @@
 
 // Product --------------------------------------------------
 .Home2-product {
-  margin-bottom: $spacing-unit;
-  
+  margin-bottom: $spacing-unit * 3;
+
   @include mobileAndAbove {
     position: relative;
-    margin-bottom: $spacing-unit * 2;
   }
 }
 .Home2-product-UI {
-  @include mobileAndAbove {
-    // Accomodate the shadow, making the width a bit wider than the page
-    margin-left: -$spacing-unit * 1.5;
-    margin-right: -$spacing-unit * 1.5;
-  }
+  @include shadow;
 }
 .Home2-product-Tiltfile {
-  background-image: url('/assets/img/product-tiltfile.png');
-  background-repeat: no-repeat;
-  background-size: 100%;
-
-  @include mobileAndAbove {
-    position: absolute;
-    top: 30%;
-    right: -10%;
-    width: 60%;
-    max-width: 800px;
-  }
-}
-.Home2-product-Tiltfile-imgPlaceholder {
-  // Trick to set a minimum size for the element, with correct aspect ratio
-  // https://stackoverflow.com/questions/600743/how-to-get-div-height-to-auto-adjust-to-background-size
-  visibility: hidden;
-  width: 100%;
-
+  @include shadow;
+  background-color: $color-white;
+  border-radius: $tilt2-border-radius-large;
+  overflow: hidden;
+  
   @include mobileAndBelow {
-    display: none;
+    margin-top: $spacing-unit;
   }
-}
-
-.Home2-product-Tiltfile-code {
-  font-family: $tilt2-font-mono;
-  font-size: $tilt2-font-size-body;
   
   @include mobileAndAbove {
     position: absolute;
-    left: $spacing-unit * 2;
-    right: $spacing-unit * 2;
-    top: $spacing-unit * 2;
-    bottom: $spacing-unit * 2;
+    top: 0;
+    right: 0;
+    transform: translate(10%, 80%);
   }
+}
+.Home2-product-Tiltfile-header {
+  position: relative;
+  font-family: inherit;
+  padding-top: $spacing-unit / 8;
+  padding-bottom: $spacing-unit / 8;
+  background-color: $tilt2-color-gray-lightest;
+  text-align: center;
+}
+.Home2-product-Tiltfile-header-chromeDecoration {
+  position: absolute;
+  left: $spacing-unit / 4;
+}
+.chrome-button1 {fill: $color-red;}
+.chrome-button2 {fill: $color-yellow;}
+.chrome-button3 {fill: $color-green;}
+
+.Home2-product-Tiltfile-code {
+  display: block;
+  padding: $spacing-unit;
+  @include font-mono;  
 
   p {
     margin: 0;
     min-height: $spacing-unit / 2; // Preserve blank lines
+  }
+
+  p + p {
+    margin-top: $spacing-unit / 8;
   }
 }
 
@@ -223,6 +224,7 @@
 }
 
 .Home2-product-caption {
+  margin-top: $spacing-unit * 1.5;
   text-align: center;
 }
 
@@ -558,9 +560,9 @@
   }
 }
 .Home2-resources-listItem {
+  @include shadow;
   border: 1px solid $tilt2-color-gray-lightest;
   padding: $spacing-unit / 2;
-  box-shadow: 0px 0px ($spacing-unit / 2) 0px rgba(180, 180, 180, $tilt2-alpha-transparent);
   border-radius: $tilt2-border-radius;
   display: flex;
   flex-direction: column;
