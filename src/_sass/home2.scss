@@ -18,17 +18,11 @@
 }
 
 .Home2-sectionHeading {
-  font-family: $tilt2-font-sans;
-  font-size: $tilt2-font-size-heading;
-  color: $tilt2-color-text;
-  margin-bottom: $spacing-unit;
+  @include font-heading;
 }
 
 .Home2-subsectionHeading {
-  font-family: $tilt2-font-sans;
-  font-size: $tilt2-font-size-heading-small;
-  color: $tilt2-color-gray;
-  margin-bottom: $spacing-unit;
+  @include font-heading-small;
 }
 .Home2-subsectionHeading--resources {
   display: flex;
@@ -55,25 +49,17 @@
   flex: 1;
 
   .Home2-heroText-title {
-    font-family: inherit;
-    font-size: $tilt2-font-size-hero-small;
-    font-style: normal;
-    font-weight: $tilt2-font-weight-sans-black;
-    line-height: $tilt2-line-height-hero;
-    color: $tilt2-color-text;
+    @include font-hero;
     
     @include mobileAndAbove {
-      font-size: $tilt2-font-size-hero;
       max-width: 80%;
     }
   }
 
   .Home2-heroText-subtitle {
-    font-weight: $tilt2-font-weight-sans-light;
-    line-height: $tilt2-line-height-body-large;
+    @include font-hero-subhead;
 
     @include mobileAndAbove {
-      font-size: $tilt2-font-size-body-large;
       max-width: 95%;
     }
   }
@@ -98,12 +84,11 @@
 
 // CTA --------------------------------------------------
 .Home2-cta {
-  margin-bottom: $spacing-unit;
+  margin-bottom: $spacing-unit * 2;
 
   @include mobileAndAbove {
     display: flex;
     justify-content: center;
-    margin-bottom: $spacing-unit * 2;
   }
 }
 
@@ -151,7 +136,12 @@
 }
 
 .Home2-cta-option-text {
+  @include font-body-small;
   margin-top: $spacing-unit / 4;
+
+  @include mobileAndBelow {
+    margin-bottom: $spacing-unit;
+  }
 }
 
 // Product --------------------------------------------------
@@ -549,6 +539,10 @@
 
 // Resources --------------------------------------------------
 
+.Home2-resources {
+  margin-bottom: $spacing-unit * 2;
+}
+
 .Home2-resources-list {
   @include reset-list-style;
   
@@ -559,6 +553,7 @@
     row-gap: $spacing-unit;
   }
 }
+
 .Home2-resources-listItem {
   @include shadow;
   border: 1px solid $tilt2-color-gray-lightest;
@@ -567,6 +562,12 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+
+  @include mobileAndBelow {
+    & + & {
+      margin-top: $spacing-unit;
+    }
+  }
 }
 .Home2-resources-listItem-text {
   margin-bottom: $spacing-unit / 4;
@@ -576,7 +577,6 @@
   margin-right: $spacing-unit / 2;
   fill: $color-blue;
 }
-
 .Home2-resources-button {
   @include reset-button-style;
   line-height: $tilt2-line-height-body;
