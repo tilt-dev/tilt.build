@@ -1,6 +1,6 @@
 - name: Twitter
   icon: twitter
-  href: https://twitter.com/{{site.twitter_username}}
+  href: https://twitter.com/tilt_dev
 - name: Blog
   icon: blog
   href:
