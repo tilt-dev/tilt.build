@@ -224,26 +224,70 @@ def dc_resource(name: str, trigger_mode: TriggerMode = TRIGGER_MODE_AUTO, resour
 
   pass
 
-def k8s_resource(workload: str, new_name: str = "",
+def k8s_resource(workload: str = "", new_name: str = "",
                  port_forwards: Union[str, int, List[int]] = [],
                  extra_pod_selectors: Union[Dict[str, str], List[Dict[str, str]]] = [],
-                 trigger_mode: TriggerMode = TRIGGER_MODE_AUTO, resource_deps: List[str] = []) -> None:
-  """Configures the Kubernetes resource of the given name. Tilt assembles Kubernetes resources
-  automatically, as described in `Tiltfile Concepts: Resources <tiltfile_concepts.html#resources>`_).
+                 trigger_mode: TriggerMode = TRIGGER_MODE_AUTO,
+                 resource_deps: List[str] = [], objects: List[str] = []) -> None:
+  """
+
+  Configures or creates the specified Kubernetes resource.
+
+  A "resource" is a bundle of work managed by Tilt: a Kubernetes resource consists
+  of one or more Kubernetes objects to deploy, and zero or more image build directives
+  for the images referenced therein.
+
+  Tilt assembles Kubernetes resources automatically, as described in
+  `Tiltfile Concepts: Resources <tiltfile_concepts.html#resources>`_. You may call
+  ``k8s_resource`` to configure an automatically created Kubernetes resource, or to
+  create and configure a new one:
+
+  - If configuring an automatically created resource: the ``workload`` parameter must be specified.
+  - If creating a new resource: both the ``objects`` and ``new_name`` parameters must be specified.
+
   Calling ``k8s_resource`` is *optional*; you can use this function to configure port forwarding for
-  your resource, to rename it, or to adjust any of the other settings specified below.
+  your resource, to rename it, or to adjust any of the other settings specified below, but in many cases,
+  Tilt's default behavior is sufficient.
+
+  Examples:
+
+  .. code-block:: python
+
+    # load Deployment foo
+    k8s_yaml('foo.yaml')
+
+    # modify the resource called "foo" (auto-assembled by Tilt)
+    # to forward container port 8080 to localhost:8080
+    k8s_resource(workload='foo', port_forwards=8080)
+
+  .. code-block:: python
+
+    # load CRD "bar", Service "bar", and Secret "bar-password"
+    k8s_yaml('bar.yaml')
+
+    # create a new resource called "bar" which contains the objects
+    # loaded above (none of which are workloads, so none of which
+    # would be automatically assigned to a resource). Note that the
+    # first two object selectors specify both 'name' and 'kind',
+    # since just the string "bar" does not uniquely specify a single object.
+    # As the object name "bar-password" is unique, "bar-password" suffices as
+    # an object selector (though a more more qualified object selector
+    # like "bar-password:secret" or "bar-password:secret:default" would
+    # be accepted as well).
+    k8s_resource(
+      objects=['bar:crd', 'bar:service', 'bar-password'],
+      new_name='bar'
+    )
+
+  For more examples, see `Tiltfile Concepts: Resources <tiltfile_concepts.html#resources>`_.
 
   Args:
-    workload: which workload's resource to configure. This is a colon-separated
-      string consisting of one or more of (name, kind, namespace, group), e.g.,
-      "redis", "redis:deployment", or "redis:deployment:default".
-      `k8s_resource` searches all loaded k8s workload objects for an object matching
-      all given fields. If there's exactly one, `k8s_resource` configures options for
-      that workload. If there's not exactly one, `k8s_resource` raises an error.
-      (e.g., "redis" suffices if there's only one object named "redis", but if
-      there's both a deployment and a cronjob named "redis", you'd need to specify
-      "redis:deployment").
-    new_name: if non-empty, will be used as the new name for this resource
+    workload: The name of an existing auto-assembled resource to configure
+      (Tilt generates resource names when it `assembles resources by workload <tiltfile_concepts.html#resources>`_).
+      (If you instead want to create/configure a _new_ resource, use the ``objects`` parameter
+      in conjunction with ``new_name``.)
+    new_name: If non-empty, will be used as the new name for this resource. (To
+      programmatically rename all resources, see :meth:`workload_to_resource_function`.)
     port_forwards: Local ports to connect to the pod. If a target port is
       specified, that will be used. Otherwise, if the container exposes a port
       with the same number as the local port, that will be used. Otherwise,
@@ -257,15 +301,22 @@ def k8s_resource(workload: str, new_name: str = "",
       localhost:8000 and localhost:8001 to the container's ports 8000 and 8001,
       respectively).
     extra_pod_selectors: In addition to relying on Tilt's heuristics to automatically
-      find K8S resources associated with this resource, a user may specify extra
-      labelsets to force entities to be associated with this resource. An entity
+      find Kubernetes resources associated with this resource, a user may specify extra
+      labelsets to force pods to be associated with this resource. An pod
       will be associated with this resource if it has all of the labels in at
       least one of the entries specified (but still also if it meets any of
       Tilt's usual mechanisms).
-    trigger_mode: one of ``TRIGGER_MODE_AUTO`` or ``TRIGGER_MODE_MANUAL``. For more info, see the
+    trigger_mode: One of ``TRIGGER_MODE_AUTO`` or ``TRIGGER_MODE_MANUAL``. For more info, see the
       `Manual Update Control docs <manual_update_control.html>`_.
-    resource_deps: a list of resources on which this resource depends.
+    resource_deps: A list of resources on which this resource depends.
       See the `Resource Dependencies docs <resource_dependencies.html>`_.
+    objects: A list of Kubernetes objects to be added to this resource, specified via
+      Tilt's `Kubernetes Object Selector <tiltfile_concepts.html#kubernetes-object-selectors>`_
+      syntax. If the ``workload`` parameter is specified, these objects will be
+      added to the existing resource; otherwise, these objects will form a new
+      resource with name ``new_name``. If an object selector matches more than
+      one Kubernetes object, or matches an object already associated with a
+      resource, ``k8s_resource`` raises an error.
   """
   pass
 
