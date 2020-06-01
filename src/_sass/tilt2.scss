@@ -42,6 +42,9 @@ $tilt2-font-size-body-large: 28px;
 $tilt2-line-height-body: 1.4;
 $tilt2-line-height-body-large: 1.45;
 
+$tilt2-font-size-mono: 16px;
+$tilt2-line-height-mono: 1.3;
+
 $tilt2-font-size-body-serif: 22px;
 $tilt2-line-height-body-serif: 1.6;
 
@@ -105,10 +108,15 @@ $tilt2-button-height: 30px;
 $tilt2-button-font-size--small: 14px;
 $tilt2-button-height--small: 26px;
 
+// "EFFECTS"
 // --------------------------------------------------
 
 $tilt2-border-radius: 2px;
+$tilt2-border-radius-large: 4px;
 
+@mixin shadow {
+  box-shadow: 0px 0px ($spacing-unit / 2) 0px rgba(180, 180, 180, $tilt2-alpha-transparent);
+}
 
 
 // RESETS
@@ -126,4 +134,13 @@ $tilt2-border-radius: 2px;
 @mixin reset-list-style {
   list-style: none;
   margin: 0;
+}
+
+
+
+
+@mixin font-mono {
+  font-family: $tilt2-font-mono;
+  font-size: $tilt2-font-size-mono;
+  line-height: $tilt2-line-height-mono;
 }

@@ -8,7 +8,7 @@ function featureScroll(target) {
   }
 
   let el = document.querySelector(
-    ".Home2-features-contentItem[data-feature-id='" + id + "']"
+    ".js-featuresContentItem[data-feature-id='" + id + "']"
   );
   if (!el) {
     console.error("missing feature element " + id);
@@ -20,4 +20,24 @@ function featureScroll(target) {
     top: el.offsetTop,
     behavior: "smooth"
   });
+
+  function activateTarget() {
+    document.querySelectorAll(".js-featuresNavItemButton").forEach(button => {
+      let item = button.parentNode;
+      if (button == target) {
+        item.classList.toggle("is-active");
+      } else {
+        item.classList.remove("is-active");
+      }
+    });
+  }
+
+  // If the active item is not one we clicked, close it first.
+  let activeItem = document.querySelector(".js-featuresNavItem.is-active");
+  if (activeItem && activeItem != target.parentNode) {
+    activeItem.classList.remove("is-active");
+    setTimeout(activateTarget, 300);
+  } else {
+    activateTarget();
+  }
 }

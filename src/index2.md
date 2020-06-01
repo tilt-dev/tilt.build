@@ -25,7 +25,14 @@ layout: home2
   </div>
 
   <div class="Home2-product-Tiltfile">
-    <img src="/assets/img/product-tiltfile.png" class="Home2-product-Tiltfile-imgPlaceholder">
+    <header class="Home2-product-Tiltfile-header">
+      <div class="Home2-product-Tiltfile-header-chromeDecoration">
+        {% svg assets/svg/chrome-button.svg class="chrome-button1" %}
+        {% svg assets/svg/chrome-button.svg class="chrome-button2" %}
+        {% svg assets/svg/chrome-button.svg class="chrome-button3" %}
+      </div>
+      Tiltfile
+    </header>
     <code class="Home2-product-Tiltfile-code">
       <p class="tiltfile-comment"># Deploy: tell Tilt what YAML to deploy</p>
       <p>k8s_yaml(<span class="tiltfile-arg">'app.yaml'</span>)</p>
@@ -55,18 +62,24 @@ layout: home2
 <section class="Home2-features">
   <ul class="Home2-features-navList">
     {% for feature in site.data.features %}
-      <li class="Home2-features-navItem">
-        <button class="Home2-features-navItem-button Home2-features-navItem-button--pillar{{ feature.pillar }}" 
+      <li class="Home2-features-navItem Home2-features-navItem--pillar{{ feature.pillar }} js-featuresNavItem">
+        <button class="Home2-features-navItem-button js-featuresNavItemButton" 
            data-feature-target="{{forloop.index}}"
            onclick="featureScroll(this)">
            {{feature.title}}
         </button>
+        <div class="Home2-features-navItem-description">
+        <div class="Home2-features-navItem-descriptionInner">
+          {{feature.description}}
+        </div>
+        </div>
       </li>
     {% endfor %}
   </ul>
   <ul class="Home2-features-contentList">
     {% for feature in site.data.features %}
-      <li class="Home2-features-contentItem" data-feature-id="{{ forloop.index }}">
+      <li class="Home2-features-contentItem js-featuresContentItem" 
+          data-feature-id="{{ forloop.index }}">
         <button class="Home2-features-contentItem-title Home2-features-contentItem-title--pillar{{ feature.pillar }}" 
           data-feature-target="{{forloop.index}}"
           onclick="featureScroll(this)">

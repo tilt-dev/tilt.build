@@ -146,59 +146,60 @@
 
 // Product --------------------------------------------------
 .Home2-product {
-  margin-bottom: $spacing-unit;
-  
+  margin-bottom: $spacing-unit * 3;
+
   @include mobileAndAbove {
     position: relative;
-    margin-bottom: $spacing-unit * 2;
   }
 }
 .Home2-product-UI {
-  @include mobileAndAbove {
-    // Accomodate the shadow, making the width a bit wider than the page
-    margin-left: -$spacing-unit * 1.5;
-    margin-right: -$spacing-unit * 1.5;
-  }
+  @include shadow;
 }
 .Home2-product-Tiltfile {
-  background-image: url('/assets/img/product-tiltfile.png');
-  background-repeat: no-repeat;
-  background-size: 100%;
-
-  @include mobileAndAbove {
-    position: absolute;
-    top: 30%;
-    right: -10%;
-    width: 60%;
-    max-width: 800px;
-  }
-}
-.Home2-product-Tiltfile-imgPlaceholder {
-  // Trick to set a minimum size for the element, with correct aspect ratio
-  // https://stackoverflow.com/questions/600743/how-to-get-div-height-to-auto-adjust-to-background-size
-  visibility: hidden;
-  width: 100%;
-
+  @include shadow;
+  background-color: $color-white;
+  border-radius: $tilt2-border-radius-large;
+  overflow: hidden;
+  
   @include mobileAndBelow {
-    display: none;
+    margin-top: $spacing-unit;
   }
-}
-
-.Home2-product-Tiltfile-code {
-  font-family: $tilt2-font-mono;
-  font-size: $tilt2-font-size-body;
   
   @include mobileAndAbove {
     position: absolute;
-    left: $spacing-unit * 2;
-    right: $spacing-unit * 2;
-    top: $spacing-unit * 2;
-    bottom: $spacing-unit * 2;
+    top: 0;
+    right: 0;
+    transform: translate(10%, 80%);
   }
+}
+.Home2-product-Tiltfile-header {
+  position: relative;
+  font-family: inherit;
+  padding-top: $spacing-unit / 8;
+  padding-bottom: $spacing-unit / 8;
+  background-color: $tilt2-color-gray-lightest;
+  text-align: center;
+}
+.Home2-product-Tiltfile-header-chromeDecoration {
+  position: absolute;
+  left: $spacing-unit / 4;
+}
+.chrome-button1 {fill: $color-red;}
+.chrome-button2 {fill: $color-yellow;}
+.chrome-button3 {fill: $color-green;}
+
+.Home2-product-Tiltfile-code {
+  display: block;
+  padding: $spacing-unit;
+  @include font-mono;  
 
   p {
     margin: 0;
     min-height: $spacing-unit / 2; // Preserve blank lines
+  }
+
+  p + p {
+    margin-top: $spacing-unit / 8;
   }
 }
 
@@ -213,6 +214,7 @@
 }
 
 .Home2-product-caption {
+  margin-top: $spacing-unit * 1.5;
   text-align: center;
 }
 
@@ -262,42 +264,102 @@
 
 .Home2-features-navList {
   @include reset-list-style;
+}
 
-  @include mobileAndBelow {
+.Home2-features-navItem-description {
+  border: 1px solid $tilt2-color-gray-lighter;
+  border-width: 0 1px 1px 1px;
+  border-radius: 0 0 4px 4px;
+  transition: height $anim-duration ease;
+  z-index: 1;
+  position: relative;
+  height: 0;
+  overflow: hidden;
+
+  @include mobileAndAbove {
     display: none;
   }
-  @include mobileAndAbove {
-    flex: 1;
+  
+  .Home2-features-navItem.is-active & {
+    height: 100%;
+  }
+  
+  .Home2-features-navItem--pillar1.is-active & {
+    border-color: $color-pink;
+  }
+  .Home2-features-navItem--pillar2.is-active & {
+    border-color: $color-blue;
+  }
+  .Home2-features-navItem--pillar3.is-active & {
+    border-color: $color-purple;
+  }
+}
+.Home2-features-navItem-descriptionInner {
+  padding: $spacing-unit / 2;
+  transition: transform $anim-duration ease;
+  transform: translate(0, -100%);
+  
+  .Home2-features-navItem.is-active & {
+    transform: translate(0, 0);
   }
 }
 
 .Home2-features-navItem-button {
   @include reset-button-style;
+  background-color: $color-white;
   cursor: pointer;
+  padding: $spacing-unit / 2;
+  display: block;
+  border: 1px solid $tilt2-color-gray-lighter;
+  border-radius: 4px;
+  transition: color $anim-duration ease,
+              background-color $anim-duration ease,
+              border-color $anim-duration ease;
+  width: 100%;
+  position: relative;
+  z-index: 2;
+  
+  .Home2-features-navItem.is-active & {
+    border-radius: 4px 4px 0 0;
+  }
 }
 
-.Home2-features-navItem-button--pillar1 {
-  color: $color-pink;
+.Home2-features-navItem-button {
+  .Home2-features-navItem--pillar1 & {
+    color: $color-pink;
+  }
 
-  &:hover {
+  .Home2-features-navItem--pillar1:hover &,
+  .Home2-features-navItem--pillar1.is-active & {
     color: $color-white;
     background-color: $color-pink;
+    border-color: $color-pink;
   }
 }
-.Home2-features-navItem-button--pillar2 {
-  color: $color-blue;
+
+.Home2-features-navItem-button {
+  .Home2-features-navItem--pillar2 & {
+    color: $color-blue;
+  }
   
-  &:hover {
+  .Home2-features-navItem--pillar2:hover &,
+  .Home2-features-navItem--pillar2.is-active & {
     color: $color-white;
     background-color: $color-blue;
+    border-color: $color-blue;
   }
 }
-.Home2-features-navItem-button--pillar3 {
-  color: $color-purple;
+
+.Home2-features-navItem-button {
+  .Home2-features-navItem--pillar3 & {
+    color: $color-purple;
+  }
   
-  &:hover {
+  .Home2-features-navItem--pillar3:hover &,
+  .Home2-features-navItem--pillar3.is-active & {
     color: $color-white;
     background-color: $color-purple;
+    border-color: $color-purple;
   }
 }
 
@@ -312,6 +374,10 @@
 
   li + li {
     margin-top: $spacing-unit;
+  }
+  
+  @include mobileAndBelow {
+    display: none;
   }
 }
 
@@ -489,9 +555,9 @@
 }
 
 .Home2-resources-listItem {
+  @include shadow;
   border: 1px solid $tilt2-color-gray-lightest;
   padding: $spacing-unit / 2;
-  box-shadow: 0px 0px ($spacing-unit / 2) 0px rgba(180, 180, 180, $tilt2-alpha-transparent);
   border-radius: $tilt2-border-radius;
   display: flex;
   flex-direction: column;
