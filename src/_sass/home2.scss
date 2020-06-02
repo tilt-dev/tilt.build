@@ -396,20 +396,20 @@
   display: flex;
   align-items: center;
 }
+.Home2-testimonials-navItem-svg .fillStd {
+  fill: $tilt2-color-gray-lighter;
+  transition: fill $anim-duration ease;
+}
 .Home2-testimonials-navItem {
   @include reset-button-style;
   cursor: pointer;
   margin-left: $spacing-unit;
   outline: none !important;
 
-  &:hover .Home2-testimonials-navItem-svg,
-  &.is-selected .Home2-testimonials-navItem-svg {
+  &:hover .fillStd,
+  &.is-selected .fillStd {
     fill: $color-blue;
   }
-}
-.Home2-testimonials-navItem .stdFill {
-  fill: $tilt2-color-gray-lighter;
-  transition: fill $anim-duration ease;
 }
 .Home2-testimonials-navItem-svg--clusterApi {
   width: 40px;
