@@ -1,7 +1,5 @@
 # -*- mode: Python -*-
 
-k8s_resource_assembly_version(2)
-
 default_registry('gcr.io/windmill-public-containers')
 set_team('0584d8f6-05a2-49f5-923b-657afef098fe')
 enable_feature('update_history')
