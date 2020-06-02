@@ -70,6 +70,8 @@
     href: custom_build.html
   - title: "How to: Bazel Build Scripts"
     href: integrating_bazel_with_tilt.html
+  - title: "How to: Structuring Multiple Repos"
+    href: multiple_repos.html  
 - title: Help
   items:
   - title: Who is Tilt for?
