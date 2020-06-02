@@ -3,7 +3,13 @@
 
   {%- include head.html -%}
 
-  <body class="body body--{{ page.layout }}">
+  
+
+  <body class="body body--{{ page.layout }}
+{% if page.layout == 'home2' %}
+  is-header2 is-footer2
+{% endif %}
+">
 
     {%- include header.html -%}
     {%- include header2.html -%}
