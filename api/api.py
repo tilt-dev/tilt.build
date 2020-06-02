@@ -387,7 +387,7 @@ def load(path: str, *args):
     load('./lib/Tiltfile', 'create_namespace')
     create_namespace('frontend')
 
-  If ``path`` starts with ``"ext://"`` the path will be treated as a `Tilt Extension <using_tilt_extensions.html>`_.
+  If ``path`` starts with ``"ext://"`` the path will be treated as a `Tilt Extension <extensions.html>`_.
 
   Example ::
 
