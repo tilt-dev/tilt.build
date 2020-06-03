@@ -11,7 +11,7 @@
           {% assign href = (href | prepend: "/" | prepend: site.blogurl) %}
         {% endif %}
       
-        <li class="siteFooter2-links-navItem">
+        <li class="siteFooter2-links-navItem {% if link.github %}siteFooter2-links-navItem--github{% endif %}">
           {% if link.github %}
             <a class="siteFooter2-links-navLink siteFooter2-links-navLink--github" href="{{href}}">
               {{link.name}}

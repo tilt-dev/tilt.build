@@ -20,6 +20,7 @@ body.is-footer2 .siteFooter2 {
 
   @include mobileAndBelow {
     flex-direction: column;
+    width: 100%;
   }
   @include mobileAndAbove {
     margin-bottom: $spacing-unit;
@@ -77,6 +78,12 @@ body.is-footer2 .siteFooter2 {
   }
 }
 
+.siteFooter2-links-navItem--github {
+  @include mobileAndBelow {
+    display: none;
+  }
+}
+
 .siteFooter2-links-navLink--github {
   color: $tilt2-color-gray;
   border-color: $tilt2-color-gray-lighter;
@@ -99,7 +106,6 @@ body.is-footer2 .siteFooter2 {
     fill: $color-yellow;
   }
 }
-
 
 .siteFooter2-links-socialList {
   @include reset-list-style;
