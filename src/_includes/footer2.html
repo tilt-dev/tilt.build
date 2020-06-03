@@ -13,10 +13,10 @@
       
         <li class="siteFooter2-links-navItem {% if link.github %}siteFooter2-links-navItem--github{% endif %}">
           {% if link.github %}
-            <a class="siteFooter2-links-navLink siteFooter2-links-navLink--github" href="{{href}}">
+            <a class="siteFooter2-links-navLink siteFooter2-links-navLink--github" href="{{site.data.github.href}}">
               {{link.name}}
               <span class="siteHeader2-navLink-icon">{% svg assets/svg/github-star.svg %}</span>
-            <span>{{link.githubStars}}</span>
+              <span>{{site.data.github.stars}}</span>
             </a>
           {% else %}
             <a class="siteFooter2-links-navLink {% if link.primary %}siteFooter2-links-navLink--primary{% endif %}" href="{{href}}">
@@ -27,6 +27,13 @@
       {% endfor %}
     </ul>
     <ul class="siteFooter2-links-socialList">
+      <li class="siteFooter2-links-socialItem siteFooter2-links-socialItem--github">
+        <a class="siteFooter2-links-navLink siteFooter2-links-navLink--github" href="{{site.data.github.href}}">
+            GitHub
+            <span class="siteHeader2-navLink-icon">{% svg assets/svg/github-star.svg %}</span>
+            <span>{{site.data.github.stars}}</span>
+        </a>
+      </li>
       <li class="siteFooter2-links-socialItem">
         <a class="siteFooter2-links-socialLink siteFooter2-links-socialLink--twitter" href="https://twitter.com/{{site.twitter_username}}">
           {% svg assets/svg/social-twitter.svg %}
