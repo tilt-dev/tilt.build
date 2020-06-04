@@ -446,7 +446,7 @@ def decode_json(json: Union[str, Blob]) -> StructuredDataType:
   Deserializes the given JSON into a starlark object
 
   Args:
-    yaml: the yaml to deserialize
+    json: the JSON to deserialize
   """
   pass
 
