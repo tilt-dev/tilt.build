@@ -118,21 +118,15 @@ watch_file('values.yaml')
 
 One of the advantages of Helm is that there's a rich library of existing charts.
 
-Suppose you want to ensure Redis is installed in your dev environment. You can add this line to your `Tiltfile`:
+The `helm_remote` extension can help you load remote charts.
 
 ```
-local("helm upgrade --install redis-dev stable/redis")
+load('ext://helm_remote', 'helm_remote')
+helm_remote('myChartName')
 ```
 
-This fetches the remote Redis chart and deploys it to your cluster.
-
-But maybe you want to tweak the existing chart a bit. Then you might use `local()` to call `helm fetch`:
-
-```
-fetch_script = "helm fetch stable/myProject --untar --untardir ./deploy/helm/"
-template_script = "helm template ./deploy/helm/myProject --namespace {} --name {} -f ./deploy/helm/myProject/values.yaml".format(namespace, release_name)
-k8s_yaml(local(fetch_script + " && " + template_script))
-```
+For more options, see the [`helm_remote`
+README](https://github.com/tilt-dev/tilt-extensions/tree/master/helm_remote).
 
 ### Other Helm tools
 
