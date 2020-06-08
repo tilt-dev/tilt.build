@@ -18,17 +18,11 @@
 }
 
 .Home2-sectionHeading {
-  font-family: $tilt2-font-sans;
-  font-size: $tilt2-font-size-heading;
-  color: $tilt2-color-text;
-  margin-bottom: $spacing-unit;
+  @include font-heading;
 }
 
 .Home2-subsectionHeading {
-  font-family: $tilt2-font-sans;
-  font-size: $tilt2-font-size-heading-small;
-  color: $tilt2-color-gray;
-  margin-bottom: $spacing-unit;
+  @include font-heading-small;
 }
 .Home2-subsectionHeading--resources {
   display: flex;
@@ -55,25 +49,17 @@
   flex: 1;
 
   .Home2-heroText-title {
-    font-family: inherit;
-    font-size: $tilt2-font-size-hero-small;
-    font-style: normal;
-    font-weight: $tilt2-font-weight-sans-black;
-    line-height: $tilt2-line-height-hero;
-    color: $tilt2-color-text;
+    @include font-hero;
     
     @include mobileAndAbove {
-      font-size: $tilt2-font-size-hero;
       max-width: 80%;
     }
   }
 
   .Home2-heroText-subtitle {
-    font-weight: $tilt2-font-weight-sans-light;
-    line-height: $tilt2-line-height-body-large;
+    @include font-hero-subhead;
 
     @include mobileAndAbove {
-      font-size: $tilt2-font-size-body-large;
       max-width: 95%;
     }
   }
@@ -88,6 +74,7 @@
   padding-left: $spacing-unit / 4;
   padding-right: $spacing-unit / 4;
   line-height: 1;
+  white-space: nowrap;
 }
 
 .Home2-heroIllustration {
@@ -98,12 +85,11 @@
 
 // CTA --------------------------------------------------
 .Home2-cta {
-  margin-bottom: $spacing-unit;
+  margin-bottom: $spacing-unit * 2;
 
   @include mobileAndAbove {
     display: flex;
     justify-content: center;
-    margin-bottom: $spacing-unit * 2;
   }
 }
 
@@ -122,7 +108,7 @@
 .Home2-cta-button {
   background-color: transparent;
   font-family: $tilt2-font-sans;
-  font-size: $tilt2-font-size-button-large;
+  font-size: $tilt2-button-font-size--large;
   font-weight: $tilt2-font-weight-sans-bold;
   line-height: 1;
   padding-left: $spacing-unit / 2;
@@ -151,64 +137,70 @@
 }
 
 .Home2-cta-option-text {
+  @include font-body-small;
   margin-top: $spacing-unit / 4;
+
+  @include mobileAndBelow {
+    margin-bottom: $spacing-unit;
+  }
 }
 
 // Product --------------------------------------------------
 .Home2-product {
-  margin-bottom: $spacing-unit;
-  
+  margin-bottom: $spacing-unit * 3;
+
   @include mobileAndAbove {
     position: relative;
-    margin-bottom: $spacing-unit * 2;
   }
 }
 .Home2-product-UI {
-  @include mobileAndAbove {
-    // Accomodate the shadow, making the width a bit wider than the page
-    margin-left: -$spacing-unit * 1.5;
-    margin-right: -$spacing-unit * 1.5;
-  }
+  @include shadow;
 }
 .Home2-product-Tiltfile {
-  background-image: url('/assets/img/product-tiltfile.png');
-  background-repeat: no-repeat;
-  background-size: 100%;
-
-  @include mobileAndAbove {
-    position: absolute;
-    top: 30%;
-    right: -10%;
-    width: 60%;
-    max-width: 800px;
-  }
-}
-.Home2-product-Tiltfile-imgPlaceholder {
-  // Trick to set a minimum size for the element, with correct aspect ratio
-  // https://stackoverflow.com/questions/600743/how-to-get-div-height-to-auto-adjust-to-background-size
-  visibility: hidden;
-  width: 100%;
-
+  @include shadow;
+  background-color: $color-white;
+  border-radius: $tilt2-border-radius-large;
+  overflow: hidden;
+  
   @include mobileAndBelow {
-    display: none;
+    margin-top: $spacing-unit;
   }
-}
-
-.Home2-product-Tiltfile-code {
-  font-family: $tilt2-font-mono;
-  font-size: $tilt2-font-size-body;
   
   @include mobileAndAbove {
     position: absolute;
-    left: $spacing-unit * 2;
-    right: $spacing-unit * 2;
-    top: $spacing-unit * 2;
-    bottom: $spacing-unit * 2;
+    top: 0;
+    right: 0;
+    transform: translate(10%, 80%);
   }
+}
+.Home2-product-Tiltfile-header {
+  position: relative;
+  font-family: inherit;
+  padding-top: $spacing-unit / 8;
+  padding-bottom: $spacing-unit / 8;
+  background-color: $tilt2-color-gray-lightest;
+  text-align: center;
+}
+.Home2-product-Tiltfile-header-chromeDecoration {
+  position: absolute;
+  left: $spacing-unit / 4;
+}
+.chrome-button1 {fill: $color-red;}
+.chrome-button2 {fill: $color-yellow;}
+.chrome-button3 {fill: $color-green;}
+
+.Home2-product-Tiltfile-code {
+  display: block;
+  padding: $spacing-unit;
+  @include font-mono;  
 
   p {
     margin: 0;
     min-height: $spacing-unit / 2; // Preserve blank lines
+  }
+
+  p + p {
+    margin-top: $spacing-unit / 8;
   }
 }
 
@@ -223,6 +215,7 @@
 }
 
 .Home2-product-caption {
+  margin-top: $spacing-unit * 1.5;
   text-align: center;
 }
 
@@ -256,8 +249,13 @@
 }
 
 // Features --------------------------------------------------
+
+// The interaction we want here is that the navList
+// determines the size of the content box, so we make the contentList
+// an absolutely positioned element inside Home2-features.
 .Home2-features {
   margin-bottom: $spacing-unit;
+  position: relative;
 
   @include mobileAndAbove {
     display: flex;
@@ -267,53 +265,120 @@
 
 .Home2-features-navList {
   @include reset-list-style;
+}
 
-  @include mobileAndBelow {
+.Home2-features-navItem-description {
+  border: 1px solid $tilt2-color-gray-lighter;
+  border-width: 0 1px 1px 1px;
+  border-radius: 0 0 4px 4px;
+  transition: height $anim-duration ease;
+  z-index: 1;
+  position: relative;
+  height: 0;
+  overflow: hidden;
+
+  @include mobileAndAbove {
     display: none;
   }
-  @include mobileAndAbove {
-    flex: 1;
+  
+  .Home2-features-navItem.is-active & {
+    height: 100%;
+  }
+  
+  .Home2-features-navItem--pillar1.is-active & {
+    border-color: $color-pink;
+  }
+  .Home2-features-navItem--pillar2.is-active & {
+    border-color: $color-blue;
+  }
+  .Home2-features-navItem--pillar3.is-active & {
+    border-color: $color-purple;
+  }
+}
+.Home2-features-navItem-descriptionInner {
+  padding: $spacing-unit / 2;
+  transition: transform $anim-duration ease;
+  transform: translate(0, -100%);
+  
+  .Home2-features-navItem.is-active & {
+    transform: translate(0, 0);
   }
 }
 
 .Home2-features-navItem-button {
   @include reset-button-style;
+  background-color: $color-white;
+  cursor: pointer;
+  padding: $spacing-unit / 2;
+  display: block;
+  border: 1px solid $tilt2-color-gray-lighter;
+  border-radius: 4px;
+  transition: color $anim-duration ease,
+              background-color $anim-duration ease,
+              border-color $anim-duration ease;
+  width: 100%;
+  position: relative;
+  z-index: 2;
+  
+  .Home2-features-navItem.is-active & {
+    border-radius: 4px 4px 0 0;
+  }
 }
 
-.Home2-features-navItem-button--pillar1 {
-  color: $color-pink;
+.Home2-features-navItem-button {
+  .Home2-features-navItem--pillar1 & {
+    color: $color-pink;
+  }
 
-  &:hover {
+  .Home2-features-navItem--pillar1:hover &,
+  .Home2-features-navItem--pillar1.is-active & {
     color: $color-white;
     background-color: $color-pink;
+    border-color: $color-pink;
   }
 }
-.Home2-features-navItem-button--pillar2 {
-  color: $color-blue;
+
+.Home2-features-navItem-button {
+  .Home2-features-navItem--pillar2 & {
+    color: $color-blue;
+  }
   
-  &:hover {
+  .Home2-features-navItem--pillar2:hover &,
+  .Home2-features-navItem--pillar2.is-active & {
     color: $color-white;
     background-color: $color-blue;
+    border-color: $color-blue;
   }
 }
-.Home2-features-navItem-button--pillar3 {
-  color: $color-purple;
+
+.Home2-features-navItem-button {
+  .Home2-features-navItem--pillar3 & {
+    color: $color-purple;
+  }
   
-  &:hover {
+  .Home2-features-navItem--pillar3:hover &,
+  .Home2-features-navItem--pillar3.is-active & {
     color: $color-white;
     background-color: $color-purple;
+    border-color: $color-purple;
   }
 }
 
 .Home2-features-contentList {
   @include reset-list-style;
-
-  @include mobileAndAbove {
-    flex: 2;
-  }
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 66%;
+  height: 100%;
+  overflow-y: scroll;
 
   li + li {
     margin-top: $spacing-unit;
+  }
+  
+  @include mobileAndBelow {
+    display: none;
   }
 }
 
@@ -331,20 +396,34 @@
 .Home2-testimonials-navList {
   display: flex;
   align-items: center;
-  @include reset-list-style;
+}
+.Home2-testimonials-navItem-svg .fillStd {
+  fill: $tilt2-color-gray-lighter;
+  transition: fill $anim-duration ease;
 }
 .Home2-testimonials-navItem {
+  @include reset-button-style;
+  cursor: pointer;
   margin-left: $spacing-unit;
-}
-.Home2-testimonials-navItem-svg {
-  fill: $tilt2-color-gray-lighter;
+  outline: none !important;
+
+  &:hover .fillStd,
+  &.is-selected .fillStd {
+    fill: $color-blue;
+  }
 }
 .Home2-testimonials-navItem-svg--clusterApi {
   width: 40px;
 }
 
-.Home2-testimonials {
+.Home2-testimonialBlock {
+  overflow: hidden;
+}
+.Home2-testimonialList {
   @include reset-list-style;
+  display: flex;
+  flex-wrap: nowrap;
+  transition: transform $anim-duration ease;
 }
 
 .Home2-testimonial {
@@ -354,6 +433,10 @@
   border: 1px solid $tilt2-color-gray-lightest;
   color: $tilt2-color-gray;
   padding: $spacing-unit / 2;
+  margin-right: $spacing-unit * 2;
+  width: 100%;
+  box-sizing: border-box;
+  flex-shrink: 0;
 
   @include mobileAndAbove {
     display: grid;
@@ -390,8 +473,7 @@
     flex: 3;
   }
 }
-.Home2-testimonial-profileSocial {
-}
+
 
 .Home2-testimonial-profileInfo-name {
   font-weight: $tilt2-font-weight-sans-bold;
@@ -406,6 +488,20 @@
   }
   &:hover {
     background-color: transparent;
+  }
+}
+
+.Home2-testimonial-profileSocial-link--twitter {
+  .primaryStroke {
+    stroke: $color-blue
+  }
+  .fillStd {
+    fill: transparent;
+  }
+}
+.Home2-testimonial-profileSocial-link--web {
+  .fillStd {
+    fill: $color-blue;
   }
 }
 
@@ -444,6 +540,10 @@
 
 // Resources --------------------------------------------------
 
+.Home2-resources {
+  margin-bottom: $spacing-unit * 2;
+}
+
 .Home2-resources-list {
   @include reset-list-style;
   
@@ -454,14 +554,21 @@
     row-gap: $spacing-unit;
   }
 }
+
 .Home2-resources-listItem {
+  @include shadow;
   border: 1px solid $tilt2-color-gray-lightest;
   padding: $spacing-unit / 2;
-  box-shadow: 0px 0px ($spacing-unit / 2) 0px rgba(180, 180, 180, $tilt2-alpha-transparent);
   border-radius: $tilt2-border-radius;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+
+  @include mobileAndBelow {
+    & + & {
+      margin-top: $spacing-unit;
+    }
+  }
 }
 .Home2-resources-listItem-text {
   margin-bottom: $spacing-unit / 4;
@@ -471,11 +578,11 @@
   margin-right: $spacing-unit / 2;
   fill: $color-blue;
 }
-
 .Home2-resources-button {
   @include reset-button-style;
   line-height: $tilt2-line-height-body;
   width: 100%;
+  cursor: pointer;
 }
 .Home2-resources-link,
 .Home2-resources-button {

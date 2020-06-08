@@ -13,7 +13,7 @@ layout: home2
     </p>
   </div>
   <div class="Home2-heroIllustration">
-    <img src="/assets/img/hero-illustration.png">
+    {% svg assets/svg/illustration-hero.svg %}
   </div>
 </section>
 
@@ -25,7 +25,14 @@ layout: home2
   </div>
 
   <div class="Home2-product-Tiltfile">
-    <img src="/assets/img/product-tiltfile.png" class="Home2-product-Tiltfile-imgPlaceholder">
+    <header class="Home2-product-Tiltfile-header">
+      <div class="Home2-product-Tiltfile-header-chromeDecoration">
+        {% svg assets/svg/chrome-button.svg class="chrome-button1" %}
+        {% svg assets/svg/chrome-button.svg class="chrome-button2" %}
+        {% svg assets/svg/chrome-button.svg class="chrome-button3" %}
+      </div>
+      Tiltfile
+    </header>
     <code class="Home2-product-Tiltfile-code">
       <p class="tiltfile-comment"># Deploy: tell Tilt what YAML to deploy</p>
       <p>k8s_yaml(<span class="tiltfile-arg">'app.yaml'</span>)</p>
@@ -49,76 +56,66 @@ layout: home2
   </p>
 </section>
 
+<script async src="/assets/js/features.js"></script>
+
 <h3 class="Home2-sectionHeading">What We Have in Store</h3>
 <section class="Home2-features">
   <ul class="Home2-features-navList">
-    <li><button class="Home2-features-navItem-button Home2-features-navItem-button--pillar1">Very Holistic</button></li>
-    <li><button class="Home2-features-navItem-button Home2-features-navItem-button--pillar1">Orderly Orchestration</button></li>
-    <li><button class="Home2-features-navItem-button Home2-features-navItem-button--pillar1">Magic UI</button></li>
-    <li><button class="Home2-features-navItem-button Home2-features-navItem-button--pillar2">live_update</button></li>
-    <li><button class="Home2-features-navItem-button Home2-features-navItem-button--pillar2">Code in Flow</button></li>
-    <li><button class="Home2-features-navItem-button Home2-features-navItem-button--pillar2">Fastr Workflow</button></li>
-    <li><button class="Home2-features-navItem-button Home2-features-navItem-button--pillar3">Snapshots</button></li>
-    <li><button class="Home2-features-navItem-button Home2-features-navItem-button--pillar3">Built-In Best Practices</button></li>
-    <li><button class="Home2-features-navItem-button Home2-features-navItem-button--pillar3">Painless Onboarding</button></li>
-    <li><button class="Home2-features-navItem-button Home2-features-navItem-button--pillar3">Quantified Dev Experience</button></li>
+    {% for feature in site.data.features %}
+      <li class="Home2-features-navItem Home2-features-navItem--pillar{{ feature.pillar }} js-featuresNavItem">
+        <button class="Home2-features-navItem-button js-featuresNavItemButton" 
+           data-feature-target="{{forloop.index}}"
+           onclick="featureScroll(this)">
+           {{feature.title}}
+        </button>
+        <div class="Home2-features-navItem-description">
+        <div class="Home2-features-navItem-descriptionInner">
+          {{feature.description}}
+        </div>
+        </div>
+      </li>
+    {% endfor %}
   </ul>
   <ul class="Home2-features-contentList">
-    <li>
-      <button class="Home2-features-contentItem-title Home2-features-contentItem-title--pillar1" href="#">Very Holistic</button>
-      <p>See all the pieces of your app, and trigger custom workflows like seeding databases or creating infrastructure.</p>
-    </li>
-    <li>
-      <button class="Home2-features-contentItem-title Home2-features-contentItem-title--pillar1" href="#">Orderly Orchestration</button>
-      <p>Our engine starts the whole app runs automated rebuilds as you edit in your IDE. Get a continuous feedback loop with your logs, broken builds, runtime errors.</p>
-    </li>
-    <li>
-      <button class="Home2-features-contentItem-title Home2-features-contentItem-title--pillar1" href="#">Magic UI</button>
-      <p>Work with Kubernetes without needing to be an expert. And if you are an expert, no more 20 questions with Kubectl. 🙌</p>
-    </li>
-    <li>
-      <button class="Home2-features-contentItem-title Home2-features-contentItem-title--pillar2" href="#">live_update</button>
-      <p>Tilt's live_update deploys code to running containers, in seconds not minutes. Even for compiled languages or changing dependencies, live_update is fast and reliable.</p>
-    </li>
-    <li>
-      <button class="Home2-features-contentItem-title Home2-features-contentItem-title--pillar2" href="#">Code in Flow</button>
-      <p>Tilt responsively handles the tedious and repetitive parts of your workflow and gives you peripheral vision so you find errors faster. Recapture the magic of hacking with immediate feedback.</p>
-    </li>
-    <li>
-      <button class="Home2-features-contentItem-title Home2-features-contentItem-title--pillar2" href="#">Fastr Workflow</button>
-      <p>Tilt’s flexible integration points let you use your existing workflows. Supercharge your process with optimized build caching and powerful K8s-aware scripting. Shave time off your iterative loops.</p>
-    </li>
-    <li>
-      <button class="Home2-features-contentItem-title Home2-features-contentItem-title--pillar3" href="#">Snapshots</button>
-      <p>Snapshots lets you share your dev environment & collaborate on issues as quickly as looking at the monitor next to you.</p>
-    </li>
-    <li>
-      <button class="Home2-features-contentItem-title Home2-features-contentItem-title--pillar3" href="#">Built-In Best Practices</button>
-      <p>We’ve codified best practices to give your team a common development path and ensure reproducibility. Anyone can start the app – new hires just `tilt up`.</p>
-    </li>
-    <li>
-      <button class="Home2-features-contentItem-title Home2-features-contentItem-title--pillar3" href="#">Painless Onboarding</button>
-      <p>We made Tilt platform agnostic, versatile and easy to configure, because we know every setup is different. You can integrate Tilt in stages for a smooth transition.</p>
-    </li>
-    <li>
-      <button class="Home2-features-contentItem-title Home2-features-contentItem-title--pillar3" href="#">Quantified Dev Experience</button>
-      <p>We care about a good developer experience and we know its hard to measure. Our team features include analytics to help you understand usage and fix slowdowns proactively and show impact.</p>
-    </li>
+    {% for feature in site.data.features %}
+      <li class="Home2-features-contentItem js-featuresContentItem" 
+          data-feature-id="{{ forloop.index }}">
+        <button class="Home2-features-contentItem-title Home2-features-contentItem-title--pillar{{ feature.pillar }}" 
+          data-feature-target="{{forloop.index}}"
+          onclick="featureScroll(this)">
+          {{feature.title}}
+        </button>
+        <div>
+          {{feature.description}}
+        </div>
+      </li>
+    {% endfor %}
   </ul>
 </section>
 
 {% include index2_cta.html %}
 
+<script async src="/assets/js/testimonials.js"></script>
+
 <h3 class="Home2-sectionHeading Home2-sectionHeading--testimonials">
   What People Are Saying
-  <ul class="Home2-testimonials-navList">
-    <li class="Home2-testimonials-navItem">{% svg assets/svg/testimonial-yext-logo.svg class="Home2-testimonials-navItem-svg Home2-testimonials-navItem-svg--yext" %}</li>
-    <li class="Home2-testimonials-navItem">{% svg assets/svg/testimonial-kubernetes-logo.svg class="Home2-testimonials-navItem-svg Home2-testimonials-navItem-svg--clusterApi" %}</li>
-  </ul>
+  <div class="Home2-testimonials-navList">
+    <button class="Home2-testimonials-navItem is-selected"
+            data-testimonial="yext"
+            onclick="testimonialScroll(this)">
+      {% svg assets/svg/testimonial-yext-logo.svg class="Home2-testimonials-navItem-svg Home2-testimonials-navItem-svg--yext" %}
+    </button>
+    <button class="Home2-testimonials-navItem" 
+            data-testimonial="cluster-api"
+            onclick="testimonialScroll(this)">
+      {% svg assets/svg/testimonial-kubernetes-logo.svg class="Home2-testimonials-navItem-svg Home2-testimonials-navItem-svg--clusterApi" %}
+    </button>
+  </div>
 </h3>
 
-<ul class="Home2-testimonials">
-  <li class="Home2-testimonial">
+<div class="Home2-testimonialBlock">
+<ul class="Home2-testimonialList">
+  <li class="Home2-testimonial" data-testimonial="yext">
     <div class="Home2-testimonial-profile">
       <div class="Home2-testimonial-profile-photo"><img src="/assets/img/testimonial-profile-yext.jpg"></div>
       <div class="Home2-testimonial-profileInfo">
@@ -126,8 +123,12 @@ layout: home2
         <p class="Home2-testimonial-profileInfo-role">Software Eng. Lead</p>
       </div>
       <div class="Home2-testimonial-profileSocial">
-        <a href="https://twitter.com/theotherelliott" rel="noopener noreferrer" target="_blank"  class="Home2-testimonial-profileSocial-link" >{% svg assets/svg/social-twitter.svg %}</a>
-        <a href="http://engblog.yext.com/author/telliott" rel="noopener noreferrer" target="_blank" class="Home2-testimonial-profileSocial-link">{% svg assets/svg/social-web.svg %}</a>
+        <a href="https://twitter.com/theotherelliott" rel="noopener noreferrer" target="_blank"  class="Home2-testimonial-profileSocial-link Home2-testimonial-profileSocial-link--twitter" >
+          {% svg assets/svg/social-twitter.svg %}
+        </a>
+        <a href="http://engblog.yext.com/author/telliott" rel="noopener noreferrer" target="_blank" class="Home2-testimonial-profileSocial-link Home2-testimonial-profileSocial-link--web">
+          {% svg assets/svg/social-web.svg %}
+        </a>
       </div>
     </div>
     <div class="Home2-testimonial-content">
@@ -138,7 +139,7 @@ layout: home2
       </div>
     </div>
   </li>
-  <li class="Home2-testimonial">
+  <li class="Home2-testimonial" data-testimonial="cluster-api">
     <div class="Home2-testimonial-profile">
       <div class="Home2-testimonial-profile-photo"><img src="/assets/img/testimonial-profile-cluster-api.jpg"></div>
       <div class="Home2-testimonial-profileInfo">
@@ -146,7 +147,9 @@ layout: home2
         <p class="Home2-testimonial-profileInfo-role">Co-Maintainer</p>
       </div>
       <div class="Home2-testimonial-profileSocial">
-        <a href="https://blogs.vmware.com/cloudnative/author/jasondetiberus/" rel="noopener noreferrer" target="_blank" class="Home2-testimonial-profileSocial-link">{% svg assets/svg/social-web.svg %}</a>
+        <a href="https://blogs.vmware.com/cloudnative/author/jasondetiberus/" rel="noopener noreferrer" target="_blank" class="Home2-testimonial-profileSocial-link Home2-testimonial-profileSocial-link--web">
+          {% svg assets/svg/social-web.svg %}
+        </a>
       </div>
     </div>
     <div class="Home2-testimonial-content">
@@ -158,6 +161,7 @@ layout: home2
     </div>
   </li>
 </ul>
+</div>
 
 <h3 class="Home2-sectionHeading">Learn More</h3>
 <section class="Home2-resources">
@@ -165,7 +169,7 @@ layout: home2
     <li class="Home2-resources-listItem">
       <div class="Home2-resources-listItem-text">
         <h4 class="Home2-subsectionHeading Home2-subsectionHeading--resources">
-          {% svg assets/svg/resources-docs.svg class="Home2-resources-icon" %}
+          {% svg assets/svg/resources-docs.svg class="Home2-resources-svg" %}
           Read the Docs
         </h4>
         <p>Already have a Dockerfile and a Kubernetes config? Set up Tilt in no time and start getting things done. </p>
@@ -175,7 +179,7 @@ layout: home2
     <li class="Home2-resources-listItem">
       <div class="Home2-resources-listItem-text">
         <h4 class="Home2-subsectionHeading Home2-subsectionHeading--resources">
-          {% svg assets/svg/resources-slack.svg class="Home2-resources-icon" %}
+        {% svg assets/svg/social-slack.svg class="Home2-resources-svg" %}
           Chat with Us
         </h4>
         <p>Find us in the #tilt channel of the official Kubernetes Slack. We’re there Mon-Fri EST business hours. We don’t bite.</p>
@@ -185,7 +189,7 @@ layout: home2
     <li class="Home2-resources-listItem">
       <div class="Home2-resources-listItem-text">
         <h4 class="Home2-subsectionHeading Home2-subsectionHeading--resources">
-          {% svg assets/svg/resources-videos.svg class="Home2-resources-icon" %}
+          {% svg assets/svg/resources-videos.svg class="Home2-resources-svg" %}
           Quick Start
         </h4>
         <p>Short & sweet videos about Tilt</p>
@@ -199,17 +203,17 @@ layout: home2
     <li class="Home2-resources-listItem">
       <div class="Home2-resources-listItem-text">
         <h4 class="Home2-subsectionHeading Home2-subsectionHeading--resources">
-          {% svg assets/svg/resources-github.svg class="Home2-resources-icon" %}
+          {% svg assets/svg/resources-github.svg class="Home2-resources-svg" %}
           GitHub Issues
         </h4>
         <p>Have an idea or a bug to report? Check our GitHub issues. In case you want to tackle some of your own we have a collection for that.</p>
       </div>
-      <a href="https://github.com/tilt-dev/tilt" rel="noopener noreferrer" target="_blank" class="Home2-resources-link">Tilt GitHub</a>
+      <a href="https://github.com/{{site.github_username}}/tilt" rel="noopener noreferrer" target="_blank" class="Home2-resources-link">Tilt GitHub</a>
     </li>
     <li class="Home2-resources-listItem">
       <div class="Home2-resources-listItem-text">
         <h4 class="Home2-subsectionHeading Home2-subsectionHeading--resources">
-          {% svg assets/svg/resources-contact.svg class="Home2-resources-icon" %}
+          {% svg assets/svg/resources-contact.svg class="Home2-resources-svg" %}
           Email us
         </h4>
         <p>Have questions or feature requests for Tilt? Want to use it for your company? Just want to say hi? We love hearing from you!</p>
@@ -219,17 +223,23 @@ layout: home2
     <li class="Home2-resources-listItem">
       <div class="Home2-resources-listItem-text">
         <h4 class="Home2-subsectionHeading Home2-subsectionHeading--resources">
-          {% svg assets/svg/resources-mailing-list.svg class="Home2-resources-icon" %}
+          {% svg assets/svg/resources-mailing-list.svg class="Home2-resources-svg" %}
           Our Mailing List
         </h4>
         <p>Keep up with Multi-Service Development and all things Tilt.</p>
       </div>
       <div class="Home2-resources-listItem-cta">
-        <label for="drip-email" class="Home2-resources-label">Your Email</label>
-        <input class="Home2-resources-input" type="email" id="drip-email" name="fields[email]" value="" placeholder="me@company.com" />
-        <button class="Home2-resources-button" type="submit" data-drip-attribute="sign-up-button">
-          Subscribe
-        </button>
+        <form action="https://www.getdrip.com/forms/507796156/submissions" method="post" data-drip-embedded-form="507796156">
+          <label for="drip-email" class="Home2-resources-label">Your Email</label>
+          <input class="Home2-resources-input" type="email" id="drip-email" name="fields[email]" value="" placeholder="me@company.com" />
+          <button class="Home2-resources-button" type="submit" data-drip-attribute="sign-up-button">
+            Subscribe
+          </button>
+          <div style="display: none;" aria-hidden="true">
+            <label for="website">Website</label><br />
+            <input type="text" id="website" name="website" tabindex="-1" autocomplete="false" value="" />
+          </div>
+        </form>
       </div>
     </li>
   </ul>

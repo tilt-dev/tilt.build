@@ -1,18 +1,22 @@
 // (HY) The new layout has a subtly different color and font-size scale,
 // so I'm creating a new set of vars instead of amending what's in tilt.scss
-$tilt2-header-width: 1080px;
 $tilt2-page-width: 1080px;
+$tilt2-header-width: $tilt2-page-width;
+$tilt2-footer-width: $tilt2-page-width;
 
+
+// COLOR
+// --------------------------------------------------
 $tilt2-color-off-white: #FAFBFC;
-$tilt2-color-gray-lightest: #F1F1F1;
-$tilt2-color-gray-lighter: #B4B4B4;
+$tilt2-color-gray-lightest: #EEF1F1;
+$tilt2-color-gray-lighter: #CCDADE;
 $tilt2-color-gray: #586E75;
 $tilt2-color-gray-dark: #073642;
 
-$tilt2-alpha-transparent: 0.3;
-
 $tilt2-color-text: $tilt2-color-gray-dark;
 
+// Alpha Channel 
+$tilt2-alpha-transparent: 0.3;
 
 // TYPOGRAPHY
 // --------------------------------------------------
@@ -38,14 +42,85 @@ $tilt2-font-size-body-large: 28px;
 $tilt2-line-height-body: 1.4;
 $tilt2-line-height-body-large: 1.45;
 
+$tilt2-font-size-mono: 16px;
+$tilt2-line-height-mono: 1.3;
+
 $tilt2-font-size-body-serif: 22px;
 $tilt2-line-height-body-serif: 1.6;
 
-$tilt2-font-size-button-large: 26px;
+@mixin font-hero {
+  font-family: $tilt2-font-sans;
+  font-weight: $tilt2-font-weight-sans-black;
+  line-height: $tilt2-line-height-hero;
+  font-size: $tilt2-font-size-hero-small;
+  color: $tilt2-color-text;
+  
+  @include mobileAndAbove {
+    font-size: $tilt2-font-size-hero;
+  }
+}
 
+@mixin font-hero-subhead {
+  font-family: $tilt2-font-sans;
+  font-weight: $tilt2-font-weight-sans-light;
+  line-height: $tilt2-line-height-body-large;
+
+  @include mobileAndAbove {
+    font-size: $tilt2-font-size-body-large;
+  }
+}
+
+@mixin font-heading {
+  font-family: $tilt2-font-sans;
+  font-weight: $tilt2-font-weight-sans-bold;
+  font-size: $tilt2-font-size-heading;
+  color: $tilt2-color-text;
+  margin-bottom: $spacing-unit;
+}
+@mixin font-heading-small {
+  font-family: $tilt2-font-sans;
+  font-weight: $tilt2-font-weight-sans-bold;
+  font-size: $tilt2-font-size-heading-small;
+  color: $tilt2-color-gray;
+  margin-bottom: $spacing-unit / 2;
+}
+
+@mixin font-body {
+  font-family: $tilt2-font-sans;
+  font-size: $tilt2-font-size-body;
+  font-weight: $tilt2-font-weight-sans-light;
+  line-height: $tilt2-line-height-body;
+}
+@mixin font-body-small {
+  font-family: $tilt2-font-sans;
+  font-size: $tilt2-font-size-body-small;
+  font-weight: $tilt2-font-weight-sans-light;
+  line-height: $tilt2-line-height-body;
+}
+
+// Buttons
+$tilt2-button-font-size--large: 26px;
+$tilt2-button-height--large: 50px;
+
+$tilt2-button-font-size: 16px;
+$tilt2-button-height: 30px;
+
+$tilt2-button-font-size--small: 14px;
+$tilt2-button-height--small: 26px;
+
+// "EFFECTS"
+// --------------------------------------------------
 
 $tilt2-border-radius: 2px;
+$tilt2-border-radius-large: 4px;
 
+@mixin shadow {
+  box-shadow: 0px 0px ($spacing-unit / 2) 0px rgba(180, 180, 180, $tilt2-alpha-transparent);
+}
+
+
+// RESETS
+// --------------------------------------------------
 @mixin reset-button-style {
   font-family: inherit;
   font-size: inherit;
@@ -58,5 +133,14 @@ $tilt2-border-radius: 2px;
 
 @mixin reset-list-style {
   list-style: none;
-  margin-left: 0;
+  margin: 0;
+}
+
+
+
+
+@mixin font-mono {
+  font-family: $tilt2-font-mono;
+  font-size: $tilt2-font-size-mono;
+  line-height: $tilt2-line-height-mono;
 }
