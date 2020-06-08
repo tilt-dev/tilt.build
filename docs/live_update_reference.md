@@ -111,22 +111,20 @@ docker_build('my-img', '.', live_update=[
 2. change to `./src/web/yarn.lock` => run the Live Update; run `setup.sh`; run `cd /app/web && yarn install`, because this file matches that command's trigger
 3. change to `./configs/foo.yaml` => whoops, this file doesn't match any `sync` steps! Even though it matches a trigger (for the third `run`), we won't do a Live Update for this change; instead, we do a full Docker build (see notes on `sync`, above, for what changes trigger a Live Update vs. a full build + deploy).
 
-## Rerunning your Process
+## Restarting your Process
 
 Some apps or invocations thereof (e.g. Javascript apps run via `nodemon`, or Flask apps run in debug mode) detect and incorporate code changes without needing to restart. For other apps, though, you'll need to re-execute them for changes to take effect.
 
-For most setups, you'll be able to use the [`restart_process` extension](https://github.com/windmilleng/tilt-extensions/tree/master/restart_process): import the extension, replace your `docker_build` call with a `docker_build_with_restart` call, and specify the `entrypoint` parameter (i.e. the command to run on container start and _re-run_ on Live Update). (If using `custom_build`, then instead swap that call out for `custom_build_with_restart`.)
+For most setups, you'll be able to use the [`restart_process` extension](https://github.com/windmilleng/tilt-extensions/tree/master/restart_process): import the extension, replace your `docker_build` call with a `docker_build_with_restart` call, and specify the `entrypoint` parameter (i.e. the command to run on container start and _re-run_ on Live Update).
 
 There are a few exceptions to the above; the `restart_process` extension doesn't work for:
 * Docker Compose resources; you should use the [`restart_container()`](api.html#api.restart_container) Live Update step instead
-* `custom_build` calls that specify
-    a. the `tag` parameter
-    b. `skips_local_docker=True`
-* container images without a shell (e.g. `scratch`, `distroless`)
+* Images build via `custom_build`
+* Container images without a shell (e.g. `scratch`, `distroless`)
 
 If any of the exceptions above apply to you, or `restart_process` doesn't otherwise work for your use case, read on.
 
-### Workarounds for Rerunning Your Process
+### Workarounds for Restarting Your Process
 
 Tilt is flexible enough that you can employ any number of workarounds for restarting your process as part of a Live Update. The basic idea is to invoke your process such that a single command (specified as a `run` step) causes it to restart. Here are a few approaches we recommend:
 * We've written a [set of wrappers for your process](https://github.com/windmilleng/rerun-process-wrapper). Put these scripts in your container and invoke your process as:
