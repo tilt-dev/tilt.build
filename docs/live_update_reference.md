@@ -115,7 +115,7 @@ docker_build('my-img', '.', live_update=[
 
 Some apps or invocations thereof (e.g. Javascript apps run via `nodemon`, or Flask apps run in debug mode) detect and incorporate code changes without needing to restart. For other apps, though, you'll need to re-execute them for changes to take effect.
 
-For most setups, you'll be able to use the [`restart_process` extension](https://github.com/windmilleng/tilt-extensions/tree/master/restart_process): import the extension, replace your `docker_build` call with a `docker_build_with_restart` call, and specify the `entrypoint` parameter (i.e. the command to run on container start and _re-run_ on Live Update).
+For most setups, you'll be able to use the [`restart_process` extension](https://github.com/tilt-dev/tilt-extensions/tree/master/restart_process): import the extension, replace your `docker_build` call with a `docker_build_with_restart` call, and specify the `entrypoint` parameter (i.e. the command to run on container start and _re-run_ on Live Update).
 
 There are a few exceptions to the above; the `restart_process` extension doesn't work for:
 * Docker Compose resources; you should use the [`restart_container()`](api.html#api.restart_container) Live Update step instead
@@ -127,7 +127,7 @@ If any of the exceptions above apply to you, or `restart_process` doesn't otherw
 ### Workarounds for Restarting Your Process
 
 Tilt is flexible enough that you can employ any number of workarounds for restarting your process as part of a Live Update. The basic idea is to invoke your process such that a single command (specified as a `run` step) causes it to restart. Here are a few approaches we recommend:
-* We've written a [set of wrappers for your process](https://github.com/windmilleng/rerun-process-wrapper). Put these scripts in your container and invoke your process as:
+* We've written a [set of wrappers for your process](https://github.com/tilt-dev/rerun-process-wrapper). Put these scripts in your container and invoke your process as:
     ```bash
 /path/to/start.sh /path/to/bin
     ```
