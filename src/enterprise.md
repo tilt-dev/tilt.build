@@ -42,7 +42,7 @@ has_calendly: true
   </li>
 </ul>
 
-{% include index2_cta.html %}
+{% include index_cta.html %}
 
 <h3 class="Home2-sectionHeading">Learn More</h3>
 <section class="Home2-resources">
