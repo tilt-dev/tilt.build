@@ -14,6 +14,8 @@
   items:
   - title: Choosing a Local Dev Cluster
     href: choosing_clusters.html
+  - title: Local vs Remote Services
+    href: local_vs_remote.html
   - title: "Before you ask your team to tilt up..."
     href: onboarding_checklist.html
   - title: "Guide for Application Developers"
@@ -71,7 +73,7 @@
   - title: "How to: Bazel Build Scripts"
     href: integrating_bazel_with_tilt.html
   - title: "How to: Structuring Multiple Repos"
-    href: multiple_repos.html  
+    href: multiple_repos.html
 - title: Help
   items:
   - title: Who is Tilt for?
