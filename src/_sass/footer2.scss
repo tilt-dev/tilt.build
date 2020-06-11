@@ -78,12 +78,6 @@ body.is-footer2 .siteFooter2 {
   }
 }
 
-.siteFooter2-links-navItem--github {
-  @include mobileAndBelow {
-    display: none;
-  }
-}
-
 .siteFooter2-links-navLink--github {
   color: $tilt2-color-gray;
   border-color: $tilt2-color-gray-lighter;
@@ -94,6 +88,22 @@ body.is-footer2 .siteFooter2 {
     color: $color-white;
     background-color: $tilt2-color-gray;
   }
+}
+
+.siteFooter2-links-navItem--github {
+  @include mobileAndBelow {
+    display: none;
+  }
+}
+.siteFooter2-links-socialItem--github { 
+  @include mobileAndAbove {
+    display: none;
+  }
+}
+
+.siteFooter2-links-socialItem--github > .siteFooter2-links-navLink--github {
+  margin-left: 0;
+  margin-right: 0;
 }
 
 .siteHeader2-navLink-icon {  
@@ -152,11 +162,9 @@ body.is-footer2 .siteFooter2 {
 // About the Team --------------------------------------------------
 .siteFooter2-about {
   @include font-body-small;
-  display: flex;
-  align-items: center;
+  text-align: center;
 }
 
 .siteFooter2-about-cloud {
   font-size: 150%; // Emoji clouds are unexpectedly small
-  padding-left: $spacing-unit / 4;
 }

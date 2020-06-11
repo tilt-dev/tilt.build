@@ -34,10 +34,10 @@
 
         {% if link.github %}
           <li class="siteHeader2-navItem">
-            <a class="siteHeader2-navLink siteHeader2-navLink--github" href="{{href}}">
+            <a class="siteHeader2-navLink siteHeader2-navLink--github" href="{{site.data.github.href}}">
               {{link.name}}
               <span class="siteHeader2-navLink-icon">{% svg assets/svg/github-star.svg%}</span>
-              <span>{{link.githubStars}}</span>
+              <span>{{site.data.github.stars}}</span>
             </a>
           </li>
         {% else %}

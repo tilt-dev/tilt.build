@@ -6,8 +6,6 @@
   href:
   docsurl: true
 - name: GitHub
-  href: https://github.com/tilt-dev/tilt
-  githubStars: 3.5k
   github: true
 - name: Blog
   blogurl: true
