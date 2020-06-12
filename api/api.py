@@ -66,22 +66,16 @@ def run(cmd: str, trigger: Union[List[str], str] = []) -> LiveUpdateStep:
   pass
 
 def restart_container() -> LiveUpdateStep:
-  """Specify that a container should be restarted when it is live-updated. In
+  """**For use with Docker Compose resources only.**
+
+  Specify that a container should be restarted when it is live-updated. In
   practice, this means that the container re-executes its `ENTRYPOINT` within
   the changed filesystem.
 
   May only be included in a `live_update` once, and only as the last step.
 
-  NOTE: this function will soon be deprecated. If you want to restart a Docker-built
-  image running on Kubernetes, use the `restart_process extension <https://github.com/windmilleng/tilt-extensions/tree/master/restart_process>`_.
-  At the moment, ``restart_container`` should only be used in conjunction
-  with ``custom_build`` or for images run by Docker Compose.
-
-  Only works on containers managed by Docker. For non-Docker runtimes
-  (e.g. containerd, CRI-O), please see the `wrapper script for simulating
-  restart_container <https://github.com/tilt-dev/rerun-process-wrapper>`_.
-
-  For more info, see the `Live Update Reference <live_update_reference.html>`_.
+  For more info (and for the equivalent functionality for Kubernetes resources),
+  see the `Live Update Reference <live_update_reference.html#restarting-your-process>`__.
   """
   pass
 
