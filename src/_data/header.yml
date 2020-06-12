@@ -1,28 +1,14 @@
-- name: About
-  icon: logo-imagemark
-  mobileIcon: logo-imagemark
-  href: about
+- name: Enterprise
+  href: enterprise
+  primary: true
   landingurl: true
-- name: Contact
-  icon: contact-anim
-  mobileIcon: contact
-  href: contact
-  landingurl: true
-- name: GitHub
-  icon: github
-  mobileIcon: github
-  href: https://github.com/tilt-dev/tilt
 - name: Docs
-  icon: docs-anim
-  mobileIcon: docs
   href:
   docsurl: true
+- name: GitHub
+  github: true
 - name: Blog
-  icon: blog
-  mobileIcon: blog
   blogurl: true
-- name: Enterprise
-  icon: enterprise
-  mobileIcon: enterprise
-  href: enterprise
+- name: About
+  href: about
   landingurl: true

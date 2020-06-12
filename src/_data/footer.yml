@@ -1,18 +1,14 @@
-- name: Twitter
-  icon: twitter
-  href: https://twitter.com/tilt_dev
-- name: Blog
-  icon: blog
-  href:
-  blogurl: true
-- name: GitHub
-  icon: github
-  href: https://github.com/tilt-dev/tilt
+- name: Enterprise
+  href: enterprise
+  primary: true
+  landingurl: true
 - name: Docs
-  icon: docs
   href:
   docsurl: true
-- name: Contact
-  icon: contact
-  href: contact
+- name: GitHub
+  github: true
+- name: Blog
+  blogurl: true
+- name: About
+  href: about
   landingurl: true

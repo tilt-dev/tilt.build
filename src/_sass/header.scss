@@ -1,6 +1,6 @@
 .siteHeader2 {
   width: 100%;
-  display: none;
+  display: flex;
   margin-right: auto;
   margin-left: auto;
 
@@ -9,9 +9,6 @@
     padding-top: $spacing-unit * 2;
     padding-bottom: $spacing-unit;
   }
-}
-body.is-header2 .siteHeader2 {
-  display: flex;
 }
 
 .siteHeader2-logoLink {

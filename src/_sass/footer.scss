@@ -1,6 +1,8 @@
 .siteFooter2 {
   width: 100%;
-  display: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   margin-right: auto;
   margin-left: auto;
   
@@ -8,11 +10,6 @@
     max-width: $tilt2-footer-width;
     margin-bottom: $spacing-unit * 2;
   }
-}
-body.is-footer2 .siteFooter2 {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
 }
 
 .siteFooter2-links {

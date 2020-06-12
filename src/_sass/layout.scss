@@ -36,14 +36,6 @@ li {
 /**
  * Site header
  */
-.siteHeader1 {
-  margin-top: $spacing-unit;
-  position: relative;
-}
-body.is-header2 .siteHeader1 {
-  display: none;
-}
-
 .siteNav-float {
   position: absolute;
   top: 0;
@@ -78,20 +70,6 @@ body.is-header2 .siteHeader1 {
 }
 
 .siteNav.is-open .svgButton--menu {
-  display: none;
-}
-
-.siteFooter1 {
-  margin: auto;
-  font-family: $chrome-font-family;
-  font-size: $chrome-font-size;
-  line-height: $chrome-line-height;
-  font-weight: $chrome-font-weight;
-  font-variant-ligatures: none;
-  letter-spacing: 0;
-  color: $color-grey-darkest;
-}
-body.is-footer2 .siteFooter1 {
   display: none;
 }
 
@@ -363,8 +341,7 @@ h1, .sidebar h2, h2.section {
     line-height: 31px;
   }
 }
-.wrapper--home h1,
-.wrapper--home h2.section,
+
 .wrapper--landing h1,
 .wrapper--landing h2.section {
   color: $color-grey-dark;
