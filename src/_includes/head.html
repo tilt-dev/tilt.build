@@ -14,6 +14,9 @@
   {% if page.has_calendly == true %}
     <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js"></script>
   {% endif %}
+  {% if page.has_calendly_popup == true %}
+    <link rel="stylesheet" href="https://assets.calendly.com/assets/external/widget.css">
+  {% endif %}
   {%- feed_meta -%}
 
   <!-- For Tilt Landing Page Re-Design, via Han's Typekit account (2020-05): -->

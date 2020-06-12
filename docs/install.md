@@ -1,7 +1,11 @@
 ---
 title: Install
 layout: docs
+has_calendly: true
+has_calendly_popup: true
 ---
+
+_Having trouble getting started with Tilt? <a href="" onclick="Calendly.initPopupWidget({url: 'https://calendly.com/dbentley/30min'});return false;">Schedule a video call with Dan Miller</a>, Senior Softare Engineer at Tilt._
 
 Tilt is available for [macOS](#macos), [Linux](#linux), and [Windows](#windows).
 
