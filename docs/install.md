@@ -5,7 +5,7 @@ has_calendly: true
 has_calendly_popup: true
 ---
 
-_Having trouble getting started with Tilt? <a href="" onclick="Calendly.initPopupWidget({url: 'https://calendly.com/dmiller-tilt/30min'});return false;">Schedule a video call with Dan Miller</a>, Senior Softare Engineer at Tilt._
+_Having trouble getting started with Tilt? <a href="" onclick="Calendly.initPopupWidget({url: 'https://calendly.com/dmiller-tilt/30min'});return false;">Schedule a video call with Dan Miller</a>, Senior Software Engineer at Tilt._
 
 Tilt is available for [macOS](#macos), [Linux](#linux), and [Windows](#windows).
 
