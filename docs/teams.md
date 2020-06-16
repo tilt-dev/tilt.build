@@ -13,17 +13,19 @@ You can also change the team name on this page.
     <img src="/assets/img/new-team.png" class="no-shadow" alt="New team">
 </figure>
 
-## Associate team with a project
+## Associate team with multiple projects
 
-Tilt is designed to have a single team be associated with a single Tiltfile of a project. As the team owner, after you've created a team, copy the team id (which is the string of text after `/team` in the URL, e.g. `27d7ad9c-53f8-4700-80b8-b217eeb8effg`), and enter it into your Tiltfile with the [`set_team( )` function](./api.html#api.set_team), for example:
+Tilt is designed to have a single team be associated with one or more Tiltfiles in potentially multiple projects. As the team owner, after you've created a team, copy the team id (which is the string of text after `/team` in the URL, e.g. `27d7ad9c-53f8-4700-80b8-b217eeb8effg`), and enter it into each Tiltfile with the [`set_team( )` function](./api.html#api.set_team), for example:
 
 `set_team('27d7ad9c-53f8-4700-80b8-b217eeb8effg')`
 
-Commit the change to source control.
+Commit the changes to source control.
+
+It's a best practice to add the same team_id to as many Tiltfiles in your organization as possible, especially if you as a DevEx engineer, want to see all information aggregated across all those projects, together in one place.
 
 ## Last seen versions
 
-You'll now see all folks who run Tilt with the updated Tiltfile, appear on the team page, including when they last ran Tilt and the version they are using. Ask users to sign in to Tilt Cloud in Tilt for their name to appear on the team page. Otherwise, they will appear as anonymous.
+You'll now see all folks who run Tilt across all projects with the updated Tiltfiles, appear on the team page, including when they last ran Tilt and the version they are using. Ask users to sign in to Tilt Cloud in Tilt for their name to appear on the team page. Otherwise, they will appear as anonymous.
 
 <figure>
     <img src="/assets/img/last-seen-versions.png" class="no-shadow" alt="Last seen versions">
