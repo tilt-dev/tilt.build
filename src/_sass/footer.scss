@@ -12,7 +12,7 @@
   }
 }
 
-.siteFooter2-links {
+.siteFooter-links {
   display: flex;
 
   @include mobileAndBelow {
@@ -23,7 +23,7 @@
     margin-bottom: $spacing-unit;
   }
 }
-.siteFooter2-links-navList {
+.siteFooter-links-navList {
   @include reset-list-style;
   display: flex;
   align-items: center;
@@ -32,7 +32,7 @@
     margin-bottom: $spacing-unit / 2;
   }
 }
-.siteFooter2-links-navItem {
+.siteFooter-links-navItem {
   & + & {
     margin-left: $spacing-unit / 4;
 
@@ -42,7 +42,7 @@
   }
 }
 
-.siteFooter2-links-navLink {
+.siteFooter-links-navLink {
   font-family: $tilt2-font-sans;
   font-size: $tilt2-button-font-size--small;
   padding-left: $spacing-unit / 4;
@@ -62,7 +62,7 @@
   }
 }
 
-.siteFooter2-links-navLink--primary {
+.siteFooter-links-navLink--primary {
   color: $color-green;
 
   &:hover {
@@ -75,7 +75,7 @@
   }
 }
 
-.siteFooter2-links-navLink--github {
+.siteFooter-links-navLink--github {
   color: $tilt2-color-gray;
   border-color: $tilt2-color-gray-lighter;
   margin-left: $spacing-unit / 2;
@@ -87,18 +87,18 @@
   }
 }
 
-.siteFooter2-links-navItem--github {
+.siteFooter-links-navItem--github {
   @include mobileAndBelow {
     display: none;
   }
 }
-.siteFooter2-links-socialItem--github { 
+.siteFooter-links-socialItem--github { 
   @include mobileAndAbove {
     display: none;
   }
 }
 
-.siteFooter2-links-socialItem--github > .siteFooter2-links-navLink--github {
+.siteFooter-links-socialItem--github > .siteFooter-links-navLink--github {
   margin-left: 0;
   margin-right: 0;
 }
@@ -114,7 +114,7 @@
   }
 }
 
-.siteFooter2-links-socialList {
+.siteFooter-links-socialList {
   @include reset-list-style;
   display: flex;
   align-items: center;
@@ -126,12 +126,12 @@
     margin-left: $spacing-unit;
   }
 }
-.siteFooter2-links-socialItem {
+.siteFooter-links-socialItem {
   & + & {
     margin-left: $spacing-unit / 2;
   }
 }
-.siteFooter2-links-socialLink {
+.siteFooter-links-socialLink {
   display: flex;
   align-items: center;
 
@@ -157,11 +157,11 @@
 
 
 // About the Team --------------------------------------------------
-.siteFooter2-about {
+.siteFooter-about {
   @include font-body-small;
   text-align: center;
 }
 
-.siteFooter2-about-cloud {
+.siteFooter-about-cloud {
   font-size: 150%; // Emoji clouds are unexpectedly small
 }

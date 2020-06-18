@@ -1,6 +1,6 @@
 <footer class="siteFooter2">
-  <div class="siteFooter2-links">
-    <ul class="siteFooter2-links-navList">
+  <div class="siteFooter-links">
+    <ul class="siteFooter-links-navList">
       {% for link in site.data.footer %}
         {% assign href = link.href %}
         {% if link.landingurl %}
@@ -11,45 +11,45 @@
           {% assign href = (href | prepend: "/" | prepend: site.blogurl) %}
         {% endif %}
       
-        <li class="siteFooter2-links-navItem {% if link.github %}siteFooter2-links-navItem--github{% endif %}">
+        <li class="siteFooter-links-navItem {% if link.github %}siteFooter-links-navItem--github{% endif %}">
           {% if link.github %}
-            <a class="siteFooter2-links-navLink siteFooter2-links-navLink--github" href="{{site.data.github.href}}">
+            <a class="siteFooter-links-navLink siteFooter-links-navLink--github" href="{{site.data.github.href}}">
               {{link.name}}
               <span class="siteHeader2-navLink-icon">{% svg assets/svg/github-star.svg %}</span>
               <span>{{site.data.github.stars}}</span>
             </a>
           {% else %}
-            <a class="siteFooter2-links-navLink {% if link.primary %}siteFooter2-links-navLink--primary{% endif %}" href="{{href}}">
+            <a class="siteFooter-links-navLink {% if link.primary %}siteFooter-links-navLink--primary{% endif %}" href="{{href}}">
               {{link.name}}
             </a>
           {% endif %}
         </li>
       {% endfor %}
     </ul>
-    <ul class="siteFooter2-links-socialList">
-      <li class="siteFooter2-links-socialItem siteFooter2-links-socialItem--github">
-        <a class="siteFooter2-links-navLink siteFooter2-links-navLink--github" href="{{site.data.github.href}}">
+    <ul class="siteFooter-links-socialList">
+      <li class="siteFooter-links-socialItem siteFooter-links-socialItem--github">
+        <a class="siteFooter-links-navLink siteFooter-links-navLink--github" href="{{site.data.github.href}}">
             GitHub
             <span class="siteHeader2-navLink-icon">{% svg assets/svg/github-star.svg %}</span>
             <span>{{site.data.github.stars}}</span>
         </a>
       </li>
-      <li class="siteFooter2-links-socialItem">
-        <a class="siteFooter2-links-socialLink siteFooter2-links-socialLink--twitter" href="https://twitter.com/{{site.twitter_username}}">
+      <li class="siteFooter-links-socialItem">
+        <a class="siteFooter-links-socialLink siteFooter-links-socialLink--twitter" href="https://twitter.com/{{site.twitter_username}}">
           {% svg assets/svg/social-twitter.svg %}
         </a>
       </li>
-      <li class="siteFooter2-links-socialItem">
-        <a class="siteFooter2-links-socialLink siteFooter2-links-socialLink--slack" href="https://slack.k8s.io/">
+      <li class="siteFooter-links-socialItem">
+        <a class="siteFooter-links-socialLink siteFooter-links-socialLink--slack" href="https://slack.k8s.io/">
           {% svg assets/svg/social-slack.svg %}
         </a>
       </li>
-      <li class="siteFooter2-links-socialItem">
-        <a class="siteFooter2-links-socialLink siteFooter2-links-socialLink--youtube" href="https://www.youtube.com/tilt-dev">
+      <li class="siteFooter-links-socialItem">
+        <a class="siteFooter-links-socialLink siteFooter-links-socialLink--youtube" href="https://www.youtube.com/tilt-dev">
           {% svg assets/svg/social-youtube.svg %}
         </a>
       </li>
     </ul>
   </div>
-  <p class="siteFooter2-about">Built with 🌈 from New York, Virginia, Berlin and the <span class="siteFooter2-about-cloud">☁️</span></p>
+  <p class="siteFooter-about">Built with 🌈 from New York, Virginia, Berlin and the <span class="siteFooter-about-cloud">☁️</span></p>
 </footer>
