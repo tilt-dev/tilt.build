@@ -3,10 +3,10 @@
   description: See all the pieces of your app, and trigger custom workflows like seeding databases or creating infrastructure.
 - title: Orderly Orchestration
   pillar: 1
-  description: Our engine starts the whole app runs automated rebuilds as you edit in your IDE. Get a continuous feedback loop with your logs, broken builds, runtime errors.
+  description: Our engine starts the whole app and runs automated rebuilds as you edit in your IDE. Get a continuous feedback loop with your logs, broken builds, and runtime errors.
 - title: Magic UI
   pillar: 1
-  description: Work with Kubernetes without needing to be an expert. And if you are an expert, no more 20 questions with Kubectl. 🙌
+  description: Work with Kubernetes without needing to be an expert. And if you are an expert, no more 20 questions with kubectl. 🙌
 - title: live_update
   pillar: 2
   description: "Tilt’s live_update deploys code to running containers, in seconds not minutes. Even for compiled languages or changing dependencies, live_update is fast and reliable."
@@ -18,7 +18,7 @@
   description: "Tilt’s flexible integration points let you use your existing workflows. Supercharge your process with optimized build caching and powerful K8s-aware scripting. Shave time off your iterative loops."
 - title: Snapshots
   pillar: 3
-  description: Snapshots lets you share your dev environment & collaborate on issues as quickly as looking at the monitor next to you.
+  description: Snapshots lets you share your dev environment and collaborate on issues as quickly as looking at the monitor next to you.
 - title: Built-In Best Practices
   pillar: 3
   description: We’ve codified best practices to give your team a common development path and ensure reproducibility. Anyone can start the app – new hires just <code>tilt up</code>.
