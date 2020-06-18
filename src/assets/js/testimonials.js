@@ -8,7 +8,7 @@ function testimonialScroll(target) {
   }
 
   let timonEl = document.querySelector(
-    '.Home2-testimonial[data-testimonial="' + timon + '"]'
+    '.Home-testimonial[data-testimonial="' + timon + '"]'
   );
   if (!timonEl) {
     console.error("missing testimonial el " + timon);
@@ -18,7 +18,7 @@ function testimonialScroll(target) {
   let container = timonEl.parentNode;
   container.style.transform = "translate(" + -timonEl.offsetLeft + "px, 0)";
 
-  document.querySelectorAll(".Home2-testimonials-navItem").forEach(item => {
+  document.querySelectorAll(".Home-testimonials-navItem").forEach(item => {
     if (item == target) {
       item.classList.add("is-selected");
     } else {

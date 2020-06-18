@@ -17,14 +17,14 @@
   line-height: $tilt2-line-height-body;
 }
 
-.Home2-sectionHeading {
+.Home-sectionHeading {
   @include font-heading;
 }
 
-.Home2-subsectionHeading {
+.Home-subsectionHeading {
   @include font-heading-small;
 }
-.Home2-subsectionHeading--resources {
+.Home-subsectionHeading--resources {
   display: flex;
   align-items: center;
   margin-bottom: $spacing-unit / 2;
@@ -32,7 +32,7 @@
 
 
 // Hero --------------------------------------------------
-.Home2-hero {
+.Home-hero {
   display: flex;
   align-items: center;
   margin-bottom: $spacing-unit;
@@ -45,10 +45,10 @@
   }
 }
 
-.Home2-heroText {
+.Home-heroText {
   flex: 1;
 
-  .Home2-heroText-title {
+  .Home-heroText-title {
     @include font-hero;
     
     @include mobileAndAbove {
@@ -56,7 +56,7 @@
     }
   }
 
-  .Home2-heroText-subtitle {
+  .Home-heroText-subtitle {
     @include font-hero-subhead;
 
     @include mobileAndAbove {
@@ -65,7 +65,7 @@
   }
 }
 
-.Home2-heroText-subtitle-code {
+.Home-heroText-subtitle-code {
   font-family: $tilt2-font-mono;
   font-size: inherit;
   background-color: $tilt2-color-gray-lightest;
@@ -77,14 +77,14 @@
   white-space: nowrap;
 }
 
-.Home2-heroIllustration {
+.Home-heroIllustration {
   width: 80%;
   max-width: 130px;
 }
 
 
 // CTA --------------------------------------------------
-.Home2-cta {
+.Home-cta {
   margin-bottom: $spacing-unit * 2;
 
   @include mobileAndAbove {
@@ -93,7 +93,7 @@
   }
 }
 
-.Home2-cta-option {
+.Home-cta-option {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -105,7 +105,7 @@
   }
 }
 
-.Home2-cta-button {
+.Home-cta-button {
   background-color: transparent;
   font-family: $tilt2-font-sans;
   font-size: $tilt2-button-font-size--large;
@@ -126,7 +126,7 @@
 
 }
 
-.Home2-cta-button--primary {
+.Home-cta-button--primary {
   color: $color-green;
   border-color: $color-green;
 
@@ -136,7 +136,7 @@
   }
 }
 
-.Home2-cta-option-text {
+.Home-cta-option-text {
   @include font-body-small;
   margin-top: $spacing-unit / 4;
 
@@ -146,17 +146,17 @@
 }
 
 // Product --------------------------------------------------
-.Home2-product {
+.Home-product {
   margin-bottom: $spacing-unit * 3;
 
   @include mobileAndAbove {
     position: relative;
   }
 }
-.Home2-product-UI {
+.Home-product-UI {
   @include shadow;
 }
-.Home2-product-Tiltfile {
+.Home-product-Tiltfile {
   @include shadow;
   background-color: $color-white;
   border-radius: $tilt2-border-radius-large;
@@ -173,7 +173,7 @@
     transform: translate(10%, 80%);
   }
 }
-.Home2-product-Tiltfile-header {
+.Home-product-Tiltfile-header {
   position: relative;
   font-family: inherit;
   padding-top: $spacing-unit / 8;
@@ -181,7 +181,7 @@
   background-color: $tilt2-color-gray-lightest;
   text-align: center;
 }
-.Home2-product-Tiltfile-header-chromeDecoration {
+.Home-product-Tiltfile-header-chromeDecoration {
   position: absolute;
   left: $spacing-unit / 4;
 }
@@ -189,7 +189,7 @@
 .chrome-button2 {fill: $color-yellow;}
 .chrome-button3 {fill: $color-green;}
 
-.Home2-product-Tiltfile-code {
+.Home-product-Tiltfile-code {
   display: block;
   padding: $spacing-unit;
   @include font-mono;  
@@ -214,13 +214,13 @@
   color: $color-pink;
 }
 
-.Home2-product-caption {
+.Home-product-caption {
   margin-top: $spacing-unit * 1.5;
   text-align: center;
 }
 
 // Features Intro --------------------------------------------------
-.Home2-featuresIntro-text {
+.Home-featuresIntro-text {
   font-size: $tilt2-font-size-hero-smallest;
   line-height: $tilt2-line-height-hero;
   font-weight: $tilt2-font-weight-sans-light;
@@ -232,19 +232,19 @@
   }
 }
 
-.Home2-featuresIntro-text-button {
+.Home-featuresIntro-text-button {
   @include reset-button-style;
   font-weight: inherit;
 }
 
 
-.Home2-featuresIntro-text-button--pillar1 {
+.Home-featuresIntro-text-button--pillar1 {
   color: $color-pink;
 }
-.Home2-featuresIntro-text-button--pillar2 {
+.Home-featuresIntro-text-button--pillar2 {
   color: $color-blue;
 }
-.Home2-featuresIntro-text-button--pillar3 {
+.Home-featuresIntro-text-button--pillar3 {
   color: $color-purple;
 }
 
@@ -252,8 +252,8 @@
 
 // The interaction we want here is that the navList
 // determines the size of the content box, so we make the contentList
-// an absolutely positioned element inside Home2-features.
-.Home2-features {
+// an absolutely positioned element inside Home-features.
+.Home-features {
   margin-bottom: $spacing-unit;
   position: relative;
 
@@ -263,11 +263,11 @@
   } 
 }
 
-.Home2-features-navList {
+.Home-features-navList {
   @include reset-list-style;
 }
 
-.Home2-features-navItem-description {
+.Home-features-navItem-description {
   border: 1px solid $tilt2-color-gray-lighter;
   border-width: 0 1px 1px 1px;
   border-radius: 0 0 4px 4px;
@@ -281,31 +281,31 @@
     display: none;
   }
   
-  .Home2-features-navItem.is-active & {
+  .Home-features-navItem.is-active & {
     height: 100%;
   }
   
-  .Home2-features-navItem--pillar1.is-active & {
+  .Home-features-navItem--pillar1.is-active & {
     border-color: $color-pink;
   }
-  .Home2-features-navItem--pillar2.is-active & {
+  .Home-features-navItem--pillar2.is-active & {
     border-color: $color-blue;
   }
-  .Home2-features-navItem--pillar3.is-active & {
+  .Home-features-navItem--pillar3.is-active & {
     border-color: $color-purple;
   }
 }
-.Home2-features-navItem-descriptionInner {
+.Home-features-navItem-descriptionInner {
   padding: $spacing-unit / 2;
   transition: transform $anim-duration ease;
   transform: translate(0, -100%);
   
-  .Home2-features-navItem.is-active & {
+  .Home-features-navItem.is-active & {
     transform: translate(0, 0);
   }
 }
 
-.Home2-features-navItem-button {
+.Home-features-navItem-button {
   @include reset-button-style;
   background-color: $color-white;
   cursor: pointer;
@@ -320,51 +320,51 @@
   position: relative;
   z-index: 2;
   
-  .Home2-features-navItem.is-active & {
+  .Home-features-navItem.is-active & {
     border-radius: 4px 4px 0 0;
   }
 }
 
-.Home2-features-navItem-button {
-  .Home2-features-navItem--pillar1 & {
+.Home-features-navItem-button {
+  .Home-features-navItem--pillar1 & {
     color: $color-pink;
   }
 
-  .Home2-features-navItem--pillar1:hover &,
-  .Home2-features-navItem--pillar1.is-active & {
+  .Home-features-navItem--pillar1:hover &,
+  .Home-features-navItem--pillar1.is-active & {
     color: $color-white;
     background-color: $color-pink;
     border-color: $color-pink;
   }
 }
 
-.Home2-features-navItem-button {
-  .Home2-features-navItem--pillar2 & {
+.Home-features-navItem-button {
+  .Home-features-navItem--pillar2 & {
     color: $color-blue;
   }
   
-  .Home2-features-navItem--pillar2:hover &,
-  .Home2-features-navItem--pillar2.is-active & {
+  .Home-features-navItem--pillar2:hover &,
+  .Home-features-navItem--pillar2.is-active & {
     color: $color-white;
     background-color: $color-blue;
     border-color: $color-blue;
   }
 }
 
-.Home2-features-navItem-button {
-  .Home2-features-navItem--pillar3 & {
+.Home-features-navItem-button {
+  .Home-features-navItem--pillar3 & {
     color: $color-purple;
   }
   
-  .Home2-features-navItem--pillar3:hover &,
-  .Home2-features-navItem--pillar3.is-active & {
+  .Home-features-navItem--pillar3:hover &,
+  .Home-features-navItem--pillar3.is-active & {
     color: $color-white;
     background-color: $color-purple;
     border-color: $color-purple;
   }
 }
 
-.Home2-features-contentList {
+.Home-features-contentList {
   @include reset-list-style;
   position: absolute;
   top: 0;
@@ -382,26 +382,26 @@
   }
 }
 
-.Home2-features-contentItem-title {
+.Home-features-contentItem-title {
   @include reset-button-style;
   font-weight: $tilt2-font-weight-sans-bold;
 }
 
 // Testimonials --------------------------------------------------
-.Home2-sectionHeading--testimonials {
+.Home-sectionHeading--testimonials {
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
-.Home2-testimonials-navList {
+.Home-testimonials-navList {
   display: flex;
   align-items: center;
 }
-.Home2-testimonials-navItem-svg .fillStd {
+.Home-testimonials-navItem-svg .fillStd {
   fill: $tilt2-color-gray-lighter;
   transition: fill $anim-duration ease;
 }
-.Home2-testimonials-navItem {
+.Home-testimonials-navItem {
   @include reset-button-style;
   cursor: pointer;
   margin-left: $spacing-unit;
@@ -412,21 +412,21 @@
     fill: $color-blue;
   }
 }
-.Home2-testimonials-navItem-svg--clusterApi {
+.Home-testimonials-navItem-svg--clusterApi {
   width: 40px;
 }
 
-.Home2-testimonialBlock {
+.Home-testimonialBlock {
   overflow: hidden;
 }
-.Home2-testimonialList {
+.Home-testimonialList {
   @include reset-list-style;
   display: flex;
   flex-wrap: nowrap;
   transition: transform $anim-duration ease;
 }
 
-.Home2-testimonial {
+.Home-testimonial {
   margin-bottom: $spacing-unit;
   background-color: $tilt2-color-off-white;
   border-radius: $tilt2-border-radius;
@@ -447,7 +447,7 @@
   } 
 }
 
-.Home2-testimonial-profile {
+.Home-testimonial-profile {
   font-size: $tilt2-font-size-body-small;
 
   @include mobileAndBelow {
@@ -459,7 +459,7 @@
   }
 }
 
-.Home2-testimonial-profile-photo {
+.Home-testimonial-profile-photo {
   @include mobileAndBelow {
     flex: 1;
     padding-right: $spacing-unit / 2;
@@ -468,21 +468,21 @@
     margin-bottom: $spacing-unit / 4;
   }
 }
-.Home2-testimonial-profileInfo {
+.Home-testimonial-profileInfo {
   @include mobileAndBelow {
     flex: 3;
   }
 }
 
 
-.Home2-testimonial-profileInfo-name {
+.Home-testimonial-profileInfo-name {
   font-weight: $tilt2-font-weight-sans-bold;
   margin-bottom: 0;
 }
-.Home2-testimonial-profileInfo-role {
+.Home-testimonial-profileInfo-role {
   margin-bottom: $spacing-unit / 4;
 }
-.Home2-testimonial-profileSocial-link {
+.Home-testimonial-profileSocial-link {
   & + & {
     margin-left: $spacing-unit / 2;
   }
@@ -491,7 +491,7 @@
   }
 }
 
-.Home2-testimonial-profileSocial-link--twitter {
+.Home-testimonial-profileSocial-link--twitter {
   .primaryStroke {
     stroke: $color-blue
   }
@@ -499,18 +499,18 @@
     fill: transparent;
   }
 }
-.Home2-testimonial-profileSocial-link--web {
+.Home-testimonial-profileSocial-link--web {
   .fillStd {
     fill: $color-blue;
   }
 }
 
-.Home2-testimonial-content {  
+.Home-testimonial-content {  
   @include mobileAndAbove {
     flex: 6;
   }
 }
- .Home2-testimonial-content-quote {
+ .Home-testimonial-content-quote {
    font-family: $tilt2-font-serif;
    line-height: $tilt2-line-height-body-serif;
    margin-bottom: $spacing-unit;
@@ -519,7 +519,7 @@
     font-size: $tilt2-font-size-body-serif;
    }
  }
- .Home2-testimonial-content-meta {
+ .Home-testimonial-content-meta {
    font-size: $tilt2-font-size-body-small;
    line-height: $tilt2-line-height-body-serif;
    display: flex;
@@ -529,22 +529,22 @@
     align-items: center;
    }
 }
-.Home2-testimonial-content-meta-svg {
+.Home-testimonial-content-meta-svg {
   margin-right: $spacing-unit / 2;
   max-width: 50px;
   fill: $tilt2-color-gray-lighter;
 }
-.Home2-testimonial-content-meta-text {
+.Home-testimonial-content-meta-text {
   margin: 0;
  }
 
 // Resources --------------------------------------------------
 
-.Home2-resources {
+.Home-resources {
   margin-bottom: $spacing-unit * 2;
 }
 
-.Home2-resources-list {
+.Home-resources-list {
   @include reset-list-style;
   
   @include mobileAndAbove {
@@ -555,7 +555,7 @@
   }
 }
 
-.Home2-resources-listItem {
+.Home-resources-listItem {
   @include shadow;
   border: 1px solid $tilt2-color-gray-lightest;
   padding: $spacing-unit / 2;
@@ -570,22 +570,22 @@
     }
   }
 }
-.Home2-resources-listItem-text {
+.Home-resources-listItem-text {
   margin-bottom: $spacing-unit / 4;
 }
 
-.Home2-resources-svg {
+.Home-resources-svg {
   margin-right: $spacing-unit / 2;
   fill: $color-blue;
 }
-.Home2-resources-button {
+.Home-resources-button {
   @include reset-button-style;
   line-height: $tilt2-line-height-body;
   width: 100%;
   cursor: pointer;
 }
-.Home2-resources-link,
-.Home2-resources-button {
+.Home-resources-link,
+.Home-resources-button {
   display: block;
   font-family: $tilt2-font-sans;
   font-weight: $tilt2-font-weight-sans-bold;
@@ -612,16 +612,16 @@
     margin-top: $spacing-unit / 4;
   }
 }
-.Home2-resources-link-meta {
+.Home-resources-link-meta {
   font-weight: $tilt2-font-weight-sans-light;
 }
-.Home2-resources-label {
+.Home-resources-label {
   font-size: $tilt2-font-size-body-small;
   font-weight: $tilt2-font-weight-sans-bold;
   margin-bottom: $spacing-unit / 8;
   display: block;
 }
-.Home2-resources-input {
+.Home-resources-input {
   font-family: $tilt2-font-sans;
   font-size: $tilt2-font-size-body;
   padding-left: $spacing-unit / 2;
