@@ -1,27 +1,27 @@
 {%- include google-tag-manager-body.html -%}
 
 <header class="siteHeader2">
-  <div class="siteHeader2-logoAndMenuButton">
+  <div class="siteHeader-logoAndMenuButton">
     {% if page.layout == 'landing' %}
     <!-- For the "Guide To App Devs" - /welcome_to_tilt.html -->
     <a class="imageLink imageLink--logo-imagemark" href="{{site.landingurl}}/">
       {% svg assets/svg/logo-imagemark.svg %}
     </a>
     {% elsif page.layout == 'home' %}
-    {% svg assets/svg/Tilt-logo.svg class="siteHeader2-logoLink-svg" %}
+    {% svg assets/svg/Tilt-logo.svg class="siteHeader-logoLink-svg" %}
     {% else %}
-    <a class="siteHeader2-logoLink" href="{{site.landingurl}}/">
-      {% svg assets/svg/Tilt-logo.svg class="siteHeader2-logoLink-svg" %}
+    <a class="siteHeader-logoLink" href="{{site.landingurl}}/">
+      {% svg assets/svg/Tilt-logo.svg class="siteHeader-logoLink-svg" %}
     </a>
     {% endif %}
-    <button class="siteHeader2-menuButton" onclick="document.querySelector('.siteHeader2').classList.toggle('has-openMenu')">
-      {% svg assets/svg/ui-menu.svg class="siteHeader2-menuButton-menu" %}
-      {% svg assets/svg/ui-close.svg class="siteHeader2-menuButton-close" %}
+    <button class="siteHeader-menuButton" onclick="document.querySelector('.siteHeader2').classList.toggle('has-openMenu')">
+      {% svg assets/svg/ui-menu.svg class="siteHeader-menuButton-menu" %}
+      {% svg assets/svg/ui-close.svg class="siteHeader-menuButton-close" %}
     </button>
   </div>
 
-  <nav class="siteHeader2-nav">
-    <ul class="siteHeader2-navList">
+  <nav class="siteHeader-nav">
+    <ul class="siteHeader-navList">
       {% for link in site.data.header %}
         {% assign href = link.href %}
         {% if link.landingurl %}
@@ -33,16 +33,16 @@
         {% endif %}
 
         {% if link.github %}
-          <li class="siteHeader2-navItem">
-            <a class="siteHeader2-navLink siteHeader2-navLink--github" href="{{site.data.github.href}}">
+          <li class="siteHeader-navItem">
+            <a class="siteHeader-navLink siteHeader-navLink--github" href="{{site.data.github.href}}">
               {{link.name}}
-              <span class="siteHeader2-navLink-icon">{% svg assets/svg/github-star.svg%}</span>
+              <span class="siteHeader-navLink-icon">{% svg assets/svg/github-star.svg%}</span>
               <span>{{site.data.github.stars}}</span>
             </a>
           </li>
         {% else %}
-          <li class="siteHeader2-navItem">
-            <a class="siteHeader2-navLink {% if link.primary %}siteHeader2-navLink--primary{% endif %}" href="{{href}}">
+          <li class="siteHeader-navItem">
+            <a class="siteHeader-navLink {% if link.primary %}siteHeader-navLink--primary{% endif %}" href="{{href}}">
               {{ link.name }}
             </a>
           </li>

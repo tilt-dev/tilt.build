@@ -11,7 +11,7 @@
   }
 }
 
-.siteHeader2-logoLink {
+.siteHeader-logoLink {
   opacity: 1;
   transition: opacity $anim-duration-short ease;
 
@@ -22,15 +22,15 @@
     opacity: 0.8;
   }
 }
-.siteHeader2-logoLink-svg {
+.siteHeader-logoLink-svg {
     transition: transform $anim-duration ease-in-out;
 
-  .siteHeader2-logoLink:hover & {
+  .siteHeader-logoLink:hover & {
     transform: scale(1.05);
   }
 }
 
-.siteHeader2-nav {
+.siteHeader-nav {
   @include mobileAndAbove {
     flex: 1;
     display: flex;
@@ -39,7 +39,7 @@
   }
 }
 
-.siteHeader2-navList {
+.siteHeader-navList {
   list-style-type: none;
   margin-bottom: 0; 
 
@@ -53,7 +53,7 @@
   }
 }
 
-.siteHeader2-navLink {
+.siteHeader-navLink {
   font-family: $tilt2-font-sans;
   font-size: $tilt2-button-font-size; 
   height: $tilt2-button-height;
@@ -72,7 +72,7 @@
   }
 }
 
-.siteHeader2-navLink--primary {
+.siteHeader-navLink--primary {
   color: $color-green;
   border-color: $color-green;
 
@@ -82,7 +82,7 @@
   }
 }
 
-.siteHeader2-navLink--github {
+.siteHeader-navLink--github {
   color: $tilt2-color-gray;
   border-color: $tilt2-color-gray-lighter;
   margin-left: $spacing-unit / 2;
@@ -95,12 +95,12 @@
 }
 
 
-.siteHeader2-navLink-icon {
+.siteHeader-navLink-icon {
   border-right: 1px solid $tilt2-color-gray-lighter;
   margin-right:  $spacing-unit / 4;
 }
 
-.siteHeader2-navLink {
+.siteHeader-navLink {
   padding-left: $spacing-unit / 4;
   padding-right: $spacing-unit / 4;
   
@@ -118,7 +118,7 @@
   }
 }
 
-.siteHeader2-navList {
+.siteHeader-navList {
   @include mobileAndBelow {
     li + li {
       margin-top: $spacing-unit * 0.75;
@@ -126,7 +126,7 @@
   }
 }
 
-.siteHeader2-logoAndMenuButton {
+.siteHeader-logoAndMenuButton {
   @include mobileAndBelow {
     position: fixed;
     left: 0;
@@ -140,13 +140,13 @@
     z-index: $z-siteHeader--mobile;
   }
 }
-.siteHeader2-logoLink-svg {
+.siteHeader-logoLink-svg {
   @include mobileAndBelow {
     width: 85px; // Eyeballed
   }
 }
 
-.siteHeader2-nav {
+.siteHeader-nav {
   @include mobileAndBelow {
     transform: translateY(-1000px); // Should be taller than any reasonable screen height
     transition: transform $anim-duration ease;
@@ -170,7 +170,7 @@
 }
 
 
-.siteHeader2-menuButton {
+.siteHeader-menuButton {
   @include reset-button-style;
   cursor: pointer;
   
@@ -190,14 +190,14 @@
   }
 }
 
-.siteHeader2-menuButton-close {
+.siteHeader-menuButton-close {
   display: none;
   .siteHeader2.has-openMenu & {
     display: inline;  
   }
 }
 
-.siteHeader2-menuButton-menu {
+.siteHeader-menuButton-menu {
   display: inline;
   .siteHeader2.has-openMenu & {
     display: none;

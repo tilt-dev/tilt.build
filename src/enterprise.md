@@ -44,42 +44,42 @@ has_calendly: true
 
 {% include index_cta.html %}
 
-<h3 class="Home2-sectionHeading">Learn More</h3>
-<section class="Home2-resources">
-  <ul class="Home2-resources-list">
-    <li class="Home2-resources-listItem">
-      <div class="Home2-resources-listItem-text">
-        <h4 class="Home2-subsectionHeading Home2-subsectionHeading--resources">
-          {% svg assets/svg/social-slack.svg class="Home2-resources-svg" %}
+<h3 class="Home-sectionHeading">Learn More</h3>
+<section class="Home-resources">
+  <ul class="Home-resources-list">
+    <li class="Home-resources-listItem">
+      <div class="Home-resources-listItem-text">
+        <h4 class="Home-subsectionHeading Home-subsectionHeading--resources">
+          {% svg assets/svg/social-slack.svg class="Home-resources-svg" %}
           Chat with Us
         </h4>
         <p>Find us in the #tilt channel of the official Kubernetes Slack. We’re there Mon-Fri EST business hours. We don’t bite.</p>
       </div>
-      <a href="https://slack.k8s.io/" class="Home2-resources-link">Get Your Invite</a>
+      <a href="https://slack.k8s.io/" class="Home-resources-link">Get Your Invite</a>
     </li>
-    <li class="Home2-resources-listItem">
-      <div class="Home2-resources-listItem-text">
-        <h4 class="Home2-subsectionHeading Home2-subsectionHeading--resources">
-          {% svg assets/svg/resources-contact.svg class="Home2-resources-svg" %}
+    <li class="Home-resources-listItem">
+      <div class="Home-resources-listItem-text">
+        <h4 class="Home-subsectionHeading Home-subsectionHeading--resources">
+          {% svg assets/svg/resources-contact.svg class="Home-resources-svg" %}
           Email us
         </h4>
         <p>Have questions or feature requests for Tilt? Want to use it for your company? Just want to say hi? We love hearing from you!</p>
       </div>
-      <a href="mailto:hi@tilt.dev" class="Home2-resources-link">hi@tilt.dev</a>
+      <a href="mailto:hi@tilt.dev" class="Home-resources-link">hi@tilt.dev</a>
     </li>
-    <li class="Home2-resources-listItem">
-      <div class="Home2-resources-listItem-text">
-        <h4 class="Home2-subsectionHeading Home2-subsectionHeading--resources">
-          {% svg assets/svg/resources-mailing-list.svg class="Home2-resources-svg" %}
+    <li class="Home-resources-listItem">
+      <div class="Home-resources-listItem-text">
+        <h4 class="Home-subsectionHeading Home-subsectionHeading--resources">
+          {% svg assets/svg/resources-mailing-list.svg class="Home-resources-svg" %}
           Our Mailing List
         </h4>
         <p>Keep up with Multi-Service Development and all things Tilt.</p>
       </div>
-      <div class="Home2-resources-listItem-cta">
+      <div class="Home-resources-listItem-cta">
         <form action="https://www.getdrip.com/forms/507796156/submissions" method="post" data-drip-embedded-form="507796156">
-          <label for="drip-email" class="Home2-resources-label">Your Email</label>
-          <input class="Home2-resources-input" type="email" id="drip-email" name="fields[email]" value="" placeholder="me@company.com" />
-          <button class="Home2-resources-button" type="submit" data-drip-attribute="sign-up-button">
+          <label for="drip-email" class="Home-resources-label">Your Email</label>
+          <input class="Home-resources-input" type="email" id="drip-email" name="fields[email]" value="" placeholder="me@company.com" />
+          <button class="Home-resources-button" type="submit" data-drip-attribute="sign-up-button">
             Subscribe
           </button>
           <div style="display: none;" aria-hidden="true">
