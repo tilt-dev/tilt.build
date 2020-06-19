@@ -41,27 +41,28 @@
     flex-direction: column;
   }
   @include mobileAndAbove {
-    margin-bottom: $spacing-unit * 2;
+    margin-bottom: $spacing-unit * 1.5;
   }
 }
 
 .Home-heroText {
   flex: 1;
+}
 
-  .Home-heroText-title {
-    @include font-hero;
-    
-    @include mobileAndAbove {
-      max-width: 80%;
-    }
+.Home-heroText-title {
+  @include font-hero;
+  
+  @include mobileAndAbove {
+    max-width: 90%;
+    margin-bottom: $spacing-unit * 2;
   }
+}
 
-  .Home-heroText-subtitle {
-    @include font-hero-subhead;
-
-    @include mobileAndAbove {
-      max-width: 95%;
-    }
+.Home-heroText-subtitle {
+  @include font-hero-subhead;
+  
+  @include mobileAndAbove {
+    max-width: 90%;
   }
 }
 
@@ -85,7 +86,7 @@
 
 // CTA --------------------------------------------------
 .Home-cta {
-  margin-bottom: $spacing-unit * 2;
+  margin-bottom: $spacing-unit * 2.5;
 
   @include mobileAndAbove {
     display: flex;
