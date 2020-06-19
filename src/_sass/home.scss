@@ -111,11 +111,11 @@
   font-family: $tilt2-font-sans;
   font-size: $tilt2-button-font-size--large;
   font-weight: $tilt2-font-weight-sans-bold;
-  line-height: 1;
-  padding-left: $spacing-unit / 2;
-  padding-right: $spacing-unit / 2;
-  padding-top: $spacing-unit / 4;
-  padding-bottom: $spacing-unit / 4;
+  height: $tilt2-button-height--large;
+  width: 270px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   border-radius: $tilt2-border-radius;
   border: 2px solid $tilt2-color-gray-lighter;
   color: $tilt2-color-gray;
