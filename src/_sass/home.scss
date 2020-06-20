@@ -257,15 +257,23 @@
 .Home-features {
   margin-bottom: $spacing-unit;
   position: relative;
-
+  
   @include mobileAndAbove {
     display: flex;
     margin-bottom: $spacing-unit * 2;
   } 
 }
 
+$Home-feature-navList-width: 35%;
+
 .Home-features-navList {
   @include reset-list-style;
+
+  @include mobileAndAbove {
+    width: $Home-feature-navList-width;
+    padding-right: $spacing-unit * 1.5;
+    box-sizing: border-box;
+  }
 }
 
 .Home-features-navItem-description {
@@ -310,19 +318,19 @@
   @include reset-button-style;
   background-color: $color-white;
   cursor: pointer;
-  padding: $spacing-unit / 2;
-  display: block;
+  height: 40px;
+  padding-left: $spacing-unit / 2;
+  padding-right: $spacing-unit / 2;
   border: 1px solid $tilt2-color-gray-lighter;
-  border-radius: 4px;
-  transition: color $anim-duration ease,
+  border-radius: $tilt2-border-radius-large;
+  width: 100%;
+  transition: color $anim-duration-short linear,
               background-color $anim-duration ease,
               border-color $anim-duration ease;
-  width: 100%;
-  position: relative;
-  z-index: 2;
-  
+
   .Home-features-navItem.is-active & {
-    border-radius: 4px 4px 0 0;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
   }
 }
 
@@ -367,11 +375,12 @@
 
 .Home-features-contentList {
   @include reset-list-style;
+  padding-right: $spacing-unit; // Text shouldn't get too close to scrollbar
   position: absolute;
   top: 0;
   right: 0;
-  width: 66%;
-  height: 100%;
+  bottom: 0;
+  left: $Home-feature-navList-width;
   overflow-y: scroll;
 
   li + li {
