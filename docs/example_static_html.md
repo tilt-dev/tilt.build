@@ -1,5 +1,6 @@
 ---
 title: "Example: Plain Old Static HTML"
+description: "Best practices for developing static HTML projects with Tilt"
 layout: docs
 lang: static_html
 ---

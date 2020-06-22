@@ -1,5 +1,6 @@
 ---
 title: Frequently Asked Questions
+description: "The most common questions from new Tilt users"
 layout: docs
 ---
 

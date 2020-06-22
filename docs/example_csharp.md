@@ -1,5 +1,6 @@
 ---
 title: "Example: C#"
+description: "Best practices for developing C# projects with Tilt"
 layout: docs
 lang: csharp
 ---

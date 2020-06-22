@@ -1,5 +1,6 @@
 ---
 title: Extensions
+description: "Extensions are open-source packaged functions that extend the capability Tilt, right inside your Tiltfile."
 layout: docs
 ---
 

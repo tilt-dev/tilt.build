@@ -1,5 +1,6 @@
 ---
 title: Play and Pause Resources with Manual Update Control
+description: "How to configure Tilt to indicate in the UI that files have changed, and give you a button that you can use to kick off the update."
 layout: docs
 ---
 

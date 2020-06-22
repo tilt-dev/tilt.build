@@ -1,5 +1,6 @@
 ---
 title: Python Debuggers in Tilt
+description: "Debuggers are an invaluable part of many development workflows. This guide contains examples of how to make them work again in Kubernetes."
 layout: docs
 ---
 

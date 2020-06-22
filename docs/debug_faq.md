@@ -1,5 +1,6 @@
 ---
 title: Why is Tilt broken?
+description: "Common Tilt failure cases and how to debug them."
 layout: docs
 ---
 

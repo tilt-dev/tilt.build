@@ -1,5 +1,6 @@
 ---
 title: Setting a Personal Registry with a shared Tiltfile
+description: "Tilt's 'default_registry' function lets you change the image repository so you don't have to ask permission to get started."
 layout: docs
 ---
 

@@ -1,5 +1,6 @@
 ---
 title: Tiltfile Concepts
+description: "An overview of concepts in the Tiltfile, expanding on the Tutorial. Unlike the API reference, it groups functions by themes and explains why you'd choose to use a function."
 layout: docs
 ---
 

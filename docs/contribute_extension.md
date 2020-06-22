@@ -1,5 +1,6 @@
 ---
 title: Contribute an Extension
+description: "How to create and submit your own Tilt extension"
 layout: docs
 ---
 

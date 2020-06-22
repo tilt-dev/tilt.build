@@ -1,5 +1,6 @@
 ---
 title: "Tutorial: The First 15 Minutes"
+description: "This tutorial walks you through setting up Tilt for your project."
 layout: docs
 ---
 

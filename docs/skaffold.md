@@ -1,5 +1,6 @@
 ---
 title: From Skaffold to Tilt
+description: "This doc compares Tilt to Skaffold and describes how to translate your configuration."
 layout: docs
 ---
 

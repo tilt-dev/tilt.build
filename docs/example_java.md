@@ -1,5 +1,6 @@
 ---
 title: "Example: Java"
+description: "Best practices for developing Java projects with Tilt"
 layout: docs
 lang: java
 ---

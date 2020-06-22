@@ -1,5 +1,6 @@
 ---
 title: Teams
+description: "Many Tilt Cloud features are based on the concept of a Tilt team. Here's how to crteate one."
 layout: docs
 ---
 
