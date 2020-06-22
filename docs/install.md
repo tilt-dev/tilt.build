@@ -81,7 +81,7 @@ kubectl config use-context docker-desktop
 - Install `tilt` with:
 
 ```bash
-iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/tilt-dev/tilt/master/scripts/install.ps1')
+iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/tilt-dev/tilt/master/scripts/install.ps1'))
 ```
 
 If you have [Scoop](https://scoop.sh) installed, the installer will use
