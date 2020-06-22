@@ -1,5 +1,6 @@
 ---
 title: Live Update Reference
+description: "A technical specification of Tilt's live_update functionality"
 layout: docs
 ---
 ##### (This doc provides the technical specifications of Tilt's `LiveUpdate` functionality. For a tutorial that walks you through a sample project, see [Faster Development with Live Update (Tutorial)](live_update_tutorial.html).)

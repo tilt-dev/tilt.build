@@ -1,5 +1,6 @@
 ---
 title: "Example: Go"
+description: "Best practices for developing Go projects with Tilt"
 layout: docs
 ---
 

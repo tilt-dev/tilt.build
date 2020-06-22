@@ -1,5 +1,6 @@
 ---
 title: "Debugging File Changes: Rebuilds and Ignores"
+description: "What do you do when a file changes, but Tilt does the wrong thing?"
 layout: docs
 ---
 

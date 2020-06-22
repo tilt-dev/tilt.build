@@ -1,5 +1,6 @@
 ---
 title: Tilt Partner Program
+description: "We have a number of partnerships with teams that we meet with to get feedback and help prioritize things."
 layout: docs
 ---
 

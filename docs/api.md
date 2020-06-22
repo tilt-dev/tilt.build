@@ -1,5 +1,6 @@
 ---
 title: Tiltfile API Reference
+description: "A complete reference of functions available in your Tiltfile."
 layout: docs
 ---
 

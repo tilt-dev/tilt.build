@@ -1,5 +1,6 @@
 ---
 title: Building on a Base Image
+description: "With multiple services in your app, a common pattern is to create a common base image with common dependencies"
 layout: docs
 ---
 

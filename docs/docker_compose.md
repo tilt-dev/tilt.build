@@ -1,5 +1,6 @@
 ---
 title: A Better UI for Docker Compose
+description: "Tilt can use 'docker-compose' to orchestrate your services instead."
 layout: docs
 ---
 

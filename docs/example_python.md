@@ -1,5 +1,6 @@
 ---
 title: "Example: Python + Flask"
+description: "Best practices for developing Python projects with Tilt"
 layout: docs
 lang: python
 ---

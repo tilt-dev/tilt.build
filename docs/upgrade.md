@@ -1,5 +1,6 @@
 ---
 title: Upgrade
+description: "Based on how you previously installed Tilt, upgrade to the latest version with one of these commands."
 layout: docs
 ---
 
