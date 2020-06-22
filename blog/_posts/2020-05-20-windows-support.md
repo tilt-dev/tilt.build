@@ -40,7 +40,7 @@ In other words, Windows is now a first-class citizen alongside Linux and macOS.
 Install it with:
 
 ```powershell
-iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/tilt-dev/tilt/master/scripts/install.ps1')
+iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/tilt-dev/tilt/master/scripts/install.ps1'))
 ```
 
 ## Why was this hard?
