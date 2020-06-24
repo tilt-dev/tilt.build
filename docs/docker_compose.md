@@ -40,7 +40,7 @@ tilt up
 Tilt will pick up your Docker Compose file and start running your services.
 
 Be aware of one important difference between `tilt up` and `docker-compose up`: Tilt
-will leave your services up when it exists. To turn the services down, run:
+will leave your services up when it exits. To turn the services down, run:
 
 ```bash
 tilt down
