@@ -26,7 +26,7 @@ k8s_resource('frontend', port_forwards=8080)
 ```
 
 ## Hello World
-In your terminal, run `tilt up`. A browser tab will open showing Tilt. (Hit `enter` anytime in the terminal to open a new browser tab with Tilt if you close it by mistake.) Instead of writing your Tilt configuration all at once, we'll use Tilt interactively. Each time you save your configuration, Tilt will reexecute it.
+In your terminal, run `tilt up`. Hit `space` and a browser tab will open showing Tilt. Instead of writing your Tilt configuration all at once, we'll use Tilt interactively. Each time you save your configuration, Tilt will reexecute it.
 
 Right now, Tilt should be complaining that there's no file named `Tiltfile`. 
 
@@ -34,7 +34,7 @@ Right now, Tilt should be complaining that there's no file named `Tiltfile`.
   <img src="/assets/img/no-tiltfile.png" class="no-shadow" alt="No Tiltfile">
 </figure>
 
-Create a new file named `Tiltfile` in your project directory with a single line:
+Create a new file named `Tiltfile` (note the capitalization) in your project directory with a single line:
 
 ```python
 print('Hello Tiltfile')
