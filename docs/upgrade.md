@@ -21,7 +21,7 @@ $ brew install tilt-dev/tap/tilt
 ### If you installed with the install script or directly with a release binary
 
 ```bash
-curl -L https://github.com/tilt-dev/tilt/releases/download/v0.15.0/tilt.0.15.0.mac.x86_64.tar.gz | tar -xzv tilt && \
+curl -L https://github.com/tilt-dev/tilt/releases/download/v0.15.1/tilt.0.15.1.mac.x86_64.tar.gz | tar -xzv tilt && \
   sudo mv tilt /usr/local/bin/tilt
 ```
 
@@ -29,7 +29,7 @@ Linux
 -----
 
 ```bash
-curl -L https://github.com/tilt-dev/tilt/releases/download/v0.15.0/tilt.0.15.0.linux.x86_64.tar.gz | tar -xzv tilt && \
+curl -L https://github.com/tilt-dev/tilt/releases/download/v0.15.1/tilt.0.15.1.linux.x86_64.tar.gz | tar -xzv tilt && \
     sudo mv tilt /usr/local/bin/tilt
 ```
 
@@ -45,7 +45,7 @@ scoop update tilt
 ### If you installed with the install script or directly with a release binary
 
 ```powershell
-Invoke-WebRequest "https://github.com/tilt-dev/tilt/releases/download/v0.15.0/tilt.0.15.0.windows.x86_64.zip" -OutFile "tilt.zip"
+Invoke-WebRequest "https://github.com/tilt-dev/tilt/releases/download/v0.15.1/tilt.0.15.1.windows.x86_64.zip" -OutFile "tilt.zip"
 Expand-Archive "tilt.zip" -DestinationPath "tilt"
 Move-Item -Force -Path "tilt\tilt.exe" -Destination "$home\bin\tilt.exe"
 ```
