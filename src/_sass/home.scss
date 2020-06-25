@@ -278,9 +278,6 @@ $Home-feature-navList-width: 35%;
 }
 
 .Home-features-navItem-description {
-  border: 1px solid $tilt2-color-gray-lighter;
-  border-width: 0 1px 1px 1px;
-  border-radius: 0 0 4px 4px;
   transition: height $anim-duration ease;
   z-index: 1;
   position: relative;
@@ -293,6 +290,9 @@ $Home-feature-navList-width: 35%;
   
   .Home-features-navItem.is-active & {
     height: 100%;
+    border: 1px solid $tilt2-color-gray-lighter;
+    border-width: 0 1px 1px 1px;
+    border-radius: 0 0 4px 4px;
   }
   
   .Home-features-navItem--pillar1.is-active & {
@@ -390,6 +390,14 @@ $Home-feature-navList-width: 35%;
   }
 }
 
+.Home-features-contentItem + .Home-features-contentItem {
+  margin-top: $spacing-unit * 1.25;
+}
+
+.Home-features-contentItem-title {
+  @include reset-button-style;
+  @include font-heading-small;
+}
 
 // There's a white gradient at the top and bottom of the feature list.
 // First, visually align the nav with the content...
@@ -440,14 +448,6 @@ $Home-feature-navList-width: 35%;
 
 }
 
-.Home-features-contentItem + .Home-features-contentItem {
-  margin-top: $spacing-unit * 1.25;
-}
-
-.Home-features-contentItem-title {
-  @include reset-button-style;
-  @include font-heading-small;
-}
 
 // Testimonials --------------------------------------------------
 .Home-sectionHeading--testimonials {
