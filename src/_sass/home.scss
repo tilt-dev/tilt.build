@@ -254,6 +254,7 @@
 // The interaction we want here is that the navList
 // determines the size of the content box, so we make the contentList
 // an absolutely positioned element inside Home-features.
+
 .Home-features {
   margin-bottom: $spacing-unit;
   position: relative;
@@ -272,7 +273,6 @@ $Home-feature-navList-width: 35%;
   @include mobileAndAbove {
     width: $Home-feature-navList-width;
     padding-right: $spacing-unit * 1.5;
-    padding-top: $spacing-unit * 0.25; // Visually align this nav with the content
     box-sizing: border-box;
   }
 }
@@ -376,17 +376,68 @@ $Home-feature-navList-width: 35%;
 
 .Home-features-contentList {
   @include reset-list-style;
+  padding-top: $spacing-unit * 0.75;
   padding-right: $spacing-unit; // Text shouldn't get too close to scrollbar
   position: absolute;
   top: 0;
-  right: 0;
   bottom: 0;
   left: $Home-feature-navList-width;
+  right: 0;
   overflow-y: scroll;
 
   @include mobileAndBelow {
     display: none;
   }
+}
+
+
+// There's a white gradient at the top and bottom of the feature list.
+// First, visually align the nav with the content...
+.Home-sectionHeading--features {
+  @include mobileAndAbove {
+    margin-bottom: 0;
+  }
+}
+.Home-features-navList {
+  @include mobileAndAbove {
+    padding-top: $spacing-unit;
+    padding-bottom: $spacing-unit;
+  }
+}
+// ...Then add the actual gradient:
+.Home-features-contentList-gradient {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: $Home-feature-navList-width;
+  right: 0;
+  pointer-events: none;
+  z-index: 1; // Make sure it's above the text
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 95%;
+    left: 0;
+    right: 0;
+    background: linear-gradient(0deg, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 100%);
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 80%;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 100%);
+  }
+
+  @include mobileAndBelow {
+    display: none;
+  }
+
 }
 
 .Home-features-contentItem + .Home-features-contentItem {
