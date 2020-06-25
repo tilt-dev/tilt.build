@@ -1,54 +1,39 @@
 ---
-title: Share Errors and Cluster State with Snapshots
-description: "A snapshot is a link that you can send to someone that will allow them to interactively explore your current Tilt state."
+title: Private Team Snapshots
+description: "Securely receive private team snapshots from team members uing Tilt, helping you debug their Tilt state."
 layout: docs
 ---
 
-As this feature is new and being improved the screenshots here may not exactly match what is currently in the UI. Thanks for understanding!
+As the Developer Experience (DevEx) engineer responsible for managing the Tiltfile and Tilt workflows for your team, you can securely receive private team snapshots from team members using Tilt, helping you asynchronously debug Tilt setup problems or any development issues more generally. A snapshot is a frozen moment-in-time representation of a team member's Tilt state from _their_ local machine running Tilt. You access it on Tilt Cloud (so you don't even have to be running Tilt). It looks and works exactly like Tilt, so you can interactively explore the team member's current Tilt state, including services, alerts, and Kubernetes events.
 
-## What is a snapshot?
+Developer team members can also share snapshots with each other, to better collaborate on development tasks.
 
-A snapshot is a link that you can send to someone that will allow them to interactively explore your current Tilt state. This is useful for async debugging and adding context to bug reports. They look like pretty much just like Tilt, but frozen in time:
+Visit [https://cloud.tilt.dev/snapshot/Afygp-8LJ4vRmVdGtHU=](https://cloud.tilt.dev/snapshot/Afygp-8LJ4vRmVdGtHU=) and interact with it. It's a real snapshot on Tilt Cloud. (You can view it because it's an _internet-public_ snapshot. See below for public snapshots.)
 
-[https://cloud.tilt.dev/snapshot/AYSV59gLhM3GVMuuR28=](https://cloud.tilt.dev/snapshot/AYSV59gLhM3GVMuuR28=)
+![snapshot](assets/img/snapshot.png)
 
-A snapshot is a frozen "moment-in-time" version of the Tilt UI. In a snapshot you can drill in to specific services, see alerts and Kubernetes events. Pretty much anything you can do in normal Tilt, you can do in a snapshot!
+## Creating and sharing private team snapshots
 
-## Sharing Snapshots
+[Ensure your project is associated with a Tilt Cloud team using `set_team` in your Tiltfile.](teams.html) Make sure you are either a [`Member` or `Owner`](teams.html#add-users-to-your-team) of the team.
 
-If you have upgraded Tilt since Snapshots were released, you'll have a button in
-the Tilt web UI:
+Inside Tilt, click the `Create a snapshot` button at the top. If you haven't yet connected Tilt to Tilt Cloud, you'll be prompted to do so (using your GitHub account to sign in). Click `GET LINK` to create the snapshot. Click `OPEN` and Tilt will open the snapshot in Tilt Cloud in a new browser tab. Copy the URL of the snapshot and share it with other team members (via Slack or email, for example). The snapshot is only accessible to Tilt Cloud signed-in users who are a member (or owner) of the team
 
-![share snapshot](assets/img/share-snapshot-button.png)
+![create-snapshot](assets/img/create-snapshot.png)
 
-If you click this button a modal will appear.
+## Viewing all private team snapshots
 
-![snapshot modal](assets/img/snapshot-modal.png)
+Click the `Create a snapshot` button in Tilt. In the modal, click `View snapshots from your team`. to see a list of all private team snapshots, for that team, in Tilt Cloud.
 
-If you haven't already connected Tilt to Tilt Cloud, you'll need to click a couple
-buttons to create a Tilt Cloud account:
+## Public snapshots
 
-![link to TiltCloud](assets/img/link-to-tiltcloud.png)
+If your project is not associated with a Tilt Cloud team (i.e. your Tiltfile is not using `set_team`), you will still be able to create snapshots. Following the same flow as above, the snapshots you create will be public. Everyone on the internet will be able to access them, without having to sign into Tilt Cloud.
 
-Once you've done that, just click "Get Link" and you should be presented with a
-URL that looks something like this: [https://cloud.tilt.dev/snapshot/AYSV59gLhM3GVMuuR28=](https://cloud.tilt.dev/snapshot/AYSV59gLhM3GVMuuR28=).
-
-Click the button that appeared to see the snapshot. Or you can take the generated link, post it in a Slack channel, bug report or on Twitter so _anyone_ will be able to what you were seeing in Tilt when you ran in to an issue.
-
-## Managing Snapshots
-You can view and delete all of the snapshots associated with your account on Tilt Cloud. Go to [https://cloud.tilt.dev/snapshots](https://cloud.tilt.dev/snapshots) (this is also linked from the bottom of the "Share Snapshot" window). This will display a list of all of your snapshots, with a button to delete the ones you don't want anymore.
-
-![snapshots list](assets/img/snapshots-list.png)
+In the same modal as above, click `Manage your snapshots on Tilt Cloud` to see a list of public snapshots that you've created, in Tilt Cloud.
 
 ## FAQ
 
 ### Q: What data do you store for each snapshot?
 For each snapshot we store the entirety of your Tilt's state, including all logs and build history. In addition we store two pieces of metadata: the time that the snapshot was taken and the user, if any, that created it.
-
-### Q: How private are snapshots?
-A snapshot is accessible to anyone who has the link, which includes an unguessable ID.
-We are working on [private team snapshots](https://github.com/tilt-dev/tilt/issues/3128),
-where only signed in team members have access to these team snapshots.
 
 ### Q: I'm worried about app devs accidentally posting snapshots with secrets or private data. How can I disable snapshots?
 Add the [`disable_snapshots`](https://docs.tilt.dev/api.html#api.disable_snapshots)
