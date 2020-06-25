@@ -1,5 +1,6 @@
 ---
 title: Run Local and/or Occasional Workflows with Local Resource
+description: "A technical reference on how to use local build steps in your Tiltfile"
 layout: docs
 ---
 (This is a technical doc; see the [Local Resource feature announcement blog post](https://blog.tilt.dev/2019/11/15/local-resource.html)

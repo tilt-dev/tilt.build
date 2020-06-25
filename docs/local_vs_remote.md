@@ -1,5 +1,6 @@
 ---
 title: Local vs Remote Services
+description: "Tilt doesn't care where your services live. Whether they're local or remote, Tilt can live-update them. But we have some suggestions on how to organize them."
 layout: docs
 ---
 

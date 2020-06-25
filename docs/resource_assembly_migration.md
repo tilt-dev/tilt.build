@@ -1,5 +1,6 @@
 ---
 title: Tiltfile Resource Assembly Migration
+description: "Tilt changed how it combines k8s objects and images into Tilt resources."
 layout: docs
 ---
 

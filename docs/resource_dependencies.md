@@ -1,5 +1,6 @@
 ---
 title: Resource Dependencies
+description: "Say you have a web service specified in a Tilt resource named 'frontend' and a database in a Tilt resource named 'database', and 'frontend' fails to even start up if 'database' isn't running."
 layout: docs
 ---
 

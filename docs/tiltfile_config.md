@@ -1,5 +1,6 @@
 ---
 title: Tiltfile Config
+description: "With Tilt's user configuration system, you can improve a Tiltfile that encodes one standard setup to power the breadth of workflows your team needs"
 layout: docs
 ---
 

@@ -1,5 +1,6 @@
 ---
 title: Share Errors and Cluster State with Snapshots
+description: "A snapshot is a link that you can send to someone that will allow them to interactively explore your current Tilt state."
 layout: docs
 ---
 

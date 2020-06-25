@@ -1,5 +1,6 @@
 ---
 title: Contribute an Extension
+description: "How to create and submit your own Tilt extension"
 layout: docs
 ---
 
@@ -9,6 +10,8 @@ This page explains how to contribute an open source extension. If you're interes
 Tiltfiles are written in a Python dialect called [Starlark](https://github.com/bazelbuild/starlark/blob/master/spec.mdl). And so for the purpose of writing a new extension, it is no different from writing your Tiltfile, namely following typical Python syntax.
 
 Create a new function, following the `def func_name(args):` syntax and add it to your Tiltfile. (Refer to any [existing extension](https://github.com/tilt-dev/tilt-extensions) as an example.) Invoke the function later in your Tiltfile. Run Tilt as normal, and verify that the function works as expected.
+
+You can load an existing extension and use it, in the new extension you are creating. Follow the same syntax as explained in [Extensions](extensions.html). 
 
 ## Package your function and submit a pull request
 Clone the [tilt-extensions repo](https://github.com/tilt-dev/tilt-extensions), and create a new extension, following the directory structure of other existing extensions. Namely, there should be a root-level directory with the name of your extension, a Tiltfile, and a README.md inside that directory. Copy the function you previously tested into that Titfile. Also update [README.md](https://github.com/tilt-dev/tilt-extensions/blob/master/README.md), explaining your extension. I.e. you should have these changes:
