@@ -260,7 +260,7 @@
   
   @include mobileAndAbove {
     display: flex;
-    margin-bottom: $spacing-unit * 2;
+    margin-bottom: $spacing-unit * 3;
   } 
 }
 
@@ -272,6 +272,7 @@ $Home-feature-navList-width: 35%;
   @include mobileAndAbove {
     width: $Home-feature-navList-width;
     padding-right: $spacing-unit * 1.5;
+    padding-top: $spacing-unit * 0.25; // Visually align this nav with the content
     box-sizing: border-box;
   }
 }
@@ -383,18 +384,18 @@ $Home-feature-navList-width: 35%;
   left: $Home-feature-navList-width;
   overflow-y: scroll;
 
-  li + li {
-    margin-top: $spacing-unit;
-  }
-  
   @include mobileAndBelow {
     display: none;
   }
 }
 
+.Home-features-contentItem + .Home-features-contentItem {
+  margin-top: $spacing-unit * 1.25;
+}
+
 .Home-features-contentItem-title {
   @include reset-button-style;
-  font-weight: $tilt2-font-weight-sans-bold;
+  @include font-heading-small;
 }
 
 // Testimonials --------------------------------------------------
