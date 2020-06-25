@@ -58,7 +58,7 @@ layout: home
 
 <script async src="/assets/js/features.js"></script>
 
-<h3 class="Home-sectionHeading">What We Have in Store</h3>
+<h3 class="Home-sectionHeading Home-sectionHeading--features">What We Have in Store</h3>
 <section class="Home-features">
   <ul class="Home-features-navList">
     {% for feature in site.data.features %}
@@ -76,6 +76,7 @@ layout: home
       </li>
     {% endfor %}
   </ul>
+  <div class="Home-features-contentList-gradient"></div>
   <ul class="Home-features-contentList">
     {% for feature in site.data.features %}
       <li class="Home-features-contentItem js-featuresContentItem" 

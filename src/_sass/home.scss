@@ -41,27 +41,28 @@
     flex-direction: column;
   }
   @include mobileAndAbove {
-    margin-bottom: $spacing-unit * 2;
+    margin-bottom: $spacing-unit * 1.5;
   }
 }
 
 .Home-heroText {
   flex: 1;
+}
 
-  .Home-heroText-title {
-    @include font-hero;
-    
-    @include mobileAndAbove {
-      max-width: 80%;
-    }
+.Home-heroText-title {
+  @include font-hero;
+  
+  @include mobileAndAbove {
+    max-width: 90%;
+    margin-bottom: $spacing-unit * 2;
   }
+}
 
-  .Home-heroText-subtitle {
-    @include font-hero-subhead;
-
-    @include mobileAndAbove {
-      max-width: 95%;
-    }
+.Home-heroText-subtitle {
+  @include font-hero-subhead;
+  
+  @include mobileAndAbove {
+    max-width: 90%;
   }
 }
 
@@ -85,7 +86,7 @@
 
 // CTA --------------------------------------------------
 .Home-cta {
-  margin-bottom: $spacing-unit * 2;
+  margin-bottom: $spacing-unit * 2.5;
 
   @include mobileAndAbove {
     display: flex;
@@ -110,11 +111,11 @@
   font-family: $tilt2-font-sans;
   font-size: $tilt2-button-font-size--large;
   font-weight: $tilt2-font-weight-sans-bold;
-  line-height: 1;
-  padding-left: $spacing-unit / 2;
-  padding-right: $spacing-unit / 2;
-  padding-top: $spacing-unit / 4;
-  padding-bottom: $spacing-unit / 4;
+  height: $tilt2-button-height--large;
+  width: 270px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   border-radius: $tilt2-border-radius;
   border: 2px solid $tilt2-color-gray-lighter;
   color: $tilt2-color-gray;
@@ -253,24 +254,30 @@
 // The interaction we want here is that the navList
 // determines the size of the content box, so we make the contentList
 // an absolutely positioned element inside Home-features.
+
 .Home-features {
   margin-bottom: $spacing-unit;
   position: relative;
-
+  
   @include mobileAndAbove {
     display: flex;
-    margin-bottom: $spacing-unit * 2;
+    margin-bottom: $spacing-unit * 3;
   } 
 }
 
+$Home-feature-navList-width: 35%;
+
 .Home-features-navList {
   @include reset-list-style;
+
+  @include mobileAndAbove {
+    width: $Home-feature-navList-width;
+    padding-right: $spacing-unit * 1.5;
+    box-sizing: border-box;
+  }
 }
 
 .Home-features-navItem-description {
-  border: 1px solid $tilt2-color-gray-lighter;
-  border-width: 0 1px 1px 1px;
-  border-radius: 0 0 4px 4px;
   transition: height $anim-duration ease;
   z-index: 1;
   position: relative;
@@ -283,6 +290,9 @@
   
   .Home-features-navItem.is-active & {
     height: 100%;
+    border: 1px solid $tilt2-color-gray-lighter;
+    border-width: 0 1px 1px 1px;
+    border-radius: 0 0 4px 4px;
   }
   
   .Home-features-navItem--pillar1.is-active & {
@@ -309,19 +319,19 @@
   @include reset-button-style;
   background-color: $color-white;
   cursor: pointer;
-  padding: $spacing-unit / 2;
-  display: block;
+  height: 40px;
+  padding-left: $spacing-unit / 2;
+  padding-right: $spacing-unit / 2;
   border: 1px solid $tilt2-color-gray-lighter;
-  border-radius: 4px;
-  transition: color $anim-duration ease,
+  border-radius: $tilt2-border-radius-large;
+  width: 100%;
+  transition: color $anim-duration-short linear,
               background-color $anim-duration ease,
               border-color $anim-duration ease;
-  width: 100%;
-  position: relative;
-  z-index: 2;
-  
+
   .Home-features-navItem.is-active & {
-    border-radius: 4px 4px 0 0;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
   }
 }
 
@@ -366,26 +376,78 @@
 
 .Home-features-contentList {
   @include reset-list-style;
+  padding-top: $spacing-unit * 0.75;
+  padding-right: $spacing-unit; // Text shouldn't get too close to scrollbar
   position: absolute;
   top: 0;
+  bottom: 0;
+  left: $Home-feature-navList-width;
   right: 0;
-  width: 66%;
-  height: 100%;
   overflow-y: scroll;
 
-  li + li {
-    margin-top: $spacing-unit;
-  }
-  
   @include mobileAndBelow {
     display: none;
   }
 }
 
+.Home-features-contentItem + .Home-features-contentItem {
+  margin-top: $spacing-unit * 1.25;
+}
+
 .Home-features-contentItem-title {
   @include reset-button-style;
-  font-weight: $tilt2-font-weight-sans-bold;
+  @include font-heading-small;
 }
+
+// There's a white gradient at the top and bottom of the feature list.
+// First, visually align the nav with the content...
+.Home-sectionHeading--features {
+  @include mobileAndAbove {
+    margin-bottom: 0;
+  }
+}
+.Home-features-navList {
+  @include mobileAndAbove {
+    padding-top: $spacing-unit;
+    padding-bottom: $spacing-unit;
+  }
+}
+// ...Then add the actual gradient:
+.Home-features-contentList-gradient {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: $Home-feature-navList-width;
+  right: 0;
+  pointer-events: none;
+  z-index: 1; // Make sure it's above the text
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 95%;
+    left: 0;
+    right: 0;
+    background: linear-gradient(0deg, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 100%);
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 80%;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 100%);
+  }
+
+  @include mobileAndBelow {
+    display: none;
+  }
+
+}
+
 
 // Testimonials --------------------------------------------------
 .Home-sectionHeading--testimonials {
@@ -428,7 +490,7 @@
 
 .Home-testimonial {
   margin-bottom: $spacing-unit;
-  background-color: $tilt2-color-off-white;
+  background-color: $color-off-white;
   border-radius: $tilt2-border-radius;
   border: 1px solid $tilt2-color-gray-lightest;
   color: $tilt2-color-gray;

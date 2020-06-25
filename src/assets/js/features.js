@@ -17,7 +17,7 @@ function featureScroll(target) {
 
   let scrollingEl = el.parentNode;
   scrollingEl.scroll({
-    top: el.offsetTop,
+    top: el.offsetTop - 20, // Account for padding
     behavior: "smooth"
   });
 

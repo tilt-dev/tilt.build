@@ -7,16 +7,12 @@ $tilt2-footer-width: $tilt2-page-width;
 
 // COLOR
 // --------------------------------------------------
-$tilt2-color-off-white: #FAFBFC;
 $tilt2-color-gray-lightest: #EEF1F1;
 $tilt2-color-gray-lighter: #CCDADE;
 $tilt2-color-gray: #586E75;
 $tilt2-color-gray-dark: #073642;
 
 $tilt2-color-text: $tilt2-color-gray-dark;
-
-// Alpha Channel 
-$tilt2-alpha-transparent: 0.3;
 
 // TYPOGRAPHY
 // --------------------------------------------------
@@ -74,7 +70,7 @@ $tilt2-line-height-body-serif: 1.6;
   font-family: $tilt2-font-sans;
   font-weight: $tilt2-font-weight-sans-bold;
   font-size: $tilt2-font-size-heading;
-  color: $tilt2-color-text;
+  color: $tilt2-color-gray;
   margin-bottom: $spacing-unit;
 }
 @mixin font-heading-small {
@@ -82,7 +78,7 @@ $tilt2-line-height-body-serif: 1.6;
   font-weight: $tilt2-font-weight-sans-bold;
   font-size: $tilt2-font-size-heading-small;
   color: $tilt2-color-gray;
-  margin-bottom: $spacing-unit / 2;
+  margin-bottom: $spacing-unit / 4;
 }
 
 @mixin font-body {
@@ -115,7 +111,7 @@ $tilt2-border-radius: 2px;
 $tilt2-border-radius-large: 4px;
 
 @mixin shadow {
-  box-shadow: 0px 0px ($spacing-unit / 2) 0px rgba(180, 180, 180, $tilt2-alpha-transparent);
+  box-shadow: 0px 0px ($spacing-unit / 2) 0px rgba(0, 0, 0, $alpha-transparent);
 }
 
 
