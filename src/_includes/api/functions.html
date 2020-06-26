@@ -3780,6 +3780,10 @@ This uses the k8s json path template syntax, described
            <em>
             objects=[]
            </em>
+           ,
+           <em>
+            auto_init=True
+           </em>
            <span class="sig-paren">
             )
            </span>
@@ -4164,6 +4168,46 @@ resource,
                   </span>
                  </code>
                  raises an error.
+                </li>
+                <li>
+                 <strong>
+                  auto_init
+                 </strong>
+                 (
+                 <code class="xref py py-class docutils literal notranslate">
+                  <span class="pre">
+                   bool
+                  </span>
+                 </code>
+                 ) &#x2013; whether this resource runs on
+                 <code class="docutils literal notranslate">
+                  <span class="pre">
+                   tilt
+                  </span>
+                  <span class="pre">
+                   up
+                  </span>
+                 </code>
+                 . Defaults to
+                 <code class="docutils literal notranslate">
+                  <span class="pre">
+                   True
+                  </span>
+                 </code>
+                 .
+Note that
+                 <code class="docutils literal notranslate">
+                  <span class="pre">
+                   auto_init=False
+                  </span>
+                 </code>
+                 is only compatible with
+                 <code class="docutils literal notranslate">
+                  <span class="pre">
+                   trigger_mode=TRIGGER_MODE_MANUAL
+                  </span>
+                 </code>
+                 .
                 </li>
                </ul>
               </td>
