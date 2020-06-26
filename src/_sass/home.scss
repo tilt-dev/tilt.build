@@ -328,10 +328,13 @@ $Home-feature-navList-width: 35%;
   transition: color $anim-duration-short linear,
               background-color $anim-duration ease,
               border-color $anim-duration ease;
+  outline: none;
 
   .Home-features-navItem.is-active & {
-    border-bottom-left-radius: 0;
-    border-bottom-right-radius: 0;
+    @include mobileAndBelow {
+      border-bottom-left-radius: 0;
+      border-bottom-right-radius: 0;
+    }
   }
 }
 
