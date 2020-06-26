@@ -18,6 +18,8 @@ Visit [https://cloud.tilt.dev/snapshot/Afygp-8LJ4vRmVdGtHU=](https://cloud.tilt.
 
 Inside Tilt, click the `Create a snapshot` button at the top. If you haven't yet connected Tilt to Tilt Cloud, you'll be prompted to do so (using your GitHub account to sign in). Click `GET LINK` to create the snapshot. Click `OPEN` and Tilt will open the snapshot in Tilt Cloud in a new browser tab. Copy the URL of the snapshot and share it with other team members (via Slack or email, for example). The snapshot is only accessible to Tilt Cloud signed-in users who are a member (or owner) of the team
 
+**Important**: If you get an error when you first run `tilt up`, Tilt won't understand `set_team`. If you then take a snapshot, it will be a _public_ snapshot. (See below for public snapshots.) To work around this problem, make sure there are no errors, e.g. by commenting out the offending lines in your Tiltfile. Tilt will then successfully parse `set_team` and register the team id in it. You can then uncomment any offending lines or otherwise introduce errors as normal. Create a snapshot as normal and it will be a private team snapshot. We're working on a better experience to fix this problem.
+
 ![create-snapshot](assets/img/create-snapshot.png)
 
 ## Viewing all private team snapshots
