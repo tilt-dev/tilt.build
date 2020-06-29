@@ -22,7 +22,7 @@ extension_name/README.md
 README.md
 ```
 
-Create and submit a pull request to the repo, and @-mention `@victorwuky` for review.
+Create and submit a pull request to the repo, and @-mention `@victorwuky` for review. Your pull request should be prefixed with the name of your extension, e.g.: `min_tilt_version: fix bug foobar`.
 
 Currently there's no way to directly test the end-to-end workflow of using an extension. The Tilt team will ensure that the extension is working correctly before publishing it.
 
