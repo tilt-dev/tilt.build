@@ -229,7 +229,8 @@ def k8s_resource(workload: str = "", new_name: str = "",
                  port_forwards: Union[str, int, List[int]] = [],
                  extra_pod_selectors: Union[Dict[str, str], List[Dict[str, str]]] = [],
                  trigger_mode: TriggerMode = TRIGGER_MODE_AUTO,
-                 resource_deps: List[str] = [], objects: List[str] = []) -> None:
+                 resource_deps: List[str] = [], objects: List[str] = [],
+                 auto_init: bool = True) -> None:
   """
 
   Configures or creates the specified Kubernetes resource.
@@ -318,6 +319,9 @@ def k8s_resource(workload: str = "", new_name: str = "",
       resource with name ``new_name``. If an object selector matches more than
       one Kubernetes object, or matches an object already associated with a
       resource, ``k8s_resource`` raises an error.
+    auto_init: whether this resource runs on ``tilt up``. Defaults to ``True``.
+      Note that ``auto_init=False`` is only compatible with
+      ``trigger_mode=TRIGGER_MODE_MANUAL``.
   """
   pass
 
