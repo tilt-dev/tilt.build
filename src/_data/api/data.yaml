@@ -1,3 +1,4 @@
 data:
 - os.environ
 - os.name
+- config.tilt_subcommand
