@@ -1,5 +1,15 @@
 from typing import Dict, Union, List, Callable, Any
 
+tilt_subcommand: str = ''
+"""The sub-command with which `tilt` was invoked. Does not include extra args or options.
+
+Examples:
+
+- run `tilt down` -> `config.tilt_subcommand == "down"`
+- run `tilt up frontend backend` -> `config.tilt_subcommand == "up"`
+- run `tilt alpha tiltfile-result` -> `config.tilt_subcommand == "alpha tiltfile-result"`
+"""
+
 def define_string_list(name: str, args: bool=False, usage: str="") -> None:
     """
     Defines a config setting of type `List[str]`.

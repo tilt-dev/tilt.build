@@ -76,4 +76,63 @@ as Python dictionaries, including:
             .
            </p>
           </dd>
+         </dl><dl class="data">
+          <dt id="modules.config.sub_command">
+           <code class="descclassname">
+            config.
+           </code>
+           <code class="descname">
+            sub_command
+           </code>
+           <em class="property">
+            = &apos;&apos;
+           </em>
+           <a class="headerlink" href="#modules.config.sub_command" title="Permalink to this definition">
+            &#xB6;
+           </a>
+          </dt>
+          <dd>
+           <p>
+            The sub-command with which
+            <cite>
+             tilt
+            </cite>
+            was invoked. Does not include extra args or options.
+           </p>
+           <p>
+            Examples:
+           </p>
+           <ul class="simple">
+            <li>
+             run
+             <cite>
+              tilt down
+             </cite>
+             -&gt;
+             <cite>
+              config.sub_command == &#x201C;down&#x201D;
+             </cite>
+            </li>
+            <li>
+             run
+             <cite>
+              tilt up frontend backend
+             </cite>
+             -&gt;
+             <cite>
+              config.sub_command == &#x201C;up&#x201D;
+             </cite>
+            </li>
+            <li>
+             run
+             <cite>
+              tilt alpha tiltfile-result
+             </cite>
+             -&gt;
+             <cite>
+              config.sub_command == &#x201C;alpha tiltfile-result&#x201D;
+             </cite>
+            </li>
+           </ul>
+          </dd>
          </dl>
