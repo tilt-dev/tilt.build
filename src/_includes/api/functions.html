@@ -3586,6 +3586,10 @@ import them into another Tiltfile, see the
            <em>
             image_json_path=[]
            </em>
+           ,
+           <em>
+            image_object_json_path=None
+           </em>
            <span class="sig-paren">
             )
            </span>
@@ -3601,6 +3605,10 @@ import them into another Tiltfile, see the
             For CRDs that use images built by Tilt: call this with
             <cite>
              image_json_path
+            </cite>
+            or
+            <cite>
+             image_object
             </cite>
             to tell Tilt where in the CRD&#x2019;s spec the image is specified.
            </p>
@@ -3649,6 +3657,14 @@ import them into another Tiltfile, see the
 </pre>
             </div>
            </div>
+           <p>
+            Here&#x2019;s an example that specifies the image location in
+            <a class="reference external" href="https://github.com/tilt-dev/tilt/blob/master/integration/crd/Tiltfile#L8">
+             a UselessMachine
+Custom Resource
+            </a>
+            .
+           </p>
            <table class="docutils field-list" frame="void" rules="none">
             <col class="field-name">
             <col class="field-body">
@@ -3736,6 +3752,17 @@ This uses the k8s json path template syntax, described
                   here
                  </a>
                  .
+                </li>
+                <li>
+                 <strong>
+                  image_object
+                 </strong>
+                 &#x2013; A specifier of the form
+                 <cite>
+                  image_object={&#x2018;json_path&#x2019;: &#x2018;{.path.to.field}&#x2019;, &#x2018;repo_field&#x2019;: &#x2018;repo&#x2019;, &#x2018;tag_field&#x2019;: &#x2018;tag&#x2019;}
+                 </cite>
+                 .
+Used to tell Tilt how to inject images into Custom Resources that express the image repo and tag as separate fields.
                 </li>
                </ul>
               </td>
