@@ -64,6 +64,8 @@
     href: helm.html
   - title: With Docker Compose
     href: docker_compose.html
+  - title: "How to: Custom Resource Definitions"
+    href: custom_resource.html
   - title: "How to: Building on a Base Image"
     href: dependent_images.html
   - title: "How to: Using a Personal Registry"
