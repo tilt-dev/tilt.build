@@ -24,7 +24,7 @@ You can see all of the currently available Tilt Extensions in the [Tilt Extensio
 
 It's natural that as this ecosystem grows extension authors would want to use extensions from other extensions. For example, many extensions could benefit from using the [`local_output` extension](https://github.com/tilt-dev/tilt-extensions/tree/master/local_output). Unfortunately we made the decision early on to disallow loading extensions from other extensions in order to avoid having to deal with the [diamond dependency](https://www.well-typed.com/blog/2008/04/the-dreaded-diamond-dependency-problem/) problem. The diamond dependency problem is essentially: what happens if packages transitively depend on different versions of the same package. For example:
 
-![image](image.jpg)
+![Package A uses Package B and C. Package B uses package D version 1.0, package C uses package D version 1.1](/assets/images/june-2020-commit-of-the-month/diamond.png)
 
 There are no easy solutions to this, but we wanted to wait and see how extensions would be used. We've taken some precautionary measures, like vendoring all dependencies, but it seems too useful to keep turned off. So in June's commit of the month we enabled loading extensions from other extensions, and Tiltfiles from other Tiltfiles.
 
