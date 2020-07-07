@@ -82,3 +82,5 @@ If you have an example of a custom resource with Tilt you'd like to share, feel 
 - [KubeDB
   Postgres](https://github.com/tilt-dev/tilt-example-frameworks/tree/master/kubedb-postgres) -
   Expose a Postgres server running on Kubernetes.
+- [ElasticSearch and Kibana](https://github.com/tilt-dev/tilt-example-frameworks/tree/master/kibana) -
+  Expose a ElasticSearch cluster with a Kibana frontend running on Kubernetes.
