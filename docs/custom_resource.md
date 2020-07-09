@@ -84,3 +84,6 @@ If you have an example of a custom resource with Tilt you'd like to share, feel 
   Expose a Postgres server running on Kubernetes.
 - [ElasticSearch and Kibana](https://github.com/tilt-dev/tilt-example-frameworks/tree/master/kibana) -
   Expose a ElasticSearch cluster with a Kibana frontend running on Kubernetes.
+- [Airflow](https://github.com/tilt-dev/tilt-example-frameworks/tree/master/airflow) -
+  Deploy an Airflow cluster and iterate on tasks. This doesn't use custom resources
+  but it demonstrate alternative ways of using and injecting images.
