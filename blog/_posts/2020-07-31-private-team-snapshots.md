@@ -17,7 +17,7 @@ keywords:
   - private
 ---
 
-We're excited to announce Tilt Cloud private team snapshots, a feature that allows you as the DevEx engineer to securely receive complete and fully interactive Tilt states from team members using Tilt. A snapshot is a frozen moment-in-time representation of a team member's Tilt state from _their_ local machine running Tilt, that looks and works exactly like Tilt. See [this live example snapshot](https://cloud.tilt.dev/snapshot/Afygp-8LJ4vRmVdGtHU=) embedded in the following iframe. It's a real public snapshot. (See below for public snapshots vs private team snapshots.)
+We're excited to announce Tilt Cloud private team snapshots, a feature that allows you as the DevEx engineer to securely receive complete and fully interactive Tilt states from team members using Tilt. We call these states, snapshots. A snapshot is a frozen moment-in-time representation of a team member's Tilt state from _their_ local machine running Tilt, that looks and works exactly like Tilt. See [this live example snapshot](https://cloud.tilt.dev/snapshot/Afygp-8LJ4vRmVdGtHU=) embedded in the following iframe. It's a real public snapshot. (See below for public snapshots vs private team snapshots.)
 
 <iframe src="https://cloud.tilt.dev/snapshot/Afygp-8LJ4vRmVdGtHU=" width="100%" height="800px"></iframe>
 
