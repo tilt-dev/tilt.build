@@ -372,17 +372,19 @@ We've heard that you can get the JVM to hot-reload class files
 (e.g. with [Spring Loaded](https://github.com/spring-projects/spring-loaded)) 
 but we've had mixed results using this with live_update.
 
-For more discussion of Docker optimization, see:
+For more discussion of build optimization, see:
 
 - [Spring Boot Docker](https://spring.io/guides/topicals/spring-boot-docker/), a
   discussion of how to better optimize Spring Boot apps for Docker. We used
   many of the lessons in this guide. There are still more tricks for improving
   performance in containers.
-- [Jib](https://github.com/GoogleContainerTools/jib), a Java image builder
-  that re-packs Java Jars as container images, and integrates well with
-  existing Maven or Gradle builds.
-- [A Jib/Tiltfile example](https://github.com/tilt-dev/tilt-example-java/blob/master/101-jib/Tiltfile),
-  which demonstrates how to use custom_build to integrate with Jib.
+- Tilt's [Java Examples repo](https://github.com/tilt-dev/tilt-example-java/), which besides the code
+  from this guide, contains examples of how to use Tilt with a number of different Java tools, including:
+  - [Jib](https://github.com/GoogleContainerTools/jib), a Java image builder
+    that re-packs Java Jars as container images, and integrates well with
+    existing Maven or Gradle builds ([example here](https://github.com/tilt-dev/tilt-example-java/blob/master/101-jib/Tiltfile)).
+  - [Quarkus](https://quarkus.io/), a container-first, hot-reloading framework for writing Java
+    applications ([example here](https://github.com/tilt-dev/tilt-example-java/tree/master/201-quarkus-live-update)).
   
 ### Examples in other languages:
 
