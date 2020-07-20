@@ -18,15 +18,33 @@ $ brew update && brew upgrade tilt-dev/tap/tilt
 $ brew install tilt-dev/tap/tilt
 ```
 
-### If you installed with the install script or directly with a release binary
+### If you installed with the install script
+
+Rerun the install script:
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/tilt-dev/tilt/master/scripts/install.sh | bash
+```
+
+### If you installed directly with a release binary
 
 ```bash
 curl -L https://github.com/tilt-dev/tilt/releases/download/v0.16.1/tilt.0.16.1.mac.x86_64.tar.gz | tar -xzv tilt && \
-  sudo mv tilt /usr/local/bin/tilt
+    sudo mv tilt /usr/local/bin/tilt
 ```
 
 Linux
 -----
+
+### If you installed with the install script
+
+Rerun the install script:
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/tilt-dev/tilt/master/scripts/install.sh | bash
+```
+
+### If you installed directly with a release binary
 
 ```bash
 curl -L https://github.com/tilt-dev/tilt/releases/download/v0.16.1/tilt.0.16.1.linux.x86_64.tar.gz | tar -xzv tilt && \
