@@ -24,7 +24,9 @@ Inside Tilt, click the `Create a snapshot` button at the top. If you haven't yet
 
 Visit [cloud.tilt.dev/snapshots](https://cloud.tilt.dev/snapshots) for a list of all active snapshots you have created.
 
-### Private Snapshots
+### Private Snapshots (aka Team Snapshots)
+If your Tilt state contains sensitive or proprietary information, or you just want to protect it from outside eyes, don't worry: if your Tiltfile belongs to a [Tilt Cloud team](teams.html), any snapshots created will be viewable only be members of that team.
+
 To create _private_ snapshots, [ensure your project is associated with a Tilt Cloud team using `set_team` in your Tiltfile.](teams.html) Make sure you are either a [`Member` or `Owner`](teams.html#add-users-to-your-team) of the team. Then follow the instructions above. The resulting snapshot will only be viewable by Tilt Cloud users  who are `Member`s or `Owners` of the associated team.
 
 // TODO: screenshot (access denied)
