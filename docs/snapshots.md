@@ -5,11 +5,11 @@ layout: docs
 ---
 ## What Is a Snapshot?
 
-A snapshot is a link that you can send to someone that will allow them to interactively explore your current Tilt state. This is useful for async debugging and adding context to bug reports. They look like pretty much just like Tilt, but frozen in time:
+A snapshot is a link that you can send to someone that will allow them to interactively explore your current Tilt state. This is useful for async debugging and adding context to bug reports. They look like pretty much just like Tilt, but frozen in time.
 
-[https://cloud.tilt.dev/snapshot/AYSV59gLhM3GVMuuR28=](https://cloud.tilt.dev/snapshot/AYSV59gLhM3GVMuuR28=)
+In a snapshot you can drill into specific services, peruse logs, and see alerts and Kubernetes events. Pretty much anything you can do in normal Tilt, you can do in a snapshot! You don't have to be running Tilt to access a snapshot; just click the link, and you can see exactly what that user's Tilt UI looked like at that moment in time. Try exploring this example:
 
-In a snapshot you can drill into specific services, peruse logs, and see alerts and Kubernetes events. Pretty much anything you can do in normal Tilt, you can do in a snapshot! You don't have to be running Tilt to access a snapshot; just click the link, and you can see exactly what that user's Tilt UI looked like at that moment in time.
+[Live snapshot example](https://cloud.tilt.dev/snapshot/Afygp-8LJ4vRmVdGtHU=){:.attached-above}
 
 ### Snapshots in Your Org
 Snapshots and [Tilt Teams](teams.html) are two great tastes that taste great together! When running a Tiltfile associated with a team (via the `set_team` functions), any snapshots you create are *private*, and are only accessible by members of that team. You can use snapshots with confidence that any sensitive information in your logs is safe from prying eyes.
@@ -19,19 +19,21 @@ Snapshots are a great tool for debugging **remotely** and **asynchronously**--tw
 ## Creating and Sharing Snapshots
 Inside Tilt, click the `Create a snapshot` button at the top. If you haven't yet connected Tilt to Tilt Cloud, you'll be prompted to do so (using your GitHub account to sign in). Click `GET LINK` to create the snapshot. Click `OPEN` and Tilt will open the snapshot in Tilt Cloud in a new browser tab. Copy the URL of the snapshot and share at will.
 
-// TOOD: maybe a gif here instead?
-![create-snapshot](assets/img/create-snapshot.png)
+![snapshot creation flow](/assets/docimg/snapshots-creation.gif "Snapshot creation flow")
 
-Visit [cloud.tilt.dev/snapshots](https://cloud.tilt.dev/snapshots) for a list of all active snapshots you have created.
+Visit [cloud.tilt.dev/snapshots](https://cloud.tilt.dev/snapshots) for a list of all snapshots you have created.
 
 ### Private Snapshots (aka Team Snapshots)
-If your Tilt state contains sensitive or proprietary information, or you just want to protect it from outside eyes, don't worry: if your Tiltfile belongs to a [Tilt Cloud team](teams.html), any snapshots created will be viewable only be members of that team.
+If your Tilt state contains sensitive or proprietary information, or you just want to protect it from outside eyes, don't worry: if your Tiltfile is associated with a [Tilt Cloud team](teams.html), any snapshots created will be viewable only be members of that team.
+
+<figure>
+    <img src="/assets/docimg/snapshots-access-denied.png" title="Private snapshot access denied">
+    <figcaption>You can only access a private snapshot if you are a member of the team associated with that snapshot.</figcaption>
+</figure>
 
 To create _private_ snapshots, [ensure your project is associated with a Tilt Cloud team using `set_team` in your Tiltfile.](teams.html) Make sure you are either a [`Member` or `Owner`](teams.html#add-users-to-your-team) of the team. Then follow the instructions above. The resulting snapshot will only be viewable by Tilt Cloud users  who are `Member`s or `Owners` of the associated team.
 
-// TODO: screenshot (access denied)
-
-**Important**: If the Tiltfile errors on its first execution when you run `tilt up`, and [`set_team`](https://docs.tilt.dev/api.html#api.set_team) has not been called yet, Tilt will not understand `set_team`. If you then take a snapshot, it will be a _public_ snapshot. (See below for public snapshots.) To work around this problem, make sure to put `set_team` as the first line in your Tiltfile. Tilt will then successfully parse `set_team` and start using the team id in it. Create a snapshot as normal and it will be a private team snapshot.
+**Important**: If on `tilt up`, Tiltfile execution errors before the line where [`set_team`](api.html#api.set_team) is called, Tilt won't know about your team, and any snapshots you create will be _public_. To avoid this, make sure your `set_team` call is the first line in your Tiltfile, so that Tilt is guaranteed to detect your team before encountering any execution errors.
 
 To view all snapshots associated with your team: click the `Create a snapshot` button in Tilt, and in the modal, click `View snapshots from your team`.
 
