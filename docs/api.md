@@ -20,6 +20,7 @@ examples of what you can do with a Tiltfile. Load them into your own Tiltfile. I
 - [`jest_test_runner`](https://github.com/tilt-dev/tilt-extensions/tree/master/jest_test_runner): Jest JavaScript test runner. Example from [Contribute an Extension](https://docs.tilt.dev/contribute_extension.html).
 - [`local_output`](https://github.com/tilt-dev/tilt-extensions/tree/master/local_output): Run a `local` command and get the output as string
 - [`min_tilt_version`](https://github.com/tilt-dev/tilt-extensions/tree/master/min_tilt_version): Require a minimum Tilt version to run this Tiltfile.
+- [`min_k8s_version`](https://github.com/tilt-dev/tilt-extensions/tree/master/min_k8s_version): Require a minimum Kubernetes version to run this Tiltfile.
 - [`namespace`](https://github.com/tilt-dev/tilt-extensions/tree/master/namespace): Functions for interacting with namespaces.
 - [`pack`](https://github.com/tilt-dev/tilt-extensions/tree/master/pack): Build container images using [pack](https://buildpacks.io/docs/install-pack/) and [buildpacks](https://buildpacks.io/).
 - [`print_tiltfile_dir`](https://github.com/tilt-dev/tilt-extensions/tree/master/print_tiltfile_dir): Print all files in the Tiltfile directory. If recursive is set to True, also prints files in all recursive subdirectories.
