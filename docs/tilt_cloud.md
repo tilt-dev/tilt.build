@@ -1,5 +1,5 @@
 ---
-title: Sign in to Tilt Cloud
+title: Tilt Cloud
 description: "Tilt Cloud is a SaaS backend for Tilt that provides additional functionality for your team."
 layout: docs
 ---

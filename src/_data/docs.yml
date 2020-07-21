@@ -47,8 +47,8 @@
 
 - title: Tilt Cloud
   items:
-  - title: Sign in to Tilt Cloud
-    href: sign_in_tilt_cloud.html
+  - title: Tilt Cloud
+    href: tilt_cloud.html
   - title: Teams
     href: teams.html
   - title: Snapshots

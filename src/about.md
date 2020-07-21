@@ -15,14 +15,25 @@ but also have teammates in Berlin, Germany and Richmond, VA.
 
 <div class="brandBox u-marginBottom2">	
   {% include brandBoxBg.html %}	
-  <h2 class="section u-marginBottom0_5">And we're currently hiring!</h2>	
+  <h3 class="section u-marginBottom0_5">And we're currently hiring!</h3>	
 
-  <h3>	
-    See our open roles for:	
-  </h3>	
+  <div class="u-marginBottom0_5">	
+    We're actively searching for people with these backgrounds:
+  </div>	
 
   <ul>	
     <li><a href="product_designer.html">Product Designer</a></li>	
+  </ul>	
+  
+  <div class="u-marginBottom0_5">	
+    As we grow, we expect more roles to open up in the future
+    (even if we aren't searching for them right now).
+    If you fit one of these profiles, we're interested in chatting!
+  </div>	
+
+  <ul>	
+    <li><a href="frontend_eng.html">Frontend Engineer</a></li>	
+    <li><a href="devtools_eng.html">Developer Tools Engineer</a></li>	
   </ul>	
 </div>
 
