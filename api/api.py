@@ -400,7 +400,7 @@ def load(path: str, *args):
     hi() # prints "Hello world!"
   """
 
-def local(command: Union[str, List[str]], quiet: bool = False, command_bat: str = "") -> Blob:
+def local(command: Union[str, List[str]], quiet: bool = False, command_bat: str = "", echo_off: bool = False) -> Blob:
   """Runs a command on the *host* machine, waits for it to finish, and returns its stdout as a ``Blob``
 
   Args:
@@ -408,6 +408,7 @@ def local(command: Union[str, List[str]], quiet: bool = False, command_bat: str 
     quiet: If set to True, skips printing output to log.
     command_bat: The command to run, expressed as a Windows batch command executed
       with ``cmd /S /C``. Takes precedence over the ``command`` parameter on Windows. Ignored on macOS/Linux.
+    echo_off: If set to True, skips printing command to log. 
   """
   pass
 
