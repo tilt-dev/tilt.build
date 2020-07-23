@@ -220,7 +220,53 @@ Here's an example:
 
 A local registry is often the fastest way to speed up your dev experience.
 
-Every cluster sets up this registry slightly differently. 
+Every cluster sets up this registry slightly differently.
+
+Tilt-team is currently collaborating with the Kubernetes community on protocols
+for discovery, so that multi-service development tools like Tilt will auto-configure
+when a local registry is present.
+
+Tilt currently supports two generic protocols for discovering your cluster's
+local registry, so you don't have to do any configuration yourself. The
+Kubernetes standard protocol is a
+[KEP](https://github.com/kubernetes/enhancements/tree/master/keps#kubernetes-enhancement-proposals-keps)
+that has been vetted by the Kubernetes community.  The annotation-based protocol
+is used in legacy Tilt scripts.
+
+You can configure the registry manually in your Tiltfile if these options
+fail. We've documented all the options below.
+
+#### Kubernetes Standard Registry Discovery
+
+The standard protocol uses configmaps in the `kube-public` namespace of your cluster.
+
+If you have a local registry running at `localhost:5000`, apply the following
+config map to your cluster:
+
+```
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: local-registry-hosting
+  namespace: kube-public
+data:
+  localRegistryHosting.v1: |
+    host: "localhost:5000"
+```
+
+Tilt will automatically detect your local registry, and will push and pull
+images from it.
+
+For more details on how to use this configmap, see
+
+- [The Kubernetes Enhancement Proposal](https://github.com/kubernetes/enhancements/tree/master/keps/sig-cluster-lifecycle/generic/1755-communicating-a-local-registry)
+
+- [A sample implementation in Go](https://github.com/tilt-dev/localregistry-go)
+
+We're working with local development cluster teams to ensure that clusters
+support this protocol when they have a built-in registry.
+
+#### Legacy Annotation-based Registry Discovery
 
 To discover the registry, Tilt reads two annotatons from the node of your Kubernetes cluster:
 
@@ -243,3 +289,20 @@ fi
 ```
 
 to help Tilt find the registry.
+
+#### Manual Configuration
+
+You can manually configure the registry in your Tiltfile with
+[`default_registry`](api.html#api.default_registry).
+
+```python
+default_registry('gcr.io/my-personal-registry')
+```
+
+Because the Tiltfile is scriptable, you can configure this to fit your team's conventions:
+
+```python
+reg = os.environ.get('MY_PERSONAL_REGISTRY', '')
+if reg:
+  default_registry(reg)
+```
