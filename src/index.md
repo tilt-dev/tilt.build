@@ -111,6 +111,11 @@ layout: home
             onclick="testimonialScroll(this)">
       {% svg assets/svg/testimonial-kubernetes-logo.svg class="Home-testimonials-navItem-svg Home-testimonials-navItem-svg--clusterApi" %}
     </button>
+    <button class="Home-testimonials-navItem"
+            data-testimonial="mux"
+            onclick="testimonialScroll(this)">
+      {% svg assets/svg/testimonial-mux-logo.svg class="Home-testimonials-navItem-svg Home-testimonials-navItem-svg--mux" %}
+    </button>
   </div>
 </h3>
 
@@ -158,6 +163,27 @@ layout: home
       <div class="Home-testimonial-content-meta">
         {% svg assets/svg/testimonial-kubernetes-logo.svg class="Home-testimonial-content-meta-svg" %}
         <p class="Home-testimonial-content-meta-text">Cluster API is an open-source Kubernetes project to bring declarative, Kubernetes-style APIs to cluster creation, configuration, and management. It has over 230 contributors.</p>
+      </div>
+    </div>
+  </li>
+  <li class="Home-testimonial" data-testimonial="mux">
+    <div class="Home-testimonial-profile">
+      <div class="Home-testimonial-profile-photo"><img src="/assets/img/testimonial-profile-mux.jpg"></div>
+      <div class="Home-testimonial-profileInfo">
+        <p class="Home-testimonial-profileInfo-name">Matt Ward</p>
+        <p class="Home-testimonial-profileInfo-role">Staff Software Engineer</p>
+      </div>
+      <div class="Home-testimonial-profileSocial">
+        <a href="https://mux.com/team/matt-ward" rel="noopener noreferrer" target="_blank" class="Home-testimonial-profileSocial-link Home-testimonial-profileSocial-link--web">
+          {% svg assets/svg/social-web.svg %}
+        </a>
+      </div>
+    </div>
+    <div class="Home-testimonial-content">
+      <p class="Home-testimonial-content-quote">Tilt has helped us significantly reduce the complexity that existed in our previous custom built development environment. At the same time, we've been able to add flexibility which enables our developers to iterate on subsets of our infrastructure without bringing along the kitchen sink.</p>
+      <div class="Home-testimonial-content-meta">
+        {% svg assets/svg/testimonial-mux-logo.svg class="Home-testimonial-content-meta-svg" %}
+        <p class="Home-testimonial-content-meta-text">Mux develops video infrastructure and monitoring tools. They have a team of about 40 employees.</p>
       </div>
     </div>
   </li>
