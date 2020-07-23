@@ -75,6 +75,52 @@ resource, you can treat it like any other Kubernetes built-in.
 
 Tilt will automatically fetch logs, and create any port-forwards you specify.
 
+## Advanced Pod Creation
+
+Many Kubernetes-based frameworks create pods that themselves create other pods!
+
+How do you build images for these second-order pods?
+
+We see two common techniques:
+
+### Custom Resource Injection
+
+If the framework uses a custom resource, you can use the `k8s_kind` function
+described above to inject an image anywhere in the resource! It doesn't have to
+be a "normal" image field.
+
+```
+k8s_kind('UselessMachine', image_json_path='{.spec.imageToDeploy}')
+```
+
+### Env Variable Injection
+
+Another common strategy is to use environment variables.
+
+In your Kuberentes container spec, add an env variable like:
+
+```
+env:
+- name: IMAGE_TO_DEPLOY
+  value: my-image
+```
+
+In your Tiltfile, build the image, and tell Tilt to look in env variables for the image name.
+
+```
+docker_build('my-image', '.', match_in_env_vars=True)
+```
+
+Tilt will replace `my-image:latest` with the content-based image reference that
+Tilt built. (The custom_build guide has [more
+details](custom_build.html#why-tilt-uses-immutable-tags) on this.)  Your
+framework can then read the image reference and create pods with it.
+
+The [Airflow
+example](https://github.com/tilt-dev/tilt-example-frameworks/tree/master/airflow)
+uses this strategy with Airflow's
+[KubernetesPodOperator](https://airflow.apache.org/docs/stable/kubernetes.html).
+
 ## Custom Resource Examples
 
 If you have an example of a custom resource with Tilt you'd like to share, feel free to add it to this page!
