@@ -102,22 +102,59 @@ There are a couple of caveats you should be aware of with `buildah` (and similar
 
 All the commands above contain `$EXPECTED_REF`. What is that?
 
-### Tags
+Tilt always pushes a content-based, immutable tag, not a bare ref. (Instead of `gcr.io/company-name/frontend`, Tilt injects `gcr.io/company-name/frontend:tilt-ffd9c2013b5bf5d4`, where the `ffd9c2013b5bf5d4` part is based on the contents of your image). Before explaining why (see [below](#why-tilt-uses-immutable-tags)), let's describe what this means for your Tiltfile and build script.
 
-Tilt always deploys with a digest, not a bare ref. (Instead of `gcr.io/company-name/frontend`, Tilt injects `gcr.io/company-name/frontend:tilt-ffd9c2013b5bf5d4`). Before explaining why (at the bottom of this document), let's describe what this means for your Tiltfile and build script.
+There are two ways for Tilt and your build script to coordinate image builds.
 
-Because different build tools have different ergonomics, Tilt supports two modes:
-* one-time tags via $EXPECTED_REF
-* temporary refs
+### The Good Way
 
-### One-time Tags
-This mode is easy if your tool takes the destination of the image as an argument (e.g. `docker build`).
-* Tiltfile sets a custom build command (e.g. `custom_build(..., 'docker build -t $EXPECTED_REF frontend')`).
-* Tilt sets a one-time ref as environment variable before executing the custom build command. (e.g. `EXPECTED_REF=gcr.io/company-name/frontend:tilt-ffd9c2013b5bf5d4`)
-* The custom build command builds the image and pushes to that ref (e.g. by reading `$EXPECTED_REF`).
+Most tools take a destination of the image as an argument (e.g. `docker build`).
 
-### Temporary Refs
-Other tools want to have an image ref hard-coded in configuration. They'll build and push to the same place each time. Instead of having to change your tool, tell Tilt what tag the build image will have with `custom_build(..., tag='frontend:s2i')`. After Tilt runs your build command, it will find this image and retag and push it with a unique ID.
+* Before running your build script, Tilt sets the environment variable
+  `$EXPECTED_REF` with a randomized tag
+  (e.g. `EXPECTED_REF=gcr.io/company-name/frontend:tilt-12345`).
+
+* The custom build script builds the image and tags it with `$EXPECTED_REF`.
+
+* After the build script exits, Tilt reads the new image at `$EXPECTED_REF`,
+  re-tags it with a content-based tag, and pushes it to the image registry.
+
+### The Hacky Way
+
+Other tools have an image ref hard-coded in configuration. They'll build
+to the same tag each time.
+
+Instead of writing a wrapper script around your tool, tell Tilt what tag the
+build image will have with `custom_build(...,
+tag='gcr.io/company-name/frontend:dev')`.
+
+After Tilt runs your build command, it will find this image and retag and push
+it with a content-based tag.
+
+This method is generally less robust, because the script is building to a
+mutable tag instead of an immutable tag.
+
+### Determining the Content-based Tag
+
+In rare cases, another script in your build system may need to know what tag
+Tilt is going to deploy. This typically only comes up if your team has
+written their own artisanal image build system that's closely coupled with Kubernetes.
+
+Tilt has a special command to help with this. After you build the image, run:
+
+```
+tilt dump image-deploy-ref $EXPECTED_REF
+```
+
+Tilt will read the image, determine the hash of the context, and print out the
+full name and content-based tag.
+
+**NOTE:** This is not a common use-case. Usually, when teams ask about this, they're
+writing a workflow engine that creates its own pods (like Airflow), and need a
+way to get the deploy tag at runtime. So they hack custom_build to grab the
+deploy tag at build-time, and plumb it through to their runtime pods. There's a
+better way to do this. Use [this
+guide](custom_resource.html#advanced-pod-creation) instead.
 
 ## Live Update and Other Features
 Tilt's `docker_build` supports other options. The most impactful is [Live Update](live_update_tutorial.html), which lets you update code in Kubernetes without doing a full image build.  `custom_build` supports this as well, using the same syntax.
@@ -140,14 +177,39 @@ custom_build(
 ```
 Tilt will ignore `dep1/baz` and `dep2/baz`.
 
-## Why Tilt uses One-Time Tags
-This section describes for the curious why Tilt uses tags the way it does, instead of using a fixed reference.
-Kubernetes (and the [OCI model](https://github.com/opencontainers/image-spec) generally) support multiple ways to reference an image:
-* Tagged: `gcr.io/company-name/frontend:username-devel`. These tags can change as you upload new images to the same tag.
-* Untagged: `gcr.io/company-name/frontend`. This is shorthand for the tag `latest`, and changes even more frequently.
-* One-Time: `gcr.io/company-name/frontend:tilt-ffd9c2013b5bf5d4`. The unique bit may be a [Nonce](https://en.wikipedia.org/wiki/Cryptographic_nonce) or a digest of the contents. These don't change once set (though technically they're not write-protected).
+## Why Tilt uses Immutable Tags
 
-Tilt only deploys One-Time references. Instead of pushing to `gcr.io/company-name/frontend` and leaving the YAML as-is, Tilt retags the image and rewrites the container spec. This makes the Tilt experience more reliable.  Deploying with a Tagged reference creates a race condition. Pods created at different times from the same definition may end up running different code as the reference is overwritten.
+Immutable tags have a long history in the Kubernetes community.
+
+The Knative team has this presentation that gives a good overview: 
+[Why we resolve tags in Knative](https://docs.google.com/presentation/d/1gjcVniYD95H1DmGM_n7dYJ69vD9d6KgJiA-D9dydWGU/edit?usp=sharing)
+(join
+[`knative-users@googlegroups.com`](https://groups.google.com/d/forum/knative-users)
+for access).
+
+Mutable tags have good usability and security properties. For example, a
+`registry:v2` image that has the latest, most secure minor version of the v2
+major version.
+
+Immutable tags have good reliability and caching properties. For example, if
+you're rolling out 3 pods of `registry:v2`, you want to be sure all pods have
+the exact same version. Deploying with a mutable reference creates a race
+condition. Pods created at different times from the same definition may end up
+running different code as the reference is overwritten.
+
+Tilt only deploys immutable tags. Instead of pushing to
+`gcr.io/company-name/frontend`, Tilt re-tags the image as
+`gcr.io/company-name/frontend:tilt-ffd9c2013b5bf5d4`. The unique bit is a
+[Nonce](https://en.wikipedia.org/wiki/Cryptographic_nonce) or a digest of the
+contents. (Technically the tag isn't write-protected in any way, but the
+improbability of collisions means we can pretend it's immutable.)
+
+Tilt then injects the new tag into the container spec. This makes the Tilt
+experience faster and more reliable, because we can instruct Kubernetes to cache
+the tag aggressively as if it's immutable.
+
+Knative uses [a similar strategy](https://knative.dev/docs/serving/tag-resolution/), but the immutability is enforced by a
+Kuberentes operator, instead of by client-side tooling.
 
 ## Conclusion
 
