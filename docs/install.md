@@ -29,7 +29,13 @@ macOS
 kubectl config use-context docker-desktop
 ```
 
-- Install `tilt` with:
+- Install `tilt` with Homebrew:
+
+```bash
+brew install tilt-dev/homebrew-tap/tilt
+```
+
+- Alternatively without Homebrew, using the following command:
 
 ```bash
 curl -fsSL https://raw.githubusercontent.com/tilt-dev/tilt/master/scripts/install.sh | bash
