@@ -146,6 +146,53 @@
   }
 }
 
+.body-blackout {
+  position: absolute;
+  z-index: 1010;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, .65);
+  display: none;
+  
+  &.is-blacked-out {
+    display: block;
+  }
+}
+
+.popup-trigger {
+  display: inline-block;
+}
+
+.popup-modal {
+  height: 365px;
+  width: 650px;
+  background-color: #fff;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  padding: 45px;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 300ms ease-in-out;
+  z-index: 1011;
+  
+  &.is--visible {
+    opacity: 1;
+    pointer-events: auto;
+  }
+  
+  &__close {
+    position: absolute;
+    font-size: 1.2rem;
+    right: -10px;
+    top: -10px;
+    cursor: pointer;
+  }
+}
+
 // Product --------------------------------------------------
 .Home-product {
   margin-bottom: $spacing-unit * 3;
