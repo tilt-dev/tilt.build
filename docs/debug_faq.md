@@ -149,26 +149,30 @@ to see the complete state of the Tilt web UI.
 As of v0.10.25, Tilt has an experimental Tiltfile function: `experimental_telemetry_cmd`.
 
 This command takes a string which is a command to run. Tilt will exec this
-command every minute and pass it on stdin a series of new line separated JSON
-objects representing all of the user’s activity in the last minute, to do with
-what you will.
+command every minute and pass it on STDIN a series of [OpenTelemetry spans](https://github.com/open-telemetry/opentelemetry-specification/blob/master/specification/overview.md#distributed-tracing)
+in the form of newline-separated JSON objects. These spans representing all of the user’s
+activity in the last minute, and you can manipulate and ingest them as you will.
 
-For example, here’s a command that the Tilt team uses in some of our Tiltfiles:
+For example, you could write a script to send Tilt's telemetry output to Honeycomb, and invoke it
+via `experimental_telemetry_cmd` like so:
 
 ```python
-experimental_telemetry_cmd("docker run --env USER -i telemetry")
+experimental_telemetry_cmd("/path/to/honeycomb_ingest.py")
 ```
 
-The JSON format that it gets passed looks like this:
+The argument to this function is just a shell command, so there's a lot of flexibility. If for
+example you wanted to send Tilt's telemetry output to a script run via a Docker image, you could call:
+```python
+experimental_telemetry_cmd("docker run --env USER -i my-telemetry-image")
+``` 
 
+The JSON that gets passed looks like this:
 ```json
 {"SpanContext":{"TraceID":"00000000000000000000000000000000","SpanID":"0000000000000000","TraceFlags":1},"ParentSpanID":"0000000000000000","SpanKind":1,"Name":"tilt.dev/usage/update","StartTime":"2019-12-11T12:18:30.702255-05:00","EndTime":"2019-12-11T12:18:31.920728054-05:00","Attributes":null,"MessageEvents":null,"Links":null,"Status":0,"HasRemoteParent":false,"DroppedAttributeCount":0,"DroppedMessageEventCount":0,"DroppedLinkCount":0,"ChildSpanCount":0}
 {"SpanContext":{"TraceID":"00000000000000000000000000000000","SpanID":"0000000000000000","TraceFlags":1},"ParentSpanID":"0000000000000000","SpanKind":1,"Name":"tilt.dev/usage/update","StartTime":"2019-12-11T12:18:31.922581-05:00","EndTime":"2019-12-11T12:18:32.257773437-05:00","Attributes":null,"MessageEvents":null,"Links":null,"Status":0,"HasRemoteParent":false,"DroppedAttributeCount":0,"DroppedMessageEventCount":0,"DroppedLinkCount":0,"ChildSpanCount":0}
 ```
 
-The eagle eyed may notice that these are just open telemetry spans.
-
-Here are some examples that report these spans as:
+Here are some example scripts that report these spans as:
 
 - [A datadog time series](https://github.com/jazzdan/datadog_example/blob/master/example.rb)
 - [A statsd reporter](https://github.com/jazzdan/statsd_example/blob/master/main.rb)
