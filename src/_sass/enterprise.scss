@@ -58,9 +58,15 @@
 
 .calendly-inline-widget {
   height: 600px;
+  @include shadow-small;
+  border-radius: $tilt2-border-radius-large;
 
   @include mobileAndAbove {
     width: 320px;
+  }
+
+  > iframe {
+    border-radius: $tilt2-border-radius-large;
   }
 }
 

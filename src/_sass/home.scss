@@ -119,12 +119,13 @@
   border-radius: $tilt2-border-radius;
   border: 2px solid $tilt2-color-gray-lighter;
   color: $tilt2-color-gray;
+  box-sizing: border-box;
+  cursor: pointer;
 
   &:hover {
     color: $color-white;
     background-color: $tilt2-color-gray;
   }
-
 }
 
 .Home-cta-button--primary {
@@ -148,11 +149,11 @@
 
 .body-blackout {
   position: absolute;
-  z-index: 1010;
+  z-index: $z-modal-background;
   left: 0;
+  right: 0;
   top: 0;
-  width: 100%;
-  height: 100%;
+  bottom: 0;
   background-color: rgba(0, 0, 0, .65);
   display: none;
   
@@ -167,30 +168,69 @@
 }
 
 .popup-modal {
-  background-color: #fff;
+  background-color: $color-white;
   position: fixed;
-  left: 50%;
-  top: 50%;
-  right: 0;
-  transform: translate(-50%, -50%);
-  padding: 45px;
+  box-sizing: border-box;
+  padding-top: $spacing-unit;
+  padding-bottom: $spacing-unit;
+  padding-left: $spacing-unit * 1.5;
+  padding-right: $spacing-unit * 1.5;
   opacity: 0;
   pointer-events: none;
-  transition: all 300ms ease-in-out;
-  z-index: 1011;
+  transition: all $anim-duration ease-in-out;
+  z-index: $z-modal;
+  
+  @include mobileAndBelow {
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+  }
+  
+  @include mobileAndAbove {
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);    
+    max-width: 900px;
+  }
   
   &.is--visible {
     opacity: 1;
     pointer-events: auto;
   }
-  
-  &__close {
-    position: absolute;
-    font-size: 1.2rem;
-    right: -10px;
-    top: -10px;
-    cursor: pointer;
+}
+
+.popup-modal__title {
+  @include font-hero;
+}
+
+.popup-modal__close {
+  position: absolute;
+  top: $spacing-unit;
+  right: $spacing-unit;
+  @include reset-button-style;
+  cursor: pointer;
+}
+
+.popup-modal__content {
+  @include mobileAndAbove {
+    display: flex;
   }
+}
+
+.popup-modal__content__text {
+  @include mobileAndBelow {
+    margin-top: $spacing-unit;
+  }
+  
+  @include mobileAndAbove {
+    width: 50%;
+    padding-left: $spacing-unit * 1.5;
+  }
+}
+
+.popup-modal__heroText {
+  @include font-hero-subhead;
 }
 
 // Product --------------------------------------------------
