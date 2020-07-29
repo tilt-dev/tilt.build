@@ -16,5 +16,10 @@ modalTriggers.forEach((trigger) => {
         popupModal.classList.remove("is--visible");
         bodyBlackout.classList.remove("is-blacked-out");
       });
+
+    bodyBlackout.addEventListener("click", () => {
+      popupModal.classList.remove("is--visible");
+      bodyBlackout.classList.remove("is-blacked-out");
+    });
   });
 });
