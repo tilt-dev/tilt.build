@@ -1,6 +1,6 @@
 const modalTriggers = document.querySelectorAll(".popup-trigger");
 const modalCloseTrigger = document.querySelector(".popup-modal__close");
-const bodyBlackout = document.querySelector(".body-blackout");
+const bodyBlackout = document.querySelector(".modal-background");
 
 const closeModal = (popupModal) => {
   popupModal.classList.remove("is--visible");
