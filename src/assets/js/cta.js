@@ -1,5 +1,5 @@
 const modalTriggers = document.querySelectorAll(".popup-trigger");
-const modalCloseTrigger = document.querySelector(".popup-modal__close");
+const modalCloseTrigger = document.querySelector(".modal__close");
 const bodyBlackout = document.querySelector(".modal-background");
 
 const closeModal = (popupModal) => {
@@ -10,14 +10,12 @@ const closeModal = (popupModal) => {
 modalTriggers.forEach((trigger) => {
   trigger.addEventListener("click", () => {
     const { popupTrigger } = trigger.dataset;
-    const popupModal = document.querySelector(
-      `[data-popup-modal="${popupTrigger}"]`
-    );
+    const popupModal = document.querySelector(`[data-modal="${popupTrigger}"]`);
     popupModal.classList.add("is--visible");
     bodyBlackout.classList.add("is-blacked-out");
 
     popupModal
-      .querySelector(".popup-modal__close")
+      .querySelector(".modal__close")
       .addEventListener("click", () => closeModal(popupModal));
 
     bodyBlackout.addEventListener("click", () => closeModal(popupModal));

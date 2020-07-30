@@ -167,7 +167,7 @@
   display: inline-block;
 }
 
-.popup-modal {
+.modal {
   background-color: $color-white;
   position: fixed;
   box-sizing: border-box;
@@ -200,11 +200,11 @@
   }
 }
 
-.popup-modal__title {
+.modal__title {
   @include font-hero;
 }
 
-.popup-modal__close {
+.modal__close {
   position: absolute;
   top: $spacing-unit;
   right: $spacing-unit;
@@ -212,13 +212,13 @@
   cursor: pointer;
 }
 
-.popup-modal__content {
+.modal__content {
   @include mobileAndAbove {
     display: flex;
   }
 }
 
-.popup-modal__content__text {
+.modal__content__text {
   @include mobileAndBelow {
     margin-top: $spacing-unit;
   }
@@ -229,7 +229,7 @@
   }
 }
 
-.popup-modal__heroText {
+.modal__heroText {
   @include font-hero-subhead;
 }
 
