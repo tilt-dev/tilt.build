@@ -1,6 +1,7 @@
 ---
 title: Tilt
 layout: home
+has_calendly: true
 ---
 
 <section class="Home-hero">
@@ -96,6 +97,7 @@ layout: home
 
 {% include index_cta.html %}
 
+<script async src="/assets/js/cta.js"></script>
 <script async src="/assets/js/testimonials.js"></script>
 
 <h3 class="Home-sectionHeading Home-sectionHeading--testimonials">

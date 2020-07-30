@@ -119,12 +119,13 @@
   border-radius: $tilt2-border-radius;
   border: 2px solid $tilt2-color-gray-lighter;
   color: $tilt2-color-gray;
+  box-sizing: border-box;
+  cursor: pointer;
 
   &:hover {
     color: $color-white;
     background-color: $tilt2-color-gray;
   }
-
 }
 
 .Home-cta-button--primary {
@@ -144,6 +145,92 @@
   @include mobileAndBelow {
     margin-bottom: $spacing-unit;
   }
+}
+
+.modal-background {
+  position: absolute;
+  z-index: $z-modal-background;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, .65);
+  display: none;
+  
+  &.is-blacked-out {
+    position: fixed;
+    display: block;
+  }
+}
+
+.popup-trigger {
+  display: inline-block;
+}
+
+.modal {
+  background-color: $color-white;
+  position: fixed;
+  box-sizing: border-box;
+  padding-top: $spacing-unit;
+  padding-bottom: $spacing-unit;
+  padding-left: $spacing-unit * 1.5;
+  padding-right: $spacing-unit * 1.5;
+  opacity: 0;
+  pointer-events: none;
+  transition: all $anim-duration ease-in-out;
+  z-index: $z-modal;
+  
+  @include mobileAndBelow {
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+  }
+  
+  @include mobileAndAbove {
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);    
+    max-width: 900px;
+  }
+  
+  &.is--visible {
+    opacity: 1;
+    pointer-events: auto;
+  }
+}
+
+.modal__title {
+  @include font-hero;
+}
+
+.modal__close {
+  position: absolute;
+  top: $spacing-unit;
+  right: $spacing-unit;
+  @include reset-button-style;
+  cursor: pointer;
+}
+
+.modal__content {
+  @include mobileAndAbove {
+    display: flex;
+  }
+}
+
+.modal__content__text {
+  @include mobileAndBelow {
+    margin-top: $spacing-unit;
+  }
+  
+  @include mobileAndAbove {
+    width: 50%;
+    padding-left: $spacing-unit * 1.5;
+  }
+}
+
+.modal__heroText {
+  @include font-hero-subhead;
 }
 
 // Product --------------------------------------------------

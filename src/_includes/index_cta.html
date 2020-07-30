@@ -1,10 +1,39 @@
+<section class="modal" data-modal="one">
+  <h2 class="modal__title">
+    Schedule a Demo
+  </h2>
+  <button class="modal__close">{% svg assets/svg/x.svg %}</button>
+  <div class="modal__content">
+    <div class="calendly-inline-widget" data-url="https://calendly.com/dbentley/tilt-enterprise?hide_event_type_details=1">
+    </div>
+    <div class="modal__content__text">
+      <p class="modal__heroText">
+        Schedule a 30 minute conversation with a Tilt team member.
+      </p>
+      <p>
+        We will demo Tilt, discuss your challenges, answer your questions, and figure out how we can help supercharge your workflow.
+      </p>
+    </div>
+  </div>
+</section>
+
 <section class="Home-cta">
   <div class="Home-cta-option">
-    <a href="{{ site.landingurl }}/enterprise" class="Home-cta-button Home-cta-button--primary gtm-button-schedule-a-demo">Schedule a Demo</a>
+    <button
+      type="button"
+      class="popup-trigger Home-cta-button Home-cta-button--primary gtm-button-schedule-a-demo"
+      data-popup-trigger="one"
+    >
+      Schedule a Demo
+    </button>
     <small class="Home-cta-option-text">for your work team</small>
   </div>
   <div class="Home-cta-option">
-    <a href="https://docs.tilt.dev/install.html" class="Home-cta-button gtm-button-download-tilt">Download Tilt</a>
+    <a
+      href="https://docs.tilt.dev/install.html"
+      class="Home-cta-button gtm-button-download-tilt"
+      >Download Tilt</a
+    >
     <small class="Home-cta-option-text">we're open source</small>
   </div>
 </section>
