@@ -67,8 +67,6 @@ curl -fsSL https://raw.githubusercontent.com/tilt-dev/tilt/master/scripts/instal
 Windows
 ---------------
 
-Tilt's Windows support is currently a release candidate.
-
 [Docker for Windows](https://docs.docker.com/docker-for-windows/install/) contains Docker, kubectl, and a Kubernetes cluster.
 
 - Install [Docker for Windows](https://docs.docker.com/docker-for-windows/install/)
