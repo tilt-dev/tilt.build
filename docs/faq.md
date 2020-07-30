@@ -187,3 +187,26 @@ The most common options we see in local development are
 
 Check out our [Guide to Choosing a Local Cluster](choosing_clusters.html).
 
+---
+
+### Q: How does Tilt know which local Kubernetes cluster I'm using?
+
+To check which cluster Tilt is connecting to, run:
+
+```bash
+tilt doctor
+```
+
+The `Env` is the type of cluster Tilt has detected. Tilt uses this to determine
+which local dev features the cluster supports.
+
+In the dev cluster community, a common convention is to use the cluster name prefix
+to indicate the cluster type. For example,
+
+- Docker uses the `docker-` prefix
+- GKE uses the `gke_` prefix
+- KIND uses the `kind-` prefix
+- Minikube defaults to a cluster name `minikube` (if you use Minikube profiles,
+  Tilt will accept any cluster name prefixed `minikube-`)
+
+If Tilt can't detect the type of your cluster, check the cluster name!
