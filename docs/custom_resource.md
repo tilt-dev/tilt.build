@@ -52,11 +52,28 @@ example](https://github.com/tilt-dev/tilt/blob/master/integration/crd/Tiltfile#L
 
 ### Does it create pods?
 
-Tilt can sometimes follow the Kubernetes metadata to figure out
-which pods belong to which resource. But other times it needs help.
+Tilt can sometimes follow the Kubernetes metadata to figure out which resources
+have pods, and which pods belong to which resource. But other times it needs
+help.
 
-To tell Tilt how to find the pods for a resource, you can use the `k8s_resource` function
-for each resource to specify a custom label selector for that resource.
+To tell Tilt that a resource has pods, and it should wait for them to become healthy:
+
+```python
+k8s_kind('UselessMachine', image_json_path='{.spec.image}', pod_readiness='wait')
+```
+
+To tell Tilt that a resource does NOT have pods, and it should consider a
+resource healthy if no pods come up:
+
+
+```python
+k8s_kind('UselessMachine', image_json_path='{.spec.image}', pod_readiness='ignore')
+```
+
+Most custom resources set owner references, which Tilt can follow to determine
+which pods belong to your resource. If your resource does not, you can use the
+`k8s_resource` function for each resource to specify a custom label selector for
+that resource.
 
 ```
 k8s_resource(new_name='postgres',
