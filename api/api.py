@@ -79,7 +79,7 @@ def restart_container() -> LiveUpdateStep:
   """
   pass
 
-def docker_build(ref: str, context: str, build_args: Dict[str, str] = {}, dockerfile: str = "Dockerfile", dockerfile_contents: Union[str, Blob] = "", live_update: List[LiveUpdateStep]=[], match_in_env_vars: bool = False, ignore: Union[str, List[str]] = [], only: Union[str, List[str]] = [], entrypoint: Union[str, List[str]] = [], target: str = "", ssh: Union[str, List[str]] = "", network: str = "", secret: Union[str, List[str]] = "", extra_tag: Union[str, List[str]] = "", container_args: List[str] = None) -> None:
+def docker_build(ref: str, context: str, build_args: Dict[str, str] = {}, dockerfile: str = "Dockerfile", dockerfile_contents: Union[str, Blob] = "", live_update: List[LiveUpdateStep]=[], match_in_env_vars: bool = False, ignore: Union[str, List[str]] = [], only: Union[str, List[str]] = [], entrypoint: Union[str, List[str]] = [], target: str = "", ssh: Union[str, List[str]] = "", network: str = "", secret: Union[str, List[str]] = "", extra_tag: Union[str, List[str]] = "", container_args: List[str] = None, cache_from: Union[str, List[str]] = [], pull: bool = False) -> None:
   """Builds a docker image.
 
   The invocation
@@ -117,6 +117,8 @@ def docker_build(ref: str, context: str, build_args: Dict[str, str] = {}, docker
     secret: Include secrets in your build in a way that won't show up in the image. Uses the same syntax as the `docker build --secret flag <https://docs.docker.com/develop/develop-images/build_enhancements/#new-docker-build-secret-information>`_.
     extra_tag: Tag an image with one or more extra references after each build. Useful when running Tilt in a CI pipeline, where you want each image to be tagged with the pipeline ID so you can find it later. Uses the same syntax as the ``docker build --tag`` flag.
     container_args: args to run when this container starts. Takes precedence over a `container args specified in k8s YAML <https://kubernetes.io/docs/tasks/inject-data-application/define-command-argument-container/>`_.
+    cache_from: Cache image builds from a remote registry. Uses the same syntax as `docker build --cache-from flag <https://docs.docker.com/engine/reference/commandline/build/#specifying-external-cache-sources>`_.
+    pull: Force pull the latest version of parent images. Equivalent to the ``docker build --pull`` flag.
   """
   pass
 
