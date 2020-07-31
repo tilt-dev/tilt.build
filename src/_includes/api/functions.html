@@ -28,7 +28,7 @@ production cluster, Tilt will only push to clusters that have been whitelisted
 for local development.
            </p>
            <p>
-            By default, Tilt whitelists Minikube, Docker for Desktop, Microk8s, Red Hat CodeReady Containers, Kind, and K3D.
+            By default, Tilt whitelists Minikube, Docker for Desktop, Microk8s, Red Hat CodeReady Containers, Kind, K3D, and Krucible.
            </p>
            <p>
             To whitelist your development cluster, add a line in your Tiltfile:
@@ -1512,6 +1512,14 @@ ensures a pretty high bar of intent.
            <em>
             container_args=None
            </em>
+           ,
+           <em>
+            cache_from=[]
+           </em>
+           ,
+           <em>
+            pull=False
+           </em>
            <span class="sig-paren">
             )
            </span>
@@ -2068,6 +2076,64 @@ ensures a pretty high bar of intent.
                   container args specified in k8s YAML
                  </a>
                  .
+                </li>
+                <li>
+                 <strong>
+                  cache_from
+                 </strong>
+                 (
+                 <code class="xref py py-data docutils literal notranslate">
+                  <span class="pre">
+                   Union
+                  </span>
+                 </code>
+                 [
+                 <code class="xref py py-class docutils literal notranslate">
+                  <span class="pre">
+                   str
+                  </span>
+                 </code>
+                 ,
+                 <code class="xref py py-class docutils literal notranslate">
+                  <span class="pre">
+                   List
+                  </span>
+                 </code>
+                 [
+                 <code class="xref py py-class docutils literal notranslate">
+                  <span class="pre">
+                   str
+                  </span>
+                 </code>
+                 ]]) &#x2013; Cache image builds from a remote registry. Uses the same syntax as
+                 <a class="reference external" href="https://docs.docker.com/engine/reference/commandline/build/#specifying-external-cache-sources">
+                  docker build &#x2013;cache-from flag
+                 </a>
+                 .
+                </li>
+                <li>
+                 <strong>
+                  pull
+                 </strong>
+                 (
+                 <code class="xref py py-class docutils literal notranslate">
+                  <span class="pre">
+                   bool
+                  </span>
+                 </code>
+                 ) &#x2013; Force pull the latest version of parent images. Equivalent to the
+                 <code class="docutils literal notranslate">
+                  <span class="pre">
+                   docker
+                  </span>
+                  <span class="pre">
+                   build
+                  </span>
+                  <span class="pre">
+                   --pull
+                  </span>
+                 </code>
+                 flag.
                 </li>
                </ul>
               </td>
