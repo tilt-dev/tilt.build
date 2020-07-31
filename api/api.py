@@ -719,7 +719,7 @@ def allow_k8s_contexts(contexts: Union[str, List[str]]) -> None:
   production cluster, Tilt will only push to clusters that have been whitelisted
   for local development.
 
-  By default, Tilt whitelists Minikube, Docker for Desktop, Microk8s, Red Hat CodeReady Containers, Kind, and K3D.
+  By default, Tilt whitelists Minikube, Docker for Desktop, Microk8s, Red Hat CodeReady Containers, Kind, K3D, and Krucible.
 
   To whitelist your development cluster, add a line in your Tiltfile:
 
