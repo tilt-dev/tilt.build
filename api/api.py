@@ -230,7 +230,8 @@ def k8s_resource(workload: str = "", new_name: str = "",
                  extra_pod_selectors: Union[Dict[str, str], List[Dict[str, str]]] = [],
                  trigger_mode: TriggerMode = TRIGGER_MODE_AUTO,
                  resource_deps: List[str] = [], objects: List[str] = [],
-                 auto_init: bool = True) -> None:
+                 auto_init: bool = True,
+                 pod_readiness: str = "") -> None:
   """
 
   Configures or creates the specified Kubernetes resource.
@@ -322,6 +323,10 @@ def k8s_resource(workload: str = "", new_name: str = "",
     auto_init: whether this resource runs on ``tilt up``. Defaults to ``True``.
       Note that ``auto_init=False`` is only compatible with
       ``trigger_mode=TRIGGER_MODE_MANUAL``.
+    pod_readiness: Possible values: 'ignore', 'wait'. Controls whether Tilt waits for
+      pods to be ready before the resource is considered healthy (and dependencies
+      can start building). By default, Tilt will wait for pods to be ready if it
+      thinks a resource has pods.
   """
   pass
 
@@ -408,7 +413,7 @@ def local(command: Union[str, List[str]], quiet: bool = False, command_bat: str 
     quiet: If set to True, skips printing output to log.
     command_bat: The command to run, expressed as a Windows batch command executed
       with ``cmd /S /C``. Takes precedence over the ``command`` parameter on Windows. Ignored on macOS/Linux.
-    echo_off: If set to True, skips printing command to log. 
+    echo_off: If set to True, skips printing command to log.
   """
   pass
 
@@ -469,7 +474,7 @@ def listdir(directory: str, recursive: bool = False) -> List[str]:
   Directory is watched (See ``watch_file``)."""
   pass
 
-def k8s_kind(kind: str, api_version: str=None, *, image_json_path: Union[str, List[str]]=[], image_object_json_path: Dict=None):
+def k8s_kind(kind: str, api_version: str=None, *, image_json_path: Union[str, List[str]]=[], image_object_json_path: Dict=None, pod_readiness: str=""):
   """Tells Tilt about a k8s kind.
 
   For CRDs that use images built by Tilt: call this with `image_json_path` or
@@ -497,6 +502,11 @@ def k8s_kind(kind: str, api_version: str=None, *, image_json_path: Union[str, Li
       This uses the k8s json path template syntax, described `here <https://kubernetes.io/docs/reference/kubectl/jsonpath/>`_.
     image_object: A specifier of the form `image_object={'json_path': '{.path.to.field}', 'repo_field': 'repo', 'tag_field': 'tag'}`.
       Used to tell Tilt how to inject images into Custom Resources that express the image repo and tag as separate fields.
+    pod_readiness: Possible values: 'ignore', 'wait'. Controls whether Tilt waits for
+      pods to be ready before the resource is considered healthy (and dependencies
+      can start building). By default, Tilt will wait for pods to be ready if it
+      thinks a resource has pods. This can be overridden on a resource-by-resource basis
+      by the `k8s_resource` function.
 
   """
   pass

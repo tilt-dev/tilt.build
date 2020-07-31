@@ -28,7 +28,7 @@ production cluster, Tilt will only push to clusters that have been whitelisted
 for local development.
            </p>
            <p>
-            By default, Tilt whitelists Minikube, Docker for Desktop, Microk8s, Red Hat CodeReady Containers, Kind, and K3D.
+            By default, Tilt whitelists Minikube, Docker for Desktop, Microk8s, Red Hat CodeReady Containers, Kind, K3D, and Krucible.
            </p>
            <p>
             To whitelist your development cluster, add a line in your Tiltfile:
@@ -3590,6 +3590,10 @@ import them into another Tiltfile, see the
            <em>
             image_object_json_path=None
            </em>
+           ,
+           <em>
+            pod_readiness=&apos;&apos;
+           </em>
            <span class="sig-paren">
             )
            </span>
@@ -3764,6 +3768,26 @@ This uses the k8s json path template syntax, described
                  .
 Used to tell Tilt how to inject images into Custom Resources that express the image repo and tag as separate fields.
                 </li>
+                <li>
+                 <strong>
+                  pod_readiness
+                 </strong>
+                 (
+                 <code class="xref py py-class docutils literal notranslate">
+                  <span class="pre">
+                   str
+                  </span>
+                 </code>
+                 ) &#x2013; Possible values: &#x2018;ignore&#x2019;, &#x2018;wait&#x2019;. Controls whether Tilt waits for
+pods to be ready before the resource is considered healthy (and dependencies
+can start building). By default, Tilt will wait for pods to be ready if it
+thinks a resource has pods. This can be overridden on a resource-by-resource basis
+by the
+                 <cite>
+                  k8s_resource
+                 </cite>
+                 function.
+                </li>
                </ul>
               </td>
              </tr>
@@ -3810,6 +3834,10 @@ Used to tell Tilt how to inject images into Custom Resources that express the im
            ,
            <em>
             auto_init=True
+           </em>
+           ,
+           <em>
+            pod_readiness=&apos;&apos;
            </em>
            <span class="sig-paren">
             )
@@ -4235,6 +4263,21 @@ Note that
                   </span>
                  </code>
                  .
+                </li>
+                <li>
+                 <strong>
+                  pod_readiness
+                 </strong>
+                 (
+                 <code class="xref py py-class docutils literal notranslate">
+                  <span class="pre">
+                   str
+                  </span>
+                 </code>
+                 ) &#x2013; Possible values: &#x2018;ignore&#x2019;, &#x2018;wait&#x2019;. Controls whether Tilt waits for
+pods to be ready before the resource is considered healthy (and dependencies
+can start building). By default, Tilt will wait for pods to be ready if it
+thinks a resource has pods.
                 </li>
                </ul>
               </td>
