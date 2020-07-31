@@ -3,29 +3,22 @@ title: Tilt CLI Reference
 layout: docs
 hideEditButton: true
 ---
-## tilt trigger
+## tilt verify-install
 
-Trigger an update for the specified resource
+Verifies Tilt Installation
 
 ### Synopsis
 
-Trigger an update for the specified resource.
-
-If the resource has Trigger Mode: Manual and has pending changes, this command will cause those pending changes to be applied.
-
-Otherwise, this command will force a full rebuild.
-
+Verifies Tilt Installation
 
 ```
-tilt trigger [RESOURCE_NAME] [flags]
+tilt verify-install [flags]
 ```
 
 ### Options
 
 ```
-  -h, --help          help for trigger
-      --host string   Host for the Tilt HTTP server. Only necessary if you started Tilt with --host. (default "localhost")
-      --port int      Port for the Tilt HTTP server. Only necessary if you started Tilt with --port. (default 10350)
+  -h, --help   help for verify-install
 ```
 
 ### Options inherited from parent commands
