@@ -11,7 +11,7 @@ Remote is OK. Only 5 of 9 of us are in NYC.
 Must be authorized to work in the US, and able to work at least 5 hours overlap
 with US Eastern time.
 
-**Apply Here:** Send an email to 
+**Apply Here:** Send an email with a resume to 
 <a href="mailto:jobs@tilt.dev">jobs@tilt.dev</a>
 
 **Questions?** [Contact us](contact)
