@@ -1,11 +1,11 @@
 
 ### Our Mission
 
-Tilt is building the platform for cloud-native development. Imagine if every
-time you hit save, you could kick off workflows that run in the cloud, with
-results that are accessible across your team instantly and historically. How
-much more productive could you be with faster workflows? What workflows have we
-not even thought of yet?
+Tilt Dev is building the platform for multi-service software
+development. Imagine if every time you hit save, you could kick off workflows
+that run in the cloud, with results that are accessible across your team
+instantly and historically. How much more productive could you be? What
+dev collaboration tools have we not even thought of yet?
 
 ### About Us
 
