@@ -7,6 +7,14 @@ const closeModal = (popupModal) => {
   bodyBlackout.classList.remove("is-blacked-out");
 };
 
+const switchModal = (modal) => {
+  if (modal.style.display === "none") {
+    modal.style.display = "block";
+  } else {
+    modal.style.display = "none";
+  }
+};
+
 modalTriggers.forEach((trigger) => {
   trigger.addEventListener("click", () => {
     const { popupTrigger } = trigger.dataset;
@@ -17,6 +25,10 @@ modalTriggers.forEach((trigger) => {
     popupModal
       .querySelector(".modal__close")
       .addEventListener("click", () => closeModal(popupModal));
+
+    popupModal
+      .querySelector(".modal__switch")
+      .addEventListener("click", () => switchModal(popupModal));
 
     bodyBlackout.addEventListener("click", () => closeModal(popupModal));
   });
