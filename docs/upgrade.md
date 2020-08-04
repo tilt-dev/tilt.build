@@ -27,6 +27,26 @@ iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.co
 Other Upgrade Methods
 ---------------------
 
+
+## Homebrew
+
+```
+$ brew update && brew upgrade tilt-dev/tap/tilt
+$ brew install tilt-dev/tap/tilt
+```
+
+## Scoop
+
+```
+scoop update tilt
+```
+
+## Conda
+
+```
+conda update -c conda-forge tilt
+```
+
 ## Manual Install
 If you installed Tilt manually by downloading a release binary and moving in to your PATH you may need to do the same to upgrade.
 
@@ -50,17 +70,4 @@ On Windows:
 Invoke-WebRequest "https://github.com/tilt-dev/tilt/releases/download/v0.17.0/tilt.0.17.0.windows.x86_64.zip" -OutFile "tilt.zip"
 Expand-Archive "tilt.zip" -DestinationPath "tilt"
 Move-Item -Force -Path "tilt\tilt.exe" -Destination "$home\bin\tilt.exe"
-```
-
-## Homebrew
-
-```
-$ brew update && brew upgrade tilt-dev/tap/tilt
-$ brew install tilt-dev/tap/tilt
-```
-
-## Scoop
-
-```
-scoop update tilt
 ```

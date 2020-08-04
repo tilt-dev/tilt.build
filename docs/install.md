@@ -136,6 +136,13 @@ scoop bucket add tilt-dev https://github.com/tilt-dev/scoop-bucket
 scoop install tilt
 ```
 
+### Conda Forge
+
+```bash
+conda config --add channels conda-forge
+conda install tilt
+```
+
 ### Manual Install
 
 If you don't have a package manager installed, the installer will download a
