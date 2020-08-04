@@ -8,10 +8,18 @@ const closeModal = (popupModal) => {
 };
 
 const switchModal = (modal) => {
-  if (modal.style.display === "none") {
-    modal.style.display = "block";
+  const calendlyDiv = modal.querySelector(".calendly");
+  const callbackDiv = modal.querySelector(".callback");
+  if (calendlyDiv.style.display === "none") {
+    calendlyDiv.style.display = "block";
   } else {
-    modal.style.display = "none";
+    calendlyDiv.style.display = "none";
+  }
+
+  if (callbackDiv.style.display === "none") {
+    callbackDiv.style.display = "block";
+  } else {
+    callbackDiv.style.display = "none";
   }
 };
 

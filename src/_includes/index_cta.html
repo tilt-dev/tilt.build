@@ -1,24 +1,30 @@
 <section class="modal" data-modal="one">
-  <h2 class="modal__title">
-    Schedule a Demo
-  </h2>
-  <button class="modal__close">{% svg assets/svg/x.svg %}</button>
-  <div class="modal__content">
-    <div class="calendly-inline-widget" data-url="https://calendly.com/dbentley/tilt-enterprise?hide_event_type_details=1">
-    </div>
-    <div class="modal__content__text">
-      <p class="modal__heroText">
-        Schedule a 30 minute conversation with a Tilt team member.
-      </p>
-      <p>
-        We will demo Tilt, discuss your challenges, answer your questions, and figure out how we can help supercharge your workflow.
-      </p>
-      <p>
-        Don't want to schedule time right now? We would love to call you back.
-      </p>
-      <button class="modal__switch Home-cta-button">Get a Callback</button>
+  <div class="calendly">
+    <h2 class="modal__title">
+      Schedule a Demo
+    </h2>
+    <button class="modal__close">{% svg assets/svg/x.svg %}</button>
+    <div class="modal__content">
+      <div
+        class="calendly-inline-widget"
+        data-url="https://calendly.com/dbentley/tilt-enterprise?hide_event_type_details=1"
+      ></div>
+      <div class="modal__content__text">
+        <p class="modal__heroText">
+          Schedule a 30 minute conversation with a Tilt team member.
+        </p>
+        <p>
+          We will demo Tilt, discuss your challenges, answer your questions, and
+          figure out how we can help supercharge your workflow.
+        </p>
+        <p>
+          Don't want to schedule time right now? We would love to call you back.
+        </p>
+        <button class="Home-cta-button modal__switch">Get a Callback</button>
+      </div>
     </div>
   </div>
+  <div class="callback"></div>
 </section>
 
 <section class="Home-cta">
