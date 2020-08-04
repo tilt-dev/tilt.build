@@ -12,14 +12,10 @@ const switchModal = (modal) => {
   const callbackDiv = modal.querySelector(".callback");
   if (calendlyDiv.style.display === "none") {
     calendlyDiv.style.display = "block";
+    callbackDiv.style.display = "none";
   } else {
     calendlyDiv.style.display = "none";
-  }
-
-  if (callbackDiv.style.display === "none") {
     callbackDiv.style.display = "block";
-  } else {
-    callbackDiv.style.display = "none";
   }
 };
 

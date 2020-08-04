@@ -198,10 +198,10 @@
     opacity: 1;
     pointer-events: auto;
   }
+}
 
-  &.callback {
-    display: none;
-  }
+.callback {
+  display: none;
 }
 
 .modal__title {
