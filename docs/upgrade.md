@@ -42,6 +42,7 @@ On Linux:
 ```bash
 curl -fsSL https://github.com/tilt-dev/tilt/releases/download/v0.17.0/tilt.0.17.0.linux.x86_64.tar.gz | tar -xzv tilt && \
   sudo mv tilt /usr/local/bin/tilt
+```
 
 On Windows:
 
