@@ -8,6 +8,7 @@ const closeModal = (popupModal) => {
 };
 
 const switchModal = (modal) => {
+  debugger;
   const calendlyDiv = modal.querySelector(".calendly");
   const callbackDiv = modal.querySelector(".callback");
   if (calendlyDiv.style.display === "none") {
@@ -27,12 +28,16 @@ modalTriggers.forEach((trigger) => {
     bodyBlackout.classList.add("is-blacked-out");
 
     popupModal
-      .querySelector(".modal__close")
-      .addEventListener("click", () => closeModal(popupModal));
+      .querySelectorAll(".modal__close")
+      .forEach((m) =>
+        m.addEventListener("click", () => closeModal(popupModal))
+      );
 
     popupModal
-      .querySelector(".modal__switch")
-      .addEventListener("click", () => switchModal(popupModal));
+      .querySelectorAll(".modal__switch")
+      .forEach((m) =>
+        m.addEventListener("click", () => switchModal(popupModal))
+      );
 
     bodyBlackout.addEventListener("click", () => closeModal(popupModal));
   });
