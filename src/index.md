@@ -192,6 +192,11 @@ has_calendly: true
 </ul>
 </div>
 
+<h3 class="Home-sectionHeading">See Tilt in Action</h3>
+<div class="Home-video">
+  <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/FSMc3kQgd5Y" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+
 <h3 class="Home-sectionHeading">Learn More</h3>
 <section class="Home-resources">
   <ul class="Home-resources-list">
