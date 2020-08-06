@@ -536,6 +536,26 @@ $Home-feature-navList-width: 35%;
 }
 
 
+// Video --------------------------------------------------
+
+// https://css-tricks.com/fluid-width-video/
+
+.Home-video {
+  position: relative;
+  padding-bottom: 56.25%; /* 16:9 */
+  height: 0;
+  margin-bottom: $spacing-unit * 3;
+  @include shadow;
+}
+
+.Home-video iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
 // Testimonials --------------------------------------------------
 .Home-sectionHeading--testimonials {
   display: flex;
