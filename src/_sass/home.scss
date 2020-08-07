@@ -205,11 +205,11 @@
   display: none;
 }
 
-.modal__title {
+.modal-title {
   @include font-hero;
 }
 
-.modal__close {
+.modal-close {
   position: absolute;
   top: $spacing-unit;
   right: $spacing-unit;
@@ -217,13 +217,13 @@
   cursor: pointer;
 }
 
-.modal__content {
+.modal-content {
   @include mobileAndAbove {
     display: flex;
   }
 }
 
-.modal__content__text {
+.modal-content__text {
   @include mobileAndBelow {
     margin-top: $spacing-unit;
   }
@@ -234,14 +234,14 @@
   }
 }
 
-.modal__heroText {
+.modal-heroText {
   @include font-hero-subhead;
 }
 
-.modal__content--highlight {
+.modal-content--highlight {
   color: $color-skyBlue;  
 }
-.modal__switchButton {
+.modal-switchButton {
   border-color: $color-skyBlue;
   color: $color-skyBlue;
   margin-top: $spacing-unit;
@@ -250,13 +250,13 @@
   margin-bottom: $spacing-unit;
 }
 
-.modal__form {
+.modal-form {
   display: flex;
   flex-direction: column;
   flex: 1;
 }
 
-.modal__form-row {
+.modal-form-row {
   display: flex;
   flex-direction: column;
   justify-content: stretch;
@@ -264,12 +264,12 @@
   margin-bottom: $spacing-unit * 0.5;
 }
 
-.modal__form-input {
+.modal-form-input {
   margin-top: $spacing-unit * 0.25;
   height: $tilt2-input-height--large;
 }
 
-.modal__form-button {
+.modal-form-button {
   margin-top: $spacing-unit * 0.5;
   width: 100%;
 }

@@ -1,5 +1,5 @@
 const modalTriggers = document.querySelectorAll(".popup-trigger");
-const modalCloseTrigger = document.querySelector(".modal__close");
+const modalCloseTrigger = document.querySelector(".modal-close");
 const bodyBlackout = document.querySelector(".modal-background");
 
 const closeModal = (popupModal) => {
@@ -27,13 +27,13 @@ modalTriggers.forEach((trigger) => {
     bodyBlackout.classList.add("is-blacked-out");
 
     popupModal
-      .querySelectorAll(".modal__close")
+      .querySelectorAll(".modal-close")
       .forEach((m) =>
         m.addEventListener("click", () => closeModal(popupModal))
       );
 
     popupModal
-      .querySelectorAll(".modal__switchButton")
+      .querySelectorAll(".modal-switchButton")
       .forEach((m) =>
         m.addEventListener("click", () => switchModal(popupModal))
       );
