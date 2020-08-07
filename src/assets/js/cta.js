@@ -8,8 +8,8 @@ const closeModal = (popupModal) => {
 };
 
 const switchModal = (modal) => {
-  const calendlyDiv = modal.querySelector(".calendly");
-  const callbackDiv = modal.querySelector(".callback");
+  const calendlyDiv = modal.querySelector(".modal-calendly");
+  const callbackDiv = modal.querySelector(".modal-callback");
   if (calendlyDiv.style.display === "none") {
     calendlyDiv.style.display = "block";
     callbackDiv.style.display = "none";
