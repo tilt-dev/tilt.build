@@ -197,14 +197,19 @@
   &.is--visible {
     opacity: 1;
     pointer-events: auto;
+    overflow-y: scroll;
   }
 }
 
-.modal__title {
+.modal-callback {
+  display: none;
+}
+
+.modal-title {
   @include font-hero;
 }
 
-.modal__close {
+.modal-close {
   position: absolute;
   top: $spacing-unit;
   right: $spacing-unit;
@@ -212,13 +217,13 @@
   cursor: pointer;
 }
 
-.modal__content {
+.modal-content {
   @include mobileAndAbove {
     display: flex;
   }
 }
 
-.modal__content__text {
+.modal-content__text {
   @include mobileAndBelow {
     margin-top: $spacing-unit;
   }
@@ -229,8 +234,47 @@
   }
 }
 
-.modal__heroText {
+.modal-heroText {
   @include font-hero-subhead;
+}
+
+.modal-content--highlight {
+  color: $color-skyBlue;  
+}
+.modal-switchButton {
+  border-color: $color-skyBlue;
+  color: $color-skyBlue;
+  margin-top: $spacing-unit;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: $spacing-unit;
+}
+
+.modal-form {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.modal-form-row {
+  display: flex;
+  flex-direction: column;
+  justify-content: stretch;
+  color: $tilt2-color-gray;
+  margin-bottom: $spacing-unit * 0.5;
+}
+
+.modal-form-input {
+  margin-top: $spacing-unit * 0.25;
+  height: $tilt2-input-height--large;
+  padding-left: $spacing-unit * 0.25;
+  padding-right: $spacing-unit * 0.25;
+  @include font-body;
+}
+
+.modal-form-button {
+  margin-top: $spacing-unit * 0.5;
+  width: 100%;
 }
 
 // Product --------------------------------------------------

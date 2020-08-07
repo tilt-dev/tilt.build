@@ -1,18 +1,88 @@
 <section class="modal" data-modal="one">
-  <h2 class="modal__title">
-    Schedule a Demo
-  </h2>
-  <button class="modal__close">{% svg assets/svg/x.svg %}</button>
-  <div class="modal__content">
-    <div class="calendly-inline-widget" data-url="https://calendly.com/dbentley/tilt-enterprise?hide_event_type_details=1">
+  <div class="modal-calendly">
+    <h2 class="modal-title">
+      Schedule a Demo
+    </h2>
+    <button class="modal-close">{% svg assets/svg/x.svg %}</button>
+    <div class="modal-content">
+      <div
+        class="calendly-inline-widget"
+        data-url="https://calendly.com/dbentley/tilt-enterprise?hide_event_type_details=1"
+      ></div>
+      <div class="modal-content__text">
+        <p class="modal-heroText">
+          Schedule a 30 minute conversation with a Tilt team member.
+        </p>
+        <p>
+          We will demo Tilt, discuss your challenges, answer your questions, and
+          figure out how we can help supercharge your workflow.
+        </p>
+        <p class="modal-content--highlight">
+          Don't want to schedule time right now? We would love to call you back.
+        </p>
+        <button class="Home-cta-button modal-switchButton">Get a Callback</button>
+      </div>
     </div>
-    <div class="modal__content__text">
-      <p class="modal__heroText">
-        Schedule a 30 minute conversation with a Tilt team member.
-      </p>
-      <p>
-        We will demo Tilt, discuss your challenges, answer your questions, and figure out how we can help supercharge your workflow.
-      </p>
+  </div>
+  <div class="modal-callback">
+    <h2 class="modal-title">
+      Schedule a Demo
+    </h2>
+    <button class="modal-close">{% svg assets/svg/x.svg %}</button>
+    <div class="modal-content">
+      <form
+        class="modal-form"
+        action="https://www.getdrip.com/forms/764048678/submissions"
+        method="post"
+        data-drip-embedded-form="764048678"
+        id="drip-ef-764048678"
+      >
+        <div class="modal-form-row">
+          <label for="drip-name">Name</label>
+          <input class="modal-form-input" type="text" id="drip-name" name="fields[name]" value="" />
+        </div>
+        <div class="modal-form-row">
+          <label for="drip-email">Email</label>
+          <input class="modal-form-input" type="email" id="drip-email" name="fields[email]" value="" />
+        </div>
+        <div class="modal-form-row">
+          <label for="drip-Phone">Phone</label>
+          <input class="modal-form-input" type="tel" id="drip-Phone" name="fields[Phone]" value="" />
+        </div>
+        <div style="display: none;" aria-hidden="true">
+          <label for="website">Website</label>
+          <input
+            type="text"
+            id="website"
+            name="website"
+            tabindex="-1"
+            autocomplete="false"
+            value=""
+          />
+        </div>
+        <div>
+          <input
+            class="Home-cta-button Home-cta-button--primary modal-form-button"
+            type="submit"
+            value="Submit"
+            data-drip-attribute="sign-up-button"
+          />
+        </div>
+      </form>
+
+      <div class="modal-content__text">
+        <p class="modal-heroText">
+          Schedule a 30 minute conversation with a Tilt team member.
+        </p>
+        <p>
+          We will demo Tilt, discuss your challenges, answer your questions, and
+          figure out how we can help supercharge your workflow.
+        </p>
+        <p class="modal-content--highlight">
+          Don't want a callback? Schedule a time directly.
+        </p>
+        <button class="Home-cta-button modal-switchButton">Schedule a Demo</button>
+      </div>
     </div>
   </div>
 </section>
