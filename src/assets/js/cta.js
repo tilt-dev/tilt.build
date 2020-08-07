@@ -33,7 +33,7 @@ modalTriggers.forEach((trigger) => {
       );
 
     popupModal
-      .querySelectorAll(".modal__switch")
+      .querySelectorAll(".modal__switchButton")
       .forEach((m) =>
         m.addEventListener("click", () => switchModal(popupModal))
       );

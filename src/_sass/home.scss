@@ -197,6 +197,7 @@
   &.is--visible {
     opacity: 1;
     pointer-events: auto;
+    overflow-y: scroll;
   }
 }
 
@@ -235,6 +236,42 @@
 
 .modal__heroText {
   @include font-hero-subhead;
+}
+
+.modal__content--highlight {
+  color: $color-skyBlue;  
+}
+.modal__switchButton {
+  border-color: $color-skyBlue;
+  color: $color-skyBlue;
+  margin-top: $spacing-unit;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: $spacing-unit;
+}
+
+.modal__form {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.modal__form-row {
+  display: flex;
+  flex-direction: column;
+  justify-content: stretch;
+  color: $tilt2-color-gray;
+  margin-bottom: $spacing-unit * 0.5;
+}
+
+.modal__form-input {
+  margin-top: $spacing-unit * 0.25;
+  height: $tilt2-input-height--large;
+}
+
+.modal__form-button {
+  margin-top: $spacing-unit * 0.5;
+  width: 100%;
 }
 
 // Product --------------------------------------------------
