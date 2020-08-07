@@ -267,6 +267,9 @@
 .modal-form-input {
   margin-top: $spacing-unit * 0.25;
   height: $tilt2-input-height--large;
+  padding-left: $spacing-unit * 0.25;
+  padding-right: $spacing-unit * 0.25;
+  @include font-body;
 }
 
 .modal-form-button {
