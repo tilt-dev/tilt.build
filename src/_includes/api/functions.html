@@ -4378,6 +4378,10 @@ thinks a resource has pods.
            <em>
             yaml
            </em>
+           ,
+           <em>
+            allow_duplicates=False
+           </em>
            <span class="sig-paren">
             )
            </span>
@@ -4442,48 +4446,67 @@ applies to your k8s cluster independently.
                Parameters:
               </th>
               <td class="field-body">
-               <strong>
-                yaml
-               </strong>
-               (
-               <code class="xref py py-data docutils literal notranslate">
-                <span class="pre">
-                 Union
-                </span>
-               </code>
-               [
-               <code class="xref py py-class docutils literal notranslate">
-                <span class="pre">
-                 str
-                </span>
-               </code>
-               ,
-               <code class="xref py py-class docutils literal notranslate">
-                <span class="pre">
-                 List
-                </span>
-               </code>
-               [
-               <code class="xref py py-class docutils literal notranslate">
-                <span class="pre">
-                 str
-                </span>
-               </code>
-               ],
-               <a class="reference internal" href="#api.Blob" title="api.Blob">
-                <code class="xref py py-class docutils literal notranslate">
-                 <span class="pre">
-                  Blob
-                 </span>
-                </code>
-               </a>
-               ]) &#x2013; Path(s) to YAML, or YAML as a
-               <code class="docutils literal notranslate">
-                <span class="pre">
-                 Blob
-                </span>
-               </code>
-               .
+               <ul class="first simple">
+                <li>
+                 <strong>
+                  yaml
+                 </strong>
+                 (
+                 <code class="xref py py-data docutils literal notranslate">
+                  <span class="pre">
+                   Union
+                  </span>
+                 </code>
+                 [
+                 <code class="xref py py-class docutils literal notranslate">
+                  <span class="pre">
+                   str
+                  </span>
+                 </code>
+                 ,
+                 <code class="xref py py-class docutils literal notranslate">
+                  <span class="pre">
+                   List
+                  </span>
+                 </code>
+                 [
+                 <code class="xref py py-class docutils literal notranslate">
+                  <span class="pre">
+                   str
+                  </span>
+                 </code>
+                 ],
+                 <a class="reference internal" href="#api.Blob" title="api.Blob">
+                  <code class="xref py py-class docutils literal notranslate">
+                   <span class="pre">
+                    Blob
+                   </span>
+                  </code>
+                 </a>
+                 ]) &#x2013; Path(s) to YAML, or YAML as a
+                 <code class="docutils literal notranslate">
+                  <span class="pre">
+                   Blob
+                  </span>
+                 </code>
+                 .
+                </li>
+                <li>
+                 <strong>
+                  allow_duplicates
+                 </strong>
+                 (
+                 <code class="xref py py-class docutils literal notranslate">
+                  <span class="pre">
+                   bool
+                  </span>
+                 </code>
+                 ) &#x2013; If you try to register the same Kubernetes
+resource twice, this function will assume this is a mistake and emit an error.
+Set allow_duplicates=True to allow duplicates. There are some Helm charts
+that have duplicate resources for esoteric reasons.
+                </li>
+               </ul>
               </td>
              </tr>
              <tr class="field-even field">
@@ -4491,11 +4514,13 @@ applies to your k8s cluster independently.
                Return type:
               </th>
               <td class="field-body">
-               <code class="docutils literal notranslate">
-                <span class="pre">
-                 None
-                </span>
-               </code>
+               <p class="first last">
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  None
+                 </span>
+                </code>
+               </p>
               </td>
              </tr>
             </tbody>

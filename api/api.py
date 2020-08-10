@@ -150,7 +150,7 @@ def docker_compose(configPaths: Union[str, List[str]]) -> None:
 
 
 
-def k8s_yaml(yaml: Union[str, List[str], Blob]) -> None:
+def k8s_yaml(yaml: Union[str, List[str], Blob], allow_duplicates: bool = False) -> None:
   """Call this with a path to a file that contains YAML, or with a ``Blob`` of YAML.
 
   We will infer what (if any) of the k8s resources defined in your YAML
@@ -176,6 +176,10 @@ def k8s_yaml(yaml: Union[str, List[str], Blob]) -> None:
 
   Args:
     yaml: Path(s) to YAML, or YAML as a ``Blob``.
+    allow_duplicates: If you try to register the same Kubernetes
+      resource twice, this function will assume this is a mistake and emit an error.
+      Set allow_duplicates=True to allow duplicates. There are some Helm charts
+      that have duplicate resources for esoteric reasons.
   """
   pass
 
