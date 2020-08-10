@@ -3,22 +3,28 @@ title: Tilt CLI Reference
 layout: docs
 hideEditButton: true
 ---
-## tilt doctor
+## tilt logs
 
-Print diagnostic information about the Tilt environment, for filing bug reports
+stream logs from a running Tilt instance (optionally filtered for the specified resources)
 
 ### Synopsis
 
-Print diagnostic information about the Tilt environment, for filing bug reports
+Stream logs from a running Tilt instance (optionally filtered for the specified resources).
+
+By default, looks for a running Tilt instance on localhost:10350
+(this is configurable with the --port and --host flags).
+
 
 ```
-tilt doctor [flags]
+tilt logs [resource1, resource2...]
 ```
 
 ### Options
 
 ```
-  -h, --help   help for doctor
+  -h, --help          help for logs
+      --host string   Host for the Tilt HTTP server. Only necessary if you started Tilt with --host. (default "localhost")
+      --port int      Port for the Tilt HTTP server. Only necessary if you started Tilt with --port. (default 10350)
 ```
 
 ### Options inherited from parent commands
