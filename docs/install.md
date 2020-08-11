@@ -143,6 +143,14 @@ conda config --add channels conda-forge
 conda install tilt
 ```
 
+## asdf
+
+```
+asdf plugin add tilt
+asdf install tilt 0.17.1
+asdf global tilt 0.17.1
+```
+
 ### Manual Install
 
 If you don't have a package manager installed, the installer will download a
