@@ -1,5 +1,6 @@
 ---
 tilt: Integrating Bazel with Tilt
+description: "How to adapt a Bazel setup for local Kubernetes development"
 layout: docs
 ---
 
