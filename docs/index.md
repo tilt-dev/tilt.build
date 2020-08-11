@@ -37,7 +37,7 @@ curl -fsSL https://raw.githubusercontent.com/tilt-dev/tilt/master/scripts/instal
 iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/tilt-dev/tilt/master/scripts/install.ps1'))
 ```
 
-For specific package managers (Homebrew, Scoop, Conda), see the [Installation Guide](install.html).
+For specific package managers (Homebrew, Scoop, Conda, asdf), see the [Installation Guide](install.html).
 
 ## Run Tilt
 
