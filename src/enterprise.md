@@ -44,6 +44,8 @@ has_calendly: true
 
 {% include index_cta.html %}
 
+<script async src="/assets/js/cta.js"></script>
+
 <h3 class="Home-sectionHeading">Learn More</h3>
 <section class="Home-resources">
   <ul class="Home-resources-list">
