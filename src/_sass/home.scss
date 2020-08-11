@@ -112,7 +112,7 @@
   font-size: $tilt2-button-font-size--large;
   font-weight: $tilt2-font-weight-sans-bold;
   height: $tilt2-button-height--large;
-  width: 270px;
+  min-width: 270px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -121,6 +121,7 @@
   color: $tilt2-color-gray;
   box-sizing: border-box;
   cursor: pointer;
+  white-space: nowrap;
 
   &:hover {
     color: $color-white;
