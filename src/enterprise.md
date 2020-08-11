@@ -26,7 +26,7 @@ has_calendly: true
 <ul class="Enterprise-featureList">
   <li>
     <h4 class="Enterprise-featureItem-title">Orderly Orchestration</h4>
-    <p class="Enterprise-featureItem-text">Our engine starts the whole app runs automated rebuilds as you edit in your IDE. Get a continuous feedback loop with your logs, broken builds, runtime errors. </p>
+    <p class="Enterprise-featureItem-text">Our engine starts the whole app and runs automated rebuilds as you edit in your IDE. Get a continuous feedback loop with your logs, broken builds, runtime errors. </p>
   </li>
   <li>
     <h4 class="Enterprise-featureItem-title">Built-In Best Practices</h4>
