@@ -47,6 +47,14 @@ scoop update tilt
 conda update -c conda-forge tilt
 ```
 
+## asdf
+
+```
+asdf plugin add tilt
+asdf install tilt 0.17.1
+asdf global tilt 0.17.1
+```
+
 ## Manual Install
 If you installed Tilt manually by downloading a release binary and moving in to your PATH you may need to do the same to upgrade.
 
