@@ -19,7 +19,7 @@ Tilt needs your help to recognize them.
 
 For any resource, Tilt needs to know 3 things:
 
-### Is this an indepdent resource?
+### Is this an independent resource?
 
 By default, Tilt doesn't categorize custom resources. They all get grouped together
 in one "uncategorized" bucket of resources.
