@@ -1,4 +1,5 @@
 data:
+- __file__
 - os.environ
 - os.name
 - config.tilt_subcommand

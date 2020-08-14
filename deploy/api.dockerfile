@@ -14,6 +14,9 @@ RUN make html
 
 RUN ./remove_prefix.py /src/_build/html/index.html > index_without_prefixes.html
 
+# Correctly handle module variables (__var_name__)
+RUN sed -i 's/file__/__file__/g' index_without_prefixes.html
+
 RUN cat index_without_prefixes.html | hgrep "dl.function" > functions.html
 RUN echo "functions:" > functions.yaml
 RUN cat index_without_prefixes.html | hgrep -a id "dl.function > dt" | \

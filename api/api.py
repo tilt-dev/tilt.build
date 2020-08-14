@@ -1,5 +1,11 @@
 from typing import Dict, Union, List, Callable, Any
 
+# Our documentation generation framework doesn't properly handle __file__,
+# so we call it __file__ and edit it later.
+file__: str = ""
+"""The path of the Tiltfile. Set as a local variable in each Tiltfile as it loads.
+"""
+
 class Blob:
   """The result of executing a command on your local system.
 
@@ -30,6 +36,7 @@ def fall_back_on(files: Union[str, List[str]]) -> LiveUpdateStep:
       files: a string or list of strings of files. If relative, will be evaluated relative to the Tiltfile. Tilt compares these to the local paths of edited files when determining whether to fall back to a full image build.
   """
   pass
+
 
 def set_team(team_id: str) -> None:
   """Associates this Tiltfile with the `team <teams.html>`_ identified by `team_id`.
@@ -621,7 +628,7 @@ def encode_yaml_stream(objs: List[StructuredDataType]) -> Blob:
   """
   pass
 
-def default_registry(host: str, host_from_cluster: str = None) -> None:
+def default_registry(host: str, host_from_cluster: str = None, single_name: str = "") -> None:
   """Specifies that any images that Tilt builds should be renamed so that they have the specified Docker registry.
 
   This is useful if, e.g., a repo is configured to push to Google Container Registry, but you want to use Elastic Container Registry instead, without having to edit a bunch of configs. For example, ``default_registry("gcr.io/myrepo")`` would cause ``docker.io/alpine`` to be rewritten to ``gcr.io/myrepo/docker.io_alpine``
@@ -631,6 +638,9 @@ def default_registry(host: str, host_from_cluster: str = None) -> None:
   Args:
     host: host of the registry that all built images should be renamed to use.
     host_from_cluster: registry host to use when referencing images from inside the cluster (i.e. in Kubernetes YAML). Only include this arg if it is different from ``host``. For more on this use case, `see this guide <personal_registry.html#different-urls-from-inside-your-cluster>`_.
+    single_name: In ECR, each repository in a registry needs to be created up-front. single_name lets you
+      set a single repository to push to (e.g., a personal dev repository), and embeds the image name in the
+      tag instead.
 
   Images are renamed following these rules:
 
@@ -781,7 +791,8 @@ def local_resource(name: str, cmd: Union[str, List[str]],
                    trigger_mode: TriggerMode = TRIGGER_MODE_AUTO,
                    resource_deps: List[str] = [], ignore: Union[str, List[str]] = [],
                    auto_init: bool=True, serve_cmd: str = "", cmd_bat: str = "",
-                   serve_cmd_bat: str = "") -> None:
+                   serve_cmd_bat: str = "",
+                   allow_parallel: bool=False) -> None:
   """Configures one or more commands to run on the *host* machine (not in a remote cluster).
 
   By default, Tilt performs an update on local resources on ``tilt up`` and whenever any of their ``deps`` change.
@@ -811,6 +822,8 @@ def local_resource(name: str, cmd: Union[str, List[str]],
       with ``cmd /S /C``. Takes precedence over the ``cmd`` parameter on Windows. Ignored on macOS/Linux.
     serve_cmd_bat: The command to run, expressed as a Windows batch command executed
       with ``cmd /S /C``. Takes precedence over the ``serve_cmd`` parameter on Windows. Ignored on macOS/Linux.
+    allow_parallel: By default, all local resources are presumed unsafe to run in parallel, due to race
+      conditions around modifying a shared file system. Set to True to allow them to run in parallel.
   """
   pass
 

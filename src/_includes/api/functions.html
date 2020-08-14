@@ -1205,6 +1205,10 @@ documents, separated by
            <em>
             host_from_cluster=None
            </em>
+           ,
+           <em>
+            single_name=&apos;&apos;
+           </em>
            <span class="sig-paren">
             )
            </span>
@@ -1292,6 +1296,20 @@ documents, separated by
                   see this guide
                  </a>
                  .
+                </li>
+                <li>
+                 <strong>
+                  single_name
+                 </strong>
+                 (
+                 <code class="xref py py-class docutils literal notranslate">
+                  <span class="pre">
+                   str
+                  </span>
+                 </code>
+                 ) &#x2013; In ECR, each repository in a registry needs to be created up-front. single_name lets you
+set a single repository to push to (e.g., a personal dev repository), and embeds the image name in the
+tag instead.
                 </li>
                </ul>
               </td>
@@ -4984,6 +5002,10 @@ with
            <em>
             serve_cmd_bat=&apos;&apos;
            </em>
+           ,
+           <em>
+            allow_parallel=False
+           </em>
            <span class="sig-paren">
             )
            </span>
@@ -5392,6 +5414,19 @@ with
                   </span>
                  </code>
                  parameter on Windows. Ignored on macOS/Linux.
+                </li>
+                <li>
+                 <strong>
+                  allow_parallel
+                 </strong>
+                 (
+                 <code class="xref py py-class docutils literal notranslate">
+                  <span class="pre">
+                   bool
+                  </span>
+                 </code>
+                 ) &#x2013; By default, all local resources are presumed unsafe to run in parallel, due to race
+conditions around modifying a shared file system. Set to True to allow them to run in parallel.
                 </li>
                </ul>
               </td>
