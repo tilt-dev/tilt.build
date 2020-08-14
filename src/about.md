@@ -104,13 +104,6 @@ but also have teammates in Berlin, Germany and Richmond, VA.
       Increasingly earlier stage startups. Innovating on remote work. He/him.
     </div>
   </div>  
-<div class="bio col-1of3 u-marginBottom1_25">
-    <img class="bio-image" src="/assets/img/abdullah.png">
-    <h4>Abdullah Zameek</h4>
-    <div>
-      Rising Senior at <a href="https://nyuad.nyu.edu/en/" target="_blank"> NYU Abu Dhabi. </a>. Fellow at <a href="https://hackny.org/" target="_blank"> hackNY. </a> Speaks a bit of Python. Bubble Tea Connoisseur. Pokemon Master.  He/him.
-    </div>
-</div> 
 </div>
 
 
