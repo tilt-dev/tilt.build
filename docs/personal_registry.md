@@ -53,6 +53,29 @@ default_registry(
 )
 ```
 
+### Amazon's Elastic Container Registry (ECR)
+
+The AWS container registry, ECR, forces you to create a
+[repository](https://docs.aws.amazon.com/AmazonECR/latest/userguide/Repositories.html)
+ahead of time for each image name.
+
+For teams that use ECR, Tilt offers the option to push all your images to a
+single repository in the registry.
+
+```python
+default_registry(
+  'aws_account_id.dkr.ecr.region.amazonaws.com',
+  single_name='my-team-name/dev')
+```
+
+Teams can have a shared repository, or a repository per developer:
+
+```python
+default_registry(
+  'aws_account_id.dkr.ecr.region.amazonaws.com',
+  single_name='%s/dev' % os.environ.get('AWS_USERNAME'))
+```
+
 ## Config in Files, not Flags
 Other tools might make this a command-line flag, or an environment variable. Tilt encourages you to put it in a file. Why the difference? Tilt wants to be a responsive tool. You can't change a command-line flag without restarting the tool, and we want you to be able to use Tilt without restarting.
 
