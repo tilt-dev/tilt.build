@@ -1,0 +1,58 @@
+---
+layout: default
+---
+<div class="wrapper wrapper--docs u-marginBottom1_5">
+  <nav class="sidebar">
+    <h2><a href="/rollout">Rollout Docs</a></h2>
+
+    <form action="search" method="GET">
+      <div class="formItem">
+        <input type="text" name="q" id="q" placeholder="Search" />
+      </div>
+    </form>
+
+    <button class="sidebar-opener u-showOnlyOnDocsMobile"
+         onclick="document.querySelector('.sidebar').classList.toggle('is-open')">
+      Contents
+
+      {% svg assets/svg/carrot-down.svg %}
+    </button>
+
+    <div class="sidebar-contents">
+
+    {% for section in site.data.rollout %}
+      {% if section.title %}
+      <h3 class="sidebar-sectionTitle">{{ section.title | escape }}</h3>
+      {% endif %}
+
+      <ul class="sidebar-sectionList">
+        {% for page in section.items %}
+        <li><a class="sidebar-link" href="/{{page.href | escape}}">{{page.title | escape}}</a>
+          {% endfor %}
+      </ul>
+
+    {% endfor %}
+
+    </div>
+
+  </nav>
+  <article class="docsContent">
+    {% if page.hideEditButton != true %}
+    <a class="editOnGitHub u-hideOnMobile"
+       href="https://github.com/tilt-dev/tilt.build/tree/master/docs/{{page.name}}">
+      {% svg assets/svg/github.svg width=16 height=16 %}
+
+      <span class="editOnGitHub-text">
+        Edit on GitHub
+      </span>
+    </a>
+    {% endif %}
+
+    <h1>{{ page.title | escape }}</h1>
+
+    {{ content }}
+
+    {% include helpful_form.html %}
+  </article>
+  <script src="/assets/js/links.js" async></script>
+</div>
