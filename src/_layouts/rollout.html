@@ -27,7 +27,11 @@ layout: default
 
       <ul class="sidebar-sectionList">
         {% for page in section.items %}
+          {% if page.href %}
         <li><a class="sidebar-link" href="/{{page.href | escape}}">{{page.title | escape}}</a>
+          {% else %}
+        <li><div class="sidebar-link">{{page.title | escape}}[TK]</a>
+          {% endif %}
           {% endfor %}
       </ul>
 
