@@ -3,17 +3,18 @@ title: Run Local and/or Occasional Workflows with Local Resource
 description: "A technical reference on how to use local build steps in your Tiltfile"
 layout: docs
 ---
-(This is a technical doc; see the [Local Resource feature announcement blog post](https://blog.tilt.dev/2019/11/15/local-resource.html)
-for more context on this feature, and an explanation of some circumstances where it might come in handy.)
+Each entry in your Tilt sidebar is a **resource**---a unit of work managed by Tilt. 
 
-Each entry in your Tilt sidebar is a **resource**---a unit of work managed by Tilt. (For context,
-the most common type of Tilt resource is one that represents a deployed service, and is made up of
-some combination of image build instructions and Kubernetes YAML.) A **local resource** works
-like any other resource in your sidebar; it represents a unit of work, and executes either
-automatically in response to file changes, or [manually](https://docs.tilt.dev/manual_update_control.html)
-on signal from the user. For your resource `MyGreatService`, when one of its file dependencies
-changes, its work is to build a Docker image and deploy some k8s yaml; for a local resource, it's
-to execute an arbitrary command on your local filesystem.
+The most common type of Tilt resource is one that represents a deployed service, and is made up of
+some combination of image build instructions and Kubernetes YAML.
+
+A **local resource** works like any other resource in your sidebar; it
+represents a unit of work, and executes either automatically in response to file
+changes, or [manually](https://docs.tilt.dev/manual_update_control.html) on
+signal from the user. For your resource `MyGreatService`, when one of its file
+dependencies changes, its work is to build a Docker image and deploy some k8s
+yaml; for a local resource, it's to execute an arbitrary command on your local
+filesystem.
 
 You can define a local resource in your Tiltfile as follows:
 ```python
@@ -22,7 +23,7 @@ local_resource('yarn', cmd='yarn install', deps=['package.json'])
 
 See the [`local_resource` API spec](api.html#api.local_resource) for more details.
 
-## Specifying dependencies
+## File dependencies
 The `deps` argument allows you to specify file dependencies for your local
 resource---either as a string (filepath) or a list of strings (list of filepaths).
 
@@ -42,6 +43,33 @@ but not in response to any particular file changes.
 
 As with `docker_build` and `custom_build`, you can specify files/directories to be
 ignored [with the `ignore` argument](http://tilt.dev/2019/06/07/better-monorepo-container-builds-with-context-filters.html).
+
+## Resource dependencies
+
+The `resource_deps` argument allows you to specify the order that resource deps initialize.
+
+A common pattern is to use `local_resource` to run database initialization after
+your database comes up in Kubernetes.
+
+See the [Resource Dependencies guide](resource_dependencies.html) for more.
+
+## Parallelism
+
+Local resources can read and write to the local filesystem freely. 
+
+Tilt will run local resource build commands in serial with other commands.  This
+prevents race conditions: if your local resources are writing files at the same
+time as other resources are trying to read them, your build could get into weird
+and unpredictable states (especially when writes are only partially completed).
+
+But you can explicitly specify that it's ok to run resources in parallel with:
+
+```
+local_resource(name, cmd, allow_parallel=True)
+```
+
+Teams sometimes use this to run linters or unit tests that only read local files
+but do not write.
 
 ## auto_init
 
