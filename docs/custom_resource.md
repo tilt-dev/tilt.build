@@ -150,3 +150,7 @@ If you have an example of a custom resource with Tilt you'd like to share, feel 
 - [Airflow](https://github.com/tilt-dev/tilt-example-frameworks/tree/master/airflow) -
   Deploy an Airflow cluster and iterate on tasks. This doesn't use custom resources
   but it demonstrate alternative ways of using and injecting images.
+- [Prometheus](https://github.com/tilt-dev/tilt-example-frameworks/tree/master/prometheus)
+  Deploy the Prometheus operator and an instance of Prometheus. Demonstrates how to
+  use resource dependencies and pod selectors to install the CRDs in the right order,
+  and monitor the pods created by those CRDs.
