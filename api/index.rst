@@ -12,3 +12,6 @@ Tiltfile API Reference
 
 .. automodule:: modules.config
    :members:
+
+.. automodule:: modules.shlex
+   :members:
