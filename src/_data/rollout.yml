@@ -1,4 +1,24 @@
 - title: Background
+  items:
+  - title: AppDev and DevEx
+  - title: Our DevEx Background
+  - title: Set Adoption Goals
 - title: Configure
+  items:
+  - title: Exploration vs. Daily Use
+  - title: Dev 1.0 to 2.0
+  - title: Team-Specific Ergonomics
+  - title: Non-Server Workflows
 - title: Onboard
+  items:
+  - title: Introduce Tilt
+  - title: Focus Users
+    href: rollout/focus.html
+  - title: In-Product Onboarding
+  - title: Shiny Feature
 - title: Support
+  items:
+  - title: Measure Adoption with Skyline Charts
+  - title: Slack Snapshot Etiquette
+  - title: Prioritize Inactive Users
+  - title: Diagnostic User Interviews
