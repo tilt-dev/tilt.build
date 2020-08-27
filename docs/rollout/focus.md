@@ -5,9 +5,9 @@ layout: rollout
 
 Release Tilt first to an initial set of Focus Users so you can give them a great experience.
 
-## Focus is Easier to Support than Spread Wide
+## A Narrow Set of Users is Easier to Support
 
-My first thought when I configure a tool is to tell everyone on my team. This **Spread Wide** approach can go great, but it's risky.
+It can be tempting to introduce Tilt to everyone on your team at once. But it's risky:
 * **Overwhelming support burden** as users report many unrelated issues that leaves everyone unsatisfied.
 * **Unclear direction** after you send an announcement and only get radio silence.
 * **Deceptive confidence** when an initial uptake of users hides that 80% of target users don't get it.
@@ -34,7 +34,7 @@ Talk to the Focus Users at the start and agree on how you'll work. Something lik
 ## Evaluation
 
 **Use this if**
-* you've realized Tilt is good for yoru team and want to show it to others
+* you've realized Tilt is good for your team and want to show it to others
 * you've shared Tilt with your team but don't know of anyone else using it and don't know what to do next.
 
 **Skip this if**
