@@ -8570,4 +8570,71 @@ all.
             </tbody>
            </table>
           </dd>
+         </dl><dl class="function">
+          <dt id="modules.shlex.quote">
+           <code class="descclassname">
+            shlex.
+           </code>
+           <code class="descname">
+            quote
+           </code>
+           <span class="sig-paren">
+            (
+           </span>
+           <em>
+            s
+           </em>
+           <span class="sig-paren">
+            )
+           </span>
+           <a class="headerlink" href="#modules.shlex.quote" title="Permalink to this definition">
+            &#xB6;
+           </a>
+          </dt>
+          <dd>
+           <p>
+            Returns a shell-escaped version of
+            <code class="docutils literal notranslate">
+             <span class="pre">
+              s
+             </span>
+            </code>
+            , which can be safely interpolated as
+a single token in a shell command.
+           </p>
+           <p>
+            e.g.:
+           </p>
+           <div class="highlight-python notranslate">
+            <div class="highlight">
+             <pre><span></span><span class="n">mystring</span> <span class="o">=</span> <span class="s2">&quot;foo&apos;s bar&quot;</span>
+
+<span class="c1"># bad - runs: `docker run -e foo=foo&apos;s bar myimage` (invalid shell - unmatched &apos;)</span>
+<span class="n">local</span><span class="p">(</span><span class="s1">&apos;docker run -e foo=</span><span class="si">%s</span><span class="s1"> myimage&apos;</span> <span class="o">%</span> <span class="n">mystring</span><span class="p">)</span>
+
+<span class="c1"># good - runs: `docker run -e foo=&apos;foo&apos;&quot;&apos;&quot;&apos;s bar&apos; myimage`</span>
+<span class="c1">#        which correctly sets $foo to &quot;foo&apos;s bar&quot;</span>
+<span class="n">local</span><span class="p">(</span><span class="s1">&apos;docker run -e foo=</span><span class="si">%s</span><span class="s1"> myimage&apos;</span> <span class="o">%</span> <span class="n">shlex</span><span class="o">.</span><span class="n">quote</span><span class="p">(</span><span class="n">mystring</span><span class="p">))</span>
+</pre>
+            </div>
+           </div>
+           <table class="docutils field-list" frame="void" rules="none">
+            <col class="field-name">
+            <col class="field-body">
+            <tbody valign="top">
+             <tr class="field-odd field">
+              <th class="field-name">
+               Return type:
+              </th>
+              <td class="field-body">
+               <code class="xref py py-class docutils literal notranslate">
+                <span class="pre">
+                 str
+                </span>
+               </code>
+              </td>
+             </tr>
+            </tbody>
+           </table>
+          </dd>
          </dl>

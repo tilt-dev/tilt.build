@@ -60,3 +60,4 @@ functions:
 - config.define_string_list
 - config.parse
 - config.set_enabled_resources
+- shlex.quote
