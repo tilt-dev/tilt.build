@@ -3,6 +3,7 @@
   - title: AppDev and DevEx
   - title: Our DevEx Background
   - title: Set Adoption Goals
+    href: rollout/adoption-goals.html
 - title: Configure
   items:
   - title: Exploration vs. Daily Use
@@ -18,7 +19,9 @@
   - title: Shiny Feature
 - title: Support
   items:
-  - title: Measure Adoption with Skyline Charts
+  - title: The "Hours Active" Metric
+  - title: Visualize Adoption with Skyline Charts
   - title: Slack Snapshot Etiquette
   - title: Prioritize Inactive Users
-  - title: Diagnostic User Interviews
+    href: rollout/prioritize-inactive.html
+  - title: Why Could This Be Better
