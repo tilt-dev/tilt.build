@@ -13,7 +13,7 @@ As the name says, this is *experimental*. It is intended only for use in coordin
 ## Usage
 `experimental_analytics_report` takes a single `Dict[string,string]` of tags to report per user. This function causes Tilt to report all data specified, plus the (anonymized) machine and repo hashes to the Tilt analytics server.
 
-Example:
+To work with existing dashboards, a Tiltfile needs to set the 'user.name' tag, e.g.:
 ```
 username = str(local('whoami')).rstrip('\n')
 experimental_analytics_report({'user.name': username})
@@ -21,7 +21,7 @@ experimental_analytics_report({'user.name': username})
 
 This will allow the Tilt team to work with you to build a dashboard showing Tilt usage metrics broken down by individual usernames.
 
-"user.name" is, by convention, the key used for identifying users. Its value might come from "whoami" (as in the example above, which would just show the user's local username) or some fancier command, e.g., `ldapsearch`, depending on your company's infrastructure.
+The value might come from "whoami" (as in the example above, which would just show the user's local username) or some fancier command, e.g., `ldapsearch`, depending on your company's infrastructure.
 
 ## Other uses
 This is an experimental feature, and there are not self-service graphs for any arbitrary data you'd like to attach. If you have other data you'd like to send to Tilt and see analytics for, please talk to us about it!
