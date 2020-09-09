@@ -1,48 +1,33 @@
 ---
-title: Get Feedback with Snapshots
+title: Attach Snapshots in Slack Support Channel
 layout: rollout
 ---
 
-Getting feedback early and often helps unblock users, creates a channel for engagement, and ultimately improves adoption. This doc specifies steps to set up an effective feedback loop.
+## Attach a snapshot with Slack support messages
 
-## Monthly check-in and async feedback
-- Host a monthly check-in meeting with users to solicit feedback and provide major updates.
-- Encourage frictionless and transparent feedback. Invite users to submit problems and ideas in the team Slack channel, and the team issue tracker. Label the issues with `tilt`. Don't use private or low-trafficked channels.
-- Acknowledge any feedback immediately and for everyone to see, even if you don't act on it right away. Indicate [priority](../rollout/prioritize-inactive) of issues to be fixed. An issue tracker enables this. (Don't worry about maintaining due dates, that's too much overhead.)
+If you're using Slack to support users, encourage folks to create a [snapshot](../snapshots) of their Tilt state, and include the snapshot link in their Slack message, every time they report a new problem or offer a piece of feedback. (This also applies if folks report in via email or an issue tracker.)
 
-## In-context feedback with snapshots
-- Developers are uniquely motivated and aspire to submit effective feedback. Effective feedback has context: Screenshots, bug reproducibility steps, rough sketches, etc. 
-- Encourage users to use the native Tilt [snapshots](../snapshots) feature, providing a lot of context with little effort.
-- Users should create a snapshot and attach it to the GitHub issue as part of feedback submission. Use an [issue template](https://docs.github.com/en/github/building-a-strong-community/configuring-issue-templates-for-your-repository) to remind users of snapshots.
-- [A future Tilt enhancement](https://github.com/tilt-dev/tilt/issues/3741) would combine all this into a single step.
+## Why it's effective
 
-## Make feedback submission part of onboarding
-- Submitting feedback is part of the core Tilt experience.
-- The last step of onboarding should require the user to submit an issue (with a template) that includes:
-  - An attached snapshot.
-  - Answers to a short survey regarding onboarding.
-  - At least one feedback item regarding Tilt or the onboarding process.
-- As the DevEx person deploying Tilt, review the issue, provide feedback, and close it if there are no remaining action items.
+- Support problems are best triaged with maximum context, and in the case of Tilt, a snapshot provides the most context with very little effort on the part of the reporter.
+- When a snapshot is provided up front, there's less back and forth required since you're more likely able to pinpoint the root cause earlier. Thus you save even more time if your support channel is async. As the DevEx person, you can resolve the issue with one round trip interaction, which may be within a day, versus several days if multiple round trips are required.
+- Developers naturally intuit providing maximum context. They often ask for reproducibility steps or screenshots when fixing problems themselves. So once they've used snapshots a few times with fast support turnaround times, they will quickly internalize the benefits and use them consistently.
+- Everyone on the team can access the snapshot, so developers (who are naturally collaborative) are enabled to support each other, perhaps even before you get to a support issue.
+- [A future Tilt enhancement](https://github.com/tilt-dev/tilt/issues/3741) would streamline snapshots and support requests.
 
-## Different types of feedback
-- Consider tailoring your issue templates and/or Slack channels to accommodate different types of feedback.
-- **Errors or problems using Tilt**: Help users distinguish between Tilt problems, problems with the greater dev infrastructure set up, or problems specific to the individual user's machine. Probably address this feedback with [higher priority](../rollout/prioritize-inactive).
-- **Feature/improvement request**: Solicit this type of feedback often, since it will be rare. But don't over-index on it too much.
-- **Sentiment**: Periodically gauge overall user emotion toward Tilt, as it is an early indicator of adoption. Excitement is best. Distaste is bad. But apathy is the worst. Use simple emoji polling (😀/🙁/🥱) in Slack or during a monthly check-in meeting to maximize voter turnout. 
-
-## Team collaboration over personal help
-- Developers are collaborative problem solvers that thrive in teams. Tilt is an open-source tool where the user can easily review a pre-configured Tiltfile. Tilt is the opposite of a black box.
-- You can offer personal help to a developer. But a developer is more motiviated to contribute to improving the team's local dev infrastruture. Facilitate this by using the above strategies to create an open and collaborative environment.
+## Encourage consistent snapshot use
+- As the DevEx person, consistently remind users to link to a snapshot which each support request, signaling clear expectations, especially in a public Slack channel.
+- Update the [Slack channel topic](https://slack.com/help/articles/201654083-Set-a-channel-topic-or-description) to remind users that it's required.
+- In the last step of onboarding, require a user to attach a snapshot in the Slack support channel, reporting a problem (if there is one) or offering an improvement suggestion to your team's dev workflow. As the DevEx person, be sure to respond, giving them positive feedback in their first encounter of snapshots.
 
 ## Evaluation
 
 **Use this if**
-- You are already getting a lot of feedback, and want to leverage it to foster community and create excitement.
-- You are [prioritizing inactive users](../rollout/prioritize-inactive) and want to streamline efforts.
+- You have a dedicated supported channel, in Slack or otherwise.
+- You are [prioritizing inactive users](../rollout/prioritize-inactive).
 
 **Skip this if**
-- You currently have a small number of users, less than 3; you should just work with the users individually to get feedback.
+- You currently are not offering your team to use snapshots.
 
-**You know it's successful when** the issue tracker has a lot of activity. Teammates are supporting each other and answering each other's problems,
-even before you get to them.
-
+**You know it's successful when** new support requests consistently have snapshots attached, without prodding required. Developer teammates are opening the snapshots and supporting each other,
+even before you get to the problems.
