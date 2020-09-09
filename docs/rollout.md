@@ -5,7 +5,6 @@ layout: rollout
 
 ## DevEx is an Art, not a Science
 
-
 From supporting Developer Experience (DevEx) in previous jobs at Google, Medium, and Twitter and then helping teams adopt Tilt,
 we've picked up tricks of the trade that can help you roll out a new tool.
 **If you like Tilt and want to share it with your team, this page is for you.**
