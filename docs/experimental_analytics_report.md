@@ -4,7 +4,7 @@ description: "A Tiltfile builtin for better understanding your team's analytics"
 layout: docs
 ---
 ## Summary
-Tilt 0.17.4 adds the `experimental_analytics_report` Tiltfile builtin. This allows teams working with Tilt to better measure and improve their Tilt usage.
+[Tilt 0.17.4](https://github.com/tilt-dev/tilt/releases/tag/v0.17.4) adds the `experimental_analytics_report` Tiltfile builtin. This allows teams working with Tilt to better measure and improve their Tilt usage.
 
 The main goal of this is to allow developer experience engineers working with Tilt to de-anonymize their teams' analytics data, identify teammates who are running into problems with Tilt, and then understand and solve those teammates' problems.
 
