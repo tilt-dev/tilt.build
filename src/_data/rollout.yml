@@ -19,6 +19,7 @@
 - title: Support
   items:
   - title: Measure Adoption with Skyline Charts
+    href: rollout/adoption-skyline-charts
   - title: Attach Snapshots in Slack Support Channel
     href: rollout/snapshots-slack-support
   - title: Prioritize Inactive Users
