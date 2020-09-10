@@ -41,16 +41,6 @@ layout: default
 
   </nav>
   <article class="docsContent">
-    {% if page.hideEditButton != true %}
-    <a class="editOnGitHub u-hideOnMobile"
-       href="https://github.com/tilt-dev/tilt.build/tree/master/docs/rollout/{{page.name}}">
-      {% svg assets/svg/github.svg width=16 height=16 %}
-
-      <span class="editOnGitHub-text">
-        Edit on GitHub
-      </span>
-    </a>
-    {% endif %}
 
     <h1>{{ page.title | escape }}</h1>
 
