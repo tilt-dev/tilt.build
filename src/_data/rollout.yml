@@ -1,25 +1,32 @@
 - title: Background
   items:
   - title: AppDev and DevEx
-  - title: Our DevEx Background
+  - title: The Missing DevEx Book
+    href: rollout/missing-devex-book.html
+  - title: Our DevEx History
   - title: Set Adoption Goals
+    href: rollout/adoption-goals.html
 - title: Configure
   items:
   - title: Exploration vs. Daily Use
+  - title: Organizing Tiltfiles
   - title: Dev 1.0 to 2.0
-  - title: Team-Specific Ergonomics
   - title: Non-Server Workflows
 - title: Onboard
   items:
   - title: Introduce Tilt
+    href: rollout/introduce-tilt.html
   - title: Focus Users
     href: rollout/focus.html
   - title: In-Product Onboarding
   - title: Shiny Feature
 - title: Support
   items:
+  - title: The "Active Hours" Metric
+    href: rollout/active-hours.html
   - title: Measure Adoption with Skyline Charts
   - title: Attach Snapshots in Slack Support Channel
     href: rollout/snapshots-slack-support
   - title: Prioritize Inactive Users
-  - title: Diagnostic User Interviews
+    href: rollout/prioritize-inactive.html
+  - title: Why Could This Be Better?
