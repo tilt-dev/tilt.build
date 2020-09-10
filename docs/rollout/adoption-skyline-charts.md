@@ -9,7 +9,9 @@ We think [active hours](../rollout/active-hours) is an effective metric to repre
 
 [Get in touch with Tilt](../partner_program) and we'll help you get a skyline chart, and other metrics insight too.
 
-![image](image)
+<figure>
+    <img src="/assets/img/rollout/skyline-chart.png" class="no-shadow" alt="Skyline Chart">
+</figure>
 
 ## Evaluation
 
