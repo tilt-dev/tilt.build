@@ -24,8 +24,9 @@
   items:
   - title: The "Active Hours" Metric
     href: rollout/active-hours.html
-  - title: Skyline Charts
-  - title: Slack Snapshot Etiquette
+  - title: Measure Adoption with Skyline Charts
+  - title: Attach Snapshots in Slack Support Channel
+    href: rollout/snapshots-slack-support
   - title: Prioritize Inactive Users
     href: rollout/prioritize-inactive.html
   - title: Why Could This Be Better?

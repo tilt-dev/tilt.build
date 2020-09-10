@@ -42,7 +42,7 @@ needed by your app---you want to do it once on `tilt up`, and every now and then
 but not in response to any particular file changes.
 
 As with `docker_build` and `custom_build`, you can specify files/directories to be
-ignored [with the `ignore` argument](http://tilt.dev/2019/06/07/better-monorepo-container-builds-with-context-filters.html).
+ignored [with the `ignore` argument](http://blog.tilt.dev/2019/06/07/better-monorepo-container-builds-with-context-filters.html).
 
 ## Resource dependencies
 

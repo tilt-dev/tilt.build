@@ -13,6 +13,10 @@ Let's fix this.
 
 In this example, we're going to take you through a simple “hello world” server written in Python that uses [Flask](https://palletsprojects.com/p/flask/), a lightweight web application framework.  (Want this guide for Django or another framework? [Let us know](https://tilt.dev/contact).)
 
+Consider watching this companion video if you prefer. Or come back to it afterward.
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/rtAQ6Gm6z_s" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 We'll use Tilt to:
 
 - Run the server on Kubernetes

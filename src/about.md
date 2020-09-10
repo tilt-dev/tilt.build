@@ -22,7 +22,7 @@ but also have teammates in Berlin, Germany and Richmond, VA.
   </div>	
 
   <ul>	
-    <li><a href="product_designer.html">Product Designer</a></li>	
+    <li>(None)
   </ul>	
   
   <div class="u-marginBottom0_5">	
