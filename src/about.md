@@ -22,18 +22,8 @@ but also have teammates in Berlin, Germany and Richmond, VA.
   </div>	
 
   <ul>	
-    <li>(None)</li>
-  </ul>	
-  
-  <div class="u-marginBottom0_5">	
-    As we grow, we expect more roles to open up in the future
-    (even if we aren't searching for them right now).
-    If you fit one of these profiles, we're interested in chatting!
-  </div>	
-
-  <ul>	
-    <li><a href="frontend_eng.html">Frontend Engineer</a></li>	
-    <li><a href="devtools_eng.html">Developer Tools Engineer</a></li>	
+    <li><a href="frontend_eng.html">Senior Frontend Engineer</a></li>	
+    <li><a href="devtools_eng.html">Senior Developer Tools Engineer</a></li>	
   </ul>	
 </div>
 
