@@ -22,7 +22,7 @@ but also have teammates in Berlin, Germany and Richmond, VA.
   </div>	
 
   <ul>	
-    <li>(None)
+    <li>(None)</li>
   </ul>	
   
   <div class="u-marginBottom0_5">	
