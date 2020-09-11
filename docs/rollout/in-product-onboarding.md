@@ -15,7 +15,7 @@ Tilt is a powerful tool, and thus requires some investment on the part of a new 
 
 ## Custom scripts
 
-Consider using offering custom scripts to help a new user install the preferred [local Kubernetes cluster](../choosing_clusters.html) or [install](../install.html)/[upgrade](../upgrade) the preferred version of Tilt. You can also take advantage of [Tiltfiles being written in the Python-dialect of Starklark](../tiltfile_concepts) to create custom logic to help new users when the first run Tilt, in particular with `local_resource`(../local_resource). We'd love to help your team with these ideas, accounting for your specific needs. [Schedule a chat with us.](https://calendly.com/dbentley/tilt-enterprise)
+Consider using offering custom scripts to help a new user install the preferred [local Kubernetes cluster](../choosing_clusters.html) or [install](../install.html)/[upgrade](../upgrade) the preferred version of Tilt. You can also take advantage of [Tiltfiles being written in the Python-dialect of Starklark](../tiltfile_concepts) to create custom logic to help new users when the first run Tilt, in particular with [`local_resource`](../local_resource). We'd love to help your team with these ideas, accounting for your specific needs. [Schedule a chat with us.](https://calendly.com/dbentley/tilt-enterprise)
 
 ## Future enhancement
 
