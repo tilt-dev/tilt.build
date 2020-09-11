@@ -17,6 +17,8 @@ Tilt is a powerful tool, and thus requires some investment on the part of a new 
 
 Tilt doesn't have in-product onboarding yet. If this sounds interesting to you, [schedule a chat](https://calendly.com/dbentley/tilt-enterprise) and let us know which parts of onboarding you'd want to see in Tilt.
 
+In the meantime, consider using offering custom scripts to help a new user install the preferred [local Kubernetes cluster](../choosing_clusters.html) or [install](../install.html)/[upgrade](../upgrade) the preferred version of Tilt. You can also take advantage of [Tiltfiles being written in the Python-dialect of Starklark](../tiltfile_concepts) to create custom logic to help new users when the first run Tilt.
+
 ## Evaluation
 
 **Use this if**
