@@ -1,14 +1,6 @@
 ---
 layout: page
-title: "Seeking: Frontend Engineer"
----
-
-### Disclaimer
-
-We're not actively hiring for this role. But we are interested in meeting people
-with this background.  As we grow, we expect a role like this to open up in the
-future.
-
+title: "Seeking: Senior Frontend Engineer"
 ---
 
 {% include job_intro.md %}
@@ -20,7 +12,7 @@ automates and optimizes container image builds, and has a Heads-Up Display UI
 that saves you from having to play 20 questions with kubectl. But which pains do
 we relieve next? What features relieve them fastest or best?
 
-We need a Frontend Engineer to help build prototypes and features to answer that question.
+We need a Senior Frontend Engineer to help build prototypes and features to answer that question.
 
 ### What You'll Do
 
@@ -39,6 +31,9 @@ We need a Frontend Engineer to help build prototypes and features to answer that
 - Prototype cloud-native dev features that we haven’t even thought of yet. How
   can we make your data available to your team, and make your team’s data
   available to you?
+  
+- Collaborate with partner teams to diagnose problems particular to how they
+  integrate with Tilt.
 
 - Help us build a team culture where everyone's doing their best work
 
@@ -49,5 +44,11 @@ We need a Frontend Engineer to help build prototypes and features to answer that
 
 - Experience with Go
   <br>(Without at least some Go experience or a willingness to learn, you might have a hard time prototyping new features.)
+
+- Has supported an early stage product.
+  <br>(This is a new category of tool. There's necessary uncertainty about 
+  what we're building. There will be experiments we throw out. We know this 
+  can be overly demoralizing for engineers that are too junior.)
+
   
 {% include job_outro.md %}

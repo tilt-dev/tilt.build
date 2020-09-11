@@ -1,14 +1,6 @@
 ---
 layout: page
-title: "Seeking: Developer Tools Engineer"
----
-
-### Disclaimer
-
-We're not actively hiring for this role. But we are interested in meeting people
-with this background.  As we grow, we expect a role like this to open up in the
-future.
-
+title: "Seeking: Senior Developer Tools Engineer"
 ---
 
 {% include job_intro.md %}
@@ -20,7 +12,8 @@ automates and optimizes container image builds, and has a Heads-Up Display UI
 that saves you from having to play 20 questions with kubectl. But which pains do
 we relieve next? What features relieve them fastest or best?
 
-We need a Developer Tools Engineer to help build features to answer those questions.
+We need a Senior Developer Tools Engineer to help build features to answer those
+questions.
 
 ### What You'll Do
 
@@ -40,6 +33,9 @@ We need a Developer Tools Engineer to help build features to answer those questi
 - Architect cloud-native dev features that we haven’t even thought of yet.
   How can we make your data available to your team,
   and make your team’s data available to you?
+  
+- Collaborate with partner teams to diagnose problems particular to how they
+  integrate with Tilt.
 
 - Help us build a team culture where everyone's doing their best work.
 
@@ -50,8 +46,14 @@ We need a Developer Tools Engineer to help build features to answer those questi
   <br>(The Kubernetes pattern of declarative infrastructure takes some time
   to get used to if you haven’t seen it before.)
 
-- Experience with Typescript and CSS
+- Experience with Typescript and CSS.
   <br>(Though we expect you're more comfortable on the backend,
   features will need a UI in our typescript/CSS frontend.)
+
+- Has supported an early stage product.
+  <br>(This is a new category of tool. There's necessary uncertainty about 
+  what we're building. There will be experiments we throw out. We know this 
+  can be overly demoralizing for engineers that are too junior.)
+
 
 {% include job_outro.md %}

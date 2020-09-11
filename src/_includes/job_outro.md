@@ -6,7 +6,7 @@ from you. There's no perfect candidate, and we want to find the right fit, even
 if it's different than we imagine. We especially would like to meet
 underrepresented/underestimated candidates.
 
-Remote is OK. Only 5 of 9 of us are in NYC.
+Remote is OK. A little over half the team is in NYC.
 
 Must be authorized to work in the US, and able to work at least 5 hours overlap
 with US Eastern time.
