@@ -13,13 +13,13 @@ Tilt is a powerful tool, and thus requires some investment on the part of a new 
 - The system keeps track of where you are, as the user, during the onboarding process, and provides customized help and reminders. If you do onboarding over several sittings, you immediately pick up where you left off at the beginning of each session, since the system saves state.
 - As the DevEx person, the system provides you real-time state of where each user is in their individual onboarding, as well as metrics of how past users performed at certain steps. You see bottlenecks and improve onboarding over time from this insight.
 
-## Future enhancement
-
-Tilt doesn't have in-product onboarding yet. If this sounds interesting to you, [schedule a chat](https://calendly.com/dbentley/tilt-enterprise) and let us know which parts of onboarding you'd want to see in Tilt.
-
 ## Custom scripts
 
-In the meantime, consider using offering custom scripts to help a new user install the preferred [local Kubernetes cluster](../choosing_clusters.html) or [install](../install.html)/[upgrade](../upgrade) the preferred version of Tilt. You can also take advantage of [Tiltfiles being written in the Python-dialect of Starklark](../tiltfile_concepts) to create custom logic to help new users when the first run Tilt.
+Consider using offering custom scripts to help a new user install the preferred [local Kubernetes cluster](../choosing_clusters.html) or [install](../install.html)/[upgrade](../upgrade) the preferred version of Tilt. You can also take advantage of [Tiltfiles being written in the Python-dialect of Starklark](../tiltfile_concepts) to create custom logic to help new users when the first run Tilt, in particular with `local_resource`(../local_resource). We'd love to help your team with these ideas, accounting for your specific needs. [Schedule a chat with us.](https://calendly.com/dbentley/tilt-enterprise)
+
+## Future enhancement
+
+Tilt itself doesn't have in-product onboarding yet. If this sounds interesting to you, let us know which parts of onboarding you'd want to see in Tilt.
 
 ## Evaluation
 
