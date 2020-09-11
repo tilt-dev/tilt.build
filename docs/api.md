@@ -15,6 +15,7 @@ examples of what you can do with a Tiltfile. Load them into your own Tiltfile. I
 
 - [`conftest`](https://github.com/tilt-dev/tilt-extensions/tree/master/conftest): Use [Conftest](https://www.conftest.dev/) to test your configuration files.
 - [`docker_build_sub`](https://github.com/tilt-dev/tilt-extensions/tree/master/docker_build_sub): Specify extra Dockerfile directives in your Tiltfile beyond [`docker_build`](https://docs.tilt.dev/api.html#api.docker_build).
+- [`file_sync_only`](https://github.com/tilt-dev/tilt-extensions/tree/master/file_sync_only): No-build, no-push, file sync-only development. Useful when you want to live-reload a single config file into an existing public image, like nginx.
 - [`git_resource`](https://github.com/tilt-dev/tilt-extensions/tree/master/git_resource): Deploy a dockerfile from a remote repository -- or specify the path to a local checkout for local development.
 - [`helm_remote`](https://github.com/tilt-dev/tilt-extensions/tree/master/helm_remote): Install a remote Helm chart (in a way that gets properly uninstalled when running `tilt down`)
 - [`jest_test_runner`](https://github.com/tilt-dev/tilt-extensions/tree/master/jest_test_runner): Jest JavaScript test runner. Example from [Contribute an Extension](https://docs.tilt.dev/contribute_extension.html).
