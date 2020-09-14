@@ -1,5 +1,5 @@
 ---
-title: Capture Attention with a Tilt-enabled Shiny Feature
+title: Polish a Tilt-enabled Shiny Feature
 layout: rollout
 ---
 
