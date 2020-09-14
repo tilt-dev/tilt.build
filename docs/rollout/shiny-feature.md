@@ -3,15 +3,18 @@ title: Capture Attention with a Tilt-enabled Shiny Feature
 layout: rollout
 ---
 
-## Leverage a Tilt-enabled shiny feature to catch user attention
+## Leverage a Tilt-enabled shiny feature to catch attention
 
-Tilt is a powerful tool that allows you, as the DevEx person, to offer an optimized developer experience for your team. You may be tempted to get everything right before rolling out Tilt to users. But just as you should [focus on a small set of users to start](../rollout/focus), spend effort on delivering just one or at most two Tilt-enabled functionalities that will really wow your users. Users are already bogged down during a busy work day, often switching between many devl tools. So catch their attention with a new shiny feature that your new Tilt-focused DevEx platform provides.
+Tilt is a powerful tool that allows you, as the DevEx person, to offer an optimized developer experience for your team. You may be tempted to get everything right before rolling out Tilt to AppDevs. But just as you should [focus on a small set of AppDevs to start](../rollout/focus), spend effort on delivering just one or at most two Tilt-enabled functionalities that will really wow your AppDevs. AppDevs are already bogged down during a busy work day, often switching between many devl tools. So catch their attention with a new shiny feature that your new Tilt-focused DevEx platform provides.
 
 ## Polish the shiny feature 
 
-Tilt out the box already provides an elevated user experience, such as a streamlined web UI consolidating all parts of your app. But the real magic of Tilt lies in the [Tiltfile](..tiltfile_concepts), allowing for a truly customized unique experience, different from any other company, or even any other team within your company. Invest in the extra effort to polish a shiny feature that really stands out, beyond what was previously possible prior to rolling out out Tilt. This typically means 
+Tilt out the box already provides an elevated AppDev experience, such as a streamlined web UI consolidating all parts of your app. But the real magic of Tilt lies in the fully customizable [Tiltfile](..tiltfile_concepts), allowing for a truly unique experience that targets your team's specific needs, different from any other company, or even any other team within your company. Invest in the extra effort to polish a shiny feature that really stands out, beyond what was previously possible prior to rolling out out Tilt. It bears repeating: Focus on depth over breadth. Identify one feature to make really shiny with your limited time, instead of delivering multiple features that will turn out to be less memorable. Only once you've captured the hearts of those initial AppDevs with that first shiny feature, you can move on to the next one.
 
-# Shiny ideas
+## Shiny ideas
+
+**Surface all parts of your app in Tilt**: Apps, especially cloud-native apps have increasingly many components. Oftentimes AppDevs have simply given up trying to see the big picture, and only focus on setting up a small handful of microservices at a time during development, resulting in frustrating problems such as inconsistent data or outdated APIs. Consider including as many resources in the Tiltfile as you, that's still relevant to development. Using [Tiltfile Configs](../tiltfile_config) to further offer customized scenarios, for example, the frontend config vs the backend config.
+
 
 - Extensions
 
