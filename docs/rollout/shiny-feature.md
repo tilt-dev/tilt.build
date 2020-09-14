@@ -16,9 +16,9 @@ Tilt has many shiny features, in general. But likely only a subset of them would
 ## Some shiny features to consider
 
 - Tilt puts all the pieces of your app in a single UI. If your team struggles with a lengthy dev environment set up, juggling multiple services with many error-prone steps, then show how a single `tilt up` command and a streamlined web UI fixes that.
-- Tilt abstracts away local Kubernetes clusters. If your team has struggled here, show how Tilt removes this friction.
-
-
+- Tilt abstracts away local Kubernetes clusters. If your team is new to Kubernetes and finds it dizzying, show how Tilt removes this friction.
+- Tilt uses [`live_update`](../live_update_tutorial) to deploy code to containers directly in seconds, instead of minutes with images traditionally. If your team complains about slow dev cycles because of image deploys, show them this.
+- Tilt uses [snapshots](../snapshots) to facilitate async code collaboration and team support. If your team finds it hard to collaborate because of tooling shortcomings, show them this.
 
 ## Evaluation
 
