@@ -15,6 +15,9 @@ Tilt has many shiny features, in general. But likely only a subset of them would
 
 ## Some shiny features to consider
 
+- Tilt puts all the pieces of your app in a single UI. If your team struggles with a lengthy dev environment set up, juggling multiple services with many error-prone steps, then show how a single `tilt up` command and a streamlined web UI fixes that.
+- Tilt abstracts away local Kubernetes clusters. If your team has struggled here, show how Tilt removes this friction.
+
 
 
 ## Evaluation
