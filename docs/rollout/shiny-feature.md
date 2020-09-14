@@ -1,11 +1,25 @@
 ---
-title: Capture Attention with a Shiny Feature
+title: Capture Attention with a Tilt-enabled Shiny Feature
 layout: rollout
 ---
 
-## Leverage a shiny feature to catch user attention
+## Leverage a Tilt-enabled shiny feature to catch user attention
 
-Tilt is a powerful tool with a lot of functionality and benefits. The [transition guide](../rollout/introduce-tilt) and [in-product onboarding](../rollout/in-product-onboarding) provide methodical ways to ease some of this complexity. But especially with folks that are bogged down during a busy work day, it's helpful to catch a user's attention with a shiny feature early on during onboarding, in order to really get them interested in seeing how Tilt significantly improves their workflow.
+Tilt is a powerful tool that allows you, as the DevEx person, to offer an optimized developer experience for your team. You may be tempted to get everything right before rolling out Tilt to users. But just as you should [focus on a small set of users to start](../rollout/focus), spend effort on delivering just one or at most two Tilt-enabled functionalities that will really wow your users. Users are already bogged down during a busy work day, often switching between many devl tools. So catch their attention with a new shiny feature that your new Tilt-focused DevEx platform provides.
+
+## Polish the shiny feature 
+
+Tilt out the box already provides an elevated user experience, such as a streamlined web UI consolidating all parts of your app. But the real magic of Tilt lies in the [Tiltfile](..tiltfile_concepts), allowing for a truly customized unique experience, different from any other company, or even any other team within your company. Invest in the extra effort to polish a shiny feature that really stands out, beyond what was previously possible prior to rolling out out Tilt. This typically means 
+
+# Shiny ideas
+
+- Extensions
+
+
+- extensions
+
+
+The [transition guide](../rollout/introduce-tilt) and [in-product onboarding](../rollout/in-product-onboarding) provide methodical ways to ease some of this complexity. But especially with folks that are bogged down during a busy work day, it's helpful to catch a user's attention with a shiny feature early on during onboarding, in order to really get them interested in seeing how Tilt significantly improves their workflow.
 
 As the DevEx person deploying Tilt, consider leading with a short 2 minute demo in an introductory meeting. Or embedding a gif in an introductory email. Really catch the attention of folks early on.
 
