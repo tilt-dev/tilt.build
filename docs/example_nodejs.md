@@ -289,6 +289,7 @@ This is a very simple example, but we hope it gives you a good starting point fo
 
 ### Other sample JS projects:
 
+- [Tiltfile exposing the NodeJS debugger port](https://github.com/tilt-dev/tilt-example-nodejs/blob/master/101-debugger/Tiltfile#L5)
 - [Demo React app](https://github.com/tilt-dev/tilt-frontend-demo)
 - [Demo Vue.js app](https://github.com/tilt-dev/tilt-vuejs-demo)
 - [abc123](https://github.com/tilt-dev/abc123) is a mini microservice app with a NodeJS server called `letters`
