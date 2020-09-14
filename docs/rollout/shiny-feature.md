@@ -24,7 +24,12 @@ Tilt has many shiny features, in general. But likely only a subset of them would
 
 **Use this if**
 
+- You are just starting to create an onboarding strategy and considering ways to get buy-in from developers.
+- You've had some success converting users, but many of them tell you the benefits of Tilt wasn't obvious at first.
+
 **Skip this if**
 
-**You know it's successful when** you find yourself returning to the chart week over week to see any changes.
+- Users are already quickly onboarding to Tilt and understanding the benefits quickly.
+
+**You know it's successful when** you consistently see more aha moments from new users.
 .
