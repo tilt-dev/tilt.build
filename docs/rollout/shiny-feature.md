@@ -21,7 +21,7 @@ Here's a few ideas to deliver a wow feature. [Reach out to us](https://calendly.
 
 **Seamless code collaboration and team support**: If your team finds it hard to collaborate because of tooling shortcomings, set up [snapshots](../snapshots). Set up [Tilt Cloud](../tilt_cloud) for your team, getting clearance from Security as needed. 
 
-**Create your own**: 
+**Create your own**: Many folks have already created a [Tilt extension](../extensions) to deliver a wow feature for their team. See [the list](https://github.com/tilt-dev/tilt-extensions) or [contribute a new one](../contribute_extension.html).
 
 ## Evaluation
 
@@ -35,4 +35,3 @@ Here's a few ideas to deliver a wow feature. [Reach out to us](https://calendly.
 - Users are already quickly onboarding to Tilt and understanding the benefits right away.
 
 **You know it's successful when** you consistently see more aha moments from new users.
-.
