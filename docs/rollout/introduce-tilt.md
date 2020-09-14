@@ -21,7 +21,7 @@ Start with why Tilt is better, and focus on why it's better for the AppDev right
 
 Highlight benefits of Tilt for your project compared to the legacy tool. Don't just list features of Tilt: some may not be new compared to the legacy tool and some you may not use yet.
 
-Include a screenshot to make it easy to understand the difference. (If your team uses Tilt Cloud, you can also use Snapshots to let potential users interact with the UI before installing Tilt).
+Include a screenshot to make it easy to understand the difference. (If your team uses Tilt Cloud, you can also use [Snapshots](../snpashots) to let potential users interact with the UI before installing Tilt).
 
 ## How To Get Started
 
@@ -38,7 +38,7 @@ An example workflow makes it easy for a user to map Tilt onto their existing men
 
 ## Advanced Features
 
-As you configured Tilt you may have added convenient features in the Tiltfile. E.g. making it easy to recreate the database with a `local_resource` or use config values to choose what servers to set up as editable. Tell users about the bells and whistles so they can enjoy them too!
+As you configured Tilt you may have added convenient features in the Tiltfile. E.g. making it easy to recreate the database with a [`local_resource`](../local_resource) or use config values to choose what servers to set up as editable. Tell users about the bells and whistles so they can enjoy them too!
 
 ## Known Issues
 
