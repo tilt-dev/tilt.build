@@ -21,7 +21,7 @@ Start with why Tilt is better, and focus on why it's better for the AppDev right
 
 Highlight benefits of Tilt for your project compared to the legacy tool. Don't just list features of Tilt: some may not be new compared to the legacy tool and some you may not use yet.
 
-Include a screenshot to make it easy to understand the difference. (If your team uses Tilt Cloud, you can also use [Snapshots](../snpashots) to let potential users interact with the UI before installing Tilt).
+Include a screenshot to make it easy to understand the difference. (If your team uses Tilt Cloud, you can also use [Snapshots](../snapshots) to let potential users interact with the UI before installing Tilt).
 
 ## How To Get Started
 
