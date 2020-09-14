@@ -29,7 +29,7 @@ Tilt has many shiny features, in general. But likely only a subset of them would
 
 **Skip this if**
 
-- Users are already quickly onboarding to Tilt and understanding the benefits quickly.
+- Users are already quickly onboarding to Tilt and understanding the benefits right away.
 
 **You know it's successful when** you consistently see more aha moments from new users.
 .
