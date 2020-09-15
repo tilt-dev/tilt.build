@@ -1,6 +1,7 @@
 - title: Background
   items:
   - title: AppDev and DevEx
+    href: rollout/appdev-devex
   - title: The Missing DevEx Book
     href: rollout/missing-devex-book
   - title: Our DevEx History
