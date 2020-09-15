@@ -510,6 +510,7 @@ $Home-feature-navList-width: 35%;
   @include reset-list-style;
   padding-top: $spacing-unit * 0.75;
   padding-right: $spacing-unit; // Text shouldn't get too close to scrollbar
+  padding-bottom: $spacing-unit;
   position: absolute;
   top: 0;
   bottom: 0;
