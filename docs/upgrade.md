@@ -61,21 +61,21 @@ If you installed Tilt manually by downloading a release binary and moving in to 
 On macOS:
 
 ```bash
-curl -fsSL https://github.com/tilt-dev/tilt/releases/download/v0.17.4/tilt.0.17.4.mac.x86_64.tar.gz | tar -xzv tilt && \
+curl -fsSL https://github.com/tilt-dev/tilt/releases/download/v0.17.5/tilt.0.17.5.mac.x86_64.tar.gz | tar -xzv tilt && \
   sudo mv tilt /usr/local/bin/tilt
 ```
 
 On Linux:
 
 ```bash
-curl -fsSL https://github.com/tilt-dev/tilt/releases/download/v0.17.4/tilt.0.17.4.linux.x86_64.tar.gz | tar -xzv tilt && \
+curl -fsSL https://github.com/tilt-dev/tilt/releases/download/v0.17.5/tilt.0.17.5.linux.x86_64.tar.gz | tar -xzv tilt && \
   sudo mv tilt /usr/local/bin/tilt
 ```
 
 On Windows:
 
 ```powershell
-Invoke-WebRequest "https://github.com/tilt-dev/tilt/releases/download/v0.17.4/tilt.0.17.4.windows.x86_64.zip" -OutFile "tilt.zip"
+Invoke-WebRequest "https://github.com/tilt-dev/tilt/releases/download/v0.17.5/tilt.0.17.5.windows.x86_64.zip" -OutFile "tilt.zip"
 Expand-Archive "tilt.zip" -DestinationPath "tilt"
 Move-Item -Force -Path "tilt\tilt.exe" -Destination "$home\bin\tilt.exe"
 ```
