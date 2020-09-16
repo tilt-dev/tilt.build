@@ -123,7 +123,7 @@ The installer first checks if you can install Tilt with a package manager, like
 
 You can also use these installers directly.
 
-### Homebrew (macOS)
+### Homebrew (macOS or Linux)
 
 ```bash
 brew install tilt-dev/tap/tilt

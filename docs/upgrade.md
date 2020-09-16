@@ -28,7 +28,7 @@ Other Upgrade Methods
 ---------------------
 
 
-## Homebrew
+## Homebrew (macOS or Linux)
 
 ```
 $ brew update && brew upgrade tilt-dev/tap/tilt
