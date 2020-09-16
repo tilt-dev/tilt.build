@@ -144,9 +144,41 @@ to see the complete state of the Tilt web UI.
 
 ---
 
-### How can I monitor Tilt usage on my team?
+### How can I keep track of Tilt usage on my team?
 
-As of v0.10.25, Tilt has an experimental Tiltfile function: `experimental_telemetry_cmd`.
+As of v0.17.5, Tilt has an experimental Tiltfile function: `experimental_metrics_settings`.
+
+To use it, run:
+
+```python
+experimental_metrics_settings(enabled=True)
+```
+
+If you are logged into the Tilt UI, this will send identifiable metrics to
+opentelemetry.tilt.dev about which Tilt commands you're invoking, how long your
+image builds take, and other statistics about your build.
+
+We're working on making this data available to you on cloud.tilt.dev.
+We're building dashboards and tools to help teams use this information
+to optimize image builds, and determine when one user on the team is having an
+unusually slow experience.
+
+The metrics uses opencensus to send metrics, so you can use an opencensus or
+opentelemetry agent on your machine to send the metrics wherever you want.
+
+```python
+experimental_metrics_settings(enabled=True, address='localhost:55678', insecure=True)
+```
+
+If that sounds interesting to you, [**please reach
+out**](https://calendly.com/nick-at-tilt/30min).
+
+
+---
+
+We also offer an older version of this: `experimental_telemetry_cmd`. We expect
+that `experimental_metric_settings` will eventually replace this.
+
 
 This command takes a string which is a command to run. Tilt will exec this
 command every minute and pass it on STDIN a series of [OpenTelemetry spans](https://github.com/open-telemetry/opentelemetry-specification/blob/master/specification/overview.md#distributed-tracing)
