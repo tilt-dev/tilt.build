@@ -79,7 +79,7 @@ In the Docker For Mac preferences, click
 
 ## MicroK8s
 
-[Microk8s](https://microk8s.io) is what we recommend most often for Linux users.
+[Microk8s](https://microk8s.io) is what we recommend most often for Ubuntu users.
 
 Install:
 
@@ -109,7 +109,10 @@ kubectl config use-context microk8s
 ### Cons
 
 - Resetting the cluster is slow and error-prone.
-- Optimized for Linux. You can use it on MacOS and Windows with [Multipass](https://multipass.run/).
+- Optimized for Ubuntu. In theory, works on any Linux that supports
+  [Snap](https://snapcraft.io/) and on MacOS/Windows with
+  [Multipass](https://multipass.run/), but t's
+  not as stable on those platforms.
 
 ---
 
