@@ -134,6 +134,16 @@ it with a content-based tag.
 This method is generally less robust, because the script is building to a
 mutable tag instead of an immutable tag.
 
+### An Improvement on the Hacky Way
+
+If you're willing to invest more into your custom build script,
+you should use content-based tags!
+
+`custom_build(outputs_image_ref_to='ref.txt')` will tell Tilt that your custom
+build script intends to write a tagged image reference to the file `ref.txt`.
+
+Tilt will then inject that image into your deployments.
+
 ### Determining the Content-based Tag
 
 In rare cases, another script in your build system may need to know what tag

@@ -301,6 +301,10 @@ that always want telemetry enabled or disabled.
            <em>
             command_bat=&apos;&apos;
            </em>
+           ,
+           <em>
+            outputs_image_ref_to=&apos;&apos;
+           </em>
            <span class="sig-paren">
             )
            </span>
@@ -313,48 +317,12 @@ that always want telemetry enabled or disabled.
             Provide a custom command that will build an image.
            </p>
            <p>
-            For examples on how to use this to integrate your own build scripts with Tilt,
-see the
-            <a class="reference external" href="custom_build.html">
-             Custom Build Script How-to
-            </a>
-            .
-           </p>
-           <p>
-            The command
-            <em>
-             must
-            </em>
-            publish an image with the name &amp; tag
-            <code class="docutils literal notranslate">
-             <span class="pre">
-              $EXPECTED_REF
-             </span>
-            </code>
-            .
-           </p>
-           <p>
-            Tilt will raise an error if the command exits successfully, but the registry does not contain
-an image with the ref
-            <code class="docutils literal notranslate">
-             <span class="pre">
-              $EXPECTED_REF
-             </span>
-            </code>
-            , unless you specify
-            <code class="docutils literal notranslate">
-             <span class="pre">
-              skips_local_docker=True
-             </span>
-            </code>
-           </p>
-           <p>
             Example
            </p>
            <div class="highlight-default notranslate">
             <div class="highlight">
              <pre><span></span><span class="n">custom_build</span><span class="p">(</span>
-  <span class="s1">&apos;gcr.io/foo&apos;</span><span class="p">,</span>
+  <span class="s1">&apos;gcr.io/my-project/frontend-server&apos;</span><span class="p">,</span>
   <span class="s1">&apos;docker build -t $EXPECTED_REF .&apos;</span><span class="p">,</span>
   <span class="p">[</span><span class="s1">&apos;.&apos;</span><span class="p">],</span>
 <span class="p">)</span>
@@ -362,13 +330,25 @@ an image with the ref
             </div>
            </div>
            <p>
-            Note: the
+            Please read the
+            <a class="reference external" href="custom_build.html">
+             Custom Build Script How-to
+            </a>
+            on how to
+use this function.
+           </p>
+           <p>
+            All custom build scripts build an image and put it somewhere. But there are
+several different patterns for where they put the image, how they compute a
+digest of the contents, and how they push the image to the
+cluster.
             <code class="docutils literal notranslate">
              <span class="pre">
-              entrypoint
+              custom_build
              </span>
             </code>
-            parameter is not supported for Docker Compose resources. If you need it for your use case, let us know.
+            has many options to support different combinations
+of each mode. The guide has some examples of common combinations.
            </p>
            <table class="docutils field-list" frame="void" rules="none">
             <col class="field-name">
@@ -414,13 +394,13 @@ an image with the ref
                    ref
                   </span>
                  </code>
-                 . Must produce an image named
+                 . In the default mode, must produce an image named
                  <code class="docutils literal notranslate">
                   <span class="pre">
                    $EXPECTED_REF
                   </span>
                  </code>
-                 Executed with
+                 .  Executed with
                  <code class="docutils literal notranslate">
                   <span class="pre">
                    sh
@@ -484,11 +464,7 @@ an image with the ref
                   </span>
                  </code>
                  ,
-then re-tag it with its own tag before pushing to your cluster. See
-                 <a class="reference external" href="integrating_bazel_with_tilt.html">
-                  the bazel guide
-                 </a>
-                 for an example.
+then re-tag it with its own tag before pushing to your cluster.
                 </li>
                 <li>
                  <strong>
@@ -700,7 +676,7 @@ then re-tag it with its own tag before pushing to your cluster. See
                    bar&apos;
                   </span>
                  </code>
-                 ); if specifed as a list, will be passed to the operating system as program name and args.
+                 ); if specifed as a list, will be passed to the operating system as program name and args. Kubernetes-only.
                 </li>
                 <li>
                  <strong>
@@ -732,6 +708,20 @@ with
                   </span>
                  </code>
                  parameter on Windows. Ignored on macOS/Linux.
+                </li>
+                <li>
+                 <strong>
+                  outputs_image_ref_to
+                 </strong>
+                 (
+                 <code class="xref py py-class docutils literal notranslate">
+                  <span class="pre">
+                   str
+                  </span>
+                 </code>
+                 ) &#x2013; Specifies a file path. When set, the custom build command must write a content-based
+tagged image ref to this file. Tilt will read that file after the cmd runs to get the image ref,
+and inject that image ref into the YAML. For more on content-based tags, see &lt;custom_build.html#why-tilt-uses-immutable-tags&gt;_
                 </li>
                </ul>
               </td>
@@ -1638,7 +1628,7 @@ ensures a pretty high bar of intent.
                    str
                   </span>
                  </code>
-                 ) &#x2013; path to use as the Docker build context.
+                 ) &#xFFFD;&#xFFFD;&#xFFFD; path to use as the Docker build context.
                 </li>
                 <li>
                  <strong>
