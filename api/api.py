@@ -654,41 +654,44 @@ def default_registry(host: str, host_from_cluster: str = None, single_name: str 
   """
   pass
 
-def custom_build(ref: str, command: str, deps: List[str], tag: str = "", disable_push: bool = False, skips_local_docker: bool = False, live_update: List[LiveUpdateStep]=[], match_in_env_vars: bool = False, ignore: Union[str, List[str]] = [], entrypoint: Union[str, List[str]] = [], command_bat: str = ""):
+def custom_build(ref: str, command: str, deps: List[str], tag: str = "", disable_push: bool = False, skips_local_docker: bool = False, live_update: List[LiveUpdateStep]=[], match_in_env_vars: bool = False, ignore: Union[str, List[str]] = [], entrypoint: Union[str, List[str]] = [], command_bat: str = "", outputs_image_ref_to: str = ""):
   """Provide a custom command that will build an image.
-
-  For examples on how to use this to integrate your own build scripts with Tilt,
-  see the `Custom Build Script How-to <custom_build.html>`_.
-
-  The command *must* publish an image with the name & tag ``$EXPECTED_REF``.
-
-  Tilt will raise an error if the command exits successfully, but the registry does not contain
-  an image with the ref ``$EXPECTED_REF``, unless you specify ``skips_local_docker=True``
 
   Example ::
 
     custom_build(
-      'gcr.io/foo',
+      'gcr.io/my-project/frontend-server',
       'docker build -t $EXPECTED_REF .',
       ['.'],
     )
 
-  Note: the ``entrypoint`` parameter is not supported for Docker Compose resources. If you need it for your use case, let us know.
+  Please read the `Custom Build Script How-to <custom_build.html>`_ on how to
+  use this function.
+
+  All custom build scripts build an image and put it somewhere. But there are
+  several different patterns for where they put the image, how they compute a
+  digest of the contents, and how they push the image to the
+  cluster. ``custom_build`` has many options to support different combinations
+  of each mode. The guide has some examples of common combinations.
 
   Args:
     ref: name for this image (e.g. 'myproj/backend' or 'myregistry/myproj/backend'). If this image will be used in a k8s resource(s), this ref must match the ``spec.container.image`` param for that resource(s).
-    command: a command that, when run in the shell, builds an image puts it in the registry as ``ref``. Must produce an image named ``$EXPECTED_REF``  Executed with ``sh -c`` on macOS/Linux, or ``cmd /S /C`` on Windows.
+    command: a command that, when run in the shell, builds an image puts it in the registry as ``ref``. In the default mode, must produce an image named ``$EXPECTED_REF``.  Executed with ``sh -c`` on macOS/Linux, or ``cmd /S /C`` on Windows.
     deps: a list of files or directories to be added as dependencies to this image. Tilt will watch those files and will rebuild the image when they change. Only accepts real paths, not file globs.
     tag: Some tools can't change the image tag at runtime. They need a pre-specified tag. Tilt will set ``$EXPECTED_REF = image_name:tag``,
-       then re-tag it with its own tag before pushing to your cluster. See `the bazel guide <integrating_bazel_with_tilt.html>`_ for an example.
+       then re-tag it with its own tag before pushing to your cluster.
     disable_push: whether Tilt should push the image in to the registry that the Kubernetes cluster has access to. Set this to true if your command handles pushing as well.
     skips_local_docker: Whether your build command writes the image to your local Docker image store. Set this to true if you're using a cloud-based builder or independent image builder like ``buildah``.
     live_update: set of steps for updating a running container (see `Live Update documentation <live_update_reference.html>`_).
     match_in_env_vars: specifies that k8s objects can reference this image in their environment variables, and Tilt will handle those variables the same as it usually handles a k8s container spec's ``image`` s.
     ignore: set of file patterns that will be ignored. Ignored files will not trigger builds and will not be included in images. Follows the `dockerignore syntax <https://docs.docker.com/engine/reference/builder/#dockerignore-file>`_. Patterns/filepaths will be evaluated relative to each ``dep`` (e.g. if you specify ``deps=['dep1', 'dep2']`` and ``ignores=['foobar']``, Tilt will ignore both ``deps1/foobar`` and ``dep2/foobar``).
-    entrypoint: command to run when this container starts. Takes precedence over the container's ``CMD`` or ``ENTRYPOINT``, and over a `container command specified in k8s YAML <https://kubernetes.io/docs/tasks/inject-data-application/define-command-argument-container/>`_. If specified as a string, will be evaluated in a shell context (e.g. ``entrypoint="foo.sh bar"`` will be executed in the container as ``/bin/sh -c 'foo.sh bar'``); if specifed as a list, will be passed to the operating system as program name and args.
+    entrypoint: command to run when this container starts. Takes precedence over the container's ``CMD`` or ``ENTRYPOINT``, and over a `container command specified in k8s YAML <https://kubernetes.io/docs/tasks/inject-data-application/define-command-argument-container/>`_. If specified as a string, will be evaluated in a shell context (e.g. ``entrypoint="foo.sh bar"`` will be executed in the container as ``/bin/sh -c 'foo.sh bar'``); if specifed as a list, will be passed to the operating system as program name and args. Kubernetes-only.
     command_bat: The command to run, expressed as a Windows batch command executed
       with ``cmd /S /C``. Takes precedence over the ``command`` parameter on Windows. Ignored on macOS/Linux.
+    outputs_image_ref_to: Specifies a file path. When set, the custom build command must write a content-based
+      tagged image ref to this file. Tilt will read that file after the cmd runs to get the image ref,
+      and inject that image ref into the YAML. For more on content-based tags, see <custom_build.html#why-tilt-uses-immutable-tags>_
+
   """
   pass
 
