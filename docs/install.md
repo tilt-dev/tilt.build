@@ -39,28 +39,17 @@ Linux
 - Install [Docker](https://docs.docker.com/install/)
 - Setup Docker as [a non-root user](https://docs.docker.com/install/linux/linux-postinstall/).
 - Install [kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/)
-- Install [Microk8s](https://microk8s.io/):
-
-```bash
-sudo snap install microk8s --classic && \
-sudo microk8s.enable dns && \
-sudo microk8s.enable registry
-```
-
-- Make microk8s your local Kubernetes cluster:
-
-```bash
-sudo microk8s.kubectl config view --flatten > ~/.kube/microk8s-config && \
-KUBECONFIG=~/.kube/microk8s-config:~/.kube/config kubectl config view --flatten > ~/.kube/temp-config && \
-mv ~/.kube/temp-config ~/.kube/config && \
-kubectl config use-context microk8s
-```
-
+- Install [Kind with a a local registry](https://github.com/tilt-dev/kind-local/blob/master/README.md)
 - Install `tilt` with:
 
 ```bash
 curl -fsSL https://raw.githubusercontent.com/tilt-dev/tilt/master/scripts/install.sh | bash
 ```
+
+Alternatively, Ubuntu users sometimes prefer
+[Microk8s](choosing_clusters.html#microk8s) instead of Kind because it
+integrates well with Ubuntu. See the [Choosing a Local Dev Cluster](choosing_clusters.html)
+guide for more Linux options.
 
 Windows
 ---------------
