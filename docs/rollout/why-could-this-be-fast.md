@@ -25,7 +25,7 @@ For example, say a frustrated user complains "this build is taking 2 minutes". I
 Eliciting the user's intuition illuminated how to fix it.
 
 
-## Stay with "Why", now "How"
+## Stay with "Why", not "How"
 
 A similar question is "How Could This Be Fast?", but asking that has a problem.  Frustrated users can quickly move to designing solutions. Their proposed solutions may be impractical because they ignore other constraints. And it may not be clear what elements of their proposal are really necessary to solve their problems.
 
