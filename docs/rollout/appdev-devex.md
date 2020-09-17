@@ -5,7 +5,7 @@ layout: rollout
 
 ## AppDev and DevEx
 
-In these docs, we draw a distinction between AppDev (Application Development) and DevEx (Developer Experience), especially as it pertains to rolling out Tilt. Application Developers (or AppDevs) use Tilt as a dev tool to create software products, oftentimes for business users in a typical company context. Developer Experience engineers are one step removed since _their_ users are the AppDevs themselves. They are most concerned with the experience of developers, as the namesake implies. In particular, they maintain the process and tools to continuously improve the day-to-day experience of AppDevs. In other words, support flows from left to right below.
+In these docs, we draw a distinction between AppDev (Application Development) and DevEx (Developer Experience), especially as it pertains to rolling out Tilt. Application Developers (or AppDevs) use Tilt as a dev tool to create software products, oftentimes for business users in a typical company context. Developer Experience engineers are one step removed since _their_ users are the AppDevs themselves. They are most concerned with the experience of developers, as the namesake implies. In particular, they maintain the tools and processes to continuously improve the day-to-day dev workflows of AppDevs. Visually, support flows from left to right below.
 
 DevEx engineers -> AppDevs -> Business users
 
