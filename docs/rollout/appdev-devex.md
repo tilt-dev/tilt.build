@@ -3,13 +3,11 @@ title: AppDev and DevEx
 layout: rollout
 ---
 
-## Emerging need for DevEx
+## AppDev and DevEx
 
-In recent decades, business trends have quickly elevated the demand for effective AppDev (application development). And technology leaders know that empowering AppDevs (application developers) is thus critical for business success. In the past AppDev teams would support themselves. A team lead or an engineering manager would procure dev tools, iterate on process, and otherwise manage the support structure of the team so that they are motivated to do good work, and ideally continuously improving. In other cases, an IT admin would deploy standardized dev tools to teams upon request. But more recently, companies have realized this is still insufficient:
+In these docs, we draw a distinction between AppDev (Application Development) and DevEx (Developer Experience), especially as it pertains to rolling out Tilt. Application Developers (or AppDevs) use Tilt as a dev tool to create software products, oftentimes for business users in a typical company context. Developer Experience engineers are one step removed from since _their_ users are the AppDevs themselves. They are most concerned with the experience of developers, as the namesake implies. In particular, they maintain the process and tools to continuously improve the day-to-day experience of AppDevs.
 
-- Motivating AppDevs to do their best work is strategic to getting them in the first place, and retaining them. That means empowering them with the best tools and process, and getting out of their way.
-- The space of dev tools is ever-increasing. Cloud-native trends have introduced additional complexity to development in general. Engineering managers and IT admins are often ill-equipped, don't have the expertise, or just don't have the time to support AppDevs effectively with this new set of problems. Consequently, AppDevs are unhappy because they are stuck spending a lot of time supporting themselves, when they are more motivated to create software products to advance the business, not invent dev tools and dev processes.
-- And so there's an emerging discipline called DevEx (Developer Experience) to support these now manifest problems.
+DevEx engineers -> AppDevs -> Business users
 
 ## Inheriting the role of DevEx engineer
 
