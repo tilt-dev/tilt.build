@@ -39,7 +39,7 @@ Linux
 - Install [Docker](https://docs.docker.com/install/)
 - Setup Docker as [a non-root user](https://docs.docker.com/install/linux/linux-postinstall/).
 - Install [kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/)
-- Install [Kind with a a local registry](https://github.com/tilt-dev/kind-local/blob/master/README.md)
+- Install [Kind with a local registry](https://github.com/tilt-dev/kind-local/blob/master/README.md)
 - Install `tilt` with:
 
 ```bash
@@ -60,13 +60,13 @@ Windows
 - In the preferences, click [Enable Kubernetes](https://docs.docker.com/docker-for-windows/#kubernetes)
 - Make Docker for Windows your local Kubernetes cluster:
 
-```bash
+```powershell
 kubectl config use-context docker-desktop
 ```
 
-- Install `tilt` with:
+- Install `tilt` with Powershell:
 
-```bash
+```powershell
 iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/tilt-dev/tilt/master/scripts/install.ps1'))
 ```
 
