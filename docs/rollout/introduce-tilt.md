@@ -1,12 +1,12 @@
 ---
-title: Introducing Tilt with a Tilt Transition Guide
+title: Introduce Tilt with a Tilt Transition Guide
 layout: rollout
 ---
 You can have the greatest tool in the world, and it won't mean a thing unless you can show AppDevs how to use it and persuade them that they should care. This article will walk you through our recommended structure for a "Transition Guide", which is a document intended to help AppDevs transition off of their current workflow and to a new tool (in this case, Tilt, but the format can be generalized to any tool).
 
 ## What's a "Transition Guide"?
 
-You've probably read many a README for an internal tool, but a transition guide is more than just a README: it's your case to an AppDev that this _new_ workflow is better than their _old_ workflow.
+You've probably read many a README for an internal tool, but a transition guide is more than just a README: it's your case to an AppDev that this new workflow is better than their old one.
 
 AppDevs have generally sunk lots of time and effort into their tooling. In our experience, it takes an especially persuasive argument to get an AppDev to switch from a tried-and-true workflow to something new. They need to know not just why the new tool is _good_, but why it's _better than what they're currently using_. 
 
@@ -19,21 +19,20 @@ Here's our recommended format (we'll dig into each section below):
 2. How to Get Started
   2a. How to Install Tilt
   2b. What to Do After You Start Tilt
-4. Known Issues
-5. What to Do Next
+3. Known Issues
+4. What to Do Next
 ```
 
-Remember that a Transition Guide is more than just a README. It's job is to get an AppDev up and running with minimal friction, but also to drive home why they should be excited about the new tool.
+Remember that a Transition Guide is more than just a README. Its job is to get an AppDev up and running with minimal friction, but also to drive home why they should be excited about the new tool.
 
 It's also not a design doc or implementation proposal: focus on what makes this tool compelling to a day-to-day developer, not to a DevEx team (e.g. "easy to maintain") or a VP of Eng (e.g. "will boost overall productivity by X%").
-
 
 ### You'll Like Tilt More Because...
 
 Start with why Tilt is better than the current way of doing things. Don't just list features of Tilt: highlight Tilt's benefits as compared to the legacy tool.
 
 This part of the doc can also be a great place to re-contextualize or justify what AppDevs might see as sticking points. For instance, if initial `tilt up` is noticeably slower than launching your old tool, consider a note like:
-> You may notice that Tilt is a little slower to start up than $OLDTOOL--but if you stick with it, you'll see that once your app is up and running, _updates_ are 10x faster than on $OLDTOOL.
+> You may notice that Tilt is a little slower to start up than $OLDTOOL, but if you stick with it, you'll see that once your app is up and running, _updates_ are 10x faster than on $OLDTOOL.
 
 A Transition Guide is about making your case to an AppDev, so focus on the features that most benefit someone who writes code day-to-day. Instead of leading with attributes like "easier to support users" or "dev is closer to prod." (which are more exciting to those maintaining a tool than those using it), we'd suggest focusing on advantages like being faster, having a better UI, or supporting new workflows.
 
@@ -42,7 +41,7 @@ Remember that screenshots/screen recordings can be great tools to get your point
 ### How To Get Started
 
 #### How to Install Tilt
-Describe how to install Tilt and any of its dependencies. The more streamlined an AppDev's experience with Tilt, the better, so call out any known gotchas here: e.g. if you're a Ruby shop and expect a lot of devs to run into [this error](https://docs.tilt.dev/faq.html#q-when-i-run-tilt-version-i-see-template-engine-not-found-for-version-what-do-i-do) because of a name conflict with a Ruby gem, note it in your guide instead of making the AppDev Google a lot of error messages. 
+Describe how to install Tilt and any of its dependencies. The more streamlined an AppDev's experience with Tilt, the better, so call out any known gotchas here: e.g. if you're a Ruby shop and expect a lot of devs to run into [this error](https://docs.tilt.dev/faq.html#q-when-i-run-tilt-version-i-see-template-engine-not-found-for-version-what-do-i-do) because of a name conflict with a Ruby gem, note it in your guide instead of making the AppDev Google a lot of error messages.
 
 #### What To Do After You Start Tilt
 An example workflow can help AppDevs get a feel for Tilt, and allow you to call attention to the places that Tilt shines. Consider providing an example workflow like:
@@ -56,13 +55,13 @@ An example workflow makes it easy for a user to map Tilt onto their existing men
 
 ### Known Issues
 
-As you first build out Tilt support, there are probably ways that Tilt is worse than the legacy tool--or even just different. Telling users about these regressions before they run into them builds trust. Something as simple as a list of links to issues in your issue tracker helps manage users' expectations. (As noted above, many perceived "regressions" stem from misconceptions about how Tilt works, or come with big benefits down the road: explaining this context can help your users feel less annoyed.)
+As you first build out Tilt support, there are probably ways that Tilt is worse than the legacy tool---or even just different. Telling users about these regressions before they run into them builds trust. Something as simple as a list of links to issues in your issue tracker helps manage users' expectations. (As noted above, many perceived "regressions" stem from misconceptions about how Tilt works, or come with big benefits down the road: explaining this context can help your users feel less annoyed.)
 
 ### Next Steps
 
 Tell users how to give feedback and get support. Maybe they should join a Slack channel or subscribe to an email list. If you're looking for volunteers to help improve Tilt, mention that here.
 
-Your goal in this section should be to catch underwhelmed users before they fall out of the funnel--it's better to get their feedback now than to hunt them down later as [inactive users](../rollout/prioritize-inactive). The easier (or more mandatory) you make it for AppDevs to give you feedback, the greater the chance an underwhelmed AppDev will come give you useful information (rather than giving up and walking away).
+Your goal in this section should be to catch underwhelmed users before they fall out of the funnel---it's better to get their feedback now than to hunt them down later as [inactive users](../rollout/prioritize-inactive). The easier (or more mandatory) you make it for AppDevs to give you feedback, the greater the chance an underwhelmed AppDev will come give you useful information (rather than giving up and walking away).
 
 ## The Transition Guide is Temporary
 
