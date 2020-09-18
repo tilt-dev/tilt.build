@@ -46,32 +46,32 @@ Describe how to install Tilt and any of its dependencies. The more streamlined a
 #### What To Do After You Start Tilt
 An example workflow can help AppDevs get a feel for Tilt, and allow you to call attention to the places that Tilt shines. Consider providing an example workflow like:
 * Start Tilt (probably running `tilt up` in some directory in a repo)
-* Access the running app (by curling an endpoint or clicking the URL surfaced in the Web UI) and see it looks good
+* Access the running app (by curling an endpoint or clicking the URL surfaced in the Web UI) and see that it's working
 * Change a file (for extra credit give an example file and line to change)
 * See Tilt perform the update and then see the change live
 * Optionally: suggest a file and line at which to introduce an error; see the app crash and see Tilt report the error.
 
-An example workflow makes it easy for a user to map Tilt onto their existing mental model of the dev workflow. It's also a great place to drive home the advantages of Tilt over your old tool. E.g. if resetting the database used to require an elaborate terminal incantation and can now be done by simply triggering a [`local_resource`](../local_resource) from the Web UI, make that part of your example workflow.  (If you had a group of [Focus Users](../rollout/focus) alpha-testing your Tilt setup, the features they were most excited about will generally be good ones to mention here.)
+An example workflow makes it easy for a user to map Tilt onto their existing mental model of the dev workflow. It's also a great way to drive home the advantages of Tilt over your old tool. For instance, if resetting the database used to require an elaborate terminal incantation and can now be done by simply triggering a [`local_resource`](../local_resource) from the Web UI, make that part of your example workflow. (If you had a group of [Focus Users](../rollout/focus) alpha-testing your Tilt setup, the features they were most excited about will generally be good ones to mention here.)
 
 ### Known Issues
 
-As you first build out Tilt support, there are probably ways that Tilt is worse than the legacy tool---or even just different. Telling users about these regressions before they run into them builds trust. Something as simple as a list of links to issues in your issue tracker helps manage users' expectations. (As noted above, many perceived "regressions" stem from misconceptions about how Tilt works, or come with big benefits down the road: explaining this context can help your users feel less annoyed.)
+As you first build out Tilt support, there will probably be ways that Tilt is worse than the legacy tool---or even just different. Telling users about these regressions before they run into them builds trust. Something as simple as a list of links to issues in your issue tracker helps manage users' expectations. (As noted above, many perceived "regressions" stem from misconceptions about how Tilt works, or are necessary trade-offs for big benefits down the road: explaining this context can help your users feel less annoyed.)
 
 ### Next Steps
 
-Tell users how to give feedback and get support. Maybe they should join a Slack channel or subscribe to an email list. If you're looking for volunteers to help improve Tilt, mention that here.
+Tell users how to give feedback and get support (by joining a Slack channel, subscribing to an email list, etc.). If you're looking for volunteers to help improve the Tilt experience, mention that here.
 
 Your goal in this section should be to catch underwhelmed users before they fall out of the funnel---it's better to get their feedback now than to hunt them down later as [inactive users](../rollout/prioritize-inactive). The easier (or more mandatory) you make it for AppDevs to give you feedback, the greater the chance an underwhelmed AppDev will come give you useful information (rather than giving up and walking away).
 
 ## The Transition Guide is Temporary
 
-A transition guide is meant to help AppDevs get over the hump of switching tools. This makes it different than a design doc or even new hire onboarding docs, though they can share a lot of content. A small effort describing the move from the legacy tool to Tilt reduces the friction of trying a new tool.
+A transition guide is meant to help AppDevs get over the hump of switching tools. This makes it different than your average README or new hire onboarding doc, though they can share a lot of content. Telling people _why_ to use a tool takes a bit more effort than just telling them _how_, but it's hugely helpful in overcoming the inertia of an existing workflow. When your Tilt rollout is wildly successful, you can deprecate this document in favor of a more straight-forward README.
 
 ## Evaluation
 
 **Use this if**
-* You have promising feedback from [Focus Users](../rollout/focus) and are ready to start rolling Tilt out to a broader audience of AppDevs (who may or may not understand or care about this new tool)
-* AppDevs are entrenched in their current tooling/workflow(s) and think they'd have a better experience with Tilt.
+* You have promising feedback from [Focus Users](../rollout/focus) and are ready to start rolling Tilt out to a broader audience of AppDevs (who may or may not understand or care about this new tool).
+* AppDevs are entrenched in their current tooling/workflow(s), but you think they'd have a better experience with Tilt.
 
 **Skip this if**
 * You're still evaluating Tilt and want to share it with a collaborator who will learn Tilt for themselves. This advice is for when you have users you want to use Tilt without having to study it themselves.
