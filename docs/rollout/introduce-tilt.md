@@ -36,7 +36,7 @@ This part of the doc can also be a great place to re-contextualize or justify wh
 
 A Transition Guide is about making your case to an AppDev, so focus on the features that most benefit someone who writes code day-to-day. Instead of leading with attributes like "easier to support users" or "dev is closer to prod." (which are more exciting to those maintaining a tool than those using it), we'd suggest focusing on advantages like being faster, having a better UI, or supporting new workflows.
 
-Remember that screenshots/screen recordings can be great tools to get your point across, and in some cases particularly good for making comparisons between Tilt and the legacy tool. (If your team uses Tilt Cloud, you can also use [Snapshots](../snapshots) to let potential users interact with the UI before installing Tilt).
+Remember that screenshots/screen recordings can be great tools to get your point across, and may be particularly good for comparing Tilt to the legacy tool. (If your team uses Tilt Cloud, you can also use [Snapshots](../snapshots) to let potential users interact with the UI before installing Tilt.)
 
 ### How To Get Started
 
