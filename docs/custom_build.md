@@ -144,6 +144,9 @@ build script intends to write a tagged image reference to the file `ref.txt`.
 
 Tilt will then inject that image into your deployments.
 
+If Tilt has detected a local registry, it will populate the environment variable
+`REGISTRY_HOST` (e.g., `REGISTRY_HOST=localhost:5000`) before calling the build script.
+
 ### Determining the Content-based Tag
 
 In rare cases, another script in your build system may need to know what tag
