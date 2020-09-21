@@ -26,12 +26,11 @@ Here's a few ideas to deliver a wow feature. [Reach out to us](https://calendly.
 ## Evaluation
 
 **Use this if**
-
-- You are just starting to create an onboarding strategy and considering ways to get buy-in from developers.
-- You've had some success converting users, but many of them tell you the benefits of Tilt wasn't obvious at first.
+* You are just starting to create an onboarding strategy and considering ways to get buy-in from developers.
+* You've had some success converting users, but many of them tell you the benefits of Tilt weren't obvious at first.
 
 **Skip this if**
+* Users are already quickly onboarding to Tilt and understanding the benefits right away.
 
-- Users are already quickly onboarding to Tilt and understanding the benefits right away.
-
-**You know it's successful when** you consistently see more aha moments from new users.
+**You know it's successful when**
+* You consistently see more aha moments from new users.

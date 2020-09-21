@@ -10,6 +10,6 @@ Choosing a good metric to track adoption is difficult. We recommend "Active Hour
 * Actionable. The data that generates Active Hours also lets you find inactive users.
 * Extensible. We can extend this metric to account for more specifics.
 
-It's easy to track Hours Active with Tilt. We've built tools to make it easy to record this with Tilt and Tilt Cloud. Contact us to get access before it's generally available.
+It's easy to track Active Hours with Tilt. We've built tools to make it easy to record this with Tilt and Tilt Cloud. [Contact us](https://calendly.com/dbentley/tilt-enterprise) to get access before it's generally available.
 
-Other pages will talk more about how to use Hours Active to close feedback loops between AppDev and DevEx.
+Other pages will talk more about how to use Active Hours to close feedback loops between AppDev and DevEx.

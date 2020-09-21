@@ -9,7 +9,7 @@ If you're using Slack to support users, encourage folks to create a [snapshot](.
 
 ## Encourage consistent snapshot use
 
-- As the DevEx person, consistently remind users to link to a snapshot which each support request, signaling clear expectations, especially in a public Slack channel.
+- As the DevEx person, consistently remind users to link to a snapshot with each support request, signaling clear expectations, especially in a public Slack channel.
 - Update the [Slack channel topic](https://slack.com/help/articles/201654083-Set-a-channel-topic-or-description) to remind users that it's required.
 - In the last step of onboarding, require a user to attach a snapshot in the Slack support channel, reporting a problem (if there is one) or offering an improvement suggestion to your team's dev workflow. As the DevEx person, be sure to respond, giving them positive feedback in their first encounter of snapshots.
 
@@ -24,11 +24,12 @@ If you're using Slack to support users, encourage folks to create a [snapshot](.
 ## Evaluation
 
 **Use this if**
-- You have a dedicated supported channel, in Slack or otherwise.
-- You are [prioritizing inactive users](../rollout/prioritize-inactive).
+* Your team asks a lot of support questions on Slack.
+* You find that triaging or debugging issues spends a lot of time on back and forth (see [The Laggy Human Shell Problem](https://blog.tilt.dev/2019/10/01/solving-the-laggy-human-shell-problem.html)
+* You are [prioritizing inactive users](../rollout/prioritize-inactive).
 
 **Skip this if**
-- You currently are not offering your team to use snapshots.
+* You have disabled snapshots for your team.
 
-**You know it's successful when** new support requests consistently have snapshots attached, without prodding required. Developer teammates are opening the snapshots and supporting each other,
-even before you get to the problems.
+**You know it's successful when**
+* Your Slack channel is less full of people asking other people to run shell commands for more information.
