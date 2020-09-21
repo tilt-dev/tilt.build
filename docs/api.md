@@ -29,6 +29,7 @@ examples of what you can do with a Tiltfile. Load them into your own Tiltfile. I
 - [`procfile`](https://github.com/tilt-dev/tilt-extensions/tree/master/procfile): Create Tilt resources from a foreman Procfile.
 - [`restart_process`](https://github.com/tilt-dev/tilt-extensions/tree/master/restart_process): Wrap a `docker_build` to restart the given entrypoint after a Live Update (replaces `restart_container()`)
 - [`secret`](https://github.com/tilt-dev/tilt-extensions/tree/master/secret): Functions for creating secrets.
+- [`snyk`](https://github.com/tilt-dev/tilt-extensions/tree/master/snyk): Use [Snyk](https://snyk.io) to test your configuration files.
 
 ## Data
 
