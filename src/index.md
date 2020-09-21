@@ -100,7 +100,7 @@ has_calendly: true
 <script async src="/assets/js/cta.js"></script>
 <script async src="/assets/js/testimonials.js"></script>
 
-<h3 class="Home-sectionHeading Home-sectionHeading--testimonials">
+<h3 class="Home-sectionHeading Home-sectionHeading--testimonials" id="testimonials">
   What People Are Saying
   <div class="Home-testimonials-navList">
     <button class="Home-testimonials-navItem is-selected"
