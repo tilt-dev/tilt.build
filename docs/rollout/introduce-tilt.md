@@ -23,7 +23,7 @@ Here's our recommended format (we'll dig into each section below):
 4. What to Do Next
 ```
 
-Remember that a Transition Guide is more than just a README. Its job is to get an AppDev up and running with minimal friction, but also to drive home why they should be excited about the new tool.
+Remember that a Transition Guide is more than just a README. Its job is to get an AppDev up and running with minimal friction, but also to drive home why they should be excited about Tilt.
 
 It's also not a design doc or implementation proposal: focus on what makes this tool compelling to a day-to-day developer, not to a DevEx team (e.g. "easy to maintain") or a VP of Eng (e.g. "will boost overall productivity by X%").
 
