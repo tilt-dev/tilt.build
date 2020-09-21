@@ -61,7 +61,7 @@ As you first build out Tilt support, there will probably be ways that Tilt is wo
 
 Tell users how to give feedback and get support (by joining a Slack channel, subscribing to an email list, etc.). If you're looking for volunteers to help improve the Tilt experience, mention that here.
 
-Your goal in this section should be to catch underwhelmed users before they fall out of the funnel---it's better to get their feedback now than to hunt them down later as [inactive users](../rollout/prioritize-inactive). The easier (or more mandatory) you make it for AppDevs to give you feedback, the greater the chance an underwhelmed AppDev will come give you useful information (rather than giving up and walking away).
+Your goal in this section should be to catch underwhelmed users before they give up entirely---it's better to get their feedback now than to hunt them down later as [inactive users](../rollout/prioritize-inactive). The easier (or more mandatory) you make it for AppDevs to give you feedback, the greater the chance an underwhelmed AppDev will come give you useful information (rather than giving up and walking away).
 
 ## The Transition Guide is Temporary
 
