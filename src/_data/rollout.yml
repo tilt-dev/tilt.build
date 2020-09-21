@@ -14,14 +14,14 @@
   - title: Non-Server Workflows
 - title: Onboard
   items:
-  - title: Introduce Tilt
-    href: rollout/introduce-tilt
   - title: Focus Users
     href: rollout/focus
+  - title: Introduce Tilt with a Transition Guide
+    href: rollout/introduce-tilt
   - title: In-product Onboarding
     href: rollout/in-product-onboarding
   - title: Polish a Tilt-enabled Shiny Feature
-    href: rollout/shiny-feature  
+    href: rollout/shiny-feature
 - title: Support
   items:
   - title: The "Active Hours" Metric
