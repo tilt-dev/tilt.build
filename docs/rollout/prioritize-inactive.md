@@ -3,7 +3,7 @@ title: Prioritize Inactive Users
 layout: rollout
 ---
 
-Here's a guideline for how to triage work that's surprising and counterintuitive: during roll out, prioritize inactive users, i.e. people who tried Tilt but stopped using it. This isn't often one's first instict--shouldn't you focus on your most active users? This doc explains how prioritizing inactive users puts your attention on the most pressing issues and can drive adoption.
+Here's a guideline for how to triage work that's surprising and counterintuitive: during roll out, prioritize inactive users, i.e. people who tried Tilt but stopped using it. This isn't often one's first instinct--shouldn't you focus on your most active users? This doc explains how prioritizing inactive users puts your attention on the most pressing issues and can drive adoption.
 
 ## Why Inactive Users Over Active Users
 
