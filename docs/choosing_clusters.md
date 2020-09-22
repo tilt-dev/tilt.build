@@ -37,7 +37,7 @@ The Kubernetes team uses Kind to test Kubernetes itself. But its fast startup
 time also makes it a good solution for local dev. Follow these instructions to
 set up Kind for use with Tilt:
 
-[**Kind Setup Instructions**](https://github.com/tilt-dev/kind-local)
+[**Kind Setup Instructions**](https://github.com/tilt-dev/kind-local){:.attached-above}
 
 ### Pros
 
@@ -121,23 +121,30 @@ kubectl config use-context microk8s
 [Minikube](https://github.com/kubernetes/minikube) is what we recommend when
 you're willing to pay some overhead for a more high-fidelity cluster.
 
-Minikube creates a Kubernetes cluster in a VM, and has tons of options for
-customizing the cluster.
+Minikube has tons of options for customizing the cluster. You can choose between
+a VM and a Docker container for running a machine, choose from different
+container runtimes, and more.
+
+Follow these instructions to set up Minikube for use with Tilt:
+
+[**Minikube Setup Instructions**](https://github.com/tilt-dev/minikube-local){:.attached-above}
+
 
 ### Pros
 
 - The most full-featured local Kubernetes solution
 - Can easily run different Kubernetes versions, container runtimes, and controllers
-- You can build images in-cluster with `minikube docker-env`. When you use
-Minikube, Tilt will automatically use Minikube's Docker, so that you don't need
-to push to a remote registry.
+- Supports a local image registry (with our [custom setup instructions](https://github.com/tilt-dev/minikube-local)).
+  Pushing images is fast. No fiddling with image registry auth credentials.
 
 ### Cons
 
-- The VM makes everything much slower, both at start-time and run-time
 - We often see engineers struggle to set it up the first time, getting lost in a
-  maze of VM drivers that they're unfamiliar with
-- You usually want to shutdown minikube when you're finished
+  maze of VM drivers that they're unfamiliar with.
+- Minikube gives you lots of options, but many of them are difficult to use
+  or require manual setup. 
+- Beware if using a VM instead of a Docker container to run your cluster.
+  You'll usually want to shut down Minikube when you're finished because of the VM's drain on your resources.
 
 ---
 
@@ -148,7 +155,7 @@ to push to a remote registry.
 k3s is fully compliant with "full" Kubernetes, but has a lot of optional and legacy features removed.
 Follow these instructions to set up k3d for use with Tilt:
 
-[**k3d Setup Instructions**](https://github.com/tilt-dev/k3d-local-registry/)
+[**k3d Setup Instructions**](https://github.com/tilt-dev/k3d-local-registry/){:.attached-above}
 
 ### Pros
 
