@@ -8,7 +8,8 @@
   - title: Set Adoption Goals
 - title: Configure
   items:
-  - title: Exploration vs. Daily Use
+  - title: Finish the POC
+    href: rollout/finish-poc
   - title: Organizing Tiltfiles
   - title: Dev 1.0 to 2.0
   - title: Non-Server Workflows
