@@ -15,14 +15,14 @@ In particular, Tilt is very feature-rich, and the configurability of the Tiltfil
 
 ## Polish a Tilt-enabled Shiny Feature
 
-Once you've finished the POC phase, it doesn't mean you want to immediately ship Tilt to your AppDevs. It's just a mindset shift and a focus shift on what to work on next. In particular, you may want to [polish a Tilt-enabled shiny feature](/rolllout/shiny-feature) to really wow your AppDevs as they onboard to Tilt.
+Once you've finished the POC phase, it doesn't mean you want to immediately ship Tilt to your AppDevs. It's just a mindset shift and a focus shift on what to work on next. In particular, you may want to [polish a Tilt-enabled shiny feature](/rollout/shiny-feature) to really wow your AppDevs as they onboard to Tilt.
 
 ## Evaluation
 
 **Use this if**
-- You
+- You are in the early stages of evaluation and exploring the many possibilities of Tilt.
 
 **Skip this if**
-- You
+- You've already started shipping Tilt to AppDevs.
 
-**You know it's successful when** each 
+**You know it's successful when** you've finished the POC and your conversations with AppDevs and colleagues are now focused on clearing a list of practical, day-to-day blockers as you get ready for a production launch of Tilt.
