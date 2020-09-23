@@ -11,6 +11,11 @@ In particular, Tilt is very feature-rich, and the configurability of the Tiltfil
 
 - [Tiltfile configs](/tiltfile_config)
 - [Live update](/live_update_tutorial)
+- [Tilt Cloud snapshots](/snapshots)
+
+## Polish a Tilt-enabled Shiny Feature
+
+Once you've finished the POC phase, it doesn't mean you want to immediately ship Tilt to your AppDevs. It's just a mindset shift and a focus shift on what to work on next. In particular, you may want to [polish a Tilt-enabled shiny feature](/rolllout/shiny-feature) to really wow your AppDevs as they onboard to Tilt.
 
 ## Evaluation
 
