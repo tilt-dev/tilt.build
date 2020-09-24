@@ -6,6 +6,7 @@
     href: rollout/missing-devex-book
   - title: Our DevEx History
   - title: Set Adoption Goals
+    href: rollout/adoption-goals
 - title: Configure
   items:
   - title: Finish the POC
@@ -34,3 +35,4 @@
   - title: Prioritize Inactive Users
     href: rollout/prioritize-inactive
   - title: Why Could This Be Better?
+    href: rollout/why-could-this-be-fast
