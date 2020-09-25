@@ -94,7 +94,13 @@ but also have teammates in Berlin, Germany and Richmond, VA.
       Increasingly earlier stage startups. Innovating on remote work. He/him.
     </div>
   </div>  
-</div>
+  <div class="bio col-1of3 u-marginBottom1_25">
+    <img class="bio-image" src="/assets/img/surbhi.jpg">
+    <h4>Surbhi S Gupta</h4>
+    <div>
+	Product designer, Bollywood music lover, mother of two and a builder of physical things. She/Her
+    </div>
+  </div>  </div>
 
 
  
