@@ -22,7 +22,7 @@ but also have teammates in Berlin, Germany and Richmond, VA.
   </div>	
 
   <ul>	
-    <li><a href="frontend_eng.html">UX Designer</a></li>	
+    <li><a href="frontend_eng.html">Senior Frontend Engineer</a></li>	
     <li><a href="devtools_eng.html">Senior Developer Tools Engineer</a></li>	
   </ul>	
 </div>
