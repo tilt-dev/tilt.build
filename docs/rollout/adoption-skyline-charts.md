@@ -22,4 +22,4 @@ We think [active hours](../rollout/active-hours) is an effective metric to repre
 * You're not ready to track user adoption just yet.
 
 **You know it's successful when**
-* You find yourself returning to the chart week over week to see any changes.
+* You find yourself returning to this chart week after week and making decisions based on what you find.
