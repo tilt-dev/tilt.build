@@ -12,7 +12,7 @@ dmiller:
   name: Dan Miller
   twitter: jazzdan
   github: jazzdan
-  active: true
+  active: false
 maia:
   name: Maia McCormick
   twitter: maia_mcc
@@ -47,4 +47,8 @@ abdullah:
   github: abdullahzameek
   twitter: abdullahzameek
   active: false
-  
+surbhi:
+  name: Surbhi Gupta
+  github: SurbhiSGupta
+  twitter: curbinsight
+  active: true
