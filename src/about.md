@@ -46,14 +46,6 @@ but also have teammates in Berlin, Germany and Richmond, VA.
     </div>
   </div>
   <div class="bio col-1of3 u-marginBottom1_25">
-    <img class="bio-image" src="/assets/img/dmiller.jpg">
-    <h4>Dan Miller</h4>
-
-    <div>
-    Four years at Etsy building out point-of-presence page rendering, knowledge graphs and HHVM (a virtual machine and type checker for PHP). Fifteen years of playing trumpet. He/him.
-    </div>
-  </div>
-  <div class="bio col-1of3 u-marginBottom1_25">
     <img class="bio-image" src="/assets/img/han.jpg">
     <h4>Han Yu</h4>
 
