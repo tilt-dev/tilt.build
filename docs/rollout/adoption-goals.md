@@ -3,7 +3,7 @@ title: Set Adoption Goals
 layout: rollout
 ---
 
-Set Adoption goals. If you want to improve AppDev experience, instead of a goal like "Tilt is available to AppDev" it's best to set a goal like "X Tilt adoption by AppDev". Framing goals like this can be risky and scary because you can't achieve them alone: even if you write perfect code, you need others to change what they do. It's worth doing this because:
+Set adoption goals. If you want to improve AppDev experience, instead of a goal like "Tilt is available to AppDev" it's best to set a goal like "X Tilt adoption by AppDev". Framing goals like this can be risky and scary because you can't achieve them alone: even if you write perfect code, you need others to change what they do. It's worth doing this because:
 
 * Adoption matters. A tool isn't useful until it's used. You probably want to improve your teammates' experience and you can only do that once they adopt Tilt.
 * Adoption teaches. As more people bring their experience to bear, you'll find more ways to improve the experience.
