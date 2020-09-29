@@ -44,6 +44,7 @@ functions:
 - update_settings
 - version_settings
 - watch_file
+- watch_settings
 - workload_to_resource_function
 - os.getcwd
 - os.getenv

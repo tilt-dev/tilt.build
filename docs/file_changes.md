@@ -172,6 +172,18 @@ Files that match these patterns will not trigger rebuilds.
 `.tiltignore` does not affect whether a file is included in any Docker
 build contexts.
 
+### watch_settings(ignore=)
+
+The Tiltfile can specify additional patterns that should not trigger rebuilds.
+
+This is equivalent to adding these patterns to `.tiltignore` (correcting for any
+differences in working directory). It's useful in Tilt extensions that download
+files, but that don't want the downloaded files to trigger rebuilds as they're
+being downloaded.
+
+`watch_settings` does not affect whether a file is included in any Docker build
+contexts.
+
 ## Try it Yourself
 
 If you'd like to try out the APIs in this guide, see
