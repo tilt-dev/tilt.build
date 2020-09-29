@@ -10,6 +10,14 @@ Examples:
 - run `tilt alpha tiltfile-result` -> `config.tilt_subcommand == "alpha tiltfile-result"`
 """
 
+main_path: str = ''
+"""The absolute path of the main Tiltfile."""
+
+main_dir: str = ''
+"""The absolute directory of the main Tiltfile.
+
+Often used to determine the location of vendored code and caches."""
+
 def define_string_list(name: str, args: bool=False, usage: str="") -> None:
     """
     Defines a config setting of type `List[str]`.
