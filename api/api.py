@@ -933,3 +933,14 @@ def update_settings(max_parallel_updates: int=3, k8s_upsert_timeout_secs: int=30
     max_parallel_updates: maximum number of updates Tilt will execute in parallel. Default is 3. Must be a positive integer.
     k8s_upsert_timeout_secs: timeout (in seconds) for Kubernetes upserts (i.e. ``create``/``apply`` calls). Minimum value is 1.
 """
+
+def watch_settings(ignore: Union[str, List[str]]) -> None:
+  """Configures global watches.
+
+  May be called multiple times to add more ignore patterns.
+
+  Args:
+    ignore: A string or list of strings that should not trigger updates. Equivalent to adding
+      patterns to .tiltignore. Relative patterns are evaluated relative to the current working dir.
+      See `Debugging File Changes <file_changes.html>`_ for more details.
+  """

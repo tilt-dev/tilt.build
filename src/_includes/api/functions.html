@@ -6959,6 +6959,93 @@ Examples:
            </table>
           </dd>
          </dl><dl class="function">
+          <dt id="api.watch_settings">
+           <code class="descclassname">
+           </code>
+           <code class="descname">
+            watch_settings
+           </code>
+           <span class="sig-paren">
+            (
+           </span>
+           <em>
+            ignore
+           </em>
+           <span class="sig-paren">
+            )
+           </span>
+           <a class="headerlink" href="#api.watch_settings" title="Permalink to this definition">
+            &#xB6;
+           </a>
+          </dt>
+          <dd>
+           <p>
+            Configures global watches.
+           </p>
+           <p>
+            May be called multiple times to add more ignore patterns.
+           </p>
+           <table class="docutils field-list" frame="void" rules="none">
+            <col class="field-name">
+            <col class="field-body">
+            <tbody valign="top">
+             <tr class="field-odd field">
+              <th class="field-name">
+               Parameters:
+              </th>
+              <td class="field-body">
+               <strong>
+                ignore
+               </strong>
+               (
+               <code class="xref py py-data docutils literal notranslate">
+                <span class="pre">
+                 Union
+                </span>
+               </code>
+               [
+               <code class="xref py py-class docutils literal notranslate">
+                <span class="pre">
+                 str
+                </span>
+               </code>
+               ,
+               <code class="xref py py-class docutils literal notranslate">
+                <span class="pre">
+                 List
+                </span>
+               </code>
+               [
+               <code class="xref py py-class docutils literal notranslate">
+                <span class="pre">
+                 str
+                </span>
+               </code>
+               ]]) &#x2013; A string or list of strings that should not trigger updates. Equivalent to adding
+patterns to .tiltignore. Relative patterns are evaluated relative to the current working dir.
+See
+               <a class="reference external" href="file_changes.html">
+                Debugging File Changes
+               </a>
+               for more details.
+              </td>
+             </tr>
+             <tr class="field-even field">
+              <th class="field-name">
+               Return type:
+              </th>
+              <td class="field-body">
+               <code class="docutils literal notranslate">
+                <span class="pre">
+                 None
+                </span>
+               </code>
+              </td>
+             </tr>
+            </tbody>
+           </table>
+          </dd>
+         </dl><dl class="function">
           <dt id="api.workload_to_resource_function">
            <code class="descclassname">
            </code>
