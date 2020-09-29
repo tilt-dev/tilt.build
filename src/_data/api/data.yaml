@@ -2,4 +2,6 @@ data:
 - __file__
 - os.environ
 - os.name
+- config.main_dir
+- config.main_path
 - config.tilt_subcommand
