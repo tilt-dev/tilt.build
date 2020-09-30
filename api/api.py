@@ -1,4 +1,4 @@
-from typing import Dict, Union, List, Callable, Any
+from typing import Dict, Union, List, Callable, Any, Optional
 
 # Our documentation generation framework doesn't properly handle __file__,
 # so we call it __file__ and edit it later.
@@ -19,6 +19,35 @@ class LiveUpdateStep:
   For details, see the `Live Update documentation <live_update_reference.html>`_.
   """
   pass
+
+class PortForward:
+  """
+  Specifications for running and displaying a Kubernetes port-forward.
+
+  By default, the host for a port-forward is ``localhost``. This can be changed with
+  the ``--host`` flag when invoking Tilt via the CLI.
+
+  Attributes:
+    local_port (int): the local port to forward traffic to.
+    container_port (int, optional): if provided, the container port to foward traffic _from_. If not provided, Tilt will forward traffic from ``local_port``, if exposed, and otherwise, from the first default container port. E.g.: ``PortForward(1111)`` forwards traffic from container port 1111 (if exposed; otherwise first default container port) to ``localhost:1111``.
+    link_text (str, optional): if provided, the text of this URL when displayed in the Web UI. This parameter can be useful for disambiguating between multiple port-forwards on a single resource, e.g. labeling one link "App" and one "Debugger." If not given, the Web UI displays the URL itself (e.g. "localhost:8888").
+  """
+  def __init__(self, local_port: int,
+               container_port: Optional[int] = None,
+               link_text: Optional[str] = None):
+    pass
+
+class Link:
+  """
+  Specifications for a link associated with a resource in the Web UI.
+
+  Attributes:
+    url (str): the URL to link to
+    link_text (str, optional): if provided, the text of this URL when displayed in the Web UI. This parameter can be useful for disambiguating between multiple links on a single resource, e.g. labeling one link "App" and one "Debugger." If not given, the Web UI displays the URL itself (e.g. "localhost:8888").
+  """
+  def __init__(self, url: str,
+               link_text: Optional[str] = None):
+    pass
 
 def fall_back_on(files: Union[str, List[str]]) -> LiveUpdateStep:
   """Specify that any changes to the given files will cause Tilt to *fall back* to a
@@ -239,7 +268,7 @@ def dc_resource(name: str, trigger_mode: TriggerMode = TRIGGER_MODE_AUTO, resour
   pass
 
 def k8s_resource(workload: str = "", new_name: str = "",
-                 port_forwards: Union[str, int, List[int]] = [],
+                 port_forwards: Union[str, int, PortForward, List[Union[str, int, PortForward]]] = [],
                  extra_pod_selectors: Union[Dict[str, str], List[Dict[str, str]]] = [],
                  trigger_mode: TriggerMode = TRIGGER_MODE_AUTO,
                  resource_deps: List[str] = [], objects: List[str] = [],
@@ -307,7 +336,8 @@ def k8s_resource(workload: str = "", new_name: str = "",
     port_forwards: Local ports to connect to the pod. If a target port is
       specified, that will be used. Otherwise, if the container exposes a port
       with the same number as the local port, that will be used. Otherwise,
-      the default container port will be used.
+      the default container port will be used. Port forward configurations may
+      also be specified with a :class:`~api.PortForward` object.
       Example values: 9000 (connect localhost:9000 to the container's port 9000,
       if it is exposed, otherwise connect to the container's default port),
       '9000:8000' (connect localhost:9000 to the container port 8000),
@@ -795,7 +825,8 @@ def local_resource(name: str, cmd: Union[str, List[str]],
                    resource_deps: List[str] = [], ignore: Union[str, List[str]] = [],
                    auto_init: bool=True, serve_cmd: str = "", cmd_bat: str = "",
                    serve_cmd_bat: str = "",
-                   allow_parallel: bool=False) -> None:
+                   allow_parallel: bool=False,
+                   links: Union[str, Link, List[Union[str, Link]]]=[]) -> None:
   """Configures one or more commands to run on the *host* machine (not in a remote cluster).
 
   By default, Tilt performs an update on local resources on ``tilt up`` and whenever any of their ``deps`` change.
@@ -827,6 +858,7 @@ def local_resource(name: str, cmd: Union[str, List[str]],
       with ``cmd /S /C``. Takes precedence over the ``serve_cmd`` parameter on Windows. Ignored on macOS/Linux.
     allow_parallel: By default, all local resources are presumed unsafe to run in parallel, due to race
       conditions around modifying a shared file system. Set to True to allow them to run in parallel.
+    links: one of more links to be associated with this resource in the Web UI (e.g. perhaps you have a "reset database" workflow and want to attach a link to the database web console). Provide one or more strings (the URLs to link to) or :class:`~api.Link` objects.
   """
   pass
 

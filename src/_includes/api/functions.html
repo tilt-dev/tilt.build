@@ -1628,7 +1628,7 @@ ensures a pretty high bar of intent.
                    str
                   </span>
                  </code>
-                 ) &#xFFFD;&#xFFFD;&#xFFFD; path to use as the Docker build context.
+                 ) &#x2013; path to use as the Docker build context.
                 </li>
                 <li>
                  <strong>
@@ -4111,21 +4111,58 @@ programmatically rename all resources, see
                   </span>
                  </code>
                  ,
+                 <a class="reference internal" href="#api.PortForward" title="api.PortForward">
+                  <code class="xref py py-class docutils literal notranslate">
+                   <span class="pre">
+                    PortForward
+                   </span>
+                  </code>
+                 </a>
+                 ,
                  <code class="xref py py-class docutils literal notranslate">
                   <span class="pre">
                    List
                   </span>
                  </code>
                  [
+                 <code class="xref py py-data docutils literal notranslate">
+                  <span class="pre">
+                   Union
+                  </span>
+                 </code>
+                 [
+                 <code class="xref py py-class docutils literal notranslate">
+                  <span class="pre">
+                   str
+                  </span>
+                 </code>
+                 ,
                  <code class="xref py py-class docutils literal notranslate">
                   <span class="pre">
                    int
                   </span>
                  </code>
-                 ]]) &#x2013; Local ports to connect to the pod. If a target port is
+                 ,
+                 <a class="reference internal" href="#api.PortForward" title="api.PortForward">
+                  <code class="xref py py-class docutils literal notranslate">
+                   <span class="pre">
+                    PortForward
+                   </span>
+                  </code>
+                 </a>
+                 ]]]) &#x2013; Local ports to connect to the pod. If a target port is
 specified, that will be used. Otherwise, if the container exposes a port
 with the same number as the local port, that will be used. Otherwise,
-the default container port will be used.
+the default container port will be used. Port forward configurations may
+also be specified with a
+                 <a class="reference internal" href="#api.PortForward" title="api.PortForward">
+                  <code class="xref py py-class docutils literal notranslate">
+                   <span class="pre">
+                    PortForward
+                   </span>
+                  </code>
+                 </a>
+                 object.
 Example values: 9000 (connect localhost:9000 to the container&#x2019;s port 9000,
 if it is exposed, otherwise connect to the container&#x2019;s default port),
 &#x2018;9000:8000&#x2019; (connect localhost:9000 to the container port 8000),
@@ -4996,6 +5033,10 @@ with
            <em>
             allow_parallel=False
            </em>
+           ,
+           <em>
+            links=[]
+           </em>
            <span class="sig-paren">
             )
            </span>
@@ -5417,6 +5458,66 @@ with
                  </code>
                  ) &#x2013; By default, all local resources are presumed unsafe to run in parallel, due to race
 conditions around modifying a shared file system. Set to True to allow them to run in parallel.
+                </li>
+                <li>
+                 <strong>
+                  links
+                 </strong>
+                 (
+                 <code class="xref py py-data docutils literal notranslate">
+                  <span class="pre">
+                   Union
+                  </span>
+                 </code>
+                 [
+                 <code class="xref py py-class docutils literal notranslate">
+                  <span class="pre">
+                   str
+                  </span>
+                 </code>
+                 ,
+                 <a class="reference internal" href="#api.Link" title="api.Link">
+                  <code class="xref py py-class docutils literal notranslate">
+                   <span class="pre">
+                    Link
+                   </span>
+                  </code>
+                 </a>
+                 ,
+                 <code class="xref py py-class docutils literal notranslate">
+                  <span class="pre">
+                   List
+                  </span>
+                 </code>
+                 [
+                 <code class="xref py py-data docutils literal notranslate">
+                  <span class="pre">
+                   Union
+                  </span>
+                 </code>
+                 [
+                 <code class="xref py py-class docutils literal notranslate">
+                  <span class="pre">
+                   str
+                  </span>
+                 </code>
+                 ,
+                 <a class="reference internal" href="#api.Link" title="api.Link">
+                  <code class="xref py py-class docutils literal notranslate">
+                   <span class="pre">
+                    Link
+                   </span>
+                  </code>
+                 </a>
+                 ]]]) &#x2013; one of more links to be associated with this resource in the Web UI (e.g. perhaps you have a &#x201C;reset database&#x201D; workflow and want to attach a link to the database web console). Provide one or more strings (the URLs to link to) or
+                 <a class="reference internal" href="#api.Link" title="api.Link">
+                  <code class="xref py py-class docutils literal notranslate">
+                   <span class="pre">
+                    Link
+                   </span>
+                  </code>
+                 </a>
+                 objects.
                 </li>
                </ul>
               </td>

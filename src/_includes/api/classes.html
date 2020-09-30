@@ -181,6 +181,96 @@
            </dl>
           </dd>
          </dl><dl class="class">
+          <dt id="api.Link">
+           <em class="property">
+            class
+           </em>
+           <code class="descclassname">
+           </code>
+           <code class="descname">
+            Link
+           </code>
+           <span class="sig-paren">
+            (
+           </span>
+           <em>
+            url
+           </em>
+           ,
+           <em>
+            link_text=None
+           </em>
+           <span class="sig-paren">
+            )
+           </span>
+           <a class="headerlink" href="#api.Link" title="Permalink to this definition">
+            &#xB6;
+           </a>
+          </dt>
+          <dd>
+           <p>
+            Specifications for a link associated with a resource in the Web UI.
+           </p>
+           <dl class="attribute">
+            <dt id="api.Link.url">
+             <code class="descname">
+              url
+             </code>
+             <a class="headerlink" href="#api.Link.url" title="Permalink to this definition">
+              &#xB6;
+             </a>
+            </dt>
+            <dd>
+             <p>
+              the URL to link to
+             </p>
+             <table class="docutils field-list" frame="void" rules="none">
+              <col class="field-name">
+              <col class="field-body">
+              <tbody valign="top">
+               <tr class="field-odd field">
+                <th class="field-name">
+                 Type:
+                </th>
+                <td class="field-body">
+                 str
+                </td>
+               </tr>
+              </tbody>
+             </table>
+            </dd>
+           </dl>
+           <dl class="attribute">
+            <dt id="api.Link.link_text">
+             <code class="descname">
+              link_text
+             </code>
+             <a class="headerlink" href="#api.Link.link_text" title="Permalink to this definition">
+              &#xB6;
+             </a>
+            </dt>
+            <dd>
+             <p>
+              if provided, the text of this URL when displayed in the Web UI. This parameter can be useful for disambiguating between multiple links on a single resource, e.g. labeling one link &#x201C;App&#x201D; and one &#x201C;Debugger.&#x201D; If not given, the Web UI displays the URL itself (e.g. &#x201C;localhost:8888&#x201D;).
+             </p>
+             <table class="docutils field-list" frame="void" rules="none">
+              <col class="field-name">
+              <col class="field-body">
+              <tbody valign="top">
+               <tr class="field-odd field">
+                <th class="field-name">
+                 Type:
+                </th>
+                <td class="field-body">
+                 str, optional
+                </td>
+               </tr>
+              </tbody>
+             </table>
+            </dd>
+           </dl>
+          </dd>
+         </dl><dl class="class">
           <dt id="api.LiveUpdateStep">
            <em class="property">
             class
@@ -205,6 +295,163 @@
             </a>
             .
            </p>
+          </dd>
+         </dl><dl class="class">
+          <dt id="api.PortForward">
+           <em class="property">
+            class
+           </em>
+           <code class="descclassname">
+           </code>
+           <code class="descname">
+            PortForward
+           </code>
+           <span class="sig-paren">
+            (
+           </span>
+           <em>
+            local_port
+           </em>
+           ,
+           <em>
+            container_port=None
+           </em>
+           ,
+           <em>
+            link_text=None
+           </em>
+           <span class="sig-paren">
+            )
+           </span>
+           <a class="headerlink" href="#api.PortForward" title="Permalink to this definition">
+            &#xB6;
+           </a>
+          </dt>
+          <dd>
+           <p>
+            Specifications for running and displaying a Kubernetes port-forward.
+           </p>
+           <p>
+            By default, the host for a port-forward is
+            <code class="docutils literal notranslate">
+             <span class="pre">
+              localhost
+             </span>
+            </code>
+            . This can be changed with
+the
+            <code class="docutils literal notranslate">
+             <span class="pre">
+              --host
+             </span>
+            </code>
+            flag when invoking Tilt via the CLI.
+           </p>
+           <dl class="attribute">
+            <dt id="api.PortForward.local_port">
+             <code class="descname">
+              local_port
+             </code>
+             <a class="headerlink" href="#api.PortForward.local_port" title="Permalink to this definition">
+              &#xB6;
+             </a>
+            </dt>
+            <dd>
+             <p>
+              the local port to forward traffic to.
+             </p>
+             <table class="docutils field-list" frame="void" rules="none">
+              <col class="field-name">
+              <col class="field-body">
+              <tbody valign="top">
+               <tr class="field-odd field">
+                <th class="field-name">
+                 Type:
+                </th>
+                <td class="field-body">
+                 int
+                </td>
+               </tr>
+              </tbody>
+             </table>
+            </dd>
+           </dl>
+           <dl class="attribute">
+            <dt id="api.PortForward.container_port">
+             <code class="descname">
+              container_port
+             </code>
+             <a class="headerlink" href="#api.PortForward.container_port" title="Permalink to this definition">
+              &#xB6;
+             </a>
+            </dt>
+            <dd>
+             <p>
+              if provided, the container port to foward traffic _from_. If not provided, Tilt will forward traffic from
+              <code class="docutils literal notranslate">
+               <span class="pre">
+                local_port
+               </span>
+              </code>
+              , if exposed, and otherwise, from the first default container port. E.g.:
+              <code class="docutils literal notranslate">
+               <span class="pre">
+                PortForward(1111)
+               </span>
+              </code>
+              forwards traffic from container port 1111 (if exposed; otherwise first default container port) to
+              <code class="docutils literal notranslate">
+               <span class="pre">
+                localhost:1111
+               </span>
+              </code>
+              .
+             </p>
+             <table class="docutils field-list" frame="void" rules="none">
+              <col class="field-name">
+              <col class="field-body">
+              <tbody valign="top">
+               <tr class="field-odd field">
+                <th class="field-name">
+                 Type:
+                </th>
+                <td class="field-body">
+                 int, optional
+                </td>
+               </tr>
+              </tbody>
+             </table>
+            </dd>
+           </dl>
+           <dl class="attribute">
+            <dt id="api.PortForward.link_text">
+             <code class="descname">
+              link_text
+             </code>
+             <a class="headerlink" href="#api.PortForward.link_text" title="Permalink to this definition">
+              &#xB6;
+             </a>
+            </dt>
+            <dd>
+             <p>
+              if provided, the text of this URL when displayed in the Web UI. This parameter can be useful for disambiguating between multiple port-forwards on a single resource, e.g. labeling one link &#x201C;App&#x201D; and one &#x201C;Debugger.&#x201D; If not given, the Web UI displays the URL itself (e.g. &#x201C;localhost:8888&#x201D;).
+             </p>
+             <table class="docutils field-list" frame="void" rules="none">
+              <col class="field-name">
+              <col class="field-body">
+              <tbody valign="top">
+               <tr class="field-odd field">
+                <th class="field-name">
+                 Type:
+                </th>
+                <td class="field-body">
+                 str, optional
+                </td>
+               </tr>
+              </tbody>
+             </table>
+            </dd>
+           </dl>
           </dd>
          </dl><dl class="class">
           <dt id="api.TriggerMode">
