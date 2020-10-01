@@ -22,32 +22,45 @@ class LiveUpdateStep:
 
 class PortForward:
   """
-  Specifications for running and displaying a Kubernetes port-forward.
+  Specifications for setting up and displaying a Kubernetes port-forward.
+
+  For details, see the :meth:`port_forward` method.
+  """
+  pass
+
+def port_forward(local_port: int,
+                 container_port: Optional[int] = None,
+                 link_text: Optional[str] = None) -> PortForward:
+  """
+  Creates a :class:`~api.PortForward` object specifying how to set up and display a Kubernetes port forward.
 
   By default, the host for a port-forward is ``localhost``. This can be changed with
   the ``--host`` flag when invoking Tilt via the CLI.
 
   Attributes:
     local_port (int): the local port to forward traffic to.
-    container_port (int, optional): if provided, the container port to foward traffic _from_. If not provided, Tilt will forward traffic from ``local_port``, if exposed, and otherwise, from the first default container port. E.g.: ``PortForward(1111)`` forwards traffic from container port 1111 (if exposed; otherwise first default container port) to ``localhost:1111``.
-    link_text (str, optional): if provided, the text of this URL when displayed in the Web UI. This parameter can be useful for disambiguating between multiple port-forwards on a single resource, e.g. labeling one link "App" and one "Debugger." If not given, the Web UI displays the URL itself (e.g. "localhost:8888").
+    container_port (int, optional): if provided, the container port to forward traffic *from*. If not provided, Tilt will forward traffic from ``local_port``, if exposed, and otherwise, from the first default container port. E.g.: ``PortForward(1111)`` forwards traffic from container port 1111 (if exposed; otherwise first default container port) to ``localhost:1111``.
+    name (str, optional): the name of the link. If provided, this will be text of this URL when displayed in the Web UI. This parameter can be useful for disambiguating between multiple port-forwards on a single resource, e.g. naming one link "App" and one "Debugger." If not given, the Web UI displays the URL itself (e.g. "localhost:8888").
   """
-  def __init__(self, local_port: int,
-               container_port: Optional[int] = None,
-               link_text: Optional[str] = None):
-    pass
+  pass
 
 class Link:
   """
   Specifications for a link associated with a resource in the Web UI.
 
+  For details, see the :meth:`link` method.
+  """
+  pass
+
+def link(url: str, name: Optional[str]) -> Link:
+  """
+  Creates a :class:`~api.Link` object that describes a link associated with a resource.
+
   Attributes:
     url (str): the URL to link to
-    link_text (str, optional): if provided, the text of this URL when displayed in the Web UI. This parameter can be useful for disambiguating between multiple links on a single resource, e.g. labeling one link "App" and one "Debugger." If not given, the Web UI displays the URL itself (e.g. "localhost:8888").
+    name (str, optional): the name of the link. If provided, this will be the text of this URL when displayed in the Web UI. This parameter can be useful for disambiguating between multiple links on a single resource, e.g. naming one link "App" and one "Debugger." If not given, the Web UI displays the URL itself (e.g. "localhost:8888").
   """
-  def __init__(self, url: str,
-               link_text: Optional[str] = None):
-    pass
+  pass
 
 def fall_back_on(files: Union[str, List[str]]) -> LiveUpdateStep:
   """Specify that any changes to the given files will cause Tilt to *fall back* to a

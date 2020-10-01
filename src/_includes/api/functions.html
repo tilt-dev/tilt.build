@@ -4650,6 +4650,125 @@ uses kubectl&#x2019;s kustomize. See
            </table>
           </dd>
          </dl><dl class="function">
+          <dt id="api.link">
+           <code class="descclassname">
+           </code>
+           <code class="descname">
+            link
+           </code>
+           <span class="sig-paren">
+            (
+           </span>
+           <em>
+            url
+           </em>
+           ,
+           <em>
+            name
+           </em>
+           <span class="sig-paren">
+            )
+           </span>
+           <a class="headerlink" href="#api.link" title="Permalink to this definition">
+            &#xB6;
+           </a>
+          </dt>
+          <dd>
+           <p>
+            Creates a
+            <a class="reference internal" href="#api.Link" title="api.Link">
+             <code class="xref py py-class docutils literal notranslate">
+              <span class="pre">
+               Link
+              </span>
+             </code>
+            </a>
+            object that describes a link associated with a resource.
+           </p>
+           <dl class="attribute">
+            <dt id="api.url">
+             <code class="descclassname">
+             </code>
+             <code class="descname">
+              url
+             </code>
+             <a class="headerlink" href="#api.url" title="Permalink to this definition">
+              &#xB6;
+             </a>
+            </dt>
+            <dd>
+             <p>
+              the URL to link to
+             </p>
+             <table class="docutils field-list" frame="void" rules="none">
+              <col class="field-name">
+              <col class="field-body">
+              <tbody valign="top">
+               <tr class="field-odd field">
+                <th class="field-name">
+                 Type:
+                </th>
+                <td class="field-body">
+                 str
+                </td>
+               </tr>
+              </tbody>
+             </table>
+            </dd>
+           </dl>
+           <dl class="attribute">
+            <dt id="api.name">
+             <code class="descclassname">
+             </code>
+             <code class="descname">
+              name
+             </code>
+             <a class="headerlink" href="#api.name" title="Permalink to this definition">
+              &#xB6;
+             </a>
+            </dt>
+            <dd>
+             <p>
+              the name of the link. If provided, this will be the text of this URL when displayed in the Web UI. This parameter can be useful for disambiguating between multiple links on a single resource, e.g. naming one link &#x201C;App&#x201D; and one &#x201C;Debugger.&#x201D; If not given, the Web UI displays the URL itself (e.g. &#x201C;localhost:8888&#x201D;).
+             </p>
+             <table class="docutils field-list" frame="void" rules="none">
+              <col class="field-name">
+              <col class="field-body">
+              <tbody valign="top">
+               <tr class="field-odd field">
+                <th class="field-name">
+                 Type:
+                </th>
+                <td class="field-body">
+                 str, optional
+                </td>
+               </tr>
+              </tbody>
+             </table>
+            </dd>
+           </dl>
+           <table class="docutils field-list" frame="void" rules="none">
+            <col class="field-name">
+            <col class="field-body">
+            <tbody valign="top">
+             <tr class="field-odd field">
+              <th class="field-name">
+               Return type:
+              </th>
+              <td class="field-body">
+               <a class="reference internal" href="#api.Link" title="api.Link">
+                <code class="xref py py-class docutils literal notranslate">
+                 <span class="pre">
+                  Link
+                 </span>
+                </code>
+               </a>
+              </td>
+             </tr>
+            </tbody>
+           </table>
+          </dd>
+         </dl><dl class="function">
           <dt id="api.listdir">
            <code class="descclassname">
            </code>
@@ -5534,6 +5653,195 @@ conditions around modifying a shared file system. Set to True to allow them to r
                  </span>
                 </code>
                </p>
+              </td>
+             </tr>
+            </tbody>
+           </table>
+          </dd>
+         </dl><dl class="function">
+          <dt id="api.port_forward">
+           <code class="descclassname">
+           </code>
+           <code class="descname">
+            port_forward
+           </code>
+           <span class="sig-paren">
+            (
+           </span>
+           <em>
+            local_port
+           </em>
+           ,
+           <em>
+            container_port=None
+           </em>
+           ,
+           <em>
+            link_text=None
+           </em>
+           <span class="sig-paren">
+            )
+           </span>
+           <a class="headerlink" href="#api.port_forward" title="Permalink to this definition">
+            &#xB6;
+           </a>
+          </dt>
+          <dd>
+           <p>
+            Creates a
+            <a class="reference internal" href="#api.PortForward" title="api.PortForward">
+             <code class="xref py py-class docutils literal notranslate">
+              <span class="pre">
+               PortForward
+              </span>
+             </code>
+            </a>
+            object specifying how to set up and display a Kubernetes port forward.
+           </p>
+           <p>
+            By default, the host for a port-forward is
+            <code class="docutils literal notranslate">
+             <span class="pre">
+              localhost
+             </span>
+            </code>
+            . This can be changed with
+the
+            <code class="docutils literal notranslate">
+             <span class="pre">
+              --host
+             </span>
+            </code>
+            flag when invoking Tilt via the CLI.
+           </p>
+           <dl class="attribute">
+            <dt id="api.local_port">
+             <code class="descclassname">
+             </code>
+             <code class="descname">
+              local_port
+             </code>
+             <a class="headerlink" href="#api.local_port" title="Permalink to this definition">
+              &#xB6;
+             </a>
+            </dt>
+            <dd>
+             <p>
+              the local port to forward traffic to.
+             </p>
+             <table class="docutils field-list" frame="void" rules="none">
+              <col class="field-name">
+              <col class="field-body">
+              <tbody valign="top">
+               <tr class="field-odd field">
+                <th class="field-name">
+                 Type:
+                </th>
+                <td class="field-body">
+                 int
+                </td>
+               </tr>
+              </tbody>
+             </table>
+            </dd>
+           </dl>
+           <dl class="attribute">
+            <dt id="api.container_port">
+             <code class="descclassname">
+             </code>
+             <code class="descname">
+              container_port
+             </code>
+             <a class="headerlink" href="#api.container_port" title="Permalink to this definition">
+              &#xB6;
+             </a>
+            </dt>
+            <dd>
+             <p>
+              if provided, the container port to forward traffic
+              <em>
+               from
+              </em>
+              . If not provided, Tilt will forward traffic from
+              <code class="docutils literal notranslate">
+               <span class="pre">
+                local_port
+               </span>
+              </code>
+              , if exposed, and otherwise, from the first default container port. E.g.:
+              <code class="docutils literal notranslate">
+               <span class="pre">
+                PortForward(1111)
+               </span>
+              </code>
+              forwards traffic from container port 1111 (if exposed; otherwise first default container port) to
+              <code class="docutils literal notranslate">
+               <span class="pre">
+                localhost:1111
+               </span>
+              </code>
+              .
+             </p>
+             <table class="docutils field-list" frame="void" rules="none">
+              <col class="field-name">
+              <col class="field-body">
+              <tbody valign="top">
+               <tr class="field-odd field">
+                <th class="field-name">
+                 Type:
+                </th>
+                <td class="field-body">
+                 int, optional
+                </td>
+               </tr>
+              </tbody>
+             </table>
+            </dd>
+           </dl>
+           <dl class="attribute">
+            <dt>
+             <code class="descclassname">
+             </code>
+             <code class="descname">
+              name
+             </code>
+            </dt>
+            <dd>
+             <p>
+              the name of the link. If provided, this will be text of this URL when displayed in the Web UI. This parameter can be useful for disambiguating between multiple port-forwards on a single resource, e.g. naming one link &#x201C;App&#x201D; and one &#x201C;Debugger.&#x201D; If not given, the Web UI displays the URL itself (e.g. &#x201C;localhost:8888&#x201D;).
+             </p>
+             <table class="docutils field-list" frame="void" rules="none">
+              <col class="field-name">
+              <col class="field-body">
+              <tbody valign="top">
+               <tr class="field-odd field">
+                <th class="field-name">
+                 Type:
+                </th>
+                <td class="field-body">
+                 str, optional
+                </td>
+               </tr>
+              </tbody>
+             </table>
+            </dd>
+           </dl>
+           <table class="docutils field-list" frame="void" rules="none">
+            <col class="field-name">
+            <col class="field-body">
+            <tbody valign="top">
+             <tr class="field-odd field">
+              <th class="field-name">
+               Return type:
+              </th>
+              <td class="field-body">
+               <a class="reference internal" href="#api.PortForward" title="api.PortForward">
+                <code class="xref py py-class docutils literal notranslate">
+                 <span class="pre">
+                  PortForward
+                 </span>
+                </code>
+               </a>
               </td>
              </tr>
             </tbody>
