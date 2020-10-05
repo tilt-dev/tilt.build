@@ -83,7 +83,7 @@ but also have teammates in Berlin, Germany and Richmond, VA.
     <img class="bio-image" src="/assets/img/victor.jpg">
     <h4>Victor Wu</h4>
     <div>
-      Increasingly earlier stage startups. Innovating on remote work. He/him.
+      Increasingly earlier stage startups. Enjoys mentoring early career PMs. He/him.
     </div>
   </div>  
   <div class="bio col-1of3 u-marginBottom1_25">
