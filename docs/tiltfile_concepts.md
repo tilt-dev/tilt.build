@@ -175,7 +175,8 @@ see [`workload_to_resource_function`](api.html#api.k8s_resource).)
 Tilt also supports a few ways to specify `port_forwards`:
 
 ```python
-# connect localhost:9000 to the default container port
+# connect localhost:9000 to container port 9000
+# (if exposed; otherwise, the default container)
 k8s_resource(
   workload='frontend',
   port_forwards=9000
@@ -192,6 +193,16 @@ k8s_resource(
 k8s_resource(
   workload='frontend',
   port_forwards=['9000:8000', '9001:8001']
+)
+
+# Same as above but labeled "app" and "debugger"
+# (respectively) in the Web UI
+k8s_resource(
+  workload='frontend',
+  port_forwards=[
+    port_forward(9000, 8000, "app"),
+    port_forward(9001, 8001, "debugger"),
+  ]
 )
 ```
 

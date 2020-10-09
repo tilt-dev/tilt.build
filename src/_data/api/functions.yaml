@@ -26,10 +26,12 @@ functions:
 - k8s_resource
 - k8s_yaml
 - kustomize
+- link
 - listdir
 - load
 - local
 - local_resource
+- port_forward
 - read_file
 - read_json
 - read_yaml

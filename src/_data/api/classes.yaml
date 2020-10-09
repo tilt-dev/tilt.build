@@ -1,5 +1,7 @@
 classes:
 - Blob
 - K8sObjectID
+- Link
 - LiveUpdateStep
+- PortForward
 - TriggerMode
