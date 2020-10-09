@@ -143,8 +143,8 @@ error at build-time, deploy-time, or run-time. Each resource has a line in the U
 can be expanded and investigated.
 
 Tilt generates these bundles of work after executing your `Tiltfile`. Some Tiltfile calls
-(e.g. `local_resource`) correspond to a single resource; for other calls (e.g. `docker_build` + `k8s_yaml`), 
-Tilt must join multiple bits of work into a single resource. For Kubernetes resources, Tilt 
+(e.g. `local_resource`) correspond to a single resource; for other calls (e.g. `docker_build` + `k8s_yaml`),
+Tilt must join multiple bits of work into a single resource. For Kubernetes resources, Tilt
 does this assembly by scanning all loaded YAML for any k8s objects that it considers a workload
 (i.e. any objects that create pods). Each of these workloads becomes a Tilt resource. If Tilt
 finds any image build directives corresponding to an image in a workload, or any Kubernetes
@@ -222,9 +222,11 @@ resource, note that `new_name` is required.)
 
 #### Kubernetes Object Selectors
 
-You can specify Kubernetes objects via a _Kubernetes object selector_. (NOTE: 
-this is a Tilt-specific syntax. We wish Kubernetes already had a standard for
-specifying objects, but they don't, so we made our own.)
+When specifying the `objects` param to `k8s_resource`, you can specify Kubernetes objects via a _Kubernetes object selector_.
+
+Notes:
+1. This is a Tilt-specific syntax. We wish Kubernetes already had a standard for specifying objects, but they don't, so we made our own.
+2. This is currently just for the `objects` param. The workload arg is an _identifier_, not a _selector_.
 
 The best-qualified object selector for a given object is a colon-separated
 string of the form `$NAME:$KIND:$NAMESPACE` (e.g.: `redis:deployment:default`).
