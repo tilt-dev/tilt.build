@@ -30,7 +30,7 @@ class PortForward:
 
 def port_forward(local_port: int,
                  container_port: Optional[int] = None,
-                 link_text: Optional[str] = None) -> PortForward:
+                 name: Optional[str] = None) -> PortForward:
   """
   Creates a :class:`~api.PortForward` object specifying how to set up and display a Kubernetes port forward.
 
