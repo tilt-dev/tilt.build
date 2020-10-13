@@ -44,6 +44,6 @@ docker_build('blog-site', '.', dockerfile='deploy/blog.dockerfile',
                                               'blog/Gemfile', 'blog/Gemfile.lock'])
              ])
 
-k8s_resource('tilt-site', port_forwards=4000)
-k8s_resource('docs-site', port_forwards=4001, resource_deps=['make-api'])
-k8s_resource('blog-site', port_forwards=4002)
+k8s_resource('tilt-site', port_forwards=[port_forward(4000, name='tilt-site')])
+k8s_resource('docs-site', port_forwards=[port_forward(4001, name='docs-site')], resource_deps=['make-api'])
+k8s_resource('blog-site', port_forwards=[port_forward(4002, name='blog-site')])
