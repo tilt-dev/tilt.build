@@ -935,8 +935,8 @@ def version_settings(check_updates: bool = True, constraint: str = "") -> None:
                 this constraint and generate an error if it doesn't match.
                 Examples:
 
-                - `<0.13.0` - less than 0.13.0
-                - `>=0.12.0` - at least 0.12.0
+                - `<0.17.0` - less than 0.17.0
+                - `>=0.13.2` - at least 0.13.2
 
                 See more at the `constraint syntax documentation <https://github.com/blang/semver#ranges>`_.
   """
