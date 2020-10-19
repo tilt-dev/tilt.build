@@ -4760,84 +4760,59 @@ uses kubectl&#x2019;s kustomize. See
             </a>
             object that describes a link associated with a resource.
            </p>
-           <dl class="attribute">
-            <dt id="api.url">
-             <code class="descclassname">
-             </code>
-             <code class="descname">
-              url
-             </code>
-             <a class="headerlink" href="#api.url" title="Permalink to this definition">
-              &#xB6;
-             </a>
-            </dt>
-            <dd>
-             <p>
-              the URL to link to
-             </p>
-             <table class="docutils field-list" frame="void" rules="none">
-              <col class="field-name">
-              <col class="field-body">
-              <tbody valign="top">
-               <tr class="field-odd field">
-                <th class="field-name">
-                 Type:
-                </th>
-                <td class="field-body">
-                 str
-                </td>
-               </tr>
-              </tbody>
-             </table>
-            </dd>
-           </dl>
-           <dl class="attribute">
-            <dt id="api.name">
-             <code class="descclassname">
-             </code>
-             <code class="descname">
-              name
-             </code>
-             <a class="headerlink" href="#api.name" title="Permalink to this definition">
-              &#xB6;
-             </a>
-            </dt>
-            <dd>
-             <p>
-              the name of the link. If provided, this will be the text of this URL when displayed in the Web UI. This parameter can be useful for disambiguating between multiple links on a single resource, e.g. naming one link &#x201C;App&#x201D; and one &#x201C;Debugger.&#x201D; If not given, the Web UI displays the URL itself (e.g. &#x201C;localhost:8888&#x201D;).
-             </p>
-             <table class="docutils field-list" frame="void" rules="none">
-              <col class="field-name">
-              <col class="field-body">
-              <tbody valign="top">
-               <tr class="field-odd field">
-                <th class="field-name">
-                 Type:
-                </th>
-                <td class="field-body">
-                 str, optional
-                </td>
-               </tr>
-              </tbody>
-             </table>
-            </dd>
-           </dl>
            <table class="docutils field-list" frame="void" rules="none">
             <col class="field-name">
             <col class="field-body">
             <tbody valign="top">
              <tr class="field-odd field">
               <th class="field-name">
+               Parameters:
+              </th>
+              <td class="field-body">
+               <ul class="first simple">
+                <li>
+                 <strong>
+                  url
+                 </strong>
+                 (
+                 <em>
+                  str
+                 </em>
+                 ) &#x2013; the URL to link to
+                </li>
+                <li>
+                 <strong>
+                  name
+                 </strong>
+                 (
+                 <em>
+                  str
+                 </em>
+                 <em>
+                  ,
+                 </em>
+                 <em>
+                  optional
+                 </em>
+                 ) &#x2013; the name of the link. If provided, this will be the text of this URL when displayed in the Web UI. This parameter can be useful for disambiguating between multiple links on a single resource, e.g. naming one link &#x201C;App&#x201D; and one &#x201C;Debugger.&#x201D; If not given, the Web UI displays the URL itself (e.g. &#x201C;localhost:8888&#x201D;).
+                </li>
+               </ul>
+              </td>
+             </tr>
+             <tr class="field-even field">
+              <th class="field-name">
                Return type:
               </th>
               <td class="field-body">
-               <a class="reference internal" href="#api.Link" title="api.Link">
-                <code class="xref py py-class docutils literal notranslate">
-                 <span class="pre">
-                  Link
-                 </span>
-                </code>
-               </a>
+               <p class="first last">
+                <a class="reference internal" href="#api.Link" title="api.Link">
+                 <code class="xref py py-class docutils literal notranslate">
+                  <span class="pre">
+                   Link
+                  </span>
+                 </code>
+                </a>
+               </p>
               </td>
              </tr>
             </tbody>
@@ -5793,184 +5768,132 @@ the
             </code>
             flag when invoking Tilt via the CLI.
            </p>
-           <dl class="attribute">
-            <dt id="api.local_port">
-             <code class="descclassname">
-             </code>
-             <code class="descname">
-              local_port
-             </code>
-             <a class="headerlink" href="#api.local_port" title="Permalink to this definition">
-              &#xB6;
-             </a>
-            </dt>
-            <dd>
-             <p>
-              the local port to forward traffic to.
-             </p>
-             <table class="docutils field-list" frame="void" rules="none">
-              <col class="field-name">
-              <col class="field-body">
-              <tbody valign="top">
-               <tr class="field-odd field">
-                <th class="field-name">
-                 Type:
-                </th>
-                <td class="field-body">
-                 int
-                </td>
-               </tr>
-              </tbody>
-             </table>
-            </dd>
-           </dl>
-           <dl class="attribute">
-            <dt id="api.container_port">
-             <code class="descclassname">
-             </code>
-             <code class="descname">
-              container_port
-             </code>
-             <a class="headerlink" href="#api.container_port" title="Permalink to this definition">
-              &#xB6;
-             </a>
-            </dt>
-            <dd>
-             <p>
-              if provided, the container port to forward traffic
-              <em>
-               from
-              </em>
-              .
-If not provided, Tilt will forward traffic from
-              <code class="docutils literal notranslate">
-               <span class="pre">
-                local_port
-               </span>
-              </code>
-              , if exposed, and otherwise,
-from the first default container port. E.g.:
-              <code class="docutils literal notranslate">
-               <span class="pre">
-                PortForward(1111)
-               </span>
-              </code>
-              forwards traffic from
-container port 1111 (if exposed; otherwise first default container port) to
-              <code class="docutils literal notranslate">
-               <span class="pre">
-                localhost:1111
-               </span>
-              </code>
-              .
-             </p>
-             <table class="docutils field-list" frame="void" rules="none">
-              <col class="field-name">
-              <col class="field-body">
-              <tbody valign="top">
-               <tr class="field-odd field">
-                <th class="field-name">
-                 Type:
-                </th>
-                <td class="field-body">
-                 int, optional
-                </td>
-               </tr>
-              </tbody>
-             </table>
-            </dd>
-           </dl>
-           <dl class="attribute">
-            <dt>
-             <code class="descclassname">
-             </code>
-             <code class="descname">
-              name
-             </code>
-            </dt>
-            <dd>
-             <p>
-              the name of the link. If provided, this will be text of this URL when
-displayed in the Web UI. This parameter can be useful for disambiguating between multiple
-port-forwards on a single resource, e.g. naming one link &#x201C;App&#x201D; and one &#x201C;Debugger.&#x201D; If not
-given, the Web UI displays the URL itself (e.g. &#x201C;localhost:8888&#x201D;).
-             </p>
-             <table class="docutils field-list" frame="void" rules="none">
-              <col class="field-name">
-              <col class="field-body">
-              <tbody valign="top">
-               <tr class="field-odd field">
-                <th class="field-name">
-                 Type:
-                </th>
-                <td class="field-body">
-                 str, optional
-                </td>
-               </tr>
-              </tbody>
-             </table>
-            </dd>
-           </dl>
-           <dl class="attribute">
-            <dt id="api.link_path">
-             <code class="descclassname">
-             </code>
-             <code class="descname">
-              link_path
-             </code>
-             <a class="headerlink" href="#api.link_path" title="Permalink to this definition">
-              &#xB6;
-             </a>
-            </dt>
-            <dd>
-             <p>
-              if given, the path at the port forward URL to link to; e.g. a port
-forward on localhost:8888 with
-              <code class="docutils literal notranslate">
-               <span class="pre">
-                link_path=&apos;/v1/app&apos;
-               </span>
-              </code>
-              would surface a link in the UI to
-              <code class="docutils literal notranslate">
-               <span class="pre">
-                localhost:8888/v1/app
-               </span>
-              </code>
-              .
-             </p>
-             <table class="docutils field-list" frame="void" rules="none">
-              <col class="field-name">
-              <col class="field-body">
-              <tbody valign="top">
-               <tr class="field-odd field">
-                <th class="field-name">
-                 Type:
-                </th>
-                <td class="field-body">
-                 str, optional
-                </td>
-               </tr>
-              </tbody>
-             </table>
-            </dd>
-           </dl>
            <table class="docutils field-list" frame="void" rules="none">
             <col class="field-name">
             <col class="field-body">
             <tbody valign="top">
              <tr class="field-odd field">
               <th class="field-name">
+               Parameters:
+              </th>
+              <td class="field-body">
+               <ul class="first simple">
+                <li>
+                 <strong>
+                  local_port
+                 </strong>
+                 (
+                 <em>
+                  int
+                 </em>
+                 ) &#x2013; the local port to forward traffic to.
+                </li>
+                <li>
+                 <strong>
+                  container_port
+                 </strong>
+                 (
+                 <em>
+                  int
+                 </em>
+                 <em>
+                  ,
+                 </em>
+                 <em>
+                  optional
+                 </em>
+                 ) &#x2013; if provided, the container port to forward traffic
+                 <em>
+                  from
+                 </em>
+                 .
+If not provided, Tilt will forward traffic from
+                 <code class="docutils literal notranslate">
+                  <span class="pre">
+                   local_port
+                  </span>
+                 </code>
+                 , if exposed, and otherwise,
+from the first default container port. E.g.:
+                 <code class="docutils literal notranslate">
+                  <span class="pre">
+                   PortForward(1111)
+                  </span>
+                 </code>
+                 forwards traffic from
+container port 1111 (if exposed; otherwise first default container port) to
+                 <code class="docutils literal notranslate">
+                  <span class="pre">
+                   localhost:1111
+                  </span>
+                 </code>
+                 .
+                </li>
+                <li>
+                 <strong>
+                  name
+                 </strong>
+                 (
+                 <em>
+                  str
+                 </em>
+                 <em>
+                  ,
+                 </em>
+                 <em>
+                  optional
+                 </em>
+                 ) &#x2013; the name of the link. If provided, this will be text of this URL when
+displayed in the Web UI. This parameter can be useful for disambiguating between multiple
+port-forwards on a single resource, e.g. naming one link &#x201C;App&#x201D; and one &#x201C;Debugger.&#x201D; If not
+given, the Web UI displays the URL itself (e.g. &#x201C;localhost:8888&#x201D;).
+                </li>
+                <li>
+                 <strong>
+                  link_path
+                 </strong>
+                 (
+                 <em>
+                  str
+                 </em>
+                 <em>
+                  ,
+                 </em>
+                 <em>
+                  optional
+                 </em>
+                 ) &#x2013; if given, the path at the port forward URL to link to; e.g. a port
+forward on localhost:8888 with
+                 <code class="docutils literal notranslate">
+                  <span class="pre">
+                   link_path=&apos;/v1/app&apos;
+                  </span>
+                 </code>
+                 would surface a link in the UI to
+                 <code class="docutils literal notranslate">
+                  <span class="pre">
+                   localhost:8888/v1/app
+                  </span>
+                 </code>
+                 .
+                </li>
+               </ul>
+              </td>
+             </tr>
+             <tr class="field-even field">
+              <th class="field-name">
                Return type:
               </th>
               <td class="field-body">
-               <a class="reference internal" href="#api.PortForward" title="api.PortForward">
-                <code class="xref py py-class docutils literal notranslate">
-                 <span class="pre">
-                  PortForward
-                 </span>
-                </code>
-               </a>
+               <p class="first last">
+                <a class="reference internal" href="#api.PortForward" title="api.PortForward">
+                 <code class="xref py py-class docutils literal notranslate">
+                  <span class="pre">
+                   PortForward
+                  </span>
+                 </code>
+                </a>
+               </p>
               </td>
              </tr>
             </tbody>

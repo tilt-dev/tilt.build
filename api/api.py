@@ -38,7 +38,7 @@ def port_forward(local_port: int,
   By default, the host for a port-forward is ``localhost``. This can be changed with
   the ``--host`` flag when invoking Tilt via the CLI.
 
-  Attributes:
+  Args:
     local_port (int): the local port to forward traffic to.
     container_port (int, optional): if provided, the container port to forward traffic *from*.
       If not provided, Tilt will forward traffic from ``local_port``, if exposed, and otherwise,
@@ -66,7 +66,7 @@ def link(url: str, name: Optional[str]) -> Link:
   """
   Creates a :class:`~api.Link` object that describes a link associated with a resource.
 
-  Attributes:
+  Args:
     url (str): the URL to link to
     name (str, optional): the name of the link. If provided, this will be the text of this URL when displayed in the Web UI. This parameter can be useful for disambiguating between multiple links on a single resource, e.g. naming one link "App" and one "Debugger." If not given, the Web UI displays the URL itself (e.g. "localhost:8888").
   """
