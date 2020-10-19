@@ -30,7 +30,8 @@ class PortForward:
 
 def port_forward(local_port: int,
                  container_port: Optional[int] = None,
-                 name: Optional[str] = None) -> PortForward:
+                 name: Optional[str] = None,
+                 link_path: Optional[str] = None) -> PortForward:
   """
   Creates a :class:`~api.PortForward` object specifying how to set up and display a Kubernetes port forward.
 
@@ -39,8 +40,17 @@ def port_forward(local_port: int,
 
   Attributes:
     local_port (int): the local port to forward traffic to.
-    container_port (int, optional): if provided, the container port to forward traffic *from*. If not provided, Tilt will forward traffic from ``local_port``, if exposed, and otherwise, from the first default container port. E.g.: ``PortForward(1111)`` forwards traffic from container port 1111 (if exposed; otherwise first default container port) to ``localhost:1111``.
-    name (str, optional): the name of the link. If provided, this will be text of this URL when displayed in the Web UI. This parameter can be useful for disambiguating between multiple port-forwards on a single resource, e.g. naming one link "App" and one "Debugger." If not given, the Web UI displays the URL itself (e.g. "localhost:8888").
+    container_port (int, optional): if provided, the container port to forward traffic *from*.
+      If not provided, Tilt will forward traffic from ``local_port``, if exposed, and otherwise,
+      from the first default container port. E.g.: ``PortForward(1111)`` forwards traffic from
+      container port 1111 (if exposed; otherwise first default container port) to ``localhost:1111``.
+    name (str, optional): the name of the link. If provided, this will be text of this URL when
+      displayed in the Web UI. This parameter can be useful for disambiguating between multiple
+      port-forwards on a single resource, e.g. naming one link "App" and one "Debugger." If not
+      given, the Web UI displays the URL itself (e.g. "localhost:8888").
+    link_path (str, optional): if given, the path at the port forward URL to link to; e.g. a port
+      forward on localhost:8888 with ``link_path='/v1/app'`` would surface a link in the UI to
+      ``localhost:8888/v1/app``.
   """
   pass
 
@@ -286,7 +296,8 @@ def k8s_resource(workload: str = "", new_name: str = "",
                  trigger_mode: TriggerMode = TRIGGER_MODE_AUTO,
                  resource_deps: List[str] = [], objects: List[str] = [],
                  auto_init: bool = True,
-                 pod_readiness: str = "") -> None:
+                 pod_readiness: str = "",
+                 links: Union[str, Link, List[Union[str, Link]]]=[]) -> None:
   """
 
   Configures or creates the specified Kubernetes resource.
@@ -383,6 +394,10 @@ def k8s_resource(workload: str = "", new_name: str = "",
       pods to be ready before the resource is considered healthy (and dependencies
       can start building). By default, Tilt will wait for pods to be ready if it
       thinks a resource has pods.
+    links: one of more links to be associated with this resource in the UI. (Note
+      that port forwards specified via the ``port_forwards`` parameter will automatically
+      show up as URLs in the UI; rather, the ``links`` parameter is generally for non-port-forward
+      URLs, e.g. your ingress always sets up an endpoint `my.service.foo`.)
   """
   pass
 

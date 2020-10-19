@@ -3913,6 +3913,10 @@ by the
            <em>
             pod_readiness=&apos;&apos;
            </em>
+           ,
+           <em>
+            links=[]
+           </em>
            <span class="sig-paren">
             )
            </span>
@@ -4389,6 +4393,77 @@ Note that
 pods to be ready before the resource is considered healthy (and dependencies
 can start building). By default, Tilt will wait for pods to be ready if it
 thinks a resource has pods.
+                </li>
+                <li>
+                 <strong>
+                  links
+                 </strong>
+                 (
+                 <code class="xref py py-data docutils literal notranslate">
+                  <span class="pre">
+                   Union
+                  </span>
+                 </code>
+                 [
+                 <code class="xref py py-class docutils literal notranslate">
+                  <span class="pre">
+                   str
+                  </span>
+                 </code>
+                 ,
+                 <a class="reference internal" href="#api.Link" title="api.Link">
+                  <code class="xref py py-class docutils literal notranslate">
+                   <span class="pre">
+                    Link
+                   </span>
+                  </code>
+                 </a>
+                 ,
+                 <code class="xref py py-class docutils literal notranslate">
+                  <span class="pre">
+                   List
+                  </span>
+                 </code>
+                 [
+                 <code class="xref py py-data docutils literal notranslate">
+                  <span class="pre">
+                   Union
+                  </span>
+                 </code>
+                 [
+                 <code class="xref py py-class docutils literal notranslate">
+                  <span class="pre">
+                   str
+                  </span>
+                 </code>
+                 ,
+                 <a class="reference internal" href="#api.Link" title="api.Link">
+                  <code class="xref py py-class docutils literal notranslate">
+                   <span class="pre">
+                    Link
+                   </span>
+                  </code>
+                 </a>
+                 ]]]) &#x2013; one of more links to be associated with this resource in the UI. (Note
+that port forwards specified via the
+                 <code class="docutils literal notranslate">
+                  <span class="pre">
+                   port_forwards
+                  </span>
+                 </code>
+                 parameter will automatically
+show up as URLs in the UI; rather, the
+                 <code class="docutils literal notranslate">
+                  <span class="pre">
+                   links
+                  </span>
+                 </code>
+                 parameter is generally for non-port-forward
+URLs, e.g. your ingress always sets up an endpoint
+                 <cite>
+                  my.service.foo
+                 </cite>
+                 .)
                 </li>
                </ul>
               </td>
@@ -5679,6 +5754,10 @@ conditions around modifying a shared file system. Set to True to allow them to r
            <em>
             name=None
            </em>
+           ,
+           <em>
+            link_path=None
+           </em>
            <span class="sig-paren">
             )
            </span>
@@ -5762,19 +5841,22 @@ the
               <em>
                from
               </em>
-              . If not provided, Tilt will forward traffic from
+              .
+If not provided, Tilt will forward traffic from
               <code class="docutils literal notranslate">
                <span class="pre">
                 local_port
                </span>
               </code>
-              , if exposed, and otherwise, from the first default container port. E.g.:
+              , if exposed, and otherwise,
+from the first default container port. E.g.:
               <code class="docutils literal notranslate">
                <span class="pre">
                 PortForward(1111)
                </span>
               </code>
-              forwards traffic from container port 1111 (if exposed; otherwise first default container port) to
+              forwards traffic from
+container port 1111 (if exposed; otherwise first default container port) to
               <code class="docutils literal notranslate">
                <span class="pre">
                 localhost:1111
@@ -5808,7 +5890,54 @@ the
             </dt>
             <dd>
              <p>
-              the name of the link. If provided, this will be text of this URL when displayed in the Web UI. This parameter can be useful for disambiguating between multiple port-forwards on a single resource, e.g. naming one link &#x201C;App&#x201D; and one &#x201C;Debugger.&#x201D; If not given, the Web UI displays the URL itself (e.g. &#x201C;localhost:8888&#x201D;).
+              the name of the link. If provided, this will be text of this URL when
+displayed in the Web UI. This parameter can be useful for disambiguating between multiple
+port-forwards on a single resource, e.g. naming one link &#x201C;App&#x201D; and one &#x201C;Debugger.&#x201D; If not
+given, the Web UI displays the URL itself (e.g. &#x201C;localhost:8888&#x201D;).
+             </p>
+             <table class="docutils field-list" frame="void" rules="none">
+              <col class="field-name">
+              <col class="field-body">
+              <tbody valign="top">
+               <tr class="field-odd field">
+                <th class="field-name">
+                 Type:
+                </th>
+                <td class="field-body">
+                 str, optional
+                </td>
+               </tr>
+              </tbody>
+             </table>
+            </dd>
+           </dl>
+           <dl class="attribute">
+            <dt id="api.link_path">
+             <code class="descclassname">
+             </code>
+             <code class="descname">
+              link_path
+             </code>
+             <a class="headerlink" href="#api.link_path" title="Permalink to this definition">
+              &#xB6;
+             </a>
+            </dt>
+            <dd>
+             <p>
+              if given, the path at the port forward URL to link to; e.g. a port
+forward on localhost:8888 with
+              <code class="docutils literal notranslate">
+               <span class="pre">
+                link_path=&apos;/v1/app&apos;
+               </span>
+              </code>
+              would surface a link in the UI to
+              <code class="docutils literal notranslate">
+               <span class="pre">
+                localhost:8888/v1/app
+               </span>
+              </code>
+              .
              </p>
              <table class="docutils field-list" frame="void" rules="none">
               <col class="field-name">
