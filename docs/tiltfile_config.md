@@ -178,4 +178,4 @@ You should be able to use a custom syntax for command-line arguments. The config
 module could take a function that would parse a command-line into JSON.
 ### Interaction with load/include
 Tiltfiles that are used via `load`/`include` should be able to define and use
-config settigs.
+config settings.
