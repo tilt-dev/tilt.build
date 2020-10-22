@@ -5,7 +5,7 @@ set_team('0584d8f6-05a2-49f5-923b-657afef098fe')
 username = str(local('whoami')).rstrip('\n')
 experimental_analytics_report({'user.name': username})
 experimental_metrics_settings(enabled=True)
-analytics_settings(enabled=True)
+analytics_settings(enable=True)
 
 # Generate the API docs.
 local_resource('make-api', 'make api', ['deploy/api.dockerfile', 'Makefile', 'api'])
