@@ -72,33 +72,57 @@ And if we `tilt up` we should see that Tilt calls Bazel to build the YAML and th
 ### Building Images
 Let's follow the same strategy and figure out the Bazel command that will just build an image and then integrate that in to the Tiltfile.
 
-"rules_k8s" uses "rules_docker" under the hood for building images. [Reading through rules_docker's documentation](https://github.com/bazelbuild/rules_docker#using-with-docker-locally) reveals that `bazel run //:targetname` will load the image in to the configured Docker daemon. That's all we need thanks to `custom_build`. Custom build takes an image name and a command that should produce that image. After the command is executed Tilt asserts that it exists, and retags it so it can track it.
+"rules_k8s" uses "rules_docker" under the hood for building images.
+
+To build an image and load it into Docker, the [rules_docker documentation](https://github.com/bazelbuild/rules_docker#using-with-docker-locally)) tells us to run:
+
+```
+bazel run //path/to/my-command:image -- --norun
+```
+
+Bazel will put the image at `bazel/path/to/my-command`. 
+
+That's exactly what `custom_build` needs. Custom build takes an image name and a
+command that should produce that image. After the command is executed Tilt
+asserts that it exists, and retags it so it can track it.
 
 ```python
 custom_build(
   'bazel/snack',
-  'bazel run //snack:image',
+  'bazel run --platforms=@io_bazel_rules_go//go/toolchain:linux_amd64 //snack:image -- --norun',
   [],
   tag="image",
 )
 ```
 
-In this case Tilt runs `bazel run //snack:image` and asserts that an image named "bazel/snack" exists with the tag "image". If it doesn't exist then the build will fail.
-
-Thanks to Bazel's deterministic nature we know in advance what the image name will be. Bazel uses a formula for determining the name of the image that it pushes:
+The first argument is the name of the image. Thanks to Bazel's deterministic
+nature we know in advance what the image name will be. Bazel uses a formula for
+determining the name of the image that it pushes:
 
 ```
 "bazel/" + directory that the build file is in + ":" + the name of the rule
 ```
 Hence for us: "bazel/snack:image".
 
-The third argument, the empty list, is a list of dependencies. We'll fill that in later. For now let's wrap this in a function called `bazel_build` and add it to the main section of our Tiltfile:
+The second argument uses bazel to create the image. The `--platforms` flag is a
+Bazel-specific gotcha: it tells Bazel to build Go binaries for Linux, because
+we're using a Linux container. You may need use something like this specific to
+your programming language.
+
+The third argument is a list of dependencies. It tells Tilt which files to watch
+for changes.
+
+When you're trying Tilt for the first time, it's ok to leave it blank. We'll
+fill it in later with the full list of sources to watch.
+
+For now let's wrap this in a function called `bazel_build` and add it to the
+main section of our Tiltfile:
 
 ```python
 def bazel_build(image, target):
   custom_build(
     image,
-    'bazel run ' + target,
+    'bazel run --platforms=@io_bazel_rules_go//go/toolchain:linux_amd64 %s -- --norun' % target,
     [],
     tag="image",
   )
