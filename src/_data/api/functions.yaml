@@ -29,6 +29,7 @@ functions:
 - link
 - listdir
 - load
+- load_dynamic
 - local
 - local_resource
 - port_forward

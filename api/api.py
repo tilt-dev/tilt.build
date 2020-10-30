@@ -442,12 +442,9 @@ def filter_yaml(yaml: Union[str, List[str], Blob], labels: dict=None, name: str=
   pass
 
 def include(path: str):
-  """Include another Tiltfile.
+  """Execute another Tiltfile.
 
-  Loads any builds or resources defined in that Tiltfile.
-
-  If you want to define common functions or constants and
-  import them into another Tiltfile, see the `load()` function.
+  Discouraged. Please use :meth:`load` or :meth:`load_dynamic`.
 
   Example ::
 
@@ -456,9 +453,7 @@ def include(path: str):
   """
 
 def load(path: str, *args):
-  """Include another Tiltfile.
-
-  Similar to `include(path)`, but binds variables in the global scope.
+  """Execute another Tiltfile, and import the named variables into the current scope.
 
   Used when you want to define common functions or constants
   to share across Tiltfiles.
@@ -468,12 +463,41 @@ def load(path: str, *args):
     load('./lib/Tiltfile', 'create_namespace')
     create_namespace('frontend')
 
+  A Tiltfile may only be executed once. If a Tiltfile is loaded multiple times,
+  the second load will use the results of the last execution.
+
   If ``path`` starts with ``"ext://"`` the path will be treated as a `Tilt Extension <extensions.html>`_.
 
   Example ::
 
     load('ext://hello_world', 'hi') # Resolves to https://github.com/tilt-dev/tilt-extensions/blob/master/hello_world/Tiltfile
     hi() # prints "Hello world!"
+
+  Note that ``load()`` is a language built-in. Read the
+  `specification <https://github.com/google/starlark-go/blob/master/doc/spec.md#load-statements>`_
+  for its complete syntax.
+
+  Because ``load()`` is analyzed at compile-time, the first argument MUST be a string literal.
+  """
+
+def load_dynamic(path: str) -> Dict[str, Any]:
+  """Execute another Tiltfile, and return a dict of the global variables it creates.
+
+  Used when you want to define common functions or constants
+  to share across Tiltfiles.
+
+  Example ::
+
+    symbols = load_dynamic('./lib/Tiltfile')
+    create_namespace = symbols['create_namespace']
+    create_namespace('frontend')
+
+  Like :meth:`load`, each Tiltfile will only be executed once. Can also be used to load a `Tilt Extension <extensions.html>`_.
+
+  Because ``load_dynamic()`` is executed at run-time, you can use it to do
+  meta-programming that you cannot do with ``load()`` (like determine which file
+  to load by running a script first). But you need to unpack the variables yourself -
+  you don't get the nice syntactic sugar of binding local variables.
   """
 
 def local(command: Union[str, List[str]], quiet: bool = False, command_bat: str = "", echo_off: bool = False) -> Blob:
