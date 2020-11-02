@@ -18,7 +18,7 @@ has_calendly: true
   </div>
   <div class="Enterprise-hero-cta">
     <h4 class="Enterprise-hero-cta-title">Schedule a Demo</h4>
-    <div class="calendly-inline-widget" data-url="https://calendly.com/dbentley/tilt-enterprise?hide_event_type_details=1"></div>
+    <div class="calendly-inline-widget" data-url="https://calendly.com/c/HDFXUIRKWTB6FMBB?hide_event_type_details=1"></div>
   </div>
 </section>
 
