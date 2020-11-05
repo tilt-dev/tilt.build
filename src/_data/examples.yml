@@ -10,3 +10,5 @@
   href: example_java.html
 - title: C#
   href: example_csharp.html
+- title: Bazel
+  href: example_bazel.html
