@@ -394,7 +394,7 @@ def k8s_resource(workload: str = "", new_name: str = "",
       pods to be ready before the resource is considered healthy (and dependencies
       can start building). By default, Tilt will wait for pods to be ready if it
       thinks a resource has pods.
-    links: one of more links to be associated with this resource in the UI. (Note
+    links: one or more links to be associated with this resource in the UI. (Note
       that port forwards specified via the ``port_forwards`` parameter will automatically
       show up as URLs in the UI; rather, the ``links`` parameter is generally for non-port-forward
       URLs, e.g. your ingress always sets up an endpoint `my.service.foo`.)
@@ -910,7 +910,7 @@ def local_resource(name: str, cmd: Union[str, List[str]],
       with ``cmd /S /C``. Takes precedence over the ``serve_cmd`` parameter on Windows. Ignored on macOS/Linux.
     allow_parallel: By default, all local resources are presumed unsafe to run in parallel, due to race
       conditions around modifying a shared file system. Set to True to allow them to run in parallel.
-    links: one of more links to be associated with this resource in the Web UI (e.g. perhaps you have a "reset database" workflow and want to attach a link to the database web console). Provide one or more strings (the URLs to link to) or :class:`~api.Link` objects.
+    links: one or more links to be associated with this resource in the Web UI (e.g. perhaps you have a "reset database" workflow and want to attach a link to the database web console). Provide one or more strings (the URLs to link to) or :class:`~api.Link` objects.
   """
   pass
 
