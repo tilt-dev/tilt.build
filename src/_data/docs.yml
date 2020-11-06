@@ -40,6 +40,8 @@
   # todo: this will go under its own Debuggers section when we have enough articles to merit it
   - title: Python Debuggers
     href: debuggers_python.html
+  - title: Custom port forward names and additional links for resources
+    href: custom_port_forwards_and_links.html
   - title: Extensions
     href: extensions.html
   - title: Contribute an Extension
