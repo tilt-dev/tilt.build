@@ -40,8 +40,8 @@ k8s_resource(
       port_forward(4004, name='blog-archives')
    ],
    links=[
-     'blog-db.storage.acme.com',
-     link('internal-eng.acme.com/docs/blog-db-reset', 'Blog db reset docs')
+      'blog-db.storage.acme.com',
+      link('internal-eng.acme.com/docs/blog-db-reset', 'Blog db reset docs')
    ]
 )
 ```
