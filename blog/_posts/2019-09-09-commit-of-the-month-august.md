@@ -33,7 +33,7 @@ The point, simply, is to keep you from `tilt up`-ing your local code into your p
 
 This feature uses heuristics to guess whether you’re running in a local cluster (like Minikube or Docker Desktop). Local cluster are obviously not production, so they’re always safe. If your KubeContext is _not_ pointing to something that we can identify as a local cluster, then we block your deploy and throw up this warning instead.
 
-If you were in fact pointing at your production cluster, then yay, crisis averted! If you actually _meant_ to deploy to this cluster (say, it’s your staging cluster, or maybe you’re excited about all the benefits you get from developing against a remote k8s cluster), you can easily [whitelist the cluster in your Tiltfile](https://docs.tilt.dev/api.html#api.allow_k8s_contexts), and Tilt won’t bother you about it anymore. (You don’t even to have to restart Tilt, because it’s responsive to changes in your Tiltfile!)
+If you were in fact pointing at your production cluster, then yay, crisis averted! If you actually _meant_ to deploy to this cluster (say, it’s your staging cluster, or maybe you’re excited about all the benefits you get from developing against a remote k8s cluster), you can easily [allow the cluster in your Tiltfile](https://docs.tilt.dev/api.html#api.allow_k8s_contexts), and Tilt won’t bother you about it anymore. (You don’t even to have to restart Tilt, because it’s responsive to changes in your Tiltfile!)
 
 ```
 allow_k8s_contexts('my-staging-cluster')

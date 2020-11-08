@@ -179,7 +179,7 @@ instructions linked above)
 By default, Tilt will not let you develop against a remote cluster.
 
 If you start Tilt while you have `kubectl` configured to talk to a remote
-cluster, you will get an error. You have to explicitly whitelist the cluster 
+cluster, you will get an error. You have to explicitly allow the cluster 
 using [allow_k8s_contexts](api.html#api.allow_k8s_contexts):
 
 ```python
@@ -213,16 +213,16 @@ want it to work with Tilt, there are two things you need to do.
 - Tilt needs to recognize the cluster as a dev cluster.
 - Tilt needs to be able to discover any in-cluster registry.
 
-### Whitelisting the Cluster
+### Allowing the Cluster
 
-Users have to explicitly whitelist the cluster with this line in their Tiltfile:
+Users have to explicitly allow the cluster with this line in their Tiltfile:
 
 ```python
 allow_k8s_contexts('my-cluster-name')
 ```
 
 If your cluster is a dev-only cluster that you think Tilt should
-recognize automatically, we accept PRs to whitelist the cluster in Tilt.
+recognize automatically, we accept PRs to allow the cluster in Tilt.
 Here's an example:
 
 [Recognize Red Hat CodeReady Containers as a local cluster](https://github.com/tilt-dev/tilt/pull/3242)
