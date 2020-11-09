@@ -48,4 +48,3 @@ docker_build('blog-site', '.', dockerfile='deploy/blog.dockerfile',
 k8s_resource('tilt-site', port_forwards=[port_forward(4000, name='tilt-site')])
 k8s_resource('docs-site', port_forwards=[port_forward(4001, name='docs-site')], resource_deps=['make-api'])
 k8s_resource('blog-site', port_forwards=[port_forward(4002, name='blog-site')])
-
