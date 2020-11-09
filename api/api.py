@@ -827,12 +827,12 @@ def allow_k8s_contexts(contexts: Union[str, List[str]]) -> None:
   """Specifies that Tilt is allowed to run against the specified k8s context names.
 
   To help reduce the chances you accidentally use Tilt to deploy to your
-  production cluster, Tilt will only push to clusters that have been whitelisted
+  production cluster, Tilt will only push to clusters that have been allowed
   for local development.
 
-  By default, Tilt whitelists Minikube, Docker for Desktop, Microk8s, Red Hat CodeReady Containers, Kind, K3D, and Krucible.
+  By default, Tilt automatically allows Minikube, Docker for Desktop, Microk8s, Red Hat CodeReady Containers, Kind, K3D, and Krucible.
 
-  To whitelist your development cluster, add a line in your Tiltfile:
+  To add your development cluster to the allow list, add a line in your Tiltfile:
 
   `allow_k8s_contexts('context-name')`
 
