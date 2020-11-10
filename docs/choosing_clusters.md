@@ -34,16 +34,15 @@ Advanced Level:
 [Kind](https://kind.sigs.k8s.io/) runs Kubernetes inside a Docker container.
 
 The Kubernetes team uses Kind to test Kubernetes itself. But its fast startup
-time also makes it a good solution for local dev. Follow these instructions to
-set up Kind for use with Tilt:
+time also makes it a good solution for local dev. Use `ctlptl` to set up Kind with a registry:
 
-[**Kind Setup Instructions**](https://github.com/tilt-dev/kind-local){:.attached-above}
+[**Kind Setup**](https://github.com/tilt-dev/ctlptl#kind-with-a-built-in-registry){:.attached-above}
 
 ### Pros
 
 - Creating a new cluster is fast (~20 seconds). Deleting a cluster is even faster. 
 - Much more robust than Docker for Mac. Uses containerd instead of docker-shim. Short-lived clusters tend to be more reliable.
-- Supports a local image registry (with our [custom setup instructions](https://github.com/tilt-dev/kind-local)).
+- Supports a local image registry (with our [Kind setup tool](https://github.com/tilt-dev/ctlptl#kind-with-a-built-in-registry)).
   Pushing images is fast. No fiddling with image registry auth credentials.
 - Can run in [most CI environments](https://github.com/kind-ci/examples) (TravisCI, CircleCI, etc.)
 
@@ -127,14 +126,13 @@ container runtimes, and more.
 
 Follow these instructions to set up Minikube for use with Tilt:
 
-[**Minikube Setup Instructions**](https://github.com/tilt-dev/minikube-local){:.attached-above}
-
+[**Minikube Setup**](https://github.com/tilt-dev/ctlptl#minikube-with-a-built-in-registry){:.attached-above}
 
 ### Pros
 
 - The most full-featured local Kubernetes solution
 - Can easily run different Kubernetes versions, container runtimes, and controllers
-- Supports a local image registry (with our [custom setup instructions](https://github.com/tilt-dev/minikube-local)).
+- Supports a local image registry (with our [cluster setup tool]((https://github.com/tilt-dev/ctlptl#minikube-with-a-built-in-registry)).
   Pushing images is fast. No fiddling with image registry auth credentials.
 
 ### Cons

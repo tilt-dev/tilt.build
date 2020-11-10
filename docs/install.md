@@ -39,7 +39,7 @@ Linux
 - Install [Docker](https://docs.docker.com/install/)
 - Setup Docker as [a non-root user](https://docs.docker.com/install/linux/linux-postinstall/).
 - Install [kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/)
-- Install [Kind with a local registry](https://github.com/tilt-dev/kind-local/blob/master/README.md)
+- Install [ctlptl](https://github.com/tilt-dev/ctlptl) and use it to create Kind with a local registry
 - Install `tilt` with:
 
 ```bash
