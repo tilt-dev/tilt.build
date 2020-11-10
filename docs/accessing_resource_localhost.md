@@ -11,7 +11,7 @@ As you're configuring [resources in Tilt](/tiltfile_concepts.html#resources), yo
 k8s_resource(workload='blog-site', port_forwards=4002)
 ```
 
-`localhost:4002` will be connected to container port 4002. Tilt also displays a link at the top of the screen too.
+`localhost:4002` will be connected to container port 4002. Tilt also displays a link at the top of the screen.
 
 <figure>
    <img src="/assets/img/port-forward.png" title="Port forward">
@@ -88,4 +88,4 @@ would show this in Tilt:
     <img src="/assets/img/additional-resource-links.png" title="Additional resource links">
 </figure>
 
-Arbitrary links applies to [`local_resource`](/api.html#api.local_resource) also, not just `k8s_resource`.
+Arbitrary links are supported on both [`local_resource`](/api.html#api.local_resource) and `k8s_resource`.
