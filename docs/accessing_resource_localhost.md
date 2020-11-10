@@ -88,4 +88,4 @@ would show this in Tilt:
     <img src="/assets/img/additional-resource-links.png" title="Additional resource links">
 </figure>
 
-Arbitrary links applies to [`local_resource`](/api.html#api.local_resource) also, not just `k8s_resource`.
+Arbitrary links are supported on both [`local_resource`](/api.html#api.local_resource) and `k8s_resource`.
