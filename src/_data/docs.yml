@@ -20,8 +20,8 @@
     href: onboarding_checklist.html
   - title: "Guide for Application Developers"
     href: welcome_to_tilt.html
-  - title: Accessing your resource on localhost
-    href: accessing_resource_localhost.html
+  - title: Accessing your resource with endpoints
+    href: accessing_resource_endpoints.html
 
 - title: Enhancements
   items:

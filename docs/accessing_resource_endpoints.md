@@ -1,5 +1,5 @@
 ---
-title: Accessing your resource on localhost
+title: Accessing your resource with endpoints
 layout: docs
 ---
 
@@ -25,7 +25,7 @@ k8s_resource(workload='blog-site', port_forwards='9000:4002')
 
 `localhost:9000` will be connected to container port 4002.
 
-## Multiple port forwards
+## Naming port forwards
 
 A resource may have multiple port forwards. You can configure them with:
 
