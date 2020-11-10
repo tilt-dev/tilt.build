@@ -11,7 +11,7 @@ As you're configuring [resources in Tilt](/tiltfile_concepts.html#resources), yo
 k8s_resource(workload='blog-site', port_forwards=4002)
 ```
 
-`localhost:4002` will be connected to container port 4002. Tilt also displays a link at the top of the screen too.
+`localhost:4002` will be connected to container port 4002. Tilt also displays a link at the top of the screen.
 
 <figure>
    <img src="/assets/img/port-forward.png" title="Port forward">
