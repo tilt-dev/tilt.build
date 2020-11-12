@@ -40,7 +40,7 @@ Create a new file named `Tiltfile` (note the capitalization) in your project dir
 print('Hello Tiltfile')
 ```
 
-Now save the file. Congrats, you just ran your first Tiltfile since Tilt has automatically reexecuted with it. Tilt's configurations are programs in [Starlark](https://github.com/bazelbuild/starlark#tour>), a dialect of Python. Go back to your browser to see "Hello Tiltfile" in Tilt. Tilt is also warning you there are no declared resources. Let's add some.
+Now save the file. Congrats, you just ran your first Tiltfile since Tilt has automatically reexecuted with it. Tilt's configurations are programs in [Starlark](https://github.com/bazelbuild/starlark#tour), a dialect of Python. Go back to your browser to see "Hello Tiltfile" in Tilt. Tilt is also warning you there are no declared resources. Let's add some.
 
 ## Step 1: Deploy
 The [Tiltfile API](api.html) function [`k8s_yaml`](api.html#api.k8s_yaml) registers Kubernetes objects you want to deploy:
