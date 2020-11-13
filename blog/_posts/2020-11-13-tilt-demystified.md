@@ -5,13 +5,11 @@ author: l
 layout: blog
 title: "Tilt Demystified: Inside Tilt's Control Loop"
 image: "/assets/images/demystified/image.jpg"
+video: "http://www.youtube.com/embed/mN31_O-B4ss"
 tags:
   - tilt
   - control loop
 ---
-
-Video:
-<iframe width="420" height="315" src="http://www.youtube.com/embed/mN31_O-B4ss" frameborder="0" allowfullscreen></iframe>
 
 We want Tilt to feel like magic. All you need is a Tiltfile and some configs, and Tilt can spin up your entire app on Kubernetes, and respond instantly to changes.
 
