@@ -45,11 +45,12 @@ For specific package managers (Homebrew, Scoop, Conda, asdf), see the [Installat
 
 **Configuring a Service?** We have best practice guides for 
 [HTML](example_static_html.html), 
+[Go](example_go.html),
 [NodeJS](example_nodejs.html), 
 [Python](example_python.html), 
-[Go](example_go.html),
 [Java](example_java.html),
-and [C#](example_csharp.html).
+[C#](example_csharp.html),
+and [Bazel](example_bazel.html).
 
 **Optimizing a Tiltfile?** Search for the function you need in our 
 [complete API reference](api.html).
