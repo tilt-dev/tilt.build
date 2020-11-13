@@ -5,7 +5,7 @@ author: l
 layout: blog
 title: "Tilt Demystified: Inside Tilt's Control Loop"
 image: "/assets/images/demystified/image.jpg"
-video: "http://www.youtube.com/embed/mN31_O-B4ss"
+video: "https://www.youtube.com/embed/mN31_O-B4ss"
 tags:
   - tilt
   - control loop
