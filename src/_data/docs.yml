@@ -6,6 +6,8 @@
     href: upgrade.html
   - title: "Tutorial: The First 15 Minutes"
     href: tutorial.html
+  - title: "Tilt's Control Loop"
+    href: controlloop.html
 
 - title: Example Projects
   include: examples
