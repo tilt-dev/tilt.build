@@ -43,14 +43,13 @@ For specific package managers (Homebrew, Scoop, Conda, asdf), see the [Installat
 
 **New to Tilt?** Our tutorial will [get you started](tutorial.html).
 
-**Configuring a Service?** We have best practice guides for 
-[HTML](example_static_html.html), 
-[Go](example_go.html),
-[NodeJS](example_nodejs.html), 
-[Python](example_python.html), 
-[Java](example_java.html),
-[C#](example_csharp.html),
-and [Bazel](example_bazel.html).
+**Configuring a Service?** We have best practice guides for:
+
+<ul>
+  {% for page in site.data.examples %}
+    <li><a href="/{{page.href | escape}}">{{page.title | escape}}</a></li>
+  {% endfor %}
+</ul>
 
 **Optimizing a Tiltfile?** Search for the function you need in our 
 [complete API reference](api.html).
