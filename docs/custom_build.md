@@ -185,7 +185,7 @@ custom_build(
     'image-foo',
     'docker build -t $EXPECTED_REF .',
     deps=['dep1', 'dep2'],
-    ignores=['baz']
+    ignore=['baz']
 )
 ```
 Tilt will ignore `dep1/baz` and `dep2/baz`.
