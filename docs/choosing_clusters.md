@@ -109,7 +109,7 @@ kubectl config use-context microk8s
 - Resetting the cluster is slow and error-prone.
 - Optimized for Ubuntu. In theory, works on any Linux that supports
   [Snap](https://snapcraft.io/) and on MacOS/Windows with
-  [Multipass](https://multipass.run/), but t's
+  [Multipass](https://multipass.run/), but it's
   not as stable on those platforms.
 
 ---
