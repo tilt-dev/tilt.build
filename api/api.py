@@ -357,19 +357,18 @@ def k8s_resource(workload: str = "", new_name: str = "",
       in conjunction with ``new_name``.)
     new_name: If non-empty, will be used as the new name for this resource. (To
       programmatically rename all resources, see :meth:`workload_to_resource_function`.)
-    port_forwards: Local ports to connect to the pod. If a target port is
-      specified, that will be used. Otherwise, if the container exposes a port
-      with the same number as the local port, that will be used. Otherwise,
-      the default container port will be used. Port forward configurations may
-      also be specified with a :class:`~api.PortForward` object.
-      Example values: 9000 (connect localhost:9000 to the container's port 9000,
-      if it is exposed, otherwise connect to the container's default port),
-      '9000:8000' (connect localhost:9000 to the container port 8000),
-      ['9000:8000', '9001:8001'] (connect localhost:9000 and :9001 to the
-      container ports 8000 and 8001, respectively).
-      [8000, 8001] (assuming the container exposes both 8000 and 8001, connect
-      localhost:8000 and localhost:8001 to the container's ports 8000 and 8001,
-      respectively).
+    port_forwards: Host port to connect to the pod. Takes 3 forms:
+
+      ``'9000'`` (port only) - Connect localhost:9000 to the container's port 9000,
+      if it is exposed. Otherwise connect to the container's default port.
+
+      ``'9000:8000'`` (host port to container port) - Connect localhost:9000 to the container port 8000).
+
+      ``'elastic.local:9200:8000'`` (host address to container port) - Bind elasticsearch:9200 on the host
+      to container port 8000. You will also need to update /etc/host to make 'elastic.local' point to localhost.
+
+      Multiple port forwards can be specified (e.g., ``['9000:8000', '9001:8001']``).
+      The string-based syntax is sugar over the more explicit ``port_forward(9000, 8000)``.
     extra_pod_selectors: In addition to relying on Tilt's heuristics to automatically
       find Kubernetes resources associated with this resource, a user may specify extra
       labelsets to force pods to be associated with this resource. An pod
