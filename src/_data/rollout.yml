@@ -4,16 +4,12 @@
     href: rollout/appdev-devex
   - title: The Missing DevEx Book
     href: rollout/missing-devex-book
-  - title: Our DevEx History
   - title: Set Adoption Goals
     href: rollout/adoption-goals
 - title: Configure
   items:
   - title: Finish the POC
     href: rollout/finish-poc
-  - title: Organizing Tiltfiles
-  - title: Dev 1.0 to 2.0
-  - title: Non-Server Workflows
 - title: Onboard
   items:
   - title: Focus Users
