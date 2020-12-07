@@ -31,7 +31,8 @@ class PortForward:
 def port_forward(local_port: int,
                  container_port: Optional[int] = None,
                  name: Optional[str] = None,
-                 link_path: Optional[str] = None) -> PortForward:
+                 link_path: Optional[str] = None,
+                 host: Optional[str] = None) -> PortForward:
   """
   Creates a :class:`~api.PortForward` object specifying how to set up and display a Kubernetes port forward.
 
@@ -51,6 +52,9 @@ def port_forward(local_port: int,
     link_path (str, optional): if given, the path at the port forward URL to link to; e.g. a port
       forward on localhost:8888 with ``link_path='/v1/app'`` would surface a link in the UI to
       ``localhost:8888/v1/app``.
+    host (str, optional): if given, the host of the port forward (by default, ``localhost``). E.g.
+      a call to `port_forward(8888, host='elastic.local')` would forward container port 8888 to
+      ``elastic.local:8888``.
   """
   pass
 
