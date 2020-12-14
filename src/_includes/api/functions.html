@@ -5895,6 +5895,10 @@ conditions around modifying a shared file system. Set to True to allow them to r
            <em>
             link_path=None
            </em>
+           ,
+           <em>
+            host=None
+           </em>
            <span class="sig-paren">
             )
            </span>
@@ -6035,6 +6039,39 @@ forward on localhost:8888 with
                  <code class="docutils literal notranslate">
                   <span class="pre">
                    localhost:8888/v1/app
+                  </span>
+                 </code>
+                 .
+                </li>
+                <li>
+                 <strong>
+                  host
+                 </strong>
+                 (
+                 <em>
+                  str
+                 </em>
+                 <em>
+                  ,
+                 </em>
+                 <em>
+                  optional
+                 </em>
+                 ) &#x2013; if given, the host of the port forward (by default,
+                 <code class="docutils literal notranslate">
+                  <span class="pre">
+                   localhost
+                  </span>
+                 </code>
+                 ). E.g.
+a call to
+                 <cite>
+                  port_forward(8888, host=&#x2019;elastic.local&#x2019;)
+                 </cite>
+                 would forward container port 8888 to
+                 <code class="docutils literal notranslate">
+                  <span class="pre">
+                   elastic.local:8888
                   </span>
                  </code>
                  .
