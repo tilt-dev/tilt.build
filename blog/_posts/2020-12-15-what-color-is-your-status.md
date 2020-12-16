@@ -1,9 +1,9 @@
 ---
-slug: "what-color-is-your-status"
+slug: "new-status-indicators"
 date: 2020-12-14
 author: han
 layout: blog
-title: "What Color is Your Status"
+title: "What's the Status? More Insight on your Resources"
 image: "/assets/images/ctlptl/joe-cox-HVXujL72Dug-unsplash.jpg"
 image_caption: "Photo by <a href=\"https://unsplash.com/@joecoxx?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText\">Joe Cox</a> on <a href=\"https://unsplash.com/s/photos/ducks-puddle?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText\">Unsplash</a></span>"
 tags:
@@ -12,37 +12,24 @@ tags:
   - ux
 ---
 
-What happened here?
 
 [snapshot]
 
-As of Tilt v0.18.0, every resource gets two colors! They might even be the same
-color.
+As of Tilt v0.18.0, there's something new in the Sidebar! Each resource now shows BOTH the runtime status AND build status, rather than combining both into a single status.
 
-You may ask "Why do we need two colors? One color seemed perfectly fine!"
+## Why The Change?
 
-We're glad you asked!
-
-## Why Two Colors is Better Than One
-
-Tilt sets up local dev environments. 
-
-Your dev environment has two pieces: the binary to build, and the binary
+Tilt sets up local dev environments. Your dev environment has two pieces: the binary to build, and the binary
 currently running. Build-time and run-time.
 
-As a short hand, collapsing build status and runtime status into one was a way
-to give you a single place to glance.
+When we first launched Tilt, we collapsed build status and runtime status into a single indicator. This seemed like a good tradeoff for an interface that was easy to scan, and informative _most_ of the time.
 
-But it wasn't very transparent. People regularly complained: my resource is
-red. But the server is still responding to requests. Does that mean Tilt made a
-mistake?
+But this design could be misleading. We heard feedback like, "My resource is red. But the server is still responding to requests. What's going on?"
 
-The single status made it hard to guess what was going on in some cases: your
-binary doesn't compile, so Tilt can't update the server.
+In these cases, the single indicator made it hard to guess at the true status. (i.e., Your binary doesn't compile, so Tilt can't update the server. But the server's still running with the last build we deployed!)
 
-We're still investigating ways to give users a single place to glance to see
-what they need to take action on.  But we want to make it clear and transparent,
-and help you to understand what part of the build is failing.
+We want Tilt to support an accurate good mental model of what's happening to your services as you code, while keeping the interface digestible. 
+
 
 ## What's Next
 
@@ -59,7 +46,7 @@ And at the same time, we want to make this feel like your team's dashboard, not 
 
 A lot of these changes come out of weekly conversations we've been having with
 lots of teams about what they understand about their dev environments and what's
-frustrating. If you like complaining, or want to try out some early prototypes,
+frustrating. If you'd like to chat, or want to try out some early prototypes,
 please reach out!
 
 
