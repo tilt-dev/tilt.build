@@ -1,21 +1,20 @@
 ---
 slug: "new-status-indicators"
-date: 2020-12-14
+date: 2020-12-16
 author: han
 layout: blog
 title: "What's the Status? More Insight on your Resources"
-image: "/assets/images/ctlptl/joe-cox-HVXujL72Dug-unsplash.jpg"
-image_caption: "Photo by <a href=\"https://unsplash.com/@joecoxx?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText\">Joe Cox</a> on <a href=\"https://unsplash.com/s/photos/ducks-puddle?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText\">Unsplash</a></span>"
+image: "/assets/images/whats-the-status/telescope.jpg"
+image_caption: "A stereocard of the Lick Observatory Telescope, courtesy of <a href=\"https://www.metmuseum.org/art/collection/search/813899\">The Metropolitan Museum of Art</a>"
 tags:
   - kubernetes
   - local development
   - ux
 ---
 
-
-[snapshot]
-
 As of Tilt v0.18.0, there's something new in the Sidebar! Each resource now shows BOTH the runtime status AND build status, rather than combining both into a single status.
+
+![Web UI](/assets/images/whats-the-status/two-status-view.jpg)
 
 ## Why The Change?
 
@@ -47,7 +46,7 @@ And at the same time, we want to make this feel like your team's dashboard, not 
 A lot of these changes come out of weekly conversations we've been having with
 lots of teams about what they understand about their dev environments and what's
 frustrating. If you'd like to chat, or want to try out some early prototypes,
-please reach out!
+please [reach out](https://docs.tilt.dev/#community)!
 
 
 
