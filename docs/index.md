@@ -75,7 +75,9 @@ status of running services, errors, logs, and more.
 **Contribute:** Tilt is open source, developed on [GitHub](https://github.com/tilt-dev/tilt). Check out our [contribution](https://github.com/tilt-dev/tilt/blob/master/CONTRIBUTING.md) guidelines. 
 
 **Follow along:** [@tilt_dev](https://twitter.com/tilt_dev) on Twitter. Updates
-and announcements on the [Tilt blog](https://blog.tilt.dev).
+and announcements on the [Tilt blog](https://blog.tilt.dev). If you find a
+security issue in Tilt, see our [security
+policy](https://github.com/tilt-dev/tilt/blob/master/SECURITY.md).
 
 **Help us make Tilt even better:** Tilt sends anonymized usage data, so we can
 improve Tilt on every platform. Details in ["What does Tilt
