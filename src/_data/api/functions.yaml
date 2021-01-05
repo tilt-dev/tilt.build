@@ -46,6 +46,7 @@ functions:
 - trigger_mode
 - update_settings
 - version_settings
+- warn
 - watch_file
 - watch_settings
 - workload_to_resource_function

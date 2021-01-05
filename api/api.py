@@ -1031,3 +1031,12 @@ def watch_settings(ignore: Union[str, List[str]]) -> None:
       patterns to .tiltignore. Relative patterns are evaluated relative to the current working dir.
       See `Debugging File Changes <file_changes.html>`_ for more details.
   """
+
+def warn(msg: str) -> None:
+  """Emits a warning.
+
+  Warnings are displayed both in the logs, and aggregated as alerts.
+
+  Args:
+    msg: The message.
+  """
