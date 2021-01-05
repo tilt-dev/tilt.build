@@ -7,10 +7,6 @@ hideEditButton: true
 
 Print diagnostic information about the Tilt environment, for filing bug reports
 
-### Synopsis
-
-Print diagnostic information about the Tilt environment, for filing bug reports
-
 ```
 tilt doctor [flags]
 ```
@@ -25,10 +21,9 @@ tilt doctor [flags]
 ### Options inherited from parent commands
 
 ```
-  -d, --debug                          Enable debug logging
-      --klog int                       Enable Kubernetes API logging. Uses klog v-levels (0-4 are debug logs, 5-9 are tracing logs)
-      --log-flush-frequency duration   Maximum number of seconds between log flushes (default 5s)
-  -v, --verbose                        Enable verbose logging
+  -d, --debug      Enable debug logging
+      --klog int   Enable Kubernetes API logging. Uses klog v-levels (0-4 are debug logs, 5-9 are tracing logs)
+  -v, --verbose    Enable verbose logging
 ```
 
 ### SEE ALSO

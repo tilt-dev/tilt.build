@@ -7,10 +7,6 @@ hideEditButton: true
 
 info and status about tilt-dev analytics
 
-### Synopsis
-
-info and status about tilt-dev analytics
-
 ```
 tilt analytics
 ```
@@ -24,10 +20,9 @@ tilt analytics
 ### Options inherited from parent commands
 
 ```
-  -d, --debug                          Enable debug logging
-      --klog int                       Enable Kubernetes API logging. Uses klog v-levels (0-4 are debug logs, 5-9 are tracing logs)
-      --log-flush-frequency duration   Maximum number of seconds between log flushes (default 5s)
-  -v, --verbose                        Enable verbose logging
+  -d, --debug      Enable debug logging
+      --klog int   Enable Kubernetes API logging. Uses klog v-levels (0-4 are debug logs, 5-9 are tracing logs)
+  -v, --verbose    Enable verbose logging
 ```
 
 ### SEE ALSO
