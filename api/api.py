@@ -1035,7 +1035,7 @@ def watch_settings(ignore: Union[str, List[str]]) -> None:
 def warn(msg: str) -> None:
   """Emits a warning.
 
-  Warnings are displayed both in the logs, and aggregated as alerts.
+  Warnings are both displayed in the logs and aggregated as alerts.
 
   Args:
     msg: The message.
