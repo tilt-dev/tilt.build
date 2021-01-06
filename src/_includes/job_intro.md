@@ -19,5 +19,6 @@ GitHub and Google Sheets are great because of the new workflows they
 enable. We're excited to be working towards it.
 
 We want to be a better company in an industry that's been neither diverse nor
-inclusive. Each month, we give $100/employee to an org that's making tech less
-toxic. We recognize "meritocracy" and "work hard, play hard" as culture smells.
+inclusive. [Each month, we give $100/employee to an org that's making tech less
+toxic.](https://github.com/tilt-dev/company/tree/master/donations) We recognize 
+"meritocracy" and "work hard, play hard" as culture smells.
