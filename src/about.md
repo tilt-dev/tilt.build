@@ -92,7 +92,16 @@ but also have teammates in Berlin, Germany and Richmond, VA.
     <div>
 	Product designer, Bollywood music lover, mother of two and a builder of physical things. She/Her
     </div>
-  </div>  </div>
+  </div>
+  <div class="bio col-1of3 u-marginBottom1_25">
+    <img class="bio-image" src="/assets/img/milas.jpg">
+    <h4>Milas Bowman</h4>
+    <div>
+      Five years building endpoint security products at VMware. Sriracha enthuasiast. Too competitive at board games. He/him.
+    </div>
+  </div>
+</div>
+
 
 
  
