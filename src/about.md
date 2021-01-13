@@ -97,12 +97,12 @@ but also have teammates in Berlin, Germany and Richmond, VA.
     <img class="bio-image" src="/assets/img/milas.jpg">
     <h4>Milas Bowman</h4>
     <div>
-      Five years building endpoint security products at VMware. Sriracha enthuasiast. Too competitive at board games. He/him.
+      Five years building endpoint security products at VMware. Sriracha enthusiast. Too competitive at board games. He/him.
     </div>
   </div>
 </div>
 
 
 
- 
+
 {% svg assets/svg/mask.svg %}
