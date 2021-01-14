@@ -28,7 +28,9 @@ def exists(path: str) -> bool:
   Returns false if this is a broken symlink, or if the user doesn't have permission
   to stat the file at this path.
 
-  Watches the path, and reloads the Tiltfile if the contents change.
+  On Tilt v0.18.3 and below, watches the path, and reloads the Tiltfile if the contents change.
+
+  On Tilt v0.18.4 and up, does no watching.
 
   Args:
     path: A filesystem path

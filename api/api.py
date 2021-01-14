@@ -739,7 +739,7 @@ def default_registry(host: str, host_from_cluster: str = None, single_name: str 
   """
   pass
 
-def custom_build(ref: str, command: str, deps: List[str], tag: str = "", disable_push: bool = False, skips_local_docker: bool = False, live_update: List[LiveUpdateStep]=[], match_in_env_vars: bool = False, ignore: Union[str, List[str]] = [], entrypoint: Union[str, List[str]] = [], command_bat: str = "", outputs_image_ref_to: str = ""):
+def custom_build(ref: str, command: str, deps: List[str], tag: str = "", disable_push: bool = False, skips_local_docker: bool = False, live_update: List[LiveUpdateStep]=[], match_in_env_vars: bool = False, ignore: Union[str, List[str]] = [], entrypoint: Union[str, List[str]] = [], command_bat_val: str = "", outputs_image_ref_to: str = "", command_bat: str = ""):
   """Provide a custom command that will build an image.
 
   Example ::
@@ -771,11 +771,12 @@ def custom_build(ref: str, command: str, deps: List[str], tag: str = "", disable
     match_in_env_vars: specifies that k8s objects can reference this image in their environment variables, and Tilt will handle those variables the same as it usually handles a k8s container spec's ``image`` s.
     ignore: set of file patterns that will be ignored. Ignored files will not trigger builds and will not be included in images. Follows the `dockerignore syntax <https://docs.docker.com/engine/reference/builder/#dockerignore-file>`_. Patterns/filepaths will be evaluated relative to each ``dep`` (e.g. if you specify ``deps=['dep1', 'dep2']`` and ``ignores=['foobar']``, Tilt will ignore both ``deps1/foobar`` and ``dep2/foobar``).
     entrypoint: command to run when this container starts. Takes precedence over the container's ``CMD`` or ``ENTRYPOINT``, and over a `container command specified in k8s YAML <https://kubernetes.io/docs/tasks/inject-data-application/define-command-argument-container/>`_. If specified as a string, will be evaluated in a shell context (e.g. ``entrypoint="foo.sh bar"`` will be executed in the container as ``/bin/sh -c 'foo.sh bar'``); if specifed as a list, will be passed to the operating system as program name and args. Kubernetes-only.
-    command_bat: The command to run, expressed as a Windows batch command executed
-      with ``cmd /S /C``. Takes precedence over the ``command`` parameter on Windows. Ignored on macOS/Linux.
+    command_bat_val: Deprecated, use command_bat.
     outputs_image_ref_to: Specifies a file path. When set, the custom build command must write a content-based
       tagged image ref to this file. Tilt will read that file after the cmd runs to get the image ref,
       and inject that image ref into the YAML. For more on content-based tags, see <custom_build.html#why-tilt-uses-immutable-tags>_
+    command_bat: The command to run, expressed as a Windows batch command executed
+      with ``cmd /S /C``. Takes precedence over the ``command`` parameter on Windows. Ignored on macOS/Linux.
 
   """
   pass
