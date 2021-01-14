@@ -117,10 +117,20 @@ With `serve_cmd`, when the resource updates:
 Some examples:
 
 #### build and run a server locally
-``local_resource(cmd='go build ./cmd/myserver', serve_cmd='./myserver --port=8001', deps=['cmd/myserver'])``
+``local_resource('local-server', cmd='go build ./cmd/myserver', serve_cmd='./myserver --port=8001', deps=['cmd/myserver'])``
 
 #### keep a port forward open to a service not deployed by Tilt
-``local_resource(serve_cmd='kubectl port-forward -n openfaas svc/gateway 8080:8080')``
+``local_resource('kube-port-forward', serve_cmd='kubectl port-forward -n openfaas svc/gateway 8080:8080')``
 
 #### show the k8s api server's logs
-``local_resource(serve_cmd='kubectl logs -f -n kube-system kube-apiserver-docker-desktop')``
+``local_resource('kube-logs', serve_cmd='kubectl logs -f -n kube-system kube-apiserver-docker-desktop')``
+
+#### custom environment
+```python
+update_env={'CGO_ENABLED': '0'}
+serve_env={'PORT': os.getenv('PORT', default='8001')}
+local_resource('custom-env',
+               cmd='go build ./cmd/myserver', env=update_env,
+               serve_cmd='./myserver', serve_env=serve_env,
+               deps=['cmd/myserver'])
+```
