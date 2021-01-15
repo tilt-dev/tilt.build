@@ -51,8 +51,8 @@ conda update -c conda-forge tilt
 
 ```
 asdf plugin add tilt
-asdf install tilt 0.17.3
-asdf global tilt 0.17.3
+asdf install tilt 0.18.4
+asdf global tilt 0.18.4
 ```
 
 ## Manual Install
