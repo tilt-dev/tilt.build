@@ -3,7 +3,7 @@ title: Run Local and/or Occasional Workflows with Local Resource
 description: "A technical reference on how to use local build steps in your Tiltfile"
 layout: docs
 ---
-Each entry in your Tilt sidebar is a **resource**---a unit of work managed by Tilt. 
+Each entry in your Tilt sidebar is a **resource**---a unit of work managed by Tilt.
 
 The most common type of Tilt resource is one that represents a deployed service, and is made up of
 some combination of image build instructions and Kubernetes YAML.
@@ -55,7 +55,7 @@ See the [Resource Dependencies guide](resource_dependencies.html) for more.
 
 ## Parallelism
 
-Local resources can read and write to the local filesystem freely. 
+Local resources can read and write to the local filesystem freely.
 
 Tilt will run local resource build commands in serial with other commands.  This
 prevents race conditions: if your local resources are writing files at the same
@@ -127,7 +127,9 @@ Some examples:
 
 #### custom environment
 ```python
+# will override any values for this key currently in the env
 update_env={'CGO_ENABLED': '0'}
+# if $PORT set, use that value, else use '8001'}
 serve_env={'PORT': os.getenv('PORT', default='8001')}
 local_resource('custom-env',
                cmd='go build ./cmd/myserver', env=update_env,
