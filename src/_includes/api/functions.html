@@ -299,11 +299,15 @@ that always want telemetry enabled or disabled.
            </em>
            ,
            <em>
-            command_bat=&apos;&apos;
+            command_bat_val=&apos;&apos;
            </em>
            ,
            <em>
             outputs_image_ref_to=&apos;&apos;
+           </em>
+           ,
+           <em>
+            command_bat=&apos;&apos;
            </em>
            <span class="sig-paren">
             )
@@ -680,6 +684,32 @@ then re-tag it with its own tag before pushing to your cluster.
                 </li>
                 <li>
                  <strong>
+                  command_bat_val
+                 </strong>
+                 (
+                 <code class="xref py py-class docutils literal notranslate">
+                  <span class="pre">
+                   str
+                  </span>
+                 </code>
+                 ) &#x2013; Deprecated, use command_bat.
+                </li>
+                <li>
+                 <strong>
+                  outputs_image_ref_to
+                 </strong>
+                 (
+                 <code class="xref py py-class docutils literal notranslate">
+                  <span class="pre">
+                   str
+                  </span>
+                 </code>
+                 ) &#x2013; Specifies a file path. When set, the custom build command must write a content-based
+tagged image ref to this file. Tilt will read that file after the cmd runs to get the image ref,
+and inject that image ref into the YAML. For more on content-based tags, see &lt;custom_build.html#why-tilt-uses-immutable-tags&gt;_
+                </li>
+                <li>
+                 <strong>
                   command_bat
                  </strong>
                  (
@@ -708,20 +738,6 @@ with
                   </span>
                  </code>
                  parameter on Windows. Ignored on macOS/Linux.
-                </li>
-                <li>
-                 <strong>
-                  outputs_image_ref_to
-                 </strong>
-                 (
-                 <code class="xref py py-class docutils literal notranslate">
-                  <span class="pre">
-                   str
-                  </span>
-                 </code>
-                 ) &#x2013; Specifies a file path. When set, the custom build command must write a content-based
-tagged image ref to this file. Tilt will read that file after the cmd runs to get the image ref,
-and inject that image ref into the YAML. For more on content-based tags, see &lt;custom_build.html#why-tilt-uses-immutable-tags&gt;_
                 </li>
                </ul>
               </td>
@@ -8449,7 +8465,10 @@ Tilt process. Any new subprocesses will not have this variable.
 to stat the file at this path.
            </p>
            <p>
-            Watches the path, and reloads the Tiltfile if the contents change.
+            On Tilt v0.18.3 and below, watches the path, and reloads the Tiltfile if the contents change.
+           </p>
+           <p>
+            On Tilt v0.18.4 and up, does no watching.
            </p>
            <table class="docutils field-list" frame="void" rules="none">
             <col class="field-name">
