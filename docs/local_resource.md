@@ -3,7 +3,7 @@ title: Run Local and/or Occasional Workflows with Local Resource
 description: "A technical reference on how to use local build steps in your Tiltfile"
 layout: docs
 ---
-Each entry in your Tilt sidebar is a **resource**---a unit of work managed by Tilt. 
+Each entry in your Tilt sidebar is a **resource**---a unit of work managed by Tilt.
 
 The most common type of Tilt resource is one that represents a deployed service, and is made up of
 some combination of image build instructions and Kubernetes YAML.
@@ -55,7 +55,7 @@ See the [Resource Dependencies guide](resource_dependencies.html) for more.
 
 ## Parallelism
 
-Local resources can read and write to the local filesystem freely. 
+Local resources can read and write to the local filesystem freely.
 
 Tilt will run local resource build commands in serial with other commands.  This
 prevents race conditions: if your local resources are writing files at the same
@@ -117,10 +117,22 @@ With `serve_cmd`, when the resource updates:
 Some examples:
 
 #### build and run a server locally
-``local_resource(cmd='go build ./cmd/myserver', serve_cmd='./myserver --port=8001', deps=['cmd/myserver'])``
+``local_resource('local-server', cmd='go build ./cmd/myserver', serve_cmd='./myserver --port=8001', deps=['cmd/myserver'])``
 
 #### keep a port forward open to a service not deployed by Tilt
-``local_resource(serve_cmd='kubectl port-forward -n openfaas svc/gateway 8080:8080')``
+``local_resource('kube-port-forward', serve_cmd='kubectl port-forward -n openfaas svc/gateway 8080:8080')``
 
 #### show the k8s api server's logs
-``local_resource(serve_cmd='kubectl logs -f -n kube-system kube-apiserver-docker-desktop')``
+``local_resource('kube-logs', serve_cmd='kubectl logs -f -n kube-system kube-apiserver-docker-desktop')``
+
+#### custom environment
+```python
+# will override any values for this key currently in the env
+update_env={'CGO_ENABLED': '0'}
+# if $PORT set, use that value, else use '8001'}
+serve_env={'PORT': os.getenv('PORT', default='8001')}
+local_resource('custom-env',
+               cmd='go build ./cmd/myserver', env=update_env,
+               serve_cmd='./myserver', serve_env=serve_env,
+               deps=['cmd/myserver'])
+```

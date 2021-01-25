@@ -5169,6 +5169,10 @@ you don&#x2019;t get the nice syntactic sugar of binding local variables.
            <em>
             echo_off=False
            </em>
+           ,
+           <em>
+            env={}
+           </em>
            <span class="sig-paren">
             )
            </span>
@@ -5305,6 +5309,36 @@ with
                  </code>
                  ) &#x2013; If set to True, skips printing command to log.
                 </li>
+                <li>
+                 <strong>
+                  env
+                 </strong>
+                 (
+                 <code class="xref py py-class docutils literal notranslate">
+                  <span class="pre">
+                   Dict
+                  </span>
+                 </code>
+                 [
+                 <code class="xref py py-class docutils literal notranslate">
+                  <span class="pre">
+                   str
+                  </span>
+                 </code>
+                 ,
+                 <code class="xref py py-class docutils literal notranslate">
+                  <span class="pre">
+                   str
+                  </span>
+                 </code>
+                 ]) &#x2013; Environment variables to pass to the executed
+                 <code class="docutils literal notranslate">
+                  <span class="pre">
+                   command
+                  </span>
+                 </code>
+                 . Values specified here will override any variables passed to the Tilt parent process.
+                </li>
                </ul>
               </td>
              </tr>
@@ -5383,6 +5417,18 @@ with
            ,
            <em>
             links=[]
+           </em>
+           ,
+           <em>
+            tags=[]
+           </em>
+           ,
+           <em>
+            env={}
+           </em>
+           ,
+           <em>
+            serve_env={}
            </em>
            <span class="sig-paren">
             )
@@ -5865,6 +5911,66 @@ conditions around modifying a shared file system. Set to True to allow them to r
                   </code>
                  </a>
                  objects.
+                </li>
+                <li>
+                 <strong>
+                  env
+                 </strong>
+                 (
+                 <code class="xref py py-class docutils literal notranslate">
+                  <span class="pre">
+                   Dict
+                  </span>
+                 </code>
+                 [
+                 <code class="xref py py-class docutils literal notranslate">
+                  <span class="pre">
+                   str
+                  </span>
+                 </code>
+                 ,
+                 <code class="xref py py-class docutils literal notranslate">
+                  <span class="pre">
+                   str
+                  </span>
+                 </code>
+                 ]) &#x2013; Environment variables to pass to the executed
+                 <code class="docutils literal notranslate">
+                  <span class="pre">
+                   cmd
+                  </span>
+                 </code>
+                 . Values specified here will override any variables passed to the Tilt parent process.
+                </li>
+                <li>
+                 <strong>
+                  serve_env
+                 </strong>
+                 (
+                 <code class="xref py py-class docutils literal notranslate">
+                  <span class="pre">
+                   Dict
+                  </span>
+                 </code>
+                 [
+                 <code class="xref py py-class docutils literal notranslate">
+                  <span class="pre">
+                   str
+                  </span>
+                 </code>
+                 ,
+                 <code class="xref py py-class docutils literal notranslate">
+                  <span class="pre">
+                   str
+                  </span>
+                 </code>
+                 ]) &#x2013; Environment variables to pass to the executed
+                 <code class="docutils literal notranslate">
+                  <span class="pre">
+                   serve_cmd
+                  </span>
+                 </code>
+                 . Values specified here will override any variables passed to the Tilt parent process.
                 </li>
                </ul>
               </td>

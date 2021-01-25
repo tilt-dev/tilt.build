@@ -503,7 +503,11 @@ def load_dynamic(path: str) -> Dict[str, Any]:
   you don't get the nice syntactic sugar of binding local variables.
   """
 
-def local(command: Union[str, List[str]], quiet: bool = False, command_bat: str = "", echo_off: bool = False) -> Blob:
+def local(command: Union[str, List[str]],
+          quiet: bool = False,
+          command_bat: str = "",
+          echo_off: bool = False,
+          env: Dict[str, str] = {}) -> Blob:
   """Runs a command on the *host* machine, waits for it to finish, and returns its stdout as a ``Blob``
 
   Args:
@@ -512,6 +516,7 @@ def local(command: Union[str, List[str]], quiet: bool = False, command_bat: str 
     command_bat: The command to run, expressed as a Windows batch command executed
       with ``cmd /S /C``. Takes precedence over the ``command`` parameter on Windows. Ignored on macOS/Linux.
     echo_off: If set to True, skips printing command to log.
+    env: Environment variables to pass to the executed ``command``. Values specified here will override any variables passed to the Tilt parent process.
   """
   pass
 
@@ -882,7 +887,10 @@ def local_resource(name: str, cmd: Union[str, List[str]],
                    auto_init: bool=True, serve_cmd: str = "", cmd_bat: str = "",
                    serve_cmd_bat: str = "",
                    allow_parallel: bool=False,
-                   links: Union[str, Link, List[Union[str, Link]]]=[]) -> None:
+                   links: Union[str, Link, List[Union[str, Link]]]=[],
+                   tags: List[str] = [],
+                   env: Dict[str, str] = {},
+                   serve_env: Dict[str, str] = {}) -> None:
   """Configures one or more commands to run on the *host* machine (not in a remote cluster).
 
   By default, Tilt performs an update on local resources on ``tilt up`` and whenever any of their ``deps`` change.
@@ -915,6 +923,8 @@ def local_resource(name: str, cmd: Union[str, List[str]],
     allow_parallel: By default, all local resources are presumed unsafe to run in parallel, due to race
       conditions around modifying a shared file system. Set to True to allow them to run in parallel.
     links: one or more links to be associated with this resource in the Web UI (e.g. perhaps you have a "reset database" workflow and want to attach a link to the database web console). Provide one or more strings (the URLs to link to) or :class:`~api.Link` objects.
+    env: Environment variables to pass to the executed ``cmd``. Values specified here will override any variables passed to the Tilt parent process.
+    serve_env: Environment variables to pass to the executed ``serve_cmd``. Values specified here will override any variables passed to the Tilt parent process.
   """
   pass
 
