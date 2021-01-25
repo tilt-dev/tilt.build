@@ -11,7 +11,7 @@ tags:
   - ui
 ---
 
-In Tilt v0.18.6, we shipped a brand new web experience in Tilt. There's now two modes to using Tilt in a browser: The overview grid panel view, and the resource logs view with multi-tab support. The first view allows you, at a glance, to get a high-level overview of all your resources running in Tilt. And the second view provides you log-level details when you need it.
+In Tilt v0.18.6, we shipped a brand new web experience in Tilt. There are now two modes to using Tilt in a browser: The overview grid panel view, and the resource logs view with multi-tab support. The first view allows you, at a glance, to get a high-level overview of all your resources running in Tilt. And the second view provides you log-level details when you need it.
 
 ![Grid view](/assets/images/control-experience-tilt-ui/grid-view.png)
 
@@ -19,7 +19,7 @@ In Tilt v0.18.6, we shipped a brand new web experience in Tilt. There's now two 
 
 ## Why The Change?
 
-This is a continuation of [the work from last year](https://blog.tilt.dev/2020/06/19/the-right-display-for-now.html) in providing an exprerience that truly caters to the needs of Tilt users. When we speak with multi-service developers, we get a variety of feedback, but typically with a few distinct themes:
+This is a continuation of [the work from last year](https://blog.tilt.dev/2020/06/19/the-right-display-for-now.html) in providing an experience that truly caters to the needs of Tilt users. When we speak with multi-service developers, we get a variety of feedback, but typically with a few distinct themes:
 
 - The previous UI uses a lot of screen real estate to show something that's only occasionally helpful, in particular, the logs.
 - The previous UI doesn't communicate some relevant details to how Tilt works, such as resource state under the hood. There's [too much "magic"](https://blog.tilt.dev/2020/11/13/demystified.html) going on.
@@ -41,7 +41,7 @@ We're continually evolving the user experience for Tilt users. A few things on o
 
 - Alerts and notifications: You can now glance at Tilt and make sure everything is okay. But we think sometimes Tilt should nudge you a bit more and reach out for your attention if something is truly broken.
 - Further customization of the web UI: Beyond pinning and tabs, and updating the Tiltfile itself, we want to offer even more customization of the Tilt experience. Sorting panels? Notifications per resource? We're thinking of ways to make the Tilt UI more _extensible_, not just customizable.
-- Beyond the Tilt web UI: Some folks may want to totally eschew the Tilt web UI, and create their own UIs (like a desktop app) that talks with the [Tilt engine]((https://blog.tilt.dev/2020/11/13/demystified.html)). We want to offer that.
+- Beyond the Tilt web UI: Some folks may want to totally eschew the Tilt web UI, and create their own UIs (like a desktop app) that talk with the [Tilt engine]((https://blog.tilt.dev/2020/11/13/demystified.html)). We want to offer that.
 
 
 What do you think about this new change? [Let us know!](https://docs.tilt.dev/#community)
