@@ -2884,6 +2884,91 @@ multiple YAML documents, separated by
            </table>
           </dd>
          </dl><dl class="function">
+          <dt id="api.exec_action">
+           <code class="descclassname">
+           </code>
+           <code class="descname">
+            exec_action
+           </code>
+           <span class="sig-paren">
+            (
+           </span>
+           <em>
+            command
+           </em>
+           <span class="sig-paren">
+            )
+           </span>
+           <a class="headerlink" href="#api.exec_action" title="Permalink to this definition">
+            &#xB6;
+           </a>
+          </dt>
+          <dd>
+           <p>
+            Creates an
+            <a class="reference internal" href="#api.ExecAction" title="api.ExecAction">
+             <code class="xref py py-class docutils literal notranslate">
+              <span class="pre">
+               ExecAction
+              </span>
+             </code>
+            </a>
+            for use with a
+            <a class="reference internal" href="#api.Probe" title="api.Probe">
+             <code class="xref py py-class docutils literal notranslate">
+              <span class="pre">
+               Probe
+              </span>
+             </code>
+            </a>
+            that runs a command
+to determine service readiness based on exit code.
+           </p>
+           <table class="docutils field-list" frame="void" rules="none">
+            <col class="field-name">
+            <col class="field-body">
+            <tbody valign="top">
+             <tr class="field-odd field">
+              <th class="field-name">
+               Parameters:
+              </th>
+              <td class="field-body">
+               <strong>
+                command
+               </strong>
+               (
+               <code class="xref py py-class docutils literal notranslate">
+                <span class="pre">
+                 List
+                </span>
+               </code>
+               [
+               <code class="xref py py-class docutils literal notranslate">
+                <span class="pre">
+                 str
+                </span>
+               </code>
+               ]) &#x2013; Command with arguments to execute.
+              </td>
+             </tr>
+             <tr class="field-even field">
+              <th class="field-name">
+               Return type:
+              </th>
+              <td class="field-body">
+               <a class="reference internal" href="#api.ExecAction" title="api.ExecAction">
+                <code class="xref py py-class docutils literal notranslate">
+                 <span class="pre">
+                  ExecAction
+                 </span>
+                </code>
+               </a>
+              </td>
+             </tr>
+            </tbody>
+           </table>
+          </dd>
+         </dl><dl class="function">
           <dt id="api.fail">
            <code class="descclassname">
            </code>
@@ -3546,6 +3631,147 @@ Chart directory is watched (See
                  <code class="xref py py-class docutils literal notranslate">
                   <span class="pre">
                    Blob
+                  </span>
+                 </code>
+                </a>
+               </p>
+              </td>
+             </tr>
+            </tbody>
+           </table>
+          </dd>
+         </dl><dl class="function">
+          <dt id="api.http_get_action">
+           <code class="descclassname">
+           </code>
+           <code class="descname">
+            http_get_action
+           </code>
+           <span class="sig-paren">
+            (
+           </span>
+           <em>
+            host
+           </em>
+           ,
+           <em>
+            port
+           </em>
+           ,
+           <em>
+            scheme=&apos;http&apos;
+           </em>
+           ,
+           <em>
+            path=&apos;&apos;
+           </em>
+           <span class="sig-paren">
+            )
+           </span>
+           <a class="headerlink" href="#api.http_get_action" title="Permalink to this definition">
+            &#xB6;
+           </a>
+          </dt>
+          <dd>
+           <p>
+            Creates a
+            <a class="reference internal" href="#api.HTTPGetAction" title="api.HTTPGetAction">
+             <code class="xref py py-class docutils literal notranslate">
+              <span class="pre">
+               HTTPGetAction
+              </span>
+             </code>
+            </a>
+            for use with a
+            <a class="reference internal" href="#api.Probe" title="api.Probe">
+             <code class="xref py py-class docutils literal notranslate">
+              <span class="pre">
+               Probe
+              </span>
+             </code>
+            </a>
+            that performs an HTTP GET
+request to determine service readiness based on response status code.
+           </p>
+           <table class="docutils field-list" frame="void" rules="none">
+            <col class="field-name">
+            <col class="field-body">
+            <tbody valign="top">
+             <tr class="field-odd field">
+              <th class="field-name">
+               Parameters:
+              </th>
+              <td class="field-body">
+               <ul class="first simple">
+                <li>
+                 <strong>
+                  host
+                 </strong>
+                 (
+                 <code class="xref py py-class docutils literal notranslate">
+                  <span class="pre">
+                   str
+                  </span>
+                 </code>
+                 ) &#x2013; Hostname to use for HTTP request (defaults to localhost if not specified).
+                </li>
+                <li>
+                 <strong>
+                  port
+                 </strong>
+                 (
+                 <code class="xref py py-class docutils literal notranslate">
+                  <span class="pre">
+                   int
+                  </span>
+                 </code>
+                 ) &#x2013; Port to use for HTTP request.
+                </li>
+                <li>
+                 <strong>
+                  scheme
+                 </strong>
+                 (
+                 <code class="xref py py-class docutils literal notranslate">
+                  <span class="pre">
+                   str
+                  </span>
+                 </code>
+                 ) &#x2013; URI scheme to use for HTTP request, valid values are
+                 <cite>
+                  http
+                 </cite>
+                 and
+                 <cite>
+                  https
+                 </cite>
+                 .
+                </li>
+                <li>
+                 <strong>
+                  path
+                 </strong>
+                 (
+                 <code class="xref py py-class docutils literal notranslate">
+                  <span class="pre">
+                   str
+                  </span>
+                 </code>
+                 ) &#x2013; URI path for HTTP reqeust.
+                </li>
+               </ul>
+              </td>
+             </tr>
+             <tr class="field-even field">
+              <th class="field-name">
+               Return type:
+              </th>
+              <td class="field-body">
+               <p class="first last">
+                <a class="reference internal" href="#api.HTTPGetAction" title="api.HTTPGetAction">
+                 <code class="xref py py-class docutils literal notranslate">
+                  <span class="pre">
+                   HTTPGetAction
                   </span>
                  </code>
                 </a>
@@ -6221,6 +6447,225 @@ a call to
            </table>
           </dd>
          </dl><dl class="function">
+          <dt id="api.probe">
+           <code class="descclassname">
+           </code>
+           <code class="descname">
+            probe
+           </code>
+           <span class="sig-paren">
+            (
+           </span>
+           <em>
+            initial_delay_secs=0
+           </em>
+           ,
+           <em>
+            timeout_secs=0
+           </em>
+           ,
+           <em>
+            period_secs=10
+           </em>
+           ,
+           <em>
+            success_threshold=1
+           </em>
+           ,
+           <em>
+            failure_threshold=3
+           </em>
+           ,
+           <em>
+            exec=None
+           </em>
+           ,
+           <em>
+            http_get=None
+           </em>
+           ,
+           <em>
+            tcp_socket=None
+           </em>
+           <span class="sig-paren">
+            )
+           </span>
+           <a class="headerlink" href="#api.probe" title="Permalink to this definition">
+            &#xB6;
+           </a>
+          </dt>
+          <dd>
+           <p>
+            Creates a
+            <a class="reference internal" href="#api.Probe" title="api.Probe">
+             <code class="xref py py-class docutils literal notranslate">
+              <span class="pre">
+               Probe
+              </span>
+             </code>
+            </a>
+            for use with local_resource readiness checks.
+           </p>
+           <p>
+            Exactly one of exec, http_get, or tcp_socket must be specified.
+           </p>
+           <table class="docutils field-list" frame="void" rules="none">
+            <col class="field-name">
+            <col class="field-body">
+            <tbody valign="top">
+             <tr class="field-odd field">
+              <th class="field-name">
+               Parameters:
+              </th>
+              <td class="field-body">
+               <ul class="first simple">
+                <li>
+                 <strong>
+                  initial_delay_secs
+                 </strong>
+                 (
+                 <code class="xref py py-class docutils literal notranslate">
+                  <span class="pre">
+                   int
+                  </span>
+                 </code>
+                 ) &#x2013; Number of seconds after the resource has started before the probe is
+first initiated (default=0).
+                </li>
+                <li>
+                 <strong>
+                  timeout_secs
+                 </strong>
+                 (
+                 <code class="xref py py-class docutils literal notranslate">
+                  <span class="pre">
+                   int
+                  </span>
+                 </code>
+                 ) &#x2013; Number of seconds after which probe execution is aborted and it is
+considered to have failed (minimum vale is 1).
+                </li>
+                <li>
+                 <strong>
+                  period_secs
+                 </strong>
+                 (
+                 <code class="xref py py-class docutils literal notranslate">
+                  <span class="pre">
+                   int
+                  </span>
+                 </code>
+                 ) &#x2013; How often in seconds to perform the probe (minimum value is 1).
+                </li>
+                <li>
+                 <strong>
+                  success_threshold
+                 </strong>
+                 (
+                 <code class="xref py py-class docutils literal notranslate">
+                  <span class="pre">
+                   int
+                  </span>
+                 </code>
+                 ) &#x2013; Minimum number of consecutive successes for the result to be
+considered successful after having failed (minimum value is 1).
+                </li>
+                <li>
+                 <strong>
+                  failure_threshold
+                 </strong>
+                 (
+                 <code class="xref py py-class docutils literal notranslate">
+                  <span class="pre">
+                   int
+                  </span>
+                 </code>
+                 ) &#x2013; Minimum number of consecutive failures for the result to be
+considered failing after having succeeded (minimum value is 1).
+                </li>
+                <li>
+                 <strong>
+                  exec
+                 </strong>
+                 (
+                 <code class="xref py py-data docutils literal notranslate">
+                  <span class="pre">
+                   Optional
+                  </span>
+                 </code>
+                 [
+                 <a class="reference internal" href="#api.ExecAction" title="api.ExecAction">
+                  <code class="xref py py-class docutils literal notranslate">
+                   <span class="pre">
+                    ExecAction
+                   </span>
+                  </code>
+                 </a>
+                 ]) &#x2013; Process execution handler to determine probe success.
+                </li>
+                <li>
+                 <strong>
+                  http_get
+                 </strong>
+                 (
+                 <code class="xref py py-data docutils literal notranslate">
+                  <span class="pre">
+                   Optional
+                  </span>
+                 </code>
+                 [
+                 <a class="reference internal" href="#api.HTTPGetAction" title="api.HTTPGetAction">
+                  <code class="xref py py-class docutils literal notranslate">
+                   <span class="pre">
+                    HTTPGetAction
+                   </span>
+                  </code>
+                 </a>
+                 ]) &#x2013; HTTP GET handler to determine probe success.
+                </li>
+                <li>
+                 <strong>
+                  tcp_socket
+                 </strong>
+                 (
+                 <code class="xref py py-data docutils literal notranslate">
+                  <span class="pre">
+                   Optional
+                  </span>
+                 </code>
+                 [
+                 <a class="reference internal" href="#api.TCPSocketAction" title="api.TCPSocketAction">
+                  <code class="xref py py-class docutils literal notranslate">
+                   <span class="pre">
+                    TCPSocketAction
+                   </span>
+                  </code>
+                 </a>
+                 ]) &#x2013; TCP socket connection handler to determine probe success.
+                </li>
+               </ul>
+              </td>
+             </tr>
+             <tr class="field-even field">
+              <th class="field-name">
+               Return type:
+              </th>
+              <td class="field-body">
+               <p class="first last">
+                <a class="reference internal" href="#api.Probe" title="api.Probe">
+                 <code class="xref py py-class docutils literal notranslate">
+                  <span class="pre">
+                   Probe
+                  </span>
+                 </code>
+                </a>
+               </p>
+              </td>
+             </tr>
+            </tbody>
+           </table>
+          </dd>
+         </dl><dl class="function">
           <dt id="api.read_file">
            <code class="descclassname">
            </code>
@@ -7358,6 +7803,107 @@ Can be a file (in which case just that file will be synced) or directory (in whi
                  <code class="xref py py-class docutils literal notranslate">
                   <span class="pre">
                    LiveUpdateStep
+                  </span>
+                 </code>
+                </a>
+               </p>
+              </td>
+             </tr>
+            </tbody>
+           </table>
+          </dd>
+         </dl><dl class="function">
+          <dt id="api.tcp_socket_action">
+           <code class="descclassname">
+           </code>
+           <code class="descname">
+            tcp_socket_action
+           </code>
+           <span class="sig-paren">
+            (
+           </span>
+           <em>
+            host
+           </em>
+           ,
+           <em>
+            port
+           </em>
+           <span class="sig-paren">
+            )
+           </span>
+           <a class="headerlink" href="#api.tcp_socket_action" title="Permalink to this definition">
+            &#xB6;
+           </a>
+          </dt>
+          <dd>
+           <p>
+            Creates a
+            <a class="reference internal" href="#api.TCPSocketAction" title="api.TCPSocketAction">
+             <code class="xref py py-class docutils literal notranslate">
+              <span class="pre">
+               TCPSocketAction
+              </span>
+             </code>
+            </a>
+            for use with a
+            <a class="reference internal" href="#api.Probe" title="api.Probe">
+             <code class="xref py py-class docutils literal notranslate">
+              <span class="pre">
+               Probe
+              </span>
+             </code>
+            </a>
+            that establishes a TCP
+socket connection to determine service readiness.
+           </p>
+           <table class="docutils field-list" frame="void" rules="none">
+            <col class="field-name">
+            <col class="field-body">
+            <tbody valign="top">
+             <tr class="field-odd field">
+              <th class="field-name">
+               Parameters:
+              </th>
+              <td class="field-body">
+               <ul class="first simple">
+                <li>
+                 <strong>
+                  host
+                 </strong>
+                 (
+                 <code class="xref py py-class docutils literal notranslate">
+                  <span class="pre">
+                   str
+                  </span>
+                 </code>
+                 ) &#x2013; Hostname to use for TCP socket connection (defaults to localhost if not specified).
+                </li>
+                <li>
+                 <strong>
+                  port
+                 </strong>
+                 (
+                 <code class="xref py py-class docutils literal notranslate">
+                  <span class="pre">
+                   int
+                  </span>
+                 </code>
+                 ) &#x2013; Port to use for TCP socket connection.
+                </li>
+               </ul>
+              </td>
+             </tr>
+             <tr class="field-even field">
+              <th class="field-name">
+               Return type:
+              </th>
+              <td class="field-body">
+               <p class="first last">
+                <a class="reference internal" href="#api.TCPSocketAction" title="api.TCPSocketAction">
+                 <code class="xref py py-class docutils literal notranslate">
+                  <span class="pre">
+                   TCPSocketAction
                   </span>
                  </code>
                 </a>

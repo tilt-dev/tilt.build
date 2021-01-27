@@ -16,10 +16,12 @@ functions:
 - encode_json
 - encode_yaml
 - encode_yaml_stream
+- exec_action
 - fail
 - fall_back_on
 - filter_yaml
 - helm
+- http_get_action
 - include
 - k8s_context
 - k8s_kind
@@ -33,6 +35,7 @@ functions:
 - local
 - local_resource
 - port_forward
+- probe
 - read_file
 - read_json
 - read_yaml
@@ -43,6 +46,7 @@ functions:
 - set_team
 - struct
 - sync
+- tcp_socket_action
 - trigger_mode
 - update_settings
 - version_settings

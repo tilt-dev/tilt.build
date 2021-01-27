@@ -136,3 +136,26 @@ local_resource('custom-env',
                serve_cmd='./myserver', serve_env=serve_env,
                deps=['cmd/myserver'])
 ```
+
+## readiness_probe
+
+ Probes for local resources determine whether the `serve_cmd` is considered ready.
+ In addition to providing more accurate resource visibility in the Tilt UI, this ensures that Tilt waits for the probe to be successful before starting any dependent resources for the first time.
+ Readiness probes are optional; local resources without one are considered ready as soon as the process is started.
+
+ Local resource probes behave very similarly to Kubernetes readiness probes and support similar parameters to adjust the probing period, failure threshold, and more.
+ See the [`probe` API spec](api.html#api.probe) for all available options.
+
+ Probes can be an HTTP GET request ([`http_get_action`](api.html#api.http_get_action)), a TCP socket connection ([`tcp_socket_action`](api.html#api.tcp_socket_action)), or a custom program/script ([`exec_action`](api.html#api.exec_action)).
+
+You can configure a `local_resource` with an HTTP GET readiness probe for the `serve_cmd` as follows:
+ ```python
+local_resource(
+   "probe-example",
+   serve_cmd="./myserver --port=8001",
+   readiness_probe=probe(
+      period_secs=15,
+      http_get=http_get_action(port=8001, path="/health")
+   )
+)
+ ```
