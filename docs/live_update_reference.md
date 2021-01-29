@@ -122,6 +122,7 @@ There are a few exceptions to the above; the `restart_process` extension doesn't
 * Docker Compose resources; you should use the [`restart_container()`](api.html#api.restart_container) Live Update step instead
 * Images build via `custom_build`
 * Container images without a shell (e.g. `scratch`, `distroless`)
+* CRDs
 
 If any of the exceptions above apply to you, or `restart_process` doesn't otherwise work for your use case, read on.
 
