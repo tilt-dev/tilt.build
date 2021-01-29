@@ -1,47 +1,54 @@
 ---
-slug: "control-experience-tilt-ui"
+slug: "new-tilt-interface"
 date: 2021-01-25
-author: victor
+author: han
 layout: blog
-title: "Control your Developer Experience with the new Tilt UI"
-image: "/assets/images/control-experience-tilt-ui/jumpei-mokudai-KlrtaUcM8D0-unsplash.jpg"
-image_caption: "Photo by <a href='https://unsplash.com/@smoothjazz?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText'>Jumpei Mokudai</a> on <a href='https://unsplash.com/s/photos/cockpit?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText'>Unsplash</a>"
+title: "A New Interface for Tilt"
+image: "/assets/images/new-tilt-interface/Lukasz-Szmigiel-unsplash.jpg"
+image_caption: "Photo by <a href="https://unsplash.com/@szmigieldesign">Lukasz Szmigiel</a> via Unsplash"
 tags:
   - tilt
   - ui
 ---
 
-In Tilt v0.18.6, we shipped a brand new web experience in Tilt. There are now two modes to using Tilt in a browser: The overview grid panel view, and the resource logs view with multi-tab support. The first view allows you, at a glance, to get a high-level overview of all your resources running in Tilt. And the second view provides you log-level details when you need it.
+As of v0.18.6, Tilt has a new interface. If you haven't already, check it out by toggling "New UI":
+![Try the New UI](/assets/images/new-tilt-interface/new-ui.png)
 
-![Grid view](/assets/images/control-experience-tilt-ui/grid-view.png)
+Among other improvements, a new **Overview** helps you understand the status of all your resources at a glance. (The familiar log-browsing layout is still available, under "All Resources.")
+![Overview to All Resources](/assets/images/new-tilt-interface/overview-all-resources.gif)
 
-![Sidebar view](/assets/images/control-experience-tilt-ui/sidebar-view.png)
 
 ## Why The Change?
+Tilt is a shared dashboard for multi-service dev environments. “Shared” means we're trying to serve everyone on your team:
 
-This is a continuation of [the work from last year](https://blog.tilt.dev/2020/06/19/the-right-display-for-now.html) in providing an experience that truly caters to the needs of Tilt users. When we speak with multi-service developers, we get a variety of feedback, but typically with a few distinct themes:
+- The person who set up the dashboard and understands how it works
+- Everyone else who has to glance at the dashboard and _infer_ how it works
 
-- The previous UI uses a lot of screen real estate to show something that's only occasionally helpful, in particular, the logs.
-- The previous UI doesn't communicate some relevant details to how Tilt works, such as resource state under the hood. There's [too much "magic"](https://blog.tilt.dev/2020/11/13/demystified.html) going on.
-- After encountering laptop slowdowns (such as those often caused by Docker), Tilt no longer feels nimble, but instead too heavy-duty. Users are  reserving Tilt for only when it is aboslutely necessary. We should help users understand that the root cause is outside of Tilt, and point them toward solutions, such as pulling in the right folks to help refine their Tiltfile.
+Since last summer, we've been thinking a lot about [the right display](https://blog.tilt.dev/2020/06/19/the-right-display-for-now.html) for Tilt. But everyone has their own "right." 
 
-So we set out to design something that simplifies the mental model of what Tilt is doing. And in particular, by showing logs (which take a big chunk of real estate) only when the user decides to see it.
+In hours of interviews with engineers, we learned that not everyone finds logs useful. Maybe you prefer `kubectl` for checking logs, and only use Tilt to monitor and restart services. Or maybe your logs are such a verbose profusion that it's best to ignore them, for now. The Overview reclaims the space devoted to logs, for those situations where you want to see more of your resources at a glance.
 
-## Design Themes
+We built Tilt to nimbly reflect and respond to the state of your file system, and your multi-service app. We're investing in the interface because we believe Tilt should _also_ reflect and respond to the focus of your attention.
 
-We settled on a few design themes culminating in the UI in the current release:
+#### Other Features to Note…
+Filter Logs to find errors more easily. (Replaces the "Alerts" tab.)
+![Resource View - log filtering](/assets/images/new-tilt-interface/resource-view-error.gif)
 
-- We drew inspiration from a monitoring dashboard style UI , where you can easily see a high-level overview of everything, at a quick glance. At the same time, starting from the overview view, you can quickly drill down to investigate a problem as necessary
-- In overview grid panel view, you can get re-assurance that everything is stable, and nothing is broken. But when something does break, you can still access it quickly. And make a decision in real-time whether to take action or not.
-- We want to offer more control for the developer using Tilt. We know that even for developers working in the same team, they might have very different preferences whilst working on code. Pinning and tabs are our initial concepts in making Tilt a more customizable experience for the individual developer using Tilt.
+Tabs help you keep track of the services you're working with. (Ctrl + click on Sidebar items; Command + click on Mac.)
+![Resource View - tabs](/assets/images/new-tilt-interface/resource-view-tabs.gif)
+
+The new Log browser is re-written to be fast, even if you have tons of logs.
+![Resource View - log speed](/assets/images/new-tilt-interface/resource-view-log-browser.gif)
+
+
 
 ## What's Next
 
-We're continually evolving the user experience for Tilt users. A few things on our mind as upcoming next steps:
+We want your feedback on this new interface, so we can make it better. We're confident that we've overlooked things! But, we do have some ideas for next steps:
 
-- Alerts and notifications: You can now glance at Tilt and make sure everything is okay. But we think sometimes Tilt should nudge you a bit more and reach out for your attention if something is truly broken.
-- Further customization of the web UI: Beyond pinning and tabs, and updating the Tiltfile itself, we want to offer even more customization of the Tilt experience. Sorting panels? Notifications per resource? We're thinking of ways to make the Tilt UI more _extensible_, not just customizable.
-- Beyond the Tilt web UI: Some folks may want to totally eschew the Tilt web UI, and create their own UIs (like a desktop app) that talk with the [Tilt engine]((https://blog.tilt.dev/2020/11/13/demystified.html)). We want to offer that.
+- **Persist interface across Tilt launches** - e.g., If the Resource View with logs is more useful for you, you should always see that first.
+- **More log browsing tools** - You should be able to clear logs, zoom, toggle light theme, etc...so even the noisiest logs are easier to read.
+- **Custom views for the Overview** - so you can organize resources in a way that makes sense at a glance. Do you want tests to be grouped with services, or in a section of their own? You decide.
+- **More Extensibility** - Tilt is your team’s dashboard, so it should support your unique workflows. In that spirit, we're researching and working on making Tilt more extensible. More coming soon! 
 
-
-What do you think about this new change? [Let us know!](https://docs.tilt.dev/#community)
+Please [let us know](https://docs.tilt.dev/#community) what you think!
