@@ -1122,12 +1122,12 @@ def exec_action(command: List[str]) -> ExecAction:
   pass
 
 
-def http_get_action(host: str, port: int, scheme: str='http', path: str='') -> HTTPGetAction:
+def http_get_action(port: int, host: str='localhost', scheme: str='http', path: str='') -> HTTPGetAction:
   """Creates a :class:`HTTPGetAction` for use with a :class:`Probe` that performs an HTTP GET
   request to determine service readiness based on response status code.
 
   Args:
-    host: Hostname to use for HTTP request (defaults to localhost if not specified).
+    host: Hostname to use for HTTP request.
     port: Port to use for HTTP request.
     scheme: URI scheme to use for HTTP request, valid values are `http` and `https`.
     path: URI path for HTTP reqeust.
@@ -1135,12 +1135,12 @@ def http_get_action(host: str, port: int, scheme: str='http', path: str='') -> H
   pass
 
 
-def tcp_socket_action(host: str, port: int) -> TCPSocketAction:
+def tcp_socket_action(port: int, host: str='localhost') -> TCPSocketAction:
   """Creates a :class:`TCPSocketAction` for use with a :class:`Probe` that establishes a TCP
   socket connection to determine service readiness.
 
   Args:
-    host: Hostname to use for TCP socket connection (defaults to localhost if not specified).
+    host: Hostname to use for TCP socket connection.
     port: Port to use for TCP socket connection.
   """
   pass
