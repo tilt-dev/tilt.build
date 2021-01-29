@@ -150,22 +150,20 @@ Follow these instructions to set up Minikube for use with Tilt:
 [k3d](https://github.com/rancher/k3d) runs [k3s](https://k3s.io/), a lightweight Kubernetes distro, inside a Docker container.
 
 k3s is fully compliant with "full" Kubernetes, but has a lot of optional and legacy features removed.
-Follow these instructions to set up k3d for use with Tilt:
-
-[**k3d Setup Instructions**](https://github.com/tilt-dev/k3d-local-registry/){:.attached-above}
 
 ### Pros
 
 - Extremely fast to start up (less than 5 seconds on most machines)
-- It's easy to run k3d with a [local registry that Tilt will auto-detect](https://github.com/tilt-dev/k3d-local-registry/),
-which means less finicky setup, and fast pushing/pulling of images
+- k3d has [a built-in local
+registry](https://k3d.io/usage/guides/registries/#using-a-local-registry) that's
+explicitly designed to work well with Tilt. Start k3d with the local registry to make pushing
+and pulling images fast.
 
 ### Cons
 
-- Tilt does not yet natively support `k3d import-images`, so for a smooth local dev experience with
-Tilt, you have to use a local image registry (which you get for free if you set up k3d using the
-instructions linked above)
-- The least widely used. That's not _necessarily_ bad. Just be aware that there's less documentation on its pitfalls. Tools (including the Tilt team!) tend to be slower to add support for it.
+- The least widely used. That's not _necessarily_ bad. Just be aware that
+  there's less documentation on its pitfalls. Tools (including the Tilt team!)
+  tend to be slower to add support for it.
 
 ---
 
