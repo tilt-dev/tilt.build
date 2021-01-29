@@ -1,7 +1,11 @@
 classes:
 - Blob
+- ExecAction
+- HTTPGetAction
 - K8sObjectID
 - Link
 - LiveUpdateStep
 - PortForward
+- Probe
+- TCPSocketAction
 - TriggerMode

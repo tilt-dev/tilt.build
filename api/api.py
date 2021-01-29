@@ -1051,3 +1051,96 @@ def warn(msg: str) -> None:
   Args:
     msg: The message.
   """
+
+
+class Probe:
+  """Specification for a resource readiness check.
+
+  For details, see the :meth:`probe` function.
+  """
+  pass
+
+
+class ExecAction:
+  """Specification for a command to execute that determines resource readiness.
+
+  For details, see the :func:`probe` and :func:`exec_action` functions.
+  """
+  pass
+
+
+class HTTPGetAction:
+  """Specification for a HTTP GET request to perform that determines resource readiness.
+
+  For details, see the :func:`probe` and :func:`http_get_action` functions.
+  """
+  pass
+
+
+class TCPSocketAction:
+  """Specification for a TCP socket connection to perform that determines resource readiness.
+
+  For details, see the :func:`probe` and :func:`tcp_socket_action` functions.
+  """
+  pass
+
+
+def probe(initial_delay_secs: int=0,
+          timeout_secs: int=0,
+          period_secs: int=10,
+          success_threshold: int=1,
+          failure_threshold: int=3,
+          exec: Optional[ExecAction]=None,
+          http_get: Optional[HTTPGetAction]=None,
+          tcp_socket: Optional[TCPSocketAction]=None) -> Probe:
+  """Creates a :class:`Probe` for use with local_resource readiness checks.
+
+  Exactly one of exec, http_get, or tcp_socket must be specified.
+
+  Args:
+    initial_delay_secs: Number of seconds after the resource has started before the probe is
+      first initiated (default=0).
+    timeout_secs: Number of seconds after which probe execution is aborted and it is
+      considered to have failed (minimum vale is 1).
+    period_secs: How often in seconds to perform the probe (minimum value is 1).
+    success_threshold: Minimum number of consecutive successes for the result to be
+      considered successful after having failed (minimum value is 1).
+    failure_threshold: Minimum number of consecutive failures for the result to be
+      considered failing after having succeeded (minimum value is 1).
+    exec: Process execution handler to determine probe success.
+    http_get: HTTP GET handler to determine probe success.
+    tcp_socket: TCP socket connection handler to determine probe success.
+  """
+
+def exec_action(command: List[str]) -> ExecAction:
+  """Creates an :class:`ExecAction` for use with a :class:`Probe` that runs a command
+  to determine service readiness based on exit code.
+
+  Args:
+    command: Command with arguments to execute.
+  """
+  pass
+
+
+def http_get_action(port: int, host: str='localhost', scheme: str='http', path: str='') -> HTTPGetAction:
+  """Creates a :class:`HTTPGetAction` for use with a :class:`Probe` that performs an HTTP GET
+  request to determine service readiness based on response status code.
+
+  Args:
+    host: Hostname to use for HTTP request.
+    port: Port to use for HTTP request.
+    scheme: URI scheme to use for HTTP request, valid values are `http` and `https`.
+    path: URI path for HTTP reqeust.
+  """
+  pass
+
+
+def tcp_socket_action(port: int, host: str='localhost') -> TCPSocketAction:
+  """Creates a :class:`TCPSocketAction` for use with a :class:`Probe` that establishes a TCP
+  socket connection to determine service readiness.
+
+  Args:
+    host: Hostname to use for TCP socket connection.
+    port: Port to use for TCP socket connection.
+  """
+  pass
