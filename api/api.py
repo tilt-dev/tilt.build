@@ -1116,6 +1116,9 @@ def exec_action(command: List[str]) -> ExecAction:
   """Creates an :class:`ExecAction` for use with a :class:`Probe` that runs a command
   to determine service readiness based on exit code.
 
+  The probe is successful if the process terminates normally with an exit code of 0
+  within the timeout.
+
   Args:
     command: Command with arguments to execute.
   """
@@ -1125,6 +1128,9 @@ def exec_action(command: List[str]) -> ExecAction:
 def http_get_action(port: int, host: str='localhost', scheme: str='http', path: str='') -> HTTPGetAction:
   """Creates a :class:`HTTPGetAction` for use with a :class:`Probe` that performs an HTTP GET
   request to determine service readiness based on response status code.
+
+  The probe is successful if a valid HTTP response is received within the timeout and has a
+  status code >= 200 and < 400.
 
   Args:
     host: Hostname to use for HTTP request.
@@ -1138,6 +1144,9 @@ def http_get_action(port: int, host: str='localhost', scheme: str='http', path: 
 def tcp_socket_action(port: int, host: str='localhost') -> TCPSocketAction:
   """Creates a :class:`TCPSocketAction` for use with a :class:`Probe` that establishes a TCP
   socket connection to determine service readiness.
+
+  The probe is successful if a TCP socket can be established within the timeout. No data is
+  sent or read from the socket.
 
   Args:
     host: Hostname to use for TCP socket connection.
