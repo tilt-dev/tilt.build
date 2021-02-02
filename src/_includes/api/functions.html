@@ -2924,6 +2924,10 @@ multiple YAML documents, separated by
             that runs a command
 to determine service readiness based on exit code.
            </p>
+           <p>
+            The probe is successful if the process terminates normally with an exit code of 0
+within the timeout.
+           </p>
            <table class="docutils field-list" frame="void" rules="none">
             <col class="field-name">
             <col class="field-body">
@@ -3692,6 +3696,10 @@ Chart directory is watched (See
             </a>
             that performs an HTTP GET
 request to determine service readiness based on response status code.
+           </p>
+           <p>
+            The probe is successful if a valid HTTP response is received within the timeout and has a
+status code &gt;= 200 and &lt; 400.
            </p>
            <table class="docutils field-list" frame="void" rules="none">
             <col class="field-name">
@@ -7856,6 +7864,10 @@ Can be a file (in which case just that file will be synced) or directory (in whi
             </a>
             that establishes a TCP
 socket connection to determine service readiness.
+           </p>
+           <p>
+            The probe is successful if a TCP socket can be established within the timeout. No data is
+sent or read from the socket.
            </p>
            <table class="docutils field-list" frame="void" rules="none">
             <col class="field-name">

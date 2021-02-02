@@ -146,7 +146,7 @@ local_resource('custom-env',
  Local resource probes behave very similarly to Kubernetes readiness probes and support similar parameters to adjust the probing period, failure threshold, and more.
  See the [`probe` API spec](api.html#api.probe) for all available options.
 
- Probes can be an HTTP GET request ([`http_get_action`](api.html#api.http_get_action)), a TCP socket connection ([`tcp_socket_action`](api.html#api.tcp_socket_action)), or a custom program/script ([`exec_action`](api.html#api.exec_action)).
+ Probes can be an HTTP GET request ([`http_get_action`](api.html#api.http_get_action)), a TCP socket connection ([`tcp_socket_action`](api.html#api.tcp_socket_action)), or a custom program/script ([`exec_action`](api.html#api.exec_action)). The API reference includes details about the specific criteria that determine success for each probe type.
 
 You can configure a `local_resource` with an HTTP GET readiness probe for the `serve_cmd` as follows:
  ```python

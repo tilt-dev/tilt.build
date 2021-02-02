@@ -26,14 +26,15 @@ This has two effects:
 A resource is "ready" when:
 * For K8s resources: the pod is running and K8s considers all of its containers ready
 * For docker-compose resources: the container is started (NB: Tilt doesn't currently observe docker-compose health checks)
-* For local resources: the command has succeeded at least once
+* For local resources **without** a `readiness_probe`: the command has succeeded at least once
+* For local resources [**with** a `readiness_probe`][readiness-probe]: the probe has achieved the success threshold at least once
 
 Some other use cases:
 * Define your resource deps such that it's easy to bring up only the services
   you need for what you're currently working on. e.g., `tilt up frontend`
   starts not just `frontend`, but also the database and the assets server.
 * Create a `local_resource` to generate language bindings from protobuf schemas,
-  and make the services that use those language bindings depend on that `local resource`.
+  and make the services that use those language bindings depend on that `local_resource`.
 
 Caveat:
 This feature currently mostly only helps in the common case that different versions
@@ -47,3 +48,5 @@ rest of Tilt's lifetime.
 We think this feature is useful as-is, but are aware there are more possibilities
 for it. Please [reach out](https://tilt.dev/contact) if it's not meeting your
 needs!
+
+[readiness-probe]: local_resource.html#readiness_probe
