@@ -939,7 +939,7 @@ def disable_snapshots() -> None:
     ensures a pretty high bar of intent.
     """
 
-def docker_prune_settings(disable: bool=True, max_age_mins: int=360,
+def docker_prune_settings(disable: bool=False, max_age_mins: int=360,
                           num_builds: int=0, interval_hrs: int=1, keep_recent: int=2) -> None:
   """
   Configures Tilt's Docker Pruner, which runs occasionally in the background and prunes Docker images associated
