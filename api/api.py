@@ -28,6 +28,39 @@ class PortForward:
   """
   pass
 
+
+class Probe:
+  """Specification for a resource readiness check.
+
+  For details, see the :meth:`probe` function.
+  """
+  pass
+
+
+class ExecAction:
+  """Specification for a command to execute that determines resource readiness.
+
+  For details, see the :func:`probe` and :func:`exec_action` functions.
+  """
+  pass
+
+
+class HTTPGetAction:
+  """Specification for a HTTP GET request to perform that determines resource readiness.
+
+  For details, see the :func:`probe` and :func:`http_get_action` functions.
+  """
+  pass
+
+
+class TCPSocketAction:
+  """Specification for a TCP socket connection to perform that determines resource readiness.
+
+  For details, see the :func:`probe` and :func:`tcp_socket_action` functions.
+  """
+  pass
+
+
 def port_forward(local_port: int,
                  container_port: Optional[int] = None,
                  name: Optional[str] = None,
@@ -890,7 +923,8 @@ def local_resource(name: str, cmd: Union[str, List[str]],
                    links: Union[str, Link, List[Union[str, Link]]]=[],
                    tags: List[str] = [],
                    env: Dict[str, str] = {},
-                   serve_env: Dict[str, str] = {}) -> None:
+                   serve_env: Dict[str, str] = {},
+                   readiness_probe: Probe = None) -> None:
   """Configures one or more commands to run on the *host* machine (not in a remote cluster).
 
   By default, Tilt performs an update on local resources on ``tilt up`` and whenever any of their ``deps`` change.
@@ -925,6 +959,7 @@ def local_resource(name: str, cmd: Union[str, List[str]],
     links: one or more links to be associated with this resource in the Web UI (e.g. perhaps you have a "reset database" workflow and want to attach a link to the database web console). Provide one or more strings (the URLs to link to) or :class:`~api.Link` objects.
     env: Environment variables to pass to the executed ``cmd``. Values specified here will override any variables passed to the Tilt parent process.
     serve_env: Environment variables to pass to the executed ``serve_cmd``. Values specified here will override any variables passed to the Tilt parent process.
+    readiness_probe: Optional readiness probe to use for determining ``serve_cmd`` health state. Fore more info, see the :meth:`probe` function.
   """
   pass
 
@@ -1051,38 +1086,6 @@ def warn(msg: str) -> None:
   Args:
     msg: The message.
   """
-
-
-class Probe:
-  """Specification for a resource readiness check.
-
-  For details, see the :meth:`probe` function.
-  """
-  pass
-
-
-class ExecAction:
-  """Specification for a command to execute that determines resource readiness.
-
-  For details, see the :func:`probe` and :func:`exec_action` functions.
-  """
-  pass
-
-
-class HTTPGetAction:
-  """Specification for a HTTP GET request to perform that determines resource readiness.
-
-  For details, see the :func:`probe` and :func:`http_get_action` functions.
-  """
-  pass
-
-
-class TCPSocketAction:
-  """Specification for a TCP socket connection to perform that determines resource readiness.
-
-  For details, see the :func:`probe` and :func:`tcp_socket_action` functions.
-  """
-  pass
 
 
 def probe(initial_delay_secs: int=0,
