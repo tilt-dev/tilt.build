@@ -5664,6 +5664,10 @@ with
            <em>
             serve_env={}
            </em>
+           ,
+           <em>
+            readiness_probe=None
+           </em>
            <span class="sig-paren">
             )
            </span>
@@ -6205,6 +6209,40 @@ conditions around modifying a shared file system. Set to True to allow them to r
                   </span>
                  </code>
                  . Values specified here will override any variables passed to the Tilt parent process.
+                </li>
+                <li>
+                 <strong>
+                  readiness_probe
+                 </strong>
+                 (
+                 <code class="xref py py-data docutils literal notranslate">
+                  <span class="pre">
+                   Optional
+                  </span>
+                 </code>
+                 [
+                 <a class="reference internal" href="#api.Probe" title="api.Probe">
+                  <code class="xref py py-class docutils literal notranslate">
+                   <span class="pre">
+                    Probe
+                   </span>
+                  </code>
+                 </a>
+                 ]) &#x2013; Optional readiness probe to use for determining
+                 <code class="docutils literal notranslate">
+                  <span class="pre">
+                   serve_cmd
+                  </span>
+                 </code>
+                 health state. Fore more info, see the
+                 <a class="reference internal" href="#api.probe" title="api.probe">
+                  <code class="xref py py-meth docutils literal notranslate">
+                   <span class="pre">
+                    probe()
+                   </span>
+                  </code>
+                 </a>
+                 function.
                 </li>
                </ul>
               </td>
