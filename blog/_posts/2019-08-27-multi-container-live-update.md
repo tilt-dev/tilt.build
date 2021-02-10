@@ -71,7 +71,7 @@ Hacking on your sidecar is now just as fast as hacking on your app: make a chang
 
 ## What’s next?
 
-Awareness of multiple containers on a single pod sets us up for awareness of multiple containers across multiple pods--from here, it’ll be much easier to implement Live Updates of a single image across multiple pods. Want to be running multiple replicas of a pod in dev? [Let us know](https://tilt.dev/contact)!
+Awareness of multiple containers on a single pod sets us up for awareness of multiple containers across multiple pods--from here, it’ll be much easier to implement Live Updates of a single image across multiple pods. Want to be running multiple replicas of a pod in dev? <a href="mailto:hi@tilt.dev">Let us know</a>!
 
 In the meantime, take this new functionality for a spin, and enjoy the wind in your hair as you update _all_ your containers with speed. As always, if you run into problems, or have a use case that you want us to support, [get in touch](https://tilt.dev/contact).
 
