@@ -14,4 +14,4 @@ with US Eastern time.
 **Apply Here:** Send an email with a resume to 
 <a href="mailto:jobs@tilt.dev">jobs@tilt.dev</a>
 
-**Questions?** [Contact us](contact)
+**Questions?** <a href="mailto:hi@tilt.dev">Contact us</a>
