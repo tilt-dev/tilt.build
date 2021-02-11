@@ -40,11 +40,32 @@ Sometimes, you don't want your test(s) to execute automatically. Maybe you want 
 
 You can also set default AUTO values for your tests via the Tiltfile, using [the `trigger_mode` parameter](https://docs.tilt.dev/manual_update_control.html).
 
-
 ### Programmatically Registering Tests
-- part of what's great about starlark is that it's a programming language, so you can do complicated stuff
-- here's an example of registering your js tests by prefix:
+Part of what's great about Starlark (the dialect of Python that Tiltfiles are written in) is that it's a _programming language_, so you can use it for complex stuff. In particular, you can use it to programmatically register your tests to Tilt in whichever way works best for you. Here are some examples:
 
+#### Go tests by package
+This approach assumes that your unit tests run pretty quickly, so it's not too expensive to test an entire package when code is changed.
+
+Note that you can pass any flags you want to your `go test` call--you can, for instance, combine this with specific build conditions (see, for example, [this slow test file](https://github.com/tilt-dev/tilt/blob/ba1de77456a46ff72f5de798aaac092f47f481e7/internal/build/container_test.go#L1); invoking `go test -tags skipcontainertests` will skip this file).
+```python
+def all_go_package_dirs():
+  pkgs_raw = str(local('go list -f "{{.Dir}}" ./...')).rstrip().split("\n")
+  pkgs = []
+  for pkg in pkgs_raw:
+    cleaned = pkg.strip()
+    if cleaned:
+      pkgs.append(cleaned)
+
+  return pkgs
+
+for pkg in all_go_package_dirs():
+  name = os.path.basename(pkg)  ## TODO: this is broken ugh
+  test(name, 'go test %s' % pkg, deps=[pkg])
+```
+
+
+#### JS tests by test file
+This snippet naively matches by prefix--e.g. `foo_test.tsx` will run on changes to `foo.tsx` and `foo_test.tsx`. Note that it's written for a flat file hierarchy (i.e. all the JS files and tests live at the root of `web/src`, but is easy to modify to fit your directory structure).
 ```python
 web_src_files = [os.path.basename(f) for f in listdir('web/src')]
 test_files = [f for f in web_src_files
@@ -59,11 +80,11 @@ for tf in test_files:
   test(slug, cmd, deps=deps)
 ```
 
-- here's an example of registering your go tests by directory
-- we hope to offer more snippets/fast setup instructions per language soon
+### And more?!
+We hope to offer more snippets soon, for more languages, test frameworks, and directory structures. Got an interesting use case that you'd like help configuring? Let us know!
 
 ## Future Work
-- tags
-- timeout
-- easy to run tests against your cluster
-- better language-specific logic for registering all your tests
+* ability to tag tests, and use those tags to sort/filter/run tests
+* timeouts for test
+* make it easy to run tests against the services in your cluster that Tilt is already managing
+* better language-specific logic for registering all your tests
