@@ -143,7 +143,7 @@ asdf global tilt 0.18.8
 ### Manual Install
 
 If you don't have a package manager installed, the installer will download a
-`tilt` static bianry for you and put it in a reasonable place. (`~/.local/bin`,
+`tilt` static binary for you and put it in a reasonable place. (`~/.local/bin`,
 `/usr/local/bin`, or `~/bin` depending on your OS and what's already on your
 $PATH.
 
