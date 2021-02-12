@@ -3,7 +3,7 @@ title: Tests in Tilt
 description: "Run your tests from Tilt for visibility, responsiveness, and fine-grained control."
 layout: docs
 ---
-With the Tilt `test` primitive, you can run your tests from Tilt itself. Take advantage of Tilt's file-watching and responsiveness, and the power and customizability of Starlark, to supercharge your testing workflow.
+With the Tilt `test` primitive, you can run your tests from Tilt itself. Take advantage of Tilt's file-watching and responsiveness, and the power and customizability of Starlark, to integrate testing with the rest of your Tilt workflow.
 
 ## How to Use It
 Define tests in your Tiltfile with the `test` primitive:
@@ -48,7 +48,7 @@ test('unit-test-remittance', 'pytest remittance_test.py',
 Sometimes, you don't want your test(s) to execute automatically. Maybe you want to turn off automatic-ness for all but a few tests you're iterating on, or prevent an expensive integration test from running all the time. Use the "auto" trigger in the UI to toggle automatic execution on or off for a given test.
 
 <figure>
-    <img src="/assets/img/tests-in-tilt/auto-toggles" alt="a close-up of several cards in the sidebar, with 'auto' variously toggled on or off">
+    <img src="/assets/img/tests-in-tilt/auto-toggles.png" alt="a close-up of several cards in the sidebar, with 'auto' variously toggled on or off">
     <figcaption>In this example, tests "foo" and "beep" are in auto mode--they will execute automatically when any of their `deps` are changed.</figcaption>
 </figure>
 
@@ -67,7 +67,7 @@ test('go-tests', 'go test ./... -timeout 30s', deps=all_go_files())
 ```
 
 #### Go tests by package
-This approach gives you a little more granularity:
+With this approach, your tests are split into different cards (one per Go package), giving you both more control over when certain tests run, and more visibility into what is going wrong:
 ```python
 CWD = os.getcwd()
 
@@ -90,6 +90,8 @@ for pkg in all_go_package_dirs():
 ```
 
 #### JS tests by test file
+Alternately, you can split your tests up even further, into one card per test file.
+
 This snippet naively matches by prefix--e.g. `foo_test.tsx` will run on changes to `foo.tsx` and `foo_test.tsx`. Note that it's written for a flat file hierarchy (i.e. all the JS files and tests live at the root of `web/src`, but is easy to modify to fit your directory structure).
 ```python
 web_src_files = [os.path.basename(f) for f in listdir('web/src')]
