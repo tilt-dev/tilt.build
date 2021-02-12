@@ -52,10 +52,10 @@ Sometimes, you don't want your test(s) to execute automatically. Maybe you want 
     <figcaption>In this example, tests "foo" and "beep" are in auto mode--they will execute automatically when any of their `deps` are changed.</figcaption>
 </figure>
 
-You can also set default AUTO values for your tests via the Tiltfile, using [the `trigger_mode` parameter](https://docs.tilt.dev/manual_update_control.html).
+You can also control this behavior via the Tiltfile, using [the `trigger_mode` parameter](https://docs.tilt.dev/manual_update_control.html).
 
 ### Programmatically Registering Tests
-Part of what's great about Starlark (the dialect of Python that Tiltfiles are written in) is that it's a _programming language_, so you can use it for complex stuff. In particular, you can use it to programmatically register your tests to Tilt in whichever way works best for you. Here are some examples:
+Part of what's great about Starlark (the dialect of Python that Tiltfiles are written in) is that it's a _programming language_, which makes Tiltfiles extremely flexible. Here are some examples of different ways you can register your tests to Tilt.
 
 #### Your entire unit test suite
 If your whole unit test suite runs relatively quickly/has caching (like Go tests), you can just run the whole thing when relevant files change:
@@ -67,7 +67,9 @@ test('go-tests', 'go test ./... -timeout 30s', deps=all_go_files())
 ```
 
 #### Go tests by package
-With this approach, your tests are split into different cards (one per Go package), giving you both more control over when certain tests run, and more visibility into what is going wrong:
+Here, your tests are split into different cards (one per Go package). This approach gives you both more control over when certain tests run (in the snippet below, tests for package `foo` run only when a file in directory `foo` changes), and more visibility into what is going wrong (because tests are broken up more, so it's easier to see what failed).
+
+The trade-off for speed and visibility here is looser matching between files and the tests they affect (the above example will rerun tests for package `foo` when its files _or anything it depends on_ change).
 ```python
 CWD = os.getcwd()
 
@@ -92,7 +94,7 @@ for pkg in all_go_package_dirs():
 #### JS tests by test file
 Alternately, you can split your tests up even further, into one card per test file.
 
-This snippet naively matches by prefix--e.g. `foo_test.tsx` will run on changes to `foo.tsx` and `foo_test.tsx`. Note that it's written for a flat file hierarchy (i.e. all the JS files and tests live at the root of `web/src`), but is easy to modify to fit your directory structure.
+This snippet naively matches by prefix--e.g. `foo.test.tsx` will run on changes to `foo.tsx` and `foo.test.tsx`. Note that it's written for a flat file hierarchy (i.e. all the JS files and tests live at the root of `web/src`), but is easy to modify to fit your directory structure.
 ```python
 web_src_files = [os.path.basename(f) for f in listdir('web/src')]
 test_files = [f for f in web_src_files
