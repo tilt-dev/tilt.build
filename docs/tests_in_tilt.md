@@ -92,7 +92,7 @@ for pkg in all_go_package_dirs():
 #### JS tests by test file
 Alternately, you can split your tests up even further, into one card per test file.
 
-This snippet naively matches by prefix--e.g. `foo_test.tsx` will run on changes to `foo.tsx` and `foo_test.tsx`. Note that it's written for a flat file hierarchy (i.e. all the JS files and tests live at the root of `web/src`, but is easy to modify to fit your directory structure).
+This snippet naively matches by prefix--e.g. `foo_test.tsx` will run on changes to `foo.tsx` and `foo_test.tsx`. Note that it's written for a flat file hierarchy (i.e. all the JS files and tests live at the root of `web/src`), but is easy to modify to fit your directory structure.
 ```python
 web_src_files = [os.path.basename(f) for f in listdir('web/src')]
 test_files = [f for f in web_src_files
