@@ -17,6 +17,8 @@ k8s_yaml('deploy/serve.yaml')
 api_ignores = ['./src/_data/api/', './src/_includes/api/']
 
 docker_build('tilt-site-base', '.', dockerfile='deploy/base.dockerfile',
+             build_args = {'BUILDKIT_INLINE_CACHE': '1'},
+             cache_from = ['gcr.io/windmill-public-containers/tilt-site-base:2021-02-12'],
              only=['./src/Gemfile', './src/Gemfile.lock'])
 
 docker_build('tilt-site', '.', dockerfile='deploy/site.dockerfile',
