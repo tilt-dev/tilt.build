@@ -766,6 +766,10 @@ with
            <em>
             resource_deps=[]
            </em>
+           ,
+           <em>
+            links=[]
+           </em>
            <span class="sig-paren">
             )
            </span>
@@ -793,6 +797,18 @@ to invoke this function if you want to configure your resource beyond what Tilt 
               </th>
               <td class="field-body">
                <ul class="first simple">
+                <li>
+                 <strong>
+                  name
+                 </strong>
+                 (
+                 <code class="xref py py-class docutils literal notranslate">
+                  <span class="pre">
+                   str
+                  </span>
+                 </code>
+                 ) &#x2013; The name of the resource in the docker-compose yaml.
+                </li>
                 <li>
                  <strong>
                   trigger_mode
@@ -843,6 +859,62 @@ to invoke this function if you want to configure your resource beyond what Tilt 
 See the
                  <a class="reference external" href="resource_dependencies.html">
                   Resource Dependencies docs
+                 </a>
+                 .
+                </li>
+                <li>
+                 <strong>
+                  links
+                 </strong>
+                 (
+                 <code class="xref py py-data docutils literal notranslate">
+                  <span class="pre">
+                   Union
+                  </span>
+                 </code>
+                 [
+                 <code class="xref py py-class docutils literal notranslate">
+                  <span class="pre">
+                   str
+                  </span>
+                 </code>
+                 ,
+                 <a class="reference internal" href="#api.Link" title="api.Link">
+                  <code class="xref py py-class docutils literal notranslate">
+                   <span class="pre">
+                    Link
+                   </span>
+                  </code>
+                 </a>
+                 ,
+                 <code class="xref py py-class docutils literal notranslate">
+                  <span class="pre">
+                   List
+                  </span>
+                 </code>
+                 [
+                 <code class="xref py py-data docutils literal notranslate">
+                  <span class="pre">
+                   Union
+                  </span>
+                 </code>
+                 [
+                 <code class="xref py py-class docutils literal notranslate">
+                  <span class="pre">
+                   str
+                  </span>
+                 </code>
+                 ,
+                 <a class="reference internal" href="#api.Link" title="api.Link">
+                  <code class="xref py py-class docutils literal notranslate">
+                   <span class="pre">
+                    Link
+                   </span>
+                  </code>
+                 </a>
+                 ]]]) &#x2013; one or more links to be associated with this resource in the UI. For more info, see
+                 <a class="reference external" href="accessing_resource_endpoints.html#arbitrary-links">
+                  Accessing Resource Endpoints
                  </a>
                  .
                 </li>
@@ -4733,26 +4805,14 @@ thinks a resource has pods.
                    </span>
                   </code>
                  </a>
-                 ]]]) &#x2013; one or more links to be associated with this resource in the UI. (Note
-that port forwards specified via the
-                 <code class="docutils literal notranslate">
-                  <span class="pre">
-                   port_forwards
-                  </span>
-                 </code>
-                 parameter will automatically
-show up as URLs in the UI; rather, the
-                 <code class="docutils literal notranslate">
-                  <span class="pre">
-                   links
-                  </span>
-                 </code>
-                 parameter is generally for non-port-forward
-URLs, e.g. your ingress always sets up an endpoint
-                 <cite>
-                  my.service.foo
-                 </cite>
-                 .)
+                 ]]]) &#x2013;
+                 <p>
+                  one or more links to be associated with this resource in the UI. For more info, see
+                  <a class="reference external" href="accessing_resource_endpoints.html#arbitrary-links">
+                   Accessing Resource Endpoints
+                  </a>
+                  .
+                 </p>
                 </li>
                </ul>
               </td>

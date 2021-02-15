@@ -313,16 +313,22 @@ def trigger_mode(trigger_mode: TriggerMode):
 TRIGGER_MODE_AUTO = type('_sentinel', (TriggerMode,),
                  {'__repr__': lambda self: 'TRIGGER_MODE_AUTO'})()
 
-def dc_resource(name: str, trigger_mode: TriggerMode = TRIGGER_MODE_AUTO, resource_deps: List[str] = []) -> None:
+def dc_resource(name: str,
+                trigger_mode: TriggerMode = TRIGGER_MODE_AUTO,
+                resource_deps: List[str] = [],
+                links: Union[str, Link, List[Union[str, Link]]]=[]) -> None:
   """Configures the Docker Compose resource of the given name. Note: Tilt does an amount of resource configuration
   for you(for more info, see `Tiltfile Concepts: Resources <tiltfile_concepts.html#resources>`_); you only need
   to invoke this function if you want to configure your resource beyond what Tilt does automatically.
 
   Args:
+    name: The name of the resource in the docker-compose yaml.
     trigger_mode: one of ``TRIGGER_MODE_AUTO`` or ``TRIGGER_MODE_MANUAL``. For more info, see the
       `Manual Update Control docs <manual_update_control.html>`_.
     resource_deps: a list of resources on which this resource depends.
       See the `Resource Dependencies docs <resource_dependencies.html>`_.
+    links: one or more links to be associated with this resource in the UI. For more info, see
+      `Accessing Resource Endpoints <accessing_resource_endpoints.html#arbitrary-links>`_.
   """
 
   pass
@@ -430,10 +436,8 @@ def k8s_resource(workload: str = "", new_name: str = "",
       pods to be ready before the resource is considered healthy (and dependencies
       can start building). By default, Tilt will wait for pods to be ready if it
       thinks a resource has pods.
-    links: one or more links to be associated with this resource in the UI. (Note
-      that port forwards specified via the ``port_forwards`` parameter will automatically
-      show up as URLs in the UI; rather, the ``links`` parameter is generally for non-port-forward
-      URLs, e.g. your ingress always sets up an endpoint `my.service.foo`.)
+    links: one or more links to be associated with this resource in the UI. For more info, see
+      `Accessing Resource Endpoints <accessing_resource_endpoints.html#arbitrary-links>`_.
   """
   pass
 
