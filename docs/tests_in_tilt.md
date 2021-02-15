@@ -45,7 +45,7 @@ test('unit-test-remittance', 'pytest remittance_test.py',
 ```
 (More on how to intelligently set your dependencies below.)
 
-Sometimes, you don't want your test(s) to execute automatically. Maybe you want to turn off automatic-ness for all but a few tests you're iterating on, or prevent an expensive integration test from running all the time. Use the "auto" trigger in the UI to toggle automatic execution on or off for a given test.
+Sometimes, you don't want your test(s) to execute automatically. Maybe you want to iterate on a few tests and disable the rest, or prevent an expensive integration test from running all the time. Use the "auto" slider in the UI to toggle automatic execution on or off for a given test.
 
 <figure>
     <img src="/assets/img/tests-in-tilt/auto-toggles.png" alt="a close-up of several cards in the sidebar, with 'auto' variously toggled on or off">
