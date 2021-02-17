@@ -9301,6 +9301,125 @@ to stat the file at this path.
            </table>
           </dd>
          </dl><dl class="function">
+          <dt id="modules.os.path.relpath">
+           <code class="descclassname">
+            os.path.
+           </code>
+           <code class="descname">
+            relpath
+           </code>
+           <span class="sig-paren">
+            (
+           </span>
+           <em>
+            basepath
+           </em>
+           ,
+           <em>
+            targpath
+           </em>
+           <span class="sig-paren">
+            )
+           </span>
+           <a class="headerlink" href="#modules.os.path.relpath" title="Permalink to this definition">
+            &#xB6;
+           </a>
+          </dt>
+          <dd>
+           <p>
+            Return the path of
+            <cite>
+             targpath
+            </cite>
+            relative to
+            <cite>
+             basepath
+            </cite>
+            . On success, the returned path will
+always be relative to
+            <cite>
+             basepath
+            </cite>
+            , even if
+            <cite>
+             basepath
+            </cite>
+            and
+            <cite>
+             targpath
+            </cite>
+            share no elements. An
+error is returned if
+            <cite>
+             targpath
+            </cite>
+            can&#x2019;t be made relative to
+            <cite>
+             basepath
+            </cite>
+            .
+           </p>
+           <table class="docutils field-list" frame="void" rules="none">
+            <col class="field-name">
+            <col class="field-body">
+            <tbody valign="top">
+             <tr class="field-odd field">
+              <th class="field-name">
+               Parameters:
+              </th>
+              <td class="field-body">
+               <ul class="first simple">
+                <li>
+                 <strong>
+                  basepath
+                 </strong>
+                 (
+                 <code class="xref py py-class docutils literal notranslate">
+                  <span class="pre">
+                   str
+                  </span>
+                 </code>
+                 ) &#x2013; Path to which
+                 <code class="docutils literal notranslate">
+                  <span class="pre">
+                   targpath
+                  </span>
+                 </code>
+                 will be made relative
+                </li>
+                <li>
+                 <strong>
+                  targpath
+                 </strong>
+                 (
+                 <code class="xref py py-class docutils literal notranslate">
+                  <span class="pre">
+                   str
+                  </span>
+                 </code>
+                 ) &#x2013; A filesystem path
+                </li>
+               </ul>
+              </td>
+             </tr>
+             <tr class="field-even field">
+              <th class="field-name">
+               Return type:
+              </th>
+              <td class="field-body">
+               <p class="first last">
+                <code class="xref py py-class docutils literal notranslate">
+                 <span class="pre">
+                  str
+                 </span>
+                </code>
+               </p>
+              </td>
+             </tr>
+            </tbody>
+           </table>
+          </dd>
+         </dl><dl class="function">
           <dt id="modules.config.define_bool">
            <code class="descclassname">
             config.

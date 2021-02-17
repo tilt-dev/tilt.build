@@ -6,6 +6,17 @@ def abspath(path: str) -> str:
 """
   pass
 
+def relpath(basepath: str, targpath: str) -> str:
+  """Return the path of `targpath` relative to `basepath`. On success, the returned path will
+  always be relative to `basepath`, even if `basepath` and `targpath` share no elements. An
+  error is returned if `targpath` can't be made relative to `basepath`.
+
+  Args:
+    basepath: Path to which ``targpath`` will be made relative
+    targpath: A filesystem path
+"""
+  pass
+
 def basename(path: str) -> str:
   """Return the basename of the path.
 
