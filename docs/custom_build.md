@@ -6,7 +6,7 @@ layout: docs
 
 `docker build` is the common way to build container images, but there are others.
 
-Tilt supports these other tools with the function [`custom_build`](https://docs.tilt.dev/api.html#api.custom_build)
+Tilt supports these other tools with the function [`custom_build`](api.html#api.custom_build)
 instead of `docker_build`.
 
 ## Usage
@@ -20,6 +20,16 @@ All `custom_build` calls require:
 * Files to watch (e.g. `['frontend']` or `['frontend', 'util', 'data.txt']`). When a dependency changes, Tilt starts an update to build the image then apply the YAML.
 
 There are a couple different image-building patterns.
+
+### The Easiest Way: Get Someone Else to Write it For You
+
+Before you write your own custom builder, check out the [Tilt
+Extensions](https://github.com/tilt-dev/tilt-extensions) repo to see if someone
+has already written a `custom_build` wrapper for your tool.
+
+Tilt Extensions can be simple. Here's an example that uses Ko, the Go image builder.
+
+[Ko Tilt extension](https://github.com/tilt-dev/tilt-extensions/tree/master/ko){:.attached-above}
 
 ### Custom Docker Builds
 
@@ -99,6 +109,10 @@ There are a couple of caveats you should be aware of with `buildah` (and similar
   [registries.insecure](https://github.com/containers/buildah/blob/master/install.md#registriesconf).
 
 ## How to Write Your Own
+
+We've looked at a couple simple recipes for how to write a custom build script.
+
+To write more complex ones, we need to understand in more detail how they work.
 
 All the commands above contain `$EXPECTED_REF`. What is that?
 
@@ -224,11 +238,11 @@ the tag aggressively as if it's immutable.
 Knative uses [a similar strategy](https://knative.dev/docs/serving/tag-resolution/), but the immutability is enforced by a
 Kuberentes operator, instead of by client-side tooling.
 
-## Conclusion
-
-For a complete listing of all the `custom_build` parameters, see  [API reference](api.html#api.custom_build).
+## When You're Done
 
 If you have a more complex build script that you're not sure how to integrate
 with Tilt, we'd love to hear about it. Come find us in the `#tilt` channel in
 [Kubernetes Slack](http://slack.k8s.io) or
 [file an issue](https://github.com/tilt-dev/tilt/issues) on GitHub.
+
+We'll love you even more if you share it with other Tilt users as an [extension](extensions.html)!

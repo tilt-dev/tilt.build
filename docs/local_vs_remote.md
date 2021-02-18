@@ -108,8 +108,13 @@ custom_build(
 )
 ```
 
-But in our experience, teams have a lot of trouble getting it to work well,
-including:
+Check out our [custom build guide](custom_build.html) for more details on how to use
+`custom_build`, and how to share custom build scripts written by other teams
+using Tilt.
+
+Don't feel bad if you have trouble setting this up, even with `custom_build`.
+In our experience, teams have a lot of trouble getting remote builds to work
+well for their team, including:
 
 - Configuring the build jobs
 
