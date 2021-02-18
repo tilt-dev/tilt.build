@@ -6,14 +6,21 @@ def abspath(path: str) -> str:
 """
   pass
 
-def relpath(basepath: str, targpath: str) -> str:
-  """Return the path of `targpath` relative to `basepath`. On success, the returned path will
-  always be relative to `basepath`, even if `basepath` and `targpath` share no elements. An
-  error is returned if `targpath` can't be made relative to `basepath`.
+def relpath(targpath: str, basepath: str='') -> str:
+  """Return the path of `targpath` relative to `basepath` (by default, relative to CWD).
+  On success, the returned path will always be relative to `basepath`, even if `basepath`
+  and `targpath` share no elements. An error is raised if `targpath` can't be made relative to `basepath`.
+
+  e.g. for the Tiltfile at `/code/Tiltfile`:
+
+  * `relpath('/code/foo/bar')` --> `foo/bar`
+  * `relpath('/code/foo/bar', '/code/foo')` --> `bar`
+  * `relpath('/code/foo', '/code/baz')` --> `../foo`
+  * `relpath('/code/foo', 'other/path')` --> error
 
   Args:
-    basepath: Path to which ``targpath`` will be made relative
-    targpath: A filesystem path
+    targpath: Filesystem path to be made relative
+    basepath: Filesystem path (defaults to the current working directory)
 """
   pass
 

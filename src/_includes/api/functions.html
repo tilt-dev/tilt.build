@@ -9312,11 +9312,11 @@ to stat the file at this path.
             (
            </span>
            <em>
-            basepath
+            targpath
            </em>
            ,
            <em>
-            targpath
+            basepath=&apos;&apos;
            </em>
            <span class="sig-paren">
             )
@@ -9335,8 +9335,8 @@ to stat the file at this path.
             <cite>
              basepath
             </cite>
-            . On success, the returned path will
-always be relative to
+            (by default, relative to CWD).
+On success, the returned path will always be relative to
             <cite>
              basepath
             </cite>
@@ -9348,8 +9348,7 @@ always be relative to
             <cite>
              targpath
             </cite>
-            share no elements. An
-error is returned if
+            share no elements. An error is raised if
             <cite>
              targpath
             </cite>
@@ -9359,6 +9358,48 @@ error is returned if
             </cite>
             .
            </p>
+           <p>
+            e.g. for the Tiltfile at
+            <cite>
+             /code/Tiltfile
+            </cite>
+            :
+           </p>
+           <ul class="simple">
+            <li>
+             <cite>
+              relpath(&#x2018;/code/foo/bar&#x2019;)
+             </cite>
+             &#x2013;&gt;
+             <cite>
+              foo/bar
+             </cite>
+            </li>
+            <li>
+             <cite>
+              relpath(&#x2018;/code/foo/bar&#x2019;, &#x2018;/code/foo&#x2019;)
+             </cite>
+             &#x2013;&gt;
+             <cite>
+              bar
+             </cite>
+            </li>
+            <li>
+             <cite>
+              relpath(&#x2018;/code/foo&#x2019;, &#x2018;/code/baz&#x2019;)
+             </cite>
+             &#x2013;&gt;
+             <cite>
+              ../foo
+             </cite>
+            </li>
+            <li>
+             <cite>
+              relpath(&#x2018;/code/foo&#x2019;, &#x2018;other/path&#x2019;)
+             </cite>
+             &#x2013;&gt; error
+            </li>
+           </ul>
            <table class="docutils field-list" frame="void" rules="none">
             <col class="field-name">
             <col class="field-body">
@@ -9371,24 +9412,6 @@ error is returned if
                <ul class="first simple">
                 <li>
                  <strong>
-                  basepath
-                 </strong>
-                 (
-                 <code class="xref py py-class docutils literal notranslate">
-                  <span class="pre">
-                   str
-                  </span>
-                 </code>
-                 ) &#x2013; Path to which
-                 <code class="docutils literal notranslate">
-                  <span class="pre">
-                   targpath
-                  </span>
-                 </code>
-                 will be made relative
-                </li>
-                <li>
-                 <strong>
                   targpath
                  </strong>
                  (
@@ -9397,7 +9420,19 @@ error is returned if
                    str
                   </span>
                  </code>
-                 ) &#x2013; A filesystem path
+                 ) &#x2013; Filesystem path to be made relative
+                </li>
+                <li>
+                 <strong>
+                  basepath
+                 </strong>
+                 (
+                 <code class="xref py py-class docutils literal notranslate">
+                  <span class="pre">
+                   str
+                  </span>
+                 </code>
+                 ) &#x2013; Filesystem path (defaults to the current working directory)
                 </li>
                </ul>
               </td>
