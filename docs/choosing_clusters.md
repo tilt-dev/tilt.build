@@ -181,6 +181,14 @@ using [allow_k8s_contexts](api.html#api.allow_k8s_contexts):
 allow_k8s_contexts('my-cluster-name')
 ```
 
+If your team connects to many remote dev clusters, a common approach is to
+disable the check entirely and add your own validation:
+
+```python
+allow_k8s_contexts(k8s_context())
+local('./validate-dev-cluster.sh')
+```
+
 We only recommend remote clusters for large engineering teams where a
 dedicated dev infrastructure team can maintain your dev cluster.
 
