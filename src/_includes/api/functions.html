@@ -28,16 +28,18 @@ production cluster, Tilt will only push to clusters that have been allowed
 for local development.
            </p>
            <p>
-            By default, Tilt automatically allows Minikube, Docker for Desktop, Microk8s, Red Hat CodeReady Containers, Kind, K3D, and Krucible.
+            By default, Tilt automatically allows Minikube, Docker for Desktop, Microk8s,
+Red Hat CodeReady Containers, Kind, K3D, and Krucible.
            </p>
            <p>
             To add your development cluster to the allow list, add a line in your Tiltfile:
            </p>
-           <p>
-            <cite>
-             allow_k8s_contexts(&#x2018;context-name&#x2019;)
-            </cite>
-           </p>
+           <div class="highlight-default notranslate">
+            <div class="highlight">
+             <pre><span></span><span class="n">allow_k8s_contexts</span><span class="p">(</span><span class="s1">&apos;context-name&apos;</span><span class="p">)</span>
+</pre>
+            </div>
+           </div>
            <p>
             where &#x2018;context-name&#x2019; is the name returned by
             <cite>
@@ -45,6 +47,17 @@ for local development.
             </cite>
             .
            </p>
+           <p>
+            If your team connects to many remote dev clusters, a common approach is to
+disable the check entirely and add your own validation:
+           </p>
+           <div class="highlight-default notranslate">
+            <div class="highlight">
+             <pre><span></span><span class="n">allow_k8s_contexts</span><span class="p">(</span><span class="n">k8s_context</span><span class="p">())</span>
+<span class="n">local</span><span class="p">(</span><span class="s1">&apos;./validate-dev-cluster.sh&apos;</span><span class="p">)</span>
+</pre>
+            </div>
+           </div>
            <p>
             For more on which cluster context is right for you, see
             <a class="reference external" href="choosing_clusters.html">
@@ -102,7 +115,12 @@ the default of all known-local clusters.
             <div class="highlight">
              <pre><span></span><span class="n">allow_k8s_contexts</span><span class="p">(</span><span class="s1">&apos;my-staging-cluster&apos;</span><span class="p">)</span>
 
-<span class="n">allow_k8s_contexts</span><span class="p">([</span><span class="s1">&apos;my-staging-cluster&apos;</span><span class="p">,</span> <span class="s1">&apos;gke_some-project-123456_us-central1-b_windmill&apos;</span><span class="p">])</span>
+<span class="n">allow_k8s_contexts</span><span class="p">([</span>
+  <span class="s1">&apos;my-staging-cluster&apos;</span><span class="p">,</span>
+  <span class="s1">&apos;gke_my-project-name_my-dev-cluster-name&apos;</span>
+<span class="p">])</span>
+
+<span class="n">allow_k8s_contexts</span><span class="p">(</span><span class="n">k8s_context</span><span class="p">())</span> <span class="c1"># disable check</span>
 </pre>
             </div>
            </div>

@@ -876,13 +876,20 @@ def allow_k8s_contexts(contexts: Union[str, List[str]]) -> None:
   production cluster, Tilt will only push to clusters that have been allowed
   for local development.
 
-  By default, Tilt automatically allows Minikube, Docker for Desktop, Microk8s, Red Hat CodeReady Containers, Kind, K3D, and Krucible.
+  By default, Tilt automatically allows Minikube, Docker for Desktop, Microk8s,
+  Red Hat CodeReady Containers, Kind, K3D, and Krucible.
 
-  To add your development cluster to the allow list, add a line in your Tiltfile:
+  To add your development cluster to the allow list, add a line in your Tiltfile::
 
-  `allow_k8s_contexts('context-name')`
+    allow_k8s_contexts('context-name')
 
   where 'context-name' is the name returned by `kubectl config current-context`.
+
+  If your team connects to many remote dev clusters, a common approach is to
+  disable the check entirely and add your own validation::
+
+    allow_k8s_contexts(k8s_context())
+    local('./validate-dev-cluster.sh')
 
   For more on which cluster context is right for you, see `Choosing a Local Dev Cluster <choosing_clusters.html>`_.
 
@@ -895,7 +902,13 @@ def allow_k8s_contexts(contexts: Union[str, List[str]]) -> None:
 
     allow_k8s_contexts('my-staging-cluster')
 
-    allow_k8s_contexts(['my-staging-cluster', 'gke_some-project-123456_us-central1-b_windmill'])
+    allow_k8s_contexts([
+      'my-staging-cluster',
+      'gke_my-project-name_my-dev-cluster-name'
+    ])
+
+    allow_k8s_contexts(k8s_context()) # disable check
+
   """
   pass
 
