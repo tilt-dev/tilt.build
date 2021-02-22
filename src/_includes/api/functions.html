@@ -9319,6 +9319,160 @@ to stat the file at this path.
            </table>
           </dd>
          </dl><dl class="function">
+          <dt id="modules.os.path.relpath">
+           <code class="descclassname">
+            os.path.
+           </code>
+           <code class="descname">
+            relpath
+           </code>
+           <span class="sig-paren">
+            (
+           </span>
+           <em>
+            targpath
+           </em>
+           ,
+           <em>
+            basepath=&apos;&apos;
+           </em>
+           <span class="sig-paren">
+            )
+           </span>
+           <a class="headerlink" href="#modules.os.path.relpath" title="Permalink to this definition">
+            &#xB6;
+           </a>
+          </dt>
+          <dd>
+           <p>
+            Return the path of
+            <cite>
+             targpath
+            </cite>
+            relative to
+            <cite>
+             basepath
+            </cite>
+            (by default, relative to CWD).
+On success, the returned path will always be relative to
+            <cite>
+             basepath
+            </cite>
+            , even if
+            <cite>
+             basepath
+            </cite>
+            and
+            <cite>
+             targpath
+            </cite>
+            share no elements. An error is raised if
+            <cite>
+             targpath
+            </cite>
+            can&#x2019;t be made relative to
+            <cite>
+             basepath
+            </cite>
+            .
+           </p>
+           <p>
+            e.g. for the Tiltfile at
+            <cite>
+             /code/Tiltfile
+            </cite>
+            :
+           </p>
+           <ul class="simple">
+            <li>
+             <cite>
+              relpath(&#x2018;/code/foo/bar&#x2019;)
+             </cite>
+             &#x2013;&gt;
+             <cite>
+              foo/bar
+             </cite>
+            </li>
+            <li>
+             <cite>
+              relpath(&#x2018;/code/foo/bar&#x2019;, &#x2018;/code/foo&#x2019;)
+             </cite>
+             &#x2013;&gt;
+             <cite>
+              bar
+             </cite>
+            </li>
+            <li>
+             <cite>
+              relpath(&#x2018;/code/foo&#x2019;, &#x2018;/code/baz&#x2019;)
+             </cite>
+             &#x2013;&gt;
+             <cite>
+              ../foo
+             </cite>
+            </li>
+            <li>
+             <cite>
+              relpath(&#x2018;/code/foo&#x2019;, &#x2018;other/path&#x2019;)
+             </cite>
+             &#x2013;&gt; error
+            </li>
+           </ul>
+           <table class="docutils field-list" frame="void" rules="none">
+            <col class="field-name">
+            <col class="field-body">
+            <tbody valign="top">
+             <tr class="field-odd field">
+              <th class="field-name">
+               Parameters:
+              </th>
+              <td class="field-body">
+               <ul class="first simple">
+                <li>
+                 <strong>
+                  targpath
+                 </strong>
+                 (
+                 <code class="xref py py-class docutils literal notranslate">
+                  <span class="pre">
+                   str
+                  </span>
+                 </code>
+                 ) &#x2013; Filesystem path to be made relative
+                </li>
+                <li>
+                 <strong>
+                  basepath
+                 </strong>
+                 (
+                 <code class="xref py py-class docutils literal notranslate">
+                  <span class="pre">
+                   str
+                  </span>
+                 </code>
+                 ) &#x2013; Filesystem path (defaults to the current working directory)
+                </li>
+               </ul>
+              </td>
+             </tr>
+             <tr class="field-even field">
+              <th class="field-name">
+               Return type:
+              </th>
+              <td class="field-body">
+               <p class="first last">
+                <code class="xref py py-class docutils literal notranslate">
+                 <span class="pre">
+                  str
+                 </span>
+                </code>
+               </p>
+              </td>
+             </tr>
+            </tbody>
+           </table>
+          </dd>
+         </dl><dl class="function">
           <dt id="modules.config.define_bool">
            <code class="descclassname">
             config.

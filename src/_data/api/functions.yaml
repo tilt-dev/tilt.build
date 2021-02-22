@@ -64,6 +64,7 @@ functions:
 - os.path.exists
 - os.path.join
 - os.path.realpath
+- os.path.relpath
 - config.define_bool
 - config.define_string
 - config.define_string_list
