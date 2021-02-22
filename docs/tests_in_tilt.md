@@ -48,8 +48,8 @@ test('unit-test-remittance', 'pytest remittance_test.py',
 Sometimes, you don't want your test(s) to execute automatically. Maybe you want to iterate on a few tests and disable the rest, or prevent an expensive integration test from running all the time. Use the "auto" slider in the UI to toggle automatic execution on or off for a given test.
 
 <figure>
-    <img src="/assets/img/tests-in-tilt/auto-toggles.png" alt="a close-up of several cards in the sidebar, with 'auto' variously toggled on or off">
-    <figcaption>In this example, tests "foo" and "beep" are in auto mode--they will execute automatically when any of their `deps` are changed.</figcaption>
+    <img src="/assets/img/tests-in-tilt/auto-toggles.png" alt="a close-up of several cards in the sidebar, with 'auto/manual' toggles visible">
+    <figcaption>The 'auto/manual' toggle (visible on hover) allows you to control whether a given test runs automatically when its deps change.</figcaption>
 </figure>
 
 You can also control this behavior via the Tiltfile, using [the `trigger_mode` parameter](https://docs.tilt.dev/manual_update_control.html).
