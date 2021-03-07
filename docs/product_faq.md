@@ -83,7 +83,7 @@ Our mission is to build a platform for cloud-native development.
 {% assign total = site.data.people | where: "active","true" | size %}
 We’re a small team of {{total}} people. We’re based at
 [Work-Bench](https://www.work-bench.com/) in New York City, 
-but also have teammates in Berlin, Germany and Richmond, VA.
+but also have teammates in Berlin, Germany and other parts of the US.
 
 We used to call ourselves "Windmill Engineering." 
 You may hear us use that name sometimes when we slip up.
