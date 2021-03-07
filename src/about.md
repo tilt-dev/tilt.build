@@ -10,7 +10,7 @@ for cloud-based collaboration. We want to do that for developer tools.
 <div class="u-marginBottom1_5">
 {% assign total = site.data.people | where: "active","true" | size %}
 We’re small ({{total}} people, VC-backed). We’re based in NYC, 
-but also have teammates in Berlin, Germany and Richmond, VA.
+but also have teammates in Berlin, Germany and other parts of the US.
 </div>
 
 <div class="brandBox u-marginBottom2">	
@@ -88,13 +88,6 @@ but also have teammates in Berlin, Germany and Richmond, VA.
     </div>
   </div>
 
-  <div class="bio col-1of3 u-marginBottom1_25">
-    <img class="bio-image" src="/assets/img/victor.jpg">
-    <h4>Victor Wu</h4>
-    <div>
-      Increasingly earlier stage startups. Enjoys mentoring early career PMs. He/him.
-    </div>
-  </div>  
   <div class="bio col-1of3 u-marginBottom1_25">
     <img class="bio-image" src="/assets/img/surbhi.jpg">
     <h4>Surbhi S Gupta</h4>
