@@ -26,8 +26,8 @@ Because it's straightforward and consistent, we can manage more config than we
 ever could before! And now that we can manage oodles more config, we can build
 overcomplicated systems. Hooray!
 
-The configs themselves may be complicated. So in this post, we're going to skip
-the configs. We'll focus purely on the API machinery and how to explore that
+The configs themselves may be complicated. So in this post, I'm going to skip
+the configs. I'll focus purely on the API machinery and how to explore that
 API.
 
 Building APIs this way could benefit a lot of tools.
