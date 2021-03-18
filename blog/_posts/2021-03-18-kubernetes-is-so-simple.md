@@ -14,20 +14,23 @@ tags:
 
 A common take on Kubernetes is that it's very complicated. 
 
-Because it's complicated, the configuration is very verbose. 
+... and because it's complicated, the configuration is very verbose. 
 
-Because there's so much config YAML, we need big toolchains just to handle that config.
+... and because there's so much config YAML, we need big toolchains just to handle that config.
 
 I want to convince you that the arrow of blame points in the opposite direction!
 
 Kubernetes has a simple, genius idea about how to manage configuration.
 
-Because it's simple and consistent, we can manage more config than we ever
-could before! And now that we can manage oodles more config, we can build
+Because it's straightforward and consistent, we can manage more config than we
+ever could before! And now that we can manage oodles more config, we can build
 overcomplicated systems. Hooray!
 
-Those configs can be complicated. But in this post, we're going to cover the
-simple parts, and how to explore them.
+The configs themselves may be complicated. So in this post, we're going to skip
+the configs. We'll focus purely on the API machinery and how to explore that
+API.
+
+Building APIs this way could benefit a lot of tools.
 
 ## What is the Idea?
 
@@ -63,7 +66,7 @@ with a few HTTP GET commands.
 
 To follow along, you'll need:
 
-- [KIND](https://kind.sigs.k8s.io/) - or any small, throwaway Kubernetes cluster
+- [`kind`](https://kind.sigs.k8s.io/) - or any small, throwaway Kubernetes cluster
 - `curl` - or any CLI tool for sending HTTP requests
 - `jq` - or any CLI tool for exploring JSON
 - `kubectl` - to help `curl` authenticate
@@ -93,11 +96,16 @@ Starting to serve on 127.0.0.1:8001
 `kubectl proxy` is a server that handles certificates for us, so that we don't
 need to worry about auth tokens with `curl`.
 
-Processes in a cluster are called "pods". They're organized into namespaces,
-like "default" for the default user namesapce, and "kube-system" for system
-processes.
+The Kubernetes API has more hierarchy than `/proc`. It's split into folders by
+version and namespace and resource type.  The API path format looks like:
 
-Let's list all the system processes in our cluster:
+```
+/api/[version]/namespaces/[namespace]/[resource]/[name]
+```
+
+On a fresh `kind` cluster, there should be some pods already running in the
+`kube-system` namespace we can look at. Let's list all the system processes in
+our cluster:
 
 ```
 $ curl -s http://localhost:8001/api/v1/namespaces/kube-system/pods | head -n 20
@@ -161,19 +169,21 @@ $ curl -s http://localhost:8001/api/v1/namespaces/kube-system/pods/kube-apiserve
 "Running"
 ```
 
-## Kubectl isn't magic
+## How to unpack what `kubectl` is doing
 
 All of the things above can be done with `kubectl`. `kubectl` provides a more
 friendly interface. But if you're ever wondering what APIs `kubectl` is calling,
 you can run it with `-v 6`:
 
 ```
-$ $ kubectl get -v 6 -n kube-system pods kube-apiserver-kind-control-plane
+$ kubectl get -v 6 -n kube-system pods kube-apiserver-kind-control-plane
 I0304 12:47:59.687088 3573879 loader.go:375] Config loaded from file:  /home/nick/.kube/config
 I0304 12:47:59.697325 3573879 round_trippers.go:443] GET https://127.0.0.1:44291/api/v1/namespaces/kube-system/pods/kube-apiserver-kind-control-plane 200 OK in 5 milliseconds
 NAME                                READY   STATUS    RESTARTS   AGE
 kube-apiserver-kind-control-plane   1/1     Running   0          116m
 ```
+
+For more advanced debugging, use `-v 8` to see the complete response body.
 
 The point isn't that you should throw away `kubectl` in favor of `curl` to
 interact with Kubernetes. Just like you shouldn't throw away `ps` in favor of
@@ -197,8 +207,6 @@ Useless Machine](https://www.youtube.com/watch?v=85dKpsFFju4).
 <div class="block block--video">
 <iframe width="560" height="315" src="https://www.youtube.com/embed/85dKpsFFju4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </div>
-
-We think building servers this way could benefit a lot of tools.
 
 In future posts, I want to talk about how to write code that uses these APIs
 effectively. And how we're leaning into [these ideas in
