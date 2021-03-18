@@ -41,7 +41,7 @@ local_resource('API Server Logs', '', serve_cmd='kubectl logs -f -n kube-system 
 This only works for Docker for Desktop on macOS, since it's hard coded to that pod name. But it would be easy to write a query to get the API server pod for any arbitrary Kubernetes cluster:
 
 ```python
-api_server_pod_name = str(local('kubectl get pods --namespace kube-system -o=jsonpath="{.items..metadata.name}" -l component=kube-apiserver')).rstrip('\ni')
+api_server_pod_name = str(local('kubectl get pods --namespace kube-system -o=jsonpath="{.items..metadata.name}" -l component=kube-apiserver')).rstrip('\n')
 ```
 
 Then you could compose them together in a function:
