@@ -68,19 +68,23 @@ status of running services, errors, logs, and more.
 
 ## Community
 
-**Questions and feedback:** Join [the Kubernetes slack](http://slack.k8s.io) and
+**Questions:** Join [the Kubernetes slack](http://slack.k8s.io) and
  find us in the [#tilt](https://kubernetes.slack.com/messages/CESBL84MV/)
- channel. Or [file an issue](https://github.com/tilt-dev/tilt/issues). To get code snippets of Tiltfile functionality shared by the Tilt community, check out [Tilt Extensions](https://github.com/tilt-dev/tilt-extensions).
+ channel. Or [file an issue](https://github.com/tilt-dev/tilt/issues). For code snippets of Tiltfile functionality shared by the Tilt community, check out [Tilt Extensions](https://github.com/tilt-dev/tilt-extensions). 
+ 
+**Roadmap:** Help us figure out what to prioritize. Sign up for [Tilt office
+hours](https://calendly.com/han-yu/user-research). We'll discuss your experience
+with Tilt and ask for reactions on visuals or prototypes we're working on.
 
 **Contribute:** Tilt is open source, developed on [GitHub](https://github.com/tilt-dev/tilt). Check out our [contribution](https://github.com/tilt-dev/tilt/blob/master/CONTRIBUTING.md) guidelines. To extend the capabilities of Tilt via new Tiltfile functionality, read more on [Extensions](https://docs.tilt.dev/extensions.html). 
 
 **Follow along:** [@tilt_dev](https://twitter.com/tilt_dev) on Twitter. Updates
-and announcements on the [Tilt blog](https://blog.tilt.dev). If you find a
-security issue in Tilt, see our [security
-policy](https://github.com/tilt-dev/tilt/blob/master/SECURITY.md).
+and announcements on the [Tilt blog](https://blog.tilt.dev).
 
 **Help us make Tilt even better:** Tilt sends anonymized usage data, so we can
 improve Tilt on every platform. Details in ["What does Tilt
-send?"](telemetry_faq.html).
+send?"](telemetry_faq.html). If you find a
+security issue in Tilt, see our [security
+policy](https://github.com/tilt-dev/tilt/blob/master/SECURITY.md).
 
 We expect everyone in our community (users, contributors, and employees alike) to abide by our [**Code of Conduct**](code_of_conduct.html).
