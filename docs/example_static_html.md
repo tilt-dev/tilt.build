@@ -195,6 +195,14 @@ You can try the server here:
 Obviously, our busybox example is very silly. We just wanted to show you how
 Tilt can work with any language, even a silly one.
 
+Once you're done, set up a CI test to ensure it doesn't break!  The example
+repo uses [`ctlptl`](https://github.com/tilt-dev/ctlptl) to create a single-use
+local Kubernetes cluster on each PR. Then `tilt ci` deploys the services and
+exits successfully if they're healthy.
+
+- [CircleCI config](https://github.com/tilt-dev/tilt-example-html/blob/master/.circleci/config.yml)
+- [Test script](https://github.com/tilt-dev/tilt-example-html/blob/master/test/test.sh)
+
 Other examples:
 
 <ul>
