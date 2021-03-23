@@ -32,7 +32,7 @@ To skip straight to the fully optimized setup, go to this subdirectory:
 
 ## Step 0: The Simplest Deployment
 
-Our server uses Sprint Web for routing requests.
+Our server uses Spring Web for routing requests.
 
 ```java
 package dev.tilt.example;
