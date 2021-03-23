@@ -276,6 +276,17 @@ This is a very simple example, but we hope it gives you a good starting point fo
 
 ## Further Reading
 
+### CI
+
+Once you're done configuring your project, set up a CI test to ensure
+your setup doesn't break! In the example repo, CircleCI uses
+[`ctlptl`](https://github.com/tilt-dev/ctlptl) to create a single-use Kubernetes
+cluster. The test script invokes `tilt ci`.  The `tilt ci` command deploys all
+services in a Tiltfile and exits successfully if they're healthy.
+
+- [CircleCI config](https://github.com/tilt-dev/tilt-example-python/blob/master/.circleci/config.yml)
+- [Test script](https://github.com/tilt-dev/tilt-example-python/blob/master/test/test.sh)
+
 ### Other sample Python projects:
 - [abc123](https://github.com/tilt-dev/abc123) is a mini microservice app with a Python server called `numbers`
 - Our [blog post about Live Update](https://blog.tilt.dev/2019/04/02/fast-kubernetes-development-with-live-update.html) includes an [example Python server](https://github.com/tilt-dev/live_update/tree/master/python)
