@@ -192,10 +192,23 @@ You can try the server here:
 
 [Recommended Structure](https://github.com/tilt-dev/tilt-example-html/blob/master/2-recommended){:.attached-above}
 
+## Further Reading
+
+### CI
+
+Once you're done configuring your project, set up a CI test to ensure
+your setup doesn't break! In the example repo, CircleCI uses
+[`ctlptl`](https://github.com/tilt-dev/ctlptl) to create a single-use Kubernetes
+cluster. The test script invokes `tilt ci`.  The `tilt ci` command deploys all
+services in a Tiltfile and exits successfully if they're healthy.
+
+- [CircleCI config](https://github.com/tilt-dev/tilt-example-html/blob/master/.circleci/config.yml)
+- [Test script](https://github.com/tilt-dev/tilt-example-html/blob/master/test/test.sh)
+
+### Other examples
+
 Obviously, our busybox example is very silly. We just wanted to show you how
 Tilt can work with any language, even a silly one.
-
-Other examples:
 
 <ul>
   {% for page in site.data.examples %}

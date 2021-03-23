@@ -35,3 +35,17 @@ it works well.  We'll add a longer write-up to the doc on how it works once
 we're happy with it.
 
 Stay tuned!
+
+## Further Reading
+
+### CI
+
+Once you're done configuring your project, set up a CI test to ensure
+your setup doesn't break! In the example repo, CircleCI uses
+[`ctlptl`](https://github.com/tilt-dev/ctlptl) to create a single-use Kubernetes
+cluster. The test script invokes `tilt ci`.  The `tilt ci` command deploys all
+services in a Tiltfile and exits successfully if they're healthy.
+
+- [CircleCI config](https://github.com/tilt-dev/tilt-example-bazel/blob/master/.circleci/config.yml)
+- [Test script](https://github.com/tilt-dev/tilt-example-bazel/blob/master/test/test.sh)
+

@@ -283,6 +283,19 @@ Congratulations on finishing this guide!
 
 ## Further Reading
 
+### CI
+
+Once you're done configuring your project, set up a CI test to ensure
+your setup doesn't break! In the example repo, CircleCI uses
+[`ctlptl`](https://github.com/tilt-dev/ctlptl) to create a single-use Kubernetes
+cluster. The test script invokes `tilt ci`.  The `tilt ci` command deploys all
+services in a Tiltfile and exits successfully if they're healthy.
+
+- [CircleCI config](https://github.com/tilt-dev/tilt-example-go/blob/master/.circleci/config.yml)
+- [Test script](https://github.com/tilt-dev/tilt-example-go/blob/master/test/test.sh)
+
+### Optimizations
+
 This guide recommends an approach to Go development that shines with Tilt.
 
 If you're curious about other approaches to multi-service Go development and
