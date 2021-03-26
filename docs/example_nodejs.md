@@ -298,6 +298,11 @@ services in a Tiltfile and exits successfully if they're healthy.
 - [CircleCI config](https://github.com/tilt-dev/tilt-example-nodejs/blob/master/.circleci/config.yml)
 - [Test script](https://github.com/tilt-dev/tilt-example-nodejs/blob/master/test/test.sh)
 
+### Tests in Tilt
+You can run your tests, formatters, linters, and other tools directly from Tilt, so that you don't have to tab between a million windows and remember to run a bunch of different commands. For more information, see the [Tests in Tilt docs](https://docs.tilt.dev/tests_in_tilt.html). We also provide [some extensions](https://github.com/tilt-dev/tilt-extensions/tree/master/tests/javascript) to streamline setup of the most common Javascript test configurations. Here's an example of how you might set up your JS tests in Tilt:
+
+ [js-tests-example](https://github.com/tilt-dev/tilt-example-nodejs/blob/master/tests-example){:.attached-above}
+
 ### Other sample JS projects:
 
 - [Tiltfile exposing the NodeJS debugger port](https://github.com/tilt-dev/tilt-example-nodejs/blob/master/101-debugger/Tiltfile#L5)
