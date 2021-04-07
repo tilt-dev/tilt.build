@@ -7,11 +7,15 @@ layout: docs
 Once you've bought into container-based development,
 you'll want to set up CI to ensure your servers don't break.
 
-We think of this in two pieces:
+The Tilt team has this problem too! For every change, we create a real
+single-use cluster and verify that all our services and example projects still
+work. So we have a lot of experience with best practices.
 
-1) Run Tilt in CI to deploy to a single-use cluster.
+There are two tools you'll need to configure:
 
-2) Run a single-use Kubernetes in CI that you can immediately throw away.
+1) How to use `tilt ci` to build and deploy servers.
+
+2) How to run a Kubernetes cluster in CI that `tilt ci` can deploy to.
 
 Let's dig into examples of each one.
 
@@ -31,7 +35,7 @@ Under the hood, `tilt ci`:
 
 4) Deploys all Kubernetes resources.
 
-5) Waits until all servers and other Kubernetes resources are healthy.
+5) Waits until all servers and other resources are healthy.
 
 `tilt ci` defaults to log-streaming mode. The web UI is still accessible,
 but the terminal will be a simple log stream.
@@ -53,23 +57,21 @@ Most of our example projects use CircleCI to run `tilt ci`:
   {% endfor %}
 </ul>
 
-These each use [`ctlptl`](https://ctlptl.dev/) to set up a single-use
-cluster. But if you're considering other options, read on.
+Each example invokes [`ctlptl`](https://ctlptl.dev/) to set up a single-use
+cluster. But the `ctlptl` tool has many options for setting up clusters,
+depending on what you need.
 
 ## Single-use Kubernetes clusters
 
-If you're using Kubernetes for dev, you'll likely also want to use Kubernetes in CI.
-
-Tilt-team has this problem as well! Our integration test suite uses the latest
-version of Tilt to deploy real sample projects against a real cluster.  So we
-have a lot of experiences with best practices.
+Running a Kubernetes cluster in CI can be harder than running one locally.
 
 Here are some options, with the pros and cons of each:
 
 ### Easiest: Cluster on VM-based CI
 
 [`kind`](https://kind.sigs.k8s.io/) is currently the gold standard for running
-Kubernetes in CI. The Kubernetes project itself uses it for testing.
+Kubernetes in CI. The Kubernetes project itself uses it for testing. `kind` can
+create clusters inside Docker.
 
 `kind` comes with the ability to run a local registry, so you can push images to
 the registry on `localhost:5000` and pull them from inside `kind`.
