@@ -8,15 +8,45 @@ Tilt supports Helm out-of-the-box.
 
 There are two ways you can use Helm charts with Tilt.
 
-## Basic Helm
+- Install a remote Helm chart from the rich library of existing charts.
 
-If you have a local Helm chart and want to deploy it as-is, add a `helm()` call to your `Tiltfile`:
+- Iterate on a local Helm chart that you're building.
 
-```python
-k8s_yaml(helm('path/to/chart/dir'))
+Let's dig into each one.
+
+## Remote charts
+
+The `helm_remote` extension lets you load from a library of existing charts.
+
+Here's an example that deploys the `stable/mysql` chart:
+
+```
+# Tiltfile
+
+load('ext://helm_remote', 'helm_remote')
+helm_remote('mysql',
+            repo_name='stable',
+            repo_url='https://charts.helm.sh/stable')
 ```
 
-The `helm` function runs `helm template` on a chart directory and returns the generated yaml.
+Visit [Artifact Hub](https://artifacthub.io/) to find Helm charts for
+many off-the-shelf tools. They each list the repo URL and chart name to
+use with `helm_remote`.
+
+To customize the chart with your own `values.yaml` settings, see the [`helm_remote`
+README](https://github.com/tilt-dev/tilt-extensions/tree/master/helm_remote)
+for additional options to configure the chart.
+
+## Local charts
+
+The `helm` built-in function lets you load from a chart on your filesystem.
+
+Calling `helm()` runs `helm template` on a chart directory and
+returns a blob of the Kubernetes YAML rendered by Helm:
+
+```python
+k8s_yaml(helm('./charts/my-chart'))
+```
 
 When you make edits to the files in the chart directory, Tilt will automatically re-deploy the chart.
 
@@ -114,20 +144,6 @@ k8s_yaml(local('helm template -f ./values.yaml path/to/chart/dir'))
 watch_file('path/to/chart/dir')
 watch_file('values.yaml')
 ```
-
-### Deploying a remote Helm chart
-
-One of the advantages of Helm is that there's a rich library of existing charts.
-
-The `helm_remote` extension can help you load remote charts.
-
-```
-load('ext://helm_remote', 'helm_remote')
-helm_remote('myChartName')
-```
-
-For more options, see the [`helm_remote`
-README](https://github.com/tilt-dev/tilt-extensions/tree/master/helm_remote).
 
 ### Other Helm tools
 
