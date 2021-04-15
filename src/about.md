@@ -32,7 +32,8 @@ but also have teammates in Berlin, Germany and other parts of the US.
   </div>
   
   <ul>
-    <li><a href="devtools_eng.html">Senior Developer Tools Engineer</a></li>	
+    <li><a href="advocate.html">Developer Advocate</a></li>	
+    <li><a href="devtools_eng.html">Senior Developer Tools Engineer</a></li>
   </ul>	
 </div>
 
