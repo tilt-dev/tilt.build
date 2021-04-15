@@ -32,7 +32,6 @@ Other Upgrade Methods
 
 ```
 $ brew update && brew upgrade tilt-dev/tap/tilt
-$ brew install tilt-dev/tap/tilt
 ```
 
 ## Scoop
