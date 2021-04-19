@@ -37,7 +37,6 @@ docker_build('docs-site', '.', dockerfile='deploy/docs.dockerfile',
                                               'docs/Gemfile', 'docs/Gemfile.lock'])
              ])
 
-
 docker_build('blog-site', '.', dockerfile='deploy/blog.dockerfile',
              ignore=['./api', './docs'] + api_ignores,
              live_update=[
@@ -50,3 +49,16 @@ docker_build('blog-site', '.', dockerfile='deploy/blog.dockerfile',
 k8s_resource('tilt-site', port_forwards=[port_forward(4000, name='tilt-site')])
 k8s_resource('docs-site', port_forwards=[port_forward(4001, name='docs-site')], resource_deps=['make-api'])
 k8s_resource('blog-site', port_forwards=[port_forward(4002, name='blog-site')])
+
+local_resource(
+  name='gem-update',
+  resource_deps=['tilt-site'],
+  cmd=['sh', '-c', """
+set -ex
+kubectl exec deployment/tilt-site -- bundle update
+POD=$(kubectl get pod -l app=tilt-site -o jsonpath --template '{.items[].metadata.name}')
+kubectl cp $POD:/src/Gemfile src/Gemfile
+kubectl cp $POD:/src/Gemfile.lock src/Gemfile.lock
+"""],
+  auto_init=False,
+  trigger_mode=TRIGGER_MODE_MANUAL)
