@@ -5,3 +5,5 @@ data:
 - config.main_dir
 - config.main_path
 - config.tilt_subcommand
+- sys.argv
+- sys.executable
