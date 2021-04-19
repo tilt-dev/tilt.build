@@ -1,5 +1,9 @@
 # -*- mode: Python -*-
 
+load('ext://tilt_inspector', 'tilt_inspector')
+
+tilt_inspector(port=4009)
+
 default_registry('gcr.io/windmill-public-containers')
 set_team('0584d8f6-05a2-49f5-923b-657afef098fe')
 username = str(local('whoami')).rstrip('\n')
