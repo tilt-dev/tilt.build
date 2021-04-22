@@ -6,7 +6,7 @@ layout: docs
 
 You can find a list of Tilt releases on [Tilt's GitHub Releases page](https://github.com/tilt-dev/tilt/releases). 
 
-Usually it is sufficint to rerun the install script. However, if you installed Tilt using one of the [alternative installation methods](install.html) you may need to use one of the [other upgrade methods](upgrade.html#other-upgrade-methods) listed below.
+Usually it is sufficient to rerun the install script. However, if you installed Tilt using one of the [alternative installation methods](install.html) you may need to use one of the [other upgrade methods](upgrade.html#other-upgrade-methods) listed below.
 
 macOS or Linux
 -----
