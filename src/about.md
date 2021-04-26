@@ -15,19 +15,9 @@ but also have teammates in Berlin, Germany and other parts of the US.
 
 <div class="brandBox u-marginBottom2">	
   {% include brandBoxBg.html %}	
-  <h3 class="section u-marginBottom0_5">And we're currently hiring!</h3>	
-
-  <div class="u-marginBottom0_5">	
-    We're actively searching for people with these backgrounds:
-  </div>	
-
-  <ul>	
-    <li><a href="frontend_eng.html">Senior Frontend Engineer</a></li>
-  </ul>
-	
   <div class="u-marginBottom0_5">		
     As we grow, we expect more roles to open up in the future	
-    (even if we aren't searching for them right now).	
+    (even if we aren't recruiting for them right now).	
     If you fit one of these profiles, we're interested in chatting!	
   </div>
   
