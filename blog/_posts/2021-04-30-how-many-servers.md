@@ -102,55 +102,52 @@ If I have Tilt running in one terminal, I can, in another terminal, run:
 ```
 $ tilt get session
 NAME       CREATED AT
-Tiltfile   2021-04-27T18:33:15Z
+Tiltfile   2021-04-30T18:54:31Z
 ```
 
 If I want more detail, I can run:
 
 ```
-$ tilt describe session
-Name:         Tiltfile
-Namespace:    
-Labels:       <none>
-Annotations:  <none>
-API Version:  tilt.dev/v1alpha1
-Kind:         Session
-Metadata:
-  Creation Timestamp:  2021-04-27T18:33:15Z
-  Resource Version:    4
-  UID:                 52be7133-4714-4169-b1b5-635d6a32cc41
-Spec:
-  Exit Condition:  manual
-  Tiltfile Path:   /home/nick/src/tilt-example-html/0-base/Tiltfile
-Status:
-  Done:        false
-  Pid:         308758
-  Start Time:  2021-04-27T18:33:15.055993Z
-  Targets:
-    Name:  example-html:runtime
-    Resources:
-      example-html
-    State:
-      Active:
-        Ready:       true
-        Start Time:  2021-04-26T17:04:51.000000Z
-    Type:            server
-    Name:            example-html:update
-    Resources:
-      example-html
-    State:
-      Terminated:
-        Finish Time:  2021-04-27T18:33:15.732826Z
-        Start Time:   2021-04-27T18:33:15.353264Z
-    Type:             job
-    Name:             tiltfile:update
-    Resources:
-      (Tiltfile)
-    State:
-      Terminated:
-        Finish Time:  2021-04-27T18:33:15.321144Z
-        Start Time:   2021-04-27T18:33:15.244107Z
-    Type:             job
+$ tilt get session Tiltfile -o yaml
+apiVersion: tilt.dev/v1alpha1
+kind: Session
+metadata:
+  creationTimestamp: "2021-04-30T18:54:31Z"
+  name: Tiltfile
+  resourceVersion: "5"
+  uid: 811645a0-d246-4ed7-ac10-23f6ac770676
+spec:
+  exitCondition: manual
+  tiltfilePath: /home/nick/src/tilt-example-html/0-base/Tiltfile
+status:
+  done: false
+  pid: 209244
+  startTime: "2021-04-30T18:54:31.049171Z"
+  targets:
+  - name: example-html:runtime
+    resources:
+    - example-html
+    state:
+      active:
+        ready: true
+        startTime: "2021-04-27T23:55:47.000000Z"
+    type: server
+  - name: example-html:update
+    resources:
+    - example-html
+    state:
+      terminated:
+        finishTime: "2021-04-30T18:54:31.383351Z"
+        startTime: "2021-04-30T18:54:31.123758Z"
+    type: job
+  - name: tiltfile:update
+    resources:
+    - (Tiltfile)
+    state:
+      terminated:
+        finishTime: "2021-04-30T18:54:31.121838Z"
+        startTime: "2021-04-30T18:54:31.108614Z"
+    type: job
 ```
 
 Now we know exactly how many services we're running in dev! This particular dev
