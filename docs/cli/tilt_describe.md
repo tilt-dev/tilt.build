@@ -3,27 +3,24 @@ title: Tilt CLI Reference
 layout: docs
 hideEditButton: true
 ---
-## tilt api-resources
+## tilt describe
 
-Print the supported API resources
+Show details of a specific resource or group of resources
 
 ```
-tilt api-resources [flags]
+tilt describe (-f FILENAME | TYPE [NAME_PREFIX | -l label] | TYPE/NAME)
 ```
 
 ### Options
 
 ```
-      --api-group string   Limit to resources in the specified API group.
-      --cached             Use the cached list of resources if available.
-  -h, --help               help for api-resources
+  -f, --filename strings   Filename, directory, or URL to files containing the resources to describe
+  -h, --help               help for describe
       --host string        Host for the Tilt HTTP server. Only necessary if you started Tilt with --host. Overrides TILT_HOST env variable. (default "localhost")
-      --namespaced         If false, non-namespaced resources will be returned, otherwise returning namespaced resources by default. (default true)
-      --no-headers         When using the default or custom-column output format, don't print headers (default print headers).
-  -o, --output string      Output format. One of: wide|name.
+  -k, --kustomize string   Process the kustomization directory. This flag can't be used together with -f or -R.
       --port int           Port for the Tilt HTTP server. Only necessary if you started Tilt with --port. Overrides TILT_PORT env variable. (default 10350)
-      --sort-by string     If non-empty, sort list of resources using specified field. The field can be either 'name' or 'kind'.
-      --verbs strings      Limit to resources that support the specified verbs.
+  -R, --recursive          Process the directory used in -f, --filename recursively. Useful when you want to manage related manifests organized within the same directory.
+  -l, --selector string    Selector (label query) to filter on, supports '=', '==', and '!='.(e.g. -l key1=value1,key2=value2)
 ```
 
 ### Options inherited from parent commands
