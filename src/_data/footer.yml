@@ -1,5 +1,5 @@
-- name: Enterprise
-  href: enterprise
+- name: Schedule a Guide
+  href: liftoff
   primary: true
   landingurl: true
 - name: Docs
