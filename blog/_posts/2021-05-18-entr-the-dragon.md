@@ -1,5 +1,5 @@
 ---
-slug: "Draggin' the Entr"
+slug: "entr-the-dragon"
 date: 2021-05-18
 author: nick
 layout: blog
