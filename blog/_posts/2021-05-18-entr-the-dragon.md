@@ -68,10 +68,11 @@ run `entr`.
 For day-to-day running of unit tests, something like
 
 ```
-ls pkg/model | entr go test ./pkg/model/...
+find pkg/model | entr go test ./pkg/model/...
 ```
 
-does what I need.
+does what I need. `find pkg/model` lists all tests in that directory. `entr`
+reruns the test when any of them change.
 
 ### Example #2: reload a server
 
@@ -98,7 +99,7 @@ to build `entr`-like reloading.
 Let's reimplement our test re-runner above on the Tilt API.
 
 ```
-ls pkg/model | entr go test ./pkg/model/...
+find pkg/model | entr go test ./pkg/model/...
 ```
 
 First, start a Tilt server for your project's dev environment:
