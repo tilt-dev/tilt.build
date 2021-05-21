@@ -78,7 +78,6 @@ but also have teammates in Berlin, Germany and other parts of the US.
       Cloud Native Ambassador and 'Best Hair' award recipient. They/them.
     </div>
   </div>
-
   <div class="bio col-1of3 u-marginBottom1_25">
     <img class="bio-image" src="/assets/img/surbhi.jpg">
     <h4>Surbhi S Gupta</h4>
@@ -91,6 +90,13 @@ but also have teammates in Berlin, Germany and other parts of the US.
     <h4>Milas Bowman</h4>
     <div>
       Five years building endpoint security products at VMware. Sriracha enthusiast. Too competitive at board games. He/him.
+    </div>
+  </div>
+  <div class="bio col-1of3 u-marginBottom1_25">
+    <img class="bio-image" src="/assets/img/lizz.jpg">
+    <h4>Lizz Thabet</h4>
+    <div>
+      Three years building fullstack experiences at <a href="https://attuneinsurance.com">Attune</a>. Makes weird drawings and wearables. Loves to pick up heavy things and put them back down again. She/they.
     </div>
   </div>
 </div>
