@@ -1,6 +1,6 @@
 ---
 slug: "real-programmers-log"
-date: 2021-05-18
+date: 2021-05-24
 author: nick
 layout: blog
 title: "Real Programmers log('HERE')"
