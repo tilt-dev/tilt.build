@@ -164,6 +164,31 @@ li {
 .blogBody > div.block {
   max-width: $blog-body-width;
 }
+.blogBody table {
+  border-radius: 10px;
+  margin-bottom: $spacing-unit;
+  background-color: $color-grey-lightest;
+  border-spacing: 0;
+}
+.blogBody th {
+  background-color: $color-grey-light;
+  padding: $spacing-unit / 4;
+}
+.blogBody th:first-child {
+  border-radius: 10px 0 0 0;
+}
+.blogBody th:last-child {
+  border-radius: 0 10px 0 0;
+}
+.blogBody td {
+  font-size: 18px;
+  text-align: center;
+  padding: $spacing-unit / 4;
+}
+.blogBody td:first-child {
+  text-align: right;
+  
+}
 .blogCredit {
   float: right;
   width: $blog-credit-width;
@@ -482,6 +507,10 @@ h3.relatedHeader {
   font-size: 22px;
   line-height: 28px;
   margin-bottom: $spacing-unit / 8;
+}
+.blogBody > h3 + ol,
+.blogBody > h3 + ul {
+  margin-top: $spacing-unit / 2;
 }
 .blogBody > h1,
 .blogBody > h2,
