@@ -99,6 +99,13 @@ but also have teammates in Berlin, Germany and other parts of the US.
       Three years building fullstack experiences at <a href="https://attuneinsurance.com">Attune</a>. Makes weird drawings and wearables. Loves to pick up heavy things and put them back down again. She/they.
     </div>
   </div>
+  <div class="bio col-1of3 u-marginBottom1_25">
+    <img class="bio-image" src="/assets/img/lucie.jpg">
+    <h4>Lucie le Blanc</h4>
+    <div>
+      Excited software engineering intern, HackNY Fellow, and appreciator of bicycle rides with ice cream-related destinations. She/her.
+    </div>
+  </div>
 </div>
 
 
