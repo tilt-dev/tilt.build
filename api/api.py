@@ -430,8 +430,6 @@ def k8s_resource(workload: str = "", new_name: str = "",
       one Kubernetes object, or matches an object already associated with a
       resource, ``k8s_resource`` raises an error.
     auto_init: whether this resource runs on ``tilt up``. Defaults to ``True``.
-      Note that ``auto_init=False`` is only compatible with
-      ``trigger_mode=TRIGGER_MODE_MANUAL``.
     pod_readiness: Possible values: 'ignore', 'wait'. Controls whether Tilt waits for
       pods to be ready before the resource is considered healthy (and dependencies
       can start building). By default, Tilt will wait for pods to be ready if it
@@ -964,7 +962,7 @@ def local_resource(name: str, cmd: Union[str, List[str]],
     resource_deps: a list of resources on which this resource depends.
       See the `Resource Dependencies docs <resource_dependencies.html>`_.
     ignore: set of file patterns that will be ignored. Ignored files will not trigger runs. Follows the `dockerignore syntax <https://docs.docker.com/engine/reference/builder/#dockerignore-file>`_. Patterns will be evaluated relative to the Tiltfile.
-    auto_init: whether this resource runs on ``tilt up``. Defaults to ``True``. Note that ``auto_init=False`` is only compatible with ``trigger_mode=TRIGGER_MODE_MANUAL``.
+    auto_init: whether this resource runs on ``tilt up``. Defaults to ``True``.
     serve_cmd: Tilt will run this command on update and expect it to not exit.
       Executed with ``sh -c`` on macOS/Linux, or ``cmd /S /C`` on Windows.
     cmd_bat: The command to run, expressed as a Windows batch command executed
