@@ -103,7 +103,7 @@ but also have teammates in Berlin, Germany and other parts of the US.
     <img class="bio-image" src="/assets/img/lucie.jpg">
     <h4>Lucie le Blanc</h4>
     <div>
-      Excited software engineering intern, HackNY Fellow, and appreciator of bicycle rides with ice cream-related destinations. She/her.
+      Excited software engineering intern, HackNY Fellow, and appreciator of bicycle rides with food-related destinations. She/her.
     </div>
   </div>
 </div>
