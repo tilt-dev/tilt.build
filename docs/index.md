@@ -76,15 +76,15 @@ status of running services, errors, logs, and more.
 hours](https://calendly.com/han-yu/user-research). We'll discuss your experience
 with Tilt and ask for reactions on visuals or prototypes we're working on.
 
-**Contribute:** Tilt is open source, developed on [GitHub](https://github.com/tilt-dev/tilt). Check out our [contribution](https://github.com/tilt-dev/tilt/blob/master/CONTRIBUTING.md) guidelines. To extend the capabilities of Tilt via new Tiltfile functionality, read more on [Extensions](https://docs.tilt.dev/extensions.html). 
+**Contribute:** Check out our [guidelines](https://github.com/tilt-dev/tilt/blob/master/CONTRIBUTING.md) to contribute to Tilt's source code. To extend the capabilities of Tilt via new Tiltfile functionality, read more about [Extensions](extensions.html).
 
 **Follow along:** [@tilt_dev](https://twitter.com/tilt_dev) on Twitter. Updates
 and announcements on the [Tilt blog](https://blog.tilt.dev).
 
 **Help us make Tilt even better:** Tilt sends anonymized usage data, so we can
 improve Tilt on every platform. Details in ["What does Tilt
-send?"](telemetry_faq.html). If you find a
-security issue in Tilt, see our [security
-policy](https://github.com/tilt-dev/tilt/blob/master/SECURITY.md).
+send?"](http://docs.tilt.dev/telemetry_faq.html). If you find a security issue
+in Tilt, see our [security policy](https://github.com/tilt-dev/tilt/blob/master/SECURITY.md).
 
-We expect everyone in our community (users, contributors, and employees alike) to abide by our [**Code of Conduct**](code_of_conduct.html).
+We expect everyone in our community (users, contributors, followers, and employees alike) to abide by our [**Code of Conduct**](code_of_conduct.html).
+
