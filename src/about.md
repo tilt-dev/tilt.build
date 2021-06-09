@@ -106,6 +106,13 @@ but also have teammates in Berlin, Germany and other parts of the US.
       Excited software engineering intern, HackNY Fellow, and appreciator of bicycle rides with food-related destinations. She/her.
     </div>
   </div>
+  <div class="bio col-1of3 u-marginBottom1_25">
+    <img class="bio-image" src="/assets/img/peter.jpg">
+    <h4>Peter Chapman</h4>
+    <div>
+      Relationship-builder, number-cruncher, has strong opinions about sql syntax and the Sufjan Stevens discography. Amateur pickle producer. He/him.
+    </div>
+  </div>
 </div>
 
 
