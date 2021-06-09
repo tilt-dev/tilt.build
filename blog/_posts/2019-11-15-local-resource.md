@@ -127,7 +127,7 @@ either `TRIGGER_MODE_AUTO` (the default), or `TRIGGER_MODE_MANUAL`. (A manual
 resource detects changes to its deps, but doesn't automatically update---rather,
 it displays a "ready for update" icon in the Web UI for the user to click at their
 leisure. For more on trigger mode, [see the docs](https://docs.tilt.dev/manual_update_control.html).)
-Manual mode may be especially useful for local resources that you only want to run occasionally. 
+Manual mode may be especially useful for local resources that you only want to run occasionally.
 
 By default, a local resource will run on startup. To disable this behavior, put the
 resource in `TRIGGER_MODE_MANUAL` and specify `auto_init=False`:
@@ -136,10 +136,6 @@ local_resource('blow-away-pods', cmd='kubectl delete pods --all',
     trigger_mode=TRIGGER_MODE_MANUAL, auto_init=False
 )
 ```
-
-(`auto_init=False` is currently only compatible with `TRIGGER_MODE_MANUAL`. If
-you'd like a local resource that runs automatically in response to file changes
-but does NOT run on `tilt up`, [let us know](https://tilt.dev/contact).)
 
 ### Mix and match manual and automatic
 Note that you can mix and match manual and automatic runs as you like. Say you

@@ -16,12 +16,13 @@ There's another way of doing things: `TriggerMode: Manual`. Tilt will still moni
 You can change the trigger mode(s) of your resources in your Tiltfile in two different ways:
 
 1. Functions that configure resources ([`k8s_resource()`](/api.html#api.k8s_resource), [`dc_resource()`](/api.html#api.dc_resource), [`local_resource()`](/api.html#api.local_resource)) have an optional arg, `trigger_mode`; for that specific resource, you can pass either `TRIGGER_MODE_AUTO` or `TRIGGER_MODE_MANUAL`.
-2. if you want to adjust all of your resource at once, call the top-level function [`trigger_mode()`](/api.html#api.trigger_mode) with one of those two constants. This sets the _default trigger mode for all manifests_. (You can still use `k8s_resource()` to set the trigger mode for individual manifests.)
+2. If you want to adjust all of your resources at once, call the top-level function [`trigger_mode()`](/api.html#api.trigger_mode) with one of those two constants. This sets the _default trigger mode for all resources_. (You can still use `k8s_resource()` to set the trigger mode for a specific resource.)
 
 Here are some examples:
 ```python
 ...
-k8s_resource('snack')  # TriggerMode = Auto by default
+# TriggerMode = Auto by default
+k8s_resource('snack')
 ```
 
 ```python
@@ -46,3 +47,12 @@ k8s_resource('bar', trigger_mode=TRIGGER_MODE_AUTO)
 </div>
 
 When you make changes to "snack", instead of them being automatically applied, Tilt will simply indicate unapplied changes by the asterisk to the right of `snack` in the sidebar. It will not automatically apply those changes. Instead, it will wait until you click the apply button to the left of `snack`.
+
+## Auto Init
+TriggerMode can be combined with the `auto_init` argument on [`k8s_resource()`](/api.html#api.k8s_resource) and [`local_resource()`](/api.html#api.local_resource) for even more fine-grained control.
+
+To configure a resource to _only_ run when explicitly triggered from the UI, set `auto_init=False` and `trigger_mode=TRIGGER_MODE_MANUAL`. It will not run on start nor when files are changed.
+
+To configure a resource that does _not_ run at start, but still runs whenever a file dependency is changed,
+set `auto_init=False` and `trigger_mode=TRIGGER_MODE_AUTO`. This can be useful for tasks like linting or
+executing tests automatically, for example.
