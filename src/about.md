@@ -54,14 +54,6 @@ but also have teammates in Berlin, Germany and other parts of the US.
     </div>
   </div>
   <div class="bio col-1of3 u-marginBottom1_25">
-    <img class="bio-image" src="/assets/img/maia.jpg">
-    <h4>Maia McCormick</h4>
-
-    <div>
-    <a href="https://www.recurse.com/" target="_blank">Recurse Center</a> alum, three years building backends at <a href="https://engineering.shopspring.com/" target="_blank">Spring</a>. Classical singer and <a href="https://www.chamberchoirs.nyc/welcome" target="_blank">conductor</a>, <a href="https://contra.maiamccormick.com" target="_blank">folk dancer/teacher</a>, word nerd, foodie. She/her.
-    </div>
-  </div>
-  <div class="bio col-1of3 u-marginBottom1_25">
     <img class="bio-image" src="/assets/img/matt.jpg">
     <h4>Matt Landis</h4>
 
