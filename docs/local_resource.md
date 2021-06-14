@@ -73,19 +73,17 @@ but do not write.
 
 ## auto_init
 
-By default, a local resource will run on startup. To disable this behavior, put the
-resource in `TRIGGER_MODE_MANUAL` and specify `auto_init=False`:
+By default, a local resource will run on startup. To disable this behavior, specify `auto_init=False`:
 ```python
-local_resource('reset-db', cmd='reset_db.sh',
-    trigger_mode=TRIGGER_MODE_MANUAL, auto_init=False
-)
+local_resource('reset-db', cmd='reset_db.sh', auto_init=False)
 ```
 
-For more on trigger mode, [see the docs](https://docs.tilt.dev/manual_update_control.html).
+You can combine this with `trigger_mode=TRIGGER_MODE_MANUAL` (so the resource only runs when
+explicitly triggered) or `trigger_mode=TRIGGER_MODE_AUTO` (so that the resource does not run
+on "tilt up" but will run if any of its file dependencies are changed -- this can be
+useful for tests, for example).
 
-`auto_init=False` is currently only compatible with `TRIGGER_MODE_MANUAL`. If
-you'd like a local resource that runs automatically in response to file changes
-but does NOT run on `tilt up`, [let us know](https://tilt.dev/contact).
+For more on trigger mode, [see the docs](https://docs.tilt.dev/manual_update_control.html).
 
 ## serve_cmd
 
