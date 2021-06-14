@@ -553,7 +553,7 @@ def local(command: Union[str, List[str]],
       with ``cmd /S /C``. Takes precedence over the ``command`` parameter on Windows. Ignored on macOS/Linux.
     echo_off: If set to True, skips printing command to log.
     env: Environment variables to pass to the executed ``command``. Values specified here will override any variables passed to the Tilt parent process.
-    dir: Working directory for ``command``.
+    dir: Working directory for ``command``. Defaults to the Tiltfile's location.
   """
   pass
 
@@ -978,8 +978,8 @@ def local_resource(name: str, cmd: Union[str, List[str]],
     env: Environment variables to pass to the executed ``cmd``. Values specified here will override any variables passed to the Tilt parent process.
     serve_env: Environment variables to pass to the executed ``serve_cmd``. Values specified here will override any variables passed to the Tilt parent process.
     readiness_probe: Optional readiness probe to use for determining ``serve_cmd`` health state. Fore more info, see the :meth:`probe` function.
-    cmd_dir: Working directory for ``cmd``.
-    serve_cmd_dir: Working directory for ``serve_cmd``.
+    cmd_dir: Working directory for ``cmd``. Defaults to the Tiltfile directory.
+    serve_cmd_dir: Working directory for ``serve_cmd``. Defaults to the Tiltfile directory.
   """
   pass
 
