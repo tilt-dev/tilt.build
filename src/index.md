@@ -7,10 +7,11 @@ has_calendly: true
 <section class="Home-hero">
   <div class="Home-heroText">
     <h2 class="Home-heroText-title">
-      Productivity for teams building Kubernetes apps.
+      A toolkit for fixing the pains of multi-service development.
     </h2>
     <p class="Home-heroText-subtitle">
-      Smart Rebuilds, Continuous Feedback, Live Updates, Snapshots, and a lot more. <code class="Home-heroText-subtitle-code">tilt up</code> and grok your workflow.
+      Are your servers running locally? In Kubernetes? Both? 
+      Tilt gives you smart rebuilds and live updates everywhere so that you can make progress.
     </p>
   </div>
   <div class="Home-heroIllustration">
