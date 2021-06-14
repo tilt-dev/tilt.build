@@ -22,7 +22,7 @@ rebuild.
 3) We optimize the syntax so that it's easy to ignore spurious file changes,
 and hard to watch too much.
 
-## Watching Files
+## Where File Watches Come From
 
 ### Tiltfiles
 
@@ -59,7 +59,7 @@ When you build other types of resources (like `custom_build()` and
 
 Whenever a file under that path changes, Tilt will re-run the specified scripts.
 
-## Ignoring Files
+## Where Ignores Come From
 
 ### .git
 
@@ -184,6 +184,130 @@ being downloaded.
 `watch_settings` does not affect whether a file is included in any Docker build
 contexts.
 
+## Inspecting File Watches Yourself
+
+Tilt has a [FileWatch
+API](https://api.tilt.dev/core/file-watch-v1alpha1.html). 
+At any time, you can inspect exactly which files a running Tilt environment is running
+with the `tilt get filewatches` and `tilt describe filewatches` commands.
+
+Let's look at a few examples with the [Plain Old Static HTML](/example_static_html.html) example project.
+
+```shell
+$ tilt get filewatches
+NAME                       CREATED AT
+configs:singleton          2021-05-04T22:00:32Z
+image:example-html-image   2021-05-04T22:00:32Z
+```
+
+
+In this example, Tilt has two filewatches: one for reloading the Tiltfile
+("configs:singleton"), and one for rebuilding the Docker image
+("image:example-html-image").
+
+Let's unpack those filewatches in more detail.
+
+```shell
+$ tilt get filewatches configs:singleton -o yaml
+apiVersion: tilt.dev/v1alpha1
+kind: FileWatch
+metadata:
+  annotations:
+    tilt.dev/target-id: configs:singleton
+  creationTimestamp: "2021-05-04T22:00:32Z"
+  name: configs:singleton
+  resourceVersion: "1"
+  uid: 86e69fd0-c2e0-41f1-99ab-2c307c8a9e27
+spec:
+  watchedPaths:
+  - /home/nick/src/tilt-example-html/0-base/.dockerignore
+  - /home/nick/src/tilt-example-html/0-base/.tiltignore
+  - /home/nick/src/tilt-example-html/0-base/Dockerfile
+  - /home/nick/src/tilt-example-html/0-base/Tiltfile
+  - /home/nick/src/tilt-example-html/0-base/kubernetes.yaml
+status:
+  lastEventTime: null
+  monitorStartTime: "2021-05-04T22:00:32.286554Z"
+```
+
+When I print the full specification, I can see that we're watching 5 files. But
+we haven't seen any changes yet.
+
+Let's touch one of the files and see what happens:
+
+```shell
+$ touch /home/nick/src/tilt-example-html/0-base/Tiltfile
+$ tilt get filewatches configs:singleton -o yaml
+apiVersion: tilt.dev/v1alpha1
+kind: FileWatch
+metadata:
+  annotations:
+    tilt.dev/target-id: configs:singleton
+  creationTimestamp: "2021-05-04T22:00:32Z"
+  name: configs:singleton
+  resourceVersion: "4"
+  uid: 86e69fd0-c2e0-41f1-99ab-2c307c8a9e27
+spec:
+  watchedPaths:
+  - /home/nick/src/tilt-example-html/0-base/.dockerignore
+  - /home/nick/src/tilt-example-html/0-base/.tiltignore
+  - /home/nick/src/tilt-example-html/0-base/Dockerfile
+  - /home/nick/src/tilt-example-html/0-base/Tiltfile
+  - /home/nick/src/tilt-example-html/0-base/kubernetes.yaml
+status:
+  fileEvents:
+  - seenFiles:
+    - /home/nick/src/tilt-example-html/0-base/Tiltfile
+    time: "2021-05-04T22:04:09.056840Z"
+  lastEventTime: "2021-05-04T22:04:09.056840Z"
+  monitorStartTime: "2021-05-04T22:00:32.286554Z"
+```
+
+The file watch status field is immediately updated with the file change. Other
+objects in Tilt read this change to figure out whether to reload.
+
+
+### Hacking FileWatches
+
+Reading APIs is boring. Let's make some changes.
+
+The `tilt edit` command lets us change file watches on the fly.
+
+```
+$ EDITOR=emacs tilt edit filewatch configs:singleton
+```
+
+I'm going to go ahead and remove all the files.
+
+Now, when I touch the Tiltfile again, nothing reloads:
+
+```
+$ touch /home/nick/src/tilt-example-html/0-base/Tiltfile
+$ tilt get filewatches configs:singleton -o yaml
+apiVersion: tilt.dev/v1alpha1
+kind: FileWatch
+metadata:
+  annotations:
+    tilt.dev/target-id: configs:singleton
+  creationTimestamp: "2021-05-04T22:00:32Z"
+  name: configs:singleton
+  resourceVersion: "5"
+  uid: 86e69fd0-c2e0-41f1-99ab-2c307c8a9e27
+spec:
+  watchedPaths:
+  - /home/nick/src/tilt-example-html/0-base/.dockerignore
+status:
+  lastEventTime: null
+  monitorStartTime: "2021-05-04T22:08:23.820911Z"
+```
+
+`tilt edit` is a convenient way to debug file watch problems. I sometimes turn file watches
+off if I don't want them to trigger reloads. Or I add new ignore patterns to test them.
+
+When I reload the Tiltfile (e.g., by clicking the reload button in the Tilt UI),
+Tilt will regenerate all the file watches from scratch, blowing any of my
+temporary edits away.
+
 ## Try it Yourself
 
 If you'd like to try out the APIs in this guide, see
@@ -192,6 +316,7 @@ If you'd like to try out the APIs in this guide, see
 - `git clone https://github.com/tilt-dev/ignore-examples`
 - `tilt up` to run all the servers
 - Try editing the files and see which servers reload.
+- In a separate terminal, run `tilt get filewatches` and `tilt describe filewatches` to see how Tilt processes the edits.
 
 ## Future Work
 
