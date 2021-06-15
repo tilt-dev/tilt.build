@@ -543,7 +543,8 @@ def local(command: Union[str, List[str]],
           quiet: bool = False,
           command_bat: str = "",
           echo_off: bool = False,
-          env: Dict[str, str] = {}) -> Blob:
+          env: Dict[str, str] = {},
+          dir: str = "") -> Blob:
   """Runs a command on the *host* machine, waits for it to finish, and returns its stdout as a ``Blob``
 
   Args:
@@ -941,7 +942,8 @@ def local_resource(name: str, cmd: Union[str, List[str]],
                    tags: List[str] = [],
                    env: Dict[str, str] = {},
                    serve_env: Dict[str, str] = {},
-                   readiness_probe: Probe = None) -> None:
+                   readiness_probe: Probe = None,
+                   dir: str = "", serve_dir: str = "") -> None:
   """Configures one or more commands to run on the *host* machine (not in a remote cluster).
 
   By default, Tilt performs an update on local resources on ``tilt up`` and whenever any of their ``deps`` change.
