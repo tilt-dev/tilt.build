@@ -5479,6 +5479,10 @@ you don&#x2019;t get the nice syntactic sugar of binding local variables.
            <em>
             env={}
            </em>
+           ,
+           <em>
+            dir=&apos;&apos;
+           </em>
            <span class="sig-paren">
             )
            </span>
@@ -5645,6 +5649,24 @@ with
                  </code>
                  . Values specified here will override any variables passed to the Tilt parent process.
                 </li>
+                <li>
+                 <strong>
+                  dir
+                 </strong>
+                 (
+                 <code class="xref py py-class docutils literal notranslate">
+                  <span class="pre">
+                   str
+                  </span>
+                 </code>
+                 ) &#x2013; Working directory for
+                 <code class="docutils literal notranslate">
+                  <span class="pre">
+                   command
+                  </span>
+                 </code>
+                 . Defaults to the Tiltfile&#x2019;s location.
+                </li>
                </ul>
               </td>
              </tr>
@@ -5739,6 +5761,14 @@ with
            ,
            <em>
             readiness_probe=None
+           </em>
+           ,
+           <em>
+            dir=&apos;&apos;
+           </em>
+           ,
+           <em>
+            serve_dir=&apos;&apos;
            </em>
            <span class="sig-paren">
             )
@@ -6310,6 +6340,42 @@ conditions around modifying a shared file system. Set to True to allow them to r
                   </code>
                  </a>
                  function.
+                </li>
+                <li>
+                 <strong>
+                  dir
+                 </strong>
+                 (
+                 <code class="xref py py-class docutils literal notranslate">
+                  <span class="pre">
+                   str
+                  </span>
+                 </code>
+                 ) &#x2013; Working directory for
+                 <code class="docutils literal notranslate">
+                  <span class="pre">
+                   cmd
+                  </span>
+                 </code>
+                 . Defaults to the Tiltfile directory.
+                </li>
+                <li>
+                 <strong>
+                  serve_dir
+                 </strong>
+                 (
+                 <code class="xref py py-class docutils literal notranslate">
+                  <span class="pre">
+                   str
+                  </span>
+                 </code>
+                 ) &#x2013; Working directory for
+                 <code class="docutils literal notranslate">
+                  <span class="pre">
+                   serve_cmd
+                  </span>
+                 </code>
+                 . Defaults to the Tiltfile directory.
                 </li>
                </ul>
               </td>
