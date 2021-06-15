@@ -978,8 +978,8 @@ def local_resource(name: str, cmd: Union[str, List[str]],
     env: Environment variables to pass to the executed ``cmd``. Values specified here will override any variables passed to the Tilt parent process.
     serve_env: Environment variables to pass to the executed ``serve_cmd``. Values specified here will override any variables passed to the Tilt parent process.
     readiness_probe: Optional readiness probe to use for determining ``serve_cmd`` health state. Fore more info, see the :meth:`probe` function.
-    cmd_dir: Working directory for ``cmd``. Defaults to the Tiltfile directory.
-    serve_cmd_dir: Working directory for ``serve_cmd``. Defaults to the Tiltfile directory.
+    dir: Working directory for ``cmd``. Defaults to the Tiltfile directory.
+    serve_dir: Working directory for ``serve_cmd``. Defaults to the Tiltfile directory.
   """
   pass
 
