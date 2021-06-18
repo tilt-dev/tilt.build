@@ -15,8 +15,8 @@ tags:
 
 In the #tilt chat last week, `renaudguerin` asked:
 
-> I’m the new DevOps guy in a small startup, and migrating us away from broken
-> in-house tooling towards a more modern GitOps workflow (ArgoCD/CodeFresh), and
+> I’m the new DevOps guy in a small startup, and migrating us [...]
+> towards a more modern GitOps workflow (ArgoCD/CodeFresh), and
 > local k8s dev environments (either Skaffold or garden.io, tilt.dev ...) 
 >
 > But how do you bridge the gap between the two ?
@@ -48,11 +48,18 @@ detail on some of the patterns we've seen on:
 
 ## More Service, More Problems
 
-If you're working on a multi-service app, you have two types of changes:
+If you're working on a multi-service app, you have two modes of development:
 
-- WIP changes - No services are running in dev, and you want to make a change.
+- WIP mode - You're actively working on a solution to a problem. You want
+  as-fast-as-possible feedback. Correctness and reliability take a back seat 
+  to sheer speed of iteration. Kubernetes and Docker and anyone else --
+  get out of the way!  You're going to iterate as fast as possible and you might break
+  some stuff.
 
-- Harness changes - All your services are running in prod, and you want to make a change.
+- Harness mode - You know the answer. The unknown bits have been solved. Now you're
+  trying to fit the code into the larger system so you can merge to prod. 
+  Here you care about correctness, reliability, and security. It's OK to slow
+  down a bit to get things right.
 
 These two sets may sound the same but they are mostly *non-overlapping*!
 
@@ -63,8 +70,9 @@ Here's a table to help illustrate the differences:
 | Add segfaults to see what breaks                 | ✅ | ❌️                             |
 | Bring up all services from scratch               | ✅ | Something terrible has happened |
 | Reset the database                               | ✅️ | ❌ ❌ ❌                      |
-| Sacifice correctness for faster updates | ✅  |     ❌️                            |
-| Add security backdoors for testing | ✅ | 🚑 |
+| Sacrifice correctness for faster updates | ✅  |     ❌️                            |
+| Security is not a concern | ✅ | 🚑 |
+| Add stars to all your RBAC rules | ✅ | 🚑 |
 | Audit records of every change | ❌️| ✅ |
 | Only one update at a time | ❌️| ✅ |
 | Rolling restarts | ❌ | ✅ |
@@ -93,7 +101,7 @@ Local K8s (Tilt, Skaffold) is an approach to WIP development:
 
 ## Blurred Lines
 
-We recommend you use both GitOps and local K8s together! Tilt-team does this.
+We recommend you use both GitOps and local K8s together! The Tilt team does this.
 
 For local dev and CI, we use Tilt to run services against [a one-time-use KIND
 cluster](https://blog.tilt.dev/2021/04/02/kubernetes-on-ci.html).
@@ -104,9 +112,10 @@ will automatically create release binaries and update services.
 We even work with teams who use Tilt to run ArgoCD in dev, to make changes to
 how their GitOps pipeline works together.
 
-But there are teams who mix and match these tools in more creative ways!
-
 ---
+
+But there are teams who mix and match these tools in ways they aren't intended! They
+use WIP tools for harness mode, or Harness tools for dev mode.
 
 ### Local K8s for Harness Development
 
