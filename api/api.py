@@ -543,7 +543,8 @@ def local(command: Union[str, List[str]],
           quiet: bool = False,
           command_bat: str = "",
           echo_off: bool = False,
-          env: Dict[str, str] = {}) -> Blob:
+          env: Dict[str, str] = {},
+          dir: str = "") -> Blob:
   """Runs a command on the *host* machine, waits for it to finish, and returns its stdout as a ``Blob``
 
   Args:
@@ -553,6 +554,7 @@ def local(command: Union[str, List[str]],
       with ``cmd /S /C``. Takes precedence over the ``command`` parameter on Windows. Ignored on macOS/Linux.
     echo_off: If set to True, skips printing command to log.
     env: Environment variables to pass to the executed ``command``. Values specified here will override any variables passed to the Tilt parent process.
+    dir: Working directory for ``command``. Defaults to the Tiltfile's location.
   """
   pass
 
@@ -940,7 +942,8 @@ def local_resource(name: str, cmd: Union[str, List[str]],
                    tags: List[str] = [],
                    env: Dict[str, str] = {},
                    serve_env: Dict[str, str] = {},
-                   readiness_probe: Probe = None) -> None:
+                   readiness_probe: Probe = None,
+                   dir: str = "", serve_dir: str = "") -> None:
   """Configures one or more commands to run on the *host* machine (not in a remote cluster).
 
   By default, Tilt performs an update on local resources on ``tilt up`` and whenever any of their ``deps`` change.
@@ -977,6 +980,8 @@ def local_resource(name: str, cmd: Union[str, List[str]],
     env: Environment variables to pass to the executed ``cmd``. Values specified here will override any variables passed to the Tilt parent process.
     serve_env: Environment variables to pass to the executed ``serve_cmd``. Values specified here will override any variables passed to the Tilt parent process.
     readiness_probe: Optional readiness probe to use for determining ``serve_cmd`` health state. Fore more info, see the :meth:`probe` function.
+    dir: Working directory for ``cmd``. Defaults to the Tiltfile directory.
+    serve_dir: Working directory for ``serve_cmd``. Defaults to the Tiltfile directory.
   """
   pass
 
