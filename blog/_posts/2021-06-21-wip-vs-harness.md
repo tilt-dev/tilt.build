@@ -1,6 +1,6 @@
 ---
 slug: "wip-vs-harness"
-date: 2021-05-26
+date: 2021-06-21
 author: nick
 layout: blog
 title: "WIP Development vs Harness Development"
@@ -13,7 +13,7 @@ tags:
   - localdev
 ---
 
-In the #tilt chat last week, `renaudguerin` asked:
+In the #tilt chat last month, `renaudguerin` asked:
 
 > I’m the new DevOps guy in a small startup, and migrating us [...]
 > towards a more modern GitOps workflow (ArgoCD/CodeFresh), and
