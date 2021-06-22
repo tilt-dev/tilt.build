@@ -294,6 +294,11 @@ services in a Tiltfile and exits successfully if they're healthy.
 - [CircleCI config](https://github.com/tilt-dev/tilt-example-go/blob/master/.circleci/config.yml)
 - [Test script](https://github.com/tilt-dev/tilt-example-go/blob/master/test/test.sh)
 
+### Tests in Tilt
+You can run your tests, formatters, linters, and other tools directly from Tilt, so that you don't have to tab between a million windows and remember to run a bunch of different commands. For more information, see the [Tests in Tilt docs](https://docs.tilt.dev/tests_in_tilt.html). We also provide [an extension](https://github.com/tilt-dev/tilt-extensions/tree/master/tests/golang) to streamline setup of the most common Go test configurations. Here's an example of how you might set up your Go tests in Tilt:
+
+ [go-tests-example](https://github.com/tilt-dev/tilt-example-go/blob/master/tests-example){:.attached-above}
+
 ### Optimizations
 
 This guide recommends an approach to Go development that shines with Tilt.
