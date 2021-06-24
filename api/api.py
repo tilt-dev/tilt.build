@@ -618,7 +618,7 @@ def listdir(directory: str, recursive: bool = False) -> List[str]:
 
   Args:
     directory: Path to the directory locally (absolute, or relative to the location of the Tiltfile).
-    recursive: Walk the given directory tree recusrively and return all files in it; additionally, recursively watch for changes in the directory tree.
+    recursive: Walk the given directory tree recursively and return all files in it; additionally, recursively watch for changes in the directory tree.
   """
   pass
 
