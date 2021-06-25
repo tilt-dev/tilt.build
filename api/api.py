@@ -573,6 +573,8 @@ def read_file(file_path: str, default: str = None) -> Blob:
 def watch_file(file_path: str) -> None:
   """Watches a file. If the file is changed a re-exectution of the Tiltfile is triggered.
 
+  If the path is a directory, its contents will be recursively watched.
+
   Args:
     file_path: Path to the file locally (absolute, or relative to the location of the Tiltfile)."""
 
@@ -610,9 +612,14 @@ def blob(contents: str) -> Blob:
   pass
 
 def listdir(directory: str, recursive: bool = False) -> List[str]:
-  """Returns all the files at the top level of the provided directory. If ``recursive`` is set to True, returns all files that are inside of the provided directory, recursively.
+  """Returns all the files of the provided directory.
 
-  Directory is watched (See ``watch_file``)."""
+  If ``rescursive`` is set to ``True``, the directory's contents will be recursively watched, and a change to any file will trigger a re-execution of the Tiltfile.
+
+  Args:
+    directory: Path to the directory locally (absolute, or relative to the location of the Tiltfile).
+    recursive: Walk the given directory tree recursively and return all files in it; additionally, recursively watch for changes in the directory tree.
+  """
   pass
 
 def k8s_kind(kind: str, api_version: str=None, *, image_json_path: Union[str, List[str]]=[], image_object_json_path: Dict=None, pod_readiness: str=""):

@@ -5205,22 +5205,22 @@ uses kubectl&#x2019;s kustomize. See
           </dt>
           <dd>
            <p>
-            Returns all the files at the top level of the provided directory. If
-            <code class="docutils literal notranslate">
-             <span class="pre">
-              recursive
-             </span>
-            </code>
-            is set to True, returns all files that are inside of the provided directory, recursively.
+            Returns all the files of the provided directory.
            </p>
            <p>
-            Directory is watched (See
+            If
             <code class="docutils literal notranslate">
              <span class="pre">
-              watch_file
+              rescursive
              </span>
             </code>
-            ).
+            is set to
+            <code class="docutils literal notranslate">
+             <span class="pre">
+              True
+             </span>
+            </code>
+            , the directory&#x2019;s contents will be recursively watched, and a change to any file will trigger a re-execution of the Tiltfile.
            </p>
            <table class="docutils field-list" frame="void" rules="none">
             <col class="field-name">
@@ -5228,21 +5228,56 @@ uses kubectl&#x2019;s kustomize. See
             <tbody valign="top">
              <tr class="field-odd field">
               <th class="field-name">
+               Parameters:
+              </th>
+              <td class="field-body">
+               <ul class="first simple">
+                <li>
+                 <strong>
+                  directory
+                 </strong>
+                 (
+                 <code class="xref py py-class docutils literal notranslate">
+                  <span class="pre">
+                   str
+                  </span>
+                 </code>
+                 ) &#x2013; Path to the directory locally (absolute, or relative to the location of the Tiltfile).
+                </li>
+                <li>
+                 <strong>
+                  recursive
+                 </strong>
+                 (
+                 <code class="xref py py-class docutils literal notranslate">
+                  <span class="pre">
+                   bool
+                  </span>
+                 </code>
+                 ) &#x2013; Walk the given directory tree recursively and return all files in it; additionally, recursively watch for changes in the directory tree.
+                </li>
+               </ul>
+              </td>
+             </tr>
+             <tr class="field-even field">
+              <th class="field-name">
                Return type:
               </th>
               <td class="field-body">
-               <code class="xref py py-class docutils literal notranslate">
-                <span class="pre">
-                 List
-                </span>
-               </code>
-               [
-               <code class="xref py py-class docutils literal notranslate">
-                <span class="pre">
-                 str
-                </span>
-               </code>
-               ]
+               <p class="first last">
+                <code class="xref py py-class docutils literal notranslate">
+                 <span class="pre">
+                  List
+                 </span>
+                </code>
+                [
+                <code class="xref py py-class docutils literal notranslate">
+                 <span class="pre">
+                  str
+                 </span>
+                </code>
+                ]
+               </p>
               </td>
              </tr>
             </tbody>
@@ -8495,6 +8530,9 @@ Examples:
           <dd>
            <p>
             Watches a file. If the file is changed a re-exectution of the Tiltfile is triggered.
+           </p>
+           <p>
+            If the path is a directory, its contents will be recursively watched.
            </p>
            <table class="docutils field-list" frame="void" rules="none">
             <col class="field-name">
