@@ -41,6 +41,7 @@ tilt up [<tilt flags>] [-- <Tiltfile args>]
       --host string                      Host for the Tilt HTTP server and default host for any port-forwards. Set to 0.0.0.0 to listen on all interfaces. Overrides TILT_HOST env variable. (default "localhost")
       --hud                              If true, tilt will open in HUD mode. (default true)
       --legacy                           If true, tilt will open in legacy terminal mode.
+      --namespace string                 If specified, the specified namespace overrides the default namespace from the active context in kubeconfig.
       --output-snapshot-on-exit string   If specified, Tilt will dump a snapshot of its state to the specified path when it exits
       --port int                         Port for the Tilt HTTP server. Set to 0 to disable. Overrides TILT_PORT env variable. (default 10350)
       --stream                           If true, tilt will stream logs in the terminal.
