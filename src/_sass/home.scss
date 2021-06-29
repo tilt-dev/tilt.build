@@ -202,10 +202,6 @@
   }
 }
 
-.modal-callback {
-  display: none;
-}
-
 .modal-title {
   @include font-hero;
 }
@@ -241,14 +237,6 @@
 
 .modal-content--highlight {
   color: $color-skyBlue;  
-}
-.modal-switchButton {
-  border-color: $color-skyBlue;
-  color: $color-skyBlue;
-  margin-top: $spacing-unit;
-  margin-left: auto;
-  margin-right: auto;
-  margin-bottom: $spacing-unit;
 }
 
 .modal-form {
