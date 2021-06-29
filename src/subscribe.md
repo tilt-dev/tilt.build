@@ -11,7 +11,7 @@ title: Tilt Dev News
     </p>
     <div class="Enterprise-hero-text-detail">
       <ul>
-        <li>Multi-service dev emotional support.</li>
+        <li>Multi-service development emotional support.</li>
         <li>Videos where we rickroll you on <a href="https://www.youtube.com/watch?v=WZUjLAeF048">the future of software</a>.</li>
         <li>Hand-recorded honks from real geese.</li>
         <li>And, occasionally, new tools to update your services faster.</li>
@@ -59,4 +59,3 @@ title: Tilt Dev News
     </li>
   </ul>
 </section>
-
