@@ -7,18 +7,6 @@ const closeModal = (popupModal) => {
   bodyBlackout.classList.remove("is-blacked-out");
 };
 
-const switchModal = (modal) => {
-  const calendlyDiv = modal.querySelector(".modal-calendly");
-  const callbackDiv = modal.querySelector(".modal-callback");
-  if (calendlyDiv.style.display === "none") {
-    calendlyDiv.style.display = "block";
-    callbackDiv.style.display = "none";
-  } else {
-    calendlyDiv.style.display = "none";
-    callbackDiv.style.display = "block";
-  }
-};
-
 modalTriggers.forEach((trigger) => {
   trigger.addEventListener("click", () => {
     const { popupTrigger } = trigger.dataset;
@@ -30,12 +18,6 @@ modalTriggers.forEach((trigger) => {
       .querySelectorAll(".modal-close")
       .forEach((m) =>
         m.addEventListener("click", () => closeModal(popupModal))
-      );
-
-    popupModal
-      .querySelectorAll(".modal-switchButton")
-      .forEach((m) =>
-        m.addEventListener("click", () => switchModal(popupModal))
       );
 
     bodyBlackout.addEventListener("click", () => closeModal(popupModal));
