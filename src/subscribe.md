@@ -3,7 +3,7 @@ layout: enterprise
 title: Tilt Dev News
 ---
 
-<h2 class="Enterprise-heroTitle">Tilt Dev News</h2>
+<h2 class="Enterprise-heroTitle">Tilt News</h2>
 <section class="Enterprise-hero">
   <div class="Enterprise-hero-text">
     <p class="Enterprise-hero-text-subhead">
