@@ -7,7 +7,7 @@ title: Tilt Dev News
 <section class="Enterprise-hero">
   <div class="Enterprise-hero-text">
     <p class="Enterprise-hero-text-subhead">
-      When you subscribe to our roughly-once-a-month mailing list, you get:
+      When you subscribe to our roughly-once-or-twice-a-month mailing list, you get:
     </p>
     <div class="Enterprise-hero-text-detail">
       <ul>
@@ -59,5 +59,4 @@ title: Tilt Dev News
     </li>
   </ul>
 </section>
-
 
