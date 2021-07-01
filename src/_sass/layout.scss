@@ -898,6 +898,9 @@ button.svgButton, button.brandButton {
     flex-grow: 0;
   }
 }
+.u-hideHeader .ctaSubscribe-header {
+  display: none;
+}
 .ctaSubscribe-mailbox {
   @include docs-mobile {
     display: none;
@@ -1280,6 +1283,9 @@ img.no-shadow {
   font-weight: 300;
 }
 .ctaSubscribe-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   width: $blog-cta-text-width;
 }
 .ctaSubscribe-formItem {
