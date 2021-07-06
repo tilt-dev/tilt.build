@@ -54,18 +54,6 @@ For specific package managers (Homebrew, Scoop, Conda, asdf), see the [Installat
 **Optimizing a Tiltfile?** Search for the function you need in our 
 [complete API reference](api.html).
 
-## Don’t Tilt Alone, Take This
-
-<img src="/assets/svg/TiltCloud-illustration.svg" alt="Tilt Cloud" class="no-shadow u-marginBottomUnit">
-
-Are you seeing an error from a server that you don't even work on?
-
-With Tilt Cloud, create web-based interactive reproductions of your local cluster’s state.
-
-Save and share [a snapshot](snapshots.html) with your team
-so that they can dig into the problem later. A snapshot lets you explore the
-status of running services, errors, logs, and more.
-
 ## Community
 
 **Questions:** Join [the Kubernetes slack](http://slack.k8s.io) and
