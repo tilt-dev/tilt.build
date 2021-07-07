@@ -1,6 +1,6 @@
 ---
 slug: "portforwarding-is-awesome"
-date: 2021-07-08
+date: 2021-07-12
 author: nick
 layout: blog
 title: "Portforwarding should be a tool in every dev toolbox"
@@ -19,8 +19,21 @@ tools like `cat` for working with files!
 In 2021, we mostly write servers. That's why it's important to have a toolkit for working with 
 network sockets!
 
-In this post, we're going to do a quick tour of the tools we (Tilt-team) work with everyday,
-how we use them, and how we're trying to make it easier to manage them.
+In this post, we're going to do a quick tour of the tools we (the Tilt team) work
+with everyday and how we use them. In particular:
+
+1. `socat`, the assembly language of socket tools.
+
+2. `kubectl port-forward`, an essential building block of any Kubernetes-based dev environment.
+
+3. Tilt's `PortForward` API, a self-healing wrapper around `kubectl port-forward`.
+
+I've been thinking through what different tools are good for, looking at how
+they interoperate with each other, and came up with a framework for figuring out
+which one is right for what I'm working on.
+
+You don't have to use these tools in particular, but I hope you'll learn
+something new!
 
 ## Reverse-engineering multi-service apps with `socat`
 
@@ -34,13 +47,9 @@ I really like Cindy Sridharan's introduction to `socat`:
 > troubleshooting local development issues (especially when developing network
 > services).
 
-Go ahead and [read it](https://copyconstruct.medium.com/socat-29453e9fc8a6) and come back. I'll wait.
-
-.
-
-.
-
-.
+[Open it in a tab right
+now](https://copyconstruct.medium.com/socat-29453e9fc8a6) because you'll
+want to read it later. It's long but worth it.
 
 I personally tend to use `socat` to debug and/or reverse-engineer services that I don't understand.
 
@@ -139,14 +148,15 @@ Can we do better?
 
 ## Inside the Box: A port-forward as Just Another Server
 
-One way to think about `kubectl port-forward` is just another server. It's a very simple server!
-But it tastes great with lots of other tooling that we use to manage multiple servers and auto-restart
-them when they're not healthy.
+One way to think about `kubectl port-forward` is just another server. It's a
+very simple server!  But it goes great with lots of other tooling that we use to
+manage multiple servers and auto-restart them when they're not healthy.
 
-For example, I might use `entr` to restart the port-forward when I hit spacebar.
+For example, I like setting up `entr`'s `-r` flag to restart processes when I hit
+spacebar. Here's how you'd do this with port-forwarding:
 
 ```
-ls Makefile | entr -r kubectl port-forward deployment/example-go 8080:8000
+ls | entr -r kubectl port-forward deployment/example-go 8080:8000
 ```
 
 Or I might use Tilt to run it as a local resource:
@@ -172,7 +182,7 @@ local_resource(
 ```
 
 Tilt will periodically check that the portforward is running. Other tools for
-managing multiple services (e.g., tmux) will work well too!
+managing multiple services (e.g. tmux) will work well too!
 
 ## Outside the Box: A port-forward is A Special Dynamic Server!
 
@@ -269,8 +279,8 @@ portforwarding, and sets up a PortForward object to manage the connection.
 ## Why am I telling you this??? 
  
 This post has been an overview of how we use `socat`, `kubectl port-forward`,
-and Tilt's own `PortForward` and `KubernetesDiscovery` APIs. But I think it's
-easy to miss the general trends here in a sea of implementation details:
+and Tilt's own `PortForward` and `KubernetesDiscovery` APIs. But let's take a
+step back from the implementation details to pull out some general trends:
 
 1) More and more, in multi-service dev, tools that copy socket data around are
 helpful.
@@ -286,7 +296,7 @@ publicly, to help connect new tools that build on top of them.
 
 What will those new tools be? This post is already a bit long so it will have to
 wait for another post. But let us know if you'd like to see some ideas, or
-want to build on this API together :).
+want to build on this API together. 😀
 
 
 
