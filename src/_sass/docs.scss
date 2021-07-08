@@ -13,3 +13,10 @@
   width: 100%;
   height: 100%;
 }
+
+.body--docs {
+  .page-content {
+    // default layout includes excessive top padding
+    padding-top: 0;
+  }
+}

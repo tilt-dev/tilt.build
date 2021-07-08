@@ -207,8 +207,9 @@ pre {
   }
 }
 .wrapper--docs {
-  max-width: $header-width;
+  max-width: $header-width + $spacing-unit;
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
 
   @include docs-mobile {
