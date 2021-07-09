@@ -3,10 +3,10 @@ layout: default
 ---
 {% assign page_href = page.url | slice: 1, page.url.size %}
 <div class="wrapper wrapper--docs u-marginBottom1_5">
-  <nav class="subnav">
+  <nav class="subnav" aria-label="Most Popular">
     <form action="/search" method="GET">
       <div class="formItem">
-        <input type="text" name="q" id="q" placeholder="Search" />
+        <input type="text" name="q" id="q" placeholder="Search" aria-label="Search Documentation" />
       </div>
     </form>
     <ul class="subnav-links">
@@ -16,7 +16,7 @@ layout: default
     </ul>
   </nav>
 
-  <nav class="sidebar">
+  <nav class="sidebar" aria-label="Primary">
     <button class="sidebar-opener u-showOnlyOnDocsMobile"
          onclick="document.querySelector('.sidebar').classList.toggle('is-open')">
       Contents
