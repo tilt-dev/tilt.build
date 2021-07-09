@@ -111,8 +111,7 @@ li {
 
 .sidebar {
   display: block;
-  max-width: $sidebar-width;
-  width: 100%;
+  flex: 0 0 $sidebar-width;
   margin-right: $spacing-unit;
 
   @include docs-mobile {
@@ -121,8 +120,10 @@ li {
 }
 .docsContent {
   display: block;
-  max-width: $docs-width;
-  width: 100%;
+  flex: 1 0 $docs-width;
+  // needed to prevent child <pre> elements from expanding forever
+  // and causing wrapping problems
+  min-width: 0;
 
   @include docs-mobile {
     max-width: 100%;
@@ -607,6 +608,36 @@ h3.relatedHeader {
 .sidebar-link:hover {
   background-color: transparent;
   color: $color-grey;
+}
+
+.sidebar-link-active {
+  font-weight: bold;
+}
+
+.subnav {
+  flex-basis: 100%;
+  display: flex;
+  flex-direction: row-reverse;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+
+  form {
+    flex: 1 0 auto;
+  }
+
+  ul.subnav-links {
+    margin: 0;
+    flex: 4 0 auto;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    li {
+      display: inline;
+      margin-right: 1rem;
+    }
+  }
 }
 
 label, .formItem-label {

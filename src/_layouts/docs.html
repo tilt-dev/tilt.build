@@ -1,16 +1,22 @@
 ---
 layout: default
 ---
+{% assign page_href = page.url | slice: 1, page.url.size %}
 <div class="wrapper wrapper--docs u-marginBottom1_5">
-  <nav class="sidebar">
-    <h2><a href="/">Docs</a></h2>
-
+  <nav class="subnav" aria-label="Most Popular">
     <form action="/search" method="GET">
       <div class="formItem">
-        <input type="text" name="q" id="q" placeholder="Search" />
+        <input type="text" name="q" id="q" placeholder="Search" aria-label="Search Documentation" />
       </div>
     </form>
+    <ul class="subnav-links">
+      {% for link in site.data.docs.subnav %}
+      <li><a class="sidebar-link {% if page_href == link.href %}sidebar-link-active{% endif %}" href="/{{link.href | escape}}">{{link.title | escape}}</a>
+      {% endfor %}
+    </ul>
+  </nav>
 
+  <nav class="sidebar" aria-label="Primary">
     <button class="sidebar-opener u-showOnlyOnDocsMobile"
          onclick="document.querySelector('.sidebar').classList.toggle('is-open')">
       Contents
@@ -20,7 +26,7 @@ layout: default
 
     <div class="sidebar-contents">
 
-    {% for section in site.data.docs %}
+    {% for section in site.data.docs.sidebar %}
       {% if section.title %}
       <h3 class="sidebar-sectionTitle">{{ section.title | escape }}</h3>
       {% endif %}
@@ -28,13 +34,13 @@ layout: default
       {% if section.include == 'examples' %}
         <ul class="sidebar-sectionList">
           {% for page in site.data.examples %}
-            <li><a class="sidebar-link" href="/{{page.href | escape}}">{{page.title | escape}}</a>
+            <li><a class="sidebar-link {% if page_href == page.href %}sidebar-link-active{% endif %}" href="/{{page.href | escape}}">{{page.title | escape}}</a>
           {% endfor %}
         </ul>
       {% else %}
         <ul class="sidebar-sectionList">
           {% for page in section.items %}
-            <li><a class="sidebar-link" href="/{{page.href | escape}}">{{page.title | escape}}</a>
+            <li><a class="sidebar-link {% if page_href == page.href %}sidebar-link-active{% endif %}" href="/{{page.href | escape}}">{{page.title | escape}}</a>
           {% endfor %}
         </ul>
       {% endif %}
