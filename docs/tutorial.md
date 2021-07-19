@@ -11,6 +11,8 @@ It should take 15 minutes, and assumes you've already [installed Tilt](install.h
 Start by `cd`'ing into a project you can already build and deploy to Kubernetes.
 
 ## Example Tiltfile
+A Tiltfile configures tilt and is written in [Starlark](https://docs.bazel.build/versions/main/skylark/language.html), a simplified dialect of Python.
+
 At the end of this guide, your Tiltfile will look something like this:
 ```python
 # Deploy: tell Tilt what YAML to deploy
@@ -24,6 +26,8 @@ docker_build('companyname/backend', 'backend')
 # Watch: tell Tilt how to connect locally (optional)
 k8s_resource('frontend', port_forwards=8080)
 ```
+
+But don't create it yet; we'll be exploring how it works in the following sections.
 
 ## Hello World
 In your terminal, run `tilt up`. Hit `space` and a browser tab will open showing Tilt. Instead of writing your Tilt configuration all at once, we'll use Tilt interactively. Each time you save your configuration, Tilt will reexecute it.
