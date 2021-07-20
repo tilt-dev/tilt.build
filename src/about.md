@@ -63,10 +63,10 @@ but also have teammates in Berlin, Germany and other parts of the US.
   </div>
   <div class="bio col-1of3 u-marginBottom1_25">
     <img class="bio-image" src="/assets/img/l.jpg">
-    <h4>L Körbes</h4>
+    <h4>Ellen Körbes</h4>
 
     <div>
-      International speaker, DevRel extraordinaire, gopher, occasional writer.
+      Twitter-addict with a penchant for excessive trolling and galaxy-braining.
       Cloud Native Ambassador and 'Best Hair' award recipient. They/them.
     </div>
   </div>
