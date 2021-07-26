@@ -111,6 +111,63 @@ if 'd' in to_edit:
     docker_build('d', './d')
 ```
 
+### Grouping services in web UI
+
+Your app has many different services and you want to group similar services together to
+speed up development and aid your users' comprehension.
+
+In the Tiltfile, you can specify a label or list of labels to be added to each resource,
+including [`k8s_resource()`](api.html#api.k8s_resource), [`local_resource()`](api.html#api.local_resource),
+and [`dc_resource()`](api.html#api.dc_resource) calls. The web UI will display services
+in groups by their labels in expandable and collapsable sections, as well as display a
+status summary for each labeled group. If a service has multiple labels applied to it,
+that service will appear under each labeled group. Label groups are sorted and displayed
+alphabetically. 
+
+#### Tiltfile
+```python
+# This example has five services. With the addition of labels, services will be
+# grouped together and organized, like:
+#   - database:
+#              storage
+#              flush_database
+#   - frontend:
+#              app
+#              test-js
+#   - script:
+#              flush_database
+#              prettier
+#   - test:
+#              test-js
+
+k8s_resource("app", port_forwards="3000", labels="frontend")
+
+k8s_resource("storage", port_forwards="8080", labels="database")
+
+local_resource(
+  'flush_database',
+  'curl http://localhost:8080/flush',
+  resource_deps=['storage'],
+  labels=["database", "script"]
+)
+
+local_resource(
+  'prettier',
+  'yarn prettier',
+  auto_init=False,
+  trigger_mode=TRIGGER_MODE_MANUAL
+  labels=["frontend", "script"]
+)
+
+test(
+  'test-js',
+  'yarn test',
+  auto_init=False,
+  trigger_mode=TRIGGER_MODE_MANUAL
+  labels=["frontend", "test"]
+)
+```
+
 ## The Config File
 In addition to config settings coming from command-line args, Tilt will read
 them from a `tilt_config.json` in the same directory as the `Tiltfile`, if one

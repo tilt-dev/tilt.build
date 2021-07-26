@@ -788,6 +788,10 @@ with
            <em>
             links=[]
            </em>
+           ,
+           <em>
+            labels=[]
+           </em>
            <span class="sig-paren">
             )
            </span>
@@ -933,6 +937,58 @@ See the
                  ]]]) &#x2013; one or more links to be associated with this resource in the UI. For more info, see
                  <a class="reference external" href="accessing_resource_endpoints.html#arbitrary-links">
                   Accessing Resource Endpoints
+                 </a>
+                 .
+                </li>
+                <li>
+                 <strong>
+                  labels
+                 </strong>
+                 (
+                 <code class="xref py py-data docutils literal notranslate">
+                  <span class="pre">
+                   Union
+                  </span>
+                 </code>
+                 [
+                 <code class="xref py py-class docutils literal notranslate">
+                  <span class="pre">
+                   str
+                  </span>
+                 </code>
+                 ,
+                 <code class="xref py py-class docutils literal notranslate">
+                  <span class="pre">
+                   List
+                  </span>
+                 </code>
+                 [
+                 <code class="xref py py-class docutils literal notranslate">
+                  <span class="pre">
+                   str
+                  </span>
+                 </code>
+                 ]]) &#x2013; used to group resources in the Web UI, (e.g. you want all frontend services displayed together, while test and backend services are displayed seperately). A label must start and end with an alphanumeric character, can include
+                 <code class="docutils literal notranslate">
+                  <span class="pre">
+                   _
+                  </span>
+                 </code>
+                 ,
+                 <code class="docutils literal notranslate">
+                  <span class="pre">
+                   -
+                  </span>
+                 </code>
+                 , and
+                 <code class="docutils literal notranslate">
+                  <span class="pre">
+                   .
+                  </span>
+                 </code>
+                 , and must be 63 characters or less. For an example, see
+                 <a class="reference external" href="tiltfile_concepts.html#resource-groups">
+                  Resource Grouping
                  </a>
                  .
                 </li>
@@ -4265,6 +4321,10 @@ by the
            <em>
             links=[]
            </em>
+           ,
+           <em>
+            labels=[]
+           </em>
            <span class="sig-paren">
             )
            </span>
@@ -4822,6 +4882,61 @@ thinks a resource has pods.
                   one or more links to be associated with this resource in the UI. For more info, see
                   <a class="reference external" href="accessing_resource_endpoints.html#arbitrary-links">
                    Accessing Resource Endpoints
+                  </a>
+                  .
+                 </p>
+                </li>
+                <li>
+                 <strong>
+                  labels
+                 </strong>
+                 (
+                 <code class="xref py py-data docutils literal notranslate">
+                  <span class="pre">
+                   Union
+                  </span>
+                 </code>
+                 [
+                 <code class="xref py py-class docutils literal notranslate">
+                  <span class="pre">
+                   str
+                  </span>
+                 </code>
+                 ,
+                 <code class="xref py py-class docutils literal notranslate">
+                  <span class="pre">
+                   List
+                  </span>
+                 </code>
+                 [
+                 <code class="xref py py-class docutils literal notranslate">
+                  <span class="pre">
+                   str
+                  </span>
+                 </code>
+                 ]]) &#x2013;
+                 <p>
+                  used to group resources in the Web UI, (e.g. you want all frontend services displayed together, while test and backend services are displayed seperately). A label must start and end with an alphanumeric character, can include
+                  <code class="docutils literal notranslate">
+                   <span class="pre">
+                    _
+                   </span>
+                  </code>
+                  ,
+                  <code class="docutils literal notranslate">
+                   <span class="pre">
+                    -
+                   </span>
+                  </code>
+                  , and
+                  <code class="docutils literal notranslate">
+                   <span class="pre">
+                    .
+                   </span>
+                  </code>
+                  , and must be 63 characters or less. For an example, see
+                  <a class="reference external" href="tiltfile_concepts.html#resource-groups">
+                   Resource Grouping
                   </a>
                   .
                  </p>
@@ -5805,6 +5920,10 @@ with
            <em>
             serve_dir=&apos;&apos;
            </em>
+           ,
+           <em>
+            labels=[]
+           </em>
            <span class="sig-paren">
             )
            </span>
@@ -6411,6 +6530,49 @@ conditions around modifying a shared file system. Set to True to allow them to r
                   </span>
                  </code>
                  . Defaults to the Tiltfile directory.
+                </li>
+                <li>
+                 <strong>
+                  labels
+                 </strong>
+                 (
+                 <code class="xref py py-class docutils literal notranslate">
+                  <span class="pre">
+                   List
+                  </span>
+                 </code>
+                 [
+                 <code class="xref py py-class docutils literal notranslate">
+                  <span class="pre">
+                   str
+                  </span>
+                 </code>
+                 ]) &#x2013;
+                 <p>
+                  used to group resources in the Web UI, (e.g. you want all frontend services displayed together, while test and backend services are displayed seperately). A label must start and end with an alphanumeric character, can include
+                  <code class="docutils literal notranslate">
+                   <span class="pre">
+                    _
+                   </span>
+                  </code>
+                  ,
+                  <code class="docutils literal notranslate">
+                   <span class="pre">
+                    -
+                   </span>
+                  </code>
+                  , and
+                  <code class="docutils literal notranslate">
+                   <span class="pre">
+                    .
+                   </span>
+                  </code>
+                  , and must be 63 characters or less. For an example, see
+                  <a class="reference external" href="tiltfile_concepts.html#resource-groups">
+                   Resource Grouping
+                  </a>
+                  .
+                 </p>
                 </li>
                </ul>
               </td>

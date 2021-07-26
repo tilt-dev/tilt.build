@@ -316,7 +316,8 @@ TRIGGER_MODE_AUTO = type('_sentinel', (TriggerMode,),
 def dc_resource(name: str,
                 trigger_mode: TriggerMode = TRIGGER_MODE_AUTO,
                 resource_deps: List[str] = [],
-                links: Union[str, Link, List[Union[str, Link]]]=[]) -> None:
+                links: Union[str, Link, List[Union[str, Link]]] = [],
+                labels: Union[str, List[str]] = []) -> None:
   """Configures the Docker Compose resource of the given name. Note: Tilt does an amount of resource configuration
   for you(for more info, see `Tiltfile Concepts: Resources <tiltfile_concepts.html#resources>`_); you only need
   to invoke this function if you want to configure your resource beyond what Tilt does automatically.
@@ -329,6 +330,7 @@ def dc_resource(name: str,
       See the `Resource Dependencies docs <resource_dependencies.html>`_.
     links: one or more links to be associated with this resource in the UI. For more info, see
       `Accessing Resource Endpoints <accessing_resource_endpoints.html#arbitrary-links>`_.
+    labels: used to group resources in the Web UI, (e.g. you want all frontend services displayed together, while test and backend services are displayed seperately). A label must start and end with an alphanumeric character, can include ``_``, ``-``, and ``.``, and must be 63 characters or less. For an example, see `Resource Grouping <tiltfile_concepts.html#resource-groups>`_.
   """
 
   pass
@@ -340,7 +342,8 @@ def k8s_resource(workload: str = "", new_name: str = "",
                  resource_deps: List[str] = [], objects: List[str] = [],
                  auto_init: bool = True,
                  pod_readiness: str = "",
-                 links: Union[str, Link, List[Union[str, Link]]]=[]) -> None:
+                 links: Union[str, Link, List[Union[str, Link]]]=[],
+                 labels: Union[str, List[str]] = []) -> None:
   """
 
   Configures or creates the specified Kubernetes resource.
@@ -437,6 +440,7 @@ def k8s_resource(workload: str = "", new_name: str = "",
       thinks a resource has pods.
     links: one or more links to be associated with this resource in the UI. For more info, see
       `Accessing Resource Endpoints <accessing_resource_endpoints.html#arbitrary-links>`_.
+    labels: used to group resources in the Web UI, (e.g. you want all frontend services displayed together, while test and backend services are displayed seperately). A label must start and end with an alphanumeric character, can include ``_``, ``-``, and ``.``, and must be 63 characters or less. For an example, see `Resource Grouping <tiltfile_concepts.html#resource-groups>`_.
   """
   pass
 
@@ -950,7 +954,9 @@ def local_resource(name: str, cmd: Union[str, List[str]],
                    env: Dict[str, str] = {},
                    serve_env: Dict[str, str] = {},
                    readiness_probe: Probe = None,
-                   dir: str = "", serve_dir: str = "") -> None:
+                   dir: str = "",
+                   serve_dir: str = "",
+                   labels: List[str] = []) -> None:
   """Configures one or more commands to run on the *host* machine (not in a remote cluster).
 
   By default, Tilt performs an update on local resources on ``tilt up`` and whenever any of their ``deps`` change.
@@ -989,6 +995,7 @@ def local_resource(name: str, cmd: Union[str, List[str]],
     readiness_probe: Optional readiness probe to use for determining ``serve_cmd`` health state. Fore more info, see the :meth:`probe` function.
     dir: Working directory for ``cmd``. Defaults to the Tiltfile directory.
     serve_dir: Working directory for ``serve_cmd``. Defaults to the Tiltfile directory.
+    labels: used to group resources in the Web UI, (e.g. you want all frontend services displayed together, while test and backend services are displayed seperately). A label must start and end with an alphanumeric character, can include ``_``, ``-``, and ``.``, and must be 63 characters or less. For an example, see `Resource Grouping <tiltfile_concepts.html#resource-groups>`_.
   """
   pass
 
