@@ -264,5 +264,26 @@ be valid (e.g. in the example above, while "redis:deployment" is the shortest ob
 selector that specifies the object in question, "redis:deployment:default" would
 be valid as well).
 
+### Resource Groups
+
+In addition to other forms of resource configuration, Tilt supports adding user-defined
+labels to resources. You might use labels to better organize a large number of resources,
+group similar resources together, or add meaningful categorical context to resources.
+
+In the Tiltfile, you can specify a label or list of labels to be added to each resource,
+including [`k8s_resource()`](api.html#api.k8s_resource), [`local_resource()`](api.html#api.local_resource),
+and [`dc_resource()`](api.html#api.dc_resource) calls. The web UI will display resources
+in groups by their labels in expandable and collapsable sections, as well as display a
+status summary for each labeled group. If a service has multiple labels applied to it,
+that service will appear under each labeled group. Label groups are sorted and displayed
+alphabetically.
+
+See an [example Tiltfile configuration](tiltfile_config.html#grouping-services-in-web-ui)
+and run an [example project](https://github.com/tilt-dev/pixeltilt) to see groups in action.
+
+<figure>
+  <img src="/assets/img/resource-groups-expanded.png" class="no-shadow" alt="Tilt's web UI shows a list of resources grouped by labels">
+</figure>
+
 ## Summary
 Tilt's configuration is a program that connects your existing build and deploy configuration. We've made our functions ergonomic for simple cases and general enough to support a wide range of cases. If you're not sure how to accomplish something, we'd love to either help you find the right way, or add support for a case we've overlooked.
