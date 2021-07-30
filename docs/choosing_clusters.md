@@ -36,13 +36,13 @@ Advanced Level:
 The Kubernetes team uses Kind to test Kubernetes itself. But its fast startup
 time also makes it a good solution for local dev. Use `ctlptl` to set up Kind with a registry:
 
-[**Kind Setup**](https://github.com/tilt-dev/ctlptl#kind-with-a-built-in-registry){:.attached-above}
+[**Kind Setup**](https://github.com/tilt-dev/ctlptl#kind-with-a-built-in-registry-at-a-random-port){:.attached-above}
 
 ### Pros
 
 - Creating a new cluster is fast (~20 seconds). Deleting a cluster is even faster. 
 - Much more robust than Docker for Mac. Uses containerd instead of docker-shim. Short-lived clusters tend to be more reliable.
-- Supports a local image registry (with our [Kind setup tool](https://github.com/tilt-dev/ctlptl#kind-with-a-built-in-registry)).
+- Supports a local image registry (with our [Kind setup tool](https://github.com/tilt-dev/ctlptl#kind-with-a-built-in-registry-at-a-random-port)).
   Pushing images is fast. No fiddling with image registry auth credentials.
 - Can run in [most CI environments](https://github.com/kind-ci/examples) (TravisCI, CircleCI, etc.)
 
