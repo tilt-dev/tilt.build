@@ -131,7 +131,7 @@ Follow these instructions to set up Minikube for use with Tilt:
 
 - The most full-featured local Kubernetes solution
 - Can easily run different Kubernetes versions, container runtimes, and controllers
-- Supports a local image registry (with our [cluster setup tool]((https://github.com/tilt-dev/ctlptl#minikube-with-a-built-in-registry)).
+- Supports a local image registry (with our [cluster setup tool](https://github.com/tilt-dev/ctlptl#minikube-with-a-built-in-registry)).
   Pushing images is fast. No fiddling with image registry auth credentials.
 
 ### Cons
