@@ -607,10 +607,6 @@ def helm(pathToChartDir: str, name: str = "", namespace: str = "", values: Union
 """
   pass
 
-def fail(msg: str) -> None:
-  """Raises an error that cannot be intercepted. Can be used anywhere in a Tiltfile."""
-  pass
-
 def blob(contents: str) -> Blob:
   """Creates a Blob object that wraps the provided string. Useful for passing strings in to functions that expect a `Blob`, e.g. ``k8s_yaml``."""
   pass
@@ -1114,6 +1110,7 @@ def watch_settings(ignore: Union[str, List[str]]) -> None:
       See `Debugging File Changes <file_changes.html>`_ for more details.
   """
 
+
 def warn(msg: str) -> None:
   """Emits a warning.
 
@@ -1121,6 +1118,35 @@ def warn(msg: str) -> None:
 
   Args:
     msg: The message.
+  """
+
+
+def fail(msg: str) -> None:
+  """Stops Tiltfile execution and raises an error.
+
+  Can be used anywhere in a Tiltfile.
+  If used in a loaded Tiltfile or extension, execution will be stopped up to and including the root Tiltfile.
+
+  See :meth:`exit` to stop execution immediately without triggering an error.
+
+  Args:
+    msg: Error message.
+  """
+  pass
+
+
+def exit(code: Any) -> None:
+  """Stops Tiltfile execution without an error.
+
+  Can be used anywhere in a Tiltfile.
+  If used in a loaded Tiltfile or extension, execution will be stopped up to and including the root Tiltfile.
+
+  Requires Tilt v0.22.3+.
+
+  See :meth:`fail` to stop execution immediately and propagate an error.
+
+  Args:
+    code: Message or object (will be stringified) to log before halting execution.
   """
 
 
