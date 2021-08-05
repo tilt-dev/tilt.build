@@ -22,7 +22,7 @@ Over the [last few blog posts][uibutton-intro-blog], we’ve been talking a lot 
 
 With groups, you can reduce the amount of resources you have to sift through to see what’s important to you. No more naming services like `store-service`, `store-database`, `store-test1`, `store-myspecial-cmd`, etc, to group relevant services together.
 
-You might choose to group your services by engineering expertise, so that all frontend, backend, and infrastructure services are grouped together; or you might group by type of code, so services, tests, and linters are easily accessible; or you might organize similar resources together, so that a retail store service and inventory database are grouped.
+You might choose to group your services by engineering expertise, so that frontend, backend, and infrastructure services are grouped separately; or you might group by type of code, so services, tests, and linters are easily accessible; or you might organize similar resources together, so that a retail store service and inventory database are grouped.
 
 Let’s dive into an example. We’ll start with the [PixelTilt example repo][pixeltilt], which runs a simple image-editing app with several backend services. We can add a label or list of labels to any resource call, including [`k8s_resource()`][k8s-docs], [`local_resource()`][local-docs], and [`dc_resource()`][dc-docs].
 
