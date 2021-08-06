@@ -17,6 +17,7 @@ functions:
 - encode_yaml
 - encode_yaml_stream
 - exec_action
+- exit
 - fail
 - fall_back_on
 - filter_yaml

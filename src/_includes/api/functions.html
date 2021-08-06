@@ -3119,6 +3119,84 @@ within the timeout.
            </table>
           </dd>
          </dl><dl class="function">
+          <dt id="api.exit">
+           <code class="descclassname">
+           </code>
+           <code class="descname">
+            exit
+           </code>
+           <span class="sig-paren">
+            (
+           </span>
+           <em>
+            code
+           </em>
+           <span class="sig-paren">
+            )
+           </span>
+           <a class="headerlink" href="#api.exit" title="Permalink to this definition">
+            &#xB6;
+           </a>
+          </dt>
+          <dd>
+           <p>
+            Stops Tiltfile execution without an error.
+           </p>
+           <p>
+            Can be used anywhere in a Tiltfile.
+If used in a loaded Tiltfile or extension, execution will be stopped up to and including the root Tiltfile.
+           </p>
+           <p>
+            Requires Tilt v0.22.3+.
+           </p>
+           <p>
+            See
+            <a class="reference internal" href="#api.fail" title="api.fail">
+             <code class="xref py py-meth docutils literal notranslate">
+              <span class="pre">
+               fail()
+              </span>
+             </code>
+            </a>
+            to stop execution immediately and propagate an error.
+           </p>
+           <table class="docutils field-list" frame="void" rules="none">
+            <col class="field-name">
+            <col class="field-body">
+            <tbody valign="top">
+             <tr class="field-odd field">
+              <th class="field-name">
+               Parameters:
+              </th>
+              <td class="field-body">
+               <strong>
+                code
+               </strong>
+               (
+               <code class="xref py py-data docutils literal notranslate">
+                <span class="pre">
+                 Any
+                </span>
+               </code>
+               ) &#x2013; Message or object (will be stringified) to log before halting execution.
+              </td>
+             </tr>
+             <tr class="field-even field">
+              <th class="field-name">
+               Return type:
+              </th>
+              <td class="field-body">
+               <code class="docutils literal notranslate">
+                <span class="pre">
+                 None
+                </span>
+               </code>
+              </td>
+             </tr>
+            </tbody>
+           </table>
+          </dd>
+         </dl><dl class="function">
           <dt id="api.fail">
            <code class="descclassname">
            </code>
@@ -3140,13 +3218,45 @@ within the timeout.
           </dt>
           <dd>
            <p>
-            Raises an error that cannot be intercepted. Can be used anywhere in a Tiltfile.
+            Stops Tiltfile execution and raises an error.
+           </p>
+           <p>
+            Can be used anywhere in a Tiltfile.
+If used in a loaded Tiltfile or extension, execution will be stopped up to and including the root Tiltfile.
+           </p>
+           <p>
+            See
+            <a class="reference internal" href="#api.exit" title="api.exit">
+             <code class="xref py py-meth docutils literal notranslate">
+              <span class="pre">
+               exit()
+              </span>
+             </code>
+            </a>
+            to stop execution immediately without triggering an error.
            </p>
            <table class="docutils field-list" frame="void" rules="none">
             <col class="field-name">
             <col class="field-body">
             <tbody valign="top">
              <tr class="field-odd field">
+              <th class="field-name">
+               Parameters:
+              </th>
+              <td class="field-body">
+               <strong>
+                msg
+               </strong>
+               (
+               <code class="xref py py-class docutils literal notranslate">
+                <span class="pre">
+                 str
+                </span>
+               </code>
+               ) &#x2013; Error message.
+              </td>
+             </tr>
+             <tr class="field-even field">
               <th class="field-name">
                Return type:
               </th>
