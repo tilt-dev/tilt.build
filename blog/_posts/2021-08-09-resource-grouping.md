@@ -1,6 +1,6 @@
 ---
 slug: "resource-grouping"
-date: "2021-08-05"
+date: "2021-08-09"
 author: lizz
 layout: blog
 title: "Spark joy with Tilt's resource grouping"
