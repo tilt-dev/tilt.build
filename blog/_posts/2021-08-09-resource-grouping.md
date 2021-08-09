@@ -33,7 +33,7 @@ Here, we can group our `storage` and `object-detector` resources with an `infra`
 # https://docs.tilt.dev/api.html#api.k8s_resource
 k8s_resource("frontend", port_forwards="3000")
 k8s_resource("storage", port_forwards="8080", labels=["infra"])
-k8s_resource("max-object-detector", labels=["infra"], new_name="object-detector")
+k8s_resource("max-object-detector", new_name="object-detector", labels=["infra"])
 ```
 
 As labels are added to resources, the dashboard will update and display the label groups. Any resources without a label will be grouped into an `unlabeled` section displayed at the bottom of the resource list. If a service has multiple labels, it will appear under each resource group in the UI.
@@ -46,7 +46,7 @@ Each group also comes with a resource status summary, so you can quickly underst
 
 Organizing resources into groups in log view is just the beginning. In the near future, we’re planning to roll out grouping to our newly launched Table View. Resource grouping is also a building block for much-requested features like bulk actions (and custom bulk actions!), as well as enabling and disabling services. 
 
-You can start with labels and resource grouping by upgrading to [v0.22.2][upgrade]. 🏷 🧹 ✨
+You can start with labels and resource grouping by upgrading to [v0.22.2][upgrade]. 🏷 ✨
 
 [dc-docs]: https://docs.tilt.dev/api.html#api.dc_resource
 [k8s-docs]: https://docs.tilt.dev/api.html#api.k8s_resource
