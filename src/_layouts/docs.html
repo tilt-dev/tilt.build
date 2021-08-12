@@ -27,24 +27,34 @@ layout: default
     <div class="sidebar-contents">
 
     {% for section in site.data.docs.sidebar %}
-      {% if section.title %}
-      <h3 class="sidebar-sectionTitle">{{ section.title | escape }}</h3>
-      {% endif %}
-
+      {% assign active_section = false %}
       {% if section.include == 'examples' %}
-        <ul class="sidebar-sectionList">
-          {% for page in site.data.examples %}
-            <li><a class="sidebar-link {% if page_href == page.href %}sidebar-link-active{% endif %}" href="/{{page.href | escape}}">{{page.title | escape}}</a>
-          {% endfor %}
-        </ul>
+        {% assign active_section = site.data.examples | find: "href", page_href %}
+      {% elsif section.default and page_href == '' %}
+        {% assign active_section = true %}
       {% else %}
-        <ul class="sidebar-sectionList">
-          {% for page in section.items %}
-            <li><a class="sidebar-link {% if page_href == page.href %}sidebar-link-active{% endif %}" href="/{{page.href | escape}}">{{page.title | escape}}</a>
-          {% endfor %}
-        </ul>
+        {% assign active_section = section.items | find: "href", page_href %}
       {% endif %}
 
+      <div class="sidebar-section">
+        <input id="section{{ forloop.index }}" type="checkbox" {% if active_section %}checked{% endif %} />
+        <label class="sidebar-sectionTitle" for="section{{ forloop.index }}">{{ section.title | escape }}</label>
+<!--        <h3 class="sidebar-sectionTitle">{{ section.title | escape }}</h3>-->
+
+        {% if section.include == 'examples' %}
+          <ul class="sidebar-sectionList">
+            {% for page in site.data.examples %}
+              <li><a class="sidebar-link {% if page_href == page.href %}{% assign active_section = true %}sidebar-link-active{% endif %}" href="/{{page.href | escape}}">{{page.title | escape}}</a>
+            {% endfor %}
+          </ul>
+        {% else %}
+          <ul class="sidebar-sectionList">
+            {% for page in section.items %}
+              <li><a class="sidebar-link {% if page_href == page.href %}sidebar-link-active{% endif %}" href="/{{page.href | escape}}">{{page.title | escape}}</a>
+            {% endfor %}
+          </ul>
+        {% endif %}
+      </div>
     {% endfor %}
 
     </div>  
