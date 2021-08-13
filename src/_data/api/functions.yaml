@@ -72,3 +72,5 @@ functions:
 - config.parse
 - config.set_enabled_resources
 - shlex.quote
+- v1alpha1.extension
+- v1alpha1.extension_repo
