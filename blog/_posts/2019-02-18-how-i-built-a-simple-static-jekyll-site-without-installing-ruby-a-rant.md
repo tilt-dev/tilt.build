@@ -29,7 +29,7 @@ I want to try [Jekyll](https://jekyllrb.com/). It looks cool.
 I read the [install instructions](https://jekyllrb.com/docs/).
 
 The first step says:
-> Install a full [Ruby development environment](http://Ruby development environment)
+> Install a full Ruby development environment
 
 No
 
