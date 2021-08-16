@@ -92,13 +92,6 @@ but also have teammates in Berlin, Germany and other parts of the US.
     </div>
   </div>
   <div class="bio col-1of3 u-marginBottom1_25">
-    <img class="bio-image" src="/assets/img/lucie.jpg">
-    <h4>Lucie le Blanc</h4>
-    <div>
-      Excited software engineering intern, HackNY Fellow, and appreciator of bicycle rides with food-related destinations. She/her.
-    </div>
-  </div>
-  <div class="bio col-1of3 u-marginBottom1_25">
     <img class="bio-image" src="/assets/img/peter.jpg">
     <h4>Peter Chapman</h4>
     <div>
