@@ -64,7 +64,7 @@ lizz:
 lucie:
   name: Lucie le Blanc
   github: lucieleblanc
-  active: true
+  active: false
 peter:
   name: Peter Chapman
   github: peterchapman
