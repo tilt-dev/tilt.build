@@ -569,6 +569,34 @@ h3.relatedHeader {
   }
 }
 
+nav.sidebar h3 {
+  margin: 1rem 0 0.2rem 0;
+}
+
+.nav-accordion__panel[aria-hidden=true] {
+  display: none;
+}
+
+.nav-accordion__header[aria-expanded="true"]:before {
+  content: "- ";
+}
+
+.nav-accordion__header[aria-expanded="false"]:before {
+  content: "+ ";
+}
+
+// accordion embeds <button> in headers for interaction so make them look like links
+button.nav-accordion__header {
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+}
+
+// .nav-accordion__header is applied to the button created by JS
+// .sidebar-sectionTitle is applied to the wrapper h3 (fallback for no JS)
+.nav-accordion__header,
 .sidebar-sectionTitle {
   font-family: $body-font-family;
   font-size: 16px;

@@ -1,5 +1,6 @@
 sidebar:
   - title: Getting Started
+    default: true
     items:
     - title: Install
       href: install.html

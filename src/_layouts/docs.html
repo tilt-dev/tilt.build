@@ -24,26 +24,29 @@ layout: default
       {% svg assets/svg/carrot-down.svg %}
     </button>
 
-    <div class="sidebar-contents">
-
+    <div class="sidebar-contents js-accordion" data-accordion-prefix-classes="nav">
     {% for section in site.data.docs.sidebar %}
-      {% if section.title %}
-      <h3 class="sidebar-sectionTitle">{{ section.title | escape }}</h3>
+      {% if section.include == 'examples' %}
+        {% assign pages = site.data.examples %}
+      {% else %}
+        {% assign pages = section.items %}
       {% endif %}
 
-      {% if section.include == 'examples' %}
-        <ul class="sidebar-sectionList">
-          {% for page in site.data.examples %}
-            <li><a class="sidebar-link {% if page_href == page.href %}sidebar-link-active{% endif %}" href="/{{page.href | escape}}">{{page.title | escape}}</a>
-          {% endfor %}
-        </ul>
+      {% if section.default and page_href == '' %}
+        {% assign active_section = true %}
       {% else %}
-        <ul class="sidebar-sectionList">
-          {% for page in section.items %}
-            <li><a class="sidebar-link {% if page_href == page.href %}sidebar-link-active{% endif %}" href="/{{page.href | escape}}">{{page.title | escape}}</a>
-          {% endfor %}
-        </ul>
+        {% assign active_section = pages | find: "href", page_href %}
       {% endif %}
+
+      <h3 class="sidebar-sectionTitle js-accordion__header" {% if active_section %}data-accordion-opened="true"{% endif %}>
+        {{ section.title | escape }}
+      </h3>
+
+      <ul class="sidebar-sectionList js-accordion__panel">
+        {% for page in pages %}
+          <li><a class="sidebar-link {% if page_href == page.href %}sidebar-link-active{% endif %}" href="/{{page.href | escape}}">{{page.title | escape}}</a>
+        {% endfor %}
+      </ul>
 
     {% endfor %}
 
@@ -69,4 +72,5 @@ layout: default
     {% include helpful_form.html %}
   </article>
   <script src="/assets/js/links.js" async></script>
+  <script src="{{ "/assets/js/van11y-accessible-accordion-aria.min.js" | relative_url }}"></script>
 </div>
