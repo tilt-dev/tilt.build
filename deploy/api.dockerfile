@@ -1,6 +1,6 @@
 FROM python:3.7
 
-RUN curl -sL https://deb.nodesource.com/setup_10.x | bash -
+RUN curl -sL https://deb.nodesource.com/setup_14.x | bash -
 RUN apt update && apt install nodejs -y
 RUN npm install -g hgrep
 

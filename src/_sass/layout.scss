@@ -114,6 +114,12 @@ li {
   flex: 0 0 $sidebar-width;
   margin-right: $spacing-unit;
 
+  // sticky on scroll
+  position: sticky;
+  top: 0;
+  overflow-y: auto;
+  max-height: 100vh;
+
   @include docs-mobile {
     max-width: $col-2of3-width;
   }
@@ -427,7 +433,8 @@ h2, .docsContent h1 {
 h3,
 .wrapper--landing h2,
 .docsContent h2,
-.blogContent h2 {
+.blogContent h2,
+.docsContent h2 a {
   font-family: $header-font-family;
   font-variant-ligatures: none;
   font-size: 24px;
@@ -441,6 +448,13 @@ h3,
     font-size: 22px;
     line-height: 28px;
   }
+}
+
+.docsContent h2 a:hover:before {
+  content: "🔗 ";
+  position: absolute;
+  margin-left: -1.25em;
+  font-size: 75%;
 }
 
 h4,
@@ -596,8 +610,8 @@ h3.relatedHeader {
 
 .sidebar-sectionList {
   list-style-type: none;
-  margin-bottom: $spacing-unit / 2;
-  margin-left: 1.5em;  /* balanced out by text-indent -1.5em below */
+  margin: 0 0 $spacing-unit / 2 0;
+  padding-left: 1.5em;  /* balanced out by text-indent -1.5em below */
 
   font-family: $chrome-font-family;
   font-weight: $chrome-font-weight;
