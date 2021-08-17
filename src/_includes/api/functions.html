@@ -10755,4 +10755,317 @@ a single token in a shell command.
             </tbody>
            </table>
           </dd>
+         </dl><dl class="function">
+          <dt id="modules.v1alpha1.extension">
+           <code class="descclassname">
+            v1alpha1.
+           </code>
+           <code class="descname">
+            extension
+           </code>
+           <span class="sig-paren">
+            (
+           </span>
+           <em>
+            name
+           </em>
+           ,
+           <em>
+            labels=None
+           </em>
+           ,
+           <em>
+            annotations=None
+           </em>
+           ,
+           <em>
+            repo_name=&apos;&apos;
+           </em>
+           ,
+           <em>
+            repo_path=&apos;&apos;
+           </em>
+           <span class="sig-paren">
+            )
+           </span>
+           <a class="headerlink" href="#modules.v1alpha1.extension" title="Permalink to this definition">
+            &#xB6;
+           </a>
+          </dt>
+          <dd>
+           <p>
+            Extension defines an extension that&#x2019;s evaluated on Tilt startup.
+           </p>
+           <table class="docutils field-list" frame="void" rules="none">
+            <col class="field-name">
+            <col class="field-body">
+            <tbody valign="top">
+             <tr class="field-odd field">
+              <th class="field-name">
+               Parameters:
+              </th>
+              <td class="field-body">
+               <ul class="first last simple">
+                <li>
+                 <strong>
+                  name
+                 </strong>
+                 (
+                 <code class="xref py py-class docutils literal notranslate">
+                  <span class="pre">
+                   str
+                  </span>
+                 </code>
+                 ) &#x2013; The name in the Object metadata.
+                </li>
+                <li>
+                 <strong>
+                  labels
+                 </strong>
+                 (
+                 <code class="xref py py-data docutils literal notranslate">
+                  <span class="pre">
+                   Optional
+                  </span>
+                 </code>
+                 [
+                 <code class="xref py py-class docutils literal notranslate">
+                  <span class="pre">
+                   Dict
+                  </span>
+                 </code>
+                 [
+                 <code class="xref py py-class docutils literal notranslate">
+                  <span class="pre">
+                   str
+                  </span>
+                 </code>
+                 ,
+                 <code class="xref py py-class docutils literal notranslate">
+                  <span class="pre">
+                   str
+                  </span>
+                 </code>
+                 ]]) &#x2013; A set of key/value pairs in the Object metadata for grouping objects.
+                </li>
+                <li>
+                 <strong>
+                  annotations
+                 </strong>
+                 (
+                 <code class="xref py py-data docutils literal notranslate">
+                  <span class="pre">
+                   Optional
+                  </span>
+                 </code>
+                 [
+                 <code class="xref py py-class docutils literal notranslate">
+                  <span class="pre">
+                   Dict
+                  </span>
+                 </code>
+                 [
+                 <code class="xref py py-class docutils literal notranslate">
+                  <span class="pre">
+                   str
+                  </span>
+                 </code>
+                 ,
+                 <code class="xref py py-class docutils literal notranslate">
+                  <span class="pre">
+                   str
+                  </span>
+                 </code>
+                 ]]) &#x2013; A set of key/value pairs in the Object metadata for attaching data to objects.
+                </li>
+                <li>
+                 <strong>
+                  repo_name
+                 </strong>
+                 (
+                 <code class="xref py py-class docutils literal notranslate">
+                  <span class="pre">
+                   str
+                  </span>
+                 </code>
+                 ) &#x2013; RepoName specifies the ExtensionRepo object where we should find this extension.
+The Extension controller should watch for changes to this repo, and may update if
+this repo is deleted or moved.
+                </li>
+                <li>
+                 <strong>
+                  repo_path
+                 </strong>
+                 (
+                 <code class="xref py py-class docutils literal notranslate">
+                  <span class="pre">
+                   str
+                  </span>
+                 </code>
+                 ) &#x2013; RepoPath specifies the path to the extension directory inside the repo.
+Once the repo is downloaded, this path should point to a directory with a
+Tiltfile as the main &#x201C;entrypoint&#x201D; of the extension.
+                </li>
+               </ul>
+              </td>
+             </tr>
+            </tbody>
+           </table>
+          </dd>
+         </dl><dl class="function">
+          <dt id="modules.v1alpha1.extension_repo">
+           <code class="descclassname">
+            v1alpha1.
+           </code>
+           <code class="descname">
+            extension_repo
+           </code>
+           <span class="sig-paren">
+            (
+           </span>
+           <em>
+            name
+           </em>
+           ,
+           <em>
+            labels=None
+           </em>
+           ,
+           <em>
+            annotations=None
+           </em>
+           ,
+           <em>
+            url=&apos;&apos;
+           </em>
+           ,
+           <em>
+            ref=&apos;&apos;
+           </em>
+           <span class="sig-paren">
+            )
+           </span>
+           <a class="headerlink" href="#modules.v1alpha1.extension_repo" title="Permalink to this definition">
+            &#xB6;
+           </a>
+          </dt>
+          <dd>
+           <p>
+            ExtensionRepo specifies a repo or folder where a set of extensions live.
+           </p>
+           <table class="docutils field-list" frame="void" rules="none">
+            <col class="field-name">
+            <col class="field-body">
+            <tbody valign="top">
+             <tr class="field-odd field">
+              <th class="field-name">
+               Parameters:
+              </th>
+              <td class="field-body">
+               <ul class="first last simple">
+                <li>
+                 <strong>
+                  name
+                 </strong>
+                 (
+                 <code class="xref py py-class docutils literal notranslate">
+                  <span class="pre">
+                   str
+                  </span>
+                 </code>
+                 ) &#x2013; The name in the Object metadata.
+                </li>
+                <li>
+                 <strong>
+                  labels
+                 </strong>
+                 (
+                 <code class="xref py py-data docutils literal notranslate">
+                  <span class="pre">
+                   Optional
+                  </span>
+                 </code>
+                 [
+                 <code class="xref py py-class docutils literal notranslate">
+                  <span class="pre">
+                   Dict
+                  </span>
+                 </code>
+                 [
+                 <code class="xref py py-class docutils literal notranslate">
+                  <span class="pre">
+                   str
+                  </span>
+                 </code>
+                 ,
+                 <code class="xref py py-class docutils literal notranslate">
+                  <span class="pre">
+                   str
+                  </span>
+                 </code>
+                 ]]) &#x2013; A set of key/value pairs in the Object metadata for grouping objects.
+                </li>
+                <li>
+                 <strong>
+                  annotations
+                 </strong>
+                 (
+                 <code class="xref py py-data docutils literal notranslate">
+                  <span class="pre">
+                   Optional
+                  </span>
+                 </code>
+                 [
+                 <code class="xref py py-class docutils literal notranslate">
+                  <span class="pre">
+                   Dict
+                  </span>
+                 </code>
+                 [
+                 <code class="xref py py-class docutils literal notranslate">
+                  <span class="pre">
+                   str
+                  </span>
+                 </code>
+                 ,
+                 <code class="xref py py-class docutils literal notranslate">
+                  <span class="pre">
+                   str
+                  </span>
+                 </code>
+                 ]]) &#x2013; A set of key/value pairs in the Object metadata for attaching data to objects.
+                </li>
+                <li>
+                 <strong>
+                  url
+                 </strong>
+                 (
+                 <code class="xref py py-class docutils literal notranslate">
+                  <span class="pre">
+                   str
+                  </span>
+                 </code>
+                 ) &#x2013; The URL of the repo.
+Allowed:
+https: URLs that point to a public git repo.
+file: URLs that point to a location on disk.
+                </li>
+                <li>
+                 <strong>
+                  ref
+                 </strong>
+                 (
+                 <code class="xref py py-class docutils literal notranslate">
+                  <span class="pre">
+                   str
+                  </span>
+                 </code>
+                 ) &#x2013; A reference to sync the repo to. If empty, Tilt will always update the repo to the latest version.
+                </li>
+               </ul>
+              </td>
+             </tr>
+            </tbody>
+           </table>
+          </dd>
          </dl>
