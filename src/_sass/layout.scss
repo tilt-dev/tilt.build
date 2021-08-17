@@ -592,11 +592,13 @@ nav.sidebar h3 {
 }
 
 .nav-accordion__header[aria-expanded="true"]:before {
-  content: "- ";
+  content: "-";
+  font-family: monospace;
 }
 
 .nav-accordion__header[aria-expanded="false"]:before {
-  content: "+ ";
+  content: "+";
+  font-family: monospace;
 }
 
 // accordion embeds <button> in headers for interaction so make them look like links
