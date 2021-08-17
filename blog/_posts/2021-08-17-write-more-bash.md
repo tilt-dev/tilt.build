@@ -1,6 +1,6 @@
 ---
 slug: "write-more-bash"
-date: 2021-08-16
+date: 2021-08-17
 author: nick
 layout: blog
 title: "Write More Bash to Hack Features Faster and with Less Testing"
@@ -25,8 +25,9 @@ affect your life as a dev.
 
 In the Control Loop talk, I'm going to talk more about the Kubernetes ideas and
 libraries that Tilt is built on top of. The Kubernetes libraries have a lot of
-tools to help us build robust systems.  But even better, they also have a lot of
-tools that let you hack together shit fast in Bash.
+tools to help us build robust systems, which, sure, some people find value in.
+But far, far more importantly, they also have a lot of tools that let you hack
+together shit fast in Bash.
 
 What does this look like when we're developing Tilt? I'm going to show you a
 Bash-based Tilt extension I wrote last week! And as we go through it, you'll learn:
@@ -47,6 +48,11 @@ Curl"](https://blog.tilt.dev/2021/03/18/kubernetes-is-so-simple.html).)
 
 This API platform allows teams to create very complex, robust features.
 But few people appreciate that you can also use it to build simple, hacky features!
+
+Tilt is built on top of the Kubernetes API server. So we can use these hacky
+features too. To contribute to Tilt, you don't have to worry about getting code
+into `main`, or sending pull requests, or asking for review, or breaking
+existing code. You can can write it in any language you want.
 
 A few weeks ago [L](https://twitter.com/ellenkorbes) asked if we could add a
 cancel button to the Tilt UI to kill a running local server. And I realized that you could
@@ -118,7 +124,11 @@ available objects, `tilt get` to view a summary of those objects, and `tilt get
 This Bash loop streams Cmd changes and passes them to a "reconciler."
 
 "Reconciler" is another common phrase in the Kubernetes ecosystem for the part
-of a controller that compares state to the desired state. You can read more about reconcilers
+of a controller that implements steps (2) and (3) of the reactive control loop
+above: it compares the live state to the desired state, and applies changes to
+the live state to bring it to the desired state.
+
+You can read more about reconcilers
 in [The Kubebuilder Tutorial](https://book.kubebuilder.io/cronjob-tutorial/controller-overview.html)
 or in the [Cloud-Native Infrastucture book](https://www.oreilly.com/library/view/cloud-native-infrastructure/9781491984291/).
 
@@ -171,9 +181,9 @@ EOF
 ```
 
 The `cancel` command and the button that triggers this `cancel` command are
-objects. They're specified like another other object in the Kubernetes
-ecosystem - as YAML. Because our control loop reacts to all changes, it can
-disable the `cancel` button when the command exists.
+objects. They're specified like any other object in the Kubernetes ecosystem -
+as YAML. Because our control loop reacts to all changes, it can disable the
+`cancel` button when the command exits.
 
 `tilt apply` is a thin wrapper around `kubectl apply`. Like `kubectl apply`, it
 checks if a resource already exists, and applies any changes.
