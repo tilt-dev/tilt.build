@@ -114,6 +114,12 @@ li {
   flex: 0 0 $sidebar-width;
   margin-right: $spacing-unit;
 
+  // sticky on scroll
+  position: sticky;
+  top: 0;
+  overflow-y: auto;
+  max-height: 100vh;
+
   @include docs-mobile {
     max-width: $col-2of3-width;
   }
@@ -590,8 +596,8 @@ h3.relatedHeader {
 
 .sidebar-sectionList {
   list-style-type: none;
-  margin-bottom: $spacing-unit / 2;
-  margin-left: 1.5em;  /* balanced out by text-indent -1.5em below */
+  margin: 0 0 $spacing-unit / 2 0;
+  padding-left: 1.5em;  /* balanced out by text-indent -1.5em below */
 
   font-family: $chrome-font-family;
   font-weight: $chrome-font-weight;
