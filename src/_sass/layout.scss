@@ -970,8 +970,11 @@ button.svgButton, button.brandButton {
 }
 
 #scrollToTop {
+  display: block;
+  float: left;
+
   @include docs-mobile {
-    display: block;
+    float: none;
     margin: 0 auto;
     text-align: center;
   }

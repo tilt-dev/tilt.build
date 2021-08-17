@@ -58,13 +58,13 @@ layout: default
     <div class="docsFooter">
     {% include helpful_form.html %}
     <a id="scrollToTop" href="#">
-      <span aria-hidden="true">↑</span>
+      <span role="presentation">↑</span>
       Back to top
     </a>
     {% if page.hideEditButton != true %}
       <a class="editOnGitHub u-hideOnMobile"
          href="https://github.com/tilt-dev/tilt.build/tree/master/docs/{{page.name}}">
-        {% svg assets/svg/github.svg width=16 height=16 %}
+        {% svg assets/svg/github.svg width=16 height=16 alt="GitHub logo" role="presentation" %}
         <span class="editOnGitHub-text">
           Edit on GitHub
         </span>
