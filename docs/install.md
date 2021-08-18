@@ -22,13 +22,10 @@ macOS
 - Install [Docker for Mac](https://docs.docker.com/docker-for-mac/install/)
 - In the preferences, click [Enable Kubernetes](https://docs.docker.com/docker-for-mac/#kubernetes)
 - Make Docker for Mac your local Kubernetes cluster:
-
 ```bash
 kubectl config use-context docker-desktop
 ```
-
 - Install `tilt` with:
-
 ```bash
 curl -fsSL https://raw.githubusercontent.com/tilt-dev/tilt/master/scripts/install.sh | bash
 ```
@@ -41,7 +38,6 @@ Linux
 - Install [kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/)
 - Install [ctlptl](https://github.com/tilt-dev/ctlptl) and use it to create Kind with a local registry
 - Install `tilt` with:
-
 ```bash
 curl -fsSL https://raw.githubusercontent.com/tilt-dev/tilt/master/scripts/install.sh | bash
 ```
@@ -59,13 +55,10 @@ Windows
 - Install [Docker for Windows](https://docs.docker.com/docker-for-windows/install/)
 - In the preferences, click [Enable Kubernetes](https://docs.docker.com/docker-for-windows/#kubernetes)
 - Make Docker for Windows your local Kubernetes cluster:
-
 ```powershell
 kubectl config use-context docker-desktop
 ```
-
 - Install `tilt` with Powershell:
-
 ```powershell
 iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/tilt-dev/tilt/master/scripts/install.ps1'))
 ```
@@ -134,7 +127,7 @@ conda install tilt
 
 ## asdf
 
-```
+```bash
 asdf plugin add tilt
 asdf install tilt 0.22.4
 asdf global tilt 0.22.4

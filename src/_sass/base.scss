@@ -185,7 +185,12 @@ pre {
   }
 }
 
-
+p + div.highlighter-rouge,
+p + div[class^="highlight-"],
+ul + div.highlighter-rouge {
+  // reduce the margin between code blocks and the corresponding paragraph
+  margin-top: -($spacing-unit / 2) + 4;
+}
 
 /**
  * Wrapper
