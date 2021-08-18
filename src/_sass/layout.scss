@@ -124,6 +124,7 @@ li {
     max-width: $col-2of3-width;
   }
 }
+
 .docsContent {
   display: block;
   flex: 1 0 $docs-width;
@@ -135,6 +136,19 @@ li {
     max-width: 100%;
   }
 }
+
+.docsFooter {
+  margin-top: 1rem;
+  font-family: $chrome-font-family;
+  font-size: 16px;
+  line-height: normal;
+  font-weight: $chrome-font-weight;
+
+  a {
+    padding: $spacing-unit / 4;
+  }
+}
+
 .blogContent {
   display: block;
   max-width: $blog-width;
@@ -985,28 +999,35 @@ button.svgButton, button.brandButton {
   height: 100%;
 }
 
+#scrollToTop {
+  display: block;
+  float: left;
+
+  @include docs-mobile {
+    float: none;
+    margin: 0 auto;
+    text-align: center;
+  }
+}
+
 .editOnGitHub {
-  font-family: $chrome-font-family;
-  font-size: 16px;
-  line-height: normal;
-  font-weight: $chrome-font-weight;
   float: right;
   display: block;
-  padding: $spacing-unit / 4;
 }
 .editOnGitHub svg {
   padding-top: 2px;
+
+  .fillStd {
+    fill: $color-red;
+    transition: fill 0.2s;
+  }
+}
+.editOnGitHub:hover svg .fillStd {
+  fill: white;
 }
 .editOnGitHub-text {
   float: right;
   padding-left: $spacing-unit / 4;
-}
-.editOnGitHub .fillStd {
-  fill: $color-red;
-  transition: fill 0.2s;
-}
-.editOnGitHub:hover .fillStd {
-  fill: white;
 }
 
 .svgButton--menu svg {
@@ -1466,6 +1487,10 @@ input[type=checkbox]:checked + .formItem-checkbox {
 }
 .twitter-tweet {
   margin: $spacing-unit !important;
+}
+
+.helpfulForm {
+  margin: 0 auto 1.5rem auto;
 }
 
 .helpfulForm-content {
