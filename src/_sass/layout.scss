@@ -1578,3 +1578,26 @@ a.attached-above {
   font-size: 32px;
   color: $color-blue;
 }
+
+.copy-to-clipboard {
+  display: block;
+  margin: -($spacing-unit / 2) 0 ($spacing-unit / 8) auto;
+
+  font-family: $chrome-font-family;
+  color: $color-red;
+  fill: $color-red;
+  background: none;
+  border: none;
+
+  &:hover {
+    cursor: pointer;
+    color: $color-white;
+    fill: $color-white;
+    background-color: $color-red;
+  }
+
+  svg {
+    height: 16px;
+    vertical-align: middle;
+  }
+}
