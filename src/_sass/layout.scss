@@ -679,6 +679,7 @@ button.nav-accordion__header {
   flex-wrap: wrap;
   align-items: baseline;
   justify-content: space-between;
+  margin-bottom: 1.25 * $spacing-unit;
 
   form {
     flex: 1 0 auto;
@@ -1417,7 +1418,6 @@ img.no-shadow {
 .formItem {
   display: block;
   position: relative;
-  padding-bottom: 1.25 * $spacing-unit;
 
   @include mobile {
     padding-bottom: $spacing-unit;

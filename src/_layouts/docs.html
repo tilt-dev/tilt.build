@@ -4,7 +4,7 @@ layout: default
 {% assign page_href = page.url | slice: 1, page.url.size %}
 <div class="wrapper wrapper--docs u-marginBottom1_5">
   <nav class="subnav" aria-label="Most Popular">
-    <form action="/search" method="GET">
+    <form class="js-only" action="/search" method="GET">
       <div class="formItem">
         <input type="text" name="q" id="q" placeholder="Search" aria-label="Search Documentation" />
       </div>
@@ -59,7 +59,9 @@ layout: default
     {{ content }}
 
     <div class="docsFooter">
-    {% include helpful_form.html %}
+    {% if page.hideHelpfulForm != true %}
+        {% include helpful_form.html %}
+    {% endif %}
     <a id="scrollToTop" href="#">
       <span role="presentation">↑</span>
       Back to top
