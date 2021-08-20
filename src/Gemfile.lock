@@ -46,9 +46,6 @@ GEM
     jekyll-tagging-related_posts (1.1.0)
       jekyll (>= 3.5, < 5.0)
       jekyll-tagging (~> 1.0)
-    jekyll-target-blank (2.0.0)
-      jekyll (>= 3.0, < 5.0)
-      nokogiri (~> 1.10)
     jekyll-watch (2.2.1)
       listen (~> 3.0)
     kramdown (2.3.1)
@@ -56,7 +53,7 @@ GEM
     kramdown-parser-gfm (1.1.0)
       kramdown (~> 2.0)
     liquid (4.0.3)
-    listen (3.6.0)
+    listen (3.7.0)
       rb-fsevent (~> 0.10, >= 0.10.3)
       rb-inotify (~> 0.9, >= 0.9.10)
     mercenary (0.4.0)
@@ -96,11 +93,10 @@ DEPENDENCIES
   jekyll-seo-tag
   jekyll-sitemap
   jekyll-tagging-related_posts
-  jekyll-target-blank
   kramdown (>= 2.3.1)
   minima (~> 2.0)
   rouge
   tzinfo-data
 
 BUNDLED WITH
-   2.2.24
+   2.2.26
