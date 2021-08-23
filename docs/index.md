@@ -59,10 +59,10 @@ For specific package managers (Homebrew, Scoop, Conda, asdf), see the [Installat
 **Questions:** Join [the Kubernetes slack](http://slack.k8s.io) and
  find us in the [#tilt](https://kubernetes.slack.com/messages/CESBL84MV/)
  channel. Or [file an issue](https://github.com/tilt-dev/tilt/issues). For code snippets of Tiltfile functionality shared by the Tilt community, check out [Tilt Extensions](https://github.com/tilt-dev/tilt-extensions). 
- 
-**Roadmap:** Help us figure out what to prioritize. We hold Tilt Office Hours to pair
-on Tiltfiles and collect ideas for the roadmap. Next event at <b>12pm ET August 20th</b>. Join via
-[Zoom](https://us02web.zoom.us/j/89661530301?pwd=WXFuTlg4aHRpckFNOFBtVHJMd2ZQZz09).
+
+**Roadmap:** Help us figure out what to prioritize. Sign up for [Tilt office
+hours](https://calendly.com/han-yu/user-research). We'll discuss your experience
+with Tilt and ask for reactions on visuals or prototypes we're working on.
 
 **Contribute:** Check out our [guidelines](https://github.com/tilt-dev/tilt/blob/master/CONTRIBUTING.md) to contribute to Tilt's source code. To extend the capabilities of Tilt via new Tiltfile functionality, read more about [Extensions](extensions.html).
 
@@ -76,4 +76,3 @@ send?"](http://docs.tilt.dev/telemetry_faq.html). If you find a security issue
 in Tilt, see our [security policy](https://github.com/tilt-dev/tilt/blob/master/SECURITY.md).
 
 We expect everyone in our community (users, contributors, followers, and employees alike) to abide by our [**Code of Conduct**](code_of_conduct.html).
-
