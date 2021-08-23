@@ -61,6 +61,44 @@ Each example invokes [`ctlptl`](https://ctlptl.dev/) to set up a single-use
 cluster. But the `ctlptl` tool has many options for setting up clusters,
 depending on what you need.
 
+### Debugging
+
+Sometimes `tilt ci` will be waiting on a server to come up. But it can be hard to tell
+what it's waiting on. Tilt has tools to help debug this!
+
+First, `tilt ci` still runs the normal web dashboard at `http://localhost:10350/`. That should
+be familiar, so use that first.
+
+But maybe the dashboard doesn't help. The next step is to inspect the `Session` object.
+
+The `Session` object is the Tilt API that drives `tilt ci`. 
+
+For human-readable output, run:
+
+```
+tilt describe session
+```
+
+For machine-readable output, run:
+
+```
+tilt get session -o yaml
+tilt get session -o json
+```
+
+The status of the session reflects:
+- The current Tilt PID.
+- The time Tilt started at.
+- Each target that Tilt is waiting on, and its current state (waiting, running, or terminated).
+
+We also pair with teams on how to integrate this status reporting with their own
+in-house tools, like in [the tilt-status VSCode
+extension](https://marketplace.visualstudio.com/items?itemName=tilt-dev.tilt-status).
+
+For more info, here's the [complete API
+reference](https://api.tilt.dev/core/session-v1alpha1.html) of the Session
+object.
+
 ## Single-use Kubernetes clusters
 
 Running a Kubernetes cluster in CI can be harder than running one locally.
