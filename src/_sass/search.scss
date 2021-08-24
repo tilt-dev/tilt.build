@@ -38,6 +38,12 @@
   }
 }
 
+a.gs-title {
+  // something about how the GCSE CSS/JS interacts causes weird hover transitions when the title includes
+  // a matching term from the search (which is bolded)
+  transition: none;
+}
+
 a.gs-title:hover {
   background-color: $color-blue;
 }
