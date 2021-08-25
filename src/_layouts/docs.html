@@ -54,7 +54,12 @@ layout: default
 
   </nav>
   <article class="docsContent">
-    <h1>{{ page.title | escape }}</h1>
+    <div class="docsHeader">
+        <h1>{{ page.title | escape }}</h1>
+        {% if page.subtitle %}
+            <div role="doc-subtitle">{{ page.subtitle | escape }}</div>
+        {% endif %}
+    </div>
     
     {{ content }}
 

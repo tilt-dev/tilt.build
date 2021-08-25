@@ -9,7 +9,7 @@ This doc describes concepts in the Tiltfile, expanding on the [Tutorial](tutoria
 ## Execution Model
 `Tiltfile`s are written in [Starlark](https://github.com/bazelbuild/starlark), a dialect of Python. Tilt executes the `Tiltfile` on startup.
 
-Functions like `k8s_yaml` and `docker_build` register information. At the end of the execution, Tilt uses the resulting configuration. In addition to the final configuration, Tilt records file accesses; Tilt watches these files, and reexecutes when one changes (but not on every source file change).
+Functions like `k8s_yaml` and `docker_build` register information. At the end of the execution, Tilt uses the resulting configuration. In addition to the final configuration, Tilt records file accesses; Tilt watches these files, and re-executes when one changes (but not on every source file change).
 
 Because your Tiltfile is a program, you can configure it with familiar constructs like loops, functions, arrays, etc. This makes Tilt more extensible than a configuration that requires hard-coding all possible options up-front.
 

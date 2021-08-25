@@ -10,6 +10,20 @@ sidebar:
       href: tutorial.html
     - title: "Tilt's Control Loop"
       href: controlloop.html
+  - title: Tutorial
+    items:
+    - title: Overview
+      href: tutorial/
+    - title: 1. Preparation (optional)
+      href: tutorial/1-prerequisites.html
+    - title: 2. Tilt Up, Up, And Away
+      href: tutorial/2-tilt-up.html
+    - title: 3. Tilt UI
+      href: tutorial/3-tilt-ui.html
+    - title: 4. Smart Rebuilds with Live Update
+      href: tutorial/4-live-update.html
+    - title: 5. What's Next?
+      href: tutorial/references.html
   - title: Example Projects
     include: examples
   - title: Onboarding Your Team
