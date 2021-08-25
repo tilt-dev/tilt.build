@@ -2,9 +2,24 @@
 title: Search
 description: "Search the Tilt documentation."
 layout: docs
+hideHelpfulForm: true
+hideEditButton: true
 ---
 
 <script>
+(function() {
+  const searchEl = document.getElementById('q');
+  if (!searchEl) {
+    return;
+  }
+  try {
+    const urlParams = new URLSearchParams(window.location.search);
+    searchEl.value = urlParams.get('q');
+  } catch {
+    // just ignore, search box won't be pre-populated but it's ok
+  }
+})();
+
  (function() {
      var cx = '017353557192452135467:flbjzvynczi';
      var gcse = document.createElement('script');
@@ -16,3 +31,6 @@ layout: docs
  })();
 </script>
 <div class="gcse-searchresults-only" data-linkTarget="" />
+<noscript>
+Javscript is required for search functionality.
+</noscript>
