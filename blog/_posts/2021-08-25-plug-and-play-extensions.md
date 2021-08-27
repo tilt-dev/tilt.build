@@ -19,11 +19,11 @@ manicured garden.
 
 We have messy systems that need to interoperate!
 
-One way to help systems interoperate is to build castles of
+One way to help systems interoperate is to build piles of
 configuration. That's how teams end up with large YAML templates to express
 the ways server X's configuration depends on server A, B, and C's configuration.
 
-Another way is to react in realtime, and have servers that manage the
+Another way is to react in realtime and have servers, or controllers, that manage the
 configuration for us.
 
 Both strategies have their pros and cons. In this blog post, we're going to
@@ -57,17 +57,12 @@ Here's a good example of a Tilt extension: [`git_resource`](https://github.com/t
 
 When you start Tilt:
 
-- `load()` checks if you've downloaded the code for the `git_resource` extension.
-
-- If the code isn't loaded, the function blocks while it downloads.
-
-- `load()` executes the extension code, then imports the `git_resource` function.
-
-- The `git_resource()` function checks if you've downloaded the given repository.
-
-- If the repository isn't cloned, the function blocks while it does a `git clone`.
-
-- The `git_resource()` function finds the Dockerfile (for any image builds) and Kubernetes YAML (for any deploys) in the repository.
+1. `load()` checks if you've downloaded the code for the `git_resource` extension.
+1. If the code isn't loaded, the function blocks while it downloads.
+1. `load()` executes the extension code, then imports the `git_resource` function.
+1. The `git_resource()` function checks if you've downloaded the given repository.
+1. If the repository isn't cloned, the function blocks while it does a `git clone`.
+1. The `git_resource()` function finds the Dockerfile (for any image builds) and Kubernetes YAML (for any deploys) in the repository.
 
 We love the `git_resource` extension! We see teams use this a lot for multi-repo
 projects (where each service is in its own repo). They can 
@@ -78,14 +73,12 @@ easy to reason about. If any part of it fails, Tilt won't start.
 
 But this also has downsides! As the extension ecosystem grew, we started to see them:
 
-If we have a lot of synchronous extensions, starting Tilt can become
+- If we have a lot of synchronous extensions, starting Tilt can become
 slow. Reloading the configuration can become slow. Optimizing may be a pain.
-
-We can't parallelize `load()` or `git_resource()` while they're downloading. We
+- We can't parallelize `load()` or `git_resource()` while they're downloading. We
 could try to change the API to make them async.  But then we would need better
 primitives for expressing dependencies and pipelines of async operations.
-
-People started asking for the ability to pass more configuration parameters to
+- People started asking for the ability to pass more configuration parameters to
 `load()`, so we could change the execution of the extensions themselves. Or they
 wanted a way to hook into the "end" of the Tiltfile, so they could inspect all
 the resources that were defined.
@@ -100,9 +93,11 @@ no arguments to pass.
 You can load them from the Tiltfile. You can load them from the CLI.
 
 They're intended for auto-managing config, rather than for
-castles of configuration.
+piles of configuration.
 
 Here's what it looks like. 
+
+### Installing Extensions
 
 In your Tiltfile, we write:
 
@@ -136,6 +131,8 @@ Once the extension repo is finished downloading, Tilt will load the extension
 configuration. This is an extension Tiltfile that loads independently of the rest of your
 main Tiltfile.
 
+### Managing Extensions
+
 If you have a running Tilt session, you can use the CLI to inspect the extensions
 you have installed and their current status.
 
@@ -150,6 +147,8 @@ cancel   2021-08-25T00:30:29Z
 
 We can even install and uninstall extensions from the command-line with `tilt
 delete` and `tilt apply`. Or write extensions that manage other extensions! 😈
+
+## Configs vs. Controllers
 
 Last week, I wrote about the `cancel` extension [in more detail](https://blog.tilt.dev/2021/08/17/write-more-bash.html). `cancel` registers a server that watches Tilt resources,
 and adds cancel buttons to their UI dashboard if they need it. 
