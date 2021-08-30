@@ -4435,6 +4435,10 @@ by the
            <em>
             labels=[]
            </em>
+           ,
+           <em>
+            discovery_strategy=&apos;&apos;
+           </em>
            <span class="sig-paren">
             )
            </span>
@@ -5050,6 +5054,26 @@ thinks a resource has pods.
                   </a>
                   .
                  </p>
+                </li>
+                <li>
+                 <strong>
+                  discovery_strategy
+                 </strong>
+                 (
+                 <code class="xref py py-class docutils literal notranslate">
+                  <span class="pre">
+                   str
+                  </span>
+                 </code>
+                 ) &#x2013; Possible values: &#x2018;&#x2019;, &#x2018;default&#x2019;, &#x2018;selectors-only&#x2019;. When &#x2018;&#x2019; or &#x2018;default&#x2019;, Tilt both uses
+                 <cite>
+                  extra_pod_selectors
+                 </cite>
+                 and traces k8s owner references to identify this resource&#x2019;s pods. When &#x2018;selectors-only&#x2019;, Tilt uses only
+                 <cite>
+                  extra_pod_selectors
+                 </cite>
+                 .
                 </li>
                </ul>
               </td>

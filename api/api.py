@@ -343,7 +343,8 @@ def k8s_resource(workload: str = "", new_name: str = "",
                  auto_init: bool = True,
                  pod_readiness: str = "",
                  links: Union[str, Link, List[Union[str, Link]]]=[],
-                 labels: Union[str, List[str]] = []) -> None:
+                 labels: Union[str, List[str]] = [],
+                 discovery_strategy: str = "") -> None:
   """
 
   Configures or creates the specified Kubernetes resource.
@@ -441,6 +442,7 @@ def k8s_resource(workload: str = "", new_name: str = "",
     links: one or more links to be associated with this resource in the UI. For more info, see
       `Accessing Resource Endpoints <accessing_resource_endpoints.html#arbitrary-links>`_.
     labels: used to group resources in the Web UI, (e.g. you want all frontend services displayed together, while test and backend services are displayed seperately). A label must start and end with an alphanumeric character, can include ``_``, ``-``, and ``.``, and must be 63 characters or less. For an example, see `Resource Grouping <tiltfile_concepts.html#resource-groups>`_.
+    discovery_strategy: Possible values: '', 'default', 'selectors-only'. When '' or 'default', Tilt both uses `extra_pod_selectors` and traces k8s owner references to identify this resource's pods. When 'selectors-only', Tilt uses only `extra_pod_selectors`. 
   """
   pass
 
