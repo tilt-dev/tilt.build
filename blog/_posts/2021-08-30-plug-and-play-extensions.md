@@ -1,6 +1,6 @@
 ---
 slug: "plug-and-play-extensions"
-date: 2021-08-27
+date: 2021-08-30
 author: nick
 layout: blog
 title: "The Solution to Too Many Servers is More Servers"
