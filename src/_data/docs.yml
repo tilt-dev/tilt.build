@@ -45,6 +45,8 @@ sidebar:
       href: debuggers_python.html
     - title: Extensions
       href: extensions.html
+    - title: Custom Buttons
+      href: buttons.html
     - title: Contribute an Extension
       href: contribute_extension.html
   - title: Tilt Cloud
