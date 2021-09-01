@@ -22,6 +22,9 @@ Instead, images are built with [`kim`][kim] (**K**ubernetes **I**mage **M**anage
 Congrats to those of you who just won Cloud Native BINGO!
 For the rest of us, that means images are built natively within the Kubernetes cluster using the same underlying technology (BuildKit) as Docker.
 
+You'll need to activate the [`kim`][kim] symlink from the Rancher Desktop settings for Tilt to be able to use it:
+![Rancher Desktop open to the "Kubernetes Settings" section highlighting the checkbox for /usr/local/bin/kim](/assets/images/rancher-desktop/rancher-desktop-kim.png)
+
 **⚠️ [kim][] is still considered experimental!**
 
 Since Tilt's built-in [`docker_build`][tiltfile-docker-build] function does not natively support kim, we can use [`custom_build`][tiltfile-custom-build] instead.
