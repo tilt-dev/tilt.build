@@ -442,7 +442,7 @@ def k8s_resource(workload: str = "", new_name: str = "",
     links: one or more links to be associated with this resource in the UI. For more info, see
       `Accessing Resource Endpoints <accessing_resource_endpoints.html#arbitrary-links>`_.
     labels: used to group resources in the Web UI, (e.g. you want all frontend services displayed together, while test and backend services are displayed seperately). A label must start and end with an alphanumeric character, can include ``_``, ``-``, and ``.``, and must be 63 characters or less. For an example, see `Resource Grouping <tiltfile_concepts.html#resource-groups>`_.
-    discovery_strategy: Possible values: '', 'default', 'selectors-only'. When '' or 'default', Tilt both uses `extra_pod_selectors` and traces k8s owner references to identify this resource's pods. When 'selectors-only', Tilt uses only `extra_pod_selectors`. 
+    discovery_strategy: Possible values: '', 'default', 'selectors-only'. When '' or 'default', Tilt both uses `extra_pod_selectors` and traces k8s owner references to identify this resource's pods. When 'selectors-only', Tilt uses only `extra_pod_selectors`.
   """
   pass
 
@@ -1088,7 +1088,10 @@ def secret_settings(disable_scrub: bool = False) -> None:
 """
 
 
-def update_settings(max_parallel_updates: int=3, k8s_upsert_timeout_secs: int=30) -> None:
+def update_settings(
+    max_parallel_updates: int=3,
+    k8s_upsert_timeout_secs: int=30,
+    suppress_unused_image_warnings: Union[str, List[str]]=None) -> None:
   """Configures Tilt's updates to your resources. (An update is any execution of or
   change to a resource. Examples of updates include: doing a docker build + deploy to
   Kubernetes; running a live update on an existing container; and executing
@@ -1099,6 +1102,8 @@ def update_settings(max_parallel_updates: int=3, k8s_upsert_timeout_secs: int=30
   Args:
     max_parallel_updates: maximum number of updates Tilt will execute in parallel. Default is 3. Must be a positive integer.
     k8s_upsert_timeout_secs: timeout (in seconds) for Kubernetes upserts (i.e. ``create``/``apply`` calls). Minimum value is 1.
+    suppress_unused_image_warnings: suppresses warnings about images that aren't deployed.
+      Accepts a list of image names, or '*' to suppress warnings for all images.
 """
 
 def watch_settings(ignore: Union[str, List[str]]) -> None:
