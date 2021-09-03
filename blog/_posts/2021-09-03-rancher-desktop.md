@@ -3,7 +3,7 @@ slug: "rancher-desktop"
 date: 2021-09-03
 author: milas
 layout: blog
-title: "Switch from Desktop Desktop to Rancher Desktop in 5 Minutes"
+title: "Switch from Docker Desktop to Rancher Desktop in 5 Minutes"
 image: "/assets/images/rancher-desktop/title.jpg"
 image_caption: 'Photo by <a rel="noopener noreferrer" target="_blank" href="https://unsplash.com/@timwilson7">Tim Wilson</a>'
 description: "Configure Tilt to build images with kim for use with Rancher Desktop"
@@ -16,11 +16,10 @@ tags:
 
 ![Rancher Desktop interface on macOS](/assets/images/rancher-desktop/rancher-desktop.png)
 
-While there are some similarities with Docker Desktop due to using a transparent VM, Rancher Desktop does not include the full Docker Engine.
+While there are some similarities with Docker Desktop due to using a transparent VM, Rancher Desktop does not include the Docker Engine.
 
 Instead, images are built with [`kim`][kim] (**K**ubernetes **I**mage **M**anager), which uses a BuildKit daemon bound to the containerd socket on a Kubernetes node.
-Congrats to those of you who just won Cloud Native BINGO!
-For the rest of us, that means images are built natively within the Kubernetes cluster using the same underlying technology (BuildKit) as Docker.
+If your eyes glazed over during the second half of that sentence: images are built directly _within_ the Kubernetes cluster using the same underlying technology (BuildKit) as Docker.
 
 You'll need to activate the [`kim`][kim] symlink from the Rancher Desktop settings for Tilt to be able to use it:
 ![Rancher Desktop open to the "Kubernetes Settings" section highlighting the checkbox for /usr/local/bin/kim](/assets/images/rancher-desktop/rancher-desktop-kim.png)
