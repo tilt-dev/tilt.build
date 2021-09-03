@@ -8543,6 +8543,10 @@ sent or read from the socket.
            <em>
             k8s_upsert_timeout_secs=30
            </em>
+           ,
+           <em>
+            suppress_unused_image_warnings=None
+           </em>
            <span class="sig-paren">
             )
            </span>
@@ -8609,6 +8613,43 @@ a local resource command).
                   </span>
                  </code>
                  calls). Minimum value is 1.
+                </li>
+                <li>
+                 <strong>
+                  suppress_unused_image_warnings
+                 </strong>
+                 (
+                 <code class="xref py py-data docutils literal notranslate">
+                  <span class="pre">
+                   Union
+                  </span>
+                 </code>
+                 [
+                 <code class="xref py py-class docutils literal notranslate">
+                  <span class="pre">
+                   str
+                  </span>
+                 </code>
+                 ,
+                 <code class="xref py py-class docutils literal notranslate">
+                  <span class="pre">
+                   List
+                  </span>
+                 </code>
+                 [
+                 <code class="xref py py-class docutils literal notranslate">
+                  <span class="pre">
+                   str
+                  </span>
+                 </code>
+                 ],
+                 <code class="docutils literal notranslate">
+                  <span class="pre">
+                   None
+                  </span>
+                 </code>
+                 ]) &#x2013; suppresses warnings about images that aren&#x2019;t deployed.
+Accepts a list of image names, or &#x2018;*&#x2019; to suppress warnings for all images.
                 </li>
                </ul>
               </td>
