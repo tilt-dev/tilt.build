@@ -1,6 +1,6 @@
 ---
 slug: "rancher-desktop"
-date: 2021-09-03
+date: 2021-09-07
 author: milas
 layout: blog
 title: "Switch from Docker Desktop to Rancher Desktop in 5 Minutes"
@@ -41,7 +41,7 @@ def kim_build(ref, context, deps=None, **kwargs):
     custom_build(
         ref,
         command='kim build -t $EXPECTED_REF ' + shlex.quote(context),
-        command_bat='kim build -t %%EXPECTED_REF%% ' + shlex.quote(context),
+        command_bat='kim build -t %EXPECTED_REF% ' + shlex.quote(context),
         deps=deps or [context],
         disable_push=True,
         skips_local_docker=True,
