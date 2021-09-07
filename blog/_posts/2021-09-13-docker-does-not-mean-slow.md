@@ -1,6 +1,6 @@
 ---
 slug: "docker-does-not-mean-slow"
-date: 2021-09-01
+date: 2021-09-13
 author: milas
 layout: blog
 title: "Docker Does Not Mean Slow"
@@ -14,17 +14,22 @@ tags:
 There are _lots_ of guides out there about speeding up your Docker image builds.
 (Some of them are even written by folks other than ourselves!)
 
-This blog post isn't comprehensive, but focuses on a couple of oft-neglected and lesser-known techniques.
+This blog post isn't comprehensive but instead focuses on a couple of oft-neglected and lesser-known techniques.
 
 First, we'll cover some common pitfalls that `.dockerignore` can help you avoid.
 Then we'll look at `cache` mounts that let you re-use files between builds even after layers have been invalidated.
 
-Now's a good time to grab a coffee: we're going to dive in head-first!
+Now's a good time to grab a coffee: we're going to dive in head-first! ☕️
 
 ### Create & Tune Your `.dockerignore`
-[`.dockerignore`][dockerignore] is analogous to `.gitignore`, but instead of excluding files to commit, it excludes files from the image build context.
+Docker supports a special [`.dockerignore`][dockerignore] file, which excludes files from the image build context based on file patterns.
+For example, the pattern `**/*.tmp` will ignore any files with the `.tmp` extension at the root build context directory and any of its subdirectories, recursively.
 
-There are two big reasons an untuned `.dockerignore` file can result in performance woes: unnecessary layer cache invalidation and increased Docker context size.
+You might be familiar with `.gitignore`, which excludes files from being committed to your repo.
+A common misconception is that `.dockerignore` is **additive** with `.gitignore`, but Docker does NOT use `.gitignore`!
+(Additionally, while they look very similar, the file glob pattern syntax differs between them.)
+
+There are two big reasons an un-tuned `.dockerignore` file can result in performance woes: unnecessary layer cache invalidation and increased Docker context size.
 
 #### Unnecessary Layer Cache Invalidation
 Unnecessary layer cache invalidation can happen when **unused** files are added to an image.
@@ -131,8 +136,8 @@ You can also use this technique to [cache OS package manager packages][apt-cache
 ### What Else?
 There are many other tricks to speed up your Docker builds while keeping your images small, but a lot of it comes down to profiling your specific setup and iterating.
 
-When optimizing your `Dockerfile`, try building with `--progress=plain` and/or `--no-cache` to get a more traditional linear log output and help identify slow steps.
-Try changing different types of files (source code, package manager manifest, README, etc.) and observe the effect on a rebuild.
+While optimizing your `Dockerfile`, try building with `--progress=plain` and/or `--no-cache` to get a more traditional, linear log output to help identify slow steps.
+Try changing different types of files (source code, package manager manifest, README, etc.) and observe the effect on a re-build.
 
 Finally, a popular technique, particularly for compiled languages, is to use [multi-stage builds][multi-stage-builds].
 You can use this in some creative ways: stay tuned for the next entry in this series that will focus on that!
