@@ -1,6 +1,6 @@
 ---
 slug: "kubefwd-operator"
-date: 2021-09-02
+date: 2021-09-09
 author: nick
 layout: blog
 title: "How to Automagically Setup `kubefwd` to Bulk-Forward Ports"
@@ -97,6 +97,8 @@ pieces. The configuration looks [like
 this](https://github.com/tilt-dev/tilt-extensions/tree/e43897e7f540b7a5023d87aefe8941ddb3bb8c3a/kubefwd/Tiltfile):
 
 ```python
+# Tiltfile
+
 # Creates a temp file for sharing state.
 trigger_file = str(local('mktemp --suffix -tilt-kubefwd')).strip()
 
@@ -127,6 +129,8 @@ script that registers the
 button](https://github.com/tilt-dev/tilt-extensions/tree/e43897e7f540b7a5023d87aefe8941ddb3bb8c3a/kubefwd/create-refresh-button.sh):
 
 ```bash
+# create-refresh-button.sh
+
 cat <<EOF | tilt apply -f -
 apiVersion: tilt.dev/v1alpha1
 kind: UIButton
@@ -160,21 +164,22 @@ env tasks.
 
 Lastly, we can use the [KubernetesDiscovery
 API](https://api.tilt.dev/kubernetes/kubernetes-discovery-v1alpha1.html) to
-figure out what namespaces Tilt is deploying your resources to.
+figure out [what namespaces](https://github.com/tilt-dev/tilt-extensions/tree/e43897e7f540b7a5023d87aefe8941ddb3bb8c3a/kubefwd/watch-namespaces.sh) Tilt is deploying your resources to.
 
 ```bash
 #!/bin/bash
+# watch-namespaces.sh
 #
 # Continuously watch the namespaces that we're deploying to, and write them to
 # the trigger file.
 
-TRIGGER="$1"
+TRIGGER_FILE="$1"
 
 tilt get kubernetesdiscovery --watch -o name | while read -r; do
     NEW_NAMESPACES=$(tilt get kubernetesdiscovery -o=jsonpath='{.items[*].spec.watches[*].namespace}' | tr -s ' ' '\n' | sort -u)
-    OLD_NAMESPACES=$(cat "$TRIGGER")
+    OLD_NAMESPACES=$(cat "$TRIGGER_FILE")
     if [[ "$NEW_NAMESPACES" != "$OLD_NAMESPACES" ]]; then
-        echo "$NEW_NAMESPACES" > "$TRIGGER"
+        echo "$NEW_NAMESPACES" > "$TRIGGER_FILE"
     fi
 done
 ```
