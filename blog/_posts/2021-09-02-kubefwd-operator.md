@@ -15,16 +15,16 @@ tags:
   - kubefwd
 ---
 
-[`kubefwd`](https://kubefwd.com/) is a great tool for both getting started with
-Kubernetes. We even recommend it for folks who want to learn more about how
-Kubernetes works.
+[`kubefwd`](https://kubefwd.com/) kubefwd is a tool that makes network magic so
+you can access services from localhost the same way you would from inside a
+cluster. For example, I could access `http://elasticsearch:9200/` directly from
+localhost -- something that would normally only work for services within a cluster.
 
-`kubefwd` bulk-copies network settings inside your cluster to your local
-machine. URLs will resolve like they would inside the cluster. I use it to start
-a local server and have it end requests to in-cluster URLs, and `kubefwd` will
-make sure those requests reach the remote servers.
+It's a great tool for getting started with Kubernetes. We even recommend it for
+folks who want to learn more about how Kubernetes works.
 
-But it can be hard to use unless you understand how it works under the hood. When you start `kubefwd`, it:
+But it can be hard to use unless you understand how it works under the
+hood. When you start `kubefwd`, it:
 
 1) Watches all the services in your cluster.
 2) Creates DNS entries in /etc/hosts [the same way Kubernetes DNS would](https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/).
@@ -38,14 +38,15 @@ so they can give it `sudo` access without giving all of Tilt `sudo` access.
 They also want to be able to restart it, because sometimes it can get wedged
 and stuck forwarding traffic to the wrong pod.
 
-Can we make running `kubefwd` less awkward?
+But what if we could make running `kubefwd` less awkward?!
 
 It turns out we can! 
 
-In this post, we'll introduce the `kubefwd` extension, the dev experience we
-wanted with `kubefwd`, and how we bolted it onto our existing dev
-environments. Along the way, you'll learn how you can write operators for your
-own tasks.
+In this post, we'll talk a bit about the ideal dev experience we aimed for with
+`kubefwd`, and about the extension we came up with to implement that goal
+
+In the process, we also hope to show you that writing operators for your own
+tasks doesn't have to be complicated at all!
 
 ## The `kubefwd` extension
 
@@ -69,8 +70,9 @@ wedged.
 
 ![kubefwd Logs](/assets/images/kubefwd-operator/kubefwd-logs.jpg)
 
-But the "Refresh" button doesn't require `sudo`! And we idn't need to tell
-`kubefwd` what namespaces to watch.  It figured it out on it's own.
+But unlike when using the CLI, the "Refresh" button doesn't require `sudo`! And
+we didn't need to tell `kubefwd` what namespaces to watch.  It figured it out on
+it's own.
 
 How does that work?
 
@@ -78,7 +80,7 @@ How does that work?
 
 We had a couple basic requirements in mind:
 
-1. `kubefwd` is a dangerous tool! We do think you should get a security prompt when Tilt wants to use it.
+1. `kubefwd` can be a dangerous tool! We do think you should get a security prompt when Tilt wants to use it.
 
 1. You shouldn't need an extra terminal open for `sudo` passwords.
 
@@ -168,8 +170,8 @@ figure out what namespaces Tilt is deploying your resources to.
 
 TRIGGER="$1"
 
-tilt get kd --watch -o name | while read -r; do
-    NEW_NAMESPACES=$(tilt get kd -o=jsonpath='{.items[*].spec.watches[*].namespace}' | tr -s ' ' '\n' | sort -u)
+tilt get kubernetesdiscovery --watch -o name | while read -r; do
+    NEW_NAMESPACES=$(tilt get kubernetesdiscovery -o=jsonpath='{.items[*].spec.watches[*].namespace}' | tr -s ' ' '\n' | sort -u)
     OLD_NAMESPACES=$(cat "$TRIGGER")
     if [[ "$NEW_NAMESPACES" != "$OLD_NAMESPACES" ]]; then
         echo "$NEW_NAMESPACES" > "$TRIGGER"
@@ -177,7 +179,7 @@ tilt get kd --watch -o name | while read -r; do
 done
 ```
 
-(When we're writing tooling, we often abbreviate `tilt get kuberentesdiscovery`
+(When we're writing tooling, we often abbreviate `tilt get kubernetesdiscovery`
 to `tilt get kd` or `tilt get kdisco` 🕺).
 
 Our namespace watcher is a simple reconciler: it's continuously watching what
@@ -192,5 +194,4 @@ We're working with our partner teams to make it work well even if you're running
 Tilt in an SSH session. Or to configure it to `kubefwd` to namespaces you're not
 deploying to.
 
-We're also happy to pair with our friends on how to adapt it to your own
-environment!
+We're also happy to pair on how to adapt it to your own environment!
