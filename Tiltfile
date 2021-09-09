@@ -4,6 +4,10 @@ load('ext://tilt_inspector', 'tilt_inspector')
 
 tilt_inspector(port=4009)
 
+# Uncomment to try the kubefwd extension.
+#v1alpha1.extension_repo(name='default', url='https://github.com/tilt-dev/tilt-extensions')
+#v1alpha1.extension(name='kubefwd:config', repo_name='default', repo_path='kubefwd')
+
 default_registry('gcr.io/windmill-public-containers')
 set_team('0584d8f6-05a2-49f5-923b-657afef098fe')
 username = str(local('whoami')).rstrip('\n')
