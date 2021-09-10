@@ -10850,6 +10850,10 @@ a single token in a shell command.
            <em>
             repo_path=&apos;&apos;
            </em>
+           ,
+           <em>
+            args=None
+           </em>
            <span class="sig-paren">
             )
            </span>
@@ -10953,9 +10957,14 @@ a single token in a shell command.
                    str
                   </span>
                  </code>
-                 ) &#x2013; RepoName specifies the ExtensionRepo object where we should find this extension.
-The Extension controller should watch for changes to this repo, and may update if
-this repo is deleted or moved.
+                 ) &#x2013;
+                 <p>
+                  RepoName specifies the ExtensionRepo object where we should find this extension.
+                 </p>
+                 <p>
+                  The Extension controller should watch for changes to this repo, and
+may update if this repo is deleted or moved.
+                 </p>
                 </li>
                 <li>
                  <strong>
@@ -10967,9 +10976,46 @@ this repo is deleted or moved.
                    str
                   </span>
                  </code>
-                 ) &#x2013; RepoPath specifies the path to the extension directory inside the repo.
-Once the repo is downloaded, this path should point to a directory with a
+                 ) &#x2013;
+                 <p>
+                  RepoPath specifies the path to the extension directory inside the repo.
+                 </p>
+                 <p>
+                  Once the repo is downloaded, this path should point to a directory with a
 Tiltfile as the main &#x201C;entrypoint&#x201D; of the extension.
+                 </p>
+                </li>
+                <li>
+                 <strong>
+                  args
+                 </strong>
+                 (
+                 <code class="xref py py-data docutils literal notranslate">
+                  <span class="pre">
+                   Optional
+                  </span>
+                 </code>
+                 [
+                 <code class="xref py py-class docutils literal notranslate">
+                  <span class="pre">
+                   List
+                  </span>
+                 </code>
+                 [
+                 <code class="xref py py-class docutils literal notranslate">
+                  <span class="pre">
+                   str
+                  </span>
+                 </code>
+                 ]]) &#x2013;
+                 <p>
+                  Arguments to the Tiltfile loaded by this extension.
+                 </p>
+                 <p>
+                  Arguments can be positional ([&#x2018;a&#x2019;, &#x2018;b&#x2019;, &#x2018;c&#x2019;]) or flag-based (&#x2019;&#x2013;to-edit=a&#x2019;).
+By default, a list of arguments indicates the list of services in the tiltfile
+that should be enabled.
+                 </p>
                 </li>
                </ul>
               </td>
@@ -11110,10 +11156,15 @@ Tiltfile as the main &#x201C;entrypoint&#x201D; of the extension.
                    str
                   </span>
                  </code>
-                 ) &#x2013; The URL of the repo.
-Allowed:
-https: URLs that point to a public git repo.
+                 ) &#x2013;
+                 <p>
+                  The URL of the repo.
+                 </p>
+                 <p>
+                  Allowed:
+https: URLs that point to a public git repo
 file: URLs that point to a location on disk.
+                 </p>
                 </li>
                 <li>
                  <strong>
@@ -11125,7 +11176,8 @@ file: URLs that point to a location on disk.
                    str
                   </span>
                  </code>
-                 ) &#x2013; A reference to sync the repo to. If empty, Tilt will always update the repo to the latest version.
+                 ) &#x2013; A reference to sync the repo to. If empty, Tilt will always update
+the repo to the latest version.
                 </li>
                </ul>
               </td>
