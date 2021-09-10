@@ -15,7 +15,7 @@ tags:
   - kubefwd
 ---
 
-[`kubefwd`](https://kubefwd.com/) kubefwd is a tool that makes network magic so
+[`kubefwd`](https://kubefwd.com/) is a tool that makes network magic so
 you can access services from localhost the same way you would from inside a
 cluster. For example, I could access `http://elasticsearch:9200/` directly from
 localhost -- something that would normally only work for services within a cluster.
