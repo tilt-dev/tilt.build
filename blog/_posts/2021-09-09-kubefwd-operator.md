@@ -27,8 +27,11 @@ But it can be hard to use unless you understand how it works under the
 hood. When you start `kubefwd`, it:
 
 1) Watches all the services in your cluster.
+
 2) Creates DNS entries in /etc/hosts [the same way Kubernetes DNS would](https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/).
+
 3) Resolves the services to pods in your cluster.
+
 4) Forwards the DNS traffic from your local network to the right pods.
 
 Because `kubefwd` needs to edit `/etc/hosts`, it needs `sudo` access.
