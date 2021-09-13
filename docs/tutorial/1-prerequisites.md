@@ -27,7 +27,7 @@ On Windows, we've got an install script that will use [Scoop][scoop] if availabl
 iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/tilt-dev/tilt/master/scripts/install.ps1'))
 ```
 
-If you'd rather install manually or with an alternative method, refer to the [Alternative Installations][install-tilt-alternate] guide.
+If you'd rather install manually or another method, refer to the guide on [Alternative Installations][install-tilt-alternate].
 
 ## Install Docker
 Docker provides comprehensive [install instructions][install-docker] for all supported OSes and Linux distributions:
@@ -53,8 +53,8 @@ You should see some output from Docker as it downloads the `hello-world` image f
 If you are having trouble, Docker provides troubleshooting guides for [macOS][troubleshoot-docker-mac] and [Windows][troubleshoot-docker-windows].
 
 ## Provision a Local Kubernetes Cluster
-There are many different options for local development Kubernetes clusters such as KIND, k3d, and Docker Desktop.
-If you're curious about the different options, refer to the [Choosing A Local Cluster][guide-local-cluster] guide.
+There are many different options for local development Kubernetes clusters, such as KIND, k3d, and Docker Desktop.
+If you're curious about the different options, refer to the guide on [Choosing A Local Cluster][guide-local-cluster].
 
 Regardless of your choice, Tilt will detect the optimal configuration to ensure your image builds and deployments are as fast as possible.
 While Tilt also supports using a remote cluster for development, we recommend using a local cluster for this tutorial.

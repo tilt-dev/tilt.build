@@ -1,4 +1,4 @@
----
+****---
 title: Tilt Up, Up, And Away
 subtitle: Tilt Tutorial
 layout: docs
@@ -36,10 +36,10 @@ tilt up --port=3366
 You should see output similar to the following in your terminal:
 ![Running tilt up in a Terminal window shows "Tilt started on http://localhost:3366/" message](/assets/img/tutorial/tilt-up-cli.gif)
 
-Press `Spacebar` while your terminal is active and Tilt will launch your default browser.
-Alternatively, navigate to [http://localhost:3366/]() yourself.
+Hit `Spacebar` while your terminal is active, and Tilt will launch your default browser.
+(Or just navigate to [http://localhost:3366/]())
 
-In the next section, we'll explain the Tilt UI: but first, let's dissect what's happening in the background.
+In the next section, we'll explain the Tilt UI. But first, let's dissect what's happening in the background.
 <!-- TODO(milas): this would be a great place for a cheeky graphic about how we're stalling while the builds happen -->
 
 ## `Tiltfile`
@@ -47,37 +47,36 @@ When you run `tilt up`, Tilt looks for a special file named `Tiltfile` in the cu
 
 A `Tiltfile` is written in [Starlark][starlark], a simplified dialect of Python.
 
-> 🐍 Not a Python expert? No worries! Our guides have lots of examples, so you can copy & paste your way to success!
+> 🐍 Not a Python expert? No worries. Our guides have lots of examples, so you can copy & paste your way to success!
 
 Because your `Tiltfile` is a program, you can configure it with familiar constructs like loops, functions, and arrays.
-This makes the `Tiltfile` more extensible than a configuration file format like JSON or YAML that requires hard-coding all possible options up-front.
+This makes the `Tiltfile` more extensible than a configuration file format like JSON or YAML, which requires hard-coding all possible options upfront.
 
 Built-in functions like [`k8s_yaml`][api-k8s_yaml] and [`docker_build`][api-docker_build] register information with the Tilt engine.
-At the end of the execution, Tilt uses the resulting configuration to assemble resources to build and deploy.
+At the end of the execution, Tilt uses the resulting configuration to assemble resources to build and deploy. Then, based on the assembled resources, Tilt watches your source code files so it can trigger a rebuild on the associated service(s). 
 
-Additionally, based on the assembled resources, Tilt watches your source code files to trigger a rebuild on the associated service(s).
-Later, in the [Smart Rebuilds with Live Update][tutorial-live-update] section, we'll explore how Tilt makes it possible to optimize this process even more to skip container re-builds and Pod re-deployments entirely!  
+Later on, we'll explore how Tilt makes it possible to optimize this process even more. You can skip container re-builds and Pod re-deployments entirely via [Smart Rebuilds with Live Update][tutorial-live-update].
+
+(If you're curious, go ahead and open the [`tilt-avatars` Tiltfile][repo-tilt-avatars-tiltfile] and read through it.
+We won't tell anyone you peeked.)
 
 For now, that's all you need to know!
 <!-- TODO(milas): snarky graphic about how that ^^^ was a galaxy brain info dump? -->
 
-If you're curious, go ahead and open the [`tilt-avatars` Tiltfile][repo-tilt-avatars-tiltfile] and read through it.
-We won't tell anyone you peeked.
-
-## Resources
-A "resource" is a bundle of work managed by Tilt such as a Docker image to build + Kubernetes YAML to apply.
+## On Resources
+A "resource" is a bundle of work managed by Tilt. For example: a Docker image to build + a Kubernetes YAML to apply.
 
 > 😶‍🌫️ **Resources don't have to be containers!**
 >
 > Tilt can also [manage locally-executed commands][local-resource] to provide a unified experience no matter how your code runs.  
 
 Resource bundling is automatic in most cases: Tilt finds the relationship between bits of work (e.g. `docker_build` + `kubectl apply`).
-When that's not sufficient, `Tiltfile` functions like [`k8s_resource`][api-k8s_resource] let you configure resources on top of Tilt's automatic assembly.
+When that's not sufficient, `Tiltfile` functions like [`k8s_resource`][api-k8s_resource] let you configure resources on top of what Tilt does automatically.
 
-Because Tilt assembles multiple bits of work into a single resource, it's much easier to determine status and find errors across build, deploy, and runtime!
+Because Tilt assembles multiple bits of work into a single resource, it's much easier to determine status and find errors across build, deploy, and runtime.
 
 ### Update Status
-Whenever you run `tilt up` or change a source file, Tilt determines which resources need to be "updated".
+Whenever you run `tilt up` or change a source file, Tilt determines which resources need to be "updated." 
 
 > 🔥️ When you `tilt up`, if your services are already running and haven't changed, Tilt won't unnecessarily re-deploy them!
 
@@ -86,8 +85,7 @@ Some examples of actions that can occur during an update:
  * Build a container image (e.g. `docker build`)
  * Deploy a modified K8s object or Helm chart (e.g. `kubectl apply -f` or `helm install`)
 
-Tilt know which files correspond to a given resource and update action.
-It won't re-build a container just because you changed a Pod label or re-compile your backend after modifying some JSX. 
+Tilt knows which files correspond to a given resource and update action. It won't re-build a container just because you changed a Pod label, or re-compile your backend when you’ve only edited some JSX.
 
 ### Runtime Status
 Unfortunately, just because it builds does not mean it works.
@@ -96,8 +94,7 @@ In Tilt, the runtime status lets you know what's happening with your code _after
 
 <!-- TODO(milas): this section is chaotic, needs a CrashLoopBackOff joke graphic, and probably some more actual detail -->
 
-More importantly, Tilt lets you know _why_.
-There's a lot of ways things can go wrong, and Tilt will save you from playing "20 Questions with `kubectl`".
+More importantly, Tilt lets you know _why_. There's a lot of ways things can go wrong, and Tilt will save you from playing "20 Questions with `kubectl`."
 
 ## The Control Loop
 Many traditional build systems like `make` are oriented around tasks that are invoked on-demand by the user.
