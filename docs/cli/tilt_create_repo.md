@@ -3,33 +3,28 @@ title: Tilt CLI Reference
 layout: docs
 hideEditButton: true
 ---
-## tilt create cmd
+## tilt create repo
 
-Create a local command in a running tilt session
+Register an extension repository.
 
 ### Synopsis
 
-Create a local command in a running tilt session.
+Register a repository for loading Tilt extensions.
 
-Intended to compose with other Tilt APIs that
-can restart the command or monitor its status.
-
-COMMAND should be an executable. A shell script will not work.
-
-To run a shell script, use 'sh -c' (as shown in the examples).
+Tilt supports both git-hosted and local filesystem repositories.
 
 
 ```
-tilt create cmd NAME COMMAND [ARG...]
+tilt create repo NAME URL [ARG...]
 ```
 
 ### Examples
 
 ```
 
-tilt create cmd my-cmd echo hello world
-
-tilt create cmd my-cmd sh -c "echo hi && echo bye"
+tilt create repo default https://github.com/tilt-dev/tilt-extensions
+tilt create repo default file:///home/user/src/tilt-extensions
+tilt create repo default https://github.com/tilt-dev/tilt-extensions --ref=SHA
 
 ```
 
@@ -37,15 +32,13 @@ tilt create cmd my-cmd sh -c "echo hi && echo bye"
 
 ```
       --allow-missing-template-keys   If true, ignore any errors in templates when a field or map key is missing in the template. Only applies to golang and jsonpath output formats. (default true)
-  -e, --env stringArray               Set environment variables in the form NAME=VALUE.
-      --filewatch strings             Re-run the command whenever the named filewatches detect a change. See 'tilt create filewatch' for more.
-  -h, --help                          help for cmd
+  -h, --help                          help for repo
       --host string                   Host for the Tilt HTTP server. Only necessary if you started Tilt with --host. Overrides TILT_HOST env variable. (default "localhost")
   -o, --output string                 Output format. One of: json|yaml|name|go-template|go-template-file|template|templatefile|jsonpath|jsonpath-as-json|jsonpath-file.
       --port int                      Port for the Tilt HTTP server. Only necessary if you started Tilt with --port. Overrides TILT_PORT env variable. (default 10350)
+      --ref string                    Git reference to sync the repository to.
       --show-managed-fields           If true, keep the managedFields when printing objects in JSON or YAML format.
       --template string               Template string or path to template file to use when -o=go-template, -o=go-template-file. The template format is golang templates [http://golang.org/pkg/text/template/#pkg-overview].
-  -w, --workdir string                Working directory of the command. If not specified, uses the current working directory.
 ```
 
 ### Options inherited from parent commands
