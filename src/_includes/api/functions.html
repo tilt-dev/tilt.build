@@ -1690,6 +1690,10 @@ ensures a pretty high bar of intent.
            <em>
             pull=False
            </em>
+           ,
+           <em>
+            platform=&apos;&apos;
+           </em>
            <span class="sig-paren">
             )
            </span>
@@ -2301,6 +2305,42 @@ ensures a pretty high bar of intent.
                   </span>
                   <span class="pre">
                    --pull
+                  </span>
+                 </code>
+                 flag.
+                </li>
+                <li>
+                 <strong>
+                  platform
+                 </strong>
+                 (
+                 <code class="xref py py-class docutils literal notranslate">
+                  <span class="pre">
+                   str
+                  </span>
+                 </code>
+                 ) &#x2013; Target platform for build (e.g.
+                 <code class="docutils literal notranslate">
+                  <span class="pre">
+                   linux/amd64
+                  </span>
+                 </code>
+                 ). Defaults to the value of the
+                 <code class="docutils literal notranslate">
+                  <span class="pre">
+                   DOCKER_DEFAULT_PLATFORM
+                  </span>
+                 </code>
+                 environment variable. Equivalent to the
+                 <code class="docutils literal notranslate">
+                  <span class="pre">
+                   docker
+                  </span>
+                  <span class="pre">
+                   build
+                  </span>
+                  <span class="pre">
+                   --platform
                   </span>
                  </code>
                  flag.
