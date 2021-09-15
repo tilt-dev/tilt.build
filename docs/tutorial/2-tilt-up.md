@@ -4,34 +4,33 @@ subtitle: Tilt Tutorial
 layout: docs
 ---
 ## Tilt Avatars
-[Tilt Avatars][repo-tilt-avatars] is a small sample project created for this guide.
+We made [Tilt Avatars][repo-tilt-avatars] so you can try Tilt without first setting it up with your own project.
 
-It consists of a Python web API backend to generate avatars and a Javascript SPA (single page app) frontend.
-If you are not a Python or Javascript guru, don't panic!
+Tilt Avatars consists of a Python web API backend to generate avatars, and a Javascript SPA (single page app) frontend.
+It doesn’t matter if you’re not a Python or Javascript guru — you don’t need to deeply understand the project code to learn about the `Tiltfile` and other Tilt concepts.
 
 ![Randomized Tilt avatar generation](/assets/img/tutorial/tilt-avatars.gif)
 
-The focus of this project is on introducing the `Tiltfile` and other Tilt concepts: the services are demonstrative to support the guide, but you do not need to understand the code within them to be successful.
-
 > **We know that no two projects are alike!**
 >
-> While, this project uses `Dockerfile`s with Docker as the build engine and `kubectl`-friendly YAML files,
-> these only cover a small subset of Tilt functionality.
-> 
+> This project uses `Dockerfile`s with Docker as the build engine and `kubectl`-friendly YAML files.
+> But that’s only a small subset of Tilt functionality.
+>
 > Even if you're using other technologies (e.g. Helm, CRDs, `podman`), we recommend starting here to learn the Tilt fundamentals.
 >
 > Once you're comfortable with how Tilt works, we've got comprehensive guides on `Tiltfile` authoring that cover these topics and much more!
 
 ## Run `tilt up` for the First Time
+Tilt brings consistency to your development not only due to ensuring a reproducible dev-environment-as-code, but launching any Tilt project is the same with the `tilt up` command, so you always have a familiar starting point.
+`tilt up` starts the Tilt control loop, which we'll explore in more detail in a moment.
+
 Navigate to the [`tilt-avatars` directory][tutorial-prerequisites-sample-project] in a terminal and launch Tilt:
 ```bash
 tilt up --port=3366
 ```
 
-> The `--port` argument (or `TILT_PORT` environment variable) is optional.
->
-> The default port is `10350`.
-> You can run multiple instances of Tilt by specifying a different port for each.
+> We've specified `--port=3366` here to free up the default port in case you want to launch another Tilt project simultaneously.
+> If not overridden, the default Tilt port is `10350`.
 
 You should see output similar to the following in your terminal:
 ![Running tilt up in a Terminal window shows "Tilt started on http://localhost:3366/" message](/assets/img/tutorial/tilt-up-cli.gif)
@@ -76,9 +75,8 @@ When that's not sufficient, `Tiltfile` functions like [`k8s_resource`][api-k8s_r
 Because Tilt assembles multiple bits of work into a single resource, it's much easier to determine status and find errors across build, deploy, and runtime.
 
 ### Update Status
-Whenever you run `tilt up` or change a source file, Tilt determines which resources need to be "updated." 
-
-> 🔥️ When you `tilt up`, if your services are already running and haven't changed, Tilt won't unnecessarily re-deploy them!
+Whenever you run tilt up or change a source file, Tilt determines which resources need to be changed to bring them up-to-date.
+To execute these “updates,” Tilt might:
 
 Some examples of actions that can occur during an update:
  * Compile code locally on your machine (e.g. `make`)
@@ -86,6 +84,8 @@ Some examples of actions that can occur during an update:
  * Deploy a modified K8s object or Helm chart (e.g. `kubectl apply -f` or `helm install`)
 
 Tilt knows which files correspond to a given resource and update action. It won't re-build a container just because you changed a Pod label, or re-compile your backend when you’ve only edited some JSX.
+
+> 🔥️ When you `tilt up`, if your services are already running and haven't changed, Tilt won't unnecessarily re-deploy them!
 
 ### Runtime Status
 Unfortunately, just because it builds does not mean it works.
@@ -97,26 +97,30 @@ In Tilt, the runtime status lets you know what's happening with your code _after
 More importantly, Tilt lets you know _why_. There's a lot of ways things can go wrong, and Tilt will save you from playing "20 Questions with `kubectl`."
 
 ## The Control Loop
-Many traditional build systems like `make` are oriented around tasks that are invoked on-demand by the user.
-Even many service-oriented development tools like `docker-compose up` don't react to changes once started.
-Some tools such as Webpack (`npm run start`) often include hot module reload, but that often comes with its own limitations: for example, changes to `webpack.config.js` require manual user intervention to restart the tool.
+Tilt is based around the idea of a [control loop][control-loop].
+This gives you real-time, circular feedback: something watches, something reacts, and equilibrium is maintained.
 
-Tilt is based around the idea of a [control loop][control-loop] to give you real-time, circular feedback: something watches, something reacts, and equilibrium is maintained.
+This is intentionally more “hands-free” than other dev tools.
+Many traditional build systems like `make` are oriented around tasks that are invoked on-demand by the user.
+Even many service-oriented development tools like `docker-compose up` don't _react_ to changes once started.
+Some tools such as Webpack (`npm run start`) often include hot module reload, but have limitations.
+(For example, changes to `webpack.config.js` require a manual restart.)
 
 ![Diagram of Tilt's control loop architecture](/assets/img/controlloop/06.jpg)
 
-Some examples of how this manifests more concretely:
+Some examples of what Tilt handles for you:
  * Source code file changes -> sync to running container
  * Dependency changes (e.g. `package.json`) -> sync to running container and then run code in the container (e.g. `npm install`)
  * Build spec changes (e.g. `Dockerfile`) -> re-build container image + re-deploy
  * Deployment spec changes (e.g. `app.yaml`) -> reconcile deployment state (e.g. `kubectl apply -f ...`)
  * `Tiltfile` changes -> re-evaluate and create new resources, modify existing, and delete obsolete as needed
 
-In short, once you've run `tilt up`, you can focus on your code and let Tilt continuously react to your changes without worrying if they're the "right" type of changes.
+So, once you've run `tilt up`, you can focus on your code and let Tilt continuously react to your changes without worrying if they're the "right" type of changes.
 
-This has other benefits: for example, when you run `tilt up`, Tilt won't re-deploy any services that are already running and up-to-date!
+This has other benefits: for example, when you run tilt up, Tilt won't re-deploy any services that are already running and up-to-date!
 
 If you'd like a more in-depth look at Tilt's control loop, check out [Tilt's Control Loop Demystified][control-loop].
+
 
 [api-docker_build]: /api.html#api.docker_build
 [api-k8s_resource]: /api.html#api.k8s_resource

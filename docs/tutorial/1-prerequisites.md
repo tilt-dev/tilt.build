@@ -3,18 +3,19 @@ title: Preparation (Optional)
 subtitle: Tilt Tutorial
 layout: docs
 ---
-For this tutorial, we've designed a sample project that uses Docker for building container images and Kubernetes for running them.
-This section will walk you through installing Tilt and Docker, provisioning a local Kubernetes cluster, and cloning the sample project.
 
-In practice, Tilt is incredibly flexible and supports a variety of ways to build and deploy your services during local development.
-It's possible to use Tilt without Kubernetes and Docker!
+Tilt is incredibly flexible and supports a variety of ways to build and run your services during local development.
+(It's possible to use Tilt without Kubernetes and Docker!)
 
-> 💁‍♀️ The [What's Next?][tutorial-references] section includes resources for using Tilt with Helm, podman, local processes, and more
-
-This tutorial is focused on the Tilt fundamentals: we won't actually dive into a `Dockerfile` or Kubernetes YAML.
+For this tutorial, though, we'll walk you through a sample project that uses Docker for building container images, and Kubernetes for running them.
+For now, we’ll focus on Tilt fundamentals. We won't actually dive into a Dockerfile or Kubernetes YAML.
 (We have chosen them due to their prevalence and to ensure a consistent experience.)
 
-Regardless, if you'd prefer to not download additional tools, you can still follow along on the web - go ahead and skip to the [next section][tutorial-tilt-up]!
+In the following steps, you’ll install Tilt, install Docker, provision a local Kubernetes cluster, and get the sample project ready.
+
+Prefer not to download additional tools? You can still follow along on the web - go ahead and skip to the [next section][tutorial-tilt-up]!
+
+> 💁‍♀️ Want to see how flexible Tilt can be? The [What's Next?][tutorial-references] section includes resources for using Tilt with Helm, podman, local processes, and more
 
 ## Install Tilt
 On macOS/Linux, we've got an install script that will use [Homebrew][brew] if available (and a direct download otherwise):
