@@ -21,12 +21,16 @@ Let's test it out:
 Whoa, a lot just happened - time to break it down!
 
 ## 1. File Changed
-First, Tilt saw a file change:
+First, Tilt saw a file change and associated it with the "web" resource:
 ```log
 1 File Changed: [web/vite.config.js] • web
 ```
 
-The [Tilt Avatars][repo-tilt-avatars] file hierarchy looks like this:
+Let's take a peek into the `Tiltfile` to understand
+ * Why Tilt was watching for changes to `web/vite.config.js`
+ * How it knew `web/vite.config.js` belonged to the "web" resource
+
+For reference, here's an abbreviated file hierarchy for [Tilt Avatars][repo-tilt-avatars]:
 ```log
 tilt-avatars/
 ├── api/
@@ -40,7 +44,9 @@ tilt-avatars/
 └── Tiltfile
 ```
 
-In the `Tiltfile`, the container image build for the "web" resource looks like this:
+Ready?
+Okay.
+In the Tilt Avatars `Tiltfile`, which is at the repo root, the container image build for the "web" resource looks like this:
 ```python
 docker_build(
     'tilt-avatar-web',
@@ -51,19 +57,37 @@ docker_build(
     live_update=[...]  # omitted for brevity
 )
 ```
+> 📁 Path arguments for Tiltfile functions are relative to your `Tiltfile`'s path (refer back to the file hierarchy above if you get confused).
 
+Aha!
 Several of these arguments include paths.
-Paths arguments for functions in the `Tiltfile` are relative to the `Tiltfile` (refer back to the file hierarchy above if you get confused).
+Let's go through them one-by-one:
+ * `dockerfile` (optional): path for the `Dockerfile` to be used
 
-The `context` argument specifies the build context for Docker as the current directory, which is the repo root (`tilt-avatars/`).
-As a result, Tilt watches for changes to any modified files in this directory or any subdirectory, recursively.
+   This is optional and defaults to `./Dockerfile` to mimic `docker build ...` CLI behavior.
+   Tilt will watch this path (`./deploy/web.dockerfile` in our case) and trigger an image re-build if it changes, but it's not relevant here because we didn't edit it, so let's move on...   
 
-However, we also specified `only`, which is an optional argument that does two things:
- * Filter files included in the build context
- * Restrict file watching to the subset of paths
+ * `context`: build context for image build (specified here as the current directory, which is the repo root)
 
-Lastly, we've also provided a value for `ignore`, which as an optional argument to exclude certain paths from the build context and not watch for file changes to them. 
+   Tilt watches for changes to any modified files in this directory or any subdirectory, recursively.
+   Perfect! We changed `./web/vite.config.js`, which meets this criteria.
+   
+   However, let's keep looking at the other arguments to make sure they don't negate or alter this somehow... 
 
+ * `only` (optional): filters paths included in build context and restricts file watching to the subset of paths
+
+    Because we have a "mono-repo" (multiple services in a single repository) and the build context is the repo root (`.`), we set this to `['web/']` so that unrelated changes, such as those to the backend (files under `api/`) don't trigger a re-build of the "web" resource.
+    Since `./web/vite.config.js` _is_ under `./web/`, it hasn't been excluded, which is what we want!
+
+    Just one more argument to go...
+ 
+ * `ignore` (optional): excludes certain paths from the build context and ignores changes to them
+
+    We've used this to exclude `./web/dist/` for our production web assets, which otherwise match the rules defined by `context` and `only`.
+    This is supplementary to `.dockerignore`, but can be helpful for cases where you want different ignore rules for local dev with Tilt, for example.
+
+    As `./web/vite.config.js` is _not_ under `./web/dist/`, it was not ignored, which is what we'd expect.
+ 
 If we put all this together, Tilt is watching for any file changes in the `web/` directory or any of its subdirectories, recursively, EXCEPT for those in `web/dist` (or any of its subdirectories, recursively).
 Phew!
 
