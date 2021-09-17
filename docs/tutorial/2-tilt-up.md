@@ -139,5 +139,5 @@ If you'd like a more in-depth look at Tilt's control loop, check out [Tilt's Con
 [repo-tilt-avatars]: https://github.com/tilt-dev/tilt-avatars
 [repo-tilt-avatars-tiltfile]: https://github.com/tilt-dev/tilt-avatars/blob/main/Tiltfile
 [starlark]: https://docs.bazel.build/versions/main/skylark/language.html
-[tutorial-live-update]: ./4-live-update.html
+[tutorial-live-update]: ./5-live-update.html
 [tutorial-prerequisites-sample-project]: ./1-prerequisites.html#clone-the-sample-project

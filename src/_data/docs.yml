@@ -20,9 +20,11 @@ sidebar:
       href: tutorial/2-tilt-up.html
     - title: 3. Tilt UI
       href: tutorial/3-tilt-ui.html
-    - title: 4. Smart Rebuilds with Live Update
-      href: tutorial/4-live-update.html
-    - title: 5. What's Next?
+    - title: 4. Code. Update. Repeat.
+      href: tutorial/4-code-update-repeat.html
+    - title: 5. Smart Rebuilds with Live Update
+      href: tutorial/5-live-update.html
+    - title: 6. What's Next?
       href: tutorial/references.html
   - title: Example Projects
     include: examples
