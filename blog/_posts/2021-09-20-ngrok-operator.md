@@ -19,7 +19,7 @@ A solid network tunnel is like the swiss army knife of microservice development:
 once you can set one up easily, it has all sorts of fun use cases.
 
 [`ngrok`](https://ngrok.com/) is a tunneling tool that lets you share anything
-running locally on a public url. Once you have a public URL, you can:
+running locally on a public URL. Once you have a public URL, you can:
 
 - Share your in-progress server with a teammate.
 
