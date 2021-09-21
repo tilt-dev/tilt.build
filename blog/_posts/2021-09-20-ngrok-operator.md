@@ -68,7 +68,7 @@ When I view the logs of my blog, I have a new `start ngrok` button in the upper-
 
 ![ngrok start button](/assets/images/ngrok-operator/tunnel-2.jpg)
 
-If I click the button, Tilt configure ngrok with a tunnel to my blog on a public URL:
+If I click the button, Tilt configures `ngrok` with a tunnel to my blog on a public URL:
 
 ![ngrok start tunnel URL](/assets/images/ngrok-operator/tunnel-3.jpg)
 
