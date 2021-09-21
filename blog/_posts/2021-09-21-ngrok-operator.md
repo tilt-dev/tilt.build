@@ -56,7 +56,9 @@ This installs the `ngrok` extension in any running Tilt instance.[^1]
 You'll see three new resources appear in your dashboard: 
 
 1) A configuration resource, which monitors the health of the extension.
+
 2) An `ngrok:status` resource, which monitors the health of the ngrok server.
+
 3) An `ngrok:operator` resource, which checks which servers are eligible for ngrok tunnels.
 
 Here's what that looks like when I run our blog in Tilt itself:
