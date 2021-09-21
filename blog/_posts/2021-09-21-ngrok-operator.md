@@ -1,9 +1,9 @@
 ---
 slug: "ngrok-operator"
-date: 2021-09-20
+date: 2021-09-21
 author: nick
 layout: blog
-title: "How More Ngrok Tunnels Can Make Your Life Better"
+title: "How to Standardize Ngrok Tunnels in Your Dev Environment"
 subtitle: "A walkthrough of Tilt's ngrok operator"
 description: "A walkthrough of Tilt's ngrok operator"
 image: "/assets/images/ngrok-operator/tunnel-cat.jpg"
