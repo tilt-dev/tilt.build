@@ -12,6 +12,17 @@ tags:
 - rancher
 - kubernetes
 ---
+
+---
+
+## **UPDATE**: There is a [`kim` Tilt extension][tilt-ext-kim] available!
+
+If you want to get building using `kim` as fast as possible, check out the [usage instructions][tilt-ext-kim] for how to add it to your `Tiltfile`.
+
+If you're interested in how Tilt extensions for non-Docker container builders work, read on!
+
+---
+
 [Rancher Desktop][rancher-desktop] is a new way to run Kubernetes on macOS and Windows.
 
 ![Rancher Desktop interface on macOS](/assets/images/rancher-desktop/rancher-desktop.png)
@@ -79,7 +90,7 @@ STEP 1/3 — Building Custom Build: [my-static-site]
     Running custom build cmd "kim build -t $EXPECTED_REF ."
 
     ...
- 
+
 STEP 2/3 — Pushing my-static-site:tilt-build-1630528500
      Skipping push: custom_build() configured to handle push itself
 
@@ -102,7 +113,7 @@ Because [`custom_build`][tiltfile-custom-build] supports Live Update regardless 
 And of course, you still get all the other Tilt goodies like triggering rebuild on changes and [immutable tags][immutable-tags].
 
 A full `kim_build` implementation might take more arguments, e.g. custom path to `Dockerfile`, build args, and more.
-We're always open to new [extension contributions][tilt-extensions].
+There is a [`kim_build` extension][tilt-ext-kim] available and we're always open to PRs to improve it!
 
 Both [Rancher Desktop][rancher-desktop] and [`kim`][kim] are new and evolving fast!
 We're always excited to see new tools in the local Kubernetes space - if you're using Rancher Desktop with Tilt, [let us know][tilt-contact] ❤️
@@ -111,6 +122,7 @@ We're always excited to see new tools in the local Kubernetes space - if you're 
 [kim]: https://github.com/rancher/kim
 [rancher-desktop]: https://rancherdesktop.io/
 [tilt-contact]: https://tilt.dev/contact
+[tilt-ext-kim]: https://github.com/tilt-dev/tilt-extensions/tree/master/kim
 [tilt-extensions]: https://docs.tilt.dev/contribute_extension.html
 [tiltfile-custom-build]: https://docs.tilt.dev/api.html#api.custom_build
 [tiltfile-docker-build]: https://docs.tilt.dev/api.html#api.docker_build

@@ -219,6 +219,18 @@ Here are some sample usages of different types of flags that are supported:
 * Tiltfile syntax: `config.define_bool("foo")`
 * `tilt` invocation: `tilt up -- --foo` or `tilt up -- --foo=False`
 
+## Positional Arguments
+It's possible to define **at most one** option to receive any positional arguments.
+Most commonly, this is used for a list of string argument: the resulting option value will be a list of the positional arguments.
+
+For example, by default, for a non-positional list argument (`config.define_string_list('foo')`),
+to pass multiple values, you need to specify the flag each time (`tilt up -- --foo bar --foo baz`). 
+
+If you define it to take positional arguments (`config.define_string_list("foo", args=True)`),
+then you do _not_ specify the flag and all positional arguments will be merged into a list (`tilt up -- bar baz`).
+
+In both cases, `config.parse()['foo'] == ['bar', 'baz']`.
+
 ## Future Directions
 This section describes places we expect the config to go. Let us know if any of
 these would be particularly helpful to you and your team.

@@ -3,33 +3,40 @@ title: Tilt CLI Reference
 layout: docs
 hideEditButton: true
 ---
-## tilt create cmd
+## tilt create ext
 
-Create a local command in a running tilt session
+Register an extension.
 
 ### Synopsis
 
-Create a local command in a running tilt session.
+Register an extension with a running Tilt instance.
 
-Intended to compose with other Tilt APIs that
-can restart the command or monitor its status.
+An extension will load a set of services into your dev environment.
 
-COMMAND should be an executable. A shell script will not work.
+These might be services you need to run your app, or servers
+that add functionality to Tilt itself.
 
-To run a shell script, use 'sh -c' (as shown in the examples).
+Assumes that an extension repo has already been registered
+with 'tilt create repo' or in the Tiltfile.
 
 
 ```
-tilt create cmd NAME COMMAND [ARG...]
+tilt create ext NAME [ARG...]
 ```
 
 ### Examples
 
 ```
 
-tilt create cmd my-cmd echo hello world
+# Installs the extension from the extension repo 'default' under the path './cancel'.
+tilt create ext cancel
 
-tilt create cmd my-cmd sh -c "echo hi && echo bye"
+# Installs the extension from the extension repo 'default' under
+# and with custom argument '--namespaces=default' passed to the extension.
+tilt create ext my-kubefwd --path=./kubefwd -- --namespaces=default
+
+# Installs the extension from the extension repo 'dev' under the path './cancel'
+tilt create ext cancel --repo=dev
 
 ```
 
@@ -37,15 +44,14 @@ tilt create cmd my-cmd sh -c "echo hi && echo bye"
 
 ```
       --allow-missing-template-keys   If true, ignore any errors in templates when a field or map key is missing in the template. Only applies to golang and jsonpath output formats. (default true)
-  -e, --env stringArray               Set environment variables in the form NAME=VALUE.
-      --filewatch strings             Re-run the command whenever the named filewatches detect a change. See 'tilt create filewatch' for more.
-  -h, --help                          help for cmd
+  -h, --help                          help for ext
       --host string                   Host for the Tilt HTTP server. Only necessary if you started Tilt with --host. Overrides TILT_HOST env variable. (default "localhost")
   -o, --output string                 Output format. One of: json|yaml|name|go-template|go-template-file|template|templatefile|jsonpath|jsonpath-as-json|jsonpath-file.
+      --path string                   The path of the extension. If not specified, defaults to the extension name.
       --port int                      Port for the Tilt HTTP server. Only necessary if you started Tilt with --port. Overrides TILT_PORT env variable. (default 10350)
+      --repo string                   The name of the extension repo (list existing repos with 'tilt get repo') (default "default")
       --show-managed-fields           If true, keep the managedFields when printing objects in JSON or YAML format.
       --template string               Template string or path to template file to use when -o=go-template, -o=go-template-file. The template format is golang templates [http://golang.org/pkg/text/template/#pkg-overview].
-  -w, --workdir string                Working directory of the command. If not specified, uses the current working directory.
 ```
 
 ### Options inherited from parent commands
