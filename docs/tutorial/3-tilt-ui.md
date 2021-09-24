@@ -16,7 +16,7 @@ You can always return to it by clicking the Tilt logo in the upper left corner.
 
 This view shows all your resources (services) at a glance, grouped by their [resource labels][tiltfile-labels].
 
-The Resource Overview is essential to get a quick view of your project's entire state, and offers critical info at a glance:
+The Resource Overview is essential to get a quick view of your project's entire state and offers critical info at a glance:
  * **Update and Resource Status**
 
    If you look at the `api` resource row, you'll see both the update and runtime status.

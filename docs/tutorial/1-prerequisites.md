@@ -8,8 +8,7 @@ Tilt is incredibly flexible and supports a variety of ways to build and run your
 (It's possible to use Tilt without Kubernetes and Docker!)
 
 For this tutorial, though, we'll walk you through a sample project that uses Docker for building container images, and Kubernetes for running them.
-For now, we'll focus on Tilt fundamentals. We won't actually dive into a Dockerfile or Kubernetes YAML.
-(We have chosen them due to their prevalence and to ensure a consistent experience.)
+For now, we'll focus on Tilt fundamentals. We won't actually dive into a Dockerfile or Kubernetes YAML, since that's out of scope in this introduction.
 
 In the following steps, you'll install Tilt, install Docker, provision a local Kubernetes cluster, and get the sample project ready.
 

@@ -14,7 +14,7 @@ For unoptimized Kubernetes-based development, every code change requires:
 
 Live Update solves these challenges by performing an **in-place update of the containers in your cluster**.
 
-It works with both frameworks that natively support hot reload (e.g. Webpack) as well as compiled languages.
+It works with frameworks that natively support hot reload (e.g. Webpack), as well as compiled languages.
 
 Time to try it out:
  1. Open `api/app.py` in your favorite editor

@@ -6,7 +6,7 @@ layout: docs
 ## Tilt Avatars
 We made [Tilt Avatars][repo-tilt-avatars] so you can try Tilt without first setting it up for your own project.
 
-Tilt Avatars consists of a Python web API backend to generate avatars, and a Javascript SPA (single page app) frontend.
+Tilt Avatars consists of a Python web API backend to generate avatars, and a JavaScript SPA (single page app) frontend.
 **It doesn't matter if you're not a Python or Javascript guru** — you won't need to deeply understand the project code to learn about the `Tiltfile` and other Tilt concepts.
 
 ![Randomized Tilt avatar generation](/assets/docimg/tutorial/tilt-avatars.gif)
@@ -82,8 +82,8 @@ When that's not sufficient, `Tiltfile` functions like [`k8s_resource`][api-k8s_r
 Because Tilt assembles multiple bits of work into a single resource, it's much easier to determine status and find errors across update (build/deploy) and runtime.
 
 ### Update Status
-Whenever you run tilt up or change a source file, Tilt determines which resources need to be changed to bring them up-to-date.
-To execute these "updates," Tilt might:
+Whenever you run `tilt up` or change a source file, Tilt determines which resources need to be changed to bring them up-to-date.
+To execute these updates, Tilt might:
  * Compile code locally on your machine (e.g. `make`)
  * Build a container image (e.g. `docker build`)
  * Deploy a modified K8s object or Helm chart (e.g. `kubectl apply -f` or `helm install`)
@@ -112,7 +112,7 @@ This gives you real-time, circular feedback: something watches, something reacts
 This is intentionally more "hands-free" than other dev tools.
 Traditional build systems like `make` are oriented around tasks that are invoked on-demand by the user.
 Even many service-oriented development tools like `docker-compose up` don't _react_ to changes once started.
-Newer tools, such as Webpack (`npm run start`), often include hot module reload, but have limitations.
+Newer tools, such as Webpack, often include hot module reload, but have limitations.
 (For example, changes to `webpack.config.js` require a manual restart.)
 
 ![Diagram of Tilt's control loop architecture](/assets/img/controlloop/06.jpg)
@@ -126,7 +126,7 @@ Some examples of what Tilt handles for you:
 
 **So, once you've run `tilt up`, you can focus on your code and let Tilt continuously react to your changes without worrying if they're the "right" type of changes.**
 
-This has other benefits: for example, when you run tilt up, Tilt won't re-deploy any services that are already running and up-to-date!
+This has other benefits: for example, when you run `tilt up`, Tilt won't re-deploy any services that are already running and up-to-date!
 
 If you'd like a more in-depth look at Tilt's control loop, check out [Tilt's Control Loop Demystified][control-loop].
 

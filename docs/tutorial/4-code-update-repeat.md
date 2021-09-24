@@ -117,7 +117,7 @@ STEP 3/3 — Deploying
      → web:deployment
 ```
 First, Tilt built an updated version of the container image.
-Then, it pushed it to our local registry so that it can be used by Kubernetes.
+Then, it pushed the image to our local registry so that it can be used by Kubernetes.
 (This step could look different for you!
 Tilt adapts its workflow based on your local cluster setup, which might not require image pushes.)
 Finally, it deployed the updated image.
