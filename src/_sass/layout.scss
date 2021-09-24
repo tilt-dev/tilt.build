@@ -23,7 +23,7 @@ figcaption,
   font-size: $small-font-size;
 }
 
-iframe, .docsContent img, .blogContent img {
+iframe, .blogContent img {
   @include mobile {
     max-width: 100%;
   }
@@ -107,46 +107,6 @@ li {
 .post-link {
   display: block;
   @include relative-font-size(1.5);
-}
-
-.sidebar {
-  display: block;
-  flex: 0 0 $sidebar-width;
-  margin-right: $spacing-unit;
-
-  // sticky on scroll
-  position: sticky;
-  top: 0;
-  overflow-y: auto;
-  max-height: 100vh;
-
-  @include docs-mobile {
-    max-width: $col-2of3-width;
-  }
-}
-
-.docsContent {
-  display: block;
-  flex: 1 0 $docs-width;
-  // needed to prevent child <pre> elements from expanding forever
-  // and causing wrapping problems
-  min-width: 0;
-
-  @include docs-mobile {
-    max-width: 100%;
-  }
-}
-
-.docsFooter {
-  margin-top: 1rem;
-  font-family: $chrome-font-family;
-  font-size: 16px;
-  line-height: normal;
-  font-weight: $chrome-font-weight;
-
-  a {
-    padding: $spacing-unit / 4;
-  }
 }
 
 .blogContent {
@@ -403,7 +363,7 @@ h2 a:hover {
 }
 
 
-h2, .docsContent h1 {
+h2 {
   font-family: $header-font-family;
   font-variant-ligatures: none;
   font-size: 32px;
@@ -422,8 +382,6 @@ h2, .docsContent h1 {
   color: $color-red;
 }
 
-/* on docs pages, these are grouped together */
-.docsContent h1,
 .sidebar h2 {
   font-size: 32px;
   line-height: normal;
@@ -432,9 +390,7 @@ h2, .docsContent h1 {
 
 h3,
 .wrapper--landing h2,
-.docsContent h2,
-.blogContent h2,
-.docsContent h2 a {
+.blogContent h2 {
   font-family: $header-font-family;
   font-variant-ligatures: none;
   font-size: 24px;
@@ -450,16 +406,8 @@ h3,
   }
 }
 
-.docsContent h2 a:hover:before {
-  content: "🔗 ";
-  position: absolute;
-  margin-left: -1.25em;
-  font-size: 75%;
-}
-
 h4,
 .wrapper--landing h3,
-.docsContent h3,
 .blogContent h3 {
   font-family: $header-font-family;
   font-variant-ligatures: none;
@@ -469,11 +417,8 @@ h4,
   font-weight: 700;
   letter-spacing: 0;
 }
-.docsContent h3 {
-  font-size: 20px;
-}
+
 .wrapper--landing h3,
-.docsContent h3,
 .blogContent h3 {
   color: $text-color;
 }
@@ -551,55 +496,6 @@ h3.relatedHeader {
   margin-top: $spacing-unit / 2;
 }
 
-.sidebar-opener {
-  background-color: $color-green;
-  opacity: $opacity-light;
-  padding: 10px $spacing-unit / 2;
-  margin-bottom: $spacing-unit / 2;
-
-  font-family: $chrome-font-family;
-  font-variant-ligatures: none;
-  font-size: 22px;
-  font-weight: $chrome-font-weight;
-  line-height: 28px;
-  color: white;
-  cursor: pointer;
-  border: 0;
-  width: 100%;
-  text-align: left;
-  position: relative;
-}
-.sidebar-opener svg {
-  float: right;
-  display: block;
-  margin-top: 6px;
-  transition: transform 0.2s;
-}
-.sidebar.is-open .sidebar-opener svg {
-  transform: scaleY(-1);
-}
-.sidebar.is-open .sidebar-opener {
-  margin-bottom: 0;
-}
-
-.sidebar-contents {
-  @include docs-mobile {
-    display: none;
-    background-color: $color-grey-lightest;
-    padding: $spacing-unit / 2;
-    margin-bottom: 1.5 * $spacing-unit;
-  }
-}
-
-.sidebar.is-open .sidebar-contents {
-  @include docs-mobile {
-    display: block;
-  }
-}
-
-nav.sidebar h3 {
-  margin: 1rem 0 0.2rem 0;
-}
 
 .nav-accordion__panel[aria-hidden=true] {
   display: none;
@@ -670,33 +566,6 @@ button.nav-accordion__header {
 
 .sidebar-link-active {
   font-weight: bold;
-}
-
-.subnav {
-  flex-basis: 100%;
-  display: flex;
-  flex-direction: row-reverse;
-  flex-wrap: wrap;
-  align-items: baseline;
-  justify-content: space-between;
-  margin-bottom: 1.25 * $spacing-unit;
-
-  form {
-    flex: 1 0 auto;
-  }
-
-  ul.subnav-links {
-    margin: 0;
-    flex: 4 0 auto;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-
-    li {
-      display: inline;
-      margin-right: 1rem;
-    }
-  }
 }
 
 label, .formItem-label {
@@ -1260,15 +1129,6 @@ h4 .fillStd {
   box-shadow: 8px 10px 16px 16px $color-grey-lightest !important;
 }
 
-.docsContent img {
-  box-shadow: 4px 5px 8px 8px $color-grey-lightest;
-  margin: $spacing-unit * 0.5 $spacing-unit;
-  max-width: $docs-width - 2 * $spacing-unit;
-  box-sizing: content-box;
-}
-.docsContent figcaption {
-  margin: $spacing-unit / 4 $spacing-unit;
-}
 
 img.no-shadow {
   box-shadow: none;

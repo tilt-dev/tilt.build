@@ -1,3 +1,10 @@
+top:
+  - title: Getting Started
+    href: x.html
+  - title: Guides
+    href: x.html
+  - title: References
+    href: x.html
 sidebar:
   - title: Getting Started
     default: true
@@ -97,12 +104,3 @@ sidebar:
       href: cli/tilt.html
     - title: Code of Conduct
       href: code_of_conduct.html
-subnav:
-  - title: Overview
-    href: ''
-  - title: Tiltfile API
-    href: api.html
-  - title: CLI Reference
-    href: cli/tilt.html
-  - title: FAQ
-    href: faq.html

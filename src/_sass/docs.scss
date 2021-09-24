@@ -1,3 +1,206 @@
+.Docs-wrapper {
+  display: flex;
+  flex-direction: column;
+
+  @include docs-mobile {
+    display: block;
+    max-width: $content-width;
+  }
+}
+
+.Docs-header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.Docs-nav {}
+.Docs-nav-list {
+  display: flex;
+}
+
+.Docs-nav-link {
+
+}
+
+.Docs-search-input {
+  font-size: 16px;
+}
+
+
+.Docs-body {
+  display: flex;
+}
+
+.sidebar-opener {
+  background-color: $color-green;
+  opacity: $opacity-light;
+  padding: 10px $spacing-unit / 2;
+  margin-bottom: $spacing-unit / 2;
+
+  font-family: $chrome-font-family;
+  font-variant-ligatures: none;
+  font-size: 22px;
+  font-weight: $chrome-font-weight;
+  line-height: 28px;
+  color: white;
+  cursor: pointer;
+  border: 0;
+  width: 100%;
+  text-align: left;
+  position: relative;
+}
+.sidebar-opener svg {
+  float: right;
+  display: block;
+  margin-top: 6px;
+  transition: transform 0.2s;
+}
+.sidebar.is-open .sidebar-opener svg {
+  transform: scaleY(-1);
+}
+.sidebar.is-open .sidebar-opener {
+  margin-bottom: 0;
+}
+
+.sidebar-contents {
+  @include docs-mobile {
+    display: none;
+    background-color: $color-grey-lightest;
+    padding: $spacing-unit / 2;
+    margin-bottom: 1.5 * $spacing-unit;
+  }
+}
+
+.sidebar.is-open .sidebar-contents {
+  @include docs-mobile {
+    display: block;
+  }
+}
+
+nav.sidebar h3 {
+  margin: 1rem 0 0.2rem 0;
+}
+
+
+
+.docsContent h1 {
+  font-family: $header-font-family;
+  font-variant-ligatures: none;
+  font-size: 32px;
+  line-height: 40px;
+  font-weight: 300;
+  letter-spacing: 0;
+  margin-bottom: $spacing-unit;
+  color: $color-blue;
+
+  @include mobile {
+    font-size: 28px;
+    line-height: 35px;
+  }
+}
+
+
+
+// Typography
+/* on docs pages, these are grouped together */
+.docsContent h1 {
+  font-size: 32px;
+  line-height: normal;
+  margin-bottom: $spacing-unit / 2;
+}
+
+.docsContent h2,
+.docsContent h2 a {
+  font-family: $header-font-family;
+  font-variant-ligatures: none;
+  font-size: 24px;
+  letter-spacing: 0;
+  color: $color-blue;
+  font-weight: 700;
+  margin-bottom: $spacing-unit / 2;
+  letter-spacing: 0;
+
+  @include mobile {
+    font-size: 22px;
+    line-height: 28px;
+  }
+}
+
+.docsContent h2 a:hover:before {
+  content: "🔗 ";
+  position: absolute;
+  margin-left: -1.25em;
+  font-size: 75%;
+}
+
+.docsContent h3 {
+  font-family: $header-font-family;
+  font-variant-ligatures: none;
+  font-size: 18px;
+  line-height: normal;
+  color: $color-blue;
+  font-weight: 700;
+  letter-spacing: 0;
+}
+.docsContent h3 {
+  font-size: 20px;
+}
+
+.docsContent h3 {
+  color: $text-color;
+}
+
+/* on docs pages, these are grouped together */
+.docsContent h1 {
+  font-size: 32px;
+  line-height: normal;
+  margin-bottom: $spacing-unit / 2;
+}
+
+
+
+.sidebar {
+  display: block;
+  flex: 0 0 $sidebar-width;
+  margin-right: $spacing-unit;
+
+  // sticky on scroll
+  position: sticky;
+  top: 0;
+  overflow-y: auto;
+  max-height: 100vh;
+
+  @include docs-mobile {
+    max-width: $col-2of3-width;
+  }
+}
+
+.docsContent {
+  display: block;
+  flex: 1 0 $docs-width;
+  // needed to prevent child <pre> elements from expanding forever
+  // and causing wrapping problems
+  min-width: 0;
+
+  @include docs-mobile {
+    max-width: 100%;
+  }
+}
+
+.docsFooter {
+  margin-top: 1rem;
+  font-family: $chrome-font-family;
+  font-size: 16px;
+  line-height: normal;
+  font-weight: $chrome-font-weight;
+
+  a {
+    padding: $spacing-unit / 4;
+  }
+}
+
+
+
 .Docs-video {
   position: relative;
   padding-bottom: 56.25%; /* 16:9 */
@@ -14,9 +217,30 @@
   height: 100%;
 }
 
+.docsContent img {
+  box-shadow: 4px 5px 8px 8px $color-grey-lightest;
+  margin: $spacing-unit * 0.5 $spacing-unit;
+  max-width: $docs-width - 2 * $spacing-unit;
+  box-sizing: content-box;
+}
+.docsContent figcaption {
+  margin: $spacing-unit / 4 $spacing-unit;
+}
+
+
+.docsContent img, {
+  @include mobile {
+    max-width: 100%;
+  }
+}
+
+
 .body--docs {
   .page-content {
     // default layout includes excessive top padding
     padding-top: 0;
   }
 }
+
+
+

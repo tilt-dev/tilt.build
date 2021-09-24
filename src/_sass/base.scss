@@ -211,17 +211,7 @@ ul + div.highlighter-rouge {
     max-width: $content-width;
   }
 }
-.wrapper--docs {
-  max-width: $header-width + $spacing-unit;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
 
-  @include docs-mobile {
-    display: block;
-    max-width: $content-width;
-  }
-}
 .wrapper--blog {
   max-width: $blog-width;
 
