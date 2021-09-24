@@ -101,11 +101,12 @@ Will copy 1 file(s) to container: 4a9aac5527
 We think Live Update is part of what makes Tilt truly special.
 Its flexibility makes it possible to use with both interpreted and compiled languages, regardless of whether the framework supports hot module reload.
 
-This tutorial has only scratched the surface of what's possible, and we know it can be daunting!
-The references section includes in-depth guides on Live Update, example projects written in different languages & frameworks using Tilt, and much more.
+This tutorial has only scratched the surface of what's possible, and we know it can be daunting, but you've got this.
+Now that you're familiar with how Tilt works and have seen some `Tiltfile` snippets, you're ready to follow the [Write a Tiltfile Guide][guide-tiltfile-authoring] and start using Tilt in your _own_ project!
 
 We're also always excited to hear about how you are using Tilt or provide a helping hand, so do [be in touch][contact] ❤️
 
 
 [contact]: /contact
 [guide-live-update-restart]: /live_update_reference.html#restarting-your-process
+[guide-tiltfile-authoring]: /tiltfile_authoring.html

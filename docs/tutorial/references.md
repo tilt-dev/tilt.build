@@ -3,13 +3,19 @@ title: What's Next? I Need More!
 subtitle: Tilt Tutorial
 layout: docs
 ---
+Now you've tried Tilt with a sample app, here's an overview of what we offer in showing you how to set up Tilt on your own unique application.
+
 ## Learn About Tilt
+Familiarize yourself with Tilt concepts as well as the power and flexibility of the `Tiltfile`. 
+
 * [Tiltfile Concepts](/tiltfile_concepts.html)
 * [Tilt's Control Loop](/controlloop.html)
 * [Guide: Write a `Tiltfile`](/tiltfile_authoring.html)
 * [Guide: Choosing a Local Kubernetes Dev Cluster](/choosing_clusters.html)
 
 ## Live Update
+How to optimize your setup to get updates down from minutes to **seconds**.
+
 * [Tutorial: Add Live Update to `Tiltfile`](/live_update_tutorial.html)
 * [Live Update Technical Specification](/live_update_reference.html)
 * Language/Framework Sample Projects
@@ -25,6 +31,9 @@ layout: docs
 * [Guide: Debugging File Changes](/file_changes.html)
 
 ## Non-Kubernetes Resources
+Not all dev environments are 100% containerized, so Tilt can also manage a mix of local processes.
+It's also possible to use Docker Compose in place of Kubernetes.
+
 * [Local Resources](/local_resource.html)
   * [`local_resource()` API](/api.html#api.local_resource)
 * [Docker Compose](/docker_compose.html)
@@ -42,6 +51,8 @@ layout: docs
   * [podman](https://github.com/tilt-dev/tilt-extensions/tree/master/podman) (daemonless container engine)
 
 ## Configure Tilt
+Tilt tries to have sane defaults and auto-detect as much as possible but always lets you customize behavior when you need to.
+
 * [Custom Buttons](/buttons.html)
 * [Port Forwards](/accessing_resource_endpoints.html)
 * [Resource Dependencies](/resource_dependencies.html)
@@ -58,16 +69,22 @@ layout: docs
   * [Custom Resource Definitions (CRDs)](/custom_resource.html)
   
 ## Extending Tilt
+If you want to build your own Tilt client, or just make the Web UI work a bit differently...
+
 * [Guide: Using Extensions](/extensions.html)
 * [Tilt Extensions Repository](https://github.com/tilt-dev/tilt-extensions)
 * [Guide: Contribute an Extension](/contribute_extension.html)
 
 ## Troubleshooting
+Sometimes things go wrong (even with Tilt), and we're here for you.
+
 * [Guide: Debugging File Changes](/file_changes.html)
 * [Why Is Tilt Broken?](/debug_faq.html)
 * [Frequently Asked Questions (FAQ)](/faq.html)
 
 ## Reference
+Always up-to-date, automatically generated references.
+
 * [Tiltfile API](/api.html)
 * [`tilt` CLI](/cli/tilt.html)
 * [Tilt Public API](https://api.tilt.dev)

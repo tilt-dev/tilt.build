@@ -1,5 +1,5 @@
 ---
-title: Tilt Up, Up, And Away
+title: Launching & Managing Resources
 subtitle: Tilt Tutorial
 layout: docs
 ---
@@ -7,7 +7,7 @@ layout: docs
 We made [Tilt Avatars][repo-tilt-avatars] so you can try Tilt without first setting it up for your own project.
 
 Tilt Avatars consists of a Python web API backend to generate avatars, and a JavaScript SPA (single page app) frontend.
-**It doesn't matter if you're not a Python or Javascript guru** — you won't need to deeply understand the project code to learn about the `Tiltfile` and other Tilt concepts.
+**It doesn't matter if you're not a Python or JavaScript guru** — you won't need to deeply understand the project code to learn about the `Tiltfile` and other Tilt concepts.
 
 ![Randomized Tilt avatar generation](/assets/docimg/tutorial/tilt-avatars.gif)
 

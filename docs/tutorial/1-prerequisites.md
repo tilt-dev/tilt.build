@@ -14,7 +14,9 @@ In the following steps, you'll install Tilt, install Docker, provision a local K
 
 Prefer not to download additional tools? You can still follow along on the web - go ahead and skip to the [next section][tutorial-tilt-up]!
 
-> 💁‍♀️ Want to see how flexible Tilt can be? The [What's Next?][tutorial-references] section includes resources for using Tilt with Helm, podman, local processes, and more
+> 💁‍♀️ **Not using Kubernetes or Docker?**
+> 
+> We've got plenty of guides for using Tilt with Helm, podman, local processes, and more!
 
 ## Install Tilt
 On macOS/Linux, we've got an install script that will use [Homebrew][brew] if available (and a direct download otherwise):
@@ -133,5 +135,4 @@ In the next step, we'll launch it (with Tilt, of course!)
 [scoop]: https://scoop.sh/
 [troubleshoot-docker-mac]: https://docs.docker.com/desktop/mac/troubleshoot/
 [troubleshoot-docker-windows]: https://docs.docker.com/desktop/windows/troubleshoot/
-[tutorial-references]: ./references.html
 [tutorial-tilt-up]: ./2-tilt-up.html
