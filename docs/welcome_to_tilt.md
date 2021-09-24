@@ -102,7 +102,7 @@ Keep an eye on build and health status as you code
   here after Tilt was set up in your project.
   <br><br>
   Don’t have your project configured yet?
-  <a href="https://docs.tilt.dev/tutorial.html">Read how here.</a>
+  <a href="https://docs.tilt.dev/tiltfile_tutorial.html">Read how here.</a>
   <br><br>
   To create your own Welcome README with project-specific instructions, just
   <a href="https://github.com/tilt-dev/tilt-init">

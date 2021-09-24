@@ -6,14 +6,14 @@ sidebar:
       href: install.html
     - title: Upgrade
       href: upgrade.html
-    - title: "Tutorial: The First 15 Minutes"
-      href: tutorial.html
+    - title: "Writing a Tiltfile"
+      href: tiltfile_authoring.html
     - title: "Tilt's Control Loop"
       href: controlloop.html
   - title: Tutorial
     items:
     - title: Overview
-      href: tutorial/
+      href: tutorial/index.html
     - title: 1. Preparation (optional)
       href: tutorial/1-prerequisites.html
     - title: 2. Tilt Up, Up, And Away

@@ -4,7 +4,8 @@ description: "An overview of concepts in the Tiltfile, expanding on the Tutorial
 layout: docs
 ---
 
-This doc describes concepts in the Tiltfile, expanding on the [Tutorial](tutorial.html). Unlike the [API Reference](api.html), it groups functions by themes and explains why you'd choose to use a function.
+This doc describes concepts in the Tiltfile, expanding on the [Getting Started Tutorial](/tutorial) and [Write a Tiltfile Guide](tiltfile_authoring.html).
+Unlike the [API Reference](api.html), it groups functions by themes and explains why you'd choose to use a function.
 
 ## Execution Model
 `Tiltfile`s are written in [Starlark](https://github.com/bazelbuild/starlark), a dialect of Python. Tilt executes the `Tiltfile` on startup.

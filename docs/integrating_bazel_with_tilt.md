@@ -7,7 +7,7 @@ layout: docs
 # Integrating Bazel with Tilt
 Bazel provides a deterministic build process that, coupled with [rules_docker](https://github.com/bazelbuild/rules_docker) maximizes container layer caching and can even deploy to Kubernetes with [rules_k8s](https://github.com/bazelbuild/rules_k8s). In this guide we'll walk through how to use `local` and `custom_build` to integrate such a Bazel setup with your Tiltfile.
 
-_Note: Before diving in to this guide you should have run through [Tilt's Getting Started Guide](tutorial.html) and the deep dive in to [Tiltfile concepts](tiltfile_concepts.html). A familiarity with the Bazel build system will also clear a lot of things up but isn't necessary. Ready? Let's get started!_
+_Note: Before diving in to this guide you should have run through [Tilt's Getting Started Guide](/tutorial) and the deep dive in to [Tiltfile concepts](tiltfile_concepts.html). A familiarity with the Bazel build system will also clear a lot of things up but isn't necessary. Ready? Let's get started!_
 
 ## Building Microservices with Bazel
 Here's an [example repository](https://github.com/tilt-dev/bazel_example) that contains two services (snack and vigoda) that are built with Bazel. The current development workflow is to make some changes to the code (contained in the `snack` or `vigoda` directories) then run the appopriate bazel rule to put the service in to my Kubernetes cluster. For example if I made a change to `snack/main.go` I would then run `bazel run //:snack-server.apply`. This command will build my Go code, put it in to an image, put that image in to my YAML, and run `kubectl apply` to update my Kubernetes cluster with the new YAML. Bazel handles it all by understanding the transitive dependencies of `snack-server`.

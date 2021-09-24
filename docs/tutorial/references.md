@@ -6,7 +6,7 @@ layout: docs
 ## Learn About Tilt
 * [Tiltfile Concepts](/tiltfile_concepts.html)
 * [Tilt's Control Loop](/controlloop.html)
-* [Guide: Write a `Tiltfile`](/tutorial.html)
+* [Guide: Write a `Tiltfile`](/tiltfile_authoring.html)
 * [Guide: Choosing a Local Kubernetes Dev Cluster](/choosing_clusters.html)
 
 ## Live Update

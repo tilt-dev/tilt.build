@@ -2,8 +2,13 @@
 title: Overview
 subtitle: Tilt Tutorial
 layout: docs
+permalink: /tutorial/index.html
+redirect_from:
+ - /tutorial.html
 ---
 This tutorial is designed to introduce the key concepts of Tilt.
+
+{{ site.url }}
 
 If you're new to multi-service containerized development, don't panic: this tutorial focuses on Tilt.
 We won't dive into the internals of `Dockerfile` or Kubernetes YAML.

@@ -21,3 +21,4 @@ kramdown:
 plugins:
   - jekyll-feed
   - jekyll-inline-svg
+  - jekyll-redirect-from
