@@ -32,8 +32,10 @@ The Resource Overview is essential to get a quick view of your project's entire 
    [Custom buttons][guide-buttons] let you run any one-off tasks (unit tests, lint, etc.) you've configured for a resource. 
 
  * **Endpoints**
-   
-   Pivot into your frontend or grab a database connection string without needing to memorize port numbers.
+
+   Remembering port numbers when you've got a bunch of services can be a challenge.
+   Endpoints gives you quick access to all your Tilt managed port forwards.
+   You can also define custom endpoints for relevant external references such as a wiki page so that they're never more than a click away.
 
  * **Trigger Mode**
    
