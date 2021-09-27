@@ -5,102 +5,143 @@ top:
     href: x.html
   - title: References
     href: x.html
+
+
 sidebar:
-  - title: Getting Started
-    default: true
+  - title: Why Use Tilt?
     items:
-    - title: Install
+    - title: Overview
+      href: index.html
+    - title: Is Tilt right for me? 
+      href: product_faq.html
+
+  - title: Install/Upgrade
+    items:
+    - title: Install Tilt
       href: install.html
-    - title: Upgrade
+    - title: Upgrade VERSION
       href: upgrade.html
-    - title: "Tutorial: The First 15 Minutes"
-      href: tutorial.html
-    - title: "Tilt's Control Loop"
-      href: controlloop.html
-  - title: Example Projects
-    include: examples
-  - title: Onboarding Your Team
-    items:
     - title: Choosing a Local Dev Cluster
       href: choosing_clusters.html
-    - title: Local vs Remote Services
-      href: local_vs_remote.html
-    - title: "Before you ask your team to tilt up..."
-      href: onboarding_checklist.html
-    - title: "Guide for Application Developers"
-      href: welcome_to_tilt.html
-    - title: Accessing your resource with endpoints
-      href: accessing_resource_endpoints.html
-  - title: Enhancements
+
+  - title: First Time Using Tilt
     items:
-    - title: Faster Development with Live Update (Tutorial)
-      href: live_update_tutorial.html
-    - title: Live Update Reference
-      href: live_update_reference.html
-    - title: "Debugging File Changes: Rebuilds and Ignores"
-      href: file_changes.html
-    - title: Play and Pause Resources with Manual Update Control
-      href: manual_update_control.html
-    - title: Resource Dependencies
-      href: resource_dependencies.html
-    - title: Local or Occasional Workflows with Local Resource
-      href: local_resource.html
-    - title: Tiltfile Configs
-      href: tiltfile_config.html
-    # todo: this will go under its own Debuggers section when we have enough articles to merit it
-    - title: Python Debuggers
-      href: debuggers_python.html
-    - title: Extensions
-      href: extensions.html
-    - title: Custom Buttons
-      href: buttons.html
-    - title: Contribute an Extension
-      href: contribute_extension.html
-  - title: Tilt Cloud
+      - title: Overview
+      - title: 1. Preparation (Optional)
+      - title: 2. `tilt up` and Away!
+      - title: 3. Web UI
+      - title: 4. Smart Rebuilds & Live Update
+      - title: 5. What's Next?
+
+  - title:  Tilt Features
     items:
-    - title: Tilt Cloud
-      href: tilt_cloud.html
-    - title: Teams
-      href: teams.html
-    - title: Snapshots
-      href: snapshots.html
-  - title: Tilt Cookbooks
+      - title: The Control Loop
+        href: controlloop.html
+      - title: Live Update
+      - title: Extensions
+      - title: Local vs Remote Services
+        href: local_vs_remote.html
+      - title: Port Forwards
+      - title: Web UI
+
+  - title:  FAQs
     items:
-    - title: Tiltfile Concepts
-      href: tiltfile_concepts.html
-    - title: With CI
-      href: ci.html
-    - title: With Skaffold
-      href: skaffold.html
-    - title: With Helm
-      href: helm.html
-    - title: With Docker Compose
+      - title: Frequently Asked Questions
+        href: faq.html
+      - title: Why is Tilt broken?
+        href: debug_faq.html
+      - title: What does Tilt send?
+        href: telemetry_faq.html
+
+  - title: Tiltfile
+    items:
+      - title: Tiltfile Concepts
+        href: tiltfile_concepts.html
+      - title: Per user Config
+      - title: Structuring Multiple Repos
+        href: multiple_repos.html
+      - title: Debugging File Changes
+        href: file_changes.html
+      - title: Resource Dependencies
+        href: resource_dependencies.html
+      - title: Manual Update Control
+        href: manual_update_control.html
+
+  - title: Building Images
+    items:
+      - title: Overview
+        href: dependent_images.html
+      - title: Personal Registry
+        href: personal_registry.html
+      - title: Custom Build Scripts
+        href: custom_build.html
+      - title: Bazel
+        href: integrating_bazel_with_tilt.html
+      - title: Skaffold
+        href: skaffold.html
+
+  - title: Kubernetes Resources
+    items:
+      - title: Overview???
+      - title: With Helm
+        href: helm.html
+      - title: Port Forwards
+        href: accessing_resource_endpoints.html
+      - title: Custom Resource Definitions
+        href: custom_resource.html
+      - title: Remote Clusters???
+
+  - title: Local Resources
+    items:
+      - title: Run Local or Ocassional Workflows
+        href: local_resource.html
+
+  - title: Docker Compose
+    items:
+    - title: A Better UI for Docker Compose
       href: docker_compose.html
-    - title: "How to: Custom Resource Definitions"
-      href: custom_resource.html
-    - title: "How to: Building on a Base Image"
-      href: dependent_images.html
-    - title: "How to: Using a Personal Registry"
-      href: personal_registry.html
-    - title: "How to: Custom Build Scripts"
-      href: custom_build.html
-    - title: "How to: Bazel Build Scripts"
-      href: integrating_bazel_with_tilt.html
-    - title: "How to: Structuring Multiple Repos"
-      href: multiple_repos.html
-  - title: Help
+
+  - title: Live Update
     items:
-    - title: Who is Tilt for?
-      href: product_faq.html
-    - title: What does Tilt send?
-      href: telemetry_faq.html
-    - title: Why is Tilt broken?
-      href: debug_faq.html
-    - title: Frequently Asked Questions
-      href: faq.html
-    - title: Tiltfile API Reference
-      href: api.html
-    - title: Tilt CLI Reference
-      href: cli/tilt.html
-    - title: Code of Conduct
-      href: code_of_conduct.html
+      - title: Tutorial
+        href: live_update_tutorial.html
+      - title: Technical Specifications
+        href: live_update_reference.html
+      - title: Plain Old Static HTML
+        href: example_static_html.html
+      - title: Go
+        href: example_go.html
+      - title: Python
+        href: example_python.html
+      - title: NodeJS
+        href: example_nodejs.html
+      - title: Java
+        href: example_java.html
+      - title: Bazel
+        href: example_bazel.html
+      - title: C#
+        href: example_csharp.html
+
+  - title: Continuous Integration (CI)
+    items:
+      - title: Overview
+        href: ci.html
+
+  - title: Tiltfile Extensions
+    items:
+      - title: Extensions
+        href: extensions.html
+      - title: Contribute an Extension
+        href: contribute_extension.html
+
+  - title: Onboarding Your Team
+    items:
+      - title: Onboarding Checklist
+        href: onboarding_checklist.html
+      - title: Guide for Application Developers
+        href: welcome_to_tilt.html
+
+  - title: Tiltfile
+    items:
+      - title: Tiltfile API Reference
+        href: api.html
