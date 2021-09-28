@@ -10861,6 +10861,574 @@ a single token in a shell command.
            </table>
           </dd>
          </dl><dl class="function">
+          <dt id="modules.v1alpha1.cmd">
+           <code class="descclassname">
+            v1alpha1.
+           </code>
+           <code class="descname">
+            cmd
+           </code>
+           <span class="sig-paren">
+            (
+           </span>
+           <em>
+            name
+           </em>
+           ,
+           <em>
+            labels=None
+           </em>
+           ,
+           <em>
+            annotations=None
+           </em>
+           ,
+           <em>
+            args=None
+           </em>
+           ,
+           <em>
+            dir=&apos;&apos;
+           </em>
+           ,
+           <em>
+            env=None
+           </em>
+           ,
+           <em>
+            readiness_probe=None
+           </em>
+           ,
+           <em>
+            restart_on=None
+           </em>
+           ,
+           <em>
+            start_on=None
+           </em>
+           ,
+           <em>
+            disable_source=None
+           </em>
+           <span class="sig-paren">
+            )
+           </span>
+           <a class="headerlink" href="#modules.v1alpha1.cmd" title="Permalink to this definition">
+            &#xB6;
+           </a>
+          </dt>
+          <dd>
+           <p>
+            Cmd represents a process on the host machine.
+           </p>
+           <p>
+            When the process exits, we will make a best-effort attempt
+(within OS limitations) to kill any spawned descendant processes.
+           </p>
+           <table class="docutils field-list" frame="void" rules="none">
+            <col class="field-name">
+            <col class="field-body">
+            <tbody valign="top">
+             <tr class="field-odd field">
+              <th class="field-name">
+               Parameters:
+              </th>
+              <td class="field-body">
+               <ul class="first last simple">
+                <li>
+                 <strong>
+                  name
+                 </strong>
+                 (
+                 <code class="xref py py-class docutils literal notranslate">
+                  <span class="pre">
+                   str
+                  </span>
+                 </code>
+                 ) &#x2013; The name in the Object metadata.
+                </li>
+                <li>
+                 <strong>
+                  labels
+                 </strong>
+                 (
+                 <code class="xref py py-data docutils literal notranslate">
+                  <span class="pre">
+                   Optional
+                  </span>
+                 </code>
+                 [
+                 <code class="xref py py-class docutils literal notranslate">
+                  <span class="pre">
+                   Dict
+                  </span>
+                 </code>
+                 [
+                 <code class="xref py py-class docutils literal notranslate">
+                  <span class="pre">
+                   str
+                  </span>
+                 </code>
+                 ,
+                 <code class="xref py py-class docutils literal notranslate">
+                  <span class="pre">
+                   str
+                  </span>
+                 </code>
+                 ]]) &#x2013; A set of key/value pairs in the Object metadata for grouping objects.
+                </li>
+                <li>
+                 <strong>
+                  annotations
+                 </strong>
+                 (
+                 <code class="xref py py-data docutils literal notranslate">
+                  <span class="pre">
+                   Optional
+                  </span>
+                 </code>
+                 [
+                 <code class="xref py py-class docutils literal notranslate">
+                  <span class="pre">
+                   Dict
+                  </span>
+                 </code>
+                 [
+                 <code class="xref py py-class docutils literal notranslate">
+                  <span class="pre">
+                   str
+                  </span>
+                 </code>
+                 ,
+                 <code class="xref py py-class docutils literal notranslate">
+                  <span class="pre">
+                   str
+                  </span>
+                 </code>
+                 ]]) &#x2013; A set of key/value pairs in the Object metadata for attaching data to objects.
+                </li>
+                <li>
+                 <strong>
+                  args
+                 </strong>
+                 (
+                 <code class="xref py py-data docutils literal notranslate">
+                  <span class="pre">
+                   Optional
+                  </span>
+                 </code>
+                 [
+                 <code class="xref py py-class docutils literal notranslate">
+                  <span class="pre">
+                   List
+                  </span>
+                 </code>
+                 [
+                 <code class="xref py py-class docutils literal notranslate">
+                  <span class="pre">
+                   str
+                  </span>
+                 </code>
+                 ]]) &#x2013; Command-line arguments. Must have length at least 1.
+                </li>
+                <li>
+                 <strong>
+                  dir
+                 </strong>
+                 (
+                 <code class="xref py py-class docutils literal notranslate">
+                  <span class="pre">
+                   str
+                  </span>
+                 </code>
+                 ) &#x2013;
+                 <p>
+                  Process working directory.
+                 </p>
+                 <p>
+                  If the working directory is not specified, the command is run
+in the default Tilt working directory.
+                 </p>
+                </li>
+                <li>
+                 <strong>
+                  env
+                 </strong>
+                 (
+                 <code class="xref py py-data docutils literal notranslate">
+                  <span class="pre">
+                   Optional
+                  </span>
+                 </code>
+                 [
+                 <code class="xref py py-class docutils literal notranslate">
+                  <span class="pre">
+                   List
+                  </span>
+                 </code>
+                 [
+                 <code class="xref py py-class docutils literal notranslate">
+                  <span class="pre">
+                   str
+                  </span>
+                 </code>
+                 ]]) &#x2013;
+                 <p>
+                  Additional variables process environment.
+                 </p>
+                 <p>
+                  Expressed as a C-style array of strings of the form [&#x201C;KEY1=VALUE1&#x201D;, &#x201C;KEY2=VALUE2&#x201D;, &#x2026;].
+                 </p>
+                 <p>
+                  Environment variables are layered on top of the environment variables
+that Tilt runs with.
+                 </p>
+                </li>
+                <li>
+                 <strong>
+                  readiness_probe
+                 </strong>
+                 (
+                 <code class="xref py py-data docutils literal notranslate">
+                  <span class="pre">
+                   Optional
+                  </span>
+                 </code>
+                 [
+                 <a class="reference internal" href="#modules.v1alpha1.Probe" title="modules.v1alpha1.Probe">
+                  <code class="xref py py-class docutils literal notranslate">
+                   <span class="pre">
+                    Probe
+                   </span>
+                  </code>
+                 </a>
+                 ]) &#x2013; Periodic probe of service readiness.
+                </li>
+                <li>
+                 <strong>
+                  restart_on
+                 </strong>
+                 (
+                 <code class="xref py py-data docutils literal notranslate">
+                  <span class="pre">
+                   Optional
+                  </span>
+                 </code>
+                 [
+                 <a class="reference internal" href="#modules.v1alpha1.RestartOnSpec" title="modules.v1alpha1.RestartOnSpec">
+                  <code class="xref py py-class docutils literal notranslate">
+                   <span class="pre">
+                    RestartOnSpec
+                   </span>
+                  </code>
+                 </a>
+                 ]) &#x2013;
+                 <p>
+                  Indicates objects that can trigger a restart of this command.
+                 </p>
+                 <p>
+                  When a restart is triggered, Tilt will try to gracefully shutdown any
+currently running process, waiting for it to exit before starting a new
+process. If the process doesn&#x2019;t shutdown within the allotted time, Tilt
+will kill the process abruptly.
+                 </p>
+                 <p>
+                  Restarts can happen even if the command is already done.
+                 </p>
+                 <p>
+                  Logs of the current process after the restart are discarded.
+                 </p>
+                </li>
+                <li>
+                 <strong>
+                  start_on
+                 </strong>
+                 (
+                 <code class="xref py py-data docutils literal notranslate">
+                  <span class="pre">
+                   Optional
+                  </span>
+                 </code>
+                 [
+                 <a class="reference internal" href="#modules.v1alpha1.StartOnSpec" title="modules.v1alpha1.StartOnSpec">
+                  <code class="xref py py-class docutils literal notranslate">
+                   <span class="pre">
+                    StartOnSpec
+                   </span>
+                  </code>
+                 </a>
+                 ]) &#x2013;
+                 <p>
+                  Indicates objects that can trigger a start/restart of this command.
+                 </p>
+                 <p>
+                  Restarts behave the same as RestartOn. The key difference is that
+a Cmd with any StartOn triggers will not have its command run until its
+StartOn is satisfied.
+                 </p>
+                </li>
+                <li>
+                 <strong>
+                  disable_source
+                 </strong>
+                 (
+                 <code class="xref py py-data docutils literal notranslate">
+                  <span class="pre">
+                   Optional
+                  </span>
+                 </code>
+                 [
+                 <a class="reference internal" href="#modules.v1alpha1.DisableSource" title="modules.v1alpha1.DisableSource">
+                  <code class="xref py py-class docutils literal notranslate">
+                   <span class="pre">
+                    DisableSource
+                   </span>
+                  </code>
+                 </a>
+                 ]) &#x2013; Specifies how to disable this.
+                </li>
+               </ul>
+              </td>
+             </tr>
+            </tbody>
+           </table>
+          </dd>
+         </dl><dl class="function">
+          <dt id="modules.v1alpha1.config_map_disable_source">
+           <code class="descclassname">
+            v1alpha1.
+           </code>
+           <code class="descname">
+            config_map_disable_source
+           </code>
+           <span class="sig-paren">
+            (
+           </span>
+           <em>
+            name=&apos;&apos;
+           </em>
+           ,
+           <em>
+            key=&apos;&apos;
+           </em>
+           <span class="sig-paren">
+            )
+           </span>
+           <a class="headerlink" href="#modules.v1alpha1.config_map_disable_source" title="Permalink to this definition">
+            &#xB6;
+           </a>
+          </dt>
+          <dd>
+           <p>
+            Specifies a ConfigMap to control a DisableSource
+           </p>
+           <table class="docutils field-list" frame="void" rules="none">
+            <col class="field-name">
+            <col class="field-body">
+            <tbody valign="top">
+             <tr class="field-odd field">
+              <th class="field-name">
+               Parameters:
+              </th>
+              <td class="field-body">
+               <ul class="first simple">
+                <li>
+                 <strong>
+                  name
+                 </strong>
+                 (
+                 <code class="xref py py-class docutils literal notranslate">
+                  <span class="pre">
+                   str
+                  </span>
+                 </code>
+                 ) &#x2013; The name of the ConfigMap
+                </li>
+                <li>
+                 <strong>
+                  key
+                 </strong>
+                 (
+                 <code class="xref py py-class docutils literal notranslate">
+                  <span class="pre">
+                   str
+                  </span>
+                 </code>
+                 ) &#x2013; The key where the enable/disable state is stored.
+                </li>
+               </ul>
+              </td>
+             </tr>
+             <tr class="field-even field">
+              <th class="field-name">
+               Return type:
+              </th>
+              <td class="field-body">
+               <p class="first last">
+                <a class="reference internal" href="#modules.v1alpha1.ConfigMapDisableSource" title="modules.v1alpha1.ConfigMapDisableSource">
+                 <code class="xref py py-class docutils literal notranslate">
+                  <span class="pre">
+                   ConfigMapDisableSource
+                  </span>
+                 </code>
+                </a>
+               </p>
+              </td>
+             </tr>
+            </tbody>
+           </table>
+          </dd>
+         </dl><dl class="function">
+          <dt id="modules.v1alpha1.disable_source">
+           <code class="descclassname">
+            v1alpha1.
+           </code>
+           <code class="descname">
+            disable_source
+           </code>
+           <span class="sig-paren">
+            (
+           </span>
+           <em>
+            config_map=None
+           </em>
+           <span class="sig-paren">
+            )
+           </span>
+           <a class="headerlink" href="#modules.v1alpha1.disable_source" title="Permalink to this definition">
+            &#xB6;
+           </a>
+          </dt>
+          <dd>
+           <p>
+            Points at a thing that can control whether something is disabled
+           </p>
+           <table class="docutils field-list" frame="void" rules="none">
+            <col class="field-name">
+            <col class="field-body">
+            <tbody valign="top">
+             <tr class="field-odd field">
+              <th class="field-name">
+               Parameters:
+              </th>
+              <td class="field-body">
+               <strong>
+                config_map
+               </strong>
+               (
+               <code class="xref py py-data docutils literal notranslate">
+                <span class="pre">
+                 Optional
+                </span>
+               </code>
+               [
+               <a class="reference internal" href="#modules.v1alpha1.ConfigMapDisableSource" title="modules.v1alpha1.ConfigMapDisableSource">
+                <code class="xref py py-class docutils literal notranslate">
+                 <span class="pre">
+                  ConfigMapDisableSource
+                 </span>
+                </code>
+               </a>
+               ]) &#x2013; This DisableSource is controlled by a ConfigMap
+              </td>
+             </tr>
+             <tr class="field-even field">
+              <th class="field-name">
+               Return type:
+              </th>
+              <td class="field-body">
+               <a class="reference internal" href="#modules.v1alpha1.DisableSource" title="modules.v1alpha1.DisableSource">
+                <code class="xref py py-class docutils literal notranslate">
+                 <span class="pre">
+                  DisableSource
+                 </span>
+                </code>
+               </a>
+              </td>
+             </tr>
+            </tbody>
+           </table>
+          </dd>
+         </dl><dl class="function">
+          <dt id="modules.v1alpha1.exec_action">
+           <code class="descclassname">
+            v1alpha1.
+           </code>
+           <code class="descname">
+            exec_action
+           </code>
+           <span class="sig-paren">
+            (
+           </span>
+           <em>
+            command=None
+           </em>
+           <span class="sig-paren">
+            )
+           </span>
+           <a class="headerlink" href="#modules.v1alpha1.exec_action" title="Permalink to this definition">
+            &#xB6;
+           </a>
+          </dt>
+          <dd>
+           <p>
+            ExecAction describes a &#x201C;run in container&#x201D; action.
+           </p>
+           <table class="docutils field-list" frame="void" rules="none">
+            <col class="field-name">
+            <col class="field-body">
+            <tbody valign="top">
+             <tr class="field-odd field">
+              <th class="field-name">
+               Parameters:
+              </th>
+              <td class="field-body">
+               <strong>
+                command
+               </strong>
+               (
+               <code class="xref py py-data docutils literal notranslate">
+                <span class="pre">
+                 Optional
+                </span>
+               </code>
+               [
+               <code class="xref py py-class docutils literal notranslate">
+                <span class="pre">
+                 List
+                </span>
+               </code>
+               [
+               <code class="xref py py-class docutils literal notranslate">
+                <span class="pre">
+                 str
+                </span>
+               </code>
+               ]]) &#x2013; Command is the command line to execute inside the container, the working directory for the
+command  is root (&#x2018;/&#x2019;) in the container&#x2019;s filesystem. The command is simply exec&#x2019;d, it is
+not run inside a shell, so traditional shell instructions (&#x2018;|&#x2019;, etc) won&#x2019;t work. To use
+a shell, you need to explicitly call out to that shell.
+Exit status of 0 is treated as live/healthy and non-zero is unhealthy.
+              </td>
+             </tr>
+             <tr class="field-even field">
+              <th class="field-name">
+               Return type:
+              </th>
+              <td class="field-body">
+               <a class="reference internal" href="#modules.v1alpha1.ExecAction" title="modules.v1alpha1.ExecAction">
+                <code class="xref py py-class docutils literal notranslate">
+                 <span class="pre">
+                  ExecAction
+                 </span>
+                </code>
+               </a>
+              </td>
+             </tr>
+            </tbody>
+           </table>
+          </dd>
+         </dl><dl class="function">
           <dt id="modules.v1alpha1.extension">
            <code class="descclassname">
             v1alpha1.
@@ -11220,6 +11788,1819 @@ file: URLs that point to a location on disk.
 the repo to the latest version.
                 </li>
                </ul>
+              </td>
+             </tr>
+            </tbody>
+           </table>
+          </dd>
+         </dl><dl class="function">
+          <dt id="modules.v1alpha1.file_watch">
+           <code class="descclassname">
+            v1alpha1.
+           </code>
+           <code class="descname">
+            file_watch
+           </code>
+           <span class="sig-paren">
+            (
+           </span>
+           <em>
+            name
+           </em>
+           ,
+           <em>
+            labels=None
+           </em>
+           ,
+           <em>
+            annotations=None
+           </em>
+           ,
+           <em>
+            watched_paths=None
+           </em>
+           ,
+           <em>
+            ignores=None
+           </em>
+           ,
+           <em>
+            disable_source=None
+           </em>
+           <span class="sig-paren">
+            )
+           </span>
+           <a class="headerlink" href="#modules.v1alpha1.file_watch" title="Permalink to this definition">
+            &#xB6;
+           </a>
+          </dt>
+          <dd>
+           <p>
+            FileWatch
+           </p>
+           <table class="docutils field-list" frame="void" rules="none">
+            <col class="field-name">
+            <col class="field-body">
+            <tbody valign="top">
+             <tr class="field-odd field">
+              <th class="field-name">
+               Parameters:
+              </th>
+              <td class="field-body">
+               <ul class="first last simple">
+                <li>
+                 <strong>
+                  name
+                 </strong>
+                 (
+                 <code class="xref py py-class docutils literal notranslate">
+                  <span class="pre">
+                   str
+                  </span>
+                 </code>
+                 ) &#x2013; The name in the Object metadata.
+                </li>
+                <li>
+                 <strong>
+                  labels
+                 </strong>
+                 (
+                 <code class="xref py py-data docutils literal notranslate">
+                  <span class="pre">
+                   Optional
+                  </span>
+                 </code>
+                 [
+                 <code class="xref py py-class docutils literal notranslate">
+                  <span class="pre">
+                   Dict
+                  </span>
+                 </code>
+                 [
+                 <code class="xref py py-class docutils literal notranslate">
+                  <span class="pre">
+                   str
+                  </span>
+                 </code>
+                 ,
+                 <code class="xref py py-class docutils literal notranslate">
+                  <span class="pre">
+                   str
+                  </span>
+                 </code>
+                 ]]) &#x2013; A set of key/value pairs in the Object metadata for grouping objects.
+                </li>
+                <li>
+                 <strong>
+                  annotations
+                 </strong>
+                 (
+                 <code class="xref py py-data docutils literal notranslate">
+                  <span class="pre">
+                   Optional
+                  </span>
+                 </code>
+                 [
+                 <code class="xref py py-class docutils literal notranslate">
+                  <span class="pre">
+                   Dict
+                  </span>
+                 </code>
+                 [
+                 <code class="xref py py-class docutils literal notranslate">
+                  <span class="pre">
+                   str
+                  </span>
+                 </code>
+                 ,
+                 <code class="xref py py-class docutils literal notranslate">
+                  <span class="pre">
+                   str
+                  </span>
+                 </code>
+                 ]]) &#x2013; A set of key/value pairs in the Object metadata for attaching data to objects.
+                </li>
+                <li>
+                 <strong>
+                  watched_paths
+                 </strong>
+                 (
+                 <code class="xref py py-data docutils literal notranslate">
+                  <span class="pre">
+                   Optional
+                  </span>
+                 </code>
+                 [
+                 <code class="xref py py-class docutils literal notranslate">
+                  <span class="pre">
+                   List
+                  </span>
+                 </code>
+                 [
+                 <code class="xref py py-class docutils literal notranslate">
+                  <span class="pre">
+                   str
+                  </span>
+                 </code>
+                 ]]) &#x2013; WatchedPaths are paths of directories or files to watch for changes to. It cannot be empty.
+                </li>
+                <li>
+                 <strong>
+                  ignores
+                 </strong>
+                 (
+                 <code class="xref py py-data docutils literal notranslate">
+                  <span class="pre">
+                   Optional
+                  </span>
+                 </code>
+                 [
+                 <code class="xref py py-class docutils literal notranslate">
+                  <span class="pre">
+                   List
+                  </span>
+                 </code>
+                 [
+                 <a class="reference internal" href="#modules.v1alpha1.IgnoreDef" title="modules.v1alpha1.IgnoreDef">
+                  <code class="xref py py-class docutils literal notranslate">
+                   <span class="pre">
+                    IgnoreDef
+                   </span>
+                  </code>
+                 </a>
+                 ]]) &#x2013; Ignores are optional rules to filter out a subset of changes matched by WatchedPaths.
+                </li>
+                <li>
+                 <strong>
+                  disable_source
+                 </strong>
+                 (
+                 <code class="xref py py-data docutils literal notranslate">
+                  <span class="pre">
+                   Optional
+                  </span>
+                 </code>
+                 [
+                 <a class="reference internal" href="#modules.v1alpha1.DisableSource" title="modules.v1alpha1.DisableSource">
+                  <code class="xref py py-class docutils literal notranslate">
+                   <span class="pre">
+                    DisableSource
+                   </span>
+                  </code>
+                 </a>
+                 ]) &#x2013; Specifies how to disable this.
+                </li>
+               </ul>
+              </td>
+             </tr>
+            </tbody>
+           </table>
+          </dd>
+         </dl><dl class="function">
+          <dt id="modules.v1alpha1.handler">
+           <code class="descclassname">
+            v1alpha1.
+           </code>
+           <code class="descname">
+            handler
+           </code>
+           <span class="sig-paren">
+            (
+           </span>
+           <em>
+            exec=None
+           </em>
+           ,
+           <em>
+            http_get=None
+           </em>
+           ,
+           <em>
+            tcp_socket=None
+           </em>
+           <span class="sig-paren">
+            )
+           </span>
+           <a class="headerlink" href="#modules.v1alpha1.handler" title="Permalink to this definition">
+            &#xB6;
+           </a>
+          </dt>
+          <dd>
+           <p>
+            Handler defines a specific action that should be taken in a probe.
+           </p>
+           <table class="docutils field-list" frame="void" rules="none">
+            <col class="field-name">
+            <col class="field-body">
+            <tbody valign="top">
+             <tr class="field-odd field">
+              <th class="field-name">
+               Parameters:
+              </th>
+              <td class="field-body">
+               <ul class="first simple">
+                <li>
+                 <strong>
+                  exec
+                 </strong>
+                 (
+                 <code class="xref py py-data docutils literal notranslate">
+                  <span class="pre">
+                   Optional
+                  </span>
+                 </code>
+                 [
+                 <a class="reference internal" href="#modules.v1alpha1.ExecAction" title="modules.v1alpha1.ExecAction">
+                  <code class="xref py py-class docutils literal notranslate">
+                   <span class="pre">
+                    ExecAction
+                   </span>
+                  </code>
+                 </a>
+                 ]) &#x2013; One and only one of the following should be specified.
+Exec specifies the action to take.
+                </li>
+                <li>
+                 <strong>
+                  http_get
+                 </strong>
+                 (
+                 <code class="xref py py-data docutils literal notranslate">
+                  <span class="pre">
+                   Optional
+                  </span>
+                 </code>
+                 [
+                 <a class="reference internal" href="#modules.v1alpha1.HTTPGetAction" title="modules.v1alpha1.HTTPGetAction">
+                  <code class="xref py py-class docutils literal notranslate">
+                   <span class="pre">
+                    HTTPGetAction
+                   </span>
+                  </code>
+                 </a>
+                 ]) &#x2013; HTTPGet specifies the http request to perform.
+                </li>
+                <li>
+                 <strong>
+                  tcp_socket
+                 </strong>
+                 (
+                 <code class="xref py py-data docutils literal notranslate">
+                  <span class="pre">
+                   Optional
+                  </span>
+                 </code>
+                 [
+                 <a class="reference internal" href="#modules.v1alpha1.TCPSocketAction" title="modules.v1alpha1.TCPSocketAction">
+                  <code class="xref py py-class docutils literal notranslate">
+                   <span class="pre">
+                    TCPSocketAction
+                   </span>
+                  </code>
+                 </a>
+                 ]) &#x2013; TCPSocket specifies an action involving a TCP port.
+TCP hooks not yet supported
+TODO: implement a realistic TCP lifecycle hook
+                </li>
+               </ul>
+              </td>
+             </tr>
+             <tr class="field-even field">
+              <th class="field-name">
+               Return type:
+              </th>
+              <td class="field-body">
+               <p class="first last">
+                <a class="reference internal" href="#modules.v1alpha1.Handler" title="modules.v1alpha1.Handler">
+                 <code class="xref py py-class docutils literal notranslate">
+                  <span class="pre">
+                   Handler
+                  </span>
+                 </code>
+                </a>
+               </p>
+              </td>
+             </tr>
+            </tbody>
+           </table>
+          </dd>
+         </dl><dl class="function">
+          <dt id="modules.v1alpha1.http_get_action">
+           <code class="descclassname">
+            v1alpha1.
+           </code>
+           <code class="descname">
+            http_get_action
+           </code>
+           <span class="sig-paren">
+            (
+           </span>
+           <em>
+            path=&apos;&apos;
+           </em>
+           ,
+           <em>
+            port=0
+           </em>
+           ,
+           <em>
+            host=&apos;&apos;
+           </em>
+           ,
+           <em>
+            scheme=&apos;&apos;
+           </em>
+           ,
+           <em>
+            http_headers=None
+           </em>
+           <span class="sig-paren">
+            )
+           </span>
+           <a class="headerlink" href="#modules.v1alpha1.http_get_action" title="Permalink to this definition">
+            &#xB6;
+           </a>
+          </dt>
+          <dd>
+           <p>
+            HTTPGetAction describes an action based on HTTP Get requests.
+           </p>
+           <table class="docutils field-list" frame="void" rules="none">
+            <col class="field-name">
+            <col class="field-body">
+            <tbody valign="top">
+             <tr class="field-odd field">
+              <th class="field-name">
+               Parameters:
+              </th>
+              <td class="field-body">
+               <ul class="first simple">
+                <li>
+                 <strong>
+                  path
+                 </strong>
+                 (
+                 <code class="xref py py-class docutils literal notranslate">
+                  <span class="pre">
+                   str
+                  </span>
+                 </code>
+                 ) &#x2013; Path to access on the HTTP server.
+                </li>
+                <li>
+                 <strong>
+                  port
+                 </strong>
+                 (
+                 <code class="xref py py-class docutils literal notranslate">
+                  <span class="pre">
+                   int
+                  </span>
+                 </code>
+                 ) &#x2013; Name or number of the port to access on the container.
+Number must be in the range 1 to 65535.
+                </li>
+                <li>
+                 <strong>
+                  host
+                 </strong>
+                 (
+                 <code class="xref py py-class docutils literal notranslate">
+                  <span class="pre">
+                   str
+                  </span>
+                 </code>
+                 ) &#x2013; Host name to connect to, defaults to the pod IP. You probably want to set
+&#x201C;Host&#x201D; in httpHeaders instead.
+                </li>
+                <li>
+                 <strong>
+                  scheme
+                 </strong>
+                 (
+                 <code class="xref py py-class docutils literal notranslate">
+                  <span class="pre">
+                   str
+                  </span>
+                 </code>
+                 ) &#x2013; Scheme to use for connecting to the host.
+Defaults to HTTP.
+                </li>
+                <li>
+                 <strong>
+                  http_headers
+                 </strong>
+                 (
+                 <code class="xref py py-data docutils literal notranslate">
+                  <span class="pre">
+                   Optional
+                  </span>
+                 </code>
+                 [
+                 <code class="xref py py-class docutils literal notranslate">
+                  <span class="pre">
+                   List
+                  </span>
+                 </code>
+                 [
+                 <a class="reference internal" href="#modules.v1alpha1.HTTPHeader" title="modules.v1alpha1.HTTPHeader">
+                  <code class="xref py py-class docutils literal notranslate">
+                   <span class="pre">
+                    HTTPHeader
+                   </span>
+                  </code>
+                 </a>
+                 ]]) &#x2013; Custom headers to set in the request. HTTP allows repeated headers.
+                </li>
+               </ul>
+              </td>
+             </tr>
+             <tr class="field-even field">
+              <th class="field-name">
+               Return type:
+              </th>
+              <td class="field-body">
+               <p class="first last">
+                <a class="reference internal" href="#modules.v1alpha1.HTTPGetAction" title="modules.v1alpha1.HTTPGetAction">
+                 <code class="xref py py-class docutils literal notranslate">
+                  <span class="pre">
+                   HTTPGetAction
+                  </span>
+                 </code>
+                </a>
+               </p>
+              </td>
+             </tr>
+            </tbody>
+           </table>
+          </dd>
+         </dl><dl class="function">
+          <dt id="modules.v1alpha1.http_header">
+           <code class="descclassname">
+            v1alpha1.
+           </code>
+           <code class="descname">
+            http_header
+           </code>
+           <span class="sig-paren">
+            (
+           </span>
+           <em>
+            name=&apos;&apos;
+           </em>
+           ,
+           <em>
+            value=&apos;&apos;
+           </em>
+           <span class="sig-paren">
+            )
+           </span>
+           <a class="headerlink" href="#modules.v1alpha1.http_header" title="Permalink to this definition">
+            &#xB6;
+           </a>
+          </dt>
+          <dd>
+           <p>
+            HTTPHeader describes a custom header to be used in HTTP probes
+           </p>
+           <table class="docutils field-list" frame="void" rules="none">
+            <col class="field-name">
+            <col class="field-body">
+            <tbody valign="top">
+             <tr class="field-odd field">
+              <th class="field-name">
+               Parameters:
+              </th>
+              <td class="field-body">
+               <ul class="first simple">
+                <li>
+                 <strong>
+                  name
+                 </strong>
+                 (
+                 <code class="xref py py-class docutils literal notranslate">
+                  <span class="pre">
+                   str
+                  </span>
+                 </code>
+                 ) &#x2013; The header field name
+                </li>
+                <li>
+                 <strong>
+                  value
+                 </strong>
+                 (
+                 <code class="xref py py-class docutils literal notranslate">
+                  <span class="pre">
+                   str
+                  </span>
+                 </code>
+                 ) &#x2013; The header field value
+                </li>
+               </ul>
+              </td>
+             </tr>
+             <tr class="field-even field">
+              <th class="field-name">
+               Return type:
+              </th>
+              <td class="field-body">
+               <p class="first last">
+                <a class="reference internal" href="#modules.v1alpha1.HTTPHeader" title="modules.v1alpha1.HTTPHeader">
+                 <code class="xref py py-class docutils literal notranslate">
+                  <span class="pre">
+                   HTTPHeader
+                  </span>
+                 </code>
+                </a>
+               </p>
+              </td>
+             </tr>
+            </tbody>
+           </table>
+          </dd>
+         </dl><dl class="function">
+          <dt id="modules.v1alpha1.ignore_def">
+           <code class="descclassname">
+            v1alpha1.
+           </code>
+           <code class="descname">
+            ignore_def
+           </code>
+           <span class="sig-paren">
+            (
+           </span>
+           <em>
+            base_path=&apos;&apos;
+           </em>
+           ,
+           <em>
+            patterns=None
+           </em>
+           <span class="sig-paren">
+            )
+           </span>
+           <a class="headerlink" href="#modules.v1alpha1.ignore_def" title="Permalink to this definition">
+            &#xB6;
+           </a>
+          </dt>
+          <dd>
+           <table class="docutils field-list" frame="void" rules="none">
+            <col class="field-name">
+            <col class="field-body">
+            <tbody valign="top">
+             <tr class="field-odd field">
+              <th class="field-name">
+               Parameters:
+              </th>
+              <td class="field-body">
+               <ul class="first simple">
+                <li>
+                 <strong>
+                  base_path
+                 </strong>
+                 (
+                 <code class="xref py py-class docutils literal notranslate">
+                  <span class="pre">
+                   str
+                  </span>
+                 </code>
+                 ) &#x2013;
+                 <p>
+                  BasePath is the base path for the patterns. It cannot be empty.
+                 </p>
+                 <p>
+                  If no patterns are specified, everything under it will be recursively ignored.
+                 </p>
+                </li>
+                <li>
+                 <strong>
+                  patterns
+                 </strong>
+                 (
+                 <code class="xref py py-data docutils literal notranslate">
+                  <span class="pre">
+                   Optional
+                  </span>
+                 </code>
+                 [
+                 <code class="xref py py-class docutils literal notranslate">
+                  <span class="pre">
+                   List
+                  </span>
+                 </code>
+                 [
+                 <code class="xref py py-class docutils literal notranslate">
+                  <span class="pre">
+                   str
+                  </span>
+                 </code>
+                 ]]) &#x2013;
+                 <p>
+                  Patterns are dockerignore style rules. Absolute-style patterns will be rooted to the BasePath.
+                 </p>
+                 <p>
+                  See
+                  <a class="reference external" href="https://docs.docker.com/engine/reference/builder/#dockerignore-file">
+                   https://docs.docker.com/engine/reference/builder/#dockerignore-file
+                  </a>
+                  .
+                 </p>
+                </li>
+               </ul>
+              </td>
+             </tr>
+             <tr class="field-even field">
+              <th class="field-name">
+               Return type:
+              </th>
+              <td class="field-body">
+               <p class="first last">
+                <a class="reference internal" href="#modules.v1alpha1.IgnoreDef" title="modules.v1alpha1.IgnoreDef">
+                 <code class="xref py py-class docutils literal notranslate">
+                  <span class="pre">
+                   IgnoreDef
+                  </span>
+                 </code>
+                </a>
+               </p>
+              </td>
+             </tr>
+            </tbody>
+           </table>
+          </dd>
+         </dl><dl class="function">
+          <dt id="modules.v1alpha1.probe">
+           <code class="descclassname">
+            v1alpha1.
+           </code>
+           <code class="descname">
+            probe
+           </code>
+           <span class="sig-paren">
+            (
+           </span>
+           <em>
+            handler=None
+           </em>
+           ,
+           <em>
+            initial_delay_seconds=0
+           </em>
+           ,
+           <em>
+            timeout_seconds=0
+           </em>
+           ,
+           <em>
+            period_seconds=0
+           </em>
+           ,
+           <em>
+            success_threshold=0
+           </em>
+           ,
+           <em>
+            failure_threshold=0
+           </em>
+           <span class="sig-paren">
+            )
+           </span>
+           <a class="headerlink" href="#modules.v1alpha1.probe" title="Permalink to this definition">
+            &#xB6;
+           </a>
+          </dt>
+          <dd>
+           <p>
+            Probe describes a health check to be performed o determine whether it is
+alive or ready to receive traffic.
+           </p>
+           <table class="docutils field-list" frame="void" rules="none">
+            <col class="field-name">
+            <col class="field-body">
+            <tbody valign="top">
+             <tr class="field-odd field">
+              <th class="field-name">
+               Parameters:
+              </th>
+              <td class="field-body">
+               <ul class="first simple">
+                <li>
+                 <strong>
+                  handler
+                 </strong>
+                 (
+                 <code class="xref py py-data docutils literal notranslate">
+                  <span class="pre">
+                   Optional
+                  </span>
+                 </code>
+                 [
+                 <a class="reference internal" href="#modules.v1alpha1.Handler" title="modules.v1alpha1.Handler">
+                  <code class="xref py py-class docutils literal notranslate">
+                   <span class="pre">
+                    Handler
+                   </span>
+                  </code>
+                 </a>
+                 ]) &#x2013; The action taken to determine the health of a container
+                </li>
+                <li>
+                 <strong>
+                  initial_delay_seconds
+                 </strong>
+                 (
+                 <code class="xref py py-class docutils literal notranslate">
+                  <span class="pre">
+                   int
+                  </span>
+                 </code>
+                 ) &#x2013; Number of seconds after the container has started before liveness probes are initiated.
+More info:
+                 <a class="reference external" href="https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes">
+                  https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes
+                 </a>
+                </li>
+                <li>
+                 <strong>
+                  timeout_seconds
+                 </strong>
+                 (
+                 <code class="xref py py-class docutils literal notranslate">
+                  <span class="pre">
+                   int
+                  </span>
+                 </code>
+                 ) &#x2013; Number of seconds after which the probe times out.
+Defaults to 1 second. Minimum value is 1.
+More info:
+                 <a class="reference external" href="https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes">
+                  https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes
+                 </a>
+                </li>
+                <li>
+                 <strong>
+                  period_seconds
+                 </strong>
+                 (
+                 <code class="xref py py-class docutils literal notranslate">
+                  <span class="pre">
+                   int
+                  </span>
+                 </code>
+                 ) &#x2013; How often (in seconds) to perform the probe.
+Default to 10 seconds. Minimum value is 1.
+                </li>
+                <li>
+                 <strong>
+                  success_threshold
+                 </strong>
+                 (
+                 <code class="xref py py-class docutils literal notranslate">
+                  <span class="pre">
+                   int
+                  </span>
+                 </code>
+                 ) &#x2013; Minimum consecutive successes for the probe to be considered successful after having failed.
+Defaults to 1. Must be 1 for liveness and startup. Minimum value is 1.
+                </li>
+                <li>
+                 <strong>
+                  failure_threshold
+                 </strong>
+                 (
+                 <code class="xref py py-class docutils literal notranslate">
+                  <span class="pre">
+                   int
+                  </span>
+                 </code>
+                 ) &#x2013; Minimum consecutive failures for the probe to be considered failed after having succeeded.
+Defaults to 3. Minimum value is 1.
+                </li>
+               </ul>
+              </td>
+             </tr>
+             <tr class="field-even field">
+              <th class="field-name">
+               Return type:
+              </th>
+              <td class="field-body">
+               <p class="first last">
+                <a class="reference internal" href="#modules.v1alpha1.Probe" title="modules.v1alpha1.Probe">
+                 <code class="xref py py-class docutils literal notranslate">
+                  <span class="pre">
+                   Probe
+                  </span>
+                 </code>
+                </a>
+               </p>
+              </td>
+             </tr>
+            </tbody>
+           </table>
+          </dd>
+         </dl><dl class="function">
+          <dt id="modules.v1alpha1.restart_on_spec">
+           <code class="descclassname">
+            v1alpha1.
+           </code>
+           <code class="descname">
+            restart_on_spec
+           </code>
+           <span class="sig-paren">
+            (
+           </span>
+           <em>
+            file_watches=None
+           </em>
+           ,
+           <em>
+            ui_buttons=None
+           </em>
+           <span class="sig-paren">
+            )
+           </span>
+           <a class="headerlink" href="#modules.v1alpha1.restart_on_spec" title="Permalink to this definition">
+            &#xB6;
+           </a>
+          </dt>
+          <dd>
+           <p>
+            RestartOnSpec indicates the set of objects that can trigger a restart of this object.
+           </p>
+           <table class="docutils field-list" frame="void" rules="none">
+            <col class="field-name">
+            <col class="field-body">
+            <tbody valign="top">
+             <tr class="field-odd field">
+              <th class="field-name">
+               Parameters:
+              </th>
+              <td class="field-body">
+               <ul class="first simple">
+                <li>
+                 <strong>
+                  file_watches
+                 </strong>
+                 (
+                 <code class="xref py py-data docutils literal notranslate">
+                  <span class="pre">
+                   Optional
+                  </span>
+                 </code>
+                 [
+                 <code class="xref py py-class docutils literal notranslate">
+                  <span class="pre">
+                   List
+                  </span>
+                 </code>
+                 [
+                 <code class="xref py py-class docutils literal notranslate">
+                  <span class="pre">
+                   str
+                  </span>
+                 </code>
+                 ]]) &#x2013; A list of file watches that can trigger a restart.
+                </li>
+                <li>
+                 <strong>
+                  ui_buttons
+                 </strong>
+                 (
+                 <code class="xref py py-data docutils literal notranslate">
+                  <span class="pre">
+                   Optional
+                  </span>
+                 </code>
+                 [
+                 <code class="xref py py-class docutils literal notranslate">
+                  <span class="pre">
+                   List
+                  </span>
+                 </code>
+                 [
+                 <code class="xref py py-class docutils literal notranslate">
+                  <span class="pre">
+                   str
+                  </span>
+                 </code>
+                 ]]) &#x2013; A list of ui buttons that can trigger a restart.
+                </li>
+               </ul>
+              </td>
+             </tr>
+             <tr class="field-even field">
+              <th class="field-name">
+               Return type:
+              </th>
+              <td class="field-body">
+               <p class="first last">
+                <a class="reference internal" href="#modules.v1alpha1.RestartOnSpec" title="modules.v1alpha1.RestartOnSpec">
+                 <code class="xref py py-class docutils literal notranslate">
+                  <span class="pre">
+                   RestartOnSpec
+                  </span>
+                 </code>
+                </a>
+               </p>
+              </td>
+             </tr>
+            </tbody>
+           </table>
+          </dd>
+         </dl><dl class="function">
+          <dt id="modules.v1alpha1.start_on_spec">
+           <code class="descclassname">
+            v1alpha1.
+           </code>
+           <code class="descname">
+            start_on_spec
+           </code>
+           <span class="sig-paren">
+            (
+           </span>
+           <em>
+            ui_buttons=None
+           </em>
+           <span class="sig-paren">
+            )
+           </span>
+           <a class="headerlink" href="#modules.v1alpha1.start_on_spec" title="Permalink to this definition">
+            &#xB6;
+           </a>
+          </dt>
+          <dd>
+           <p>
+            StartOnSpec indicates the set of objects that can trigger a start/restart of this object.
+           </p>
+           <table class="docutils field-list" frame="void" rules="none">
+            <col class="field-name">
+            <col class="field-body">
+            <tbody valign="top">
+             <tr class="field-odd field">
+              <th class="field-name">
+               Parameters:
+              </th>
+              <td class="field-body">
+               <strong>
+                ui_buttons
+               </strong>
+               (
+               <code class="xref py py-data docutils literal notranslate">
+                <span class="pre">
+                 Optional
+                </span>
+               </code>
+               [
+               <code class="xref py py-class docutils literal notranslate">
+                <span class="pre">
+                 List
+                </span>
+               </code>
+               [
+               <code class="xref py py-class docutils literal notranslate">
+                <span class="pre">
+                 str
+                </span>
+               </code>
+               ]]) &#x2013;
+               <p>
+                A list of ui buttons that can trigger a run.
+               </p>
+               <p>
+                When a button triggers a run, any UIInputs on that button will be added
+to the cmd&#x2019;s env.
+               </p>
+              </td>
+             </tr>
+             <tr class="field-even field">
+              <th class="field-name">
+               Return type:
+              </th>
+              <td class="field-body">
+               <a class="reference internal" href="#modules.v1alpha1.StartOnSpec" title="modules.v1alpha1.StartOnSpec">
+                <code class="xref py py-class docutils literal notranslate">
+                 <span class="pre">
+                  StartOnSpec
+                 </span>
+                </code>
+               </a>
+              </td>
+             </tr>
+            </tbody>
+           </table>
+          </dd>
+         </dl><dl class="function">
+          <dt id="modules.v1alpha1.tcp_socket_action">
+           <code class="descclassname">
+            v1alpha1.
+           </code>
+           <code class="descname">
+            tcp_socket_action
+           </code>
+           <span class="sig-paren">
+            (
+           </span>
+           <em>
+            port=0
+           </em>
+           ,
+           <em>
+            host=&apos;&apos;
+           </em>
+           <span class="sig-paren">
+            )
+           </span>
+           <a class="headerlink" href="#modules.v1alpha1.tcp_socket_action" title="Permalink to this definition">
+            &#xB6;
+           </a>
+          </dt>
+          <dd>
+           <p>
+            TCPSocketAction describes an action based on opening a socket
+           </p>
+           <table class="docutils field-list" frame="void" rules="none">
+            <col class="field-name">
+            <col class="field-body">
+            <tbody valign="top">
+             <tr class="field-odd field">
+              <th class="field-name">
+               Parameters:
+              </th>
+              <td class="field-body">
+               <ul class="first simple">
+                <li>
+                 <strong>
+                  port
+                 </strong>
+                 (
+                 <code class="xref py py-class docutils literal notranslate">
+                  <span class="pre">
+                   int
+                  </span>
+                 </code>
+                 ) &#x2013; Number or name of the port to access on the container.
+Number must be in the range 1 to 65535.
+                </li>
+                <li>
+                 <strong>
+                  host
+                 </strong>
+                 (
+                 <code class="xref py py-class docutils literal notranslate">
+                  <span class="pre">
+                   str
+                  </span>
+                 </code>
+                 ) &#x2013; Optional: Host name to connect to, defaults to the pod IP.
+                </li>
+               </ul>
+              </td>
+             </tr>
+             <tr class="field-even field">
+              <th class="field-name">
+               Return type:
+              </th>
+              <td class="field-body">
+               <p class="first last">
+                <a class="reference internal" href="#modules.v1alpha1.TCPSocketAction" title="modules.v1alpha1.TCPSocketAction">
+                 <code class="xref py py-class docutils literal notranslate">
+                  <span class="pre">
+                   TCPSocketAction
+                  </span>
+                 </code>
+                </a>
+               </p>
+              </td>
+             </tr>
+            </tbody>
+           </table>
+          </dd>
+         </dl><dl class="function">
+          <dt id="modules.v1alpha1.ui_bool_input_spec">
+           <code class="descclassname">
+            v1alpha1.
+           </code>
+           <code class="descname">
+            ui_bool_input_spec
+           </code>
+           <span class="sig-paren">
+            (
+           </span>
+           <em>
+            default_value=False
+           </em>
+           ,
+           <em>
+            true_string=None
+           </em>
+           ,
+           <em>
+            false_string=None
+           </em>
+           <span class="sig-paren">
+            )
+           </span>
+           <a class="headerlink" href="#modules.v1alpha1.ui_bool_input_spec" title="Permalink to this definition">
+            &#xB6;
+           </a>
+          </dt>
+          <dd>
+           <table class="docutils field-list" frame="void" rules="none">
+            <col class="field-name">
+            <col class="field-body">
+            <tbody valign="top">
+             <tr class="field-odd field">
+              <th class="field-name">
+               Parameters:
+              </th>
+              <td class="field-body">
+               <ul class="first simple">
+                <li>
+                 <strong>
+                  default_value
+                 </strong>
+                 (
+                 <code class="xref py py-class docutils literal notranslate">
+                  <span class="pre">
+                   bool
+                  </span>
+                 </code>
+                 ) &#x2013; Whether the input is initially true or false.
+                </li>
+                <li>
+                 <strong>
+                  true_string
+                 </strong>
+                 (
+                 <code class="xref py py-data docutils literal notranslate">
+                  <span class="pre">
+                   Optional
+                  </span>
+                 </code>
+                 [
+                 <code class="xref py py-class docutils literal notranslate">
+                  <span class="pre">
+                   str
+                  </span>
+                 </code>
+                 ]) &#x2013; If the input&#x2019;s value is converted to a string, use this when the value is true.
+If unspecified, its string value will be
+                 <cite>
+                  &#x201C;true&#x201D;
+                 </cite>
+                </li>
+                <li>
+                 <strong>
+                  false_string
+                 </strong>
+                 (
+                 <code class="xref py py-data docutils literal notranslate">
+                  <span class="pre">
+                   Optional
+                  </span>
+                 </code>
+                 [
+                 <code class="xref py py-class docutils literal notranslate">
+                  <span class="pre">
+                   str
+                  </span>
+                 </code>
+                 ]) &#x2013; If the input&#x2019;s value is converted to a string, use this when the value is false.
+If unspecified, its string value will be
+                 <cite>
+                  &#x201C;false&#x201D;
+                 </cite>
+                </li>
+               </ul>
+              </td>
+             </tr>
+             <tr class="field-even field">
+              <th class="field-name">
+               Return type:
+              </th>
+              <td class="field-body">
+               <p class="first last">
+                <a class="reference internal" href="#modules.v1alpha1.UIBoolInputSpec" title="modules.v1alpha1.UIBoolInputSpec">
+                 <code class="xref py py-class docutils literal notranslate">
+                  <span class="pre">
+                   UIBoolInputSpec
+                  </span>
+                 </code>
+                </a>
+               </p>
+              </td>
+             </tr>
+            </tbody>
+           </table>
+          </dd>
+         </dl><dl class="function">
+          <dt id="modules.v1alpha1.ui_button">
+           <code class="descclassname">
+            v1alpha1.
+           </code>
+           <code class="descname">
+            ui_button
+           </code>
+           <span class="sig-paren">
+            (
+           </span>
+           <em>
+            name
+           </em>
+           ,
+           <em>
+            labels=None
+           </em>
+           ,
+           <em>
+            annotations=None
+           </em>
+           ,
+           <em>
+            location=None
+           </em>
+           ,
+           <em>
+            text=&apos;&apos;
+           </em>
+           ,
+           <em>
+            icon_name=&apos;&apos;
+           </em>
+           ,
+           <em>
+            icon_svg=&apos;&apos;
+           </em>
+           ,
+           <em>
+            disabled=False
+           </em>
+           ,
+           <em>
+            inputs=None
+           </em>
+           <span class="sig-paren">
+            )
+           </span>
+           <a class="headerlink" href="#modules.v1alpha1.ui_button" title="Permalink to this definition">
+            &#xB6;
+           </a>
+          </dt>
+          <dd>
+           <p>
+            UIButton
+           </p>
+           <table class="docutils field-list" frame="void" rules="none">
+            <col class="field-name">
+            <col class="field-body">
+            <tbody valign="top">
+             <tr class="field-odd field">
+              <th class="field-name">
+               Parameters:
+              </th>
+              <td class="field-body">
+               <ul class="first last simple">
+                <li>
+                 <strong>
+                  name
+                 </strong>
+                 (
+                 <code class="xref py py-class docutils literal notranslate">
+                  <span class="pre">
+                   str
+                  </span>
+                 </code>
+                 ) &#x2013; The name in the Object metadata.
+                </li>
+                <li>
+                 <strong>
+                  labels
+                 </strong>
+                 (
+                 <code class="xref py py-data docutils literal notranslate">
+                  <span class="pre">
+                   Optional
+                  </span>
+                 </code>
+                 [
+                 <code class="xref py py-class docutils literal notranslate">
+                  <span class="pre">
+                   Dict
+                  </span>
+                 </code>
+                 [
+                 <code class="xref py py-class docutils literal notranslate">
+                  <span class="pre">
+                   str
+                  </span>
+                 </code>
+                 ,
+                 <code class="xref py py-class docutils literal notranslate">
+                  <span class="pre">
+                   str
+                  </span>
+                 </code>
+                 ]]) &#x2013; A set of key/value pairs in the Object metadata for grouping objects.
+                </li>
+                <li>
+                 <strong>
+                  annotations
+                 </strong>
+                 (
+                 <code class="xref py py-data docutils literal notranslate">
+                  <span class="pre">
+                   Optional
+                  </span>
+                 </code>
+                 [
+                 <code class="xref py py-class docutils literal notranslate">
+                  <span class="pre">
+                   Dict
+                  </span>
+                 </code>
+                 [
+                 <code class="xref py py-class docutils literal notranslate">
+                  <span class="pre">
+                   str
+                  </span>
+                 </code>
+                 ,
+                 <code class="xref py py-class docutils literal notranslate">
+                  <span class="pre">
+                   str
+                  </span>
+                 </code>
+                 ]]) &#x2013; A set of key/value pairs in the Object metadata for attaching data to objects.
+                </li>
+                <li>
+                 <strong>
+                  location
+                 </strong>
+                 (
+                 <code class="xref py py-data docutils literal notranslate">
+                  <span class="pre">
+                   Optional
+                  </span>
+                 </code>
+                 [
+                 <a class="reference internal" href="#modules.v1alpha1.UIComponentLocation" title="modules.v1alpha1.UIComponentLocation">
+                  <code class="xref py py-class docutils literal notranslate">
+                   <span class="pre">
+                    UIComponentLocation
+                   </span>
+                  </code>
+                 </a>
+                 ]) &#x2013; Location associates the button with another component for layout.
+                </li>
+                <li>
+                 <strong>
+                  text
+                 </strong>
+                 (
+                 <code class="xref py py-class docutils literal notranslate">
+                  <span class="pre">
+                   str
+                  </span>
+                 </code>
+                 ) &#x2013; Text to appear on the button itself or as hover text (depending on button location).
+                </li>
+                <li>
+                 <strong>
+                  icon_name
+                 </strong>
+                 (
+                 <code class="xref py py-class docutils literal notranslate">
+                  <span class="pre">
+                   str
+                  </span>
+                 </code>
+                 ) &#x2013;
+                 <p>
+                  IconName is a Material Icon to appear next to button text or on the button itself (depending on button location).
+                 </p>
+                 <p>
+                  Valid values are icon font ligature names from the Material Icons set.
+See
+                  <a class="reference external" href="https://fonts.google.com/icons">
+                   https://fonts.google.com/icons
+                  </a>
+                  for the full list of available icons.
+                 </p>
+                 <p>
+                  If both IconSVG and IconName are specified, IconSVG will take precedence.
+                 </p>
+                </li>
+                <li>
+                 <strong>
+                  icon_svg
+                 </strong>
+                 (
+                 <code class="xref py py-class docutils literal notranslate">
+                  <span class="pre">
+                   str
+                  </span>
+                 </code>
+                 ) &#x2013;
+                 <p>
+                  IconSVG is an SVG to use as the icon to appear next to button text or on the button itself (depending on button
+location).
+                 </p>
+                 <p>
+                  This should be an &lt;svg&gt; element scaled for a 24x24 viewport.
+                 </p>
+                 <p>
+                  If both IconSVG and IconName are specified, IconSVG will take precedence.
+                 </p>
+                </li>
+                <li>
+                 <strong>
+                  disabled
+                 </strong>
+                 (
+                 <code class="xref py py-class docutils literal notranslate">
+                  <span class="pre">
+                   bool
+                  </span>
+                 </code>
+                 ) &#x2013; If true, the button will be rendered, but with an effect indicating it&#x2019;s
+disabled. It will also be unclickable.
+                </li>
+                <li>
+                 <strong>
+                  inputs
+                 </strong>
+                 (
+                 <code class="xref py py-data docutils literal notranslate">
+                  <span class="pre">
+                   Optional
+                  </span>
+                 </code>
+                 [
+                 <code class="xref py py-class docutils literal notranslate">
+                  <span class="pre">
+                   List
+                  </span>
+                 </code>
+                 [
+                 <a class="reference internal" href="#modules.v1alpha1.UIInputSpec" title="modules.v1alpha1.UIInputSpec">
+                  <code class="xref py py-class docutils literal notranslate">
+                   <span class="pre">
+                    UIInputSpec
+                   </span>
+                  </code>
+                 </a>
+                 ]]) &#x2013; Any inputs for this button.
+                </li>
+               </ul>
+              </td>
+             </tr>
+            </tbody>
+           </table>
+          </dd>
+         </dl><dl class="function">
+          <dt id="modules.v1alpha1.ui_component_location">
+           <code class="descclassname">
+            v1alpha1.
+           </code>
+           <code class="descname">
+            ui_component_location
+           </code>
+           <span class="sig-paren">
+            (
+           </span>
+           <em>
+            component_id=&apos;&apos;
+           </em>
+           ,
+           <em>
+            component_type=&apos;&apos;
+           </em>
+           <span class="sig-paren">
+            )
+           </span>
+           <a class="headerlink" href="#modules.v1alpha1.ui_component_location" title="Permalink to this definition">
+            &#xB6;
+           </a>
+          </dt>
+          <dd>
+           <p>
+            UIComponentLocation specifies where to put a UI component.
+           </p>
+           <table class="docutils field-list" frame="void" rules="none">
+            <col class="field-name">
+            <col class="field-body">
+            <tbody valign="top">
+             <tr class="field-odd field">
+              <th class="field-name">
+               Parameters:
+              </th>
+              <td class="field-body">
+               <ul class="first simple">
+                <li>
+                 <strong>
+                  component_id
+                 </strong>
+                 (
+                 <code class="xref py py-class docutils literal notranslate">
+                  <span class="pre">
+                   str
+                  </span>
+                 </code>
+                 ) &#x2013;
+                 <p>
+                  ComponentID is the identifier of the parent component to associate this component with.
+                 </p>
+                 <p>
+                  For example, this is a resource name if the ComponentType is Resource.
+                 </p>
+                </li>
+                <li>
+                 <strong>
+                  component_type
+                 </strong>
+                 (
+                 <code class="xref py py-class docutils literal notranslate">
+                  <span class="pre">
+                   str
+                  </span>
+                 </code>
+                 ) &#x2013; ComponentType is the type of the parent component.
+                </li>
+               </ul>
+              </td>
+             </tr>
+             <tr class="field-even field">
+              <th class="field-name">
+               Return type:
+              </th>
+              <td class="field-body">
+               <p class="first last">
+                <a class="reference internal" href="#modules.v1alpha1.UIComponentLocation" title="modules.v1alpha1.UIComponentLocation">
+                 <code class="xref py py-class docutils literal notranslate">
+                  <span class="pre">
+                   UIComponentLocation
+                  </span>
+                 </code>
+                </a>
+               </p>
+              </td>
+             </tr>
+            </tbody>
+           </table>
+          </dd>
+         </dl><dl class="function">
+          <dt id="modules.v1alpha1.ui_input_spec">
+           <code class="descclassname">
+            v1alpha1.
+           </code>
+           <code class="descname">
+            ui_input_spec
+           </code>
+           <span class="sig-paren">
+            (
+           </span>
+           <em>
+            name=&apos;&apos;
+           </em>
+           ,
+           <em>
+            label=&apos;&apos;
+           </em>
+           ,
+           <em>
+            text=None
+           </em>
+           ,
+           <em>
+            bool=None
+           </em>
+           <span class="sig-paren">
+            )
+           </span>
+           <a class="headerlink" href="#modules.v1alpha1.ui_input_spec" title="Permalink to this definition">
+            &#xB6;
+           </a>
+          </dt>
+          <dd>
+           <p>
+            Defines an Input to render in the UI.
+If UIButton is analogous to an HTML &lt;form&gt;,
+UIInput is analogous to an HTML &lt;input&gt;.
+           </p>
+           <table class="docutils field-list" frame="void" rules="none">
+            <col class="field-name">
+            <col class="field-body">
+            <tbody valign="top">
+             <tr class="field-odd field">
+              <th class="field-name">
+               Parameters:
+              </th>
+              <td class="field-body">
+               <ul class="first simple">
+                <li>
+                 <strong>
+                  name
+                 </strong>
+                 (
+                 <code class="xref py py-class docutils literal notranslate">
+                  <span class="pre">
+                   str
+                  </span>
+                 </code>
+                 ) &#x2013; Name of this input. Must be unique within the UIButton.
+                </li>
+                <li>
+                 <strong>
+                  label
+                 </strong>
+                 (
+                 <code class="xref py py-class docutils literal notranslate">
+                  <span class="pre">
+                   str
+                  </span>
+                 </code>
+                 ) &#x2013; A label to display next to this input in the UI.
+                </li>
+                <li>
+                 <strong>
+                  text
+                 </strong>
+                 (
+                 <code class="xref py py-data docutils literal notranslate">
+                  <span class="pre">
+                   Optional
+                  </span>
+                 </code>
+                 [
+                 <a class="reference internal" href="#modules.v1alpha1.UITextInputSpec" title="modules.v1alpha1.UITextInputSpec">
+                  <code class="xref py py-class docutils literal notranslate">
+                   <span class="pre">
+                    UITextInputSpec
+                   </span>
+                  </code>
+                 </a>
+                 ]) &#x2013; A Text input that takes a string.
+                </li>
+                <li>
+                 <strong>
+                  bool
+                 </strong>
+                 (
+                 <code class="xref py py-data docutils literal notranslate">
+                  <span class="pre">
+                   Optional
+                  </span>
+                 </code>
+                 [
+                 <a class="reference internal" href="#modules.v1alpha1.UIBoolInputSpec" title="modules.v1alpha1.UIBoolInputSpec">
+                  <code class="xref py py-class docutils literal notranslate">
+                   <span class="pre">
+                    UIBoolInputSpec
+                   </span>
+                  </code>
+                 </a>
+                 ]) &#x2013; A Bool input that is true or false
+                </li>
+               </ul>
+              </td>
+             </tr>
+             <tr class="field-even field">
+              <th class="field-name">
+               Return type:
+              </th>
+              <td class="field-body">
+               <p class="first last">
+                <a class="reference internal" href="#modules.v1alpha1.UIInputSpec" title="modules.v1alpha1.UIInputSpec">
+                 <code class="xref py py-class docutils literal notranslate">
+                  <span class="pre">
+                   UIInputSpec
+                  </span>
+                 </code>
+                </a>
+               </p>
+              </td>
+             </tr>
+            </tbody>
+           </table>
+          </dd>
+         </dl><dl class="function">
+          <dt id="modules.v1alpha1.ui_text_input_spec">
+           <code class="descclassname">
+            v1alpha1.
+           </code>
+           <code class="descname">
+            ui_text_input_spec
+           </code>
+           <span class="sig-paren">
+            (
+           </span>
+           <em>
+            default_value=&apos;&apos;
+           </em>
+           ,
+           <em>
+            placeholder=&apos;&apos;
+           </em>
+           <span class="sig-paren">
+            )
+           </span>
+           <a class="headerlink" href="#modules.v1alpha1.ui_text_input_spec" title="Permalink to this definition">
+            &#xB6;
+           </a>
+          </dt>
+          <dd>
+           <table class="docutils field-list" frame="void" rules="none">
+            <col class="field-name">
+            <col class="field-body">
+            <tbody valign="top">
+             <tr class="field-odd field">
+              <th class="field-name">
+               Parameters:
+              </th>
+              <td class="field-body">
+               <ul class="first simple">
+                <li>
+                 <strong>
+                  default_value
+                 </strong>
+                 (
+                 <code class="xref py py-class docutils literal notranslate">
+                  <span class="pre">
+                   str
+                  </span>
+                 </code>
+                 ) &#x2013; Initial value for this field.
+                </li>
+                <li>
+                 <strong>
+                  placeholder
+                 </strong>
+                 (
+                 <code class="xref py py-class docutils literal notranslate">
+                  <span class="pre">
+                   str
+                  </span>
+                 </code>
+                 ) &#x2013; A short hint that describes the expected input of this field.
+                </li>
+               </ul>
+              </td>
+             </tr>
+             <tr class="field-even field">
+              <th class="field-name">
+               Return type:
+              </th>
+              <td class="field-body">
+               <p class="first last">
+                <a class="reference internal" href="#modules.v1alpha1.UITextInputSpec" title="modules.v1alpha1.UITextInputSpec">
+                 <code class="xref py py-class docutils literal notranslate">
+                  <span class="pre">
+                   UITextInputSpec
+                  </span>
+                 </code>
+                </a>
+               </p>
               </td>
              </tr>
             </tbody>
