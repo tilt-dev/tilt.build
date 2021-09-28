@@ -90,13 +90,6 @@ but also have teammates in Berlin, Germany and other parts of the US.
       Three years building fullstack experiences at <a href="https://attuneinsurance.com">Attune</a>. Makes weird drawings and wearables. Loves to pick up heavy things and put them back down again. She/they.
     </div>
   </div>
-  <div class="bio col-1of3 u-marginBottom1_25">
-    <img class="bio-image" src="/assets/img/peter.jpg">
-    <h4>Peter Chapman</h4>
-    <div>
-      Relationship-builder, number-cruncher, has strong opinions about sql syntax and the Sufjan Stevens discography. Amateur pickle producer. He/him.
-    </div>
-  </div>
 </div>
 
 
