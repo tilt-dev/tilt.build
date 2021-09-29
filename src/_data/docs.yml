@@ -22,10 +22,10 @@ sidebar:
       href: onboarding_checklist.html
     - title: "Guide for Application Developers"
       href: welcome_to_tilt.html
-    - title: Accessing your resource with endpoints
-      href: accessing_resource_endpoints.html
   - title: Enhancements
     items:
+    - title: Links to Your Services
+      href: accessing_resource_endpoints.html
     - title: Faster Development with Live Update (Tutorial)
       href: live_update_tutorial.html
     - title: Live Update Reference
