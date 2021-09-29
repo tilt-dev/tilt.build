@@ -11,6 +11,7 @@ sidebar:
     - title: "Tilt's Control Loop"
       href: controlloop.html
   - title: Tutorial
+    inSectionNav: true
     items:
     - title: Overview
       href: tutorial/index.html

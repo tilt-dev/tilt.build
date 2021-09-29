@@ -38,6 +38,11 @@ layout: default
         {% assign active_section = pages | find: "href", page_href %}
       {% endif %}
 
+      {% if active_section %}
+        {% assign current_section = section %}
+        {% assign current_section_pages = pages %}
+      {% endif %}
+
       <h3 class="sidebar-sectionTitle js-accordion__header" {% if active_section %}data-accordion-opened="true"{% endif %}>
         {{ section.title | escape }}
       </h3>
@@ -49,7 +54,6 @@ layout: default
       </ul>
 
     {% endfor %}
-
     </div>  
 
   </nav>
@@ -62,6 +66,36 @@ layout: default
     </div>
     
     {{ content }}
+
+    {% if current_section.inSectionNav %}
+      <div class="section-nav" role="navigation" aria-label="Section navigation">
+        {% for page in current_section_pages %}
+          {% unless page_href == page.href %}
+            {% continue %}
+          {% endunless %}
+          {% unless forloop.first %}
+            {% assign prevIndex = forloop.index0 | minus: 1 %}
+            {% assign prevPage = current_section_pages[prevIndex] %}
+            <a href="/{{ prevPage.href | escape }}"
+               class="section-nav-prev"
+               aria-label="Previous Section: {{ prevPage.title | escape }}">
+              <span aria-hidden="true">←</span>
+              {{ prevPage.title | escape }}
+            </a>
+          {% endunless %}
+          {% unless forloop.last %}
+            {% assign nextIndex = forloop.index0 | plus: 1 %}
+            {% assign nextPage = current_section_pages[nextIndex] %}
+            <a href="/{{ nextPage.href | escape }}"
+               class="section-nav-next"
+               aria-label="Next Section: {{ nextPage.title | escape }}">
+              {{ nextPage.title | escape }}
+              <span aria-hidden="true">→</span>
+            </a>
+          {% endunless %}
+        {% endfor %}
+      </div>
+    {% endif %}
 
     <div class="docsFooter">
     {% if page.hideHelpfulForm != true %}

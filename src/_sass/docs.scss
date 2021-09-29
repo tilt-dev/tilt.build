@@ -20,3 +20,18 @@
     padding-top: 0;
   }
 }
+
+.section-nav {
+  margin: 2rem 1rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  .section-nav-prev {
+    margin-right: auto;
+  }
+
+  .section-nav-next {
+    margin-left: auto;
+  }
+}
