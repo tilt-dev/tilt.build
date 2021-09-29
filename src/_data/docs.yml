@@ -6,10 +6,24 @@ sidebar:
       href: install.html
     - title: Upgrade
       href: upgrade.html
-    - title: "Tutorial: The First 15 Minutes"
-      href: tutorial.html
+    - title: "Writing a Tiltfile"
+      href: tiltfile_authoring.html
     - title: "Tilt's Control Loop"
       href: controlloop.html
+  - title: Tutorial
+    items:
+    - title: Overview
+      href: tutorial/index.html
+    - title: 1. Preparation (optional)
+      href: tutorial/1-prerequisites.html
+    - title: 2. Launching & Managing Resources
+      href: tutorial/2-tilt-up.html
+    - title: 3. Tilt UI
+      href: tutorial/3-tilt-ui.html
+    - title: 4. Code. Update. Repeat.
+      href: tutorial/4-code-update-repeat.html
+    - title: 5. Smart Rebuilds with Live Update
+      href: tutorial/5-live-update.html
   - title: Example Projects
     include: examples
   - title: Onboarding Your Team

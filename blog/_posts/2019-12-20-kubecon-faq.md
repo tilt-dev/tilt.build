@@ -108,7 +108,7 @@ local machine. Yes, Tilt pushes up your app(s) to Kubernetes, but Tilt itself is
 runs locally.
 
 ### Q: If I’m developing in Kubernetes, how do I use my debugger?
-Tilt lets you easily [port forward](https://docs.tilt.dev/tutorial.html#step-3-watch-optional) from
+Tilt lets you easily [port forward](https://docs.tilt.dev/tiltfile_authoring.html#step-3-watch-optional) from
 your container to localhost, so for most debuggers it’s a matter of 1. making sure your app is
 exposing a debugging port, and then 2. using Tilt to forward that port to localhost so you can
 connect with your IDE. For more complex cases, we recommend looking into

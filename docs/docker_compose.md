@@ -10,7 +10,7 @@ But if you already use Docker Compose, don't worry! Tilt can use `docker-compose
 
 This doc describes how you can get Tilt's UX for your Docker Compose project using the same config and tools plus a
 one-line Tiltfile. (This is simpler than the config for Kubernetes projects
-described in the [Tutorial](tutorial.html).)
+described in the [Write a Tiltfile Guide](tiltfile_authoring.html).)
 
 ## Comparison
 

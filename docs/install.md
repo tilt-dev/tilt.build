@@ -88,7 +88,8 @@ If you have any trouble installing Tilt, look for the error message in the
 Next Steps
 ----------
 
-You're ready to start using Tilt! Try our [Tutorial](tutorial.html) to setup your project in 15 minutes.
+You're ready to start using Tilt!
+Try our [Tutorial](/tutorial) to learn about Tilt or jump right in with the [Write a Tiltfile Guide](tiltfile_authoring.html).
 
 ---
 
