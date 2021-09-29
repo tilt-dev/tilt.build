@@ -35,8 +35,7 @@ tilt up --port=3366
 You should see output similar to the following in your terminal:
 ![Running tilt up in a Terminal window shows "Tilt started on http://localhost:3366/" message](/assets/docimg/tutorial/tilt-up-cli.gif)
 
-Hit `Spacebar` while your terminal is active, and Tilt will launch your default browser.
-(Or navigate to [http://localhost:3366/]() directly in your preferred browser.)
+Press `Spacebar` while your terminal is active, and Tilt will launch your default browser.
 
 In the next section, we'll explain the Tilt UI. But first, let's dissect what's happening in the background.
 <!-- TODO(milas): this would be a great place for a cheeky graphic about how we're stalling while the builds happen -->
@@ -88,7 +87,7 @@ To execute these updates, Tilt might:
  * Build a container image (e.g. `docker build`)
  * Deploy a modified K8s object or Helm chart (e.g. `kubectl apply -f` or `helm install`)
 
-![Resource pane showing an update error](/assets/docimg/tutorial/update-status.png)
+![Resource pane showing an update error](/assets/docimg/tutorial/tilt-ui-update-status.png)
 
 Tilt knows which files correspond to a given resource and update action.
 It won't re-build a container just because you changed a Pod label, or re-compile your backend when you've only edited some JSX.
@@ -100,7 +99,7 @@ Unfortunately, just because it builds does not mean it works.
 
 In Tilt, the runtime status lets you know what's happening with your code _after_ it's been deployed.
 
-![Resource pane showing a runtime error](/assets/docimg/tutorial/runtime-status.png)
+![Resource pane showing a runtime error](/assets/docimg/tutorial/tilt-ui-runtime-status.png)
 
 More importantly, Tilt lets you know _why_.
 There's a lot of ways things can go wrong, and Tilt will save you from playing "20 Questions with `kubectl`."

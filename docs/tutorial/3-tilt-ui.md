@@ -6,7 +6,7 @@ layout: docs
 ## Launching the Web UI
 In your terminal window running `tilt up`, press `(Spacebar)`.
 Tilt will open your default browser to the Tilt UI.
-(Or you can navigate to [http://localhost:3366]().)
+(Or navigate there directly in your preferred browser using the URL from the terminal.)
 
 ## Resource Overview
 The Resource Overview is the first thing you see when you open the Tilt UI.
