@@ -38,6 +38,15 @@ layout: default
                 <li>
                   <a class="Docs-subnav-section-link {% if page_href == page.href %}is-active{% endif %}" href="/{{page.href | escape}}">{{page.title | escape}}</a>
                 </li>
+                <h3 class="sidebar-sectionTitle js-accordion__header" {% if active_section %}data-accordion-opened="true" {% endif %}>
+                  {{ section.title | escape }}
+                </h3>
+                <ul class="sidebar-sectionList js-accordion__panel">
+                  {% for page in pages %}
+                  <li><a class="sidebar-link {% if page_href == page.href %}sidebar-link-active{% endif %}"
+                      href="/{{page.href | escape}}">{{page.title | escape}}</a>
+                    {% endfor %}
+                </ul>
               {% endfor %}
             </ul>
           </li>
@@ -46,29 +55,32 @@ layout: default
       </nav>
     </aside>
   
-  
     <article class="docsContent">
-      <h1>{{ page.title | escape }}</h1>
-      
+      <div class="docsHeader">
+        <h1>{{ page.title | escape }}</h1>
+        {% if page.subtitle %}
+        <div role="doc-subtitle">{{ page.subtitle | escape }}</div>
+        {% endif %}
+      </div>
+    
       {{ content }}
-  
+    
       <div class="docsFooter">
-      {% if page.hideHelpfulForm != true %}
-          {% include helpful_form.html %}
-      {% endif %}
-      <a id="scrollToTop" href="#">
-        <span role="presentation">↑</span>
-        Back to top
-      </a>
-      {% if page.hideEditButton != true %}
-        <a class="editOnGitHub u-hideOnMobile"
-           href="https://github.com/tilt-dev/tilt.build/tree/master/docs/{{page.name}}">
+        {% if page.hideHelpfulForm != true %}
+        {% include helpful_form.html %}
+        {% endif %}
+        <a id="scrollToTop" href="#">
+          <span role="presentation">↑</span>
+          Back to top
+        </a>
+        {% if page.hideEditButton != true %}
+        <a class="editOnGitHub u-hideOnMobile" href="https://github.com/tilt-dev/tilt.build/tree/master/docs/{{page.name}}">
           {% svg assets/svg/github.svg width=16 height=16 role="presentation" %}
           <span class="editOnGitHub-text">
             Edit on GitHub
           </span>
         </a>
-      {% endif %}
+        {% endif %}
       </div>
     </article>
   </div>

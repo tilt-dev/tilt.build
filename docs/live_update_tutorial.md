@@ -8,7 +8,7 @@ We explain what they do, and why you would want to use them.
 
 ##### (This is a tutorial that walks you through a sample project. If you're looking for technical specs and details, check out the [Live Update Reference](live_update_reference.html) docs.)
 
-In the [Tutorial](tutorial.html), we introduced the `docker_build()` function.
+In the [Tutorial](/tutorial), we introduced the `docker_build()` function.
 This function builds a Docker image. Tilt will watch the inputs to the
 image, and do a fresh build every time the inputs change.
 
@@ -163,4 +163,3 @@ language of choice, all our major example projects use Live Update:
     <li><a href="/{{page.href | escape}}">{{page.title | escape}}</a></li>
   {% endfor %}
 </ul>
-

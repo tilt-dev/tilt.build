@@ -41,7 +41,7 @@ For specific package managers (Homebrew, Scoop, Conda, asdf), see the [Installat
 
 ## Run Tilt
 
-**New to Tilt?** Our tutorial will [get you started](tutorial.html).
+**New to Tilt?** Our tutorial will [get you started](/tutorial).
 
 **Configuring a Service?** We have best practice guides for:
 

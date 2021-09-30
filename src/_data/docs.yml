@@ -3,11 +3,12 @@ top:
     href: x.html
   - title: Guides
     href: x.html
-  - title: References
-    href: x.html
+  - title: Tilt API Reference
+    href: https://api.tilt.dev/
 
 
 sidebar:
+  gettingstarted:
   - title: Why Use Tilt?
     items:
     - title: Overview
@@ -27,11 +28,17 @@ sidebar:
   - title: First Time Using Tilt
     items:
       - title: Overview
-      - title: 1. Preparation (Optional)
-      - title: 2. `tilt up` and Away!
-      - title: 3. Web UI
-      - title: 4. Smart Rebuilds & Live Update
-      - title: 5. What's Next?
+        href: tutorial/index.html
+      - title: 1. Preparation (optional)
+        href: tutorial/1-prerequisites.html
+      - title: 2. Launching & Managing Resources
+        href: tutorial/2-tilt-up.html
+      - title: 3. Tilt UI
+        href: tutorial/3-tilt-ui.html
+      - title: 4. Code. Update. Repeat.
+        href: tutorial/4-code-update-repeat.html
+      - title: 5. Smart Rebuilds with Live Update
+        href: tutorial/5-live-update.html
 
   - title:  Tilt Features
     items:
@@ -53,95 +60,98 @@ sidebar:
       - title: What does Tilt send?
         href: telemetry_faq.html
 
-  - title: Tiltfile
-    items:
-      - title: Tiltfile Concepts
-        href: tiltfile_concepts.html
-      - title: Per user Config
-      - title: Structuring Multiple Repos
-        href: multiple_repos.html
-      - title: Debugging File Changes
-        href: file_changes.html
-      - title: Resource Dependencies
-        href: resource_dependencies.html
-      - title: Manual Update Control
-        href: manual_update_control.html
 
-  - title: Building Images
-    items:
-      - title: Overview
-        href: dependent_images.html
-      - title: Personal Registry
-        href: personal_registry.html
-      - title: Custom Build Scripts
-        href: custom_build.html
-      - title: Bazel
-        href: integrating_bazel_with_tilt.html
-      - title: Skaffold
-        href: skaffold.html
+  guides:
+    - title: Tiltfile
+      items:
+        - title: Tiltfile Concepts
+          href: tiltfile_concepts.html
+        - title: Per user Config
+        - title: Structuring Multiple Repos
+          href: multiple_repos.html
+        - title: Debugging File Changes
+          href: file_changes.html
+        - title: Resource Dependencies
+          href: resource_dependencies.html
+        - title: Manual Update Control
+          href: manual_update_control.html
 
-  - title: Kubernetes Resources
-    items:
-      - title: Overview???
-      - title: With Helm
-        href: helm.html
-      - title: Port Forwards
-        href: accessing_resource_endpoints.html
-      - title: Custom Resource Definitions
-        href: custom_resource.html
-      - title: Remote Clusters???
+    - title: Building Images
+      items:
+        - title: Overview
+          href: dependent_images.html
+        - title: Personal Registry
+          href: personal_registry.html
+        - title: Custom Build Scripts
+          href: custom_build.html
+        - title: Bazel
+          href: integrating_bazel_with_tilt.html
+        - title: Skaffold
+          href: skaffold.html
 
-  - title: Local Resources
-    items:
-      - title: Run Local or Ocassional Workflows
-        href: local_resource.html
+    - title: Kubernetes Resources
+      items:
+        - title: Overview???
+        - title: With Helm
+          href: helm.html
+        - title: Port Forwards
+          href: accessing_resource_endpoints.html
+        - title: Custom Resource Definitions
+          href: custom_resource.html
+        - title: Remote Clusters???
 
-  - title: Docker Compose
-    items:
-    - title: A Better UI for Docker Compose
-      href: docker_compose.html
+    - title: Local Resources
+      items:
+        - title: Run Local or Ocassional Workflows
+          href: local_resource.html
 
-  - title: Live Update
-    items:
-      - title: Tutorial
-        href: live_update_tutorial.html
-      - title: Technical Specifications
-        href: live_update_reference.html
-      - title: Plain Old Static HTML
-        href: example_static_html.html
-      - title: Go
-        href: example_go.html
-      - title: Python
-        href: example_python.html
-      - title: NodeJS
-        href: example_nodejs.html
-      - title: Java
-        href: example_java.html
-      - title: Bazel
-        href: example_bazel.html
-      - title: C#
-        href: example_csharp.html
+    - title: Docker Compose
+      items:
+      - title: A Better UI for Docker Compose
+        href: docker_compose.html
 
-  - title: Continuous Integration (CI)
-    items:
-      - title: Overview
-        href: ci.html
+    - title: Live Update
+      items:
+        - title: Tutorial
+          href: live_update_tutorial.html
+        - title: Technical Specifications
+          href: live_update_reference.html
+        - title: Plain Old Static HTML
+          href: example_static_html.html
+        - title: Go
+          href: example_go.html
+        - title: Python
+          href: example_python.html
+        - title: NodeJS
+          href: example_nodejs.html
+        - title: Java
+          href: example_java.html
+        - title: Bazel
+          href: example_bazel.html
+        - title: C#
+          href: example_csharp.html
 
-  - title: Tiltfile Extensions
-    items:
-      - title: Extensions
-        href: extensions.html
-      - title: Contribute an Extension
-        href: contribute_extension.html
+    - title: Continuous Integration (CI)
+      items:
+        - title: Overview
+          href: ci.html
 
-  - title: Onboarding Your Team
-    items:
-      - title: Onboarding Checklist
-        href: onboarding_checklist.html
-      - title: Guide for Application Developers
-        href: welcome_to_tilt.html
+    - title: Tiltfile Extensions
+      items:
+        - title: Extensions
+          href: extensions.html
+        - title: Contribute an Extension
+          href: contribute_extension.html
 
-  - title: Tiltfile
-    items:
-      - title: Tiltfile API Reference
-        href: api.html
+    - title: Onboarding Your Team
+      items:
+        - title: Onboarding Checklist
+          href: onboarding_checklist.html
+        - title: Guide for Application Developers
+          href: welcome_to_tilt.html
+
+
+    # - title: Tiltfile
+    #   items:
+    #     - title: Tiltfile API Reference
+    #       href: api.html

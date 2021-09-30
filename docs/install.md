@@ -88,7 +88,8 @@ If you have any trouble installing Tilt, look for the error message in the
 Next Steps
 ----------
 
-You're ready to start using Tilt! Try our [Tutorial](tutorial.html) to setup your project in 15 minutes.
+You're ready to start using Tilt!
+Try our [Tutorial](/tutorial) to learn about Tilt or jump right in with the [Write a Tiltfile Guide](tiltfile_authoring.html).
 
 ---
 
@@ -129,8 +130,8 @@ conda install tilt
 
 ```bash
 asdf plugin add tilt
-asdf install tilt 0.22.9
-asdf global tilt 0.22.9
+asdf install tilt 0.22.10
+asdf global tilt 0.22.10
 ```
 
 ### Manual Install
@@ -146,21 +147,21 @@ If you'd prefer to download the binary manually:
 On macOS:
 
 ```bash
-curl -fsSL https://github.com/tilt-dev/tilt/releases/download/v0.22.9/tilt.0.22.9.mac.x86_64.tar.gz | tar -xzv tilt && \
+curl -fsSL https://github.com/tilt-dev/tilt/releases/download/v0.22.10/tilt.0.22.10.mac.x86_64.tar.gz | tar -xzv tilt && \
   sudo mv tilt /usr/local/bin/tilt
 ```
 
 On Linux:
 
 ```bash
-curl -fsSL https://github.com/tilt-dev/tilt/releases/download/v0.22.9/tilt.0.22.9.linux.x86_64.tar.gz | tar -xzv tilt && \
+curl -fsSL https://github.com/tilt-dev/tilt/releases/download/v0.22.10/tilt.0.22.10.linux.x86_64.tar.gz | tar -xzv tilt && \
   sudo mv tilt /usr/local/bin/tilt
 ```
 
 On Windows:
 
 ```powershell
-Invoke-WebRequest "https://github.com/tilt-dev/tilt/releases/download/v0.22.9/tilt.0.22.9.windows.x86_64.zip" -OutFile "tilt.zip"
+Invoke-WebRequest "https://github.com/tilt-dev/tilt/releases/download/v0.22.10/tilt.0.22.10.windows.x86_64.zip" -OutFile "tilt.zip"
 Expand-Archive "tilt.zip" -DestinationPath "tilt"
 Move-Item -Force -Path "tilt\tilt.exe" -Destination "$home\bin\tilt.exe"
 ```

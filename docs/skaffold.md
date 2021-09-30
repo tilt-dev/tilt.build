@@ -4,7 +4,8 @@ description: "This doc compares Tilt to Skaffold and describes how to translate 
 layout: docs
 ---
 
-Tilt is a great upgrade to [Skaffold](https://skaffold.dev) for local dev. This doc compares Tilt to Skaffold and describes how to translate your configuration, which makes our 15 Minute [Tutorial](tutorial.html) even easier.
+Tilt is a great upgrade to [Skaffold](https://skaffold.dev) for local dev.
+This doc compares Tilt to Skaffold and describes how to translate your configuration, so you'll be ready to go through the [Write a Tiltfile Guide](tiltfile_authoring.html).
 
 ## Comparison
 * Tilt's UI shows you status at a glance, so errors can't scroll off-screen. You can navigate the UI in your terminal and dig into the logs for just one service. (Tilt also has a global log if you do want the full firehose).

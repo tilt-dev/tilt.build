@@ -62,8 +62,8 @@ local_resource(
   resource_deps=['tilt-site'],
   cmd=['sh', '-c', """
 set -ex
-kubectl exec deployment/tilt-site -- bundle update
-POD=$(kubectl get pod -l app=tilt-site -o jsonpath --template '{.items[].metadata.name}')
+kubectl exec deployment/docs-site -- bundle update
+POD=$(kubectl get pod -l app=docs-site -o jsonpath --template '{.items[].metadata.name}')
 kubectl cp $POD:/src/Gemfile src/Gemfile
 kubectl cp $POD:/src/Gemfile.lock src/Gemfile.lock
 """],
