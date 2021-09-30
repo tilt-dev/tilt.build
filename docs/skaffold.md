@@ -2,6 +2,7 @@
 title: From Skaffold to Tilt
 description: "This doc compares Tilt to Skaffold and describes how to translate your configuration."
 layout: docs
+sidebar: guides
 ---
 
 Tilt is a great upgrade to [Skaffold](https://skaffold.dev) for local dev.

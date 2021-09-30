@@ -24,29 +24,18 @@ layout: default
     <aside class="Docs-sidebar">
       <nav class="Docs-subnav">
         <ul class="Docs-subnav-sections js-accordion" data-accordion-prefix-classes="Docs-subnav">
-        {% for section in site.data.docs.sidebar %}
-          {% if section.include == 'examples' %}
-            {% assign pages = site.data.examples %}
-          {% else %}
-            {% assign pages = section.items %}
-          {% endif %}
+        {% for section in site.data.docs.sidebar[page.sidebar] %}
+          {% assign pages = section.items %}
     
           <li class="Docs-subnav-section">
-            <h3 class="Docs-subnav-section-title js-accordion__header">{{ section.title | escape }}</h3>
+            <h3 class="Docs-subnav-section-title js-accordion__header">
+                {{ section.title | escape }}
+            </h3>
             <ul class="Docs-subnav-section-list js-accordion__panel">
               {% for page in pages %}
                 <li>
                   <a class="Docs-subnav-section-link {% if page_href == page.href %}is-active{% endif %}" href="/{{page.href | escape}}">{{page.title | escape}}</a>
                 </li>
-                <h3 class="sidebar-sectionTitle js-accordion__header" {% if active_section %}data-accordion-opened="true" {% endif %}>
-                  {{ section.title | escape }}
-                </h3>
-                <ul class="sidebar-sectionList js-accordion__panel">
-                  {% for page in pages %}
-                  <li><a class="sidebar-link {% if page_href == page.href %}sidebar-link-active{% endif %}"
-                      href="/{{page.href | escape}}">{{page.title | escape}}</a>
-                    {% endfor %}
-                </ul>
               {% endfor %}
             </ul>
           </li>

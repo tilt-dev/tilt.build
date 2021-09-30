@@ -2,6 +2,7 @@
 title: Contribute an Extension
 description: "How to create and submit your own Tilt extension"
 layout: docs
+sidebar: guides
 ---
 
 This page explains how to contribute an open source extension. If you're interested in only using extensions, visit [Extensions](extensions.html).

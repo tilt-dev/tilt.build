@@ -2,6 +2,7 @@
 title: Local vs Remote Services
 description: "Tilt doesn't care where your services live. Whether they're local or remote, Tilt can live-update them. But we have some suggestions on how to organize them."
 layout: docs
+sidebar: gettingstarted
 ---
 
 Modern apps are made of too many services. They're everywhere and in constant
@@ -22,8 +23,9 @@ Solutions:
 
 Enhancements:
 
-- [Remote Builds](#remote-builds)
-- [Local/Remote Networking](#local-remote-networking)
+- [Enhancements](#enhancements)
+  - [Remote Builds](#remote-builds)
+  - [Local/Remote Networking](#localremote-networking)
 
 ## All Local
 

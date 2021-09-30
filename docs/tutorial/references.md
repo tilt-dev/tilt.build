@@ -2,6 +2,7 @@
 title: What's Next? I Need More!
 subtitle: Tilt Tutorial
 layout: docs
+sidebar: gettingstarted
 ---
 Now you've tried Tilt with a sample app, here's an overview of what we offer in showing you how to set up Tilt on your own unique application.
 

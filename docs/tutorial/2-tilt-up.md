@@ -2,6 +2,7 @@
 title: Launching & Managing Resources
 subtitle: Tilt Tutorial
 layout: docs
+sidebar: gettingstarted
 ---
 ## Tilt Avatars
 We made [Tilt Avatars][repo-tilt-avatars] so you can try Tilt without first setting it up for your own project.

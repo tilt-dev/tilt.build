@@ -1,6 +1,7 @@
 ---
 title: Accessing your resource with endpoints
 layout: docs
+sidebar: guides
 ---
 
 ## Access your resource with Kubernetes port forwarding

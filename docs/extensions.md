@@ -2,6 +2,7 @@
 title: Extensions
 description: "Extensions are open-source packaged functions that extend the capability Tilt, right inside your Tiltfile."
 layout: docs
+sidebar: guides
 ---
 
 Extensions (available starting in v0.12.11, see [releases](https://github.com/tilt-dev/tilt/releases)) are open-source packaged functions that extend the capability Tilt, right inside your Tiltfile.

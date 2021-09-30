@@ -3,6 +3,7 @@ title: "Example: Java"
 description: "Best practices for developing Java projects with Tilt"
 layout: docs
 lang: java
+sidebar: guides
 ---
 
 The best indicator of a healthy development workflow is a short feedback loop.

@@ -2,6 +2,7 @@
 title: "Debugging File Changes: Rebuilds and Ignores"
 description: "What do you do when a file changes, but Tilt does the wrong thing?"
 layout: docs
+sidebar: guides
 ---
 
 Tilt watches your file system, and rebuilds any resources that have changed.

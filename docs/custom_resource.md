@@ -2,6 +2,7 @@
 title: "Custom Resource Definitions"
 description: "Configure your custom resources so that Tilt can monitor them."
 layout: docs
+sidebar: guides
 ---
 
 Kubernetes defines well-thought-out primitives like Deployments, Jobs, and

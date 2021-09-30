@@ -2,6 +2,7 @@
 title: Who is Tilt for?
 description: "Tilt is a multi-service development engine for teams that deploy to Kubernetes. But why did we build it?"
 layout: docs
+sidebar: gettingstarted
 ---
 
 Tilt is a cloud-native development engine for teams that deploy to Kubernetes.

@@ -2,6 +2,7 @@
 title: Faster Development with Live Update (Tutorial)
 description: "This tutorial looks at a `Tiltfile` with build optimizations. We explain what they do, and why you would want to use them."
 layout: docs
+sidebar: guides
 ---
 This tutorial looks at a `Tiltfile` with build optimizations.
 We explain what they do, and why you would want to use them.

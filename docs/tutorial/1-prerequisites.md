@@ -2,6 +2,7 @@
 title: Preparation (Optional)
 subtitle: Tilt Tutorial
 layout: docs
+sidebar: gettingstarted
 ---
 
 Tilt is incredibly flexible and supports a variety of ways to build and run your services during local development.

@@ -2,6 +2,7 @@
 title: A Better UI for Docker Compose
 description: "Tilt can use 'docker-compose' to orchestrate your services instead."
 layout: docs
+sidebar: guides
 ---
 
 Most of our documentation describes using Tilt to deploy to Kubernetes.

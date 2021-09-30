@@ -2,6 +2,7 @@
 title: Using Helm with Tilt
 description: "Tilt supports Helm out-of-the-box. Here are two ways you can use Helm charts with Tilt."
 layout: docs
+sidebar: guides
 ---
 
 Tilt supports Helm out-of-the-box.

@@ -2,6 +2,7 @@
 title: Why is Tilt broken?
 description: "Common Tilt failure cases and how to debug them."
 layout: docs
+sidebar: gettingstarted
 ---
 
 Tilt is broken. What should you do?

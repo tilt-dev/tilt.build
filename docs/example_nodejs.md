@@ -2,6 +2,7 @@
 title: "Example: NodeJS"
 description: "Best practices for developing NodeJS projects with Tilt"
 layout: docs
+sidebar: guides
 lang: nodejs
 ---
 

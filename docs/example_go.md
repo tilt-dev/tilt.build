@@ -2,6 +2,7 @@
 title: "Example: Go"
 description: "Best practices for developing Go projects with Tilt"
 layout: docs
+sidebar: guides
 ---
 
 The best indicator of a healthy development workflow is a short feedback loop.

@@ -2,6 +2,7 @@
 title: What does Tilt send?
 description: "Tilt sends anonymized data about how you use it."
 layout: docs
+sidebar: gettingstarted
 ---
 
 Tilt sends anonymized data about how you use it.

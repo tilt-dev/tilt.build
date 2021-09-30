@@ -2,6 +2,7 @@
 title: With CI
 description: "Test that your images build and your servers start"
 layout: docs
+sidebar: guides
 ---
 
 Once you've bought into container-based development,

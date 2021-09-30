@@ -1,8 +1,8 @@
 top:
   - title: Getting Started
-    href: x.html
+    href: index.html
   - title: Guides
-    href: x.html
+    href: tiltfile_authoring.html
   - title: Tilt API Reference
     href: https://api.tilt.dev/
 
@@ -13,7 +13,11 @@ sidebar:
     items:
     - title: Overview
       href: index.html
-    - title: Is Tilt right for me? 
+    - title: The Control Loop
+      href: controlloop.html
+    - title: Local vs Remote Services
+      href: local_vs_remote.html
+    - title: Is Tilt right for me?
       href: product_faq.html
 
   - title: Install/Upgrade
@@ -40,17 +44,6 @@ sidebar:
       - title: 5. Smart Rebuilds with Live Update
         href: tutorial/5-live-update.html
 
-  - title:  Tilt Features
-    items:
-      - title: The Control Loop
-        href: controlloop.html
-      - title: Live Update
-      - title: Extensions
-      - title: Local vs Remote Services
-        href: local_vs_remote.html
-      - title: Port Forwards
-      - title: Web UI
-
   - title:  FAQs
     items:
       - title: Frequently Asked Questions
@@ -64,9 +57,12 @@ sidebar:
   guides:
     - title: Tiltfile
       items:
+        - title: Tiltfile Tutorial
+          href: tiltfile_authoring.html
         - title: Tiltfile Concepts
           href: tiltfile_concepts.html
         - title: Per user Config
+          href: tiltfile_config.html
         - title: Structuring Multiple Repos
           href: multiple_repos.html
         - title: Debugging File Changes
@@ -91,18 +87,16 @@ sidebar:
 
     - title: Kubernetes Resources
       items:
-        - title: Overview???
         - title: With Helm
           href: helm.html
         - title: Port Forwards
           href: accessing_resource_endpoints.html
         - title: Custom Resource Definitions
           href: custom_resource.html
-        - title: Remote Clusters???
 
     - title: Local Resources
       items:
-        - title: Run Local or Ocassional Workflows
+        - title: Run Local or Occasional Workflows
           href: local_resource.html
 
     - title: Docker Compose

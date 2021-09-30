@@ -1,6 +1,7 @@
 ---
 title: Tilt User Guide
 layout: docs
+sidebar: gettingstarted
 ---
 
 Kubernetes for Prod, Tilt for Dev
