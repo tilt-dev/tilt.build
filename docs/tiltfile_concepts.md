@@ -35,7 +35,18 @@ k8s_yaml(kustomize('config_dir')) # built-in support for popular tools
 k8s_yaml(helm('chart_dir'))
 ```
 
-Tilt has built-in functions to generate Kubernetes YAML with `kustomize` or `helm`. (If you think we're overlooking a popular tool, let us know so we can add it.)
+Tilt has built-in Tiltfile functions to generate Kubernetes YAML with `kustomize` or `helm`.
+
+These functions are mostly wrappers around the `local()` built-in, which
+can execute arbitrary shell commands.
+
+Tilt's [extension system](/extensions.html) allows you to write new functions to
+invoke whatever tool you use to generate Kubernetes configs, and automatically
+deploy them as part of your dev environment. For a simple example, see the
+[`namespace`
+extension](https://github.com/tilt-dev/tilt-extensions/tree/master/namespace) or
+the [`secret`
+extension](https://github.com/tilt-dev/tilt-extensions/tree/master/secret).
 
 ## Custom Commands
 If your project uses a custom tool to generate Kubernetes YAML, you can still use Tilt. You don't have to wait for us to add support or fork Tilt and implement it yourself. Run a custom command with the `local` function:

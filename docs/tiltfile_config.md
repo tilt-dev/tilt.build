@@ -232,8 +232,8 @@ then you do _not_ specify the flag and all positional arguments will be merged i
 In both cases, `config.parse()['foo'] == ['bar', 'baz']`.
 
 ## Future Directions
-This section describes places we expect the config to go. Let us know if any of
-these would be particularly helpful to you and your team.
+This section describes places we expect the config to go.
+
 ### More Kinds of Settings
 You should be able to define more kinds of settings (for example, an enum). By moving error-checking to the built-in
 library, you can make your Tiltfile shorter and more correct.

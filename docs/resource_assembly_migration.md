@@ -26,6 +26,3 @@ Migrating to the new behavior should mostly be a matter of:
 3. If your `k8s_resource` calls say unknown resource (because Tilt now names by k8s object instead of image),
    either change the first arg to `k8s_resource` to match the new name, or use [`workload_to_resource_function`](/api.html#api.workload_to_resource_function) to change the naming rules.
 4. Let any teammates know that they need to upgrade Tilt.
-
-Please don't hesitate to [reach out](faq.html#q-how-do-i-get-help-with-tilt)
-if you run into any problems or confusion!

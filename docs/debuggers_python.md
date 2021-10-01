@@ -61,5 +61,16 @@ When using `remote-pdb`, the log line that tells you that your debugger is activ
 
 (See [this interactive snapshot](https://cloud.tilt.dev/snapshot/Aer7necLsNHx2TGFkfc=) for a closer look.)
 
-## Future Work
-As we find more Python debuggers that fit well into Tilt-based workflows, we'll create guides/example projects for them. Have a favorite remote-connection-friendly Python debugger that you'd like to see us cover? [Let us know](https://tilt.dev/contact)!
+## Connecting Your Own Debugger
+
+Tilt itself does not have any code for connecting to a particular debugger. None
+of the examples in this guide use "magic" primitives.
+
+Instead, Tilt provides a standardized API for coordinating any debugger with your dev environment.
+
+Do you use a debugger that's not listed here?
+
+Use [`local_resource`](/local_resource.html) to spin it up. 
+
+Once you've got it running, consider packaging it up as [a Tilt
+extension](/extensions.md) for others to use.
