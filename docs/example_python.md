@@ -11,7 +11,7 @@ Kubernetes is a huge wrench in the works.
 
 Let's fix this.
 
-In this example, we're going to take you through a simple “hello world” server written in Python that uses [Flask](https://palletsprojects.com/p/flask/), a lightweight web application framework.  (Want this guide for Django or another framework? [Let us know](https://tilt.dev/contact).)
+In this example, we're going to take you through a simple “hello world” server written in Python that uses [Flask](https://palletsprojects.com/p/flask/), a lightweight web application framework.
 
 Consider watching this companion video if you prefer. Or come back to it afterward.
 

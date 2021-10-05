@@ -108,6 +108,3 @@ for tf in test_files:
           if f.startswith(slug)]
   test(slug, cmd, deps=deps)
 ```
-
-## What's next?
-There's a lot more we want to do with this feature, but above all, we want to know what our users want. Let us know what you think!

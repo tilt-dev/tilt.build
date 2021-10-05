@@ -45,8 +45,4 @@ affects the first build after a `tilt up`. e.g., Once any version of `database`
 has been running at least once, its dependencies are unblocked to build for the
 rest of Tilt's lifetime.
 
-We think this feature is useful as-is, but are aware there are more possibilities
-for it. Please [reach out](https://tilt.dev/contact) if it's not meeting your
-needs!
-
 [readiness-probe]: local_resource.html#readiness_probe
