@@ -81,6 +81,12 @@ nav.sidebar h3 {
   margin: 1rem 0 0.2rem 0;
 }
 
+.sidebar h2, h2.section {
+  @include mobile {
+    font-size: 26px;
+    line-height: 31px;
+  }
+}
 
 
 .docsContent h1 {
@@ -157,7 +163,12 @@ nav.sidebar h3 {
   margin-bottom: $spacing-unit / 2;
 }
 
-
+.sidebar h2, h2.section {
+  @include mobile {
+    font-size: 26px;
+    line-height: 31px;
+  }
+}
 
 .sidebar {
   display: block;

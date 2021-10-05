@@ -346,12 +346,7 @@ h1, .sidebar h2, h2.section {
   margin-bottom: $spacing-unit / 4;
   color: $color-grey;
 }
-.sidebar h2, h2.section {
-  @include mobile {
-    font-size: 26px;
-    line-height: 31px;
-  }
-}
+
 
 .wrapper--landing h1,
 .wrapper--landing h2.section {
