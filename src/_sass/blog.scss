@@ -1,0 +1,49 @@
+ // These resets used to be in base.scss.
+ // Since Landing Page + Docs have had style updates,
+ // these resets now only apply to the blog.
+
+.wrapper--blog {
+  max-width: $blog-width;
+
+  @include docs-mobile {
+    max-width: $content-width;
+  }
+
+  // Links
+  a {
+    color: $color-red;
+  }
+
+  a:hover {
+    color: white;
+    background-color: $color-red;
+  }
+
+  a.is-image {
+    color: inherit;
+  }
+  a.is-image:hover {
+    color: inherit;
+    background-color: transparent;
+  }
+
+  h1, h2, h3, h4, h5, h6, p, blockquote, pre, hr, dl, dd, ol, ul, figure {
+    margin: 0;
+    padding: 0;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-weight: $body-font-weight;
+  }
+
+  /**
+  * Set `margin-bottom` to maintain vertical rhythm
+  */
+  h1, h2, h3, h4, h5, h6,
+  p, blockquote, pre,
+  ul, ol, dl, figure,
+  [role="doc-subtitle"],
+  %vertical-rhythm {
+    margin-bottom: $spacing-unit / 2;
+  }
+}

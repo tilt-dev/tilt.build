@@ -1,33 +1,38 @@
 @charset "utf-8";
 
-/**
- * Reset some basic elements
- */
-body, h1, h2, h3, h4, h5, h6,
-p, blockquote, pre, hr,
-dl, dd, ol, ul, figure {
-  margin: 0;
-  padding: 0;
+// Legacy Clearfix
+%clearfix:after {
+  content: "";
+  display: table;
+  clear: both;
 }
 
-/**
- * Make the scrollbar always visible
- * so that the header doesn't shift on pagenav
- */
+
+// Layout
+// --------------------------------------------------
+
+// Make the scrollbar always visible so that the header doesn't shift on pagenav
 html {
   overflow-y:scroll;
 }
 
+main {
+  display: block; /* Default value of `display` of `main` element is 'inline' in IE 11. */
+}
 
-/**
- * Basic styling
- */
+.wrapper {
+  max-width: $content-width;
+  margin-right: auto;
+  margin-left: auto;
+  position: relative;
+  @extend %clearfix;
+}
+
+
+
+// Typography
+// --------------------------------------------------
 body {
-  font-weight: $body-font-weight;
-  font-family: $body-font-family;
-  font-size: $body-font-size;
-  line-height: $body-line-height;
-  letter-spacing: 0.02em;
   color: $text-color;
   background-color: $background-color;
   -webkit-text-size-adjust: 100%;
@@ -42,54 +47,23 @@ body {
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: subpixel-antialiased;
   -moz-osx-font-smoothing: auto;
+  margin: 0;
+  padding: 0;
 }
 
 
 
-/**
- * Set `margin-bottom` to maintain vertical rhythm
- */
-h1, h2, h3, h4, h5, h6,
-p, blockquote, pre,
-ul, ol, dl, figure,
-[role="doc-subtitle"],
-%vertical-rhythm {
-  margin-bottom: $spacing-unit / 2;
-}
-
-
-
-/**
- * `main` element
- */
-main {
-  display: block; /* Default value of `display` of `main` element is 'inline' in IE 11. */
-}
-
-
-
-/**
- * Images
- */
+// HTML Elements
+// --------------------------------------------------
 img {
   max-width: 100%;
   vertical-align: middle;
 }
 
-
-
-/**
- * Figures
- */
 figure > img {
   display: block;
 }
 
-
-
-/**
- * Lists
- */
 ul, ol {
   margin-left: $spacing-unit;
 }
@@ -101,42 +75,11 @@ li {
   }
 }
 
-
-
-/**
- * Headings
- */
-h1, h2, h3, h4, h5, h6 {
-  font-weight: $body-font-weight;
-}
-
-/**
- * Links
- */
 a {
-  color: $color-red;
   text-decoration: none;
   transition: color 0.2s, background-color 0.2s;
 }
 
-a:hover {
-  text-decoration: none;
-  color: white;
-  background-color: $color-red;
-}
-
-a.is-image {
-  color: inherit;
-}
-a.is-image:hover {
-  color: inherit;
-  background-color: transparent;
-}
-
-
-/**
- * Blockquotes
- */
 blockquote {
   color: $color-grey;
   border-left: 4px solid $color-grey-light;
@@ -149,11 +92,21 @@ blockquote {
   }
 }
 
+svg {
+  overflow: visible;
+}
+
+input, textarea {
+  box-sizing: border-box;
+}
+hr {
+  margin: $spacing-unit 0;
+}
 
 
-/**
- * Code formatting
- */
+
+// HTML Elements - Code
+// --------------------------------------------------
 pre,
 code {
   font-family: $mono-font-family;
@@ -191,53 +144,13 @@ ul + div.highlighter-rouge {
   margin-top: -($spacing-unit / 2) + 4;
 }
 
-/**
- * Wrapper
- */
-.wrapper {
-  margin-right: auto;
-  margin-left: auto;
-  position: relative;
-  @extend %clearfix;
-}
-.wrapper {
-  max-width: $content-width;
-}
-.wrapper--header {
-  max-width: $header-width;
 
-  @include media-query($header-width + $spacing-unit) {
-    max-width: $content-width;
-  }
-}
 
-.wrapper--blog {
-  max-width: $blog-width;
-
-  @include docs-mobile {
-    max-width: $content-width;
-  }
-}
-
-/**
- * Clearfix
- */
-%clearfix:after {
-  content: "";
-  display: table;
-  clear: both;
-}
-
-/**
- * Icons
- */
+// Utility
+// --------------------------------------------------
 
 .grey {
   color: $color-grey;
-}
-
-svg {
-  overflow: visible;
 }
 
 .svg-icon {
@@ -247,11 +160,4 @@ svg {
   fill: currentColor;
   padding: 5px 3px 2px 5px;
   vertical-align: text-bottom;
-}
-
-input, textarea {
-  box-sizing: border-box;
-}
-hr {
-  margin: $spacing-unit 0;
 }
