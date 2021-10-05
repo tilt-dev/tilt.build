@@ -33,22 +33,27 @@ main {
 // Typography
 // --------------------------------------------------
 body {
+  font-family: $tilt2-font-sans;
+  font-size: $tilt2-font-size-body;
+  line-height: $tilt2-line-height-body;
   color: $text-color;
   background-color: $background-color;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+
+  // Typography tweaks
   -webkit-text-size-adjust: 100%;
   -webkit-font-feature-settings: "kern" 1;
      -moz-font-feature-settings: "kern" 1;
        -o-font-feature-settings: "kern" 1;
           font-feature-settings: "kern" 1;
   font-kerning: normal;
-  display: flex;
-  min-height: 100vh;
-  flex-direction: column;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: subpixel-antialiased;
   -moz-osx-font-smoothing: auto;
-  margin: 0;
-  padding: 0;
 }
 
 
@@ -62,17 +67,6 @@ img {
 
 figure > img {
   display: block;
-}
-
-ul, ol {
-  margin-left: $spacing-unit;
-}
-
-li {
-  > ul,
-  > ol {
-    margin-bottom: 0;
-  }
 }
 
 a {
@@ -99,51 +93,51 @@ svg {
 input, textarea {
   box-sizing: border-box;
 }
-hr {
-  margin: $spacing-unit 0;
-}
 
+hr {
+  margin-top: $spacing-unit * 2;
+  margin-bottom: $spacing-unit * 2;
+  height: 3px;
+  background-color: $tilt2-color-gray-lightest;
+  border: 0 none;
+}
 
 
 // HTML Elements - Code
 // --------------------------------------------------
-pre,
 code {
-  font-family: $mono-font-family;
-  font-size: $mono-font-size;
-  font-weight: $mono-font-weight;
-  line-height: $mono-line-height;
-  font-variant-ligatures: none;
-  border: 1px solid $color-grey-light;
-  border-radius: 3px;
-  background-color: $color-grey-lightest;
+  font-family: $tilt2-font-mono;
+  font-weight: inherit;  
 }
 
-code {
-  border: none;
-  background-color: transparent;
-  padding: 0;
-  font-size: $mono-font-size + 2px;
-}
-
-pre {
-  padding: 8px 12px;
-  overflow-x: auto;
-
-  > code {
-    border: 0;
-    padding-right: 0;
-    padding-left: 0;
+h1, h2, h3, h4, h5, h6 {
+  code {
+    font-size: 85%; // Match size of headline font
+    padding-left: 8px;
+    padding-right: 8px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    border-radius: $tilt2-border-radius-large;
+    border: 1px solid $tilt2-color-gray-lighter;
+    background-color: $tilt2-color-gray-lightest;
   }
 }
 
-p + div.highlighter-rouge,
-p + div[class^="highlight-"],
-ul + div.highlighter-rouge {
-  // reduce the margin between code blocks and the corresponding paragraph
-  margin-top: -($spacing-unit / 2) + 4;
-}
+pre {
+   font-family: $tilt2-font-mono;
+   font-weight: $tilt2-font-weight-mono-light;
+   line-height: $tilt2-line-height-mono;
+   overflow-x: auto;
+   background-color: $tilt2-color-gray-lightest;
+   padding: $spacing-unit/2;
+   border-radius: $tilt2-border-radius-large;
 
+  // > code {
+  //   border: 0;
+  //   padding-right: 0;
+  //   padding-left: 0;
+  // }
+}
 
 
 // Utility

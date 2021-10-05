@@ -27,23 +27,12 @@
     background-color: transparent;
   }
 
-  h1, h2, h3, h4, h5, h6, p, blockquote, pre, hr, dl, dd, ol, ul, figure {
+  h3 {
+    margin-top: $spacing-unit * 1.5;
+  }
+
+  figure {
     margin: 0;
     padding: 0;
-  }
-
-  h1, h2, h3, h4, h5, h6 {
-    font-weight: $body-font-weight;
-  }
-
-  /**
-  * Set `margin-bottom` to maintain vertical rhythm
-  */
-  h1, h2, h3, h4, h5, h6,
-  p, blockquote, pre,
-  ul, ol, dl, figure,
-  [role="doc-subtitle"],
-  %vertical-rhythm {
-    margin-bottom: $spacing-unit / 2;
   }
 }
