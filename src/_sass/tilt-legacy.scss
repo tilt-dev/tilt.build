@@ -1,0 +1,139 @@
+// These are styles for the initial design from 2018, by Sascha Mombartz
+// Since the Landing page and Docs were more recently revamped,
+// most of these variables apply to the blog.
+
+// Define defaults for each variable.
+$header-font-family: attribute-text, sans-serif;
+$mono-font-family: attribute-mono, monospace;
+
+$mono-font-size: 16px;
+$mono-font-weight: 400;
+$mono-line-height: $body-line-height;
+
+$small-font-size:  13px;
+$small-line-height: 18px;
+
+$chrome-font-size: 12px;
+$chrome-font-family: $header-font-family;
+$chrome-line-height: 18px;
+$chrome-font-weight: 400;
+
+$spacing-unit:     32px;
+$content-width:    $spacing-unit * 23;
+$header-width:     $content-width + 8.5 * $spacing-unit;
+$sidebar-width:    $spacing-unit * 7.5;
+$blog-body-width:  $spacing-unit * 21;
+// $blog-width:       $spacing-unit * 32;
+$blog-width:       $header-width;
+$blog-credit-width: $blog-width - $blog-body-width - $spacing-unit;
+$docs-width:       $content-width + 0.5 * $spacing-unit;
+$brand-button-height: 1.25 * $spacing-unit;
+$blog-header-col-width: 320px;
+$blog-description-col-width: 496px;
+$hero-post-image-width: 496px;
+$hero-post-image-height: 273px;
+$hero-post-text-width: 320px;
+$hero-post-text-height: $hero-post-image-height;
+$post-preview-image-width: 320px;
+$post-preview-image-height: 184px;
+$post-preview-text-width: 496px;
+$post-preview-text-height: $post-preview-image-height;
+$blog-cta-text-width: 466px;
+$related-post-image-width: 134px;
+$related-post-image-height: 134px;
+$related-post-text-width: 325px;
+$related-post-text-height: $related-post-image-height + $spacing-unit;
+
+$col-1of3-width: $spacing-unit * 7;
+$col-2of3-width: $spacing-unit * 15;
+$col-1of4-width: $spacing-unit * 5;
+$col-3of4-width: $spacing-unit * 17;
+$col-1of2-width: $spacing-unit * 11;
+$col-space-width: $spacing-unit;
+
+$color-green: #20BA31;
+$color-green-lightest: #70D37B;
+$color-blue: #03C7D3;
+$color-purple: #6752E5;
+$color-red: #F6685C;
+$color-pink: #EF5AA0;
+$color-yellow: #FCB41E;
+$color-red-light: #F99E97;
+$color-blue-light: #5EDBE3;
+$color-blue-lightest: #98E8ED;
+$color-skyBlue: #227CE4;
+$color-green-light: #70D37B;
+$opacity-light: 0.64;
+
+$color-white: #ffffff;
+$color-off-white: #FAFBFC;
+
+$color-grey: #9a9a9a;
+$color-grey-light: #cacaca;
+$color-grey-lightest: #f1f1f1;
+$color-grey-dark: #606060;
+$color-grey-darkest: #434343;
+
+$text-color:       $color-grey-dark;
+$background-color: #ffffff;
+
+$brand-color: $color-green;
+
+// Opacity
+$alpha-transparent: 0.15;
+
+$table-text-align: left;
+
+$on-mobile:         $content-width + $spacing-unit;
+$on-docs-mobile:    $header-width + $spacing-unit;
+
+@mixin media-query($device) {
+  @media screen and (max-width: $device) {
+    @content;
+  }
+}
+
+@mixin media-query-above($device) {
+  @media screen and (min-width: $device) {
+    @content;
+  }
+}
+
+@mixin mobile {
+  @include media-query($on-mobile) {
+    @content;
+  }
+}
+
+@mixin docs-mobile {
+  @include media-query($on-docs-mobile) {
+    @content;
+  }
+}
+
+@mixin mobileAndAbove {
+  @include media-query-above($on-mobile) {
+    @content;
+  }
+}
+
+@mixin mobileAndBelow {
+  @include media-query($on-mobile) {
+    @content;
+  }
+}
+
+@mixin relative-font-size($ratio) {
+  font-size: $body-font-size * $ratio;
+}
+
+// --------------------------------------------------
+
+$z-modal: 1500;
+$z-modal-background: 1000;
+$z-siteHeader--mobile: 500;
+$z-siteHeader-nav--mobile: 100;
+
+// Animation
+$anim-duration-short: 0.15s;
+$anim-duration: 0.3s;
