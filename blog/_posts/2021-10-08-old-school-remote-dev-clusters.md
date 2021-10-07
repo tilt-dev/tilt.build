@@ -135,6 +135,11 @@ When you use Tilt to start your dev environment, Tilt will build images
 on the remote Docker server, push them to the remote registry, run them
 on the remote cluster, and live-update the containers in-place! 
 
+You can access the services like any other `localhost` service. Tilt can
+[set up port-forwards](https://docs.tilt.dev/accessing_resource_endpoints.html#creating-a-kubectl-port-forward-tunnel)
+that go through the Tailscale network
+and make the remote service available on `localhost:8000`.
+
 None of it runs on your laptop at all, which leaves plenty of CPU for Zoom to
 waste!
 
