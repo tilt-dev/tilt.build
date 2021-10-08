@@ -397,6 +397,10 @@ $Home-feature-navList-width: 35%;
   }
 }
 
+.Home-features-navItem + .Home-features-navItem {
+  margin-top: $spacing-unit * .25;
+}
+
 .Home-features-navItem-description {
   transition: height $anim-duration ease;
   z-index: 1;
