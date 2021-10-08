@@ -1,0 +1,58 @@
+
+.ctaSubscribe-mailbox {
+  @include docs-mobile {
+    display: none;
+  }
+}
+.ctaSubscribe-mailbox > svg {
+  height: 100%;
+}
+
+.ctaSubscribe--blog .ctaSubscribe-header,
+.ctaSubscribe--blogList .ctaSubscribe-header {
+  font-size: 26px;
+  font-weight: 700;
+  color: $color-grey-dark;
+  line-height: 31px;
+}
+.ctaSubscribe--blogList .ctaSubscribe-header {
+  margin-bottom: $spacing-unit / 2;
+}
+.ctaSubscribe--blog .ctaSubscribe-label {
+  font-weight: 300;
+}
+.ctaSubscribe-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: $blog-cta-text-width;
+}
+.ctaSubscribe-formItem {
+  display: flex;
+
+  @include mobile {
+    display: block;
+    text-align: right;
+  }
+}
+.ctaSubscribe-formItem > input {
+  font-family: $body-font-family;
+  font-weight: 300;
+  font-size: 18px;
+  background-color: white;
+  border: none;
+  line-height: 1.5 * $spacing-unit;
+  padding: 0 $spacing-unit/4;
+  flex: 1;
+  max-width: $col-1of2-width;
+
+  @include mobile {
+    display: block;
+    max-width: 100%;
+    width: 100%;
+    margin-bottom: $spacing-unit;
+  }
+}
+.ctaSubscribe--blog .ctaSubscribe-formItem > input {
+  background-color: $color-grey-lightest;
+}
