@@ -1,3 +1,22 @@
+$blog-header-col-width: 320px;
+$blog-description-col-width: 496px;
+
+$hero-post-image-width: 496px;
+$hero-post-image-height: 273px;
+$hero-post-text-width: 320px;
+$hero-post-text-height: $hero-post-image-height;
+
+$post-preview-image-width: 320px;
+$post-preview-image-height: 184px;
+$post-preview-text-width: 496px;
+$post-preview-text-height: $post-preview-image-height;
+
+$related-post-image-width: 134px;
+$related-post-image-height: 134px;
+$related-post-text-width: 325px;
+$related-post-text-height: $related-post-image-height + $spacing-unit;
+
+
 // Layout
 // --------------------------------------------------
 
@@ -5,13 +24,11 @@
   max-width: $blog-width;
 
   @include docs-mobile {
-    max-width: $content-width;
   }
 }
 
 .blogContent {
   display: block;
-  max-width: $blog-width;
   width: 100%;
   margin-bottom: 2.5 * $spacing-unit;
 
@@ -30,7 +47,7 @@
 .blogBody > ol,
 .blogBody > ul,
 .blogBody > div.block {
-  max-width: $blog-body-width;
+  max-width: $content-width;
 }
 
 
@@ -152,16 +169,24 @@ figcaption,
 }
 
 iframe, .blogContent img {
-  @include mobile {
+  @include docs-mobile {
     max-width: 100%;
   }
 }
 
+// Bulleted or numbered lists in text (vs as layout)
 .blogBody > ul,
 .blogBody > ol {
-  margin-left: $spacing-unit * 1.5;
   margin-top: $spacing-unit * 0.5;
   margin-bottom: $spacing-unit * 0.5;
+
+  li {
+    margin-left: $spacing-unit * 1.5;
+  }
+
+  li + li {
+    margin-top: $spacing-unit * .25;
+  }
 }
 
 .blogBody table {
@@ -266,7 +291,7 @@ iframe, .blogContent img {
 .row.postPreview--related {
   flex-wrap: nowrap;
 
-  @include mobile {
+  @include docs-mobile {
     margin-bottom: $spacing-unit;
   }
 }
@@ -277,7 +302,7 @@ iframe, .blogContent img {
   height: $related-post-text-height;
   flex-shrink: 1;
 
-  @include mobile {
+  @include docs-mobile {
     width: auto;
     height: auto;
     align-self: center;
@@ -286,7 +311,7 @@ iframe, .blogContent img {
 .postPreview--related .postPreview-description {
   height: 18px * 5;
 
-  @include mobile {
+  @include docs-mobile {
     display: none;
   }
 }
@@ -297,7 +322,7 @@ iframe, .blogContent img {
   font-weight: 700;
   margin-bottom: $spacing-unit / 4;
 
-  @include mobile {
+  @include docs-mobile {
     font-size: 24px;
     line-height: 29px;
   }
@@ -318,7 +343,7 @@ iframe, .blogContent img {
   letter-spacing: 0.02em;
 }
 .postPreview--related .postPreview-credit {
-  @include mobile {
+  @include docs-mobile {
     display: none;
   }
 }
