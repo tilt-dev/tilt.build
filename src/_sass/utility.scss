@@ -1,5 +1,4 @@
-
-// COLOR
+// Color
 // --------------------------------------------------
 
 .grey {
@@ -34,8 +33,9 @@
 
 
 
-// LAYOUT
+// Layout
 // --------------------------------------------------
+
 .u-clearBoth {
   clear: both !important;
 }
@@ -275,15 +275,6 @@
 
 // EFFECTS
 // --------------------------------------------------
-
-img.no-shadow {
-  box-shadow: none;
-
-  // center it
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-}
 
 .u-boxShadow {
   box-shadow: 8px 10px 16px 16px $color-grey-lightest !important;
