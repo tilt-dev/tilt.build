@@ -55,23 +55,25 @@
 // Typography
 // --------------------------------------------------
 
+.Docs-content-title {
+  h1 {
+    font-weight: $tilt2-font-weight-sans-black;
+    font-size: 40px;
+    line-height: 1.4;
+    color: $color-red;
+  } 
+  h2 {
 
-.Docs-content > h1 {
-  font-size: 40px;
-  line-height: 1.4;
-  color: $color-red;
-}
+  }
+} 
 
 .Docs-content > h2,
 .Docs-content > h2 a {
+  font-weight: $tilt2-font-weight-sans-bold;
+  font-size: 30px;
   margin-top: $spacing-unit * 1.75;
   color: $color-blue;
 }
-
-.Docs-content > h3 {
-  margin-top: $spacing-unit * 1.5;
-}
-
 .Docs-content h2 a:hover:before {
   content: "🔗 ";
   position: absolute;
@@ -79,6 +81,10 @@
   font-size: 75%;
 }
 
+
+.Docs-content > h3 {
+  margin-top: $spacing-unit * 1.5;
+}
 
 // Cute callouts!
 .Docs-content > blockquote {
