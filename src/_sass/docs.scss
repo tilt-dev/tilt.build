@@ -2,10 +2,9 @@
   display: flex;
   flex-direction: column;
   padding: $spacing-unit * 2;
-
+  
   @include docs-mobile {
-    display: block;
-    max-width: $content-width;
+    padding: $spacing-unit;
   }
 }
 
@@ -20,16 +19,27 @@
 }
 
 
-
 .Docs-body {
   display: flex;
   gap: $spacing-unit;
+
+  @include docs-mobile {
+    flex-direction: column;
+  }
+
 }
+
+
 
 .Docs-nav {}
 
 .Docs-nav-list {
   display: flex;
+  list-style: none;
+
+  li + li {
+    margin-left: $spacing-unit * 1.5;
+  }
 }
 
 .Docs-nav-link {
@@ -38,9 +48,32 @@
 
 
 
+.Docs-subnav {}
+
+.Docs-subnav-section {
+  list-style: none;
+
+  & + & {
+    margin-top: $spacing-unit;
+  }
+}
+.Docs-subnav-section-list {
+  list-style: none;
+  li {
+    padding-top: $spacing-unit * 0.25;
+    padding-bottom: $spacing-unit * 0.25;
+  }
+}
+.Docs-subnav-section-link {
+  &.is-active {
+    font-weight: $tilt2-font-weight-sans-bold;
+  }
+}
+
 .Docs-content {
   display: block;
   flex: 1 0 $docs-width;
+  max-width: $docs-width;
   // needed to prevent child <pre> elements from expanding forever
   // and causing wrapping problems
   min-width: 0;
@@ -58,37 +91,51 @@
 .Docs-content-title {
   h1 {
     font-weight: $tilt2-font-weight-sans-black;
-    font-size: 40px;
+    font-size: 38px;
     line-height: 1.4;
     color: $color-red;
   } 
   h2 {
-
+    font-weight: $tilt2-font-weight-sans-light;
+    margin-top: $spacing-unit * 0.25;
+    font-size: 20px;
   }
 } 
 
 .Docs-content > h2,
 .Docs-content > h2 a {
   font-weight: $tilt2-font-weight-sans-bold;
-  font-size: 30px;
+  font-size: 28px;
   margin-top: $spacing-unit * 1.75;
   color: $color-blue;
 }
+
+.Docs-content > h3,
+.Docs-content > h3 a {
+  margin-top: $spacing-unit * 1.5;
+  color: $text-color;
+}
+
 .Docs-content h2 a:hover:before {
   content: "🔗 ";
   position: absolute;
-  margin-left: -1.25em;
-  font-size: 75%;
+  margin-left: -$spacing-unit;
+  margin-top: 4px; // Visually center
+  font-size: 80%;
 }
 
 
-.Docs-content > h3 {
-  margin-top: $spacing-unit * 1.5;
+.Docs-content a {
+  color: $color-purple;
+}
+.Docs-content a:hover {
+  text-decoration: underline;
 }
 
 // Cute callouts!
 .Docs-content > blockquote {
   font-family: $tilt2-font-serif;
+  line-height: $tilt2-line-height-body-serif;
   margin-top: $spacing-unit * 1.5;
   margin-bottom: $spacing-unit * 1.5;
   background-color: #EEFCEF; // Very light variant of green, one-off
@@ -104,13 +151,21 @@
   }
 }
 
+
+// Bulleted or numbered lists in text (vs as layout)
 .Docs-content > ul,
 .Docs-content > ol {
-  margin-left: $spacing-unit * 1.5;
   margin-top: $spacing-unit * 0.5;
   margin-bottom: $spacing-unit * 0.5;
-}
 
+  li {
+    margin-left: $spacing-unit * 1.5;
+  }
+
+  li + li {
+    margin-top: $spacing-unit * .25;
+  }
+}
 
 
 .docsFooter {
@@ -126,20 +181,24 @@
 }
 
 .Docs-content img {
-  box-shadow: 4px 5px 8px 8px $color-grey-lightest;
-  margin: $spacing-unit * 0.5 $spacing-unit;
-  max-width: $docs-width - 2 * $spacing-unit;
-  box-sizing: content-box;
-}
-.Docs-content figcaption {
-  margin: $spacing-unit / 4 $spacing-unit;
-}
+  max-width: $docs-width;
+  // box-sizing: content-box;
 
-
-.Docs-content img, {
-  @include mobile {
+  @include docs-mobile {
     max-width: 100%;
   }
+
+}
+
+// Deprecated now that images don't have shadows by default:
+img.no-shadow {
+  box-shadow: none;
+}
+
+
+
+.Docs-content figcaption {
+  margin: $spacing-unit / 4 $spacing-unit;
 }
 
 
@@ -200,9 +259,18 @@ table.benchmark-report {
   }
 }
 
+
+// A link that follows a paragraphy introducing it:
 a.attached-above {
-  display: block;
-  text-indent: 2em;
-  font-weight: bold;
-  margin-top: - $spacing-unit / 2
+  font-weight: $tilt2-font-weight-sans-bold;
+  display: inline-block;
+  margin-bottom: $spacing-unit;
+}
+a.attached-above:before {
+  content: "➤ ";
+  color: $tilt2-color-gray-lighter;
+}
+
+// Guide for Application Developers
+.supportingExampleImage {
 }
