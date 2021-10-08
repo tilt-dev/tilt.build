@@ -20,9 +20,6 @@ $tilt2-color-text: $tilt2-color-gray-dark;
 
 // TYPOGRAPHY
 // --------------------------------------------------
-
-
-
 $tilt2-font-mono: 'Fira Code', monospace;
 $tilt2-font-sans: noto-sans, sans-serif;
 $tilt2-font-serif: merriweather, serif;
@@ -172,8 +169,10 @@ $tilt2-border-radius-large: 4px;
   "syntax",
   "enterprise",
   "home",
+  "about",
   "blog",
   "header",
   "footer",
-  "docs"
+  "docs",
+  "utility"
 ;

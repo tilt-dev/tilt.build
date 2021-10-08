@@ -1,6 +1,7 @@
 .Docs-wrapper {
   display: flex;
   flex-direction: column;
+  padding: $spacing-unit * 2;
 
   @include docs-mobile {
     display: block;
@@ -11,9 +12,22 @@
 .Docs-header {
   display: flex;
   justify-content: space-between;
+  margin-bottom: $spacing-unit * 2;
+}
+
+.Docs-search-input {
+  font-size: 16px;
+}
+
+
+
+.Docs-body {
+  display: flex;
+  gap: $spacing-unit;
 }
 
 .Docs-nav {}
+
 .Docs-nav-list {
   display: flex;
 }
@@ -22,171 +36,9 @@
 
 }
 
-.Docs-search-input {
-  font-size: 16px;
-}
 
 
-.Docs-body {
-  display: flex;
-}
-
-.sidebar-opener {
-  background-color: $color-green;
-  opacity: $opacity-light;
-  padding: 10px $spacing-unit / 2;
-  margin-bottom: $spacing-unit / 2;
-
-  font-family: $chrome-font-family;
-  font-variant-ligatures: none;
-  font-size: 22px;
-  font-weight: $chrome-font-weight;
-  line-height: 28px;
-  color: white;
-  cursor: pointer;
-  border: 0;
-  width: 100%;
-  text-align: left;
-  position: relative;
-}
-.sidebar-opener svg {
-  float: right;
-  display: block;
-  margin-top: 6px;
-  transition: transform 0.2s;
-}
-.sidebar.is-open .sidebar-opener svg {
-  transform: scaleY(-1);
-}
-.sidebar.is-open .sidebar-opener {
-  margin-bottom: 0;
-}
-
-.sidebar-contents {
-  @include docs-mobile {
-    display: none;
-    background-color: $color-grey-lightest;
-    padding: $spacing-unit / 2;
-    margin-bottom: 1.5 * $spacing-unit;
-  }
-}
-
-.sidebar.is-open .sidebar-contents {
-  @include docs-mobile {
-    display: block;
-  }
-}
-
-nav.sidebar h3 {
-  margin: 1rem 0 0.2rem 0;
-}
-
-.sidebar h2, h2.section {
-  @include mobile {
-    font-size: 26px;
-    line-height: 31px;
-  }
-}
-
-
-.docsContent h1 {
-  font-family: $header-font-family;
-  font-variant-ligatures: none;
-  font-size: 32px;
-  line-height: 40px;
-  font-weight: 300;
-  letter-spacing: 0;
-  margin-bottom: $spacing-unit;
-  color: $color-blue;
-
-  @include mobile {
-    font-size: 28px;
-    line-height: 35px;
-  }
-}
-
-
-
-// Typography
-/* on docs pages, these are grouped together */
-.docsContent h1 {
-  font-size: 32px;
-  line-height: normal;
-  margin-bottom: $spacing-unit / 2;
-}
-
-.docsContent h2,
-.docsContent h2 a {
-  font-family: $header-font-family;
-  font-variant-ligatures: none;
-  font-size: 24px;
-  letter-spacing: 0;
-  color: $color-blue;
-  font-weight: 700;
-  margin-bottom: $spacing-unit / 2;
-  letter-spacing: 0;
-
-  @include mobile {
-    font-size: 22px;
-    line-height: 28px;
-  }
-}
-
-.docsContent h2 a:hover:before {
-  content: "🔗 ";
-  position: absolute;
-  margin-left: -1.25em;
-  font-size: 75%;
-}
-
-.docsContent h3 {
-  font-family: $header-font-family;
-  font-variant-ligatures: none;
-  font-size: 18px;
-  line-height: normal;
-  color: $color-blue;
-  font-weight: 700;
-  letter-spacing: 0;
-}
-.docsContent h3 {
-  font-size: 20px;
-}
-
-.docsContent h3 {
-  color: $text-color;
-}
-
-/* on docs pages, these are grouped together */
-.docsContent h1 {
-  font-size: 32px;
-  line-height: normal;
-  margin-bottom: $spacing-unit / 2;
-}
-
-.sidebar h2, h2.section {
-  @include mobile {
-    font-size: 26px;
-    line-height: 31px;
-  }
-}
-
-.sidebar {
-  display: block;
-  flex: 0 0 $sidebar-width;
-  margin-right: $spacing-unit;
-
-  // sticky on scroll
-  position: sticky;
-  top: 0;
-  overflow-y: auto;
-  max-height: 100vh;
-
-  @include docs-mobile {
-    max-width: $col-2of3-width;
-  }
-}
-
-.docsContent {
+.Docs-content {
   display: block;
   flex: 1 0 $docs-width;
   // needed to prevent child <pre> elements from expanding forever
@@ -197,6 +49,63 @@ nav.sidebar h3 {
     max-width: 100%;
   }
 }
+
+
+
+// Typography
+// --------------------------------------------------
+
+
+.Docs-content > h1 {
+  font-size: 40px;
+  line-height: 1.4;
+  color: $color-red;
+}
+
+.Docs-content > h2,
+.Docs-content > h2 a {
+  margin-top: $spacing-unit * 1.75;
+  color: $color-blue;
+}
+
+.Docs-content > h3 {
+  margin-top: $spacing-unit * 1.5;
+}
+
+.Docs-content h2 a:hover:before {
+  content: "🔗 ";
+  position: absolute;
+  margin-left: -1.25em;
+  font-size: 75%;
+}
+
+
+// Cute callouts!
+.Docs-content > blockquote {
+  font-family: $tilt2-font-serif;
+  margin-top: $spacing-unit * 1.5;
+  margin-bottom: $spacing-unit * 1.5;
+  background-color: #EEFCEF; // Very light variant of green, one-off
+  border-radius: 10px;
+  padding: $spacing-unit;
+
+  // Everything inside is automatically wrapped in <p>
+  p:first-child {
+    margin-top: 0;
+  }
+  p:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.Docs-content > ul,
+.Docs-content > ol {
+  margin-left: $spacing-unit * 1.5;
+  margin-top: $spacing-unit * 0.5;
+  margin-bottom: $spacing-unit * 0.5;
+}
+
+
 
 .docsFooter {
   margin-top: 1rem;
@@ -210,36 +119,18 @@ nav.sidebar h3 {
   }
 }
 
-
-
-.Docs-video {
-  position: relative;
-  padding-bottom: 56.25%; /* 16:9 */
-  height: 0;
-  margin-bottom: $spacing-unit * 2;
-  @include shadow;
-}
-
-.Docs-video iframe {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-}
-
-.docsContent img {
+.Docs-content img {
   box-shadow: 4px 5px 8px 8px $color-grey-lightest;
   margin: $spacing-unit * 0.5 $spacing-unit;
   max-width: $docs-width - 2 * $spacing-unit;
   box-sizing: content-box;
 }
-.docsContent figcaption {
+.Docs-content figcaption {
   margin: $spacing-unit / 4 $spacing-unit;
 }
 
 
-.docsContent img, {
+.Docs-content img, {
   @include mobile {
     max-width: 100%;
   }
@@ -254,4 +145,58 @@ nav.sidebar h3 {
 }
 
 
+.bleedingLink {
+  color: $text-color;
+  text-decoration: none;
+  transition: color 0.2s, background-color 0.2s;
+}
 
+.bleedingLink-text {
+  color: $color-red;
+  transition: color 0.2s, background-color 0.2s;
+}
+
+.bleedingLink:hover,
+.bleedingLink:hover .bleedingLink-text {
+  text-decoration: none;
+  color: white;
+  background-color: $color-red;
+}
+
+
+
+
+// PAGE-SPECIFIC
+// --------------------------------------------------
+
+
+table.benchmark-report {
+  margin: $spacing-unit;
+  border-spacing: 0;
+  thead th {
+    border-bottom: 1px solid black;
+  }
+
+  th, td {
+    padding: $spacing-unit / 4;
+    text-align: center;
+    min-width: $spacing-unit * 4;
+  }
+
+  // keep footnotes from messing up alignment of text in cells
+  sup, sub {
+    vertical-align: baseline;
+    position: relative;
+    top: -0.4em;
+  }
+  sub {
+    top: 0.4em;
+  }
+}
+
+a.attached-above {
+  display: block;
+  text-indent: 2em;
+  font-weight: bold;
+  margin-top: - $spacing-unit / 2
+}

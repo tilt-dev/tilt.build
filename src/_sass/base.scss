@@ -60,6 +60,7 @@ body {
 
 // HTML Elements
 // --------------------------------------------------
+
 img {
   max-width: 100%;
   vertical-align: middle;
@@ -69,22 +70,20 @@ figure > img {
   display: block;
 }
 
+// These are generally overridden with custom spacing…
+h1, h2, h3, h4, h5, h6,
+// …while these are used semantically, not for its default layout…
+figure, ul, ol, li, blockquote {
+  margin: 0;
+  padding: 0;
+}
+
+
 a {
   text-decoration: none;
   transition: color 0.2s, background-color 0.2s;
 }
 
-blockquote {
-  color: $color-grey;
-  border-left: 4px solid $color-grey-light;
-  padding-left: $spacing-unit / 2;
-  @include relative-font-size(1.125);
-  font-style: italic;
-
-  > :last-child {
-    margin-bottom: 0;
-  }
-}
 
 svg {
   overflow: visible;
@@ -97,6 +96,8 @@ input, textarea {
 hr {
   margin-top: $spacing-unit * 2;
   margin-bottom: $spacing-unit * 2;
+  margin-left: 0;
+  margin-right: 0;
   height: 3px;
   background-color: $tilt2-color-gray-lightest;
   border: 0 none;
@@ -137,21 +138,4 @@ pre {
   //   padding-right: 0;
   //   padding-left: 0;
   // }
-}
-
-
-// Utility
-// --------------------------------------------------
-
-.grey {
-  color: $color-grey;
-}
-
-.svg-icon {
-  width: 16px;
-  height: 16px;
-  display: inline-block;
-  fill: currentColor;
-  padding: 5px 3px 2px 5px;
-  vertical-align: text-bottom;
 }
