@@ -1,5 +1,4 @@
-@charset "utf-8";
-
+$blog-cta-text-width: 466px;
 
 // LAYOUT
 // --------------------------------------------------
@@ -26,19 +25,13 @@ body {
   }
 }
 
-.wrapper--landing .supportingExampleImage {
-  max-width: $content-width * 0.95;
-
-  @include mobile {
-    max-width: 100%;
-  }
-}
 .permalink {
   transition: opacity 0.3s;
   opacity: 0;
   position: absolute;
   margin-left: -1em;
 }
+
 h2:hover > .permalink {
   opacity: 1;
   color: $color-blue;
