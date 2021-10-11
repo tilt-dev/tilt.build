@@ -1,9 +1,9 @@
 ---
 slug: "old-school-remote-dev-clusters"
-date: 2021-10-07
+date: 2021-10-11
 author: nick
 layout: blog
-title: "Setting up a Remote Dev Environment When You Hate the Cloud"
+title: "Setting up a Remote Dev Environment When You're a Cloud Skeptic"
 subtitle: "We'll use Tailscale and Kind to Duct Tape Together a Dev Env"
 description: "We'll use Tailscale and Kind to Duct Tape Together a Dev Env"
 image: "/assets/images/old-school-remote-dev-clusters/cloud.jpg"
@@ -46,7 +46,7 @@ Let me show you!
 
 Let's be clear: we're setting up a remote box that can run arbitrary servers.
 
-If we don't want it to be p0wned by crypto miners, we'll need to secure it.
+If we don't want it to be hacked by crypto miners, we'll need to secure it.
 
 Tailscale creates a VPN so that I can have a
 point-to-point secure connection between my laptop running my IDE, and my
@@ -115,9 +115,17 @@ There are a bunch of pieces! `ctlptl` coordinates the pieces.
 
 These instructions are for MacOS (though `ctlptl` should work on Linux and Windows too).
 
-1. Install tools: `brew install socat kind tilt-dev/tap/ctlptl`
+1. Install tools: 
 
-2. Create the cluster: `ctlptl create cluster kind --registry=ctlptl-registry`
+    ```bash
+    brew install socat kind tilt-dev/tap/ctlptl
+    ```
+
+2. Create the cluster: 
+
+    ```bash
+    ctlptl create cluster kind --registry=ctlptl-registry
+    ```
 
 That's it!
 
