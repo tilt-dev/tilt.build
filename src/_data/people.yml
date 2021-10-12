@@ -70,3 +70,7 @@ peter:
   github: peterchapman
   twitter: peter_chapman
   active: false
+lian:
+  name: Lian Li
+  github: Chimney42
+  active: true
