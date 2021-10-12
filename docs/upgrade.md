@@ -31,7 +31,7 @@ Other Upgrade Methods
 ## Homebrew (macOS or Linux)
 
 ```
-$ brew update && brew upgrade tilt-dev/tap/tilt
+brew update && brew upgrade tilt-dev/tap/tilt
 ```
 
 ## Scoop
