@@ -62,8 +62,8 @@ just for me.
    remote box so that I don't need to login and re-auth.
    
 1. I [configured](https://tailscale.com/kb/1077/secure-server-ubuntu-18-04/)
-   Ubuntu's Uncomplicated Firewall to deny all traffic, except for traffic over
-   the Tailscale network.
+   Ubuntu's Uncomplicated Firewall (UFW) to deny all traffic, except for traffic over
+   the Tailscale network. (edited 10/12 - see below for a big security caveat [^1].)
    
 This box will only run dev services for now. I'll talk later about how
 I access the services.
@@ -169,3 +169,10 @@ apps would go down on the weekends when he moved desks. But sure, OK.
 
 Maybe I'm an old internet person. But I think that approach to the internet is
 underrated!
+
+[^1]: Mike Deeks [points
+    out](https://twitter.com/mike_deeks/status/1447750784326651904) that when
+    used together, Docker can bypass UFW, and containers can be exposed to the
+    public internet. The setup in this post should be OK due to additional
+    layers of security (in particular, Kubernetes). But double-check your
+    firewall if you plan on using, say, Docker Compose to run dev contianers.
