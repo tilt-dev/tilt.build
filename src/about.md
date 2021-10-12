@@ -10,7 +10,7 @@ for cloud-based collaboration. We want to do that for developer tools.
 <div class="u-marginBottom1_5">
 {% assign total = site.data.people | where: "active","true" | size %}
 We’re small ({{total}} people, VC-backed). We’re based in NYC, 
-but also have teammates in Berlin, Germany and other parts of the US.
+but also have teammates in Germany, the Netherlands and other parts of the US.
 </div>
 
 <div class="brandBox u-marginBottom2">	
