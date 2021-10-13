@@ -10,7 +10,7 @@ for cloud-based collaboration. We want to do that for developer tools.
 <div class="u-marginBottom1_5">
 {% assign total = site.data.people | where: "active","true" | size %}
 We’re small ({{total}} people, VC-backed). We’re based in NYC, 
-but also have teammates in Berlin, Germany and other parts of the US.
+but also have teammates in Germany, the Netherlands and other parts of the US.
 </div>
 
 <div class="brandBox u-marginBottom2">	
@@ -88,6 +88,13 @@ but also have teammates in Berlin, Germany and other parts of the US.
     <h4>Lizz Thabet</h4>
     <div>
       Three years building fullstack experiences at <a href="https://attuneinsurance.com">Attune</a>. Makes weird drawings and wearables. Loves to pick up heavy things and put them back down again. She/they.
+    </div>
+  </div>
+  <div class="bio col-1of3 u-marginBottom1_25">
+    <img class="bio-image" src="/assets/img/lian.png">
+    <h4>Lian Li</h4>
+    <div>
+      Over a decade of working in tech as engineer doing fullstack, devops and data. Tried consulting and management for a while. Loves DIY and board games. She/Her.
     </div>
   </div>
 </div>
