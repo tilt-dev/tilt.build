@@ -4,7 +4,7 @@ subtitle: Tilt Tutorial
 layout: docs
 ---
 ## Launching the Web UI
-In your terminal window running `tilt up`, press `(Spacebar)`.
+In your terminal window running `tilt demo`, press `(Spacebar)`.
 Tilt will open your default browser to the Tilt UI.
 (Or navigate there directly in your preferred browser using the URL from the terminal.)
 

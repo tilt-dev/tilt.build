@@ -24,21 +24,37 @@ Tilt Avatars consists of a Python web API backend to generate avatars, and a Jav
 Tilt brings consistency to your development not only due to ensuring a reproducible dev-environment-as-code, but launching any Tilt project is the same with the `tilt up` command, so you always have a familiar starting point.
 `tilt up` starts the Tilt control loop, which we'll explore in more detail in a moment.
 
-Navigate to the [`tilt-avatars` directory][tutorial-prerequisites-sample-project] in a terminal and launch Tilt:
-```bash
-tilt up --port=3366
-```
+For this tutorial, however, we're going to use a special `tilt demo` command, which will perform a few steps:
+ 1. Create a temporary, local Kubernetes development cluster in Docker
+ 2. Clone the [Tilt Avatars][repo-tilt-avatars] sample project
+ 3. Launch a `tilt up` session for the sample project using the temporary Kubernetes cluster
+ 4. Clean everything up on exit 🧹
 
-> We've specified `--port=3366` here to free up the default port in case you want to launch another Tilt project simultaneously.
-> If not overridden, the default Tilt port is `10350`.
+Run the following command in your terminal to get started:
+```bash
+tilt demo
+```
 
 You should see output similar to the following in your terminal:
 ![Running tilt up in a Terminal window shows "Tilt started on http://localhost:3366/" message](/assets/docimg/tutorial/tilt-up-cli.gif)
 
-Press `Spacebar` while your terminal is active, and Tilt will launch your default browser.
+First, open the sample project directory in your preferred editor so that you can make changes in the following steps.
+
+Once you've got the sample project open, return focus to the terminal window and press `(Spacebar)`, and the Tilt UI will be opened in your default browser.
 
 In the next section, we'll explain the Tilt UI. But first, let's dissect what's happening in the background.
 <!-- TODO(milas): this would be a great place for a cheeky graphic about how we're stalling while the builds happen -->
+
+> **Already Have a Local Kubernetes Cluster? (Advanced)**
+>
+> You can clone the sample project and run `tilt up` directly:
+> ```bash
+> git clone https://github.com/tilt-dev/tilt-avatars.git
+> cd tilt-avatars/
+> tilt up
+> ```
+>
+> Once finished, run `tilt down` from the `tilt-avatars` directory to clean up.
 
 ## `Tiltfile`
 When you run `tilt up`, Tilt looks for a special file named `Tiltfile` in the current directory, which defines your dev-environment-as-code.
@@ -75,13 +91,14 @@ A "resource" is a bundle of work managed by Tilt. For example: a Docker image to
 >
 > Tilt can also [manage locally-executed commands][local-resource] to provide a unified experience no matter how your code runs.  
 
-Resource bundling is **automatic** in most cases: Tilt finds the relationship between bits of work (e.g. `docker_build` + `kubectl apply`).
+Resource bundling is **automatic** in most cases: Tilt finds the relationship between bits of work (e.g. `docker build` + `kubectl apply`).
 When that's not sufficient, `Tiltfile` functions like [`k8s_resource`][api-k8s_resource] let you configure resources on top of what Tilt does automatically.
 
 Because Tilt assembles multiple bits of work into a single resource, it's much easier to determine status and find errors across update (build/deploy) and runtime.
 
 ### Update Status
 Whenever you run `tilt up` or change a source file, Tilt determines which resources need to be changed to bring them up-to-date.
+
 To execute these updates, Tilt might:
  * Compile code locally on your machine (e.g. `make`)
  * Build a container image (e.g. `docker build`)

@@ -8,13 +8,16 @@ We mentioned that Tilt embraces the concept of a [control loop][tutorial-control
 
 As you edit your code, Tilt will automatically run update steps such as building an updated container image and deploying it.
 
-> 📓 Navigate to the "web" resource in the Tilt UI and "Clear Logs" before continuing
+> 🤔 **Looking For the Project Code?**
+> 
+> When `tilt demo` started, a path to the temporary directory with the sample project was written to the terminal output.
 
 Let's test it out:
- 1. Open `web/vite.config.js` in your favorite editor
- 2. Find the `logLevel` line and change it from `'error'` to `'info'`
- 3. Save the file
- 4. Watch magic happen for the `web` resource in the Tilt UI 
+ 1. Navigate to the "web" resource in the Tilt UI and click "Clear Logs"
+ 2. Open `web/vite.config.js` in your favorite editor
+ 3. Find the `logLevel` line and change it from `'error'` to `'info'`
+ 4. Save the file
+ 5. Watch magic happen for the `web` resource in the Tilt UI 
 
 ![Tilt updating a resource after a code change](/assets/docimg/tutorial/tilt-code-change-full-rebuild.gif)
 
@@ -26,7 +29,7 @@ First, Tilt saw a file change and associated it with the "web" resource:
 1 File Changed: [web/vite.config.js] • web
 ```
 
-Let's take a peek into the `Tiltfile` to understand
+Let's take a peek into the `Tiltfile` to understand:
  * Why Tilt was watching for changes to `web/vite.config.js`
  * How it knew `web/vite.config.js` belonged to the "web" resource
 
@@ -62,26 +65,26 @@ docker_build(
 Aha!
 Several of these arguments include paths.
 Let's go through them one-by-one:
- * `dockerfile` (optional): path for the `Dockerfile` to be used
-
-   This is optional and defaults to `./Dockerfile` to mimic `docker build ...` CLI behavior.
-   Tilt will watch this path (`./deploy/web.dockerfile` in our case) and trigger an image re-build if it changes, but it's not relevant here because we didn't edit it, so let's move on...   
-
- * `context`: build context for image build (specified here as the current directory, which is the repo root)
+ * **`context`: build context for image build** (specified here as the current directory, which is the repo root)
 
    Tilt watches for changes to any modified files in this directory or any subdirectory, recursively.
    Perfect! We changed `./web/vite.config.js`, which meets this criteria.
-   
-   However, let's keep looking at the other arguments to make sure they don't negate or alter this somehow... 
 
- * `only` (optional): filters paths included in build context and restricts file watching to the subset of paths
+   However, let's keep looking at the other arguments to make sure they don't negate or alter this somehow...
+
+ * **`dockerfile` (optional): path for the `Dockerfile` to be used**
+
+   This is optional and defaults to `./Dockerfile` to mimic `docker build ...` CLI behavior.
+   Tilt will watch this path (`./deploy/web.dockerfile` in our case) and trigger an image re-build if it changes, but it's not relevant here because we didn't edit it, so let's move on...
+
+ * **`only` (optional): filters paths included in build context and restricts file watching to the subset of paths**
 
     Because we have a "mono-repo" (multiple services in a single repository) and the build context is the repo root (`.`), we set this to `['web/']` so that unrelated changes, such as those to the backend (files under `api/`) don't trigger a re-build of the "web" resource.
     Since `./web/vite.config.js` _is_ under `./web/`, it hasn't been excluded, which is what we want!
 
     Just one more argument to go...
  
- * `ignore` (optional): excludes certain paths from the build context and ignores changes to them
+ * **`ignore` (optional): excludes certain paths from the build context and ignores changes to them**
 
     We've used this to exclude `./web/dist/` for our production web assets, which otherwise match the rules defined by `context` and `only`.
     This is supplementary to `.dockerignore`, but can be helpful for cases where you want different ignore rules for local dev with Tilt, for example.
