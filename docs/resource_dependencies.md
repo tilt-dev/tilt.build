@@ -1,48 +1,157 @@
 ---
 title: Resource Dependencies
-description: "Say you have a web service specified in a Tilt resource named 'frontend' and a database in a Tilt resource named 'database', and 'frontend' fails to even start up if 'database' isn't running."
+description: "Control the startup order of Tilt resources"
 layout: docs
 ---
 
-Say you have a web service specified in a Tilt resource named `frontend` and a
-database in a Tilt resource named `database`, and `frontend` fails to even
-start up if `database` isn't running. This can lead to distracting errors on
-startup (especially, e.g., if you have 5 services all depending on the same
-backend!)
+Tilt defines your dev environment as a list of resources.
 
-Tilt allows you to specify that `frontend` depends on `database`, so that
-`frontend` will not be deployed until `database` has been successfully deployed:
+## How Tilt Brings up Resources
+
+While a Tilt environment is running, you can use the CLI to explore the list of
+resources that Tilt is aware of. This command will print all the resources in the UI:
+
+```
+tilt get uiresources
+```
+
+Here's example output of what this might look like:
+
+```shell
+$ tilt get uiresources
+NAME         CREATED AT
+docs-site    2021-10-19T19:51:21Z
+make-api     2021-10-19T19:51:21Z
+(Tiltfile)   2021-10-19T19:51:21Z
+```
+
+Tilt will try to start up the resources as fast as it's safe to do so. Here's
+the heuristic it uses by default:
+
+- Run the Tiltfile to create resources.
+
+- Run `local_resource` definitions first.
+
+- Run one `local_resource` at a time (so that they can't step on each others'
+  local output).
+
+- Run up to 3 image build and deploys at a time in parallel (for both Kubernetes
+  resources and Docker Compose resources). Make educated guesses about the
+  correct order of resources and which can be run in parallel based on the YAML.
+
+- Continue until all resources have been built. 
+
+Sometimes the right startup order depends on application logic that Tilt can't guess!
+For example, you might have a resource `frontend` that requires a running `database`
+before it starts.
+
+This can lead to distracting errors on startup (especially, e.g., if you have 5
+services all depending on the same backend!)
+
+That's why Tilt gives you a way to specify startup order manually.
+
+## Adding `resource_deps` for Startup Order
+
+Tilt has 3 built-in functions for configuring a resource:
+
+- `local_resource` (for local jobs and servers)
+
+- `dc_resource` (for docker compose services)
+
+- `k8s_resource` (for Kubernetes workloads - see [Tiltfile concepts](tiltfile_concepts.html) for more details about how YAML is divided into workloads)
+
+All 3 functions have a `resource_deps` argument. To specify that `frontend` depends on `database`:
 
 ```python
 k8s_resource('frontend', resource_deps=['database'])
 ```
 
 This has two effects:
+
 1. `frontend` will not be deployed until `database` has been ready at least once
     since Tilt was started.
-2. If you run `tilt up frontend` to select only some of your Tiltfile's resources,
-    that also implicitly selects all of `frontend`'s transitive dependencies.
+    
+2. If you run `tilt up frontend` to run only the `frontend` resource,
+    that also implicitly brings up all of `frontend`'s transitive dependencies.
 
-A resource is "ready" when:
-* For K8s resources: the pod is running and K8s considers all of its containers ready
-* For docker-compose resources: the container is started (NB: Tilt doesn't currently observe docker-compose health checks)
-* For local resources **without** a `readiness_probe`: the command has succeeded at least once
-* For local resources [**with** a `readiness_probe`][readiness-probe]: the probe has achieved the success threshold at least once
+## Adding Readiness Checks for Startup Waiting
 
-Some other use cases:
-* Define your resource deps such that it's easy to bring up only the services
-  you need for what you're currently working on. e.g., `tilt up frontend`
-  starts not just `frontend`, but also the database and the assets server.
-* Create a `local_resource` to generate language bindings from protobuf schemas,
-  and make the services that use those language bindings depend on that `local_resource`.
+Once a resource is ready, Tilt will start building the resources that depend on it.
 
-Caveat:
-This feature currently mostly only helps in the common case that different versions
-of services are broadly compatible with each other, and focuses on ensuring that
-*some* instance of a resource's dependencies exist, without worrying too much about
-whether it's a *current* version. For this reason, `resource_deps` currently only
-affects the first build after a `tilt up`. e.g., Once any version of `database`
-has been running at least once, its dependencies are unblocked to build for the
-rest of Tilt's lifetime.
+By default, a resource is "ready" when:
 
-[readiness-probe]: local_resource.html#readiness_probe
+- For `k8s_resource`: the pod is running and Kubernetes considers all of its containers ready.
+
+- For `dc_resource`: the container is started (NB: Tilt doesn't currently observe docker-compose health checks).
+
+- For `local_resource`: the command has succeeded at least once.
+
+But Tilt also has ways to customize the definition of readiness. This will change both
+when dependent servers start building, and how the servers show up in the UI.
+
+### Kubernetes Readiness Checks
+
+Kubernetes has a built-in notion of
+[readiness](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/#define-readiness-probes).
+Tilt will use the built-in readiness probe when it's available.
+
+To ignore pod readiness:
+
+```python
+k8s_resource('frontend', pod_readiness='ignore')
+```
+
+If you're using custom Kubernetes resources, you can also specify the default
+readiness settings for a particular API Kind. See the [Custom Resource
+Definition](custom_resource.html) guide for more info.
+
+### Local Resource Readiness Checks
+
+`local_resource` allows you to define readiness probes for servers running locally.
+
+The API borrows liberally from the Kubernetes readiness probe API.
+
+Read the guide to [Local Resource Readiness Probes](local_resource.html#readiness_probe) for more info.
+
+## Parallelism
+
+By default, image build and deploys can run 3 at a time (for both `k8s_resource` and `dc_resource`). To change this setting, you can set the `max_parallel_updates` option in `update_settings`.
+
+To allow 10 in parallel:
+
+```python
+update_settings(max_parallel_updates=10)
+```
+
+To force all deploys to happen in serial:
+
+```python
+update_settings(max_parallel_updates=1)
+```
+
+To run `local_resource` commands in parallel, you will need to manually mark the resource
+as parallelizable:
+
+```python
+local_resource(name, cmd, allow_parallel=True)
+```
+
+See the [`local_resource` guide](local_resource.html) for more info.
+
+## Other Types of Dependencies
+
+Resource dependencies are designed to help when different versions
+of services are broadly compatible with each other.
+
+They focus on ensuring that *some* instance of a resource's dependencies exist.
+They are not concerned with whether it's a *current* version. 
+
+For this reason, `resource_deps` currently only affects the first build after a
+`tilt up`.  Once any version of `database` has been running at least once, its
+dependencies are unblocked to build for the rest of Tilt's lifetime.
+
+For discussions on other types of dependencies in Tilt that could exist in the future, see these issues:
+
+- [https://github.com/tilt-dev/tilt/issues/3048](https://github.com/tilt-dev/tilt/issues/3048)
+
+- [https://github.com/tilt-dev/tilt/issues/3667](https://github.com/tilt-dev/tilt/issues/3667)
