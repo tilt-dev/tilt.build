@@ -1,11 +1,19 @@
 
 ### Our Mission
 
-Tilt Dev is building the platform for multi-service software
-development. Imagine if every time you hit save, you could kick off workflows
-that run in the cloud, with results that are accessible across your team
-instantly and historically. How much more productive could you be? What
-dev collaboration tools have we not even thought of yet?
+Modern apps are made up of tons of services. 
+
+Developers need a standardized environment to ensure all those services behave.
+
+Tilt Dev is a dev enviroment as code that allows teams to define how and where
+those services run. Tilt gives developers a single service manager that keeps
+the services up to date with local changes, whether they're running on a
+personal laptop or on a remote cloud cluster, whether they're built from source
+or centrally managed.
+
+We believe that turnkey cloud-connected dev environments will unlock new
+platforms and new ways for engineers to collaborate that they can't even imagine
+today.
 
 ### About Us
 
