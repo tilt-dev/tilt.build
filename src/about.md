@@ -23,6 +23,7 @@ but also have teammates in Germany, the Netherlands and other parts of the US.
   
   <ul>
     <li><a href="devtools_eng.html">Senior Developer Tools Engineer</a></li>
+    <li><a href="operations_manager.html">Operations Manager</a></li>
   </ul>	
 </div>
 
