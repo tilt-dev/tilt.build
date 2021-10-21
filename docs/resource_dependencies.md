@@ -71,8 +71,8 @@ This has two effects:
 1. `frontend` will not be deployed until `database` has been ready at least once
     since Tilt was started.
     
-2. If you run `tilt up frontend` to select only some of your Tiltfile's resources,
-    that also implicitly selects all of `frontend`'s transitive dependencies.
+2. If you run `tilt up frontend` to run only the `frontend` resource,
+    that also implicitly brings up all of `frontend`'s transitive dependencies.
 
 ## Adding Readiness Checks for Startup Waiting
 
