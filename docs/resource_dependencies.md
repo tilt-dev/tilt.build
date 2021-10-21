@@ -150,7 +150,7 @@ For this reason, `resource_deps` currently only affects the first build after a
 `tilt up`.  Once any version of `database` has been running at least once, its
 dependencies are unblocked to build for the rest of Tilt's lifetime.
 
-For discussion on other types of dependencies in Tilt in the future, see these issues:
+For discussions on other types of dependencies in Tilt that could exist in the future, see these issues:
 
 - [https://github.com/tilt-dev/tilt/issues/3048](https://github.com/tilt-dev/tilt/issues/3048)
 
