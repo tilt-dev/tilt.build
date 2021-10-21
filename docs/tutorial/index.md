@@ -8,7 +8,7 @@ redirect_from:
 ---
 This tutorial is designed to introduce the key concepts of Tilt.
 
-If you're new to multi-service containerized development, don't panic: this tutorial focuses on Tilt.
+If you're new to containerized development, don't panic: this tutorial focuses on Tilt.
 We won't dive into the internals of `Dockerfile` or Kubernetes YAML.
 
 Throughout the tutorial, we'll refer to the [`tilt-avatars`][repo-tilt-avatars] project.

@@ -237,7 +237,7 @@ A local registry is often the fastest way to speed up your dev experience.
 Every cluster sets up this registry slightly differently.
 
 Tilt-team is currently collaborating with the Kubernetes community on protocols
-for discovery, so that multi-service development tools like Tilt will auto-configure
+for discovery, so that microservice development tools like Tilt will auto-configure
 when a local registry is present.
 
 Tilt currently supports two generic protocols for discovering your cluster's
