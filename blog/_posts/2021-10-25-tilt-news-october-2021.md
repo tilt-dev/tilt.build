@@ -81,7 +81,7 @@ Sound right up your alley? Then head on over to our [intake form](https://forms.
 
 ### Enable & Disable Services
 
-And last but not least, we're excited to let you know that we are currently working on a feature to easily disable and enable specific services on `tilt up` and at runtime. While we are cautious to make any definite statements on release dates, we'd still like to give you a little sneak peak to get y'all hyped!
+And last but not least, we're excited to let you know that we are currently working on a feature to easily disable and enable specific services on `tilt up` and at runtime. While we are cautious to make any definite statements on release dates, we'd still like to give you a little sneak peek to get y'all hyped!
 *Note: the design might be subject to change.*
 
 ![Tilt UI resource view with button that says 'Disable service'](/assets/images/tilt-news-october-2021/disable-enable-resource-view.png)
