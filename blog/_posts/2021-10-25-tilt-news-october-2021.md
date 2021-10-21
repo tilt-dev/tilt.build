@@ -14,13 +14,13 @@ Howdy Tilters,
 
 I am beyond excited to greet you for the first of what I hope to be many, many newsletters.
 
-My name is Lian, and I've taken up the mantle of Developer Advocacy at Tilt. You will see us experimenting with different things to improve our engagement with you, get direct feedback for our product, and better understand your needs. Also, I cannot wait to meet all of you once we're back to in-person events.
+My name is Lian, and I've taken up the mantle of Developer Advocacy at Tilt. We will be trying different ways to interact with you, to better understand your needs and get direct feedback for our product. Also, I cannot wait to meet all of you once we're back to in-person events.
 
 Speaking of...
 
 ## KubeCon 2021
 
-We’re still recovering from KubeCon 2021, where we got to speak to Tilt users and friends - face to face! We were also thrilled to have two Tilters give amazing talks there.
+We’re still recovering from KubeCon 2021, where we got to speak to Tilt users and friends - face to face! We were also proud to have two Tilters give excellent talks there.
 
 Nick spoke about "[The Control Loop As An Application Development Framework](https://kccncna2021.sched.com/event/lV1E/the-control-loop-as-an-application-development-framework-nick-santos-tilt)", a topic very dear to our hearts here at Tilt.
 
@@ -35,7 +35,7 @@ All talks will be made available for free to the public by the organizers, and w
 
 We heard a new phrase at KubeCon from InfluxData's Developer experience team: “remocal” dev.
 
-Here's the idea: if you think about dev as local or remote, you're misunderstanding the world we live in. Modern dev environments are “remocal”—they figure out how your local machine fits into a dev environment with remote components.
+Here's the idea: if you think about dev as local or remote, you misunderstand the world we live in. Modern dev environments are “remocal”—they figure out how your local machine fits into a dev environment with remote components.
 
 We've been thinking more and more about this problem. And experimenting! And writing posts about what we learned, including:
 
@@ -64,23 +64,24 @@ They are also the biggest open-source project that uses Tilt. Check out [their d
 
 ## Tilt News
 
-We were happy to see Tilt mentioned in three blogposts:
+We were thrilled to see Tilt mentioned in three blogposts:
 
-Kevin Lindsay, Full Stack Web Developer at Surge and OpenFaas community member talks about using Tilt to bring smart rebuilds and live updates to [OpenFaaS functions](https://www.openfaas.com/blog/tilt/).
+Kevin Lindsay, Full Stack Web Developer at Surge and OpenFaas community member, writes about using Tilt to bring smart rebuilds and live updates to [OpenFaaS functions](https://www.openfaas.com/blog/tilt/).
 
-Archers.ai’s mission is to help their users track cloud resources for both cost-optimization purposes and tax purposes. They care a lot about the ability to track the cost of dev environments, and they see tools like Tilt as essential for helping them do that. In this blog post, Jason Burt, Product at Archera.ai explains how they are using Tilt to [accelerate their product feedback loop](https://archera.ai/blog/how-we-used-tilt/).
+Archers.ai’s mission is to help its users track cloud resources for both cost-optimization and tax purposes. They care a lot about the ability to track the cost of dev environments, and they see tools like Tilt as essential for helping them do that. In this blog post, Jason Burt, Product at Archera.ai explains how they are using Tilt to [accelerate their product feedback loop](https://archera.ai/blog/how-we-used-tilt/).
 
-Evgeny Khabarov, Consultant and Gopher, uses Tilt in his [four part series](https://dev.ms/2021/10/envoy-as-an-api-gateway-part-iii/) on building a RESTful API with Envoy, to easily develop on a local Kubernetes cluster. 
+Evgeny Khabarov, Consultant and Gopher, wrote this [four part series](https://dev.ms/2021/10/envoy-as-an-api-gateway-part-iii/) on building a RESTful API with Envoy. Tilt is featured as tool of choice for developing on a local Kubernetes cluster with ease. 
 
-### User Research subjects wanted!
+### Guinea pigs wanted!
 
-We're always trying to design and improve our product as close to the community's needs as possible. For this, we are on constant lookout for user research subjects.
-A session is typically between 45 and 60 minutes long and you will receive compensation of around $50 USD (or local currency equivalent).
-Sound interesting? Then head on over to our [intake form](https://forms.gle/gecjWQ6ErHGfJNm66).
+We're always trying to design and improve our product as close to the community's needs as possible. Whether you've been a long-time fan of Tilt or have never used it before, we'd love to invite you for a user-research session. You might be able to catch a glimpse of upcoming features!
+A session is typically between 45 and 60 minutes long and you will receive a giftcard of around $50 USD (or local currency equivalent) as a thank you.
+
+Sound right up your alley? Then head on over to our [intake form](https://forms.gle/gecjWQ6ErHGfJNm66).
 
 ### Enable & Disable Services
 
-And last but not least, we're excited to let you know that we are currently working on a feature allowing Tilt users to easily disable and enable specific services on tilt up and at runtime. While we are cautious to make any definite statements on release dates, we'd still like to give you a little sneak peak to get y'all hyped!
+And last but not least, we're excited to let you know that we are currently working on a feature to easily disable and enable specific services on `tilt up` and at runtime. While we are cautious to make any definite statements on release dates, we'd still like to give you a little sneak peak to get y'all hyped!
 *Note: the design might be subject to change.*
 
 ![Tilt UI resource view with button that says 'Disable service'](/assets/images/tilt-news-october-2021/disable-enable-resource-view.png)
@@ -88,7 +89,7 @@ And last but not least, we're excited to let you know that we are currently work
 ![Tilt UI table view with in Disable & Enable mode'](/assets/images/tilt-news-october-2021/disable-enable-table-view.png)
 
 And that’s all from us for now. Speak to you all again next month!
-If you have any questions, comments, or ideas, feel free to join our channel in the [Kubernetes Slack](https://slack.k8s.io/) or message us on [Twitter](https://twitter.com/tilt_dev) or [email](mailto:news@tilt.dev?subject=Tilt%20News%20October%202021) 👋 
+If you have any questions, comments, or ideas, please join our channel in the [Kubernetes Slack](https://slack.k8s.io/) or message us on [Twitter](https://twitter.com/tilt_dev) or [email](mailto:news@tilt.dev?subject=Tilt%20News%20October%202021) 👋
 
 
 _Originally sent to [the Tilt News mailing
