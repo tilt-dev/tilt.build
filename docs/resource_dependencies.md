@@ -115,7 +115,7 @@ Read the guide to [Local Resource Readiness Probes](local_resource.html#readines
 
 ## Parallelism
 
-Image build and deploys can run 3 at a time (for both `k8s_resource` and `dc_resource`).
+By default, image build and deploys can run 3 at a time (for both `k8s_resource` and `dc_resource`). To change this setting, you can set the `max_parallel_updates` option in `update_settings`.
 
 To allow 10 in parallel:
 
