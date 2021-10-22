@@ -7004,7 +7004,7 @@ a call to
            </em>
            ,
            <em>
-            timeout_secs=0
+            timeout_secs=1
            </em>
            ,
            <em>
@@ -7073,7 +7073,7 @@ a call to
                   </span>
                  </code>
                  ) &#x2013; Number of seconds after the resource has started before the probe is
-first initiated (default=0).
+first initiated (default is 0).
                 </li>
                 <li>
                  <strong>
@@ -7086,7 +7086,7 @@ first initiated (default=0).
                   </span>
                  </code>
                  ) &#x2013; Number of seconds after which probe execution is aborted and it is
-considered to have failed (minimum vale is 1).
+considered to have failed (default is 1, must be greater than 0).
                 </li>
                 <li>
                  <strong>
@@ -7098,7 +7098,7 @@ considered to have failed (minimum vale is 1).
                    int
                   </span>
                  </code>
-                 ) &#x2013; How often in seconds to perform the probe (minimum value is 1).
+                 ) &#x2013; How often in seconds to perform the probe (default is 10, must be greater than 0).
                 </li>
                 <li>
                  <strong>
@@ -7111,7 +7111,7 @@ considered to have failed (minimum vale is 1).
                   </span>
                  </code>
                  ) &#x2013; Minimum number of consecutive successes for the result to be
-considered successful after having failed (minimum value is 1).
+considered successful after having failed (default is 1, must be greater than 0).
                 </li>
                 <li>
                  <strong>
@@ -7124,7 +7124,7 @@ considered successful after having failed (minimum value is 1).
                   </span>
                  </code>
                  ) &#x2013; Minimum number of consecutive failures for the result to be
-considered failing after having succeeded (minimum value is 1).
+considered failing after having succeeded (default is 3, must be greater than 0).
                 </li>
                 <li>
                  <strong>
