@@ -43,7 +43,7 @@ We've been thinking more and more about this problem. And experimenting! And wri
 - [Using ngrok to connect your local machine to a public URL](https://blog.tilt.dev/2021/09/21/ngrok-operator.html)
 - [Using Tailscale to connect your laptop to a dev docker](https://blog.tilt.dev/2021/10/11/old-school-remote-dev-clusters.html)
 
-![Tilt UI resourve view with custom button that reads 'start ngrok'](/assets/images/tilt-news-october-2021/ngrok1.jpg)
+![Tilt UI resource view with custom button that reads 'start ngrok'](/assets/images/tilt-news-october-2021/ngrok1.jpg)
 
 ## The Future of Docker
 
