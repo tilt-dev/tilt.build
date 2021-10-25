@@ -138,7 +138,7 @@ Let's click the button on the `deploy` resource and see what happens!
 {:.benchmark-report}
 
 If you look closely, the elapsed time displayed in the Tilt sidebar is different
-than the benchmark our app logged. That's OK! In multi-service development,
+than the benchmark our app logged. That's OK! In microservice development,
 there are many benchmarks we care about -- the time to build the image, the time
 to schedule the process, and the time until the server is ready to serve
 traffic. 
@@ -298,7 +298,7 @@ services in a Tiltfile and exits successfully if they're healthy.
 
 This guide recommends an approach to Go development that shines with Tilt.
 
-If you're curious about other approaches to multi-service Go development and
+If you're curious about other approaches to microservice Go development and
 their trade-offs, we're working on a talk and workshop:
 
 [The Quest For The Fastest Deployment Time](https://github.com/tilt-dev/fast){:.attached-above}
