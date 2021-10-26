@@ -90,8 +90,13 @@
   width: 100%;
 }
 
+.Docs-subnav-accordion__panel {
+  max-height: 1000px; // Arbitrary height that hopefully won't clip any content
+  transition: max-height $anim-duration ease;
+  overflow: hidden;
+}
 .Docs-subnav-accordion__panel[aria-hidden=true] {
-  display: none;
+  max-height: 0;
 }
 
 .Docs-subnav-accordion__panel[aria-expanded="true"]::after {
