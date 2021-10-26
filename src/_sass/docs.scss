@@ -1,10 +1,16 @@
+.body--docs {
+  @include docs-mobile {  
+    padding: 0;
+  }
+}
+
 .Docs-wrapper {
   display: flex;
   flex-direction: column;
-  padding: $spacing-unit * 2;
+  margin-top: $spacing-unit * 2;
+  margin-bottom: $spacing-unit * 2;
   
   @include docs-mobile {
-    padding: $spacing-unit;
   }
 }
 
@@ -26,12 +32,18 @@
   @include docs-mobile {
     flex-direction: column;
   }
-
 }
 
 
-
-.Docs-nav {}
+.Docs-nav {
+  @include docs-mobile {
+    background-color: $color-white;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+}
 
 .Docs-nav-list {
   display: flex;
@@ -47,24 +59,36 @@
 }
 
 
-
 .Docs-subnav {}
 
 .Docs-subnav-section {
   list-style: none;
-
-  & + & {
-    margin-top: $spacing-unit;
-  }
 }
+
+.Docs-subnav-section-title {
+  background-color: $tilt2-color-gray-lightest;
+  padding-top: $spacing-unit * 0.25;
+  padding-bottom: $spacing-unit * 0.25;
+  padding-left: $spacing-unit * 0.5;
+  padding-right: $spacing-unit * 0.5;
+}
+
 .Docs-subnav-section-list {
   list-style: none;
-  li {
-    padding-top: $spacing-unit * 0.25;
-    padding-bottom: $spacing-unit * 0.25;
+
+  li + li {
+    border-top: 1px solid $tilt2-color-gray-lightest;
   }
 }
+
 .Docs-subnav-section-link {
+  display: block;
+  color: $tilt2-color-text;
+  padding-top: $spacing-unit * 0.5;
+  padding-bottom: $spacing-unit * 0.5;
+  padding-left: $spacing-unit * 0.5;
+  padding-right: $spacing-unit * 0.5;
+
   &.is-active {
     font-weight: $tilt2-font-weight-sans-bold;
   }
@@ -80,6 +104,9 @@
 
   @include docs-mobile {
     max-width: 100%;
+    // Parent body--docs has no padding on mobile (so menu can be full-width)
+    padding-left: $spacing-unit;
+    padding-right: $spacing-unit;
   }
 }
 
@@ -201,13 +228,6 @@ img.no-shadow {
   margin: $spacing-unit / 4 $spacing-unit;
 }
 
-
-.body--docs {
-  .page-content {
-    // default layout includes excessive top padding
-    padding-top: 0;
-  }
-}
 
 
 .bleedingLink {
