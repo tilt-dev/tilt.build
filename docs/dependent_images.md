@@ -129,14 +129,9 @@ Once you've got the two image builds working, you can add a
 live update rule to sync files into your app. This is much faster
 than building the app image each time.
 
-Every live update needs two steps:
+In this example, we'll use a `sync` step to copy the files. 
 
-- A step to copy the files.
-
-- A step to reload the files into the running server.
-
-In this example, we use a `sync` step to copy the files. Then we add a custom
-`entrypoint` that runs our server with `nodemon`, which does the reload.
+Then we'll add a custom `entrypoint` that runs our server with `nodemon`, which does the reload.
 
 Here's what it looks like:
 
@@ -145,12 +140,18 @@ Here's what it looks like:
 docker_build('nodejs-express-app-image',
              '.',
              dockerfile='app.dockerfile',
-             entrypoint='yarn run nodemon /var/www/app/server.js',
              live_update=[
                sync('.', '/var/www/app')
-             ])
+             ],
+             entrypoint='yarn run nodemon /var/www/app/server.js')
 ```
 
+Every app needs to specify both a sync step and a reload step. But reload steps
+tend to be specific to the programming language and framework you're using. Some
+frameworks even handle it automatically. This example uses an entrypoint with
+`nodemon`, but the reload step for your project will probably look
+different. For more examples, see the language-specific example projects or [the
+live update refrence](live_update_reference.html).
 
 Note that live update steps should always be attached to the deployed image,
 never the base image. Tilt's live update system matches the image in the container,
