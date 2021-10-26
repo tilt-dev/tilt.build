@@ -23,24 +23,23 @@ layout: default
   <div class="Docs-body">
     <aside class="Docs-sidebar">
       <nav class="Docs-subnav">
-        <ul class="Docs-subnav-sections js-accordion" data-accordion-prefix-classes="Docs-subnav">
+        <dl class="js-accordion Docs-subnav-list" data-accordion-prefix-classes="Docs-subnav">
         {% for section in site.data.docs.sidebar[page.sidebar] %}
           {% assign pages = section.items %}
-    
-          <li class="Docs-subnav-section">
-            <h3 class="Docs-subnav-section-title js-accordion__header">
+            <dt class="js-accordion__header Docs-subnav-title" data-accordion-opened="true">
                 {{ section.title | escape }}
-            </h3>
-            <ul class="Docs-subnav-section-list js-accordion__panel">
-              {% for page in pages %}
-                <li>
-                  <a class="Docs-subnav-section-link {% if page_href == page.href %}is-active{% endif %}" href="/{{page.href | escape}}">{{page.title | escape}}</a>
-                </li>
-              {% endfor %}
-            </ul>
-          </li>
+            </dt>
+            <dd class="js-accordion__panel Docs-subnav-section">
+              <ul class="Docs-subnav-section-list">
+                {% for page in pages %}
+                  <li class="Docs-subnav-section-list-item">
+                    <a class="Docs-subnav-link {% if page_href == page.href %}is-active{% endif %}" href="/{{page.href | escape}}">{{page.title | escape}}</a>
+                  </li>
+                {% endfor %}
+              </ul>
+              </dd>
           {% endfor %}
-        </ul>  
+          </dl>  
       </nav>
     </aside>
   
@@ -75,7 +74,7 @@ layout: default
   </div>
 
   <script src="/assets/js/links.js" async></script>
-  <script src="{{ '/assets/js/van11y-accessible-accordion-aria.min.js' | relative_url }}"></script>
+  <script src="{{ '/assets/js/van11y-accessible-accordion-aria.min.js' | relative_url }}" defer></script>
   <script src="{{ '/assets/js/clipboard.min.js' | relative_url }}" defer></script>
   <script src="{{ '/assets/js/copy-code.js' | relative_url }}" defer></script>
 </div>
