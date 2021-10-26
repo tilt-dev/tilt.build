@@ -1,6 +1,7 @@
 ---
 title: Tilt CLI Reference
 layout: docs
+sidebar: cli
 hideEditButton: true
 ---
 ## tilt dump webview
