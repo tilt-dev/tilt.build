@@ -75,7 +75,7 @@ docker_build('nodejs-express-app-image',
              '.',
              dockerfile='app.dockerfile')
              
-# Configure the Kuberentes deploys.
+# Configure the Kubernetes deploys.
 k8s_resource('nodejs-express-app', port_forwards=3000)
 ```
 
