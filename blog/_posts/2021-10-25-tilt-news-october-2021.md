@@ -68,7 +68,7 @@ They are also the biggest open-source project that uses Tilt. Check out [their d
 
 We were thrilled to see Tilt mentioned in three blogposts:
 
-Kevin Lindsay, Full-Stack Web Developer at Surge and OpenFaas community member, writes about using Tilt to bring smart rebuilds and live updates to [OpenFaaS functions](https://www.openfaas.com/blog/tilt/).
+Kevin Lindsay, Full-Stack Web Developer at Surge and OpenFaaS community member, writes about using Tilt to bring smart rebuilds and live updates to [OpenFaaS functions](https://www.openfaas.com/blog/tilt/).
 
 Archera.ai uses a Machine Learning approach to help optimize the provisioning and management of cloud resources. In this blog post, Jason Burt, Product at Archera.ai explains how they are using Tilt to [accelerate their product feedback loop](https://archera.ai/blog/how-we-used-tilt/).
 
