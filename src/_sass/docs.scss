@@ -59,21 +59,50 @@
 }
 
 
-.Docs-subnav {}
+// Sidebar Navigation
+// --------------------------------------------------
 
-.Docs-subnav-section {
-  list-style: none;
+.Docs-subnav-accordion {
 }
 
-.Docs-subnav-section-title {
+.Docs-subnav-accordion__title {
+  // Override js-accordion styles 
+  display: block !important;
+  padding: 0 !important;
+}
+
+.Docs-subnav-title {
   background-color: $tilt2-color-gray-lightest;
+}
+
+.Docs-subnav-section {
+  margin: 0; // Reset dd style
+}
+
+.Docs-subnav-accordion__header {
+  // js-accordion adds a <button>
+  @include reset-button-style;
+  cursor: pointer;
   padding-top: $spacing-unit * 0.25;
   padding-bottom: $spacing-unit * 0.25;
   padding-left: $spacing-unit * 0.5;
   padding-right: $spacing-unit * 0.5;
+  width: 100%;
 }
 
-.Docs-subnav-section-list {
+.Docs-subnav-accordion__panel[aria-hidden=true] {
+  display: none;
+}
+
+.Docs-subnav-accordion__panel[aria-expanded="true"]::after {
+  content: "-";
+}
+
+.Docs-subnav-accordion__panel[aria-expanded="false"]::after {
+  content: "+";
+}
+
+.Docs-subnav-list {
   list-style: none;
 
   li + li {
@@ -81,7 +110,7 @@
   }
 }
 
-.Docs-subnav-section-link {
+.Docs-subnav-link {
   display: block;
   color: $tilt2-color-text;
   padding-top: $spacing-unit * 0.5;
@@ -93,6 +122,12 @@
     font-weight: $tilt2-font-weight-sans-bold;
   }
 }
+
+
+
+
+
+
 
 .Docs-content {
   display: block;
@@ -153,7 +188,8 @@
 
 
 .Docs-content a {
-  color: $color-purple;
+  color: $tilt2-color-text;
+  text-decoration: underline;
 }
 .Docs-content a:hover {
   text-decoration: underline;
@@ -217,17 +253,28 @@
 
 }
 
+
+
+// Page Elements
+// --------------------------------------------------
+
+.Docs-video {
+  margin-top: $spacing-unit;
+  margin-bottom: $spacing-unit;
+
+  iframe {
+    width: 100%;
+  }
+}
+
 // Deprecated now that images don't have shadows by default:
 img.no-shadow {
   box-shadow: none;
 }
 
-
-
 .Docs-content figcaption {
   margin: $spacing-unit / 4 $spacing-unit;
 }
-
 
 
 .bleedingLink {
@@ -250,10 +297,8 @@ img.no-shadow {
 
 
 
-
 // PAGE-SPECIFIC
 // --------------------------------------------------
-
 
 table.benchmark-report {
   margin: $spacing-unit;
