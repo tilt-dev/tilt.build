@@ -82,7 +82,7 @@ A session is typically between 45 and 60 minutes long. You will receive a gift c
 
 Sound right up your alley? Then head on over to our [intake form](https://forms.gle/gecjWQ6ErHGfJNm66).
 
-### Exclusive world premiere
+### Exclusive World Premiere
 Last but not least, we’re excited to present to you the world premiere of our first How-To video: How to Create Custom UI Buttons! Enjoy!
 
 {% include youtubePlayer.html id=page.youtubeId %}
