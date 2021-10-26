@@ -54,7 +54,7 @@ The Docker licensing changes have kicked off a larger conversation about the pla
 We've written some posts to help people think through this:
 
 - [Improving Docker performance](https://blog.tilt.dev/2021/09/13/docker-does-not-mean-slow.html)
-- [Swapping Rancher Desktop for Docker Desktop](https://blog.tilt.dev/2021/09/07/rancher-desktop.html)
+- [Switch from Docker Desktop to Rancher Desktop in 5 Minutes](https://blog.tilt.dev/2021/09/07/rancher-desktop.html)
 
 ## Kubernetes Cluster API
 
