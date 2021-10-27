@@ -50,7 +50,7 @@ When you tell Tilt how to build an image, you specify some set of files to watch
     <figcaption>An illegal 'sync': attempting to sync files that aren't included in the docker_build context</figcaption>
 </figure>
 
-The `sync` above is invalid, because it attempts to sync files that we're not even watching (seen here highlighted in blue). To put it another way: there's no way for those files to get into the container in the first place, because they would never be included in the Docker build. (If this is functionality you need, [let us know](https://tilt.dev/contact).)
+The `sync` above is invalid, because it attempts to sync files that we're not even watching (seen here highlighted in blue). To put it another way: there's no way for those files to get into the container in the first place, because they would never be included in the Docker build.
 
 <figure>
     <img src="/assets/img/liveupdate-sync-docker-context.png" class="no-shadow" alt="A valid use of 'sync' (all sync'd files are subsets of docker_build.context)">
@@ -90,7 +90,9 @@ This step is optional, though if provided, it must come at the beginning of the 
 ### [run(cmd: str, trigger=None: str || List[str])](api.html#api.run)
 The first argument to `run` is a the command to be executed _on the running container_. Currently, all commands are executed from `/`, so be sure to use absolute paths!
 
-Currently, all of your `run` steps must come after all of your `sync` steps. (If you need different behavior, let us know!) If you provide multiple `run` steps, the commands will be executed in the order given. 
+Currently, all of your `run` steps must come after all of your `sync` steps. 
+
+If you provide multiple `run` steps, the commands will be executed in the order given. 
 
 #### Run triggers
 
@@ -159,4 +161,4 @@ language, all our major example projects use Live Update:
 
 ---
 
-[^1]: The initial build is always a full build because Live Update needs a running container to modify. Thus, your base build (Docker/Custom Build) should be sufficient to create your dev image, and should not rely on any `sync`'d files or `run` commands. (If this is functionality you need, [let us know](https://tilt.dev/contact).)
+[^1]: The initial build is always a full build because Live Update needs a running container to modify. Thus, your base build (Docker/Custom Build) should be sufficient to create your dev image, and should not rely on any `sync`'d files or `run` commands.

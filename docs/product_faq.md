@@ -1,11 +1,11 @@
 ---
 title: Who is Tilt for?
-description: "Tilt is a multi-service development engine for teams that deploy to Kubernetes. But why did we build it?"
+description: "Tilt is a microservice development engine for teams that deploy to Kubernetes. But why did we build it?"
 layout: docs
 sidebar: gettingstarted
 ---
 
-Tilt is a cloud-native development engine for teams that deploy to Kubernetes.
+Tilt is a microservice development environment for teams that deploy to Kubernetes.
 
 It's free and open-source.
 
@@ -13,7 +13,7 @@ That's a lot to unpack! Let's break it down.
 
 ---
 
-### What is a cloud-native development environment?
+### What is a microservice development environment?
 
 For decades, developer environments focused on files. You change a source
 file. You compile a binary. Your binary reads input files and writes output files.
@@ -23,7 +23,7 @@ and a web app -- all talking to each other over HTTP.
 
 Development today needs new tools.
 
-[A cloud-native development environment](https://blog.tilt.dev/2019/09/05/put-down-particle-accelerator.html)
+[A microservice development environment](https://blog.tilt.dev/2019/09/05/put-down-particle-accelerator.html)
 is a new kind of tool that understands how your files and your servers fit
 together, and can help you better understand your system.
 
@@ -31,7 +31,7 @@ together, and can help you better understand your system.
 
 ### What kinds of teams should use Tilt?
 
-Currently, we're focused on helping teams that develop multi-service apps, because that's where
+Currently, we're focused on helping teams that develop microservice apps, because that's where
 the pain is most acute.
 
 - Do you always have 5 terminal windows open to stream the logs of all your

@@ -8,6 +8,8 @@ Tilt landing page, docs page, and blog page
 
 ## Developing
 
+0) Install [yarn](https://yarnpkg.com/)
+
 1) Install [Tilt](https://github.com/tilt-dev/tilt)
 
 2) Run `tilt up`

@@ -110,7 +110,4 @@ Hopefully that's enough to get you interested and started!
 
 More information can be found in the [uibutton docs][uibutton-docs].
 
-If you have any feedback, feature requests, or inventive uses of this that you'd
-like to share with us, please [reach out](https://tilt.dev/contact)!
-
 [uibutton-docs]: https://github.com/tilt-dev/tilt-extensions/blob/master/uibutton/README.md

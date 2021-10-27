@@ -27,7 +27,10 @@ Tilt resolves `ext://hello_world` to [tilt-extensions/blob/master/hello_world/Ti
 ## Commit to source control
 Commit the `tilt_modules` directory to your project repo (**do not** `gitignore` it), so that your teammates don't have to download it, and to ensure that your entire team uses the same copy of the extension. Once Tilt has downloaded an extension, it will not be updated, avoiding suprise breakages.
 
-Tilt doesn't support versioning of extensions at the moment. If you are interested in versioning, [let us know](https://github.com/tilt-dev/tilt/issues/3426).
+Tilt doesn't support versioning of extensions at the moment.
+
+(To get notified about versioning, please subscribe to [this issue](https://github.com/tilt-dev/tilt/issues/3426)
+and thumbs-up it so we know you care about it.)
 
 ## Avoid changing extensions
 Avoid changing extensions directly in `tilt_modules`. If you're interested in modifying an extension, consider [contributing a new one](contribute_extension.html) instead,

@@ -5,19 +5,22 @@ layout: docs
 sidebar: gettingstarted
 ---
 
+For this tutorial, we'll focus on Tilt fundamentals by walking through a sample project.
+
+Our sample project uses Docker for building container images and Kubernetes for running them.
+However, it's possible to use Tilt without Docker or Kubernetes!
 Tilt is incredibly flexible and supports a variety of ways to build and run your services during local development.
-(It's possible to use Tilt without Kubernetes and Docker!)
 
-For this tutorial, though, we'll walk you through a sample project that uses Docker for building container images, and Kubernetes for running them.
-For now, we'll focus on Tilt fundamentals. We won't actually dive into a Dockerfile or Kubernetes YAML, since that's out of scope in this introduction.
+We won't actually dive into a Dockerfile or Kubernetes YAML, since that's out of scope for this introduction.
 
-In the following steps, you'll install Tilt, install Docker, provision a local Kubernetes cluster, and get the sample project ready.
+To follow along interactively, you'll need to have Docker and Tilt installed on your machine.
 
-Prefer not to download additional tools? You can still follow along on the web - go ahead and skip to the [next section][tutorial-tilt-up]!
+Prefer not to download additional tools?
+You can still follow along on the web - go ahead and skip to the [next section][tutorial-tilt-up]!
 
 > 💁‍♀️ **Not using Kubernetes or Docker?**
 > 
-> We've got plenty of guides for using Tilt with Helm, podman, local processes, and more!
+> We've got plenty of guides for using Tilt with Helm, podman, local processes, and more to help you get started after learning the Tilt fundamentals from this tutorial.
 
 ## Install Tilt
 On macOS/Linux, we've got an install script that will use [Homebrew][brew] if available (and a direct download otherwise):
@@ -30,7 +33,7 @@ On Windows, we've got an install script that will use [Scoop][scoop] if availabl
 iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/tilt-dev/tilt/master/scripts/install.ps1'))
 ```
 
-If you'd rather install manually or another method, refer to the guide on [Alternative Installations][install-tilt-alternate].
+If you'd rather install manually or via another method, refer to the guide on [Alternative Installations][install-tilt-alternate].
 
 ## Install Docker
 Docker provides comprehensive [install instructions][install-docker] for all supported OSes and Linux distributions:
@@ -48,77 +51,12 @@ Docker provides comprehensive [install instructions][install-docker] for all sup
 > 💡 On Linux, following the [Manage Docker as a non-root user][docker-non-root] post-install guide is suggested so that you don't have to run Tilt with `sudo`.
 > (Please take careful note of the security considerations outlined in the guide.)
 
-A quick way to test our your Docker install is to run the `hello-world` container:
+A quick way to test out your Docker install is to run the `hello-world` container:
 ```bash
 docker run --rm hello-world
 ```
 You should see some output from Docker as it downloads the `hello-world` image followed by a greeting message with some information about Docker.
 If you are having trouble, Docker provides troubleshooting guides for [macOS][troubleshoot-docker-mac] and [Windows][troubleshoot-docker-windows].
-
-## Provision a Local Kubernetes Cluster
-There are many different options for local development Kubernetes clusters, such as KIND, k3d, and Docker Desktop.
-If you're curious about the different options, refer to the guide on [Choosing A Local Cluster][guide-local-cluster].
-
-Regardless of your choice, Tilt will detect the optimal configuration to ensure your image builds and deployments are as fast as possible.
-While Tilt also supports using a remote cluster for development, we recommend using a local cluster for this tutorial.
-
-### Docker Desktop
-If you're using Docker for Mac or Docker for Windows, you can enable the built-in [Kubernetes Support][docker-kubernetes]:
- 1. Opening Docker Desktop preferences
- 2. Navigate to the "Kubernetes" section
- 3. Check the "Enable Kubernetes" option
- 4. Click "Apply & Restart"
- 5. Click "Install" on the confirmation dialog
-
-It can take several minutes to start up the first time.
-You can run the following command after clicking "Install" to let you know when it's ready:
-```bash
-kubectl wait --for=condition=Ready --all node
-```
-You should see `node/docker-desktop condition met` and the command will return if it's ready.
-(If you get an error such as `Unable to connect to the server: EOF`, re-run the command.)
-
-### k3d
-[k3d][] is an easy way to create single-node [k3s][] (a lightweight Kubernetes distribution) clusters in Docker.
-This is fast, does not require the download of additional tools, and is easy to delete when you're done.
-
-Run the following command to provision a cluster named `k3d-tilt`:
-```bash
-docker run --rm \
-  -v /var/run/docker.sock:/var/run/docker.sock \
-  -v "${HOME}/.kube:/.kube" \
-  rancher/k3d:v4.4.7 \
-  cluster create tilt --registry-create --kubeconfig-switch-context --kubeconfig-update-default --no-hostip
-```
-
-> **🤔 What is this doing?**
->
-> `docker run` creates an ephemeral container to run the [k3d][] provisioner.
->
-> The Docker socket (`/var/run/docker.sock`) is attached as a volume so that k3d can create the cluster containers.
->
-> The Kubernetes config directory (`~/.kube`) is attached as a volume so that k3d can populate it with the cluster connection.
-
-When you're done with the tutorial, you can delete the `k3d-tilt` cluster:
-```bash
-docker run --rm \
-  -v /var/run/docker.sock:/var/run/docker.sock \
-  -v "${HOME}/.kube:/.kube" \
-  rancher/k3d:v4.4.7 \
-  cluster delete tilt
-```
-
-## Clone the Sample Project
-You can clone the repo from the command line:
-```bash
-git clone https://github.com/tilt-dev/tilt-avatars.git
-```
-If you prefer to use GitHub Desktop or another method, that works too!
-
-Throughout the rest of the tutorial, unless otherwise specified, all commands can be run from the root of the repository (i.e. the `tilt-avatars` directory). 
-
-For now, cloning the project is sufficient.
-In the next step, we'll launch it (with Tilt, of course!)
 
 [brew]: https://brew.sh
 [docker-kubernetes]: https://docs.docker.com/desktop/kubernetes/#enable-kubernetes

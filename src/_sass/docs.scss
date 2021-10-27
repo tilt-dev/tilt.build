@@ -259,9 +259,24 @@
 }
 
 
-
 // Page Elements
 // --------------------------------------------------
+
+.section-nav {
+  margin: 2rem 1rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  .section-nav-prev {
+    margin-right: auto;
+  }
+
+  .section-nav-next {
+    margin-left: auto;
+  }
+}
+
 
 .Docs-video {
   margin-top: $spacing-unit;

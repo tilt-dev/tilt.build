@@ -12,7 +12,7 @@ Kubernetes is a huge wrench in the works.
 
 Let's fix this.
 
-In this example, we're going to take you through a simple “hello world” server written in Python that uses [Flask](https://palletsprojects.com/p/flask/), a lightweight web application framework.  (Want this guide for Django or another framework? [Let us know](https://tilt.dev/contact).)
+In this example, we're going to take you through a simple “hello world” server written in Python that uses [Flask](https://palletsprojects.com/p/flask/), a lightweight web application framework.
 
 Consider watching this companion video if you prefer. Or come back to it afterward.
 
@@ -161,7 +161,7 @@ Let's click it and see what happens!
 {:.benchmark-report}
 
 If you look closely, the elapsed time displayed in the Tilt sidebar is different
-than the benchmark our app logged. That's OK! In multi-service development,
+than the benchmark our app logged. That's OK! In microservice development,
 there are many benchmarks we care about -- the time to build the image, the time
 to schedule the process, and the time until the server is ready to serve
 traffic. 

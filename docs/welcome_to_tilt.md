@@ -1,6 +1,6 @@
 ---
 title: Hello Tilt
-description: "Tilt gives you a powerful multi-service dev environment that seamlessly bridges the gap between local and Kubernetes."
+description: "Tilt gives you a powerful microservice dev environment that seamlessly bridges the gap between local and Kubernetes."
 layout: docs
 sidebar: guides
 ---
@@ -9,7 +9,7 @@ sidebar: guides
 {% svg assets/svg/logo-wordmark.svg class="landingLogoWordmark" %}
 
 <h2 class="subtitle">
-Tilt gives you a powerful multi-service dev environment that seamlessly bridges the gap between local and Kubernetes.
+Tilt gives you a powerful microservice dev environment that seamlessly bridges the gap between local and Kubernetes.
 </h2>
 
 <div class="subtitleAside">

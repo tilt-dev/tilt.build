@@ -24,14 +24,15 @@ sidebar:
 
   - title: Install/Upgrade
     items:
-    - title: Install Tilt
+    - title: Install
       href: install.html
-    - title: Upgrade VERSION
+    - title: Upgrade
       href: upgrade.html
     - title: Choosing a Local Dev Cluster
       href: choosing_clusters.html
 
-  - title: First Time Using Tilt
+  - title: Tutorial
+    inSectionNav: true
     items:
       - title: Overview
         href: tutorial/index.html
@@ -59,7 +60,7 @@ sidebar:
   guides:
     - title: Tiltfile
       items:
-        - title: Tiltfile Tutorial
+        - title: Writing a Tiltfile
           href: tiltfile_authoring.html
         - title: Tiltfile Concepts
           href: tiltfile_concepts.html
@@ -132,11 +133,13 @@ sidebar:
         - title: Overview
           href: ci.html
 
-    - title: Tiltfile Extensions
+    - title: Extending Tilt
       items:
-        - title: Extensions
+        - title: Custom Buttons
+          href: buttons.html
+        - title: Tiltfile Extensions
           href: extensions.html
-        - title: Contribute an Extension
+        - title: Contribute Extensions
           href: contribute_extension.html
 
     - title: Onboarding Your Team

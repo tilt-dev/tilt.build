@@ -26,46 +26,58 @@ Let's look at an example. We want to create a NodeJS server with two Docker imag
 2. A Docker image that contains the server source code.
 
 First we write a Dockerfile for the base node_modules image. We'll call this image
-`local.tilt.dev/nodejs-express-deps`.
+`nodejs-express-base-image`.
 
 ```dockerfile
-# local.tilt.dev/nodejs-express-deps
+# nodejs-express-base-image
+# base.dockerfile
 
-FROM node:9-alpine
-WORKDIR /src
+FROM node:16-alpine
+
+# Default value; will be overridden by build_args, if passed
+ARG node_env=production
+
+ENV NODE_ENV $node_env
+
+WORKDIR '/var/www/app'
 ADD package.json package.json
 RUN npm install
+ENTRYPOINT node server.js
 ```
 
 Next we'll create a Dockerfile for the app image. This is just an empty base image to build on.
 
 ```dockerfile
-# local.tilt.dev/nodejs-express-app
+# nodejs-express-app-image
+# app.dockerfile
 
-FROM local.tilt.dev/nodejs-express-deps
+FROM nodejs-express-base-image
 
-ADD . /src
+WORKDIR '/var/www/app'
 
-ENTRYPOINT node server.js
+ADD . .
 ```
 
 Lastly, we'll add a Tiltfile that knows how to build both images.
 
 ```python
-# Configure image build for our external dependencies.
-docker_build(
-  'local.tilt.dev/nodejs-express-deps',
-  './package',
-  dockerfile='deps.dockerfile')
-
-# Configure build to copy our source code.
-docker_build(
-  'local.tilt.dev/nodejs-express-app',
-  '.', # build context,
-  dockerfile='app.dockerfile')
 
 # Set up the Kubernetes resources.
 k8s_yaml('app.yml')
+
+# Configure image build for our external dev dependencies.
+docker_build('nodejs-express-base-image',
+             './package',
+             dockerfile='base.dockerfile',
+             build_args={'node_env': 'development'})
+
+# Configure build to copy our source code.
+docker_build('nodejs-express-app-image',
+             '.',
+             dockerfile='app.dockerfile')
+             
+# Configure the Kubernetes deploys.
+k8s_resource('nodejs-express-app', port_forwards=3000)
 ```
 
 Notice that the Docker build for `nodejs-express-deps` uses the subdirectory `./package`.
@@ -75,31 +87,82 @@ When you run `tilt up`, Tilt will build both images, and make sure that the firs
 gets injected into the second image.
 
 ```
-STEP 1/3 — Building Dockerfile: [local.tilt.dev/nodejs-express-deps]
+STEP 1/5 — Building Dockerfile: [nodejs-express-base-image]
 Building Dockerfile:
-  # local.tilt.dev/nodejs-express-deps
-
-  FROM node:9-alpine
-  WORKDIR /src
+  FROM node:16-alpine
+  
+  # Default value; will be overridden by build_args, if passed
+  ARG node_env=production
+  
+  ENV NODE_ENV $node_env
+  
+  WORKDIR '/var/www/app'
   ADD package.json package.json
   RUN npm install
+  ENTRYPOINT node server.js
 
 ...
 
-STEP 2/3 — Building from scratch: [local.tilt.dev/nodejs-express-app]
+STEP 3/5 — Building Dockerfile: [nodejs-express-app-image]
 Building Dockerfile:
-  FROM local.tilt.dev/nodejs-express-deps:tilt-af085becbf6ef0ef
+  FROM localhost:5005/nodejs-express-base-image:tilt-19328501fd376562
+  
+  WORKDIR '/var/www/app'
+  
+  ADD . .
 
-  ADD . /
-  ENTRYPOINT node server.js
+
+     Tarring context…
+     Building image
+     copy /context / [done: 44ms]
+     [1/3] FROM localhost:5005/nodejs-express-base-image:tilt-19328501fd376562
+     [2/3] WORKDIR /var/www/app [cached]
+     [3/3] ADD . . [done: 18ms]
+     exporting to image [done: 21ms]
 ```
 
 If you make a change to server.js, Tilt knows it can skip the first image build
 and just do the second.
 
+## Adding Live Updates
+
+Once you've got the two image builds working, you can add a
+live update rule to sync files into your app. This is much faster
+than building the app image each time.
+
+In this example, we'll use a `sync` step to copy the files. 
+
+Then we'll add a custom `entrypoint` that runs our server with `nodemon`, which does the reload.
+
+Here's what it looks like:
+
+```
+
+docker_build('nodejs-express-app-image',
+             '.',
+             dockerfile='app.dockerfile',
+             live_update=[
+               sync('.', '/var/www/app')
+             ],
+             entrypoint='yarn run nodemon /var/www/app/server.js')
+```
+
+Every app needs to specify both a sync step and a reload step. But reload steps
+tend to be specific to the programming language and framework you're using. Some
+frameworks even handle it automatically. This example uses an entrypoint with
+`nodemon`, but the reload step for your project will probably look
+different. For more examples, see the language-specific example projects or [the
+live update refrence](live_update_reference.html).
+
+Note that live update steps should always be attached to the deployed image,
+never the base image. Tilt's live update system matches the image in the container,
+so needs to be attached to the deployed image to figure out which container
+to update.
+
 ## Try it Yourself
 
-All the source code for this example is [on GitHub](https://github.com/tilt-dev/nodejs-express-k8s).
+All the source code for this example is [on
+GitHub](https://github.com/tilt-dev/tilt-example-base-image).
 
 Try running it yourself with Tilt. Make changes to both `package.json` and `server.js`
 and see how Tilt rebuilds only what has changed.

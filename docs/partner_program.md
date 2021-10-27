@@ -12,7 +12,7 @@ teams at a time. We want to make sure this is a good use of time for both of
 us. Here's what we look for:
 
 - A team of at least five engineers that expect to use something like Tilt for their day-to-day development
-- A multi-service app where Tilt would be able to add value
+- A microservice app where Tilt would be able to add value
 - A dev or dev-ops person who's willing to evaluate Tilt and get it setup
 
 When we kick off a partnership, we ask that you:

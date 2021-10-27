@@ -187,7 +187,7 @@ guide](custom_resource.html#advanced-pod-creation) instead.
 ## Live Update and Other Features
 Tilt's `docker_build` supports other options. The most impactful is [Live Update](live_update_tutorial.html), which lets you update code in Kubernetes without doing a full image build.  `custom_build` supports this as well, using the same syntax.
 
-`custom_build` supports most other options of `docker_build`, and a few specific to non-Docker container builders. If you find an option you think should exist but doesn't, let us know in the `#tilt` channel in [Kubernetes Slack](http://slack.k8s.io).
+`custom_build` supports most other options of `docker_build`, and a few specific to non-Docker container builders.
 
 ### Adjust File Watching with `ignore`
 While most of the points in our [Debugging File Changes](/file_changes.html) guide hold true for `custom_build`, the `ignore` parameter (which adjusts the set of files watched for a given build) works a bit differently, and is worth discussing briefly.

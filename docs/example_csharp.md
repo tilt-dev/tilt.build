@@ -137,7 +137,7 @@ Let's click the button on the `deploy` resource and see what happens!
 | Naive | 10.4s |
 {:.benchmark-report}
 
-If you look closely, the elapsed time displayed in the Tilt sidebar is different than the benchmark our app logged. That's OK! In multi-service development there are many benchmarks we care about -- the time to build the image, the time to schedule the process, and the time until the server is ready to serve traffic.
+If you look closely, the elapsed time displayed in the Tilt sidebar is different than the benchmark our app logged. That's OK! In microservice development there are many benchmarks we care about -- the time to build the image, the time to schedule the process, and the time until the server is ready to serve traffic.
 
 Tilt offers you some default benchmarks _and_ the tools to capture your own.
 
