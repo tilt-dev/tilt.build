@@ -15,9 +15,12 @@ classes:
 - v1alpha1.HTTPGetAction
 - v1alpha1.HTTPHeader
 - v1alpha1.Handler
+- v1alpha1.IgnoreDef
 - v1alpha1.Probe
 - v1alpha1.RestartOnSpec
 - v1alpha1.StartOnSpec
 - v1alpha1.TCPSocketAction
+- v1alpha1.UIBoolInputSpec
 - v1alpha1.UIComponentLocation
 - v1alpha1.UIInputSpec
+- v1alpha1.UITextInputSpec
