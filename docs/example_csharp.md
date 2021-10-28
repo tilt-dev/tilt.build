@@ -202,7 +202,7 @@ Let's see what this looks like!
 
 When we make a change to a file, we currently have to build an image, deploy new Kubernetes configs, and wait for Kubernetes to schedule the pod.
 
-With Tilt, we can skip all of these steps, and instead [live_update](live_update_tutorial.html) the pod in place.
+With Tilt, we can skip all of these steps, and instead `live_update` the pod in place.
 
 Here's our [new Tiltfile](https://github.com/tilt-dev/tilt-example-csharp/blob/master/3-live-update/Tiltfile) with the following new code:
 

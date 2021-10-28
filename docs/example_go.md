@@ -219,7 +219,7 @@ When we make a change to a file, we currently have to build an image, deploy new
 and wait for Kubernetes to schedule the pod.
 
 With Tilt, we can skip all of these steps, and instead
-[live_update](live_update_tutorial.html) the pod in place.
+`live_update` the pod in place.
 
 Here's our [new Tiltfile](https://github.com/tilt-dev/tilt-example-go/blob/master/3-recommended/Tiltfile) 
 with the following new code:
@@ -306,7 +306,6 @@ their trade-offs, we're working on a talk and workshop:
 ### Other sample Go projects:
 
 - [abc123](https://github.com/tilt-dev/abc123) a mini microservice app with a Go server called `fe`.
-- The [Live Update Tutorial](live_update_tutorial.html), which optimizes a Go server.
 - [Servantes](https://github.com/tilt-dev/servantes), our multi-language microservice demo app.
 
 ### Examples in other languages:
