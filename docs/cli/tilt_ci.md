@@ -1,7 +1,7 @@
 ---
 title: Tilt CLI Reference
 layout: docs
-sidebar: cli
+sidebar: reference
 hideEditButton: true
 ---
 ## tilt ci

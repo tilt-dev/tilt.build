@@ -8,7 +8,9 @@ layout: default
       <ul class="Docs-nav-list">
         {% for link in site.data.docs.top %}
           <li>
-            <a class="Docs-nav-link {% if page_href == link.href %}is-active{% endif %}" href="/{{link.href | escape}}">{{link.title | escape}}</a>
+            <a class="Docs-nav-link{% if page.sidebar == link.active %} is-active{% endif %}" href="{{link.href | escape}}">
+              {{link.title | escape}} 
+            </a>
           </li>
         {% endfor %}
       </ul>
@@ -34,7 +36,7 @@ layout: default
               <ul class="Docs-subnav-section-list">
                 {% for page in pages %}
                   <li class="Docs-subnav-section-list-item">
-                    <a class="Docs-subnav-link {% if page_href == page.href %}is-active{% endif %}" href="/{{page.href | escape}}">
+                    <a class="Docs-subnav-link{% if page_href == page.href %} is-active{% endif %}" href="/{{page.href | escape}}">
                       {{page.title | escape}}
                     </a>
                   </li>
@@ -53,7 +55,7 @@ layout: default
         <h2>{{ page.subtitle | escape }}</h2>
         {% endif %}
       </div>
-    
+      
       {{ content }}
 
       {% if current_section.inSectionNav %}

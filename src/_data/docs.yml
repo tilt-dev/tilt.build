@@ -1,12 +1,16 @@
 top:
   - title: Getting Started
-    href: index.html
+    href: /index.html
+    active: gettingstarted
   - title: Guides
-    href: tiltfile_authoring.html
+    active: guides
+    href: /tiltfile_authoring.html
   - title: Tiltfile & CLI
-    href: api.html
+    href: /api.html
+    active: reference
   - title: Tilt API
-    href: api.tilt.dev
+    href: https://api.tilt.dev
+    flair: new
 
 
 sidebar:
@@ -149,7 +153,11 @@ sidebar:
         - title: Guide for Application Developers
           href: welcome_to_tilt.html
 
-  cli:
+  reference:
+    - title: Tiltfile API Reference
+      items:
+      - title: Overview
+        href: api.html
     - title: Tilt CLI Reference
       items:
       - title: tilt alpha

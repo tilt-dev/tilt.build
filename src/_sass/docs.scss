@@ -1,13 +1,20 @@
+$docs-side-margin: $spacing-unit;
+
+
 .body--docs {
   @include docs-mobile {  
     padding: 0;
+  }
+
+  .page-content {
+    padding-top: 0; // Undo the generous spacing from default template.
   }
 }
 
 .Docs-wrapper {
   display: flex;
   flex-direction: column;
-  margin-top: $spacing-unit * 2;
+  margin-top: $spacing-unit;
   margin-bottom: $spacing-unit * 2;
   
   @include docs-mobile {
@@ -17,25 +24,25 @@
 .Docs-header {
   display: flex;
   justify-content: space-between;
-  margin-bottom: $spacing-unit * 2;
+  align-items: center;
+  border-bottom: 1px solid $tilt2-color-gray-lightest;
 }
 
+.Docs-search {
+  margin-right: $docs-side-margin;
+  display: flex;
+  align-items: center;
+}
 .Docs-search-input {
   font-size: 16px;
 }
 
-
-.Docs-body {
-  display: flex;
-  gap: $spacing-unit;
-
-  @include docs-mobile {
-    flex-direction: column;
-  }
-}
-
-
 .Docs-nav {
+  font-family: $tilt2-font-mono;
+  font-size: 20px;
+  padding-left: $docs-side-margin;
+  padding-right: $docs-side-margin;
+
   @include docs-mobile {
     background-color: $color-white;
     position: fixed;
@@ -50,14 +57,37 @@
   list-style: none;
 
   li + li {
-    margin-left: $spacing-unit * 1.5;
+    margin-left: $spacing-unit;
   }
 }
 
 .Docs-nav-link {
+  display: inline-block;
+  color: $tilt2-color-text;
+  padding-top: $spacing-unit * 0.75;
+  padding-bottom: $spacing-unit * 0.75;
 
+  &.is-active {
+    text-decoration: solid underline $color-green 3px;
+    text-underline-offset: 6px;
+  }
 }
 
+
+.Docs-body {
+  display: flex;
+  gap: $spacing-unit * 2;
+
+  @include docs-mobile {
+    flex-direction: column;
+  }
+}
+
+.Docs-sidebar {
+  position: sticky;
+  top: 0;
+  align-self: flex-start;
+}
 
 // Sidebar Navigation
 // --------------------------------------------------
@@ -76,18 +106,23 @@
 }
 
 .Docs-subnav-section {
-  margin: 0; // Reset dd style
+  margin: 0; // Override default <dd>
 }
 
 .Docs-subnav-accordion__header {
   // js-accordion adds a <button>
   @include reset-button-style;
+  font-weight: $tilt2-font-weight-sans-bold;
+  color: $tilt2-color-gray;
   cursor: pointer;
-  padding-top: $spacing-unit * 0.25;
-  padding-bottom: $spacing-unit * 0.25;
-  padding-left: $spacing-unit * 0.5;
-  padding-right: $spacing-unit * 0.5;
+  padding-top: $spacing-unit * 0.4;
+  padding-bottom: $spacing-unit * 0.4;
+  padding-left: $docs-side-margin;
+  padding-right: $docs-side-margin;
   width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .Docs-subnav-accordion__panel {
@@ -109,6 +144,7 @@
 
 .Docs-subnav-list {
   list-style: none;
+  margin: 0; // Override default <dl>
 
   li + li {
     border-top: 1px solid $tilt2-color-gray-lightest;
@@ -120,17 +156,13 @@
   color: $tilt2-color-text;
   padding-top: $spacing-unit * 0.5;
   padding-bottom: $spacing-unit * 0.5;
-  padding-left: $spacing-unit * 0.5;
-  padding-right: $spacing-unit * 0.5;
+  padding-left: $docs-side-margin;
+  padding-right: $docs-side-margin;
 
   &.is-active {
     font-weight: $tilt2-font-weight-sans-bold;
   }
 }
-
-
-
-
 
 
 
@@ -141,6 +173,7 @@
   // needed to prevent child <pre> elements from expanding forever
   // and causing wrapping problems
   min-width: 0;
+  padding-top: $spacing-unit * 2;
 
   @include docs-mobile {
     max-width: 100%;
