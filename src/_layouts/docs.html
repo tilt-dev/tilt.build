@@ -28,6 +28,19 @@ layout: default
         <dl class="js-accordion Docs-subnav-list" data-accordion-prefix-classes="Docs-subnav">
         {% for section in site.data.docs.sidebar[page.sidebar] %}
           {% assign pages = section.items %}
+
+          {% if section.default and page_href == '' %}
+            {% assign active_section = true %}
+          {% else %}
+            {% assign active_section = pages | find: "href", page_href %}
+          {% endif %}
+
+          {% if active_section %}
+            {% assign current_section = section %}
+            {% assign current_section_pages = pages %}
+          {% endif %}
+
+          {% assign pages = section.items %}
             <dt class="js-accordion__header Docs-subnav-title" data-accordion-opened="true">
                 {{ section.title | escape }}
                 {% svg assets/svg/carrot-down.svg %}
@@ -55,7 +68,7 @@ layout: default
         <h2>{{ page.subtitle | escape }}</h2>
         {% endif %}
       </div>
-      
+
       {{ content }}
 
       {% if current_section.inSectionNav %}
@@ -86,7 +99,7 @@ layout: default
           {% endunless %}
         {% endfor %}
       </div>
-    {% endif %}
+      {% endif %}
     
       <div class="Docs-footer">
         <div class="Docs-footer-links">
