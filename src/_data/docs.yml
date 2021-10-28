@@ -15,26 +15,6 @@ top:
 
 sidebar:
   gettingstarted:
-  - title: Why Use Tilt?
-    items:
-    - title: Overview
-      href: index.html
-    - title: The Control Loop
-      href: controlloop.html
-    - title: Local vs Remote Services
-      href: local_vs_remote.html
-    - title: Is Tilt right for me?
-      href: product_faq.html
-
-  - title: Install/Upgrade
-    items:
-    - title: Install
-      href: install.html
-    - title: Upgrade
-      href: upgrade.html
-    - title: Choosing a Local Dev Cluster
-      href: choosing_clusters.html
-
   - title: Tutorial
     inSectionNav: true
     items:
@@ -51,8 +31,28 @@ sidebar:
       - title: 5. Smart Rebuilds with Live Update
         href: tutorial/5-live-update.html
 
+  - title: Why Use Tilt?
+    items:
+    - title: Overview
+      href: index.html
+    - title: The Control Loop
+      href: controlloop.html
+    - title: Choosing a Local Dev Cluster
+      href: choosing_clusters.html
+    - title: Local vs Remote Services
+      href: local_vs_remote.html
+
+  - title: Quick Links
+    items:
+    - title: Install
+      href: install.html
+    - title: Upgrade
+      href: upgrade.html
+
   - title:  FAQs
     items:
+      - title: Is Tilt right for me?
+        href: product_faq.html
       - title: Frequently Asked Questions
         href: faq.html
       - title: Why is Tilt broken?
