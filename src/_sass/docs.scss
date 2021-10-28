@@ -66,7 +66,7 @@ $docs-side-margin: $spacing-unit;
   color: $tilt2-color-text;
   padding-top: $spacing-unit * 0.75;
   padding-bottom: $spacing-unit * 0.75;
-
+  
   &.is-active {
     text-decoration: solid underline $color-green 3px;
     text-underline-offset: 6px;
@@ -199,6 +199,7 @@ $docs-side-margin: $spacing-unit;
     font-weight: $tilt2-font-weight-sans-light;
     margin-top: $spacing-unit * 0.25;
     font-size: 20px;
+    color: $tilt2-color-text;
   }
 } 
 
@@ -208,12 +209,7 @@ $docs-side-margin: $spacing-unit;
   font-size: 28px;
   margin-top: $spacing-unit * 1.75;
   color: $color-blue;
-}
-
-.Docs-content > h3,
-.Docs-content > h3 a {
-  margin-top: $spacing-unit * 1.5;
-  color: $text-color;
+  text-decoration: none;
 }
 
 .Docs-content h2 a:hover:before {
@@ -224,13 +220,24 @@ $docs-side-margin: $spacing-unit;
   font-size: 80%;
 }
 
+.Docs-content > h3,
+.Docs-content > h3 a {
+  margin-top: $spacing-unit * 1.5;
+  color: $text-color;
+  text-decoration: none;
+}
+
 
 .Docs-content a {
   color: $tilt2-color-text;
   text-decoration: underline;
+  text-decoration-color: $tilt2-color-gray-lighter;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 3px;
+  transition: text-decoration $anim-duration-short linear;
 }
 .Docs-content a:hover {
-  text-decoration: underline;
+  text-decoration-color: $color-green;
 }
 
 // Cute callouts!
