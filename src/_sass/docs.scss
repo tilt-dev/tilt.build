@@ -89,6 +89,25 @@ $docs-side-margin: $spacing-unit;
   align-self: flex-start;
 }
 
+
+.Docs-content {
+  display: block;
+  flex: 1 0 $docs-width;
+  max-width: $docs-width;
+  // needed to prevent child <pre> elements from expanding forever
+  // and causing wrapping problems
+  min-width: 0;
+  padding-top: $spacing-unit * 1.5;
+
+  @include docs-mobile {
+    max-width: 100%;
+    // Parent body--docs has no padding on mobile (so menu can be full-width)
+    padding-left: $spacing-unit;
+    padding-right: $spacing-unit;
+  }
+}
+
+
 // Sidebar Navigation
 // --------------------------------------------------
 
@@ -166,25 +185,6 @@ $docs-side-margin: $spacing-unit;
 
 
 
-.Docs-content {
-  display: block;
-  flex: 1 0 $docs-width;
-  max-width: $docs-width;
-  // needed to prevent child <pre> elements from expanding forever
-  // and causing wrapping problems
-  min-width: 0;
-  padding-top: $spacing-unit * 2;
-
-  @include docs-mobile {
-    max-width: 100%;
-    // Parent body--docs has no padding on mobile (so menu can be full-width)
-    padding-left: $spacing-unit;
-    padding-right: $spacing-unit;
-  }
-}
-
-
-
 // Typography
 // --------------------------------------------------
 
@@ -200,6 +200,7 @@ $docs-side-margin: $spacing-unit;
     margin-top: $spacing-unit * 0.25;
     font-size: 20px;
     color: $tilt2-color-text;
+    margin-bottom: $spacing-unit * 1.5;
   }
 } 
 
@@ -231,7 +232,7 @@ $docs-side-margin: $spacing-unit;
 .Docs-content a {
   color: $tilt2-color-text;
   text-decoration: underline;
-  text-decoration-color: $tilt2-color-gray-lighter;
+  text-decoration-color: $tilt2-color-gray;
   text-decoration-thickness: 2px;
   text-underline-offset: 3px;
   transition: text-decoration $anim-duration-short linear;
@@ -276,16 +277,17 @@ $docs-side-margin: $spacing-unit;
 }
 
 
-.docsFooter {
-  margin-top: 1rem;
-  font-family: $chrome-font-family;
-  font-size: 16px;
-  line-height: normal;
-  font-weight: $chrome-font-weight;
+.Docs-footer {
+  margin-top: $spacing-unit * 2;
+  border-top: 1px dotted $tilt2-color-gray-lighter;
+  padding-top: $spacing-unit;
+}
 
-  a {
-    padding: $spacing-unit / 4;
-  }
+.Docs-footer-links {
+  font-family: $tilt2-font-mono;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: $spacing-unit;
 }
 
 .Docs-content img {
