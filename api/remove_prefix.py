@@ -12,7 +12,7 @@ def print_without_module_prefixes(filename):
   with open(filename) as f:
     soup = BeautifulSoup(f, features='html.parser')
 
-  for t in soup.find_all('code', class_='descclassname'):
+  for t in soup.find_all('span', class_='descclassname'):
     s = t.string
     s = s.replace('api.', '').replace('modules.', '')
     t.string.replace_with(s)
