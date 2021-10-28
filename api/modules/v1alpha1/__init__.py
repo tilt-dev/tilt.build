@@ -47,14 +47,14 @@ class Handler:
 
 
 class IgnoreDef:
-  """
+  """IgnoreDef specifies files to be ignored.
 """
   pass
 
 
 
 class Probe:
-  """Probe describes a health check to be performed o determine whether it is
+  """Probe describes a health check to be performed to determine whether it is
   alive or ready to receive traffic.
 """
   pass
@@ -83,7 +83,7 @@ class TCPSocketAction:
 
 
 class UIBoolInputSpec:
-  """
+  """Defines a boolean Input to render in the UI.
 """
   pass
 
@@ -106,7 +106,7 @@ class UIInputSpec:
 
 
 class UITextInputSpec:
-  """
+  """Defines a text Input to render in the UI.
 """
   pass
 
