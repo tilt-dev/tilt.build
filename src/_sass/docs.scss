@@ -75,8 +75,9 @@ $docs-side-margin: $spacing-unit;
 
 
 .Docs-body {
-  display: flex;
-  gap: $spacing-unit * 2;
+  display: grid;
+  grid-template-columns: minmax(300px, 25%) 1fr;
+  column-gap: $spacing-unit;
 
   @include docs-mobile {
     flex-direction: column;
@@ -87,6 +88,8 @@ $docs-side-margin: $spacing-unit;
   position: sticky;
   top: 0;
   align-self: flex-start;
+  max-height: 100vh;
+  overflow-y: auto;
 }
 
 
