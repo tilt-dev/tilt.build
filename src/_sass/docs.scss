@@ -287,11 +287,20 @@ $docs-side-margin: $spacing-unit;
 }
 
 .Docs-footer-links {
+  @include reset-list-style;
   font-family: $tilt2-font-mono;
   display: flex;
   justify-content: space-between;
   margin-bottom: $spacing-unit;
 }
+
+.Docs-editOnGitHub {
+}
+
+.editOnGitHub-text {
+  margin-left: $spacing-unit / 4;
+}
+
 
 .Docs-content img {
   max-width: $docs-width;
