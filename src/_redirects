@@ -3,3 +3,4 @@ https://tilt.build/* https://tilt.dev/:splat 301!
 https://windmill.engineering/* https://tilt.dev/:splat 301!
 
 /onlydev https://marketplace.visualstudio.com/items?itemName=tilt-dev.tilt-status
+/business-card https://tilt.dev/

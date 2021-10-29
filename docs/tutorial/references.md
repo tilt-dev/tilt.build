@@ -17,7 +17,6 @@ Familiarize yourself with Tilt concepts as well as the power and flexibility of 
 ## Live Update
 How to optimize your setup to get updates down from minutes to **seconds**.
 
-* [Tutorial: Add Live Update to `Tiltfile`](/live_update_tutorial.html)
 * [Live Update Technical Specification](/live_update_reference.html)
 * Language/Framework Sample Projects
   * [Go](/example_go.html)

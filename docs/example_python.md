@@ -207,7 +207,7 @@ When we make a change to a file, we currently have to build an image, deploy new
 and wait for Kubernetes to schedule the pod.
 
 With Tilt, we can skip all of these steps, and instead
-[live_update](live_update_tutorial.html) the pod in place.
+`live_update` the pod in place.
 
 [Our new Tiltfile](https://github.com/tilt-dev/tilt-example-python/blob/master/3-recommended/Tiltfile) contains the following new code:
 
@@ -232,7 +232,7 @@ docker_build('example-python-image', '.', build_args={'flask_env': 'development'
 
 We've added two new parameters to `docker_build()`: `build_args` and `live_update`. Let's look at the latter first.
 
-When a [live_update](https://docs.tilt.dev/live_update_tutorial.html) is triggered, Tilt will, in order:
+When a `live_update` is triggered, Tilt will, in order:
 1. Sync the code from the current directory (`.`) into the container at directory `/app`.
 2. IF `requirements.txt` has changed, run `pip install`
 3. Poke `app.py` if necessary to make sure that Flask reloads the server

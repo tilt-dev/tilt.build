@@ -203,7 +203,7 @@ Or if you need to debug something that only reproduces in a complete cluster.
 
 ### Cons
 
-- Need to use a remote image registry. Make sure you have Tilt's [live_update](live_update_tutorial.html) set up!
+- Need to use a remote image registry. Make sure you have Tilt's `live_update` set up!
 - Need to set up namespaces and access control so that each dev has their own sandbox
 - If the cluster needs to be reset, we hope you're good friends with your DevOps team
 

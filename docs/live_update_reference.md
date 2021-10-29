@@ -4,7 +4,21 @@ description: "A technical specification of Tilt's live_update functionality"
 layout: docs
 sidebar: guides
 ---
-##### (This doc provides the technical specifications of Tilt's `LiveUpdate` functionality. For a tutorial that walks you through a sample project, see [Faster Development with Live Update (Tutorial)](live_update_tutorial.html).)
+
+Live Update optimizes your setup to get updates down from minutes to **seconds**.
+
+This document is a technical specification of `live_update`. If you're looking
+for sample projects and examples for your project, see:
+
+* [Go](/example_go.html)
+* [NodeJS](/example_nodejs.html)
+* [Python](/example_python.html)
+* [Java](/example_java.html)
+* [Static HTML](/example_static_html.html)
+* [C# + ASP.NET Core](/example_csharp.html)
+* [Bazel](/example_bazel.html)
+
+## Tiltfile API
 
 When specifying how to build an image (via `docker_build()` or `custom_build()`), you may optionally pass the `live_update` argument.
 

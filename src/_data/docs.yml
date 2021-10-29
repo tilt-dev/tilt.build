@@ -113,8 +113,6 @@ sidebar:
 
     - title: Live Update
       items:
-        - title: Tutorial
-          href: live_update_tutorial.html
         - title: Technical Specifications
           href: live_update_reference.html
         - title: Plain Old Static HTML

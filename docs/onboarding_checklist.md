@@ -28,7 +28,7 @@ might want to consider to ensure the best possible onboarding experience:
   your changes?
 
 - Are updates slow to show up? Could you add
-  [a live_update rule](live_update_tutorial.html) to sync changes much faster?
+  [a live_update rule](live_update_reference.html) to sync changes much faster?
 
 - Do some file edits trigger unnecessary rebuilds? Have you added
   [ignore rules](file_changes.html) to prevent wasted work?
