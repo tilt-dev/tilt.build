@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: docs-header
 ---
 {% assign page_href = page.url | slice: 1, page.url.size %}
 <div class="Docs-wrapper">
@@ -17,7 +17,7 @@ layout: default
     </nav>
     <form class="js-only" action="/search" method="GET">
       <div class="Docs-search">
-        <input class="Docs-search-input" type="search" name="q" id="q" placeholder="Search" />
+        <input class="Docs-search-input" type="search" name="q" id="q" placeholder="Search Docs…" />
       </div>
     </form>
   </header>
@@ -72,7 +72,7 @@ layout: default
       {{ content }}
 
       {% if current_section.inSectionNav %}
-      <div class="section-nav" role="navigation" aria-label="Section navigation">
+      <div class="Docs-section-nav" role="navigation" aria-label="Section navigation">
         {% for page in current_section_pages %}
           {% unless page_href == page.href %}
             {% continue %}
@@ -81,9 +81,9 @@ layout: default
             {% assign prevIndex = forloop.index0 | minus: 1 %}
             {% assign prevPage = current_section_pages[prevIndex] %}
             <a href="/{{ prevPage.href | escape }}"
-               class="section-nav-prev"
+               class="Docs-section-nav-link"
                aria-label="Previous Section: {{ prevPage.title | escape }}">
-              <span aria-hidden="true">←</span>
+              <span class="Docs-section-nav-arrow" aria-hidden="true">←</span>
               {{ prevPage.title | escape }}
             </a>
           {% endunless %}
@@ -91,10 +91,10 @@ layout: default
             {% assign nextIndex = forloop.index0 | plus: 1 %}
             {% assign nextPage = current_section_pages[nextIndex] %}
             <a href="/{{ nextPage.href | escape }}"
-               class="section-nav-next"
+               class="Docs-section-nav-link"
                aria-label="Next Section: {{ nextPage.title | escape }}">
               {{ nextPage.title | escape }}
-              <span aria-hidden="true">→</span>
+              <span class="Docs-section-nav-arrow" aria-hidden="true">→</span>
             </a>
           {% endunless %}
         {% endfor %}
@@ -109,14 +109,14 @@ layout: default
           </a>
   
           {% if page.hideEditButton != true %}
-          <a class="editOnGitHub u-hideOnMobile" href="https://github.com/tilt-dev/tilt.build/tree/master/docs/{{page.name}}">
+          <a class="Docs-editOnGitHub u-hideOnMobile" href="https://github.com/tilt-dev/tilt.build/tree/master/docs/{{page.name}}">
             {% svg assets/svg/github.svg width=16 height=16 role="presentation" %}
-            <span class="editOnGitHub-text">
+            <span class="Docs-editOnGitHub-text">
               Edit on GitHub
             </span>
           </a>
-          {% endif %}
         </div>
+        {% endif %}
 
         {% if page.hideHelpfulForm != true %}
           {% include helpful_form.html %}
