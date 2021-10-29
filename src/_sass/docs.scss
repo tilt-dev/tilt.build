@@ -307,19 +307,25 @@ $docs-side-margin: $spacing-unit;
 // Page Elements
 // --------------------------------------------------
 
-.section-nav {
-  margin: 2rem 1rem;
+.Docs-section-nav {
+  margin-top: $spacing-unit * 1.5;
+  margin-bottom: $spacing-unit * 1.5;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+}
 
-  .section-nav-prev {
-    margin-right: auto;
-  }
+a.Docs-section-nav-link {
+  font-weight: bold;
+  color: $color-red; 
 
-  .section-nav-next {
-    margin-left: auto;
+  &:hover {
+    text-decoration-color: $tilt2-color-text;
   }
+}
+
+a.Docs-section-nav-arrow {
+  color: $tilt2-color-gray-lighter;
 }
 
 
