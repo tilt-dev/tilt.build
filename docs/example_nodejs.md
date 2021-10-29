@@ -215,7 +215,7 @@ When we make a change to a file, we currently have to build an image, deploy new
 and wait for Kubernetes to schedule the pod.
 
 With Tilt, we can skip all of these steps, and instead
-[live_update](live_update_tutorial.html) the pod in place.
+`live_update` the pod in place.
 
 The first thing we need to do is change how our app is invoked: we're going to run it via [nodemon](https://nodemon.io/), a utility that monitors source files for changes and restarts your app as necessary.  In this branch, as reflected in [package.json](https://github.com/tilt-dev/tilt-example-nodejs/blob/master/3-recommended/package.json), we've already run `yarn add --dev nodemon` to add nodemon as a dev dependency.
 
@@ -251,7 +251,8 @@ We've added some new parameters to `docker_build` that tell the container to use
     ```
    Together, these changes mean that when we build this Dockerfile via this Tiltfile, we set the env var `$NODE_ENV=development`, and our `yarn install` call will install dev dependencies.
 
-The other new addition to our Tiltfile is the `live_update` argument to `docker_build`, which enables super-fast in-place updates of your app. When a [live_update](https://docs.tilt.dev/live_update_tutorial.html) is triggered, Tilt will, in order:
+The other new addition to our Tiltfile is the `live_update` argument to `docker_build`, which enables super-fast in-place updates of your app. When a `live_update` is triggered, Tilt will, in order:
+
 1. Sync the code from the current directory (`.`) into the container at directory `/app`
 2. IF `package.json` or `yarn.lock` has changed, run `yarn install`
 3. Poke `index.js` if necessary to make sure that nodemon reloads the server
