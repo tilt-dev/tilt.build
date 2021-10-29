@@ -59,11 +59,12 @@ $docs-side-margin: $spacing-unit;
   padding-right: $docs-side-margin;
 
   @include docs-mobile {
-    background-color: $color-white;
     position: fixed;
     bottom: 0;
     left: 0;
     right: 0;
+    background-color: $color-white;
+    z-index: $z-docs-sidebar;
   }
 }
 
