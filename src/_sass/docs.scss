@@ -103,6 +103,7 @@ $docs-side-margin: $spacing-unit;
   // and causing wrapping problems
   min-width: 0;
   padding-top: $spacing-unit * 1.5;
+  color: $tilt2-color-text;
 
   @include docs-mobile {
     max-width: 100%;
