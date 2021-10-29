@@ -2,12 +2,12 @@ $docs-side-margin: $spacing-unit;
 
 
 .body--docs {
-  @include docs-mobile {  
-    padding: 0;
-  }
-
   .page-content {
     padding-top: 0; // Undo the generous spacing from default template.
+  }
+
+  @include docs-mobile {  
+    // padding: 0;
   }
 }
 
@@ -16,10 +16,21 @@ $docs-side-margin: $spacing-unit;
   flex-direction: column;
   margin-top: $spacing-unit;
   margin-bottom: $spacing-unit * 2;
-  
+}
+
+
+.Docs-body {
+  display: grid;
+  grid-template-columns: minmax(300px, 25%) 1fr;
+  column-gap: $spacing-unit;
+  // Make the boundary between the sidebar and footer look better:
+  border-bottom: 1px solid $tilt2-color-gray-lightest;
+
   @include docs-mobile {
+    
   }
 }
+
 
 .Docs-header {
   display: flex;
@@ -70,19 +81,6 @@ $docs-side-margin: $spacing-unit;
   &.is-active {
     text-decoration: solid underline $color-green 3px;
     text-underline-offset: 6px;
-  }
-}
-
-
-.Docs-body {
-  display: grid;
-  grid-template-columns: minmax(300px, 25%) 1fr;
-  column-gap: $spacing-unit;
-  // Make the boundary between the sidebar and footer look better:
-  border-bottom: 1px solid $tilt2-color-gray-lightest;
-
-  @include docs-mobile {
-    flex-direction: column;
   }
 }
 
