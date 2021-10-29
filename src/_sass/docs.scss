@@ -235,16 +235,23 @@ $docs-side-margin: $spacing-unit;
 
 
 .Docs-content a {
-  color: $tilt2-color-text;
+  color: $color-green;
   text-decoration: underline;
-  text-decoration-color: $tilt2-color-gray;
-  text-decoration-thickness: 2px;
+  text-decoration-color: $tilt2-color-gray-lighter;
+  text-decoration-thickness: 1px;
   text-underline-offset: 3px;
   transition: text-decoration $anim-duration-short linear;
+
+  &:visited {
+    color: $tilt2-color-text;
+  }
+
+  &:hover {
+    text-decoration-color: $color-green;
+    text-decoration-thickness: 2px;
+  }
 }
-.Docs-content a:hover {
-  text-decoration-color: $color-green;
-}
+
 
 // Cute callouts!
 .Docs-content > blockquote {
