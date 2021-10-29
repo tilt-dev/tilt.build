@@ -46,6 +46,10 @@ $docs-side-margin: $spacing-unit;
 }
 .Docs-search-input {
   font-size: 16px;
+  padding: $spacing-unit * 0.25;
+  color: $tilt2-color-gray;
+  border: 2px solid $tilt2-color-gray-lighter;
+  border-radius: $tilt2-border-radius-large;
 }
 
 .Docs-nav {
