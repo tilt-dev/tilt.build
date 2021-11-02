@@ -1171,7 +1171,7 @@ def exit(code: Any) -> None:
 
 
 def probe(initial_delay_secs: int=0,
-          timeout_secs: int=0,
+          timeout_secs: int=1,
           period_secs: int=10,
           success_threshold: int=1,
           failure_threshold: int=3,
@@ -1184,14 +1184,14 @@ def probe(initial_delay_secs: int=0,
 
   Args:
     initial_delay_secs: Number of seconds after the resource has started before the probe is
-      first initiated (default=0).
+      first initiated (default is 0).
     timeout_secs: Number of seconds after which probe execution is aborted and it is
-      considered to have failed (minimum vale is 1).
-    period_secs: How often in seconds to perform the probe (minimum value is 1).
+      considered to have failed (default is 1, must be greater than 0).
+    period_secs: How often in seconds to perform the probe (default is 10, must be greater than 0).
     success_threshold: Minimum number of consecutive successes for the result to be
-      considered successful after having failed (minimum value is 1).
+      considered successful after having failed (default is 1, must be greater than 0).
     failure_threshold: Minimum number of consecutive failures for the result to be
-      considered failing after having succeeded (minimum value is 1).
+      considered failing after having succeeded (default is 3, must be greater than 0).
     exec: Process execution handler to determine probe success.
     http_get: HTTP GET handler to determine probe success.
     tcp_socket: TCP socket connection handler to determine probe success.
