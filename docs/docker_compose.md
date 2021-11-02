@@ -129,7 +129,7 @@ The `live_update` option is expressed as a sequence of in-place update steps.
 
 3. The `restart_container` step restarts the server so that your changes are picked up.
 
-For more info on `live_update`, check out the [full tutorial](live_update_tutorial.html).
+For more info on `live_update`, check out the [reference](live_update_reference.html).
 
 ## Multiple Compose Files
 

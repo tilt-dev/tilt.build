@@ -149,7 +149,7 @@ Let's click the button on the `deploy` resource and see what happens!
 {:.benchmark-report}
 
 If you look closely, the elapsed time displayed in the Tilt sidebar is different
-than the benchmark our app logged. That's OK! In multi-service development,
+than the benchmark our app logged. That's OK! In microservice development,
 there are many benchmarks we care about -- the time to build the image, the time
 to schedule the process, and the time until the server is ready to serve
 traffic. 
@@ -289,7 +289,7 @@ When we make a change to a file, we currently have to build an image, deploy new
 Kubernetes configs, and wait for Kubernetes to schedule the pod.
 
 With Tilt, we can skip all of these steps, and instead
-[live_update](live_update_tutorial.html) the pod in place.
+`live_update` the pod in place.
 
 Here's our [new Tiltfile](https://github.com/tilt-dev/tilt-example-java/blob/master/4-recommended/Tiltfile) 
 with the following new code:

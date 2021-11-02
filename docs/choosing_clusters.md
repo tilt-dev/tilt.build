@@ -202,7 +202,7 @@ Or if you need to debug something that only reproduces in a complete cluster.
 
 ### Cons
 
-- Need to use a remote image registry. Make sure you have Tilt's [live_update](live_update_tutorial.html) set up!
+- Need to use a remote image registry. Make sure you have Tilt's `live_update` set up!
 - Need to set up namespaces and access control so that each dev has their own sandbox
 - If the cluster needs to be reset, we hope you're good friends with your DevOps team
 
@@ -237,7 +237,7 @@ A local registry is often the fastest way to speed up your dev experience.
 Every cluster sets up this registry slightly differently.
 
 Tilt-team is currently collaborating with the Kubernetes community on protocols
-for discovery, so that multi-service development tools like Tilt will auto-configure
+for discovery, so that microservice development tools like Tilt will auto-configure
 when a local registry is present.
 
 Tilt currently supports two generic protocols for discovering your cluster's

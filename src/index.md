@@ -7,7 +7,7 @@ has_calendly: true
 <section class="Home-hero">
   <div class="Home-heroText">
     <h2 class="Home-heroText-title">
-      A toolkit for fixing the pains of multi-service development.
+      A toolkit for fixing the pains of microservice development.
     </h2>
     <p class="Home-heroText-subtitle">
       Are your servers running locally? In Kubernetes? Both? 

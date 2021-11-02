@@ -138,7 +138,7 @@ Let's click the button on the `deploy` resource and see what happens!
 {:.benchmark-report}
 
 If you look closely, the elapsed time displayed in the Tilt sidebar is different
-than the benchmark our app logged. That's OK! In multi-service development,
+than the benchmark our app logged. That's OK! In microservice development,
 there are many benchmarks we care about -- the time to build the image, the time
 to schedule the process, and the time until the server is ready to serve
 traffic. 
@@ -219,7 +219,7 @@ When we make a change to a file, we currently have to build an image, deploy new
 and wait for Kubernetes to schedule the pod.
 
 With Tilt, we can skip all of these steps, and instead
-[live_update](live_update_tutorial.html) the pod in place.
+`live_update` the pod in place.
 
 Here's our [new Tiltfile](https://github.com/tilt-dev/tilt-example-go/blob/master/3-recommended/Tiltfile) 
 with the following new code:
@@ -298,7 +298,7 @@ services in a Tiltfile and exits successfully if they're healthy.
 
 This guide recommends an approach to Go development that shines with Tilt.
 
-If you're curious about other approaches to multi-service Go development and
+If you're curious about other approaches to microservice Go development and
 their trade-offs, we're working on a talk and workshop:
 
 [The Quest For The Fastest Deployment Time](https://github.com/tilt-dev/fast){:.attached-above}
@@ -306,7 +306,6 @@ their trade-offs, we're working on a talk and workshop:
 ### Other sample Go projects:
 
 - [abc123](https://github.com/tilt-dev/abc123) a mini microservice app with a Go server called `fe`.
-- The [Live Update Tutorial](live_update_tutorial.html), which optimizes a Go server.
 - [Servantes](https://github.com/tilt-dev/servantes), our multi-language microservice demo app.
 
 ### Examples in other languages:
