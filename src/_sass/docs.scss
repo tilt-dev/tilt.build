@@ -241,6 +241,7 @@ $sidebar-maximum-width: 400px;
 .Docs-subnav-list {
   list-style: none;
   margin: 0; // Override default <dl>
+  margin-bottom: $spacing-unit * 2; // So you can see the bottom of the nav more easily
 
   li + li {
     border-top: 1px solid $tilt2-color-gray-lightest;
@@ -298,7 +299,6 @@ $sidebar-maximum-width: 400px;
   font-size: 80%;
 }
 
-
 .Docs-content > h2 + h3 {
   margin-top: $spacing-unit * 0.75;
 }
@@ -328,6 +328,13 @@ $sidebar-maximum-width: 400px;
   }
 }
 
+.Docs-content p code {
+  border: 1px solid $tilt2-color-gray-lightest;
+  background-color: $color-off-white;
+  border-radius: $tilt2-border-radius-large;
+  padding-left: $spacing-unit * 0.2;
+  padding-right: $spacing-unit * 0.2;
+}
 
 // Cute callouts!
 .Docs-content > blockquote {
