@@ -25,6 +25,13 @@ class ExecAction:
 
 
 
+class Forward:
+  """Forward defines a port forward to execute on a given pod.
+"""
+  pass
+
+
+
 class HTTPGetAction:
   """HTTPGetAction describes an action based on HTTP Get requests.
 """
@@ -47,7 +54,80 @@ class Handler:
 
 
 class IgnoreDef:
-  """IgnoreDef specifies files to be ignored.
+  """Describes sets of file paths that the FileWatch should ignore.
+"""
+  pass
+
+
+
+class KubernetesApplyCmd:
+  """
+"""
+  pass
+
+
+
+class KubernetesDiscoveryTemplateSpec:
+  """
+"""
+  pass
+
+
+
+class KubernetesImageLocator:
+  """Finds image references in Kubernetes YAML.
+"""
+  pass
+
+
+
+class KubernetesImageObjectDescriptor:
+  """
+"""
+  pass
+
+
+
+class KubernetesWatchRef:
+  """KubernetesWatchRef is similar to v1.ObjectReference from the Kubernetes API and is used to determine
+  what objects should be reported on based on discovery.
+"""
+  pass
+
+
+
+class LabelSelector:
+  """
+"""
+  pass
+
+
+
+class LabelSelectorRequirement:
+  """
+"""
+  pass
+
+
+
+class ObjectSelector:
+  """Selector for any Kubernetes-style API.
+"""
+  pass
+
+
+
+class PodLogStreamTemplateSpec:
+  """PodLogStreamTemplateSpec describes common attributes for PodLogStreams
+  that can be shared across pods.
+"""
+  pass
+
+
+
+class PortForwardTemplateSpec:
+  """PortForwardTemplateSpec describes common attributes for PortForwards
+  that can be shared across pods.
 """
   pass
 
@@ -83,7 +163,7 @@ class TCPSocketAction:
 
 
 class UIBoolInputSpec:
-  """Defines a boolean Input to render in the UI.
+  """Describes a boolean checkbox input field attached to a button.
 """
   pass
 
@@ -91,6 +171,14 @@ class UIBoolInputSpec:
 
 class UIComponentLocation:
   """UIComponentLocation specifies where to put a UI component.
+"""
+  pass
+
+
+
+class UIHiddenInputSpec:
+  """Describes a hidden input field attached to a button,
+  with a value to pass on any submit.
 """
   pass
 
@@ -106,7 +194,7 @@ class UIInputSpec:
 
 
 class UITextInputSpec:
-  """Defines a text Input to render in the UI.
+  """Describes a text input field attached to a button.
 """
   pass
 
@@ -166,6 +254,26 @@ def cmd(
       StartOn is satisfied.
     disable_source: Specifies how to disable this.
       
+"""
+  pass
+def config_map(
+  name: str,
+  labels: Dict[str, str] = None,
+  annotations: Dict[str, str] = None,
+  data: Dict[str, str] = None,
+):
+  """
+  ConfigMap stores unstructured data that other controllers can read and write.
+  
+  Useful for sharing data from one system and subscribing to it from another.
+  
+
+  Args:
+    name: The name in the Object metadata.
+    labels: A set of key/value pairs in the Object metadata for grouping objects.
+    annotations: A set of key/value pairs in the Object metadata for attaching data to objects.
+    data: Data contains the configuration data.
+      Each key must consist of alphanumeric characters, '-', '_' or '.'.
 """
   pass
 def extension(
@@ -244,6 +352,150 @@ def file_watch(
       
 """
   pass
+def kubernetes_apply(
+  name: str,
+  labels: Dict[str, str] = None,
+  annotations: Dict[str, str] = None,
+  yaml: str = "",
+  image_maps: List[str] = None,
+  image_locators: List[KubernetesImageLocator] = None,
+  timeout: str = "",
+  kubernetes_discovery_template_spec: Optional[KubernetesDiscoveryTemplateSpec] = None,
+  port_forward_template_spec: Optional[PortForwardTemplateSpec] = None,
+  pod_log_stream_template_spec: Optional[PodLogStreamTemplateSpec] = None,
+  discovery_strategy: str = "",
+  disable_source: Optional[DisableSource] = None,
+  cmd: Optional[KubernetesApplyCmd] = None,
+  restart_on: Optional[RestartOnSpec] = None,
+):
+  """
+  KubernetesApply specifies a blob of YAML to apply, and a set of ImageMaps
+  that the YAML depends on.
+  
+  The KubernetesApply controller will resolve the ImageMaps into immutable image
+  references. The controller will process the spec YAML, then apply it to the cluster.
+  Those processing steps might include:
+  
+  - Injecting the resolved image references.
+  - Adding custom labels so that Tilt can track the progress of the apply.
+  - Modifying image pull rules to ensure the image is pulled correctly.
+  
+  The controller won't apply anything until all ImageMaps resolve to real images.
+  
+  The controller will watch all the image maps, and redeploy the entire YAML if
+  any of the maps resolve to a new image.
+  
+  The status field will contain both the raw applied object, and derived fields
+  to help other controllers figure out how to watch the apply progress.
+  
+
+  Args:
+    name: The name in the Object metadata.
+    labels: A set of key/value pairs in the Object metadata for grouping objects.
+    annotations: A set of key/value pairs in the Object metadata for attaching data to objects.
+    yaml: YAML to apply to the cluster.
+      
+      Exactly one of YAML OR Cmd MUST be provided.
+      
+    image_maps: Names of image maps that this applier depends on.
+      
+      The controller will watch all the image maps, and redeploy the entire YAML
+      if any of the maps resolve to a new image.
+      
+    image_locators: Descriptors of how to find images in the YAML.
+      
+      Needed when injecting images into CRDs.
+      
+    timeout: The timeout on the apply operation.
+      
+      We've had problems with both:
+      1) CRD apiservers that take an arbitrarily long time to apply, and
+      2) Infinite loops in the apimachinery
+      So we offer the ability to set a timeout on Kubernetes apply operations.
+      
+      The default timeout is 30s.
+      
+    kubernetes_discovery_template_spec: KubernetesDiscoveryTemplateSpec describes how we discover pods
+      for resources created by this Apply.
+      
+      If not specified, the KubernetesDiscovery controller will listen to all pods,
+      and follow owner references to find the pods owned by these resources.
+      
+    port_forward_template_spec: PortForwardTemplateSpec describes the data model for port forwards
+      that KubernetesApply should set up.
+      
+      Underneath the hood, we'll create a KubernetesDiscovery object that finds
+      the pods and sets up the port-forwarding. Only one PortForward will be
+      active at a time.
+      
+    pod_log_stream_template_spec: PodLogStreamTemplateSpec describes the data model for PodLogStreams
+      that KubernetesApply should set up.
+      
+      Underneath the hood, we'll create a KubernetesDiscovery object that finds
+      the pods and sets up the pod log streams.
+      
+      If no template is specified, the controller will stream all
+      pod logs available from the apiserver.
+      
+    discovery_strategy: DiscoveryStrategy describes how we set up pod watches for the applied
+      resources. This affects all systems that attach to pods, including
+      PortForwards, PodLogStreams, resource readiness, and live-updates.
+      
+    disable_source: Specifies how to disable this.
+      
+    cmd: Cmd is a custom command to generate the YAML to apply.
+      
+      The Cmd MUST return valid Kubernetes YAML for the entities it applied to the cluster.
+      
+      Exactly one of YAML OR Cmd MUST be provided.
+      
+    restart_on: RestartOn determines external triggers that will result in an apply.
+      
+"""
+  pass
+def kubernetes_discovery(
+  name: str,
+  labels: Dict[str, str] = None,
+  annotations: Dict[str, str] = None,
+  watches: List[KubernetesWatchRef] = None,
+  extra_selectors: List[LabelSelector] = None,
+  port_forward_template_spec: Optional[PortForwardTemplateSpec] = None,
+  pod_log_stream_template_spec: Optional[PodLogStreamTemplateSpec] = None,
+):
+  """
+  KubernetesDiscovery
+
+  Args:
+    name: The name in the Object metadata.
+    labels: A set of key/value pairs in the Object metadata for grouping objects.
+    annotations: A set of key/value pairs in the Object metadata for attaching data to objects.
+    watches: Watches determine what resources are discovered.
+      
+      If a discovered resource (e.g. Pod) matches the KubernetesWatchRef UID exactly, it will be reported.
+      If a discovered resource is transitively owned by the KubernetesWatchRef UID, it will be reported.
+    extra_selectors: ExtraSelectors are label selectors that will force discovery of a Pod even if it does not match
+      the AncestorUID.
+      
+      This should only be necessary in the event that a CRD creates Pods but does not set an owner reference
+      to itself.
+    port_forward_template_spec: PortForwardTemplateSpec describes the data model for port forwards
+      that KubernetesDiscovery should set up.
+      
+      The KubernetesDiscovery controller will choose a "best" candidate
+      for attaching the port-forwarding. Only one PortForward will be
+      active at a time.
+      
+    pod_log_stream_template_spec: PodLogStreamTemplateSpec describes the data model for PodLogStreams
+      that KubernetesDiscovery should set up.
+      
+      The KubernetesDiscovery controller will attach PodLogStream objects
+      to all active pods it discovers.
+      
+      If no template is specified, the controller will stream all
+      pod logs available from the apiserver.
+      
+"""
+  pass
 def ui_button(
   name: str,
   labels: Dict[str, str] = None,
@@ -253,6 +505,7 @@ def ui_button(
   icon_name: str = "",
   icon_svg: str = "",
   disabled: bool = False,
+  requires_confirmation: bool = False,
   inputs: List[UIInputSpec] = None,
 ):
   """
@@ -280,6 +533,9 @@ def ui_button(
       
     disabled: If true, the button will be rendered, but with an effect indicating it's
       disabled. It will also be unclickable.
+      
+    requires_confirmation: If true, the UI will require the user to click the button a second time to
+      confirm before taking action
       
     inputs: Any inputs for this button.
 """
@@ -321,6 +577,26 @@ def exec_action(
       not run inside a shell, so traditional shell instructions ('|', etc) won't work. To use
       a shell, you need to explicitly call out to that shell.
       Exit status of 0 is treated as live/healthy and non-zero is unhealthy.
+"""
+  pass
+
+def forward(
+  local_port: int = 0,
+  container_port: int = 0,
+  host: str = "",
+) -> Forward:
+  """
+  Forward defines a port forward to execute on a given pod.
+
+  Args:
+    local_port: The port to expose on the current machine.
+      
+      If not specified (or 0), a random free port will be chosen and can
+      be discovered via the status once established.
+      
+    container_port: The port on the Kubernetes pod to connect to. Required.
+    host: Optional host to bind to on the current machine (localhost by default)
+      
 """
   pass
 
@@ -382,7 +658,7 @@ def ignore_def(
   patterns: List[str] = None,
 ) -> IgnoreDef:
   """
-  
+  Describes sets of file paths that the FileWatch should ignore.
 
   Args:
     base_path: BasePath is the base path for the patterns. It cannot be empty.
@@ -395,6 +671,185 @@ def ignore_def(
 """
   pass
 
+def kubernetes_apply_cmd(
+  args: List[str] = None,
+  dir: str = "",
+  env: List[str] = None,
+) -> KubernetesApplyCmd:
+  """
+  
+
+  Args:
+    args: Args are the command-line arguments for the apply command. Must have length >= 1.
+    dir: Process working directory.
+      
+      If not specified, will default to Tilt working directory.
+      
+    env: Env are additional variables for the process environment.
+      
+      Environment variables are layered on top of the environment variables
+      that Tilt runs with.
+      
+"""
+  pass
+
+def kubernetes_discovery_template_spec(
+  extra_selectors: List[LabelSelector] = None,
+) -> KubernetesDiscoveryTemplateSpec:
+  """
+  
+
+  Args:
+    extra_selectors: ExtraSelectors are label selectors that will force discovery of a Pod even
+      if it does not match the AncestorUID.
+      
+      This should only be necessary in the event that a CRD creates Pods but does
+      not set an owner reference to itself.
+"""
+  pass
+
+def kubernetes_image_locator(
+  object_selector: ObjectSelector = None,
+  path: str = "",
+  object: Optional[KubernetesImageObjectDescriptor] = None,
+) -> KubernetesImageLocator:
+  """
+  Finds image references in Kubernetes YAML.
+
+  Args:
+    object_selector: Selects which objects to look in.
+    path: A JSON path to the image reference field.
+      
+      If Object is empty, the field should be a string.
+      
+      If Object is non-empty, the field should be an object with subfields.
+    object: A descriptor of the path and structure of an object that describes an image
+      reference. This is a common way to describe images in CRDs, breaking
+      them down into an object rather than an image reference string.
+      
+"""
+  pass
+
+def kubernetes_image_object_descriptor(
+  repo_field: str = "",
+  tag_field: str = "",
+) -> KubernetesImageObjectDescriptor:
+  """
+  
+
+  Args:
+    repo_field: The name of the field that contains the image repository.
+    tag_field: The name of the field that contains the image tag.
+"""
+  pass
+
+def kubernetes_watch_ref(
+  uid: str = "",
+  namespace: str = "",
+  name: str = "",
+) -> KubernetesWatchRef:
+  """
+  KubernetesWatchRef is similar to v1.ObjectReference from the Kubernetes API and is used to determine
+  what objects should be reported on based on discovery.
+
+  Args:
+    uid: UID is a Kubernetes object UID.
+      
+      It should either be the exact object UID or the transitive owner.
+      
+    namespace: Namespace is the Kubernetes namespace for discovery. Required.
+    name: Name is the Kubernetes object name.
+      
+      This is not directly used in discovery; it is extra metadata.
+      
+"""
+  pass
+
+def label_selector(
+  match_labels: Dict[str, str] = None,
+  match_expressions: List[LabelSelectorRequirement] = None,
+) -> LabelSelector:
+  """
+  
+
+  Args:
+    match_labels: matchLabels is a map of {key,value} pairs. A single {key,value} in the matchLabels
+      map is equivalent to an element of matchExpressions, whose key field is "key", the
+      operator is "In", and the values array contains only "value". The requirements are ANDed.
+    match_expressions: matchExpressions is a list of label selector requirements. The requirements are ANDed.
+"""
+  pass
+
+def label_selector_requirement(
+  key: str = "",
+  operator: str = "",
+  values: List[str] = None,
+) -> LabelSelectorRequirement:
+  """
+  
+
+  Args:
+    key: key is the label key that the selector applies to.
+    operator: operator represents a key's relationship to a set of values.
+      Valid operators are In, NotIn, Exists and DoesNotExist.
+    values: values is an array of string values. If the operator is In or NotIn,
+      the values array must be non-empty. If the operator is Exists or DoesNotExist,
+      the values array must be empty. This array is replaced during a strategic
+      merge patch.
+"""
+  pass
+
+def object_selector(
+  api_version_regexp: str = "",
+  kind_regexp: str = "",
+  name_regexp: str = "",
+  namespace_regexp: str = "",
+) -> ObjectSelector:
+  """
+  Selector for any Kubernetes-style API.
+
+  Args:
+    api_version_regexp: A regular expression apiVersion match.
+    kind_regexp: A regular expression kind match.
+    name_regexp: A regular expression name match.
+    namespace_regexp: A regular expression namespace match.
+"""
+  pass
+
+def pod_log_stream_template_spec(
+  only_containers: List[str] = None,
+  ignore_containers: List[str] = None,
+) -> PodLogStreamTemplateSpec:
+  """
+  PodLogStreamTemplateSpec describes common attributes for PodLogStreams
+  that can be shared across pods.
+
+  Args:
+    only_containers: The names of containers to include in the stream.
+      
+      If `onlyContainers` and `ignoreContainers` are not set,
+      will watch all containers in the pod.
+      
+    ignore_containers: The names of containers to exclude from the stream.
+      
+      If `onlyContainers` and `ignoreContainers` are not set,
+      will watch all containers in the pod.
+      
+"""
+  pass
+
+def port_forward_template_spec(
+  forwards: List[Forward] = None,
+) -> PortForwardTemplateSpec:
+  """
+  PortForwardTemplateSpec describes common attributes for PortForwards
+  that can be shared across pods.
+
+  Args:
+    forwards: One or more port forwards to execute on the given pod. Required.
+"""
+  pass
+
 def probe(
   handler: Handler = None,
   initial_delay_seconds: int = 0,
@@ -404,7 +859,7 @@ def probe(
   failure_threshold: int = 0,
 ) -> Probe:
   """
-  Probe describes a health check to be performed o determine whether it is
+  Probe describes a health check to be performed to determine whether it is
   alive or ready to receive traffic.
 
   Args:
@@ -431,8 +886,8 @@ def restart_on_spec(
   RestartOnSpec indicates the set of objects that can trigger a restart of this object.
 
   Args:
-    file_watches: A list of file watches that can trigger a restart.
-    ui_buttons: A list of ui buttons that can trigger a restart.
+    file_watches: FileWatches that can trigger a restart.
+    ui_buttons: UIButtons that can trigger a restart.
 """
   pass
 
@@ -443,10 +898,7 @@ def start_on_spec(
   StartOnSpec indicates the set of objects that can trigger a start/restart of this object.
 
   Args:
-    ui_buttons: A list of ui buttons that can trigger a run.
-      
-      When a button triggers a run, any UIInputs on that button will be added
-      to the cmd's env.
+    ui_buttons: UIButtons that can trigger a start/restart.
 """
   pass
 
@@ -470,7 +922,7 @@ def ui_bool_input_spec(
   false_string: Optional[str] = None,
 ) -> UIBoolInputSpec:
   """
-  
+  Describes a boolean checkbox input field attached to a button.
 
   Args:
     default_value: Whether the input is initially true or false.
@@ -496,11 +948,24 @@ def ui_component_location(
 """
   pass
 
+def ui_hidden_input_spec(
+  value: str = "",
+) -> UIHiddenInputSpec:
+  """
+  Describes a hidden input field attached to a button,
+  with a value to pass on any submit.
+
+  Args:
+    value: Documentation missing
+"""
+  pass
+
 def ui_input_spec(
   name: str = "",
   label: str = "",
   text: Optional[UITextInputSpec] = None,
   bool: Optional[UIBoolInputSpec] = None,
+  hidden: Optional[UIHiddenInputSpec] = None,
 ) -> UIInputSpec:
   """
   Defines an Input to render in the UI.
@@ -512,6 +977,7 @@ def ui_input_spec(
     label: A label to display next to this input in the UI.
     text: A Text input that takes a string.
     bool: A Bool input that is true or false
+    hidden: An input that has a constant value and does not display to the user
 """
   pass
 
@@ -520,7 +986,7 @@ def ui_text_input_spec(
   placeholder: str = "",
 ) -> UITextInputSpec:
   """
-  
+  Describes a text input field attached to a button.
 
   Args:
     default_value: Initial value for this field.
