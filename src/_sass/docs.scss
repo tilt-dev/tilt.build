@@ -381,13 +381,10 @@ $sidebar-maximum-width: 400px;
 
 
 .Docs-content img {
-  max-width: $docs-width;
-  // box-sizing: content-box;
-
-  @include docs-mobile {
-    max-width: 100%;
-  }
-
+  margin-top: $spacing-unit;
+  margin-bottom: $spacing-unit;
+  width: auto;
+  max-width: 100%;
 }
 
 
