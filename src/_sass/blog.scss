@@ -27,6 +27,21 @@ $related-post-text-height: $related-post-image-height + $spacing-unit;
   }
 }
 
+.BlogList-header {
+  font-family: $tilt2-font-mono;
+  margin-bottom: $spacing-unit * 1.5;
+
+  @include above-docs-mobile {
+      display: flex;
+  }
+}
+
+.BlogList-header-title {
+  font-family: inherit;
+  font-weight: $tilt2-font-weight-mono-light;
+  color: $color-blue;
+}
+
 .blogContent {
   display: block;
   width: 100%;
@@ -362,6 +377,10 @@ iframe, .blogContent img {
   width: 24px;
   height: 24px;
   display: inline-block;
+
+  &:hover {
+    background-color: transparent !important;
+  }
 }
 
 .circleLinkIcon + .circleLinkIcon {

@@ -8,10 +8,13 @@
   height: 100%;
 }
 
+.ctaSubscribe--blog {
+  margin-top: $spacing-unit;
+}
+
 .ctaSubscribe--blog .ctaSubscribe-header,
 .ctaSubscribe--blogList .ctaSubscribe-header {
-  font-size: 26px;
-  font-weight: 700;
+  font-size: 20px;
   color: $color-grey-dark;
   line-height: 31px;
 }
