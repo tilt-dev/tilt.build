@@ -307,10 +307,10 @@ $sidebar-maximum-width: 400px;
 
 
 .Docs-content a {
-  color: $color-green;
+  color: $color-skyBlue;
   text-decoration: underline;
   text-decoration-color: $tilt2-color-gray-lighter;
-  text-decoration-thickness: 1px;
+  text-decoration-thickness: 2px;
   text-underline-offset: 3px;
   transition: text-decoration $anim-duration-short linear;
 
@@ -319,8 +319,7 @@ $sidebar-maximum-width: 400px;
   }
 
   &:hover {
-    text-decoration-color: $color-green;
-    text-decoration-thickness: 2px;
+    text-decoration-color: $tilt2-color-text;
   }
 }
 
@@ -403,19 +402,14 @@ $sidebar-maximum-width: 400px;
   justify-content: space-between;
 }
 
-a.Docs-section-nav-link {
+.Docs-section-nav-link {
   font-weight: bold;
-  color: $color-red; 
+  color: $color-red !important; 
 
   &:hover {
     text-decoration-color: $tilt2-color-text;
   }
 }
-
-a.Docs-section-nav-arrow {
-  color: $tilt2-color-gray-lighter;
-}
-
 
 .Docs-video {
   margin-top: $spacing-unit;
