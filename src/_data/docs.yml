@@ -1,15 +1,19 @@
 top:
   - title: Getting Started
     href: /index.html
+    hrefMobile: /docs_nav_gettingstarted.html
     active: gettingstarted
   - title: Guides
     active: guides
     href: /tiltfile_authoring.html
+    hrefMobile: /docs_nav_guides.html
   - title: Tiltfile & CLI
     href: /api.html
     active: reference
+    hrefMobile: /docs_nav_reference.html
   - title: Tilt API
     href: https://api.tilt.dev
+    hrefMobile: https://api.tilt.dev
     flair: new
 
 

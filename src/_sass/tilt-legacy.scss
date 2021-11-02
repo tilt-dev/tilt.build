@@ -51,46 +51,6 @@ $col-3of4-width: $spacing-unit * 17;
 $col-1of2-width: $spacing-unit * 11;
 
 
-// Media Queries
-// --------------------------------------------------
-$on-mobile:         $content-width + $spacing-unit;
-$on-docs-mobile:    $header-width + $spacing-unit;
-
-@mixin media-query($device) {
-  @media screen and (max-width: $device) {
-    @content;
-  }
-}
-
-@mixin media-query-above($device) {
-  @media screen and (min-width: $device) {
-    @content;
-  }
-}
-
-@mixin mobile {
-  @include media-query($on-mobile) {
-    @content;
-  }
-}
-
-@mixin docs-mobile {
-  @include media-query($on-docs-mobile) {
-    @content;
-  }
-}
-
-@mixin mobileAndAbove {
-  @include media-query-above($on-mobile) {
-    @content;
-  }
-}
-
-@mixin mobileAndBelow {
-  @include media-query($on-mobile) {
-    @content;
-  }
-}
 
 @mixin relative-font-size($ratio) {
   font-size: $body-font-size * $ratio;

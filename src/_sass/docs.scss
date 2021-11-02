@@ -1,13 +1,20 @@
 $docs-side-margin: $spacing-unit;
+// Biggest width for content where text is comfortably readable:
+$docs-content-width:       960px;
+// Bounds for sidebar content text to be readable:
+$sidebar-minimum-width: 280px;
+$sidebar-maximum-width: 400px;
 
+
+.siteHeader-menuText {
+  font-family: $tilt2-font-mono;
+  font-size: 28px;
+  display: inline-block;
+}
 
 .body--docs {
   .page-content {
     padding-top: 0; // Undo the generous spacing from default template.
-  }
-
-  @include docs-mobile {  
-    // padding: 0;
   }
 }
 
@@ -18,19 +25,18 @@ $docs-side-margin: $spacing-unit;
   margin-bottom: $spacing-unit * 2;
 }
 
-
 .Docs-body {
   display: grid;
-  grid-template-columns: minmax(300px, 25%) 1fr;
+  grid-template-columns: minmax($sidebar-minimum-width, 25%) 1fr;
   column-gap: $spacing-unit;
   // Make the boundary between the sidebar and footer look better:
   border-bottom: 1px solid $tilt2-color-gray-lightest;
 
   @include docs-mobile {
-    
+    display: flex;    
+    flex-direction: column;
   }
 }
-
 
 .Docs-header {
   display: flex;
@@ -39,10 +45,18 @@ $docs-side-margin: $spacing-unit;
   border-bottom: 1px solid $tilt2-color-gray-lightest;
 }
 
-.Docs-search {
-  margin-right: $docs-side-margin;
+.Docs-search {  
   display: flex;
   align-items: center;
+
+  @include docs-mobile {
+    width: 100%;
+    margin-bottom: $spacing-unit;
+  }
+  
+  @include above-docs-mobile {
+    margin-right: $docs-side-margin;
+  }
 }
 .Docs-search-input {
   font-size: 16px;
@@ -50,8 +64,29 @@ $docs-side-margin: $spacing-unit;
   color: $tilt2-color-gray;
   border: 2px solid $tilt2-color-gray-lighter;
   border-radius: $tilt2-border-radius-large;
+  width: 100%;
 }
 
+.Docs-content {
+  padding-top: $spacing-unit;
+  margin-right: $docs-side-margin;
+  flex-grow: 1;
+  color: $tilt2-color-text;
+  max-width: $docs-content-width;
+  // needed to prevent child <pre> elements from expanding forever
+  // and causing wrapping problems
+  min-width: 0;
+
+  @include docs-mobile {
+    max-width: 100%;
+    // Parent body--docs has no padding on mobile (so menu can be full-width)
+    padding-left: $spacing-unit;
+    padding-right: $spacing-unit;
+  }
+}
+
+// Top-Level Nav - browse docs categories
+// --------------------------------------------------
 .Docs-nav {
   font-family: $tilt2-font-mono;
   font-size: 20px;
@@ -71,54 +106,87 @@ $docs-side-margin: $spacing-unit;
 .Docs-nav-list {
   display: flex;
   list-style: none;
+}
 
-  li + li {
+.Docs-nav-list-item {
+  // To align the "flair":
+  display: flex;
+  align-items: center;
+
+  & + & {
     margin-left: $spacing-unit;
   }
 }
 
 .Docs-nav-link {
-  display: inline-block;
   color: $tilt2-color-text;
   padding-top: $spacing-unit * 0.75;
   padding-bottom: $spacing-unit * 0.75;
+  text-underline-offset: 6px;
+  display: none;
+
+  &:hover {
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-decoration-color: $tilt2-color-gray-lighter;
+  }
   
   &.is-active {
-    text-decoration: solid underline $color-green 3px;
-    text-underline-offset: 6px;
+    text-decoration: underline;
+    text-decoration-thickness: 3px;
+    text-decoration-color: $color-green;
   }
 }
 
-.Docs-sidebar {
-  position: sticky;
-  top: 0;
-  align-self: flex-start;
-  max-height: 100vh;
-  overflow-y: auto;
+.Docs-nav-link--desktop {
+  @include above-docs-mobile {
+    display: block;
+  }
+}
+
+.Docs-nav-link--mobile {
+  @include docs-mobile {
+    display: block;
+  }
+}
+
+.Docs-nav-link-flair {
+  font-size: 12px;
+  background-color: $tilt2-color-gray-lightest;
+  padding-left: $spacing-unit * 0.2;
+  padding-right: $spacing-unit * 0.2;
+  margin-left: $spacing-unit * 0.25;
+  border-radius: $tilt2-border-radius;
 }
 
 
-.Docs-content {
-  display: block;
-  flex: 1 0 $docs-width;
-  max-width: $docs-width;
-  // needed to prevent child <pre> elements from expanding forever
-  // and causing wrapping problems
-  min-width: 0;
-  padding-top: $spacing-unit * 1.5;
-  color: $tilt2-color-text;
+// Sidebar Nav - browse docs pages
+// --------------------------------------------------
+.Docs-sidebar {
+  background-color: $color-white;
 
   @include docs-mobile {
-    max-width: 100%;
-    // Parent body--docs has no padding on mobile (so menu can be full-width)
-    padding-left: $spacing-unit;
-    padding-right: $spacing-unit;
+    width: 100%;
+  }
+
+  @include above-docs-mobile {
+    position: sticky;
+    top: 0;
+    align-self: flex-start;
+    max-height: 100vh;
+    overflow-y: auto;
+  }
+}
+
+// Hidden on mobile, since top-level nav links to a separate page with subnav links
+.Docs-sidebar--defaultLayout {
+  @include docs-mobile {
+    display: none;
   }
 }
 
 
-// Sidebar Navigation
-// --------------------------------------------------
+// Sidebar Nav - JS Accordion
 
 .Docs-subnav-accordion {
 }

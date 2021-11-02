@@ -16,21 +16,18 @@ $header-width:     1080px; // use more screen real estate, but child elements st
 $sidebar-width:    240px;
 $blog-width:       $header-width; // All blog elements below the shared site header
 $blog-credit-width: $blog-width - $content-width - $spacing-unit; // The little author blurb on each article
-$docs-width:       $content-width;
 
 $tilt2-page-width: $header-width;
 $tilt2-header-width: $tilt2-page-width;
 $tilt2-footer-width: $tilt2-page-width;
 
 
-// Z-Index
-// --------------------------------------------------
+// Z-INDEX
 $z-docs-sidebar: 2000;
 $z-modal: 1500;
 $z-modal-background: 1000;
 $z-siteHeader--mobile: 500;
 $z-siteHeader-nav--mobile: 100;
-
 
 
 
@@ -156,6 +153,69 @@ $tilt2-line-height-body-serif: 1.6;
   line-height: $tilt2-line-height-body;
 }
 
+@mixin font-mono {
+  font-family: $tilt2-font-mono;
+  font-size: $tilt2-font-size-mono;
+  line-height: $tilt2-line-height-mono;
+}
+
+
+// MEDIA QUERIES
+// --------------------------------------------------
+$on-mobile:         $content-width + $spacing-unit;
+// Smallest width where sidebar and content can exist readably side-by-side:
+$on-docs-mobile:    950px;
+
+@mixin media-query($device) {
+  @media screen and (max-width: $device) {
+    @content;
+  }
+}
+
+@mixin media-query-above($device) {
+  @media screen and (min-width: $device) {
+    @content;
+  }
+}
+
+@mixin mobile {
+  @include media-query($on-mobile) {
+    @content;
+  }
+}
+// Same as "mobile," but a bit more explicit…
+@mixin mobileAndBelow {
+  @include media-query($on-mobile) {
+    @content;
+  }
+}
+// …in relation to its companion
+@mixin mobileAndAbove {
+  @include media-query-above($on-mobile) {
+    @content;
+  }
+}
+
+
+// Docs site has a different breakpoint due to its sidebar nav
+@mixin docs-mobile {
+  @include media-query($on-docs-mobile) {
+    @content;
+  }
+}
+
+@mixin above-docs-mobile {
+  @include media-query-above($on-docs-mobile) {
+    @content;
+  }
+}
+
+
+
+
+// "EFFECTS"
+// --------------------------------------------------
+
 // Buttons
 $tilt2-button-font-size--large: 26px;
 $tilt2-button-height--large: 50px;
@@ -169,16 +229,16 @@ $tilt2-button-height--small: 26px;
 
 $tilt2-input-height--large: $tilt2-button-height--large;
 
-// "EFFECTS"
-// --------------------------------------------------
 
+// Border Radius
 $tilt2-border-radius: 2px;
 $tilt2-border-radius-large: 4px;
 
+
+// Shadow
 @mixin shadow {
   box-shadow: 0px 0px ($spacing-unit / 2) 0px rgba(0, 0, 0, $alpha-transparent);
 }
-
 @mixin shadow-small {
   box-shadow: 0px 0px ($spacing-unit / 8) 0px rgba(0, 0, 0, $alpha-transparent);
 }
@@ -201,12 +261,9 @@ $tilt2-border-radius-large: 4px;
   margin: 0;
 }
 
-@mixin font-mono {
-  font-family: $tilt2-font-mono;
-  font-size: $tilt2-font-size-mono;
-  line-height: $tilt2-line-height-mono;
-}
 
+// IMPORT EVERYTHING
+// --------------------------------------------------
 
 @import
   // Shared variables

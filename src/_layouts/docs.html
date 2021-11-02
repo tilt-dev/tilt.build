@@ -7,23 +7,28 @@ layout: docs-header
     <nav class="Docs-nav">
       <ul class="Docs-nav-list">
         {% for link in site.data.docs.top %}
-          <li>
-            <a class="Docs-nav-link{% if page.sidebar == link.active %} is-active{% endif %}" href="{{link.href | escape}}">
+          <li class="Docs-nav-list-item">
+            <a class="Docs-nav-link Docs-nav-link--desktop{% if page.sidebar == link.active %} is-active{% endif %}" href="{{link.href | escape}}">
               {{link.title | escape}} 
             </a>
+            <!-- On mobile, top-level nav goes to a separate page with subnav links -->
+            <a class="Docs-nav-link Docs-nav-link--mobile{% if page.sidebar == link.active %} is-active{% endif %}" href="{{link.hrefMobile | escape}}">
+              {{link.title | escape}}
+            </a>
+            {% if link.flair %}
+              <div class="Docs-nav-link-flair">{{link.flair | escape}}</div>
+            {% endif %}
           </li>
         {% endfor %}
       </ul>
     </nav>
-    <form class="js-only" action="/search" method="GET">
-      <div class="Docs-search">
-        <input class="Docs-search-input" type="search" name="q" id="q" placeholder="Search Docs…" />
-      </div>
+    <form class="Docs-search js-only" action="/search" method="GET">
+      <input class="Docs-search-input" type="search" name="q" id="q" placeholder="Search Docs…" />
     </form>
   </header>
 
   <div class="Docs-body">
-    <aside class="Docs-sidebar">
+    <aside class="Docs-sidebar  Docs-sidebar--defaultLayout">
       <nav class="Docs-subnav">
         <dl class="js-accordion Docs-subnav-list" data-accordion-prefix-classes="Docs-subnav">
         {% for section in site.data.docs.sidebar[page.sidebar] %}
