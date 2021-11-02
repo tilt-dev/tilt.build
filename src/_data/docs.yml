@@ -19,6 +19,17 @@ top:
 
 sidebar:
   gettingstarted:
+  - title: Why Use Tilt?
+    items:
+    - title: Overview
+      href: index.html
+    - title: The Control Loop
+      href: controlloop.html
+    - title: Choosing a Local Dev Cluster
+      href: choosing_clusters.html
+    - title: Local vs Remote Services
+      href: local_vs_remote.html
+
   - title: Tutorial
     inSectionNav: true
     items:
@@ -34,17 +45,6 @@ sidebar:
         href: tutorial/4-code-update-repeat.html
       - title: 5. Smart Rebuilds with Live Update
         href: tutorial/5-live-update.html
-
-  - title: Why Use Tilt?
-    items:
-    - title: Overview
-      href: index.html
-    - title: The Control Loop
-      href: controlloop.html
-    - title: Choosing a Local Dev Cluster
-      href: choosing_clusters.html
-    - title: Local vs Remote Services
-      href: local_vs_remote.html
 
   - title: Quick Links
     items:
