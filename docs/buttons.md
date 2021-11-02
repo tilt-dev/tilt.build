@@ -2,6 +2,7 @@
 title: Custom Buttons
 description: "Describes how to add buttons with custom actions to your Tilt Web UI"
 layout: docs
+sidebar: guides
 ---
 
 Many of the actions in a team's development workflow can be added to Tilt as `local_resource`s,
