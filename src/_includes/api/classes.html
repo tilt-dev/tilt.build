@@ -622,6 +622,32 @@ Possible values are:
            </p>
           </dd>
          </dl><dl class="py class">
+          <dt class="sig sig-object py" id="modules.v1alpha1.Forward">
+           <em class="property">
+            <span class="pre">
+             class
+            </span>
+           </em>
+           <span class="sig-prename descclassname">
+            <span class="pre">
+             v1alpha1.
+            </span>
+           </span>
+           <span class="sig-name descname">
+            <span class="pre">
+             Forward
+            </span>
+           </span>
+           <a class="headerlink" href="#modules.v1alpha1.Forward" title="Permalink to this definition">
+            &#xF0C1;
+           </a>
+          </dt>
+          <dd>
+           <p>
+            Forward defines a port forward to execute on a given pod.
+           </p>
+          </dd>
+         </dl><dl class="py class">
           <dt class="sig sig-object py" id="modules.v1alpha1.HTTPGetAction">
            <em class="property">
             <span class="pre">
@@ -722,7 +748,140 @@ Possible values are:
           </dt>
           <dd>
            <p>
-            IgnoreDef specifies files to be ignored.
+            Describes sets of file paths that the FileWatch should ignore.
+           </p>
+          </dd>
+         </dl><dl class="py class">
+          <dt class="sig sig-object py" id="modules.v1alpha1.KubernetesImageLocator">
+           <em class="property">
+            <span class="pre">
+             class
+            </span>
+           </em>
+           <span class="sig-prename descclassname">
+            <span class="pre">
+             v1alpha1.
+            </span>
+           </span>
+           <span class="sig-name descname">
+            <span class="pre">
+             KubernetesImageLocator
+            </span>
+           </span>
+           <a class="headerlink" href="#modules.v1alpha1.KubernetesImageLocator" title="Permalink to this definition">
+            &#xF0C1;
+           </a>
+          </dt>
+          <dd>
+           <p>
+            Finds image references in Kubernetes YAML.
+           </p>
+          </dd>
+         </dl><dl class="py class">
+          <dt class="sig sig-object py" id="modules.v1alpha1.KubernetesWatchRef">
+           <em class="property">
+            <span class="pre">
+             class
+            </span>
+           </em>
+           <span class="sig-prename descclassname">
+            <span class="pre">
+             v1alpha1.
+            </span>
+           </span>
+           <span class="sig-name descname">
+            <span class="pre">
+             KubernetesWatchRef
+            </span>
+           </span>
+           <a class="headerlink" href="#modules.v1alpha1.KubernetesWatchRef" title="Permalink to this definition">
+            &#xF0C1;
+           </a>
+          </dt>
+          <dd>
+           <p>
+            KubernetesWatchRef is similar to v1.ObjectReference from the Kubernetes API and is used to determine
+what objects should be reported on based on discovery.
+           </p>
+          </dd>
+         </dl><dl class="py class">
+          <dt class="sig sig-object py" id="modules.v1alpha1.ObjectSelector">
+           <em class="property">
+            <span class="pre">
+             class
+            </span>
+           </em>
+           <span class="sig-prename descclassname">
+            <span class="pre">
+             v1alpha1.
+            </span>
+           </span>
+           <span class="sig-name descname">
+            <span class="pre">
+             ObjectSelector
+            </span>
+           </span>
+           <a class="headerlink" href="#modules.v1alpha1.ObjectSelector" title="Permalink to this definition">
+            &#xF0C1;
+           </a>
+          </dt>
+          <dd>
+           <p>
+            Selector for any Kubernetes-style API.
+           </p>
+          </dd>
+         </dl><dl class="py class">
+          <dt class="sig sig-object py" id="modules.v1alpha1.PodLogStreamTemplateSpec">
+           <em class="property">
+            <span class="pre">
+             class
+            </span>
+           </em>
+           <span class="sig-prename descclassname">
+            <span class="pre">
+             v1alpha1.
+            </span>
+           </span>
+           <span class="sig-name descname">
+            <span class="pre">
+             PodLogStreamTemplateSpec
+            </span>
+           </span>
+           <a class="headerlink" href="#modules.v1alpha1.PodLogStreamTemplateSpec" title="Permalink to this definition">
+            &#xF0C1;
+           </a>
+          </dt>
+          <dd>
+           <p>
+            PodLogStreamTemplateSpec describes common attributes for PodLogStreams
+that can be shared across pods.
+           </p>
+          </dd>
+         </dl><dl class="py class">
+          <dt class="sig sig-object py" id="modules.v1alpha1.PortForwardTemplateSpec">
+           <em class="property">
+            <span class="pre">
+             class
+            </span>
+           </em>
+           <span class="sig-prename descclassname">
+            <span class="pre">
+             v1alpha1.
+            </span>
+           </span>
+           <span class="sig-name descname">
+            <span class="pre">
+             PortForwardTemplateSpec
+            </span>
+           </span>
+           <a class="headerlink" href="#modules.v1alpha1.PortForwardTemplateSpec" title="Permalink to this definition">
+            &#xF0C1;
+           </a>
+          </dt>
+          <dd>
+           <p>
+            PortForwardTemplateSpec describes common attributes for PortForwards
+that can be shared across pods.
            </p>
           </dd>
          </dl><dl class="py class">
@@ -853,7 +1012,7 @@ alive or ready to receive traffic.
           </dt>
           <dd>
            <p>
-            Defines a boolean Input to render in the UI.
+            Describes a boolean checkbox input field attached to a button.
            </p>
           </dd>
          </dl><dl class="py class">
@@ -880,6 +1039,33 @@ alive or ready to receive traffic.
           <dd>
            <p>
             UIComponentLocation specifies where to put a UI component.
+           </p>
+          </dd>
+         </dl><dl class="py class">
+          <dt class="sig sig-object py" id="modules.v1alpha1.UIHiddenInputSpec">
+           <em class="property">
+            <span class="pre">
+             class
+            </span>
+           </em>
+           <span class="sig-prename descclassname">
+            <span class="pre">
+             v1alpha1.
+            </span>
+           </span>
+           <span class="sig-name descname">
+            <span class="pre">
+             UIHiddenInputSpec
+            </span>
+           </span>
+           <a class="headerlink" href="#modules.v1alpha1.UIHiddenInputSpec" title="Permalink to this definition">
+            &#xF0C1;
+           </a>
+          </dt>
+          <dd>
+           <p>
+            Describes a hidden input field attached to a button,
+with a value to pass on any submit.
            </p>
           </dd>
          </dl><dl class="py class">
@@ -933,7 +1119,7 @@ UIInput is analogous to an HTML &lt;input&gt;.
           </dt>
           <dd>
            <p>
-            Defines a text Input to render in the UI.
+            Describes a text input field attached to a button.
            </p>
           </dd>
          </dl>

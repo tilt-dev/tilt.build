@@ -3,6 +3,7 @@
 load('ext://tilt_inspector', 'tilt_inspector')
 
 tilt_inspector(port=4009)
+#enable_feature('live_update_v2')
 
 # Uncomment to try the kubefwd extension.
 #v1alpha1.extension_repo(name='default', url='https://github.com/tilt-dev/tilt-extensions')
@@ -20,23 +21,20 @@ local_resource('make-stars', 'make stars', ['Makefile', 'stars'])
 
 k8s_yaml('deploy/serve.yaml')
 
-# files in common directories but specific to the API docs (all non-docs resources should ignore these)
-api_ignores = ['./src/_data/api/', './src/_includes/api/']
-
 docker_build('tilt-site-base', '.', dockerfile='deploy/base.dockerfile',
              build_args = {'BUILDKIT_INLINE_CACHE': '1'},
              cache_from = ['gcr.io/windmill-public-containers/tilt-site-base:2021-02-12'],
              only=['./src/Gemfile', './src/Gemfile.lock'])
 
 docker_build('tilt-site', '.', dockerfile='deploy/site.dockerfile',
-             ignore=['./api', './docs', './blog'] + api_ignores,
+             only=['./src', './healthcheck.sh'],
              live_update=[
                sync('./src', '/src/'),
                run('bundle install', trigger=['src/Gemfile', 'src/Gemfile.lock'])
              ])
 
 docker_build('docs-site', '.', dockerfile='deploy/docs.dockerfile',
-             ignore=['./api', './blog'],
+             only=['./src', './healthcheck.sh', './docs'],
              live_update=[
                sync('./src', '/src/'),
                sync('./docs', '/docs/'),
@@ -45,7 +43,7 @@ docker_build('docs-site', '.', dockerfile='deploy/docs.dockerfile',
              ])
 
 docker_build('blog-site', '.', dockerfile='deploy/blog.dockerfile',
-             ignore=['./api', './docs'] + api_ignores,
+             only=['./src', './healthcheck.sh', './blog'],
              live_update=[
                sync('./src', '/src/'),
                sync('./blog', '/blog/'),
