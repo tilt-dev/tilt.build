@@ -22,7 +22,7 @@ sidebar:
   - title: Why Use Tilt?
     items:
     - title: Overview
-      href: index.html
+      href: ""
     - title: The Control Loop
       href: controlloop.html
     - title: Choosing a Local Dev Cluster

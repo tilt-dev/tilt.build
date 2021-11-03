@@ -257,6 +257,7 @@ $sidebar-maximum-width: 400px;
   padding-right: $docs-side-margin;
 
   &.is-active {
+    color: $color-red;
     font-weight: $tilt2-font-weight-sans-bold;
   }
 }
