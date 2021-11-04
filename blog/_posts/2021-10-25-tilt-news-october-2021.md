@@ -1,5 +1,5 @@
 ---
-slug: "tilt-news-august-2021"
+slug: "tilt-news-october-2021"
 date: 2021-10-25
 author: lian
 layout: blog
