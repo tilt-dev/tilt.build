@@ -195,6 +195,11 @@ $sidebar-maximum-width: 400px;
   // Override js-accordion styles 
   display: block !important;
   padding: 0 !important;
+
+  svg {
+    // The caret shouldn't "steal" the click that triggers expand/collapse:
+    pointer-events: none;
+  }
 }
 
 .Docs-subnav-title {

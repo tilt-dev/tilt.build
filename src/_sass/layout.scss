@@ -279,6 +279,10 @@ button.svgButton, button.brandButton {
   width: 40px;
   height: 80px;
 }
+.brandBox ul {
+  margin-left: $spacing-unit;
+}
+
 .brandBox--cta {
   padding: 0;
 }
