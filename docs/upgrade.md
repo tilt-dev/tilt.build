@@ -2,6 +2,7 @@
 title: Upgrade
 description: "Based on how you previously installed Tilt, upgrade to the latest version with one of these commands."
 layout: docs
+sidebar: gettingstarted
 ---
 
 You can find a list of Tilt releases on [Tilt's GitHub Releases page](https://github.com/tilt-dev/tilt/releases). 

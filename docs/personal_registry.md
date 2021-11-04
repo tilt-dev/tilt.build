@@ -2,6 +2,7 @@
 title: Setting a Personal Registry with a shared Tiltfile
 description: "Tilt's 'default_registry' function lets you change the image repository so you don't have to ask permission to get started."
 layout: docs
+sidebar: guides
 ---
 
 You should be able to start an app on Kubernetes from just the source code. One stumbling block is when YAML and scripts hard-code the image repository (the `gcr.io/windmill` in `gcr.io/windmill/user-service`). Tilt's `default_registry` function lets you change the image repository so you don't have to ask permission to get started. This guide walks you through two cases:

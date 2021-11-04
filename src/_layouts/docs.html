@@ -1,74 +1,83 @@
 ---
-layout: default
+layout: docs-header
 ---
 {% assign page_href = page.url | slice: 1, page.url.size %}
-<div class="wrapper wrapper--docs u-marginBottom1_5">
-  <nav class="subnav" aria-label="Most Popular">
-    <form class="js-only" action="/search" method="GET">
-      <div class="formItem">
-        <input type="text" name="q" id="q" placeholder="Search" aria-label="Search Documentation" />
-      </div>
-    </form>
-    <ul class="subnav-links">
-      {% for link in site.data.docs.subnav %}
-      <li><a class="sidebar-link {% if page_href == link.href %}sidebar-link-active{% endif %}" href="/{{link.href | escape}}">{{link.title | escape}}</a>
-      {% endfor %}
-    </ul>
-  </nav>
-
-  <nav class="sidebar" aria-label="Primary">
-    <button class="sidebar-opener u-showOnlyOnDocsMobile"
-         onclick="document.querySelector('.sidebar').classList.toggle('is-open')">
-      Contents
-
-      {% svg assets/svg/carrot-down.svg %}
-    </button>
-
-    <div class="sidebar-contents js-accordion" data-accordion-prefix-classes="nav">
-    {% for section in site.data.docs.sidebar %}
-      {% if section.include == 'examples' %}
-        {% assign pages = site.data.examples %}
-      {% else %}
-        {% assign pages = section.items %}
-      {% endif %}
-
-      {% if section.default and page_href == '' %}
-        {% assign active_section = true %}
-      {% else %}
-        {% assign active_section = pages | find: "href", page_href %}
-      {% endif %}
-
-      {% if active_section %}
-        {% assign current_section = section %}
-        {% assign current_section_pages = pages %}
-      {% endif %}
-
-      <h3 class="sidebar-sectionTitle js-accordion__header" {% if active_section %}data-accordion-opened="true"{% endif %}>
-        {{ section.title | escape }}
-      </h3>
-
-      <ul class="sidebar-sectionList js-accordion__panel">
-        {% for page in pages %}
-          <li><a class="sidebar-link {% if page_href == page.href %}sidebar-link-active{% endif %}" href="/{{page.href | escape}}">{{page.title | escape}}</a>
+<div class="Docs-wrapper">
+  <header class="Docs-header">
+    <nav class="Docs-nav">
+      <ul class="Docs-nav-list">
+        {% for link in site.data.docs.top %}
+          <li class="Docs-nav-list-item">
+            <a class="Docs-nav-link Docs-nav-link--desktop{% if page.sidebar == link.active %} is-active{% endif %}" href="{{link.href | escape}}">
+              {{link.title | escape}} 
+            </a>
+            <!-- On mobile, top-level nav goes to a separate page with subnav links -->
+            <a class="Docs-nav-link Docs-nav-link--mobile{% if page.sidebar == link.active %} is-active{% endif %}" href="{{link.hrefMobile | escape}}">
+              {{link.title | escape}}
+            </a>
+            {% if link.flair %}
+              <div class="Docs-nav-link-flair">{{link.flair | escape}}</div>
+            {% endif %}
+          </li>
         {% endfor %}
       </ul>
+    </nav>
+    <form class="Docs-search js-only" action="/search" method="GET">
+      <input class="Docs-search-input" type="search" name="q" id="q" placeholder="Search Docs…" />
+    </form>
+  </header>
 
-    {% endfor %}
-    </div>  
+  <div class="Docs-body">
+    <aside class="Docs-sidebar  Docs-sidebar--defaultLayout">
+      <nav class="Docs-subnav">
+        <dl class="js-accordion Docs-subnav-list" data-accordion-prefix-classes="Docs-subnav">
+        {% for section in site.data.docs.sidebar[page.sidebar] %}
+          {% assign pages = section.items %}
 
-  </nav>
-  <article class="docsContent">
-    <div class="docsHeader">
+          {% if section.default and page_href == '' %}
+            {% assign active_section = true %}
+          {% else %}
+            {% assign active_section = pages | find: "href", page_href %}
+          {% endif %}
+
+          {% if active_section %}
+            {% assign current_section = section %}
+            {% assign current_section_pages = pages %}
+          {% endif %}
+
+          {% assign pages = section.items %}
+            <dt class="js-accordion__header Docs-subnav-title" data-accordion-opened="true">
+                {{ section.title | escape }}
+                {% svg assets/svg/carrot-down.svg %}
+            </dt>
+            <dd class="js-accordion__panel Docs-subnav-section">
+              <ul class="Docs-subnav-section-list">
+                {% for page in pages %}
+                  <li class="Docs-subnav-section-list-item">
+                    <a class="Docs-subnav-link{% if page_href == page.href %} is-active{% endif %}" href="/{{page.href | escape}}">
+                      {{page.title | escape}}
+                    </a>
+                  </li>
+                {% endfor %}
+              </ul>
+              </dd>
+          {% endfor %}
+          </dl>  
+      </nav>
+    </aside>
+  
+    <article class="Docs-content">
+      <div class="Docs-content-title">
         <h1>{{ page.title | escape }}</h1>
         {% if page.subtitle %}
-            <div role="doc-subtitle">{{ page.subtitle | escape }}</div>
+        <h2>{{ page.subtitle | escape }}</h2>
         {% endif %}
-    </div>
-    
-    {{ content }}
+      </div>
 
-    {% if current_section.inSectionNav %}
-      <div class="section-nav" role="navigation" aria-label="Section navigation">
+      {{ content }}
+
+      {% if current_section.inSectionNav %}
+      <div class="Docs-section-nav" role="navigation" aria-label="Section navigation">
         {% for page in current_section_pages %}
           {% unless page_href == page.href %}
             {% continue %}
@@ -77,9 +86,9 @@ layout: default
             {% assign prevIndex = forloop.index0 | minus: 1 %}
             {% assign prevPage = current_section_pages[prevIndex] %}
             <a href="/{{ prevPage.href | escape }}"
-               class="section-nav-prev"
+               class="Docs-section-nav-link"
                aria-label="Previous Section: {{ prevPage.title | escape }}">
-              <span aria-hidden="true">←</span>
+              <span class="Docs-section-nav-arrow" aria-hidden="true">←</span>
               {{ prevPage.title | escape }}
             </a>
           {% endunless %}
@@ -87,38 +96,42 @@ layout: default
             {% assign nextIndex = forloop.index0 | plus: 1 %}
             {% assign nextPage = current_section_pages[nextIndex] %}
             <a href="/{{ nextPage.href | escape }}"
-               class="section-nav-next"
+               class="Docs-section-nav-link"
                aria-label="Next Section: {{ nextPage.title | escape }}">
               {{ nextPage.title | escape }}
-              <span aria-hidden="true">→</span>
+              <span class="Docs-section-nav-arrow" aria-hidden="true">→</span>
             </a>
           {% endunless %}
         {% endfor %}
       </div>
-    {% endif %}
+      {% endif %}
+    
+      <div class="Docs-footer">
+        <div class="Docs-footer-links">
+          <a id="scrollToTop" href="#">
+            <span role="presentation">↑</span>
+            Back to top
+          </a>
+  
+          {% if page.hideEditButton != true %}
+          <a class="Docs-editOnGitHub u-hideOnMobile" href="https://github.com/tilt-dev/tilt.build/tree/master/docs/{{page.name}}">
+            {% svg assets/svg/github.svg width=16 height=16 role="presentation" %}
+            <span class="Docs-editOnGitHub-text">
+              Edit on GitHub
+            </span>
+          </a>
+        </div>
+        {% endif %}
 
-    <div class="docsFooter">
-    {% if page.hideHelpfulForm != true %}
-        {% include helpful_form.html %}
-    {% endif %}
-    <a id="scrollToTop" href="#">
-      <span role="presentation">↑</span>
-      Back to top
-    </a>
-    {% if page.hideEditButton != true %}
-      <a class="editOnGitHub u-hideOnMobile"
-         href="https://github.com/tilt-dev/tilt.build/tree/master/docs/{{page.name}}">
-        {% svg assets/svg/github.svg width=16 height=16 role="presentation" %}
-        <span class="editOnGitHub-text">
-          Edit on GitHub
-        </span>
-      </a>
-    {% endif %}
-    </div>
-  </article>
+        {% if page.hideHelpfulForm != true %}
+          {% include helpful_form.html %}
+        {% endif %}
+      </div>
+    </article>
+  </div>
+
   <script src="/assets/js/links.js" async></script>
-  <script src="{{ "/assets/js/van11y-accessible-accordion-aria.min.js" | relative_url }}"></script>
-
+  <script src="{{ '/assets/js/van11y-accessible-accordion-aria.min.js' | relative_url }}" defer></script>
   <script src="{{ '/assets/js/clipboard.min.js' | relative_url }}" defer></script>
   <script src="{{ '/assets/js/copy-code.js' | relative_url }}" defer></script>
 </div>

@@ -1,0 +1,403 @@
+$blog-header-col-width: 320px;
+$blog-description-col-width: 496px;
+
+$hero-post-image-width: 496px;
+$hero-post-image-height: 273px;
+$hero-post-text-width: 320px;
+$hero-post-text-height: $hero-post-image-height;
+
+$post-preview-image-width: 320px;
+$post-preview-image-height: 184px;
+$post-preview-text-width: 496px;
+$post-preview-text-height: $post-preview-image-height;
+
+$related-post-image-width: 134px;
+$related-post-image-height: 134px;
+$related-post-text-width: 325px;
+$related-post-text-height: $related-post-image-height + $spacing-unit;
+
+
+// Layout
+// --------------------------------------------------
+
+.wrapper--blog {
+  max-width: $blog-width;
+
+  @include docs-mobile {
+  }
+}
+
+.BlogList-header {
+  font-family: $tilt2-font-mono;
+  margin-bottom: $spacing-unit * 1.5;
+
+  @include above-docs-mobile {
+      display: flex;
+  }
+}
+
+.BlogList-header-title {
+  font-family: inherit;
+  font-weight: $tilt2-font-weight-mono-light;
+  color: $color-blue;
+}
+
+.blogContent {
+  display: block;
+  width: 100%;
+  margin-bottom: 2.5 * $spacing-unit;
+
+  @include docs-mobile {
+    max-width: 100%;
+  }
+}
+
+
+.blogBody > h1,
+.blogBody > h2,
+.blogBody > h3,
+.blogBody > blockquote,
+.blogBody > hr,
+.blogBody > p,
+.blogBody > ol,
+.blogBody > ul,
+.blogBody > div.block {
+  max-width: $content-width;
+}
+
+
+
+// Typography
+// --------------------------------------------------
+
+.blogBody > h1,
+.blogBody > h2,
+.blogBody > h3,
+.blogBody > h4 {
+ font-family: $header-font-family;
+}
+
+.blogBody > h1 {
+  font-size: 40px;
+  line-height: 1.4;
+  color: $color-red;
+
+  @include docs-mobile {
+    font-size: 30px;
+    line-height: 1.3;
+  }
+}
+
+// Subhead under article title:
+.blogBody > h1 + h2 {
+  color: $tilt2-color-gray;
+  font-weight: 300;
+  margin-top: $spacing-unit * 0.5;
+  margin-bottom: $spacing-unit;
+}
+
+.blogBody > h2 {
+  margin-top: $spacing-unit * 1.75;
+  color: $color-blue;
+}
+
+.blogBody > h3 {
+  margin-top: $spacing-unit * 1.5;
+}
+
+
+// Links
+.wrapper--blog {
+  a {
+    color: $color-red;
+  }
+
+  a:hover {
+    color: white;
+    background-color: $color-red;
+  }
+
+  .postPreview-imageLink:hover {
+    background-color: transparent;
+  }
+}
+
+
+// Article Header
+// --------------------------------------------------
+
+.blogFeatureImage {
+  margin-bottom: $spacing-unit * 1.5;
+}
+
+.blogFeatureImage > img,
+.blogFeatureImage > iframe {
+  width: 100%;
+  max-height: 500px; /* 50% of max-width */
+  object-fit: cover;
+  display: block;
+
+  @include docs-mobile {
+    /* Using vw units here ensures the height is capped to a percentage of width */
+    max-height: 50vw;
+  }
+}
+
+.blogCredit {
+  float: right;
+  width: $blog-credit-width;
+  font-size: 14px;
+  line-height: 18px;
+  letter-spacing: 0.02em;
+}
+.blogCredit--mobile {
+  float: none;
+  width: 100%;
+}
+.blogCredit-img {
+  width: 40px;
+  height: 32px;
+  float: left;
+  margin-right: $spacing-unit / 4;
+  object-fit: cover;
+}
+.blogCredit-date {
+  color: $color-blue;
+}
+.blogCredit-author {
+  color: $color-red;
+}
+
+
+
+// Article Elements
+// --------------------------------------------------
+
+figcaption,
+.blogBody > p > img + em {
+  display: block;
+}
+figcaption,
+.blogBody > p > img + em,
+.blogBody > p > img + em > code {
+  font-size: $small-font-size;
+}
+
+iframe, .blogContent img {
+  @include docs-mobile {
+    max-width: 100%;
+  }
+}
+
+// Bulleted or numbered lists in text (vs as layout)
+.blogBody > ul,
+.blogBody > ol {
+  margin-top: $spacing-unit * 0.5;
+  margin-bottom: $spacing-unit * 0.5;
+
+  li {
+    margin-left: $spacing-unit * 1.5;
+  }
+
+  li + li {
+    margin-top: $spacing-unit * .25;
+  }
+}
+
+.blogBody table {
+  border-radius: 10px;
+  margin-bottom: $spacing-unit;
+  background-color: $color-grey-lightest;
+  border-spacing: 0;
+}
+.blogBody th {
+  background-color: $color-grey-light;
+  padding: $spacing-unit / 4;
+}
+.blogBody th:first-child {
+  border-radius: 10px 0 0 0;
+}
+.blogBody th:last-child {
+  border-radius: 0 10px 0 0;
+}
+.blogBody td {
+  font-size: 18px;
+  text-align: center;
+  padding: $spacing-unit / 4;
+}
+.blogBody td:first-child {
+  text-align: right; 
+}
+
+
+
+
+// Post Preview
+// --------------------------------------------------
+
+.blogContent .postPreview-title {
+  display: block;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 29px;
+  margin-bottom: $spacing-unit / 4;
+}
+
+.postPreview {
+  margin-bottom: 1.5 * $spacing-unit;
+}
+.postPreview-text {
+  display: block;
+  width: $post-preview-text-width;
+  height: $post-preview-text-height;
+
+  @include docs-mobile {
+    width: 100%;
+    height: auto;
+  }
+}
+.postPreview-imageLink {
+  margin-bottom: $spacing-unit * 0.5;
+}
+.postPreview--related .postPreview-imageLink {
+  margin-bottom: 0;
+}
+.postPreview-description {
+  display: block;
+  margin-bottom: $spacing-unit / 4;
+  height: $body-line-height * 3;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.postPreview--hero .postPreview-description {
+  height: $body-line-height * 6;
+}
+.postPreview-image {
+  display: block;
+  width: $post-preview-image-width;
+  height: $post-preview-image-height;
+  margin-right: $spacing-unit;
+  object-fit: cover;
+
+  @include docs-mobile {
+    width: 100%;
+  }
+}
+.postPreview--containImage .postPreview-image {
+  object-fit: contain;
+}
+.postPreview--hero .postPreview-text {
+  width: $hero-post-text-width;
+  height: $hero-post-text-height;
+
+  @include docs-mobile {
+    width: 100%;
+    height: auto;
+  }
+}
+.postPreview--hero .postPreview-image {
+  width: $hero-post-image-width;
+  height: $hero-post-image-height;
+
+  @include docs-mobile {
+    width: 100%;
+  }
+}
+.row.postPreview--related {
+  flex-wrap: nowrap;
+
+  @include docs-mobile {
+    margin-bottom: $spacing-unit;
+  }
+}
+.postPreview--related .postPreview-text {
+  font-size: 14px;
+  line-height: 18px;
+  width: $related-post-text-width;
+  height: $related-post-text-height;
+  flex-shrink: 1;
+
+  @include docs-mobile {
+    width: auto;
+    height: auto;
+    align-self: center;
+  }
+}
+.postPreview--related .postPreview-description {
+  height: 18px * 5;
+
+  @include docs-mobile {
+    display: none;
+  }
+}
+.postPreview--related .postPreview-title {
+  font-family: $body-font-family;
+  font-size: 18px;
+  line-height: 22px;
+  font-weight: 700;
+  margin-bottom: $spacing-unit / 4;
+
+  @include docs-mobile {
+    font-size: 24px;
+    line-height: 29px;
+  }
+}
+.postPreview--related .postPreview-imageLink {
+  margin-right: $spacing-unit / 2;
+  flex-shrink: 0;
+}
+.postPreview--related .postPreview-image {
+  width: $related-post-image-width;
+  height: $related-post-image-height;
+  margin-right: $spacing-unit / 2;
+}
+.postPreview-credit {
+  display: block;
+  font-size: 14px;
+  line-height: 18px;
+  letter-spacing: 0.02em;
+}
+.postPreview--related .postPreview-credit {
+  @include docs-mobile {
+    display: none;
+  }
+}
+.postPreview-creditImg {
+  width: 20px;
+  height: 16px;
+  float: left;
+  margin-right: $spacing-unit / 8;
+  object-fit: cover;
+}
+
+// Blog Meta Info
+// --------------------------------------------------
+.circleLinkIcon,
+.circleLinkIcon svg {
+  width: 24px;
+  height: 24px;
+  display: inline-block;
+
+  &:hover {
+    background-color: transparent !important;
+  }
+}
+
+.circleLinkIcon + .circleLinkIcon {
+  margin-left: $spacing-unit / 2;
+}
+.blogCredit .circleLinkIcon + .circleLinkIcon {
+  margin-left: $spacing-unit / 4;
+}
+.circleLinkIcon .fillStd {
+  transition: fill 0.2s;
+  fill: $color-grey;
+}
+
+.circleLinkIcon:hover {
+  background-color: transparent;
+}
+
+.circleLinkIcon:hover .fillStd {
+  fill: $color-red;
+}

@@ -1,7 +1,8 @@
 ---
 title: Hello Tilt
 description: "Tilt gives you a powerful microservice dev environment that seamlessly bridges the gap between local and Kubernetes."
-layout: landing
+layout: docs
+sidebar: guides
 ---
 
 {% svg assets/svg/hello.svg class="landingLogoHello" %}

@@ -1,6 +1,7 @@
 ---
 tilt: Structuring Multiple Repos
 layout: docs
+sidebar: guides
 ---
 
 # Structuring Multiple Repos

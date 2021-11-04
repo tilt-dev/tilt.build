@@ -2,6 +2,7 @@
 title: Tilt's Control Loop
 description: "How does Tilt's control loop work internally?"
 layout: docs
+sidebar: gettingstarted
 ---
 When someone first encounters Tilt, usually their mental model’s something like this:
 

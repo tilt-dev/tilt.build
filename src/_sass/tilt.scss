@@ -1,95 +1,170 @@
 @charset "utf-8";
 
-// Define defaults for each variable.
+// (Han) Vars prefixed with $tilt2- were created in mid-2020
+// for the Landing Page refresh designed by Sascha Mombartz.
+// These coexist with legacy styles (mostly in tilt-legacy.scss),
+// since the Blog and Docs were not part of that redesign.
 
-$body-font-family: upgrade, sans-serif;
-$body-font-size:   20px;
-$body-font-weight: 300;
-$body-line-height: 26px;
 
-$header-font-family: attribute-text, sans-serif;
-
-$mono-font-family: attribute-mono, monospace;
-$mono-font-size: 16px;
-$mono-font-weight: 400;
-$mono-line-height: $body-line-height;
-
-$small-font-size:  13px;
-$small-line-height: 18px;
-
-$chrome-font-size: 12px;
-$chrome-font-family: $header-font-family;
-$chrome-line-height: 18px;
-$chrome-font-weight: 400;
-
+// LAYOUT
+// --------------------------------------------------
 $spacing-unit:     32px;
-$content-width:    $spacing-unit * 23;
-$header-width:     $content-width + 8.5 * $spacing-unit;
-$sidebar-width:    $spacing-unit * 7.5;
-$blog-body-width:  $spacing-unit * 21;
-// $blog-width:       $spacing-unit * 32;
-$blog-width:       $header-width;
-$blog-credit-width: $blog-width - $blog-body-width - $spacing-unit;
-$docs-width:       $content-width + 0.5 * $spacing-unit;
-$brand-button-height: 1.25 * $spacing-unit;
-$blog-header-col-width: 320px;
-$blog-description-col-width: 496px;
-$hero-post-image-width: 496px;
-$hero-post-image-height: 273px;
-$hero-post-text-width: 320px;
-$hero-post-text-height: $hero-post-image-height;
-$post-preview-image-width: 320px;
-$post-preview-image-height: 184px;
-$post-preview-text-width: 496px;
-$post-preview-text-height: $post-preview-image-height;
-$blog-cta-text-width: 466px;
-$related-post-image-width: 134px;
-$related-post-image-height: 134px;
-$related-post-text-width: 325px;
-$related-post-text-height: $related-post-image-height + $spacing-unit;
 
-$col-1of3-width: $spacing-unit * 7;
-$col-2of3-width: $spacing-unit * 15;
-$col-1of4-width: $spacing-unit * 5;
-$col-3of4-width: $spacing-unit * 17;
-$col-1of2-width: $spacing-unit * 11;
-$col-space-width: $spacing-unit;
+// Somewhat arbitrary values generally used for max-width on Desktop
+$content-width:    800px; // best for readability
+$header-width:     1080px; // use more screen real estate, but child elements still "hang together"
+$sidebar-width:    240px;
+$blog-width:       $header-width; // All blog elements below the shared site header
+$blog-credit-width: $blog-width - $content-width - $spacing-unit; // The little author blurb on each article
+
+$tilt2-page-width: $header-width;
+$tilt2-header-width: $tilt2-page-width;
+$tilt2-footer-width: $tilt2-page-width;
+
+
+// Z-INDEX
+$z-docs-sidebar: 2000;
+$z-modal: 1500;
+$z-modal-background: 1000;
+$z-siteHeader--mobile: 500;
+$z-siteHeader-nav--mobile: 100;
+
+
+
+// COLOR
+// --------------------------------------------------
+$tilt2-color-gray-lightest: #EEF1F1;
+$tilt2-color-gray-lighter: #CCDADE;
+$tilt2-color-gray: #586E75;
+$tilt2-color-gray-dark: #073642;
+
+$tilt2-color-text: $tilt2-color-gray-dark;
+
 
 $color-green: #20BA31;
+$color-green-light: #70D37B;
 $color-green-lightest: #70D37B;
+
 $color-blue: #03C7D3;
-$color-purple: #6752E5;
-$color-red: #F6685C;
-$color-pink: #EF5AA0;
-$color-yellow: #FCB41E;
-$color-red-light: #F99E97;
 $color-blue-light: #5EDBE3;
 $color-blue-lightest: #98E8ED;
 $color-skyBlue: #227CE4;
-$color-green-light: #70D37B;
+
+$color-red: #F6685C;
+$color-pink: #EF5AA0;
+$color-purple: #6752E5;
+$color-yellow: #FCB41E;
+
 $opacity-light: 0.64;
 
 $color-white: #ffffff;
 $color-off-white: #FAFBFC;
 
-$color-grey: #9a9a9a;
-$color-grey-light: #cacaca;
-$color-grey-lightest: #f1f1f1;
-$color-grey-dark: #606060;
-$color-grey-darkest: #434343;
-
-$text-color:       $color-grey-dark;
-$background-color: #ffffff;
-
 $brand-color: $color-green;
 
-// Opacity
-$alpha-transparent: 0.15;
 
-$table-text-align: left;
+// TYPOGRAPHY
+// --------------------------------------------------
+$tilt2-font-mono: 'Fira Code', monospace;
+$tilt2-font-sans: noto-sans, sans-serif;
+$tilt2-font-serif: merriweather, serif;
 
+$tilt2-font-weight-mono-light: 300;
+$tilt2-font-weight-mono-bold: 600;
+
+$tilt2-font-weight-sans-light: 300;
+$tilt2-font-weight-sans-bold: 700;
+$tilt2-font-weight-sans-black: 900;
+
+$tilt2-font-size-hero: 48px;
+$tilt2-font-size-hero-small: 32px;
+$tilt2-font-size-hero-smallest: 28px;
+$tilt2-line-height-hero: 1.35;
+
+$tilt2-font-size-heading: 28px;
+$tilt2-font-size-heading-small: 24px;
+
+$tilt2-font-size-body-small: 16px;
+$tilt2-font-size-body: 18px;
+$tilt2-font-size-body-large: 28px;
+$tilt2-line-height-body: 1.55;
+$tilt2-line-height-body-large: 1.45;
+
+// (TODO) Merge legacy styles 
+$body-font-family: $tilt2-font-sans;
+$body-font-size:   $tilt2-font-size-body;
+$body-font-weight: $tilt2-font-weight-sans-light;
+$body-line-height: $tilt2-line-height-body;
+
+
+$tilt2-font-size-mono: 16px;
+$tilt2-line-height-mono: 1.5;
+
+$tilt2-font-size-body-serif: 22px;
+$tilt2-line-height-body-serif: 1.6;
+
+@mixin font-hero {
+  font-family: $tilt2-font-sans;
+  font-weight: $tilt2-font-weight-sans-black;
+  line-height: $tilt2-line-height-hero;
+  font-size: $tilt2-font-size-hero-small;
+  color: $tilt2-color-text;
+  
+  @include mobileAndAbove {
+    font-size: $tilt2-font-size-hero;
+  }
+}
+
+@mixin font-hero-subhead {
+  font-family: $tilt2-font-sans;
+  font-weight: $tilt2-font-weight-sans-light;
+  line-height: $tilt2-line-height-body-large;
+
+  @include mobileAndAbove {
+    font-size: $tilt2-font-size-body-large;
+  }
+}
+
+@mixin font-heading {
+  font-family: $tilt2-font-sans;
+  font-weight: $tilt2-font-weight-sans-bold;
+  font-size: $tilt2-font-size-heading;
+  color: $tilt2-color-gray;
+  margin-bottom: $spacing-unit;
+}
+@mixin font-heading-small {
+  font-family: $tilt2-font-sans;
+  font-weight: $tilt2-font-weight-sans-bold;
+  font-size: $tilt2-font-size-heading-small;
+  color: $tilt2-color-gray;
+  margin-bottom: $spacing-unit / 4;
+}
+
+@mixin font-body {
+  font-family: $tilt2-font-sans;
+  font-size: $tilt2-font-size-body;
+  font-weight: $tilt2-font-weight-sans-light;
+  line-height: $tilt2-line-height-body;
+}
+@mixin font-body-small {
+  font-family: $tilt2-font-sans;
+  font-size: $tilt2-font-size-body-small;
+  font-weight: $tilt2-font-weight-sans-light;
+  line-height: $tilt2-line-height-body;
+}
+
+@mixin font-mono {
+  font-family: $tilt2-font-mono;
+  font-size: $tilt2-font-size-mono;
+  line-height: $tilt2-line-height-mono;
+}
+
+
+// MEDIA QUERIES
+// --------------------------------------------------
 $on-mobile:         $content-width + $spacing-unit;
-$on-docs-mobile:    $header-width + $spacing-unit;
+// Smallest width where sidebar and content can exist readably side-by-side:
+$on-docs-mobile:    950px;
 
 @mixin media-query($device) {
   @media screen and (max-width: $device) {
@@ -108,52 +183,108 @@ $on-docs-mobile:    $header-width + $spacing-unit;
     @content;
   }
 }
-
-@mixin docs-mobile {
-  @include media-query($on-docs-mobile) {
+// Same as "mobile," but a bit more explicit…
+@mixin mobileAndBelow {
+  @include media-query($on-mobile) {
     @content;
   }
 }
-
+// …in relation to its companion
 @mixin mobileAndAbove {
   @include media-query-above($on-mobile) {
     @content;
   }
 }
 
-@mixin mobileAndBelow {
-  @include media-query($on-mobile) {
+
+// Docs site has a different breakpoint due to its sidebar nav
+@mixin docs-mobile {
+  @include media-query($on-docs-mobile) {
     @content;
   }
 }
 
-@mixin relative-font-size($ratio) {
-  font-size: $body-font-size * $ratio;
+@mixin above-docs-mobile {
+  @include media-query-above($on-docs-mobile) {
+    @content;
+  }
 }
 
+
+
+
+// "EFFECTS"
 // --------------------------------------------------
 
-$z-modal: 1500;
-$z-modal-background: 1000;
-$z-siteHeader--mobile: 500;
-$z-siteHeader-nav--mobile: 100;
+// Buttons
+$tilt2-button-font-size--large: 26px;
+$tilt2-button-height--large: 50px;
 
-// Animation
-$anim-duration-short: 0.15s;
-$anim-duration: 0.3s;
+$tilt2-button-font-size: 16px;
+$tilt2-button-height: 30px;
 
+$tilt2-button-font-size--small: 14px;
+$tilt2-button-height--small: 26px;
+
+
+$tilt2-input-height--large: $tilt2-button-height--large;
+
+
+// Border Radius
+$tilt2-border-radius: 2px;
+$tilt2-border-radius-large: 4px;
+
+
+// Shadow
+@mixin shadow {
+  box-shadow: 0px 0px ($spacing-unit / 2) 0px rgba(0, 0, 0, $alpha-transparent);
+}
+@mixin shadow-small {
+  box-shadow: 0px 0px ($spacing-unit / 8) 0px rgba(0, 0, 0, $alpha-transparent);
+}
+
+
+// RESETS
+// --------------------------------------------------
+@mixin reset-button-style {
+  font-family: inherit;
+  font-size: inherit;
+  background-color: transparent;
+  border: 0 none;
+  text-align: left;
+  padding: 0;
+  margin: 0;
+}
+
+@mixin reset-list-style {
+  list-style: none;
+  margin: 0;
+}
+
+
+// IMPORT EVERYTHING
+// --------------------------------------------------
 
 @import
-  "tilt2",
+  // Shared variables
+  "tilt-legacy",
   "base",
-  "layout",
-  "api",
-  "search",
+  "utility",
   "fx",
   "syntax",
-  "enterprise",
-  "home",
+  // Shared page elements
+  "layout",
   "header",
   "footer",
-  "docs"
+  "search",
+  // Layouts + Pages
+  "api",
+  "about",
+  "enterprise",
+  "home",
+  "blog",
+  "docs",
+  // Includes
+  "example-guide-image",
+  "cta-subscribe-blog"
 ;

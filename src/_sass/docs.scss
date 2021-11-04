@@ -1,37 +1,509 @@
-.Docs-video {
-  position: relative;
-  padding-bottom: 56.25%; /* 16:9 */
-  height: 0;
-  margin-bottom: $spacing-unit * 2;
-  @include shadow;
-}
+$docs-side-margin: $spacing-unit;
+// Biggest width for content where text is comfortably readable:
+$docs-content-width:       960px;
+// Bounds for sidebar content text to be readable:
+$sidebar-minimum-width: 280px;
+$sidebar-maximum-width: 400px;
 
-.Docs-video iframe {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+
+.siteHeader-menuText {
+  font-family: $tilt2-font-mono;
+  font-size: 28px;
+  display: inline-block;
 }
 
 .body--docs {
   .page-content {
-    // default layout includes excessive top padding
-    padding-top: 0;
+    padding-top: 0; // Undo the generous spacing from default template.
   }
 }
 
-.section-nav {
-  margin: 2rem 1rem;
+.Docs-wrapper {
+  display: flex;
+  flex-direction: column;
+  margin-top: $spacing-unit;
+  margin-bottom: $spacing-unit * 2;
+}
+
+.Docs-body {
+  display: grid;
+  grid-template-columns: minmax($sidebar-minimum-width, 25%) 1fr;
+  column-gap: $spacing-unit;
+  // Make the boundary between the sidebar and footer look better:
+  border-bottom: 1px solid $tilt2-color-gray-lightest;
+
+  @include docs-mobile {
+    display: flex;    
+    flex-direction: column;
+  }
+}
+
+.Docs-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid $tilt2-color-gray-lightest;
+}
+
+.Docs-search {  
+  display: flex;
+  align-items: center;
+
+  @include docs-mobile {
+    width: 100%;
+    margin-bottom: $spacing-unit;
+  }
+  
+  @include above-docs-mobile {
+    margin-right: $docs-side-margin;
+  }
+}
+.Docs-search-input {
+  font-size: 16px;
+  padding: $spacing-unit * 0.25;
+  color: $tilt2-color-gray;
+  border: 2px solid $tilt2-color-gray-lighter;
+  border-radius: $tilt2-border-radius-large;
+  width: 100%;
+}
+
+.Docs-content {
+  padding-top: $spacing-unit;
+  margin-right: $docs-side-margin;
+  flex-grow: 1;
+  color: $tilt2-color-text;
+  max-width: $docs-content-width;
+  // needed to prevent child <pre> elements from expanding forever
+  // and causing wrapping problems
+  min-width: 0;
+
+  @include docs-mobile {
+    max-width: 100%;
+    // Parent body--docs has no padding on mobile (so menu can be full-width)
+    padding-left: $spacing-unit;
+    padding-right: $spacing-unit;
+  }
+}
+
+// Top-Level Nav - browse docs categories
+// --------------------------------------------------
+.Docs-nav {
+  font-family: $tilt2-font-mono;
+  font-size: 20px;
+  padding-left: $docs-side-margin;
+  padding-right: $docs-side-margin;
+
+  @include docs-mobile {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: $color-white;
+    z-index: $z-docs-sidebar;
+  }
+}
+
+.Docs-nav-list {
+  display: flex;
+  list-style: none;
+}
+
+.Docs-nav-list-item {
+  // To align the "flair":
+  display: flex;
+  align-items: center;
+
+  & + & {
+    margin-left: $spacing-unit;
+  }
+}
+
+.Docs-nav-link {
+  color: $tilt2-color-text;
+  padding-top: $spacing-unit * 0.75;
+  padding-bottom: $spacing-unit * 0.75;
+  text-underline-offset: 6px;
+  display: none;
+
+  &:hover {
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-decoration-color: $tilt2-color-gray-lighter;
+  }
+  
+  &.is-active {
+    text-decoration: underline;
+    text-decoration-thickness: 3px;
+    text-decoration-color: $color-green;
+  }
+}
+
+.Docs-nav-link--desktop {
+  @include above-docs-mobile {
+    display: block;
+  }
+}
+
+.Docs-nav-link--mobile {
+  @include docs-mobile {
+    display: block;
+  }
+}
+
+.Docs-nav-link-flair {
+  font-size: 12px;
+  background-color: $tilt2-color-gray-lightest;
+  padding-left: $spacing-unit * 0.2;
+  padding-right: $spacing-unit * 0.2;
+  margin-left: $spacing-unit * 0.25;
+  border-radius: $tilt2-border-radius;
+}
+
+
+// Sidebar Nav - browse docs pages
+// --------------------------------------------------
+.Docs-sidebar {
+  background-color: $color-white;
+
+  @include docs-mobile {
+    width: 100%;
+  }
+
+  @include above-docs-mobile {
+    position: sticky;
+    top: 0;
+    align-self: flex-start;
+    max-height: 100vh;
+    overflow-y: auto;
+  }
+}
+
+// Hidden on mobile, since top-level nav links to a separate page with subnav links
+.Docs-sidebar--defaultLayout {
+  @include docs-mobile {
+    display: none;
+  }
+}
+
+
+// Sidebar Nav - JS Accordion
+
+.Docs-subnav-accordion {
+}
+
+.Docs-subnav-accordion__title {
+  // Override js-accordion styles 
+  display: block !important;
+  padding: 0 !important;
+
+  svg {
+    // The caret shouldn't "steal" the click that triggers expand/collapse:
+    pointer-events: none;
+  }
+}
+
+.Docs-subnav-title {
+  background-color: $tilt2-color-gray-lightest;
+}
+
+.Docs-subnav-section {
+  margin: 0; // Override default <dd>
+}
+
+.Docs-subnav-accordion__header {
+  // js-accordion adds a <button>
+  @include reset-button-style;
+  font-weight: $tilt2-font-weight-sans-bold;
+  color: $tilt2-color-gray;
+  cursor: pointer;
+  padding-top: $spacing-unit * 0.4;
+  padding-bottom: $spacing-unit * 0.4;
+  padding-left: $docs-side-margin;
+  padding-right: $docs-side-margin;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.Docs-subnav-accordion__panel {
+  max-height: 1500px; // Arbitrary height that hopefully won't clip any content
+  transition: max-height $anim-duration ease;
+  overflow: hidden;
+}
+.Docs-subnav-accordion__panel[aria-hidden=true] {
+  max-height: 0;
+}
+
+.Docs-subnav-accordion__panel[aria-expanded="true"]::after {
+  content: "-";
+}
+
+.Docs-subnav-accordion__panel[aria-expanded="false"]::after {
+  content: "+";
+}
+
+.Docs-subnav-list {
+  list-style: none;
+  margin: 0; // Override default <dl>
+  margin-bottom: $spacing-unit * 2; // So you can see the bottom of the nav more easily
+
+  li + li {
+    border-top: 1px solid $tilt2-color-gray-lightest;
+  }
+}
+
+.Docs-subnav-link {
+  display: block;
+  color: $tilt2-color-text;
+  padding-top: $spacing-unit * 0.5;
+  padding-bottom: $spacing-unit * 0.5;
+  padding-left: $docs-side-margin;
+  padding-right: $docs-side-margin;
+
+  &.is-active {
+    color: $color-red;
+    font-weight: $tilt2-font-weight-sans-bold;
+  }
+}
+
+
+
+// Typography
+// --------------------------------------------------
+
+.Docs-content-title {
+  h1 {
+    font-weight: $tilt2-font-weight-sans-black;
+    font-size: 38px;
+    line-height: 1.4;
+    color: $color-red;
+  } 
+  h2 {
+    font-weight: $tilt2-font-weight-sans-light;
+    margin-top: $spacing-unit * 0.25;
+    font-size: 20px;
+    color: $tilt2-color-text;
+    margin-bottom: $spacing-unit * 1.5;
+  }
+} 
+
+.Docs-content > h2,
+.Docs-content > h2 a {
+  font-weight: $tilt2-font-weight-sans-bold;
+  font-size: 28px;
+  margin-top: $spacing-unit * 1.75;
+  color: $color-blue;
+  text-decoration: none;
+}
+
+.Docs-content h2 a:hover:before {
+  content: "🔗 ";
+  position: absolute;
+  margin-left: -$spacing-unit;
+  margin-top: 4px; // Visually center
+  font-size: 80%;
+}
+
+.Docs-content > h2 + h3 {
+  margin-top: $spacing-unit * 0.75;
+}
+
+.Docs-content > h3,
+.Docs-content > h3 a {
+  margin-top: $spacing-unit * 1.5;
+  color: $text-color;
+  text-decoration: none;
+}
+
+
+.Docs-content a {
+  color: $color-skyBlue;
+  text-decoration: underline;
+  text-decoration-color: $tilt2-color-gray-lighter;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 3px;
+  transition: text-decoration $anim-duration-short linear;
+
+  &:visited {
+    color: $tilt2-color-text;
+  }
+
+  &:hover {
+    text-decoration-color: $tilt2-color-text;
+  }
+}
+
+.Docs-content p code {
+  border: 1px solid $tilt2-color-gray-lightest;
+  background-color: $color-off-white;
+  border-radius: $tilt2-border-radius-large;
+  padding-left: $spacing-unit * 0.2;
+  padding-right: $spacing-unit * 0.2;
+}
+
+// Cute callouts!
+.Docs-content > blockquote {
+  font-family: $tilt2-font-serif;
+  line-height: $tilt2-line-height-body-serif;
+  margin-top: $spacing-unit * 1.5;
+  margin-bottom: $spacing-unit * 1.5;
+  background-color: #EEFCEF; // Very light variant of green, one-off
+  border-radius: 10px;
+  padding: $spacing-unit;
+
+  // Everything inside is automatically wrapped in <p>
+  p:first-child {
+    margin-top: 0;
+  }
+  p:last-child {
+    margin-bottom: 0;
+  }
+}
+
+
+// Bulleted or numbered lists in text (vs as layout)
+.Docs-content > ul,
+.Docs-content > ol {
+  margin-top: $spacing-unit * 0.5;
+  margin-bottom: $spacing-unit * 0.5;
+
+  li {
+    margin-left: $spacing-unit * 1.5;
+  }
+
+  li + li {
+    margin-top: $spacing-unit * .25;
+  }
+}
+
+
+.Docs-footer {
+  margin-top: $spacing-unit * 3;
+}
+
+.Docs-footer-links {
+  @include reset-list-style;
+  font-family: $tilt2-font-mono;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: $spacing-unit;
+}
+
+.Docs-editOnGitHub {
+}
+
+.editOnGitHub-text {
+  margin-left: $spacing-unit / 4;
+}
+
+
+.Docs-content img {
+  margin-top: $spacing-unit;
+  margin-bottom: $spacing-unit;
+  width: auto;
+  max-width: 100%;
+}
+
+
+// Page Elements
+// --------------------------------------------------
+
+.Docs-section-nav {
+  margin-top: $spacing-unit * 1.5;
+  margin-bottom: $spacing-unit * 1.5;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+}
 
-  .section-nav-prev {
-    margin-right: auto;
+.Docs-section-nav-link {
+  font-weight: bold;
+  color: $color-red !important; 
+
+  &:hover {
+    text-decoration-color: $tilt2-color-text;
+  }
+}
+
+.Docs-video {
+  margin-top: $spacing-unit;
+  margin-bottom: $spacing-unit;
+
+  iframe {
+    width: 100%;
+  }
+}
+
+// Deprecated now that images don't have shadows by default:
+img.no-shadow {
+  box-shadow: none;
+}
+
+.Docs-content figcaption {
+  margin: $spacing-unit / 4 $spacing-unit;
+}
+
+
+.bleedingLink {
+  color: $text-color;
+  text-decoration: none;
+  transition: color 0.2s, background-color 0.2s;
+}
+
+.bleedingLink-text {
+  color: $color-red;
+  transition: color 0.2s, background-color 0.2s;
+}
+
+.bleedingLink:hover,
+.bleedingLink:hover .bleedingLink-text {
+  text-decoration: none;
+  color: white;
+  background-color: $color-red;
+}
+
+
+
+// PAGE-SPECIFIC
+// --------------------------------------------------
+
+table.benchmark-report {
+  margin: $spacing-unit;
+  border-spacing: 0;
+  thead th {
+    border-bottom: 1px solid black;
   }
 
-  .section-nav-next {
-    margin-left: auto;
+  th, td {
+    padding: $spacing-unit / 4;
+    text-align: center;
+    min-width: $spacing-unit * 4;
   }
+
+  // keep footnotes from messing up alignment of text in cells
+  sup, sub {
+    vertical-align: baseline;
+    position: relative;
+    top: -0.4em;
+  }
+  sub {
+    top: 0.4em;
+  }
+}
+
+
+// A link that follows a paragraphy introducing it:
+a.attached-above {
+  font-weight: $tilt2-font-weight-sans-bold;
+  display: inline-block;
+  margin-bottom: $spacing-unit;
+}
+a.attached-above:before {
+  content: "➤ ";
+  color: $tilt2-color-gray-lighter;
+}
+
+// Guide for Application Developers
+.supportingExampleImage {
 }

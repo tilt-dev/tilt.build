@@ -2,6 +2,7 @@
 title: Before you ask your team to tilt up...
 description: "Here's a handy list of questions you might want to consider to ensure the best possible Tilt onboarding experience"
 layout: docs
+sidebar: guides
 ---
 
 Before you ask your teammates to `tilt up`, here's a handy list of questions you

@@ -2,6 +2,7 @@
 title: Code. Update. Repeat.
 subtitle: Tilt Tutorial
 layout: docs
+sidebar: gettingstarted
 ---
 
 We mentioned that Tilt embraces the concept of a [control loop][tutorial-control-loop], so once you've run `tilt up`, it's a "hands free" development experience.

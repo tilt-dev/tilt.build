@@ -1,6 +1,7 @@
 ---
 title: Tilt CLI Reference
 layout: docs
+sidebar: reference
 hideEditButton: true
 ---
 ## tilt docker-prune

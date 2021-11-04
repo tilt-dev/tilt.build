@@ -7,7 +7,7 @@
       return
     }
 
-    const links = document.querySelectorAll('.docsContent h2[id],.docsContent h3[id]');
+    const links = document.querySelectorAll('.Docs-content h2[id],.Docs-content h3[id]');
     links.forEach(el => {
       // wrap the header contents in a link so that the entire thing is clickable
       const link = document.createElement('a');

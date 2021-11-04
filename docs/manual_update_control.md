@@ -2,6 +2,7 @@
 title: Play and Pause Resources with Manual Update Control
 description: "How to configure Tilt to indicate in the UI that files have changed, and give you a button that you can use to kick off the update."
 layout: docs
+sidebar: guides
 ---
 
 By default, Tilt watches your filesystem for edits and, whenever it detects a change affecting Resource X, triggers an update of that resource. All your local code, synced to your cluster as you edit it! What could be better?

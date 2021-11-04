@@ -2,6 +2,7 @@
 title: Live Update Reference
 description: "A technical specification of Tilt's live_update functionality"
 layout: docs
+sidebar: guides
 ---
 
 Live Update optimizes your setup to get updates down from minutes to **seconds**.

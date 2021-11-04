@@ -2,6 +2,7 @@
 title: Run Local and/or Occasional Workflows with Local Resource
 description: "A technical reference on how to use local build steps in your Tiltfile"
 layout: docs
+sidebar: guides
 ---
 Each entry in your Tilt sidebar is a **resource**---a unit of work managed by Tilt.
 

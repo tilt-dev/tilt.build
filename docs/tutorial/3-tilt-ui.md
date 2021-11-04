@@ -2,6 +2,7 @@
 title: Tilt UI
 subtitle: Tilt Tutorial
 layout: docs
+sidebar: gettingstarted
 ---
 ## Launching the Web UI
 In your terminal window running `tilt demo`, press `(Spacebar)`.

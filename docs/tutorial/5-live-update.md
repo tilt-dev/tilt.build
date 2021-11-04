@@ -2,6 +2,7 @@
 title: Smart Rebuilds with Live Update
 subtitle: Tilt Tutorial
 layout: docs
+sidebar: gettingstarted
 ---
 Tilt's deep understanding of your resources means the right things get rebuilt at the right times.
 

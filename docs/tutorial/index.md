@@ -2,6 +2,7 @@
 title: Overview
 subtitle: Tilt Tutorial
 layout: docs
+sidebar: gettingstarted
 permalink: /tutorial/index.html
 redirect_from:
  - /tutorial.html

@@ -2,6 +2,7 @@
 title: Preparation (Optional)
 subtitle: Tilt Tutorial
 layout: docs
+sidebar: gettingstarted
 ---
 
 For this tutorial, we'll focus on Tilt fundamentals by walking through a sample project.

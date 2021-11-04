@@ -2,6 +2,7 @@
 title: Resource Dependencies
 description: "Control the startup order of Tilt resources"
 layout: docs
+sidebar: guides
 ---
 
 Tilt defines your dev environment as a list of resources.

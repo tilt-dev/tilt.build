@@ -1,6 +1,7 @@
 ---
 title: Links to Your Services
 layout: docs
+sidebar: guides
 ---
 
 You have a few services running on Tilt. And they're all green!

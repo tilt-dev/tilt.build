@@ -4,6 +4,7 @@ layout: docs
 description: "Tilt is available for macOS, Linux, and Windows"
 has_calendly: true
 has_calendly_popup: true
+sidebar: gettingstarted
 ---
 
 Tilt is available for [macOS](#macos), [Linux](#linux), and [Windows](#windows).

@@ -1,0 +1,11 @@
+a.is-image {
+  svg {
+    color: inherit;
+    overflow: visible;
+  }
+}
+
+a.is-image:hover {
+  color: inherit;
+  background-color: transparent;
+}

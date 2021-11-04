@@ -2,6 +2,7 @@
 title: Custom Build Scripts
 description: "Docker is the most common way to build container images, but there are others. Tilt supports these other tools with the function 'custom_build' instead of 'docker_build'."
 layout: docs
+sidebar: guides
 ---
 
 `docker build` is the common way to build container images, but there are others.

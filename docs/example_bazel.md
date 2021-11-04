@@ -2,6 +2,7 @@
 title: "Example: Bazel"
 description: "Best practices for developing Bazel projects with Tilt"
 layout: docs
+sidebar: guides
 ---
 
 The best indicator of a healthy development workflow is a short feedback loop.
