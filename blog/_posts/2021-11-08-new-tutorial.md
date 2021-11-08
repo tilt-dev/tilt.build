@@ -22,7 +22,7 @@ As one can only make one first impression, it better count, right? With that in 
 ## Onboarding yourself
 
 So we went out, collected, considered and reflected on the feedback all of you provided (thanks again for that!) and overhauled the entire thing!  
-The new tutorial helps you to get Tilt up and running yourself. With just one command, you can quickly tour Tilt’s best features, and be inspired by all the possibilities to boost your own developer workflow.  
+The new tutorial helps you to get Tilt up and running with just one command, so you can quickly tour Tilt’s best features, and learn about all the possibilities to boost your developer workflow.  
 All you need to get started, is Docker, Tilt and the sample source code. You’ll be able to play around with an actual multiservice application and see Tilt in action. [Try it out yourself](https://docs.tilt.dev/tutorial/index.html) and let us know what you think.
 
 If you’d rather learn how to write your first Tiltfile to start, the [old tutorial](https://docs.tilt.dev/tiltfile_authoring.html) is still up.
