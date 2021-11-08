@@ -38,4 +38,4 @@ To help you with that, we’ve created a self-contained demo. Just run `tilt dem
 ![Tilt demo, from running tilt demo to spinning up the entire web service](/assets/images/new-tutorial/tilt-demo.gif)
 
 
-Do you have an issue onboarding someone to Tilt that we haven’t addressed yet? Let us know!
+Do you have any onboarding-related issues we haven’t addressed yet? Let us know!
