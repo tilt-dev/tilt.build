@@ -20,7 +20,7 @@ Most of you who are reading this are probably already acquainted with Tilt— an
 As one can only make one first impression, it better count, right? With that in mind, we wanted to create an onboarding experience that is quick, easy and fun, even if a user is starting from zero. (So yes, if you've been looking for the perfect way to introduce Tilt to your colleagues, this is it!)
 
 ## Docs!
-If you've been a Tilter for some time, you probably already noticed that our docs have received a makeover. We changed both the visuals and structure, so finding the right information for what you are trying to do will be much more straightforward in the future!
+If you've been a Tilter for some time, you probably already noticed that our docs have received a makeover. We updated the navigation so it'll be easier to find what you're looking for — whether you're just getting started, figuring out how to optimize your update times, or looking to extend Tilt's functionality!
 
 ![New Tilt docs startpage](/assets/images/new-tutorial/docs.png)
 
