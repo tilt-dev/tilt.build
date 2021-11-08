@@ -17,7 +17,7 @@ Hallo Tilters,
 Big announcement incoming: we have redesigned the Tilt experience! 🥳  
 Today we’re taking a look at our onboarding tutorial. Most of you who are reading this are probably already acquainted with Tilt— and don’t worry, we’ve got something coming for you, too, but:
 
-Everyone knows: you can only make one first impression, better make it count! So with that in mind, we wanted to create an experience that is quick, easy and fun, even if you’re starting from zero. That goes for both yourself and the friends you want to introduce Tilt to!
+As one can only make one first impression, it better count, right? With that in mind, we wanted to create an onboarding experience that is quick, easy and fun, even if a user is starting from zero. (So yes, if you've been looking for the perfect way to introduce Tilt to your colleagues, this is it!)
 
 ## Onboarding yourself
 
