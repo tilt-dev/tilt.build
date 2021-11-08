@@ -29,7 +29,7 @@ If you’d rather learn how to write your first Tiltfile to start, the [old tuto
 
 ![Screenshot of the new Tilt docs showing the Tutorial overview](/assets/images/new-tutorial/docs-tutorial.png)
 
-## Onboarding your friends
+## And one more thing
 
 Still reading? Excellent!  
 Next step: getting your colleagues and managers on board! You might have asked yourself before: How can I quickly show Tilt to my buddy, but on their machine?  
