@@ -32,7 +32,7 @@ If you’d rather learn how to write your first Tiltfile to start, the [old tuto
 ## And one more thing
 
 Still reading? Excellent!  
-Next step: getting your colleagues and managers on board! You might have asked yourself before: How can I quickly show Tilt to my buddy, but on their machine?  
+One issue that often gets in the way of showing Tilt to one's colleagues is the non-Tilt parts of the setup e.g. setting up a Kubernetes cluster isn't for the faint of heart.
 To help you with that, we’ve created a self-contained demo. Just run `tilt demo` and Tilt will spin up an entire dev cluster for you with our sample application. From scratch!
 
 ![Tilt demo, from running tilt demo to spinning up the entire web service](/assets/images/new-tutorial/tilt-demo.gif)
