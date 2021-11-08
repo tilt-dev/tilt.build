@@ -22,11 +22,15 @@ As one can only make one first impression, it better count, right? With that in 
 ## Docs!
 If you've been a Tilter for some time, you probably already noticed that our docs have received a makeover. We changed both the visuals and structure, so finding the right information for what you are trying to do will be much more straightforward in the future!
 
-So we went and collected, considered, and reflected on the feedback you all provided (thanks again for that!), and overhauled the entire thing!  
+![New Tilt docs startpage](/assets/images/new-tutorial/docs.png)
+
+## Tutorial!
+
+So we went out and collected, considered, and reflected on the feedback you all provided (thanks again for that!), and overhauled the entire thing!  
 The new tutorial helps you to get Tilt up and running with just one command, so you can quickly tour Tilt’s best features, and learn about all the possibilities to boost your developer workflow.  
 All you need to get started is Docker, Tilt and the sample source code (maybe; see below). You’ll be able to play around with an actual microservice application and see Tilt in action. [Try it out yourself](https://docs.tilt.dev/tutorial/index.html) and let us know what you think!
 
-If you’d rather learn how to write your first Tiltfile to start, the [old tutorial](https://docs.tilt.dev/tiltfile_authoring.html) is still up.
+If you already know all of this and just want to learn how to write your own Tiltfile yourself, the [old tutorial](https://docs.tilt.dev/tiltfile_authoring.html) is still up.
 
 ![Screenshot of the new Tilt docs showing the Tutorial overview](/assets/images/new-tutorial/docs-tutorial.png)
 
@@ -34,7 +38,7 @@ If you’d rather learn how to write your first Tiltfile to start, the [old tuto
 
 Still reading? Excellent!  
 One issue that often gets in the way of showing Tilt to one's colleagues is the non-Tilt parts of the setup e.g. setting up a Kubernetes cluster isn't for the faint of heart.
-To help you with that, we’ve created a self-contained demo. Just run `tilt demo` and Tilt will spin up an entire dev cluster for you with our sample application. From scratch!
+To help you with that, we’ve created a self-contained demo. Just install Docker and Tilt, then run `tilt demo` and Tilt will spin up an entire dev cluster for you with our sample application. From scratch!
 
 ![Tilt demo, from running tilt demo to spinning up the entire web service](/assets/images/new-tutorial/tilt-demo.gif)
 
