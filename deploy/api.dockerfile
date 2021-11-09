@@ -1,7 +1,6 @@
 FROM python:3.7
 
-RUN curl -sL https://deb.nodesource.com/setup_14.x | bash -
-RUN apt update && apt install nodejs -y
+RUN apt update && curl -sL https://deb.nodesource.com/setup_14.x | bash - && apt install nodejs -y
 RUN npm install -g hgrep
 
 RUN pip3 install sphinx==4.2.0 sphinx_rtd_theme==1.0.0 sphinx-autodoc-typehints==1.12.0 recommonmark==0.7.1 beautifulsoup4
