@@ -1,27 +1,111 @@
 ---
-title: Setting a Personal Registry with a shared Tiltfile
-description: "Tilt's 'default_registry' function lets you change the image repository so you don't have to ask permission to get started."
+title: Choosing an Image Registry
+description: "A guide to dev image registries and how to get your code into a cluster."
 layout: docs
 sidebar: guides
 ---
 
-You should be able to start an app on Kubernetes from just the source code. One stumbling block is when YAML and scripts hard-code the image repository (the `gcr.io/windmill` in `gcr.io/windmill/user-service`). Tilt's `default_registry` function lets you change the image repository so you don't have to ask permission to get started. This guide walks you through two cases:
-* for users, how to experiment with an existing Tilt project by adding one line to the Tiltfile
-* for maintainers, how to configure your project so users don't need to modify the Tiltfile at all
+If you're building container images in dev, you'll need a place to put those
+images where your cluster can pull them.
 
-## Experiment with an existing Tilt project
-You've cloned a repo, run `tilt up`, and see push errors saying you lack permission. Pick a registry that you can push to, like `gcr.io/my-personal-project`. Add the following line to the `Tiltfile`:
+## The Easy Way (for 95% of Users)
 
-```python
-default_registry('gcr.io/my-personal-project')
+Here's how you set up a dev image registry.
+
+Step 1) [Choose a cluster](choosing_clusters.html).
+
+Step 2) There is no step 2!!!
+
+### Your Registry is Usually Already Set Up For You
+
+For almost all clusters, the cluster will have a registry for you.
+
+- If you're using Docker for Desktop, there's no registry at all. You build
+  directly into the container runtime.
+
+- If you're using Kind, [our setup scripts](choosing_clusters.html) will set up
+  a registry for you.
+
+- If you're using a remote cluster (like AKS, EKS, GKE, and DigitalOcean
+  Kuberentes), you'll have a registry that's colocated with your cluster.
+
+### Your Registry Secrets are Usually Already Set Up For You
+
+You also don't have to worry about authentication.
+
+Our local cluster guides set up registries without any auth (because they're purely local).
+
+If you're using an authenticated registry, that's usually not a problem either.
+Tilt never talks directly to a registry. When Tilt builds images, it tells the
+image builder to push to the registry when it's done. If you need to login to a
+registry, you'll login with the image builder.
+
+For Docker Hub, you run:
+
+```
+docker login
 ```
 
-Tilt will rewrite an image like `user-service` to `gcr.io/my-personal-project/user-service`. You can learn more details in the [api reference](api.html#api.default_registry).
+with a username and password (or token).
 
-## Configure a Project to support Personal Registries
-The above solution isn't a good long-term solution: users have to make sure to not commit their personal registry. It's especially frustrating if the user is trying to change other lines in the `Tiltfile`. A better solution is to read the option from a personal settings file that is `.gitignore`'d.
+Other registries have their own login command, e.g.,
 
-We're going to modify the `Tiltfile` to look for a file called `tilt_option.json` next to the Tiltfile. You can add more settings here (do different team members want different services to behave differently? Put it in `tilt_option.json`). For now, we'll expect the file to either be nonexistent, or JSON like
+```
+docker login quay.io
+```
+
+Some managed Kubernetes services have their own credential helpers:
+
+- [Amazon ECR](https://github.com/awslabs/amazon-ecr-credential-helper)
+
+- [Google Artifact Registry](https://cloud.google.com/artifact-registry/docs/docker/quickstart)
+
+- [Google Container Registry](https://cloud.google.com/container-registry/docs/advanced-authentication)
+
+These will ensure that your login credentials for kubectl and your login
+credentials for the registry stay in-sync.
+
+## The Medium-Easy Way (for 4% of users)
+
+If you're using a cluster that doesn't have a registry,
+there's a medium-easy option to get you unblocked fast.
+
+[`ttl.sh`](https://ttl.sh/) is an anoymous, ephemeral image registry that you can use for development.
+It's operated by our friends at [Replicated](https://www.replicated.com/).
+
+Add the following function to your Tiltfile:
+
+```
+default_registry('ttl.sh/[my-user-name]-[random-string]')
+```
+
+First, Tilt will try to load the image directly to the cluster (if the cluster supports this.)
+
+If it can't do that, Tilt will rename the image under the ttl.sh URL, push it to
+the ephemeral registry, and pull it into your cluster.
+
+`ttl.sh` is encrypted over HTTPS but not authenticated. It will delete your
+image after an hour. So it's a good option if you're trying out a sample
+project (like one of the Tilt examples).
+
+## The Medium Way (for 1% of users)
+
+In almost all cases, it's OK for a team to all share the same registry. 
+
+Tilt uses content-based image tags, so you don't have to worry about one user
+overwriting another users' images if they're pushing dev images at the same
+time.
+
+But in some exotic cases, organizations may set up a registry per developer or a
+registry per team.
+
+Fortunately, the Tiltfile `default_registry` system can be scripted to support this.
+
+We're going to modify the `Tiltfile` to look for a file called `tilt_option.json` next to the Tiltfile. 
+
+You can add more settings here (do different team members want different
+services to behave differently? Put it in `tilt_option.json`). For now, we'll
+expect the file to either be nonexistent, or JSON like:
 
 ```json
 {
@@ -42,11 +126,26 @@ Add a line to your `.gitignore`:
 tilt_option.json
 ```
 
-Team members don't need to set anything, but new users can change it without modifying the Tiltfile.
+Team members don't need to set anything, but new users can change it without
+modifying the Tiltfile.
 
-### Different URLs from Inside Your Cluster
+## Registries that are Special Snowflakes
 
-Some clusters/registries require that your Kubernetes YAML reference images by a different name: e.g. you might push your image to `localhost:5000/my-image` but reference it from within your YAML as `registry:5000/my-image`. Tilt supports this use case; use the `host_from_cluster` parameter of `default_registry` to configure the registry host as referenced from your K8s YAML. E.g. for the example above, you would call:
+### When Your Registry Has Multiple URLs
+
+URLs on your laptop resolve differently than URLs in your cluster.
+
+In some cases, the URL of a registry (as seen from your laptop) may be different
+from the URL of the same registry (as seen from your clsuter).
+
+For example, your laptop might push your image to `localhost:5000/my-image`,
+while your cluster pulls the image from `registry:5000/my-image`.
+
+Most modern cluster setup tools try to set up DNS to prevent this from
+happening. But if you do hit this scenario (and you'll usually know if you are),
+you can use the `host_from_cluster` parameter of `default_registry` to configure
+the registry host as referenced from your cluster.
+
 ```python
 default_registry(
     'localhost:5000',
@@ -54,7 +153,7 @@ default_registry(
 )
 ```
 
-### Amazon's Elastic Container Registry (ECR)
+### Elastic Container Registry's Repository Dance
 
 The AWS container registry, ECR, forces you to create a
 [repository](https://docs.aws.amazon.com/AmazonECR/latest/userguide/Repositories.html)
@@ -77,9 +176,13 @@ default_registry(
   single_name='%s/dev' % os.environ.get('AWS_USERNAME'))
 ```
 
-## Config in Files, not Flags
-Other tools might make this a command-line flag, or an environment variable. Tilt encourages you to put it in a file. Why the difference? Tilt wants to be a responsive tool. You can't change a command-line flag without restarting the tool, and we want you to be able to use Tilt without restarting.
+## The Hard Way (for 0% of users)
 
-We also want to let you write `Tiltfile`'s that support your project. If you have lots of services, you may not want to run all of them all of the time. With a `tilt_option.json` that you can change, you can switch services on or off.
+We don't expect setting up a registry to be hard!
 
-This functionality is in the early stages, and we'd like to make it better supported. If you have thoughts/ideas/needs, please [talk to us](index.html#community).
+Every single cloud provider is working to make it as easy as possible (including
+cloud non-providers like Replicated's [ttl.sh](https://ttl.sh) above).
+
+If you're struggling to set up and authenticate to a registry, come [talk to
+us](index.html#community) and a support engineer will point you in the right
+direction.
