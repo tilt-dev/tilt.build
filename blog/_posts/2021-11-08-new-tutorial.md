@@ -15,14 +15,14 @@ tags:
 Hallo Tilters,
 
 Big announcement incoming: we have redesigned the Tilt onboarding experience! 🥳  
-Most of you who are reading this are probably already acquainted with Tilt— and don’t worry, we’ve got something coming for you, too, but today we are focusing on onboarding.
+Most of you who are reading this are probably already acquainted with Tilt — and don’t worry, we’ve got something coming for you, too, but today we are focusing on onboarding.
 
 As one can only make one first impression, it better count, right? With that in mind, we wanted to create an onboarding experience that is quick, easy and fun, even if a user is starting from zero. (So yes, if you've been looking for the perfect way to introduce Tilt to your colleagues, this is it!)
 
 ## Docs!
 If you've been a Tilter for some time, you probably already noticed that our docs have received a makeover.  
 We want you to have the best possible experience with Tilt, getting started quickly and continue to work with Tilt autonomously. But that can be tricky when everyone has very unique requirements. So, we're always adding more docs to address a wide variety of use cases.  
-We updated the navigation so it'll be easier to find what you're looking for— whether you're just getting started, figuring out how to optimize your update times, or looking to extend Tilt's functionality!
+We updated the navigation so it'll be easier to find what you're looking for — whether you're just getting started, figuring out how to optimize your update times, or looking to extend Tilt's functionality!
 
 ![New Tilt docs startpage](/assets/images/new-tutorial/docs.png)
 
