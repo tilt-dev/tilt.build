@@ -89,7 +89,7 @@ sidebar:
           href: dependent_images.html
         - title: Personal Registry
           href: personal_registry.html
-        - title: Custom Build Scripts
+        - title: Custom Image Builders
           href: custom_build.html
         - title: Bazel
           href: integrating_bazel_with_tilt.html
