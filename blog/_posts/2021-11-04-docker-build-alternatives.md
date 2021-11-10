@@ -118,8 +118,7 @@ for making tarballs.
 [Ko](https://github.com/google/ko#install) is an image builder aimed at Go
 apps. Go apps are particularly ill-suited for `docker build`. The Go toolchain is
 well-optimized to run locally and builds a single binary. Ko builds your Go app
-locally, then packs it into an image.
-
+locally, then packs it into an image. No build containers or VMs needed!
 
 A while back, I wrote a small extension that lets you use `ko` in Tilt. Here's what it looks like:
 
