@@ -1,5 +1,5 @@
 ---
-title: Choosing an Image Registry
+title: Setting up any Image Registry
 description: "A guide to dev image registries and how to get your code into a cluster."
 layout: docs
 sidebar: guides
@@ -23,11 +23,12 @@ For almost all clusters, the cluster will have a registry for you.
 - If you're using Docker for Desktop, there's no registry at all. You build
   directly into the container runtime.
 
-- If you're using Kind, [our setup scripts](choosing_clusters.html) will set up
-  a registry for you.
+- If you're using a local cluster like Kind, [our setup
+  scripts](choosing_clusters.html) will set up a registry for you.
 
 - If you're using a remote cluster (like AKS, EKS, GKE, and DigitalOcean
-  Kubernetes), you'll have a registry that's colocated with your cluster.
+  Kubernetes), you'll have a registry that's colocated with your cluster
+  and well-configured.
 
 ### Your Registry Secrets are Usually Already Set Up For You
 
@@ -40,7 +41,7 @@ Tilt never talks directly to a registry. When Tilt builds images, it tells the
 image builder to push to the registry when it's done. If you need to login to a
 registry, you'll login with the image builder.
 
-For Docker Hub, you run:
+For [Docker Hub](https://docs.docker.com/engine/reference/commandline/login/), you run:
 
 ```
 docker login
