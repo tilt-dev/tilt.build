@@ -98,6 +98,13 @@ but also have teammates in Germany, the Netherlands and other parts of the US.
       Over a decade working in tech as an engineer doing fullstack, devops and data. Tried consulting and management for a while. Loves DIY and board games. She/Her.
     </div>
   </div>
+  <div class="bio col-1of3 u-marginBottom1_25">
+    <img class="bio-image" src="/assets/img/siegs.jpg">
+    <h4>Nick Sieger</h4>
+    <div>
+      "Siegs", Purveyor of artisanal, hand-written bash scripts. Stints in enterprise, e-commerce, software-as-a-service, and open source.  Enjoys cooking and refinishing mid-century furniture. He/Him.
+    </div>
+  </div>
 </div>
 
 
