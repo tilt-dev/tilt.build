@@ -819,7 +819,7 @@ def custom_build(ref: str, command: str, deps: List[str], tag: str = "", disable
       ['.'],
     )
 
-  Please read the `Custom Build Script How-to <custom_build.html>`_ on how to
+  Please read the `Custom Image Builders Guide <custom_build.html>`_ on how to
   use this function.
 
   All custom build scripts build an image and put it somewhere. But there are

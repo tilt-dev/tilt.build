@@ -1,16 +1,44 @@
 ---
-title: Custom Build Scripts
-description: "Docker is the most common way to build container images, but there are others. Tilt supports these other tools with the function 'custom_build' instead of 'docker_build'."
+title: Custom Image Builders
+description: "Docker is the most common way to build container images, but there are others. This guide will show you how to use them."
 layout: docs
 sidebar: guides
 ---
 
-`docker build` is the common way to build container images, but there are others.
+`docker build` is the common way to build container images, but there are many
+others.
 
-Tilt supports these other tools with the function [`custom_build`](api.html#api.custom_build)
-instead of `docker_build`.
+This guide will show you how to use them!
 
-## Usage
+## The Easiest Way: Use a Tilt Extension
+
+The Tilt community has contributed many extensions that let you define your
+container images with many widely-used image builders.
+
+The `tilt-example-builders` repo demonstrates how to use them.
+
+[tilt-example-builders](https://github.com/tilt-dev/tilt-example-builders){:.attached-above}
+
+Each subdirectory of the repo uses a different image builder.
+
+Each builder contains a test that spins up a real, ephemeral Kubernetes cluster
+on CircleCI, builds the image, deploys it to the cluster, and verifies that the
+image behaves as expected.
+
+Also check out the [complete index of Tilt
+extensions](https://github.com/tilt-dev/tilt-extensions). There are many more
+image builder extensions that don't have official example projects yet.
+
+## The Next Way: Running Your Own Image Builder
+
+If there's no extension yet for your image builder, that's OK.
+
+All image-builder extensions use the [`custom_build`](api.html#api.custom_build)
+function, a more complete API for running your image builds as subprocesses of Tilt.
+
+Let's take a look at how to use it.
+
+### Usage
 
 All `custom_build` calls require:
 
@@ -21,16 +49,6 @@ All `custom_build` calls require:
 * Files to watch (e.g. `['frontend']` or `['frontend', 'util', 'data.txt']`). When a dependency changes, Tilt starts an update to build the image then apply the YAML.
 
 There are a couple different image-building patterns.
-
-### The Easiest Way: Get Someone Else to Write it For You
-
-Before you write your own custom builder, check out the [Tilt
-Extensions](https://github.com/tilt-dev/tilt-extensions) repo to see if someone
-has already written a `custom_build` wrapper for your tool.
-
-Tilt Extensions can be simple. Here's an example that uses Ko, the Go image builder.
-
-[Ko Tilt extension](https://github.com/tilt-dev/tilt-extensions/tree/master/ko){:.attached-above}
 
 ### Custom Docker Builds
 
