@@ -40,7 +40,7 @@ In this post, I want to brag about three very different types of image builders 
 
 - `ko`, and
 
-- `buildpack`
+- `pack`
 
 We'll talk about why you'd want to use them, how to swap them out, and the pros/cons of each!
 
