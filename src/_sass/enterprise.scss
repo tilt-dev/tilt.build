@@ -60,6 +60,7 @@
   height: 600px;
   @include shadow-small;
   border-radius: $tilt2-border-radius-large;
+  margin-top: 28px;
 
   @include mobileAndAbove {
     width: 320px;

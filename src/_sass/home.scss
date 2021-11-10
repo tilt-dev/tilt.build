@@ -176,25 +176,28 @@
   padding-bottom: $spacing-unit;
   padding-left: $spacing-unit * 1.5;
   padding-right: $spacing-unit * 1.5;
+  display: none;
   opacity: 0;
   pointer-events: none;
   transition: all $anim-duration ease-in-out;
   z-index: $z-modal;
-  
-  @include mobileAndBelow {
-    left: 0;
-    top: 0;
-    bottom: 0;
-    right: 0;
-  }
-  
-  @include mobileAndAbove {
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);    
+
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+
+  @include media-query-above(1000px) {
+    box-sizing: content-box;
+    width: 100%;   
     max-width: 900px;
+    top: 50%;
+    bottom: auto;
+    left: 50%;
+    right: auto;
+    transform: translate(-50%, -50%);    
   }
-  
+
   &.is--visible {
     opacity: 1;
     pointer-events: auto;
