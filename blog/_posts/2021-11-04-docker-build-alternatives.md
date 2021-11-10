@@ -1,12 +1,12 @@
 ---
 slug: "docker-build-alternatives"
-date: 2021-11-10
+date: 2021-11-12
 author: nick
 layout: blog
 title: "Three Image Builders to Try While You're Waiting on 'docker build' to Finish"
 image: "/assets/images/docker-build-alternatives/containers.jpg"
-subtitle: "A guide to three Tilt extensions that build images differently"
-description: "A guide to three Tilt extensions that build images differently"
+subtitle: "A guide to Tilt extensions that build images differently"
+description: "A guide to Tilt extensions that build images differently"
 tags:
   - docker
   - images
@@ -151,7 +151,9 @@ are not happy maintaining Dockerfiles.
 But where Ko's philosophy states that you don't need a container to build an
 image, Buildpack takes the viewpoint that you need MORE containers.
 
-Wait, wait, don't run away. Let me explain.
+Joking! `pack`'s real philsophy: you shouldn't have to worry about low-level
+details of how images are assembled. You should have bigger building blocks and
+let your builder decide how to quickly combine them.
 
 With `pack`, there's a stronger separation between the container you use
 to build an image and the container you end up running. The container images you use
