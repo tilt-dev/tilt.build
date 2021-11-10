@@ -87,7 +87,7 @@ sidebar:
       items:
         - title: Overview
           href: dependent_images.html
-        - title: Personal Registry
+        - title: Setting up any Image Registry
           href: personal_registry.html
         - title: Custom Image Builders
           href: custom_build.html
