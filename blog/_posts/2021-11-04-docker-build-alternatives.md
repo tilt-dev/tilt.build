@@ -112,11 +112,11 @@ The Dockerfile view of the world is: to build an image, run some commands in a c
 then save the results of those commands.
 
 The Ko view is: an image is a tarball. If you have a Mac, why do you need a
-Linux VM to run a table if you want a tarball? You already have good local tools
+Linux VM to run a container if you want a tarball? You already have good local tools
 for making tarballs.
 
-[Ko](https://github.com/google/ko#install) is an image builder targeted at Go
-apps. Go apps are particularly ill-suited for containers. The Go toolchain is
+[Ko](https://github.com/google/ko#install) is an image builder aimed at Go
+apps. Go apps are particularly ill-suited for `docker build`. The Go toolchain is
 well-optimized to run locally and builds a single binary. Ko builds your Go app
 locally, then packs it into an image.
 
@@ -145,10 +145,10 @@ Read the full docs on the `ko` extension
 
 ## Pack
 
-[`pack`](https://buildpacks.io/docs/tools/pack/) is also targeted at people who
+[`pack`](https://buildpacks.io/docs/tools/pack/) is also addressing people who
 are not happy maintaining Dockerfiles.
 
-But where Ko takes the viewpoint that you don't need a container to build an
+But where Ko's philosophy states that you don't need a container to build an
 image, Buildpack takes the viewpoint that you need MORE containers.
 
 Wait, wait, don't run away. Let me explain.
@@ -167,7 +167,7 @@ The `pack` extension was one of the first Tilt extensions! [Gareth
 Rushgrove](https://github.com/garethr) added it when we were still experimenting
 with the extension system.
 
-Since then, we've done work with [Daniel
+Since then, we worked closely with [Daniel
 Makusa](https://github.com/dmikusa-pivotal) of the buildpacks team to make it
 even better.
 
@@ -201,10 +201,10 @@ The layering approach to adding new functionality is getting a lot of excitement
 right now from container nerds.
 
 For security nerds, you can better track where source files come from and attach
-SBOMs (which are way beyond the scope of this post, but are fun to say out
+[SBOMs](https://en.wikipedia.org/wiki/Software_bill_of_materials) (which are way beyond the scope of this post, but are fun to say out
 load.)
 
-One of the big reasons Tilt nerds are excited about buildpacks is that there's a
+One of the big reasons Tilters are excited about buildpacks is that there's a
 lot of configuration in your Tiltfile that would be simpler if it was in the
 buildpack.  Daniel has been working on an
 [RFC](https://github.com/paketo-buildpacks/rfcs/issues/116) to add live-reload
