@@ -6,7 +6,7 @@ const closeModal = (popupModal) => {
   popupModal.setAttribute('aria-hidden', 'true');
   popupModal.classList.remove("is--visible");
   bodyBlackout.classList.remove("is-blacked-out");
-  popupModal.style.display = '';
+  popupModal.style.display = 'none';
 };
 
 modalTriggers.forEach((trigger) => {
