@@ -1,10 +1,11 @@
 ---
 slug: "docker-build-alternatives"
-date: 2021-11-03
+date: 2021-11-10
 author: nick
 layout: blog
-title: "How to Cope When Docker Builds are Slowing You Down"
+title: "Three Image Builders to Try While You're Waiting on 'docker build' to Finish"
 image: "/assets/images/docker-build-alternatives/containers.jpg"
+subtitle: "A guide to three Tilt extensions that build images differently"
 description: "A guide to three Tilt extensions that build images differently"
 tags:
   - docker
