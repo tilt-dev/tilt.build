@@ -6,7 +6,7 @@ sidebar: guides
 ---
 
 If you're building container images in dev, you'll need a place to put those
-images where your cluster can pull them.
+images from which your cluster can pull them.
 
 ## The Easy Way (for 95% of Users)
 
@@ -27,7 +27,7 @@ For almost all clusters, the cluster will have a registry for you.
   a registry for you.
 
 - If you're using a remote cluster (like AKS, EKS, GKE, and DigitalOcean
-  Kuberentes), you'll have a registry that's colocated with your cluster.
+  Kubernetes), you'll have a registry that's colocated with your cluster.
 
 ### Your Registry Secrets are Usually Already Set Up For You
 
@@ -136,7 +136,7 @@ modifying the Tiltfile.
 URLs on your laptop resolve differently than URLs in your cluster.
 
 In some cases, the URL of a registry (as seen from your laptop) may be different
-from the URL of the same registry (as seen from your clsuter).
+from the URL of the same registry (as seen from your cluster).
 
 For example, your laptop might push your image to `localhost:5000/my-image`,
 while your cluster pulls the image from `registry:5000/my-image`.
