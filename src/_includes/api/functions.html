@@ -5089,6 +5089,648 @@ status code &gt;= 200 and &lt; 400.
            </dl>
           </dd>
          </dl><dl class="py function">
+          <dt class="sig sig-object py" id="api.k8s_custom_deploy">
+           <span class="sig-prename descclassname">
+            <span class="pre">
+            </span>
+           </span>
+           <span class="sig-name descname">
+            <span class="pre">
+             k8s_custom_deploy
+            </span>
+           </span>
+           <span class="sig-paren">
+            (
+           </span>
+           <em class="sig-param">
+            <span class="n">
+             <span class="pre">
+              name
+             </span>
+            </span>
+           </em>
+           ,
+           <em class="sig-param">
+            <span class="n">
+             <span class="pre">
+              apply_cmd
+             </span>
+            </span>
+           </em>
+           ,
+           <em class="sig-param">
+            <span class="n">
+             <span class="pre">
+              delete_cmd
+             </span>
+            </span>
+           </em>
+           ,
+           <em class="sig-param">
+            <span class="n">
+             <span class="pre">
+              deps
+             </span>
+            </span>
+           </em>
+           ,
+           <em class="sig-param">
+            <span class="n">
+             <span class="pre">
+              image_selector
+             </span>
+            </span>
+            <span class="o">
+             <span class="pre">
+              =
+             </span>
+            </span>
+            <span class="default_value">
+             <span class="pre">
+              &apos;&apos;
+             </span>
+            </span>
+           </em>
+           ,
+           <em class="sig-param">
+            <span class="n">
+             <span class="pre">
+              live_update
+             </span>
+            </span>
+            <span class="o">
+             <span class="pre">
+              =
+             </span>
+            </span>
+            <span class="default_value">
+             <span class="pre">
+              []
+             </span>
+            </span>
+           </em>
+           ,
+           <em class="sig-param">
+            <span class="n">
+             <span class="pre">
+              apply_dir
+             </span>
+            </span>
+            <span class="o">
+             <span class="pre">
+              =
+             </span>
+            </span>
+            <span class="default_value">
+             <span class="pre">
+              &apos;&apos;
+             </span>
+            </span>
+           </em>
+           ,
+           <em class="sig-param">
+            <span class="n">
+             <span class="pre">
+              apply_env
+             </span>
+            </span>
+            <span class="o">
+             <span class="pre">
+              =
+             </span>
+            </span>
+            <span class="default_value">
+             <span class="pre">
+              {}
+             </span>
+            </span>
+           </em>
+           ,
+           <em class="sig-param">
+            <span class="n">
+             <span class="pre">
+              apply_cmd_bat
+             </span>
+            </span>
+            <span class="o">
+             <span class="pre">
+              =
+             </span>
+            </span>
+            <span class="default_value">
+             <span class="pre">
+              &apos;&apos;
+             </span>
+            </span>
+           </em>
+           ,
+           <em class="sig-param">
+            <span class="n">
+             <span class="pre">
+              delete_dir
+             </span>
+            </span>
+            <span class="o">
+             <span class="pre">
+              =
+             </span>
+            </span>
+            <span class="default_value">
+             <span class="pre">
+              &apos;&apos;
+             </span>
+            </span>
+           </em>
+           ,
+           <em class="sig-param">
+            <span class="n">
+             <span class="pre">
+              delete_env
+             </span>
+            </span>
+            <span class="o">
+             <span class="pre">
+              =
+             </span>
+            </span>
+            <span class="default_value">
+             <span class="pre">
+              {}
+             </span>
+            </span>
+           </em>
+           ,
+           <em class="sig-param">
+            <span class="n">
+             <span class="pre">
+              delete_cmd_bat
+             </span>
+            </span>
+            <span class="o">
+             <span class="pre">
+              =
+             </span>
+            </span>
+            <span class="default_value">
+             <span class="pre">
+              &apos;&apos;
+             </span>
+            </span>
+           </em>
+           <span class="sig-paren">
+            )
+           </span>
+           <a class="headerlink" href="#api.k8s_custom_deploy" title="Permalink to this definition">
+            &#xF0C1;
+           </a>
+          </dt>
+          <dd>
+           <p>
+            Deploy resources to Kubernetes using a custom command.
+           </p>
+           <p>
+            For deployment tools that cannot output templated YAML for use with
+            <a class="reference internal" href="#api.k8s_yaml" title="api.k8s_yaml">
+             <code class="xref py py-meth docutils literal notranslate">
+              <span class="pre">
+               k8s_yaml()
+              </span>
+             </code>
+            </a>
+            or need to perform additional work as part of deployment,
+            <code class="docutils literal notranslate">
+             <span class="pre">
+              k8s_custom_deploy
+             </span>
+            </code>
+            enables integration with Tilt.
+           </p>
+           <p>
+            The
+            <code class="docutils literal notranslate">
+             <span class="pre">
+              apply_cmd
+             </span>
+            </code>
+            will be run whenever a path from
+            <code class="docutils literal notranslate">
+             <span class="pre">
+              deps
+             </span>
+            </code>
+            changes and should
+output the YAML of the objects it applied to the Kubernetes cluster to stdout.
+Tilt will track workload status and stream pod logs based on this result.
+           </p>
+           <p>
+            The
+            <code class="docutils literal notranslate">
+             <span class="pre">
+              delete_cmd
+             </span>
+            </code>
+            is run on
+            <code class="docutils literal notranslate">
+             <span class="pre">
+              tilt
+             </span>
+             <span class="pre">
+              down
+             </span>
+            </code>
+            so that the tool can clean up any
+objects it created in the cluster as well as any state of its own.
+           </p>
+           <p>
+            Both
+            <code class="docutils literal notranslate">
+             <span class="pre">
+              apply_cmd
+             </span>
+            </code>
+            and
+            <code class="docutils literal notranslate">
+             <span class="pre">
+              delete_cmd
+             </span>
+            </code>
+            MUST be idempotent. For example, it&#x2019;s
+possible that some objects might already exist when the
+            <code class="docutils literal notranslate">
+             <span class="pre">
+              apply_cmd
+             </span>
+            </code>
+            is
+invoked, and objects might have already been deleted before
+            <code class="docutils literal notranslate">
+             <span class="pre">
+              delete_cmd
+             </span>
+            </code>
+            is invoked. The
+            <code class="docutils literal notranslate">
+             <span class="pre">
+              apply_cmd
+             </span>
+            </code>
+            should have similar semantics to
+            <code class="docutils literal notranslate">
+             <span class="pre">
+              kubectl
+             </span>
+             <span class="pre">
+              apply
+             </span>
+            </code>
+            and the
+            <code class="docutils literal notranslate">
+             <span class="pre">
+              delete_cmd
+             </span>
+            </code>
+            should behave similar to
+            <code class="docutils literal notranslate">
+             <span class="pre">
+              kubectl
+             </span>
+             <span class="pre">
+              delete
+             </span>
+             <span class="pre">
+              --ignore-not-found
+             </span>
+            </code>
+            .
+           </p>
+           <p>
+            Port forwards and other behavior can be configured using
+            <a class="reference internal" href="#api.k8s_resource" title="api.k8s_resource">
+             <code class="xref py py-meth docutils literal notranslate">
+              <span class="pre">
+               k8s_resource()
+              </span>
+             </code>
+            </a>
+            using the
+            <code class="docutils literal notranslate">
+             <span class="pre">
+              name
+             </span>
+            </code>
+            as specified here.
+           </p>
+           <dl class="field-list simple">
+            <dt class="field-odd">
+             Parameters
+            </dt>
+            <dd class="field-odd">
+             <ul class="simple">
+              <li>
+               <p>
+                <strong>
+                 name
+                </strong>
+                (
+                <code class="xref py py-class docutils literal notranslate">
+                 <span class="pre">
+                  str
+                 </span>
+                </code>
+                ) &#x2013; resource name to use in Tilt UI and for further customization via
+                <a class="reference internal" href="#api.k8s_resource" title="api.k8s_resource">
+                 <code class="xref py py-meth docutils literal notranslate">
+                  <span class="pre">
+                   k8s_resource()
+                  </span>
+                 </code>
+                </a>
+               </p>
+              </li>
+              <li>
+               <p>
+                <strong>
+                 apply_cmd
+                </strong>
+                (
+                <code class="xref py py-data docutils literal notranslate">
+                 <span class="pre">
+                  Union
+                 </span>
+                </code>
+                [
+                <code class="xref py py-class docutils literal notranslate">
+                 <span class="pre">
+                  str
+                 </span>
+                </code>
+                ,
+                <code class="xref py py-class docutils literal notranslate">
+                 <span class="pre">
+                  List
+                 </span>
+                </code>
+                [
+                <code class="xref py py-class docutils literal notranslate">
+                 <span class="pre">
+                  str
+                 </span>
+                </code>
+                ]]) &#x2013; command that deploys objects to the Kubernetes cluster
+               </p>
+              </li>
+              <li>
+               <p>
+                <strong>
+                 delete_cmd
+                </strong>
+                (
+                <code class="xref py py-data docutils literal notranslate">
+                 <span class="pre">
+                  Union
+                 </span>
+                </code>
+                [
+                <code class="xref py py-class docutils literal notranslate">
+                 <span class="pre">
+                  str
+                 </span>
+                </code>
+                ,
+                <code class="xref py py-class docutils literal notranslate">
+                 <span class="pre">
+                  List
+                 </span>
+                </code>
+                [
+                <code class="xref py py-class docutils literal notranslate">
+                 <span class="pre">
+                  str
+                 </span>
+                </code>
+                ]]) &#x2013; command that deletes objects in the Kubernetes cluster
+               </p>
+              </li>
+              <li>
+               <p>
+                <strong>
+                 deps
+                </strong>
+                (
+                <code class="xref py py-data docutils literal notranslate">
+                 <span class="pre">
+                  Union
+                 </span>
+                </code>
+                [
+                <code class="xref py py-class docutils literal notranslate">
+                 <span class="pre">
+                  str
+                 </span>
+                </code>
+                ,
+                <code class="xref py py-class docutils literal notranslate">
+                 <span class="pre">
+                  List
+                 </span>
+                </code>
+                [
+                <code class="xref py py-class docutils literal notranslate">
+                 <span class="pre">
+                  str
+                 </span>
+                </code>
+                ]]) &#x2013; paths to watch and trigger a re-apply on change
+               </p>
+              </li>
+              <li>
+               <p>
+                <strong>
+                 image_selector
+                </strong>
+                (
+                <code class="xref py py-class docutils literal notranslate">
+                 <span class="pre">
+                  str
+                 </span>
+                </code>
+                ) &#x2013; image reference to determine containers eligible for Live Update
+               </p>
+              </li>
+              <li>
+               <p>
+                <strong>
+                 live_update
+                </strong>
+                (
+                <code class="xref py py-class docutils literal notranslate">
+                 <span class="pre">
+                  List
+                 </span>
+                </code>
+                [
+                <a class="reference internal" href="#api.LiveUpdateStep" title="api.LiveUpdateStep">
+                 <code class="xref py py-class docutils literal notranslate">
+                  <span class="pre">
+                   LiveUpdateStep
+                  </span>
+                 </code>
+                </a>
+                ]) &#x2013;
+                </p><p>
+                 set of steps for updating a running container (see
+                 <a class="reference external" href="live_update_reference.html">
+                  Live Update documentation
+                 </a>
+                 ).
+                </p>
+               <p></p>
+              </li>
+              <li>
+               <p>
+                <strong>
+                 apply_dir
+                </strong>
+                (
+                <code class="xref py py-class docutils literal notranslate">
+                 <span class="pre">
+                  str
+                 </span>
+                </code>
+                ) &#x2013; working directory for
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  apply_cmd
+                 </span>
+                </code>
+               </p>
+              </li>
+              <li>
+               <p>
+                <strong>
+                 apply_env
+                </strong>
+                (
+                <code class="xref py py-class docutils literal notranslate">
+                 <span class="pre">
+                  Dict
+                 </span>
+                </code>
+                [
+                <code class="xref py py-class docutils literal notranslate">
+                 <span class="pre">
+                  str
+                 </span>
+                </code>
+                ,
+                <code class="xref py py-class docutils literal notranslate">
+                 <span class="pre">
+                  str
+                 </span>
+                </code>
+                ]) &#x2013; environment variables for
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  apply_cmd
+                 </span>
+                </code>
+               </p>
+              </li>
+              <li>
+               <p>
+                <strong>
+                 apply_cmd_bat
+                </strong>
+                (
+                <code class="xref py py-class docutils literal notranslate">
+                 <span class="pre">
+                  str
+                 </span>
+                </code>
+                ) &#x2013; apply command to run, expressed as a Windows batch command
+               </p>
+              </li>
+              <li>
+               <p>
+                <strong>
+                 delete_dir
+                </strong>
+                (
+                <code class="xref py py-class docutils literal notranslate">
+                 <span class="pre">
+                  str
+                 </span>
+                </code>
+                ) &#x2013; working directory for
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  delete_cmd
+                 </span>
+                </code>
+               </p>
+              </li>
+              <li>
+               <p>
+                <strong>
+                 delete_env
+                </strong>
+                (
+                <code class="xref py py-class docutils literal notranslate">
+                 <span class="pre">
+                  Dict
+                 </span>
+                </code>
+                [
+                <code class="xref py py-class docutils literal notranslate">
+                 <span class="pre">
+                  str
+                 </span>
+                </code>
+                ,
+                <code class="xref py py-class docutils literal notranslate">
+                 <span class="pre">
+                  str
+                 </span>
+                </code>
+                ]) &#x2013; environment variables for
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  delete_cmd
+                 </span>
+                </code>
+               </p>
+              </li>
+              <li>
+               <p>
+                <strong>
+                 delete_cmd_bat
+                </strong>
+                (
+                <code class="xref py py-class docutils literal notranslate">
+                 <span class="pre">
+                  str
+                 </span>
+                </code>
+                ) &#x2013; delete command to run, expressed as a Windows batch command
+               </p>
+              </li>
+             </ul>
+            </dd>
+            <dt class="field-even">
+             Return type
+            </dt>
+            <dd class="field-even">
+             <p>
+              <code class="xref py py-obj docutils literal notranslate">
+               <span class="pre">
+                None
+               </span>
+              </code>
+             </p>
+            </dd>
+           </dl>
+          </dd>
+         </dl><dl class="py function">
           <dt class="sig sig-object py" id="api.k8s_kind">
            <span class="sig-prename descclassname">
             <span class="pre">
