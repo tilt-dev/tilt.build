@@ -168,7 +168,7 @@ Rushgrove](https://github.com/garethr) added it when we were still experimenting
 with the extension system.
 
 Since then, we worked closely with [Daniel
-Makusa](https://github.com/dmikusa-pivotal) of the buildpacks team to make it
+Mikusa](https://github.com/dmikusa-pivotal) of the buildpacks team to make it
 even better.
 
 Here's what it looks like in a Tiltfile:
