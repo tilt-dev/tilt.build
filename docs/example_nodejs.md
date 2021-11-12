@@ -302,6 +302,8 @@ services in a Tiltfile and exits successfully if they're healthy.
 
 ### Other sample JS projects:
 
+- [Tilt Avatars](https://github.com/tilt-dev/tilt-avatars), a microservice app with a [Vite](https://vitejs.dev/) frontend.
+- [Pixeltilt](https://github.com/tilt-dev/pixeltilt), a microservice app with a [NextJS](https://nextjs.org/) frontend. Uses both server-side and client-side rendering.
 - [Tiltfile exposing the NodeJS debugger port](https://github.com/tilt-dev/tilt-example-nodejs/blob/master/101-debugger/Tiltfile#L5)
 - [Demo React app](https://github.com/tilt-dev/tilt-frontend-demo)
 - [Demo Vue.js app](https://github.com/tilt-dev/tilt-vuejs-demo)
