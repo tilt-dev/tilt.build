@@ -136,9 +136,11 @@ ko_build(
 The upside of `ko` is that it's super simple to get started.
 
 The downside is that if you want any features that can't be expressed in a
-static Go binary, you're going to have a difficult time. Not impossible, but
-difficult. This includes: static files on-disk, dynamic C libraries, or
-hot-reload.
+static Go binary, you'll need to configure `ko` to include them.  This includes:
+extra files in the container filesystem, dynamic C libraries, or hot-reload.
+For example, this [example
+project](https://github.com/tilt-dev/tilt-example-builders/tree/main/ko) uses
+the `kodata` directory and `KO_DATA_PATH` env variable to load HTML templates.
 
 Read the full docs on the `ko` extension
 [here](https://github.com/tilt-dev/tilt-extensions/tree/master/ko).
@@ -218,8 +220,10 @@ up-to-date in your Tiltfile.
 
 ## Testing Out a New Image Builder
 
-I hope this guide gave you a good tour of different image builders
-and how to use them with Tilt. 
+I hope this guide gave you a good tour of different image builders and how to
+use them with Tilt. You can see examples of all these image builders in the
+[`tilt-example-builders`](https://github.com/tilt-dev/tilt-example-builders)
+repo.
 
 There are more image builders in the world that I didn't cover! I like this post
 Jérôme Petazzoni wrote last year about a few more, including the image builders
