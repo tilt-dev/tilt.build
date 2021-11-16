@@ -289,6 +289,9 @@ services in a Tiltfile and exits successfully if they're healthy.
 - [Test script](https://github.com/tilt-dev/tilt-example-python/blob/master/test/test.sh)
 
 ### Other sample Python projects:
+
+
+- [Tilt Avatars](https://github.com/tilt-dev/tilt-avatars), a microservice app with a Python API backend.
 - [abc123](https://github.com/tilt-dev/abc123) is a mini microservice app with a Python server called `numbers`
 - Our [blog post about Live Update](https://blog.tilt.dev/2019/04/02/fast-kubernetes-development-with-live-update.html) includes an [example Python server](https://github.com/tilt-dev/live_update/tree/master/python)
 - [Servantes](https://github.com/tilt-dev/servantes), our multi-language microservice demo app, contains a Python service called `hypothesizer`

@@ -306,6 +306,7 @@ their trade-offs, we're working on a talk and workshop:
 
 ### Other sample Go projects:
 
+- [Pixeltilt](https://github.com/tilt-dev/pixeltilt), a microservice app with multiple Go API services.
 - [abc123](https://github.com/tilt-dev/abc123) a mini microservice app with a Go server called `fe`.
 - [Servantes](https://github.com/tilt-dev/servantes), our multi-language microservice demo app.
 
