@@ -263,14 +263,17 @@ iframe, .blogContent img {
   margin-bottom: 0;
 }
 .postPreview-description {
-  display: block;
+  display: -webkit-box;
   margin-bottom: $spacing-unit / 4;
-  height: $body-line-height * 3;
-  overflow: hidden;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
   text-overflow: ellipsis;
+  overflow: hidden;
+  height: $tilt2-font-size-body * 1.5 * 3;
 }
 .postPreview--hero .postPreview-description {
-  height: $body-line-height * 6;
+  -webkit-line-clamp: 5;
+  height: $tilt2-font-size-body * 1.5 * 5;
 }
 .postPreview-image {
   display: block;
