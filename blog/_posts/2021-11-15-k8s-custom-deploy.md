@@ -12,25 +12,22 @@ tags:
   - helm
 ---
 
-If you've used Tilt, chances are you are well acquainted with the [`k8s_yaml`][api-k8s_yaml] and [`k8s_resource`][api-k8s_resource] Tiltfile functions.
-The [`k8s_yaml`][api-k8s_yaml] function deploys entities to Kubernetes from either a file or string.
-The [`k8s_resource`][api-k8s_resource] function configures port forwards and other behaviors for the deployed entities.
+If you've used Tilt, chances are you are well acquainted with the [`k8s_yaml`][api-k8s_yaml] Tiltfile function, which deploys objects to Kubernetes from either a file or string.
+(Think `kubectl apply -f ...`)
 
-In the Kubernetes landscape, [Helm][helm] is very popular, especially for packaging and distributing external dependencies such as nginx or Kafka.
-Tilt has a built-in [`helm`][api-helm] function for working with local charts and a [`helm_remote`][ext-helm_remote] extension for external charts stored in a Helm repo.
+Most of the time, this is all you need - after all, YAML is the go-to choice for Kubernetes tooling.
+Many tools, such as [`kustomize`][kustomize], always output YAML, while others, like [Helm][helm] (which manages the entire deployment lifecycle), offer a template subcommand.
 
-Behind the scenes, both of these invoke `helm template` via CLI to get a locally-rendered version of the chart YAML to pass to the [`k8s_yaml`][api-k8s_yaml] built-in Tilt function.
-That is, the actual deployment to Kubernetes is done via Tilt using the Kubernetes API rather than Helm itself.
+In some instances, however, pre-templated YAML alone is not sufficient or might not even exist!
+For example, Helm charts can include "hooks" to run at a specific part of the deployment lifecycle but aren't part of the templated YAML.
+Other tools, such as [OpenFaaS][openfaas], provide a streamlined build & deploy experience managed entirely by their CLI, so there's no YAML at all.
+It's also common for teams to have their own custom deployment shell scripts (e.g. for use with CI/CD).
 
-More generally, this is the pattern we recommend for integrating custom Kubernetes deploy tools with Tilt, and for a lot of local development use cases, this works great!
-Tilt can take "shortcuts" to ensure a frictionless and snappy experience because, as a dev tool, its concerns are very different than those of a production deployment tool.
+While it's possible to use Tilt's [`local_resource`][api-local_resource] function as a workaround in these instances, that means giving up much of Tilt's deep Kubernetes integration for the resource as a result.
 
-However, there are cases where it's critical to let another tool handle deployment to Kubernetes.
-With Helm, for example, charts can query the Kubernetes cluster's capabilities at deployment time and use it to alter their behavior, which isn't possible with `helm template`, as it runs entirely offline.
-Additionally, Helm charts can include "hooks" to run at a specific part of the deployment lifecycle.
-
-With Tilt [v0.23.0][tilt-releases], we've introduced a new [`k8s_custom_deploy`][api-k8s_custom_deploy] built-in function to enable the use of an external Kubernetes deployment tool.
-When using [`k8s_custom_deploy`][api-k8s_custom_deploy], Tilt features like status reporting and log streaming work automatically.
+In Tilt [v0.23.0][tilt-releases], we've introduced a built-in function to enable the use of an external Kubernetes deployment tool or script.
+With the new [`k8s_custom_deploy`][api-k8s_custom_deploy] function, Tilt will delegate to a command or shell script to perform the deployment instead of directly calling the Kubernetes API with YAML.
+Tilt features like status reporting and log streaming work automatically.
 Even the more advanced customizations provided by [`k8s_resource`][api-k8s_resource] such as port forwards are supported!
 
 ## Example
@@ -63,14 +60,8 @@ k8s_custom_deploy(
 k8s_resource('kafka', port_forwards=['9092:9092'])
 ```
 
-Here's what it looks like when we run `tilt up`:
-![Tilt web UI after running "tilt up" against the sample Tiltfile included in this blog post](/assets/images/k8s-custom-deploy/demo.gif)
-
-Tilt runs the `apply_cmd` passed to [`k8s_custom_deploy`][api-k8s_custom_deploy] on `tilt up` and whenever any path from the `deps` argument changes.
-The `apply_cmd` deploys to Kubernetes (`helm upgrade --install ...`) and writes the _result_ of the deploy as YAML to stdout (`helm get manifest...`).
-(This is what allows Tilt to know what was deployed so that it can monitor status, tail logs, set up port forwards, and perform Live Updates.
-As a result, all logs for the deploy are redirected to stderr with `1>&2` so that _only_ the YAML is written to stdout.
-For more details, see the [Tiltfile API reference][api-k8s_custom_deploy].)
+When we run `tilt up`, Tilt will execute the `apply_cmd`, which performs the deployment using Helm and then returns the _result_ as YAML so Tilt can track the new or updated Kubernetes objects.
+If `values.yaml` changes, the `apply_cmd` will be automatically re-run.
 
 If we query Helm, we'll see that it knows about this release:
 ```bash
@@ -87,7 +78,7 @@ Successfully loaded Tiltfile (177.134ms)
 Running cmd: helm uninstall local-kafka
 release "local-kafka" uninstalled
 ```
-This allows tools like Helm to not only delete any entities from Kubernetes that they created but also clean up any extra state (e.g. Helm release metadata).
+This allows tools like Helm to not only delete any objects from Kubernetes that they created but also clean up any extra state (e.g. Helm release metadata).
 
 ## What's The Catch?
 We are still exploring the best semantics for passing Tilt-built image references to external tools, so they can interoperate with `docker_build`.
@@ -100,7 +91,10 @@ Additionally, if your tool is capable of templating YAML, and you don't need oth
 [api-k8s_custom_deploy]: https://docs.tilt.dev/api.html#api.k8s_custom_depliy
 [api-k8s_yaml]: https://docs.tilt.dev/api.html#api.k8s_yaml
 [api-k8s_resource]: https://docs.tilt.dev/api.html#api.k8s_resource
+[api-local_resource]: https://docs.tilt.dev/api.html#api.local_resource
 [docs-helm-reimplement]: https://docs.tilt.dev/helm.html#re-implementing-the-helm-built-in
 [ext-helm_remote]: https://github.com/tilt-dev/tilt-extensions/tree/master/helm_remote
 [helm]: https://helm.sh/
+[kustomize]: https://kustomize.io/
+[openfaas]: https://www.openfaas.com/
 [tilt-releases]: https://github.com/tilt-dev/tilt/releases
