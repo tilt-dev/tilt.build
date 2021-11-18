@@ -31,62 +31,79 @@ Tilt features like status reporting and log streaming work automatically.
 Even the more advanced customizations provided by [`k8s_resource`][api-k8s_resource] such as port forwards are supported!
 
 ## Example
-Let's use [`k8s_custom_deploy`][api-k8s_custom_deploy] to deploy Kafka using a public Helm chart into our cluster:
-```python
-# configure the remote Helm repo
-local('helm repo add bitnami https://charts.bitnami.com/bitnami',
-      quiet=True,
-      echo_off=True)
+Let's use [`k8s_custom_deploy`][api-k8s_custom_deploy] to deploy an [OpenFaaS][openfaas] function without writing a Dockerfile or Kubernetes YAML.
 
-# on deploy -> run the Helm install and then query for what it deployed
+For this example, I've installed the OpenFaaS components in my cluster manually; in a real Tiltfile, you could include this as well to ensure the local environment is set up properly.
+The [OpenFaaS blog][openfaas-blog-tilt] has a guide that might be useful.
+
+I'm using a Golang handler bootstrapped by running `faas-cli new go-fn --lang go`.
+This created a `go-fn.yml` file (this is an OpenFaaS config, NOT a Kubernetes manifest.)
+It also made a `go-fn/` directory with "Hello world" example handler code.
+
+```python
+# on `tilt up` and file changes -> run the OpenFaaS build + deploy and then query for what it deployed
 apply_cmd = """
-helm upgrade --install -f values.yaml local-kafka bitnami/kafka 1>&2
-helm get manifest local-kafka | kubectl get -oyaml -f -
+faas-cli up -f go-fn.yml 1>&2
+kubectl get -oyaml --namespace=openfaas-fn all -l "faas_function=go-fn"
 """
 
-# on `tilt down` -> uninstall the release with Helm
-delete_cmd = 'helm uninstall local-kafka'
+# on `tilt down` -> delete the OpenFaaS function from the cluster
+delete_cmd = 'faas-cli delete -f go-fn.yml'
 
 k8s_custom_deploy(
-    'kafka',
+    'go-fn',
     apply_cmd=apply_cmd,
     delete_cmd=delete_cmd,
     # apply_cmd will be re-executed whenever these files change
-    deps=['values.yaml'],
+    deps=['./go-fn.yml', './go-fn/']
 )
 
-# add a port forward so it's possible to access/debug the cluster from
-# our host machine
-k8s_resource('kafka', port_forwards=['9092:9092'])
+# add a port forward so we can debug the function from our host machine directly
+k8s_resource('go-fn', port_forwards=['9372:8080'])
 ```
 
-When we run `tilt up`, Tilt will execute the `apply_cmd`, which performs the deployment using Helm and then returns the _result_ as YAML so Tilt can track the new or updated Kubernetes objects.
-If `values.yaml` changes, the `apply_cmd` will be automatically re-run.
+When we run `tilt up`, Tilt will execute the `apply_cmd`, which in our case invokes `faas-cli up` to build and deploy an image and then returns the _result_ as YAML so Tilt can track the new or updated Kubernetes objects.
+If `go-fn.yml` or any file in the `go-fn/` directory tree changes, the `apply_cmd` will be automatically re-run.
 
-If we query Helm, we'll see that it knows about this release:
+On `tilt down`, our `delete_cmd` will be invoked, which allows `faas-cli` to delete any objects from Kubernetes it created as well as clean up any extra OpenFaaS state.
+
+## What If Something Goes Wrong?
+Integrating an external tool can be tricky!
+Luckily, the Tilt API allows us to quickly introspect what's happening behind the scenes.
+
+> 💡 Use `tilt describe kapp` to get a human readable version!
+
+If something goes wrong, the `error` field in the `KubernetesApply` object status will have more information:
+```shell
+$ tilt get -ojsonpath='{.status.error}' kapp go-fn | head -n 5
+apply command returned malformed YAML: error converting YAML to JSON: yaml: control characters are not allowed
+stdout:
+[0] > Building go-fn.
+Clearing temporary build folder: ./build/go-fn/
+Preparing: ./go-fn/ build/go-fn/function
+```
+In this case, our `apply_cmd` wrote back invalid YAML to `stdout` because we forgot to redirect the diagnostic logs to `stderr` - oops!
+
+Or, we can see what objects were deployed:
 ```bash
-$ helm ls
-NAME       	NAMESPACE	REVISION	UPDATED                             	STATUS  	CHART       	APP VERSION
-local-kafka	default  	3       	2021-11-16 09:24:48.386254 -0500 EST	deployed	kafka-14.4.1	2.8.1
+$ tilt get -ojsonpath='{.status.resultYAML}' kubernetesapply go-fn | yq '.kind + "/" + .metadata.name'
+"Pod/go-fn-fd78fc4d8-d558b"
+"Deployment/go-fn"
+"ReplicaSet/go-fn-fd78fc4d8"
 ```
 
-Now, if we run `tilt down`, we'll see that our `delete_cmd` is invoked:
-```bash
-$ tilt down
-Loading Tiltfile at: ./Tiltfile
-Successfully loaded Tiltfile (177.134ms)
-Running cmd: helm uninstall local-kafka
-release "local-kafka" uninstalled
-```
-This allows tools like Helm to not only delete any objects from Kubernetes that they created but also clean up any extra state (e.g. Helm release metadata).
+Important information will always be shown in the Tilt web UI, but the API lets you see the exact same data that Tilt is using internally.
+We've begun to rely on it ourselves for debugging heavily and hope you find it as useful as we do!
 
 ## What's The Catch?
-We are still exploring the best semantics for passing Tilt-built image references to external tools, so they can interoperate with `docker_build`.
+At the moment, it is not practical to use images built with Tilt (e.g. via [`docker_build`][api-docker_build]) in conjunction with [`k8s_custom_deploy`][api-k8s_custom_deploy].
+We are still exploring the best semantics for passing Tilt-built image references to external tools.
 In its initial state, [`k8s_custom_deploy`][api-k8s_custom_deploy] is best suited for use with pre-built images or tools that handle both image build + deploy.
 
 Additionally, if your tool is capable of templating YAML, and you don't need other functionality provided by it while developing, [`k8s_yaml`][api-k8s_yaml] is often simpler and faster.
 
 
+[api-docker_build]: https://docs.tilt.dev/api.html#api.docker_build
 [api-helm]: https://docs.tilt.dev/api.html#api.helm
 [api-k8s_custom_deploy]: https://docs.tilt.dev/api.html#api.k8s_custom_depliy
 [api-k8s_yaml]: https://docs.tilt.dev/api.html#api.k8s_yaml
@@ -97,4 +114,5 @@ Additionally, if your tool is capable of templating YAML, and you don't need oth
 [helm]: https://helm.sh/
 [kustomize]: https://kustomize.io/
 [openfaas]: https://www.openfaas.com/
+[openfaas-blog-tilt]: https://www.openfaas.com/blog/tilt/
 [tilt-releases]: https://github.com/tilt-dev/tilt/releases
