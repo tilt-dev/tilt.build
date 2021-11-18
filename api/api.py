@@ -299,6 +299,57 @@ def k8s_yaml(yaml: Union[str, List[str], Blob], allow_duplicates: bool = False) 
   pass
 
 
+def k8s_custom_deploy(name: str,
+                      apply_cmd: Union[str, List[str]],
+                      delete_cmd: Union[str, List[str]],
+                      deps: Union[str, List[str]],
+                      image_selector: str="",
+                      live_update: List[LiveUpdateStep]=[],
+                      apply_dir: str="",
+                      apply_env: Dict[str, str]={},
+                      apply_cmd_bat: str="",
+                      delete_dir: str="",
+                      delete_env: Dict[str, str]={},
+                      delete_cmd_bat: str="") -> None:
+  """Deploy resources to Kubernetes using a custom command.
+
+  For deployment tools that cannot output templated YAML for use with :meth:`k8s_yaml`
+  or need to perform additional work as part of deployment, ``k8s_custom_deploy``
+  enables integration with Tilt.
+
+  The ``apply_cmd`` will be run whenever a path from ``deps`` changes and should
+  output the YAML of the objects it applied to the Kubernetes cluster to stdout.
+  Tilt will track workload status and stream pod logs based on this result.
+
+  The ``delete_cmd`` is run on ``tilt down`` so that the tool can clean up any
+  objects it created in the cluster as well as any state of its own.
+
+  Both ``apply_cmd`` and ``delete_cmd`` MUST be idempotent. For example, it's
+  possible that some objects might already exist when the ``apply_cmd`` is
+  invoked, and objects might have already been deleted before ``delete_cmd``
+  is invoked. The ``apply_cmd`` should have similar semantics to ``kubectl apply``
+  and the ``delete_cmd`` should behave similar to ``kubectl delete --ignore-not-found``.
+
+  Port forwards and other behavior can be configured using :meth:`k8s_resource`
+  using the ``name`` as specified here.
+
+  Args:
+    name: resource name to use in Tilt UI and for further customization via :meth:`k8s_resource`
+    apply_cmd: command that deploys objects to the Kubernetes cluster
+    delete_cmd: command that deletes objects in the Kubernetes cluster
+    deps: paths to watch and trigger a re-apply on change
+    image_selector: image reference to determine containers eligible for Live Update
+    live_update: set of steps for updating a running container (see `Live Update documentation <live_update_reference.html>`_).
+    apply_dir: working directory for ``apply_cmd``
+    apply_env: environment variables for ``apply_cmd``
+    apply_cmd_bat: apply command to run, expressed as a Windows batch command
+    delete_dir: working directory for ``delete_cmd``
+    delete_env: environment variables for ``delete_cmd``
+    delete_cmd_bat: delete command to run, expressed as a Windows batch command
+  """
+  pass
+
+
 class TriggerMode:
   """A set of constants that describe how Tilt triggers an update for a resource.
   Possible values are:
