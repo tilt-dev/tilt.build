@@ -2297,6 +2297,25 @@ ensures a pretty high bar of intent.
             </cite>
             parameter is not supported for Docker Compose resources.
            </p>
+           <p>
+            When using Docker Compose, Tilt expects the image build to be either managed by your Docker Compose file (via the
+            <a class="reference external" href="https://docs.docker.com/compose/compose-file/compose-file-v3/#build">
+             image
+            </a>
+            key) OR by Tilt&#x2019;s
+            <a class="reference internal" href="#api.docker_build" title="api.docker_build">
+             <code class="xref py py-meth docutils literal notranslate">
+              <span class="pre">
+               docker_build()
+              </span>
+             </code>
+            </a>
+            , but not both. (Follow this
+            <a class="reference external" href="https://github.com/tilt-dev/tilt/issues/5196">
+             GitHub issue
+            </a>
+            to be notified of changes to this expectation.)
+           </p>
            <dl class="field-list simple">
             <dt class="field-odd">
              Parameters
