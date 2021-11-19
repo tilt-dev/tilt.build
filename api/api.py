@@ -214,6 +214,8 @@ def docker_build(ref: str,
 
   Note also that the `entrypoint` parameter is not supported for Docker Compose resources.
 
+  When using Docker Compose, Tilt expects the image build to be either managed by your Docker Compose file (via the `image <https://docs.docker.com/compose/compose-file/compose-file-v3/#build>`_ key) OR by Tilt's :meth:`docker_build`, but not both. (Follow this `GitHub issue <https://github.com/tilt-dev/tilt/issues/5196>`_ to be notified of changes to this expectation.)
+
   Args:
     ref: name for this image (e.g. 'myproj/backend' or 'myregistry/myproj/backend'). If this image will be used in a k8s resource(s), this ref must match the ``spec.container.image`` param for that resource(s).
     context: path to use as the Docker build context.
