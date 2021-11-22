@@ -1,6 +1,6 @@
 ---
 slug: "k8s-custom-deploy"
-date: 2021-11-18
+date: 2021-11-22
 author: milas
 layout: blog
 title: "Deploy All The Things Even If They Aren't YAML"
@@ -67,7 +67,7 @@ If `go-fn.yml` or any file in the `go-fn/` directory tree changes, the `apply_cm
 
 On `tilt down`, our `delete_cmd` will be invoked, which allows `faas-cli` to delete any objects from Kubernetes it created as well as clean up any extra OpenFaaS state.
 
-## What If Something Goes Wrong?
+## What if Something Goes Wrong?
 Integrating an external tool can be tricky!
 Luckily, the Tilt API allows us to quickly introspect what's happening behind the scenes.
 
@@ -95,13 +95,16 @@ $ tilt get -ojsonpath='{.status.resultYAML}' kubernetesapply go-fn | yq '.kind +
 Important information will always be shown in the Tilt web UI, but the API lets you see the exact same data that Tilt is using internally.
 We've begun to rely on it ourselves for debugging heavily and hope you find it as useful as we do!
 
-## What's The Catch?
+## What's the Catch?
 At the moment, it is not practical to use images built with Tilt (e.g. via [`docker_build`][api-docker_build]) in conjunction with [`k8s_custom_deploy`][api-k8s_custom_deploy].
 We are still exploring the best semantics for passing Tilt-built image references to external tools.
 In its initial state, [`k8s_custom_deploy`][api-k8s_custom_deploy] is best suited for use with pre-built images or tools that handle both image build + deploy.
 
 Additionally, if your tool is capable of templating YAML, and you don't need other functionality provided by it while developing, [`k8s_yaml`][api-k8s_yaml] is often simpler and faster.
 
+## Looking for a More Complete Example?
+The [knative Tilt extension][ext-knative] uses [`k8s_custom_deploy`][api-k8s_custom_deploy] to deploy and monitor the Knative serving components.
+Be sure to check it out if you're looking to use [Knative serving][knative] with Tilt or a real world example.
 
 [api-docker_build]: https://docs.tilt.dev/api.html#api.docker_build
 [api-helm]: https://docs.tilt.dev/api.html#api.helm
@@ -111,7 +114,9 @@ Additionally, if your tool is capable of templating YAML, and you don't need oth
 [api-local_resource]: https://docs.tilt.dev/api.html#api.local_resource
 [docs-helm-reimplement]: https://docs.tilt.dev/helm.html#re-implementing-the-helm-built-in
 [ext-helm_remote]: https://github.com/tilt-dev/tilt-extensions/tree/master/helm_remote
+[ext-knative]: https://github.com/tilt-dev/tilt-extensions/tree/master/knative
 [helm]: https://helm.sh/
+[knative]: https://knative.dev/docs/serving/
 [kustomize]: https://kustomize.io/
 [openfaas]: https://www.openfaas.com/
 [openfaas-blog-tilt]: https://www.openfaas.com/blog/tilt/
