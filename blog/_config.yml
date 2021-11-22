@@ -1,14 +1,14 @@
 title: Tilt Blog
 email: hi@tilt.dev
 description: >-
-  Thoughts on how to make services easier to run, debug, and collaborate on locally
+  Thoughts on how to make microservices easier to run, debug, and collaborate on locally
 baseurl: ""
 url: "https://blog.tilt.dev"
 docsurl: "https://docs.tilt.dev"
 landingurl: "https://tilt.dev"
 blogurl: "https://blog.tilt.dev"
 twitter_username: tilt_dev
-github_username:  windmilleng
+github_username:  tilt-dev
 google_analytics: UA-129150759-3
 paginate: 12
 include:
