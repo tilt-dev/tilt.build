@@ -132,7 +132,7 @@ The [`k8s_custom_deploy`](/api.html#api.k8s_custom_deploy) Tiltfile function
 uses a shell script to apply changes to a cluster.
 
 The install shell script must print the result YAML to `stdout`
-so that Tilt can track what objects it creates.
+so that Tilt can track which objects the custom deployer has created.
 
 ```
 k8s_custom_deploy(
