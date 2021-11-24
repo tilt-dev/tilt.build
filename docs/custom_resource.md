@@ -96,7 +96,7 @@ Tilt will automatically fetch logs, and create any port-forwards you specify.
 ## Installing Custom Resource Operators
 
 To use a custom resource in a cluster, you'll need to install
-the Kubernetes operator that reads the new object type.
+the [Kubernetes operator](https://kubernetes.io/docs/concepts/extend-kubernetes/operator/) that reads the new object type.
 
 Most frameworks have an installation guide to help you set it up.
 
