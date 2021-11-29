@@ -46,14 +46,14 @@ Our second video in the How-To series is neither of those. It’s just a way to 
 There are Tilt features that are quite obvious, like the possibility to [group resources visually](https://blog.tilt.dev/2021/08/09/resource-grouping.html) by label. But today we’ll talk about a feature that is frequently overlooked. Heck - some people don’t even know about it!  
 I am speaking of course about the “Favorite” feature. It lets you mark any resource with a star, and it will show up in the global navigation bar. Pretty handy, right?
 
-![starring resources from the Tilt UI](/assets/images/tilt-news-november-2021/favorite-feature.gif)
+![Starring resources from the Tilt UI](/assets/images/tilt-news-november-2021/favorite-feature.gif)
 
 ## Behind the scenes
 Speaking of unsung heroes, let’s talk about the Tilt team, for a sec.  
 Since we’re a small company, our All-Hands are fairly quick and relaxed; there’s even time for a five-minute screen break. In our first meeting after Halloween, Milas made excellent use of that break by changing into his Among Us costume. Or was it even Milas under there? 🤔 Seemed sus to me.
 
-![the tilt team during a zoom meeting. Milas is dressed as a character from Among Us](/assets/images/tilt-news-november-2021/tilt-team.png)
-*The Tilt team during a zoom meeting. Milas is dressed as a character from Among Us*
+![The Tilt team during a zoom meeting, wondering who's the impostor among us](/assets/images/tilt-news-november-2021/tilt-team.png)
+*The Tilt team during a zoom meeting, wondering who's the impostor among us*
 
 ### Welcome Siegs!
 Last, but certainly not least, we’re super excited to welcome the newest addition to the team: [Nick Sieger](https://tilt.dev/about), who joined us as Senior Tools Developer! 🥳
