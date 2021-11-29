@@ -13,7 +13,7 @@ tags:
 ---
 Bonjour Tilteurs et Tilteuses,
 
-December is just around the corner, which means it’s time for the end of the year madness again. Hard to believe 2021 is almost over, isn’t it? We’re planning a cool 2021 recap for the end of the year, so there’ll be no December newsletter 😢  
+December is just around the corner, which means it’s time for the end of the year madness again. Hard to believe 2021 is almost over, isn’t it? We’re planning a cool 2021 recap for the end of the year, so we'll have that instead of a December newsletter!  
 But for now, the November edition comes packed with great reads, awesome features, and one or two glimpses behind the scenes!
 
 ## Tilt Mentions
