@@ -43,7 +43,7 @@ Our second video in the How-To series is neither of those. It’s just a way to 
 {% include youtubePlayer.html id=page.youtubeId %}
 
 ### Unsung heroes: our *favourite* feature
-There are Tilt features, that are quite obvious, like the possibility to [group resources visually](https://blog.tilt.dev/2021/08/09/resource-grouping.html) by label. But today we’ll talk about a feature that is frequently overlooked. Heck - some people don’t even know about it!  
+There are Tilt features that are quite obvious, like the possibility to [group resources visually](https://blog.tilt.dev/2021/08/09/resource-grouping.html) by label. But today we’ll talk about a feature that is frequently overlooked. Heck - some people don’t even know about it!  
 I am speaking of course about the “Favorite” feature. It lets you mark any resource with a star, and it will show up in the global navigation bar. Pretty handy, right?
 
 ![starring resources from the Tilt UI](/assets/images/tilt-news-november-2021/favorite-feature.gif)
