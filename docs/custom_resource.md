@@ -144,8 +144,7 @@ so that Tilt can track which objects the custom deployer has created.
 k8s_custom_deploy(
   name='my-crd-operator',
   apply_cmd='./install-my-crd-operator.sh',
-  delete_cmd='./teardown-my-crd-operator.sh',
-  allow_parallel=True)
+  delete_cmd='./teardown-my-crd-operator.sh')
 ```
 
 Use `k8s_custom_deploy` if you want to monitor the health of your operator and
