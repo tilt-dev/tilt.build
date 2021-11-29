@@ -36,7 +36,7 @@ Often people ask us for help to optimize their docker builds. Unfortunately, som
 Check out [Nick’s blog post](https://blog.tilt.dev/2021/11/12/docker-build-alternatives.html) to learn how to use `kubectl build`, `ko`, and `pack` with Tilt!
 
 ### How-To Button 2: The Rebuttoning
-There are sequels nobody wants, but everyone knows are coming, like the tenth installment of “The Fast and the Furious”. Then there are sequels no one expected, but once they’re out you can’t imagine the world without them, like the exceptional [Terminator 2: Judgement Day](https://www.youtube.com/watch?v=nxr2SV5znwI).
+There are sequels nobody wants, but everyone knows are coming, like the tenth installment of “The Fast and the Furious.” Then there are sequels no one expected, but once they’re out you can’t imagine the world without them, like the exceptional [Terminator 2: Judgement Day](https://www.youtube.com/watch?v=nxr2SV5znwI).
 
 Our second video in the How-To series is neither of those. It’s just a way to quickly learn how to combine Tilt UI buttons with other features, like passing along text input. Enjoy!
 
