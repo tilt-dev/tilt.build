@@ -25,7 +25,7 @@ We love to see more and more folks mentioning and discussing Tilt publicly!
 
 Hopefully one day we’ll be able to add *your* take on Tilt too. Whether your experience with Tilt was superb or awful, we love to read about it! 🤓
 
-## Tilt News
+## Tilt Updates
 ### Docs
 Long-time Tilters have probably already noticed that we have overhauled our [docs](http://docs.tilt.dev) and introduced a [new, shiny tutorial](https://docs.tilt.dev/tutorial/index.html).  
 So far, our docs were mainly a collection of information by maintainers. From now on, we are designing our docs with our users in mind first. Rather than giving you all the information you could possibly need (and more), we’re trying to understand which problems you are trying to solve and how to best guide you through the solution finding process.  
@@ -48,9 +48,9 @@ I am speaking of course about the “Favorite” feature. It lets you mark any r
 
 ![starring resources from the Tilt UI](/assets/images/tilt-news-november-2021/favorite-feature.gif)
 
-### Behind the scenes
+## Behind the scenes
 Speaking of unsung heroes, let’s talk about the Tilt team, for a sec.  
-Since we’re a small company, our All-Hands are fairly quick and relaxed; there’s even time for a five-minute screen break. In our first meeting after Halloween, Milas made excellent use of that break by changing into his Among Us costume. Or was it even still Milas? 🤔 Seemed pretty sus to me.
+Since we’re a small company, our All-Hands are fairly quick and relaxed; there’s even time for a five-minute screen break. In our first meeting after Halloween, Milas made excellent use of that break by changing into his Among Us costume. Or was it even Milas under there? 🤔 Seemed sus to me.
 
 ![the tilt team during a zoom meeting. Milas is dressed as a character from Among Us](/assets/images/tilt-news-november-2021/tilt-team.png)
 *The Tilt team during a zoom meeting. Milas is dressed as a character from Among Us*
