@@ -21,7 +21,7 @@ We love to see more and more folks mentioning and discussing Tilt publicly!
 
 * Clear Street’s Ottavio Hartman wrote a blog post on [leveraging Tilt for their local dev environment](https://medium.com/@ottopo/523045dd2ac8) dubbed “localkube”.
 * In “[Defining the Developer Experience](https://dzone.com/articles/developer-experience)”, Kevin Taylor, VP of Engineering at Caylent, ponders the implications of Cloud Native development on the evolution of DevX. Tilt is mentioned together with Skaffold as tools to help develop on Kubernetes.
-* In his book [Effortless Cloud-Native App Development Using Skaffold](https://books.google.com/books?id=vNJCEAAAQBAJ&pg=PA233&lpg=PA233&dq=effortless+cloud-native+app+development+using+skaffold+tilt&source=bl&ots=NUwNtLM0Ci&sig=ACfU3U38wdnpWJF78uxTiNKkbgYDSnHAhQ&hl=en&sa=X&ved=2ahUKEwjx1Z3jnYn0AhXPSt8KHVsCBnMQ6AF6BAgTEAM#v=onepage&q=effortless%20cloud-native%20app%20development%20using%20skaffold%20tilt&f=false), Ashish Choudhary introduces Tilt as a possible alternative to Skaffold, 
+* In his book [Effortless Cloud-Native App Development Using Skaffold](https://books.google.com/books?id=vNJCEAAAQBAJ&pg=PA233&lpg=PA233&dq=effortless+cloud-native+app+development+using+skaffold+tilt&source=bl&ots=NUwNtLM0Ci&sig=ACfU3U38wdnpWJF78uxTiNKkbgYDSnHAhQ&hl=en&sa=X&ved=2ahUKEwjx1Z3jnYn0AhXPSt8KHVsCBnMQ6AF6BAgTEAM#v=onepage&q=effortless%20cloud-native%20app%20development%20using%20skaffold%20tilt&f=false), Ashish Choudhary introduces Tilt as a potential alternative to Skaffold, 
 
 Hopefully one day we’ll be able to add *your* take on Tilt too. Whether your experience with Tilt was superb or awful, we love to read about it! 🤓
 
