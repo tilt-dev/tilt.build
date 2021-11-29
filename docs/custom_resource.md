@@ -105,18 +105,18 @@ Here are some options for standardizing that installation in a Tilt environment.
 ### Using `local()` or `local_resource()`
 
 The [`local`](/api.html#api.local) Tiltfile function can run arbitrary shell
-scripts synchronously. This is the easiest way to get started.
+scripts. This is the easiest way to get started.
 
-```
+But `local` is a blunt instrument - it will run everytime the Tiltfile reloads,
+and it will block startup while it waits for the install to finish.
+
+```python
 local('./install-my-crd-operator.sh')
 ```
 
-`local` is a blunt instrument - it will run everytime the Tiltfile reloads,
-and it will block startup while it waits for the install to finish.
-
 If you want to parallelize it, you can use `local_resource()`:
 
-```
+```python
 local_resource(
   name='my-crd-operator',
   cmd='./install-my-crd-operator.sh',
@@ -125,6 +125,12 @@ local_resource(
 
 Then, use [`resource_deps`](resource_deps.html) on your other resources to make
 sure they wait on your `local_resource` to finish.
+
+```python
+k8s_resource(
+  name='custom-resource',
+  resource_deps=['my-crd-operator'])
+```
 
 ### Using `k8s_custom_deploy()`
 
