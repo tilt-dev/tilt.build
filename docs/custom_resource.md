@@ -93,8 +93,68 @@ resource, you can treat it like any other Kubernetes built-in.
 
 Tilt will automatically fetch logs, and create any port-forwards you specify.
 
-## Advanced Pod Creation
+## Installing Custom Resource Operators
 
+To use a custom resource in a cluster, you'll need to install
+the [Kubernetes operator](https://kubernetes.io/docs/concepts/extend-kubernetes/operator/) that reads the new object type.
+
+Most frameworks have an installation guide to help you set it up.
+
+Here are some options for standardizing that installation in a Tilt environment.
+
+### Using `local()` or `local_resource()`
+
+The [`local`](/api.html#api.local) Tiltfile function can run arbitrary shell
+scripts. This is the easiest way to get started.
+
+But `local` is a blunt instrument - it will run everytime the Tiltfile reloads,
+and it will block startup while it waits for the install to finish.
+
+```python
+local('./install-my-crd-operator.sh')
+```
+
+If you want to parallelize it, you can use `local_resource()`:
+
+```python
+local_resource(
+  name='my-crd-operator',
+  cmd='./install-my-crd-operator.sh',
+  allow_parallel=True)
+```
+
+Then, use [`resource_deps`](resource_deps.html) on your other resources to make
+sure they wait on your `local_resource` to finish.
+
+```python
+k8s_resource(
+  name='custom-resource',
+  resource_deps=['my-crd-operator'])
+```
+
+### Using `k8s_custom_deploy()`
+
+The [`k8s_custom_deploy`](/api.html#api.k8s_custom_deploy) Tiltfile function
+uses a shell script to apply changes to a cluster.
+
+The install shell script must print the result YAML to `stdout`
+so that Tilt can track which objects the custom deployer has created.
+
+```
+k8s_custom_deploy(
+  name='my-crd-operator',
+  apply_cmd='./install-my-crd-operator.sh',
+  delete_cmd='./teardown-my-crd-operator.sh',
+  allow_parallel=True)
+```
+
+Use `k8s_custom_deploy` if you want to monitor the health of your operator and
+view its logs from the interface. See the
+[`knative`](https://github.com/tilt-dev/tilt-extensions/blob/master/knative/Tiltfile)
+extension for a working example.
+
+## Advanced Pod Creation
+    
 Many Kubernetes-based frameworks create pods that themselves create other pods!
 
 How do you build images for these second-order pods?
@@ -155,3 +215,8 @@ If you have an example of a custom resource with Tilt you'd like to share, feel 
   Deploy the Prometheus operator and an instance of Prometheus. Demonstrates how to
   use resource dependencies and pod selectors to install the CRDs in the right order,
   and monitor the pods created by those CRDs.
+- [Knative](https://github.com/tilt-dev/tilt-extensions/tree/master/knative) -
+  Knative gives you CRDs to describe scale-to-zero services with DNS set up for
+  you. The Knative extension has Tiltfile functions to help set it up.  Install
+  the Knative operator with `knative_install`, and inject images into Knative
+  Services with `knative_yaml`.
