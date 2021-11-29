@@ -28,7 +28,7 @@ Hopefully one day we’ll be able to add *your* take on Tilt too. Whether your e
 ## Tilt News
 ### Docs
 Long-time Tilters have probably already noticed that we have overhauled our [docs](http://docs.tilt.dev) and introduced a [new, shiny tutorial](https://docs.tilt.dev/tutorial/index.html).  
-So far, our docs were mainly a collection of information by maintainers. From now on, we are designing our docs with our users in mind first. Rather than giving you all the information you could possibly need (and more), we’re trying to understand which problems you are trying to solve and how to best guide you through the solution finding process.  
+So far, our docs were mainly a collection of information by maintainers. From now on, we are designing our docs with our users journeys first and foremost. Rather than giving you all the information you could possibly need, we’re trying to understand which problems you are trying to solve and how to best guide you through the solution finding process.  
 To read more about the changes, [visit our blog](https://blog.tilt.dev/2021/11/08/new-tutorial.html).
 
 ### Custom Builds
