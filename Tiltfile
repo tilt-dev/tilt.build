@@ -1,9 +1,8 @@
 # -*- mode: Python -*-
 
-load('ext://tilt_inspector', 'tilt_inspector')
-
-tilt_inspector(port=4009)
-#enable_feature('live_update_v2')
+load('ext://honeycomb', 'honeycomb_collector')
+if os.environ.get('HONEYCOMB_API_KEY', '') and os.environ.get('HONEYCOMB_DATASET', ''):
+  honeycomb_collector()
 
 # Uncomment to try the kubefwd extension.
 #v1alpha1.extension_repo(name='default', url='https://github.com/tilt-dev/tilt-extensions')
