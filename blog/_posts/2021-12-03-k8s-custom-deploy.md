@@ -1,6 +1,6 @@
 ---
 slug: "k8s-custom-deploy"
-date: 2021-11-22
+date: 2021-12-03
 author: milas
 layout: blog
 title: "Deploy All The Things Even If They Aren't YAML"
@@ -23,12 +23,13 @@ For example, Helm charts can include "hooks" to run at a specific part of the de
 Other tools, such as [OpenFaaS][openfaas], provide a streamlined build & deploy experience managed entirely by their CLI, so there's no YAML at all.
 It's also common for teams to have their own custom deployment shell scripts (e.g. for use with CI/CD).
 
-While it's possible to use Tilt's [`local_resource`][api-local_resource] function as a workaround in these instances, that means giving up much of Tilt's deep Kubernetes integration for the resource as a result.
+While it's possible to use Tilt's [`local_resource`][api-local_resource] function as a workaround in these instances, that means giving up much of Tilt's deep Kubernetes integration, such as Pod log streaming and port forwards, for the resource as a result.
 
 In Tilt [v0.23.0][tilt-releases], we've introduced a built-in function to enable the use of an external Kubernetes deployment tool or script.
 With the new [`k8s_custom_deploy`][api-k8s_custom_deploy] function, Tilt will delegate to a command or shell script to perform the deployment instead of directly calling the Kubernetes API with YAML.
 Tilt features like status reporting and log streaming work automatically.
 Even the more advanced customizations provided by [`k8s_resource`][api-k8s_resource] such as port forwards are supported!
+This is possible as a result of lots of under the hood changes to Tilt over the past months to expose individual Tilt features via composable APIs. 
 
 ## Example
 Let's use [`k8s_custom_deploy`][api-k8s_custom_deploy] to deploy an [OpenFaaS][openfaas] function without writing a Dockerfile or Kubernetes YAML.
@@ -68,10 +69,8 @@ If `go-fn.yml` or any file in the `go-fn/` directory tree changes, the `apply_cm
 On `tilt down`, our `delete_cmd` will be invoked, which allows `faas-cli` to delete any objects from Kubernetes it created as well as clean up any extra OpenFaaS state.
 
 ## What if Something Goes Wrong?
-Integrating an external tool can be tricky!
+Integrating your workflow with an external tool can be tricky!
 Luckily, the Tilt API allows us to quickly introspect what's happening behind the scenes.
-
-> 💡 Use `tilt describe kapp` to get a human readable version!
 
 If something goes wrong, the `error` field in the `KubernetesApply` object status will have more information:
 ```shell
@@ -82,15 +81,16 @@ stdout:
 Clearing temporary build folder: ./build/go-fn/
 Preparing: ./go-fn/ build/go-fn/function
 ```
-In this case, our `apply_cmd` wrote back invalid YAML to `stdout` because we forgot to redirect the diagnostic logs to `stderr` - oops!
 
-Or, we can see what objects were deployed:
+Or, we can see which objects were deployed:
 ```bash
 $ tilt get -ojsonpath='{.status.resultYAML}' kubernetesapply go-fn | yq '.kind + "/" + .metadata.name'
 "Pod/go-fn-fd78fc4d8-d558b"
 "Deployment/go-fn"
 "ReplicaSet/go-fn-fd78fc4d8"
 ```
+
+> 💡 Use `tilt describe kapp` to get a human readable version!
 
 Important information will always be shown in the Tilt web UI, but the API lets you see the exact same data that Tilt is using internally.
 We've begun to rely on it ourselves for debugging heavily and hope you find it as useful as we do!
