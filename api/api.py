@@ -389,7 +389,8 @@ def dc_resource(name: str,
                 trigger_mode: TriggerMode = TRIGGER_MODE_AUTO,
                 resource_deps: List[str] = [],
                 links: Union[str, Link, List[Union[str, Link]]] = [],
-                labels: Union[str, List[str]] = []) -> None:
+                labels: Union[str, List[str]] = [],
+                auto_init: bool = True) -> None:
   """Configures the Docker Compose resource of the given name. Note: Tilt does an amount of resource configuration
   for you(for more info, see `Tiltfile Concepts: Resources <tiltfile_concepts.html#resources>`_); you only need
   to invoke this function if you want to configure your resource beyond what Tilt does automatically.
@@ -403,6 +404,8 @@ def dc_resource(name: str,
     links: one or more links to be associated with this resource in the UI. For more info, see
       `Accessing Resource Endpoints <accessing_resource_endpoints.html#arbitrary-links>`_.
     labels: used to group resources in the Web UI, (e.g. you want all frontend services displayed together, while test and backend services are displayed seperately). A label must start and end with an alphanumeric character, can include ``_``, ``-``, and ``.``, and must be 63 characters or less. For an example, see `Resource Grouping <tiltfile_concepts.html#resource-groups>`_.
+    auto_init: whether this resource runs on ``tilt up``. Defaults to ``True``. For more info, see the
+      `Manual Update Control docs <manual_update_control.html>`_.
   """
 
   pass
