@@ -25,6 +25,7 @@ examples of what you can do with a Tiltfile. Load them into your own Tiltfile. I
 - [`git_resource`](https://github.com/tilt-dev/tilt-extensions/tree/master/git_resource): Deploy a dockerfile from a remote repository -- or specify the path to a local checkout for local development.
 - [`hello_world`](https://github.com/tilt-dev/tilt-extensions/tree/master/hello_world): Print "Hello world!". Used in [Extensions](https://docs.tilt.dev/extensions.html).
 - [`helm_remote`](https://github.com/tilt-dev/tilt-extensions/tree/master/helm_remote): Install a remote Helm chart (in a way that gets properly uninstalled when running `tilt down`)
+- [`honeycomb`](https://github.com/tilt-dev/tilt-extensions/tree/master/honeycomb): Report dev env health metrics to [Honeycomb](https://honeycomb.io).
 - [`jest_test_runner`](https://github.com/tilt-dev/tilt-extensions/tree/master/jest_test_runner): Jest JavaScript test runner. Example from [Contribute an Extension](https://docs.tilt.dev/contribute_extension.html).
 - [`ko`](https://github.com/tilt-dev/tilt-extensions/tree/master/ko): Use [Ko](https://github.com/google/ko) to build Go-based container images
 - [`kubebuilder`](https://github.com/tilt-dev/tilt-extensions/tree/master/kubebuilder): Enable live-update for developing [Kubebuilder](https://github.com/kubernetes-sigs/kubebuilder) projects.
