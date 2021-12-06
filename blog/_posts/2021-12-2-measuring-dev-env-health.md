@@ -194,7 +194,7 @@ local_resource(
   name='honeycomb-collector',
   labels=['honeycomb'],
   allow_parallel=True,
-  deps=[./honeycomb-collector.py'),
+  deps=[./honeycomb-collector.py'],
   serve_cmd=['python3', './honeycomb-collector.py'])
 ```
 
