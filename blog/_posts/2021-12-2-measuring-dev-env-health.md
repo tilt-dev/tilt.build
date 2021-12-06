@@ -1,6 +1,6 @@
 ---
 slug: "measuring-dev-env-health"
-date: 2021-12-02
+date: 2021-12-07
 author: nick
 layout: blog
 title: "Measuring Dev Env Health with Honeycomb"
@@ -50,7 +50,7 @@ for us: the health collector sidecar.
 
 I'll show you how to:
 
-1. Scrape the Tilt API to collect the data points you need.
+1. Scrape the Tilt API to collect the data points you need (e.g., Docker build time).
 
 2. Send those data points to a remote monitoring service like Honeycomb.
 
@@ -143,7 +143,7 @@ for build in builds:
       'duration_ms': int((end_time - start_time).total_seconds() * 1000),
       'kind': 'dockerimage',
     },
-    'time': completed['finishedAt'],
+    'time': completed['startedAt'],
   })
 ```
 
@@ -165,6 +165,7 @@ I chose Honeycomb for this example because:
 Here's what the reporting loop looks like:
 
 ```python
+import http.client as http_client
 api_key = 'MY-HONEYCOMB-API-KEY'
 dataset = 'MY-HONEYCOMB-DATASET'
 while True:
@@ -182,6 +183,14 @@ while True:
 
 You can also see the actual code in-use
 [here](https://github.com/tilt-dev/tilt-extensions/pull/302/files#diff-7d04212e0d98a06f478ec5b12fe2f34b8d9eb10c8fd04c34b353bcd7a36c4da6).
+
+We used the HTTP API directly here to make it easier to see the flow. The
+[Honeycomb SDK
+`libhoney`](https://docs.honeycomb.io/getting-data-in/python/libhoney/) is a
+better choice for high-throughput event reporters (because it does more async
+buffering).  The [Honeycomb `buildevents`
+tool](https://github.com/honeycombio/buildevents) has nice ergonomics for
+reporting traces of CI builds.
 
 ## Running the Collector
 
@@ -207,5 +216,12 @@ I can see the different image build durations in my Honeycomb dashboard:
 
 ![Honeycomb metrics](/assets/images/measuring-dev-env-health/honeycomb.jpg)
 
-Thanks to Ian Smith at Honeycomb for sending me some code samples on the Events API that got me started with this!
+In a future post, I want to put togehter a more complex example that shows
+traces to visualize the different parts of your build. With the data in the
+Tilt API, we can break down a docker image build into its individual stages. Or
+we can show how the image build fits in relative to the rest of the dev env setup.
 
+Thanks to [Ian Smith](https://twitter.com/metaforgotten) at Honeycomb for
+sending me some code samples on the Events API that got me started with this!
+Also thanks to [Ben Hartshorne](https://twitter.com/maplebed) at Honeycomb for
+reading a draft of this post.
