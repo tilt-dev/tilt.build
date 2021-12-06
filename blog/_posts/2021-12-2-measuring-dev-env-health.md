@@ -114,7 +114,7 @@ $ tilt get dockerimage tilt-site:tilt-site -o json
 
 The image object publishes when it started and when it finished the build.  You
 can even get fine-grained performance data about each stage of the image build,
-if I want to know which stage is the slowest.  But for this simple example,
+if you want to know which stage is the slowest.  But for this simple example,
 we're only going to collect the total build duration.
 
 Here's a little python code to collect the data:
