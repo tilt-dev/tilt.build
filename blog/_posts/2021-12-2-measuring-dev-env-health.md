@@ -61,7 +61,7 @@ sends Docker build metrics to Honeycomb:
 
 [Honeycomb Extension](https://github.com/tilt-dev/tilt-extensions/pull/302)
 
-It's fairly simple. You can also use that code as an example to write your own
+It's fairly straightforward. You can also use that code as an example to write your own
 collector.
 
 ## Collecting the Data
