@@ -107,12 +107,12 @@ sidebar:
 
     - title: Local Resources
       items:
-        - title: Run Local or Occasional Workflows
+        - title: Setting up Local Commands, Servers, and Tests
           href: local_resource.html
 
     - title: Docker Compose
       items:
-      - title: A Better UI for Docker Compose
+      - title: Setting up Docker Compose
         href: docker_compose.html
 
     - title: Live Update
