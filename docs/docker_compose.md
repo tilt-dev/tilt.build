@@ -1,27 +1,30 @@
 ---
-title: A Better UI for Docker Compose
-description: "Tilt can use 'docker-compose' to orchestrate your services instead."
+title: Setting Up Docker Compose
+description: "Using Docker Compose to run multiple containers in Tilt"
 layout: docs
 sidebar: guides
 ---
 
-Most of our documentation describes using Tilt to deploy to Kubernetes.
+[Docker Compose](https://docs.docker.com/compose/) helps you define microservice apps
+that run in multiple containers.
 
-But if you already use Docker Compose, don't worry! Tilt can use `docker-compose` to orchestrate your services instead.
+Most Tilt documentation uses Kubernetes to run multiple containers. But there's also a strong
+subset of Tilt users who use Docker Compose as their container runtime!
 
-This doc describes how you can get Tilt's UX for your Docker Compose project using the same config and tools plus a
-one-line Tiltfile. (This is simpler than the config for Kubernetes projects
-described in the [Write a Tiltfile Guide](tiltfile_authoring.html).)
+In this guide, we'll show you how to connect Docker Compose to a Tilt dev environment. This lets you:
+ 
+- Organize each Docker Compose service from the Tilt dashboard.
 
-## Comparison
+- Control when and how each service runs.
 
-Tilt helps you manage your Docker Compose environment:
+- Add live updates in-place for each service.
 
-* The UI shows you status at a glance, so errors can't scroll off-screen.
-* You can navigate the combined log stream, or dig into the logs for just one service.
-* Tilt handles filesystem watching and updating containers in-place.
+If you'd like to skip straight to the example code, visit this repo:
 
-If you decide to move to Kubernetes later, your Tilt workflow will be the same.
+[tilt-example-docker-compose](https://github.com/tilt-dev/tilt-example-docker-compose){:.attached-above}
+
+The repo contains a complete sample app, a Tiltfile, and a test that uses `tilt ci` to make sure
+the app runs successfully.
 
 ## Getting Started
 
@@ -75,23 +78,25 @@ We're not going to be pushing this image
 to a remote registry, so any image name will do. We use `tilt.dev/express-redis-app`.
 
 ```yaml
-redis:
-  image: redis
-  container_name: cache
-  expose:
-    - 6379
-app:
-  image: tilt.dev/express-redis-app
-  links:
-    - redis
-  ports:
-    - 3000:3000
-  environment:
-    - REDIS_URL=redis://cache
-    - NODE_ENV=development
-    - PORT=3000
-  command:
-    sh -c 'node server.js'
+version: "3.9"
+services:
+  redis:
+    image: redis
+    container_name: cache
+    expose:
+      - 6379
+  app:
+    image: tilt.dev/express-redis-app
+    links:
+      - redis
+    ports:
+      - 3000:3000
+    environment:
+      - REDIS_URL=redis://cache
+      - NODE_ENV=development
+      - PORT=3000
+    command:
+      sh -c 'node server.js'
 ```
 
 Lastly, we need to tell Tilt how to build this image. Here's our Tiltfile:
@@ -146,13 +151,30 @@ docker_compose(["./docker-compose.yml", "./docker-compose.override.yml"])
 
 Tilt uses Docker Compose to run your services, so you can also use `docker-compose` to examine state outside Tilt.
 
+## Organizing Services
+
+The `dc_resource` Tiltfile function lets you pass options how your services run:
+
+[Labels](tiltfile_config.html#labels) let you control put services into groups. The example repo contains these labels:
+
+```
+dc_resource('redis', labels=["database"])
+dc_resource('app', labels=["server"])
+```
+
+If you have a server that doesn't need to run in every dev environment, you can tell
+Tilt not to run it at startup:
+
+```
+dc_resource('storybook', auto_init=False)
+```
+
+For a complete list of options, see [the API reference](api.html#api.dc_resource).
+
 ## Try it Yourself
 
-All the code in this tutorial is available in [this Git repo](https://github.com/tilt-dev/express-redis-docker).
+All the code in this tutorial is available in this repo:
+
+[tilt-example-docker-compose](https://github.com/tilt-dev/tilt-example-docker-compose){:.attached-above}
+
 Run it yourself and make changes to see how it works.
-
-## Troubleshooting
-
-Our Docker Compose support is not as widely used as Tilt's Kubernetes support.
-
-You may hit more/different bugs, which we want to fix -- please file issues or tell us in Slack.

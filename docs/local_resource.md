@@ -1,9 +1,10 @@
 ---
-title: Run Local and/or Occasional Workflows with Local Resource
-description: "A technical reference on how to use local build steps in your Tiltfile"
+title: Setting up Local Commands, Servers, and Tests
+description: "Define local commands as part of your dev environment, even if they're not containerized"
 layout: docs
 sidebar: guides
 ---
+
 Each entry in your Tilt sidebar is a **resource**---a unit of work managed by Tilt.
 
 The most common type of Tilt resource is one that represents a deployed service, and is made up of
