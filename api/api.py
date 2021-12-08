@@ -312,7 +312,8 @@ def k8s_custom_deploy(name: str,
                       apply_cmd_bat: str="",
                       delete_dir: str="",
                       delete_env: Dict[str, str]={},
-                      delete_cmd_bat: str="") -> None:
+                      delete_cmd_bat: str="",
+                      container_selector: str="") -> None:
   """Deploy resources to Kubernetes using a custom command.
 
   For deployment tools that cannot output templated YAML for use with :meth:`k8s_yaml`
@@ -335,6 +336,12 @@ def k8s_custom_deploy(name: str,
   Port forwards and other behavior can be configured using :meth:`k8s_resource`
   using the ``name`` as specified here.
 
+  If ``live_update`` rules are specified, exactly one of ``image_selector`` or
+  ``container_selector`` must be specified to determine which container(s) are
+  eligible for in-place updates. ``image_selector`` will match containers based
+  on an image reference, while ``container_selector`` will match a single container
+  by name.
+
   Args:
     name: resource name to use in Tilt UI and for further customization via :meth:`k8s_resource`
     apply_cmd: command that deploys objects to the Kubernetes cluster
@@ -348,6 +355,7 @@ def k8s_custom_deploy(name: str,
     delete_dir: working directory for ``delete_cmd``
     delete_env: environment variables for ``delete_cmd``
     delete_cmd_bat: delete command to run, expressed as a Windows batch command
+    container_selector: container name to determine container for Live Update
   """
   pass
 

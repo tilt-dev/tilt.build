@@ -5350,6 +5350,24 @@ status code &gt;= 200 and &lt; 400.
              </span>
             </span>
            </em>
+           ,
+           <em class="sig-param">
+            <span class="n">
+             <span class="pre">
+              container_selector
+             </span>
+            </span>
+            <span class="o">
+             <span class="pre">
+              =
+             </span>
+            </span>
+            <span class="default_value">
+             <span class="pre">
+              &apos;&apos;
+             </span>
+            </span>
+           </em>
            <span class="sig-paren">
             )
            </span>
@@ -5492,6 +5510,42 @@ invoked, and objects might have already been deleted before
              </span>
             </code>
             as specified here.
+           </p>
+           <p>
+            If
+            <code class="docutils literal notranslate">
+             <span class="pre">
+              live_update
+             </span>
+            </code>
+            rules are specified, exactly one of
+            <code class="docutils literal notranslate">
+             <span class="pre">
+              image_selector
+             </span>
+            </code>
+            or
+            <code class="docutils literal notranslate">
+             <span class="pre">
+              container_selector
+             </span>
+            </code>
+            must be specified to determine which container(s) are
+eligible for in-place updates.
+            <code class="docutils literal notranslate">
+             <span class="pre">
+              image_selector
+             </span>
+            </code>
+            will match containers based
+on an image reference, while
+            <code class="docutils literal notranslate">
+             <span class="pre">
+              container_selector
+             </span>
+            </code>
+            will match a single container
+by name.
            </p>
            <dl class="field-list simple">
             <dt class="field-odd">
@@ -5785,6 +5839,20 @@ invoked, and objects might have already been deleted before
                  </span>
                 </code>
                 ) &#x2013; delete command to run, expressed as a Windows batch command
+               </p>
+              </li>
+              <li>
+               <p>
+                <strong>
+                 container_selector
+                </strong>
+                (
+                <code class="xref py py-class docutils literal notranslate">
+                 <span class="pre">
+                  str
+                 </span>
+                </code>
+                ) &#x2013; container name to determine container for Live Update
                </p>
               </li>
              </ul>
