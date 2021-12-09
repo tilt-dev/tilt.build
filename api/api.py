@@ -699,7 +699,9 @@ def blob(contents: str) -> Blob:
 def listdir(directory: str, recursive: bool = False) -> List[str]:
   """Returns all the files of the provided directory.
 
-  If ``rescursive`` is set to ``True``, the directory's contents will be recursively watched, and a change to any file will trigger a re-execution of the Tiltfile.
+  If ``recursive`` is set to ``True``, the directory's contents will be recursively watched, and a change to any file will trigger a re-execution of the Tiltfile.
+
+  This function returns absolute paths. Subdirectory names are not returned.
 
   Args:
     directory: Path to the directory locally (absolute, or relative to the location of the Tiltfile).
