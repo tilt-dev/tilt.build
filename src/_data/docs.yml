@@ -162,73 +162,89 @@ sidebar:
         href: api.html
     - title: Tilt CLI Reference
       items:
+# Start Tilt CLI Reference
+      - title: tilt
+        href: cli/tilt.html
+        info: Manages your microservices in development
       - title: tilt alpha
         href: cli/tilt_alpha.html
-        info: unstable/advanced commands still in alpha
+        info: 'unstable/advanced commands still in alpha'
       - title: tilt analytics
         href: cli/tilt_analytics.html
-        info: info and status about tilt-dev analytics
+        info: 'info and status about tilt-dev analytics'
       - title: tilt api-resources
         href: cli/tilt_api-resources.html
-        info: Print the supported API resources
+        info: 'Print the supported API resources'
       - title: tilt apply
         href: cli/tilt_apply.html
-        info: Apply a configuration to a resource by filename or stdin
+        info: 'Apply a configuration to a resource by filename or stdin'
       - title: tilt args
         href: cli/tilt_args.html
-        info: Changes the Tiltfile args in use by a running Tilt
+        info: 'Changes the Tiltfile args in use by a running Tilt'
       - title: tilt ci
         href: cli/tilt_ci.html
-        info: Start Tilt in CI/batch mode with the given Tiltfile args
+        info: 'Start Tilt in CI/batch mode with the given Tiltfile args'
+      - title: tilt completion
+        href: cli/tilt_completion.html
+        info: 'generate the autocompletion script for the specified shell'
       - title: tilt create
         href: cli/tilt_create.html
-        info: Create a resource from a file or from stdin.
+        info: 'Create a resource from a file or from stdin.'
       - title: tilt delete
         href: cli/tilt_delete.html
-        info: Delete resources by filenames, stdin, resources and names, or by resources and label selector
+        info: 'Delete resources by filenames, stdin, resources and names, or by resources and label selector'
+      - title: tilt demo
+        href: cli/tilt_demo.html
+        info: 'Creates a local, temporary Kubernetes cluster and runs a Tilt sample project'
       - title: tilt describe
         href: cli/tilt_describe.html
-        info: Show details of a specific resource or group of resources
+        info: 'Show details of a specific resource or group of resources'
       - title: tilt docker
         href: cli/tilt_docker.html
-        info: Execute Docker commands as Tilt would execute them
+        info: 'Execute Docker commands as Tilt would execute them'
       - title: tilt docker-prune
         href: cli/tilt_docker-prune.html
-        info: Run docker prune as Tilt does
+        info: 'Run docker prune as Tilt does'
       - title: tilt doctor
         href: cli/tilt_doctor.html
-        info: Print diagnostic information about the Tilt environment, for filing bug reports
+        info: 'Print diagnostic information about the Tilt environment, for filing bug reports'
       - title: tilt down
         href: cli/tilt_down.html
-        info: Delete resources created by 'tilt up'
+        info: "Delete resources created by 'tilt up'"
       - title: tilt dump
         href: cli/tilt_dump.html
-        info: Dump internal Tilt state
+        info: 'Dump internal Tilt state'
       - title: tilt edit
         href: cli/tilt_edit.html
-        info: Edit a resource on the server
+        info: 'Edit a resource on the server'
+      - title: tilt explain
+        href: cli/tilt_explain.html
+        info: 'Get documentation for a resource'
       - title: tilt get
         href: cli/tilt_get.html
-        info: Display one or many resources
+        info: 'Display one or many resources'
       - title: tilt logs
         href: cli/tilt_logs.html
-        info: Get logs from a running Tilt instance (optionally filtered for the specified resources)
+        info: 'Get logs from a running Tilt instance (optionally filtered for the specified resources)'
       - title: tilt patch
         href: cli/tilt_patch.html
-        info: Update fields of a resource
+        info: 'Update fields of a resource'
       - title: tilt trigger
         href: cli/tilt_trigger.html
-        info: Trigger an update for the specified resource
+        info: 'Trigger an update for the specified resource'
       - title: tilt up
         href: cli/tilt_up.html
-        info: Start Tilt with the given Tiltfile args
+        info: 'Start Tilt with the given Tiltfile args'
       - title: tilt verify-install
         href: cli/tilt_verify-install.html
-        info: Verifies Tilt Installation
+        info: 'Verifies Tilt Installation'
       - title: tilt version
         href: cli/tilt_version.html
-        info: Current Tilt version
-
+        info: 'Current Tilt version'
+      - title: tilt wait
+        href: cli/tilt_wait.html
+        info: 'Experimental: Wait for a specific condition on one or many resources'
+# End Tilt CLI Reference
 
 
     # - title: Tiltfile

@@ -7498,7 +7498,7 @@ uses kubectl&#x2019;s kustomize. See
             If
             <code class="docutils literal notranslate">
              <span class="pre">
-              rescursive
+              recursive
              </span>
             </code>
             is set to
@@ -7508,6 +7508,9 @@ uses kubectl&#x2019;s kustomize. See
              </span>
             </code>
             , the directory&#x2019;s contents will be recursively watched, and a change to any file will trigger a re-execution of the Tiltfile.
+           </p>
+           <p>
+            This function returns absolute paths. Subdirectory names are not returned.
            </p>
            <dl class="field-list simple">
             <dt class="field-odd">
