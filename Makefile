@@ -1,4 +1,4 @@
-.PHONY: api stars
+.PHONY: api stars cli-toc
 
 api:
 	docker rm tilt.api || exit 0
@@ -15,3 +15,6 @@ api:
 
 stars:
 	./stars/inject_stars.sh
+
+cli-toc:
+	./hack/inject_cli_toc.sh
