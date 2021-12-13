@@ -10,7 +10,7 @@ for cloud-based collaboration. We want to do that for developer tools.
 <div class="u-marginBottom1_5">
 {% assign total = site.data.people | where: "active","true" | size %}
 We’re small ({{total}} people, VC-backed). We’re based in NYC, 
-but also have teammates in Germany, the Netherlands and other parts of the US.
+but also have teammates in the Netherlands and other parts of the US.
 </div>
 
 <div class="brandBox u-marginBottom2">	
@@ -58,15 +58,6 @@ but also have teammates in Germany, the Netherlands and other parts of the US.
 
     <div>
       Seven years at Microsoft. Four years at Twitter. Needs to think of a pithy bio. He/him.
-    </div>
-  </div>
-  <div class="bio col-1of3 u-marginBottom1_25">
-    <img class="bio-image" src="/assets/img/l.jpg">
-    <h4>Ellen Körbes</h4>
-
-    <div>
-      Twitter-addict with a penchant for excessive trolling and galaxy-braining.
-      Cloud Native Ambassador and 'Best Hair' award recipient. They/them.
     </div>
   </div>
   <div class="bio col-1of3 u-marginBottom1_25">
