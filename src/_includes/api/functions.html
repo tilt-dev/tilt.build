@@ -3054,6 +3054,9 @@ correspond to images defined elsewhere in your
 the DockerImage ref).
            </p>
            <p>
+            You can set up Docker Compose with a path to a file, a Blob containing Compose YAML, or a list of paths and/or Blobs.
+           </p>
+           <p>
             Tilt will watch your Docker Compose YAML and reload if it changes.
            </p>
            <p>
@@ -3073,6 +3076,14 @@ the DockerImage ref).
 
 <span class="c1"># List of files</span>
 <span class="n">docker_compose</span><span class="p">([</span><span class="s1">&apos;./docker-compose.yml&apos;</span><span class="p">,</span> <span class="s1">&apos;./docker-compose.override.yml&apos;</span><span class="p">])</span>
+
+<span class="c1"># Inline compose definition</span>
+<span class="n">services</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&apos;redis&apos;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&apos;image&apos;</span><span class="p">:</span> <span class="s1">&apos;redis&apos;</span><span class="p">,</span> <span class="s1">&apos;ports&apos;</span><span class="p">:</span> <span class="s1">&apos;6379:6379&apos;</span><span class="p">}}</span>
+<span class="n">docker_compose</span><span class="p">(</span><span class="n">encode_yaml</span><span class="p">({</span><span class="s1">&apos;services&apos;</span><span class="p">:</span> <span class="n">services</span><span class="p">}))</span>
+
+<span class="c1"># File with inline override</span>
+<span class="n">services</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&apos;app&apos;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&apos;environment&apos;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&apos;DEBUG&apos;</span><span class="p">:</span> <span class="s1">&apos;true&apos;</span><span class="p">}}}</span>
+<span class="n">docker_compose</span><span class="p">([</span><span class="s1">&apos;docker-compose.yml&apos;</span><span class="p">,</span> <span class="n">encode_yaml</span><span class="p">({</span><span class="s1">&apos;services&apos;</span><span class="p">:</span> <span class="n">services</span><span class="p">})])</span>
 </pre>
             </div>
            </div>
@@ -3098,9 +3109,23 @@ the DockerImage ref).
                </span>
               </code>
               ,
+              <a class="reference internal" href="#api.Blob" title="api.Blob">
+               <code class="xref py py-class docutils literal notranslate">
+                <span class="pre">
+                 Blob
+                </span>
+               </code>
+              </a>
+              ,
               <code class="xref py py-class docutils literal notranslate">
                <span class="pre">
                 List
+               </span>
+              </code>
+              [
+              <code class="xref py py-data docutils literal notranslate">
+               <span class="pre">
+                Union
                </span>
               </code>
               [
@@ -3109,7 +3134,15 @@ the DockerImage ref).
                 str
                </span>
               </code>
-              ]]) &#x2013; Path(s) to Docker Compose yaml files.
+              ,
+              <a class="reference internal" href="#api.Blob" title="api.Blob">
+               <code class="xref py py-class docutils literal notranslate">
+                <span class="pre">
+                 Blob
+                </span>
+               </code>
+              </a>
+              ]]]) &#x2013; Path(s) and/or Blob(s) to Docker Compose yaml files or content.
              </p>
             </dd>
             <dt class="field-even">
