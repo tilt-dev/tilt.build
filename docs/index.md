@@ -16,35 +16,14 @@ Tilt automates all the steps from a code change to a new process: watching
 files, building container images, and bringing your environment
 up-to-date. Think `docker build && kubectl apply` or `docker-compose up`.
 
-## Watch: Tilt in Two Minutes
+## Finding the right manual
 
-<div class="Docs-video">
-  <iframe width="560" height="315" src="https://www.youtube.com/embed/FSMc3kQgd5Y?controls=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-</div>
+**Completely new to Tilt?**  
+Watch our two minute [video](#watch-tilt-in-two-minutes) explaining Tilt.  
+Then head over to our [tutorial](/tutorial) to run Tilt yourself for the very first time!
 
-## Install Tilt
-
-Installing the `tilt` binary is a one-step command.
-
-### macOS/Linux
-
-```bash
-curl -fsSL https://raw.githubusercontent.com/tilt-dev/tilt/master/scripts/install.sh | bash
-```
-
-### Windows
-
-```powershell
-iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/tilt-dev/tilt/master/scripts/install.ps1'))
-```
-
-For specific package managers (Homebrew, Scoop, Conda, asdf), see the [Installation Guide](install.html).
-
-## Run Tilt
-
-**New to Tilt?** Our tutorial will [get you started](/tutorial).
-
-**Configuring a Service?** We have best practice guides for:
+**Setting up Tilt for existing services?**  
+We have best practice guides for:
 
 <ul>
   {% for page in site.data.examples %}
@@ -52,8 +31,16 @@ For specific package managers (Homebrew, Scoop, Conda, asdf), see the [Installat
   {% endfor %}
 </ul>
 
-**Optimizing a Tiltfile?** Search for the function you need in our 
-[complete API reference](api.html).
+**Optimizing your Tiltfile?**  
+Search for the function you need in our 
+[API reference](api.html).
+
+## Watch: Tilt in Two Minutes
+
+<div class="Docs-video">
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/FSMc3kQgd5Y?controls=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+
 
 ## Community
 
