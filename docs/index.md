@@ -1,5 +1,5 @@
 ---
-title: Tilt User Guide
+title: Getting Started With Tilt
 layout: docs
 sidebar: gettingstarted
 ---
@@ -19,7 +19,7 @@ up-to-date. Think `docker build && kubectl apply` or `docker-compose up`.
 ## Finding the right manual
 
 **Completely new to Tilt?**  
-Watch our two minute [video](#watch-tilt-in-two-minutes) explaining Tilt.  
+Watch our two minute [explanation video](#watch-tilt-in-two-minutes).  
 Then head over to our [tutorial](/tutorial) to run Tilt yourself for the very first time!
 
 **Setting up Tilt for existing services?**  
