@@ -30,7 +30,7 @@ sidebar:
     - title: Local vs Remote Services
       href: local_vs_remote.html
 
-  - title: Tutorial
+  - title: First Look at Tilt
     inSectionNav: true
     items:
       - title: Overview
