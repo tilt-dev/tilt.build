@@ -81,7 +81,7 @@ Once a resource is ready, Tilt will start building the resources that depend on 
 
 By default, a resource is "ready" when:
 
-- For `k8s_resource`: the pod is running and Kubernetes considers all of its containers ready.
+- For `k8s_resource`: the pod is running and Kubernetes considers all of its containers ready. A job is considered ready when it has completed.
 
 - For `dc_resource`: the container is started (NB: Tilt doesn't currently observe docker-compose health checks).
 
@@ -95,6 +95,17 @@ when dependent servers start building, and how the servers show up in the UI.
 Kubernetes has a built-in notion of
 [readiness](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/#define-readiness-probes).
 Tilt will use the built-in readiness probe when it's available.
+
+For any Kubernetes object type, including built-ins and CRDs, that creates pods,
+Tilt will consider it ready when the pod is running and all of its containers
+are ready. The exception to this rule is jobs, which are considered ready by Tilt when
+the job has completed.
+
+If an object does not create pods, there isn't a way for Tilt to determine readiness.
+Instead, you'll want to configure the resource to let Tilt know that it shouldn't
+try to use pods to determine readiness. Resources configured to [ignore pods
+for readiness](api.html#api.k8s_resource) will appear as ready in the Tilt UI 
+as soon as they are applied to the Kubernetes cluster.
 
 To ignore pod readiness:
 
