@@ -83,6 +83,24 @@ sidebar:
         - title: Manual Update Control
           href: manual_update_control.html
 
+    - title: Migrating Existing Projects
+      items:
+        - title: Plain Old Static HTML
+          href: example_static_html.html
+        - title: Go
+          href: example_go.html
+        - title: Python
+          href: example_python.html
+        - title: NodeJS
+          href: example_nodejs.html
+        - title: Java
+          href: example_java.html
+        - title: Bazel
+          href: example_bazel.html
+        - title: C#
+          href: example_csharp.html
+
+
     - title: Building Images
       items:
         - title: Overview
@@ -119,20 +137,6 @@ sidebar:
       items:
         - title: Technical Specifications
           href: live_update_reference.html
-        - title: Plain Old Static HTML
-          href: example_static_html.html
-        - title: Go
-          href: example_go.html
-        - title: Python
-          href: example_python.html
-        - title: NodeJS
-          href: example_nodejs.html
-        - title: Java
-          href: example_java.html
-        - title: Bazel
-          href: example_bazel.html
-        - title: C#
-          href: example_csharp.html
 
     - title: Continuous Integration (CI)
       items:
