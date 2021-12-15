@@ -68,7 +68,7 @@ sidebar:
   guides:
     - title: Tiltfile
       items:
-        - title: Writing a Tiltfile
+        - title: Writing Your First Tiltfile
           href: tiltfile_authoring.html
         - title: Tiltfile Concepts
           href: tiltfile_concepts.html

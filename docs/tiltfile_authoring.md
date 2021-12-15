@@ -1,10 +1,9 @@
 ---
-title: "Tutorial: The First 15 Minutes"
+title: "Writing Your First Tiltfile"
 description: "This tutorial walks you through setting up Tilt for your project."
 layout: docs
 sidebar: guides
 ---
-
 This tutorial walks you through setting up Tilt for your project. 
 
 It should take 15 minutes, and assumes you've already [installed Tilt](install.html). Before you begin, you may want to join the `#tilt` channel in [Kubernetes Slack](http://slack.k8s.io) for technical and moral support.
