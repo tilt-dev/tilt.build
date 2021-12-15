@@ -16,8 +16,19 @@ Tilt automates all the steps from a code change to a new process: watching
 files, building container images, and bringing your environment
 up-to-date. Think `docker build && kubectl apply` or `docker-compose up`.
 
-## Finding the right manual
+# Get Tilt
+Installing the `tilt` binary is a one-step command.
 
+### macOS/Linux
+```bash
+curl -fsSL https://raw.githubusercontent.com/tilt-dev/tilt/master/scripts/install.sh | bash
+```
+### Windows
+```powershell
+iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/tilt-dev/tilt/master/scripts/install.ps1'))
+```
+
+## Finding the right manual
 **Completely new to Tilt?**  
 Watch our two minute [explanation video](#watch-tilt-in-two-minutes).  
 Then head over to our [tutorial](/tutorial) to run Tilt yourself for the very first time!
