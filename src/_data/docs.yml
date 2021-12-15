@@ -19,9 +19,9 @@ top:
 
 sidebar:
   gettingstarted:
-  - title: Why Use Tilt?
+  - title: Learn About Tilt
     items:
-    - title: Overview
+    - title: Getting Started
       href: ""
     - title: The Control Loop
       href: controlloop.html
