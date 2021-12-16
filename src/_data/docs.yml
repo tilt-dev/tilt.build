@@ -19,9 +19,9 @@ top:
 
 sidebar:
   gettingstarted:
-  - title: Why Use Tilt?
+  - title: Learn About Tilt
     items:
-    - title: Overview
+    - title: Getting Started
       href: ""
     - title: The Control Loop
       href: controlloop.html
@@ -30,7 +30,7 @@ sidebar:
     - title: Local vs Remote Services
       href: local_vs_remote.html
 
-  - title: Tutorial
+  - title: First Look at Tilt
     inSectionNav: true
     items:
       - title: Overview
@@ -68,7 +68,7 @@ sidebar:
   guides:
     - title: Tiltfile
       items:
-        - title: Writing a Tiltfile
+        - title: Writing Your First Tiltfile
           href: tiltfile_authoring.html
         - title: Tiltfile Concepts
           href: tiltfile_concepts.html

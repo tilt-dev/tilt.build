@@ -1,6 +1,5 @@
 ---
-title: Overview
-subtitle: Tilt Tutorial
+title: First Look at Tilt
 layout: docs
 sidebar: gettingstarted
 permalink: /tutorial/index.html
