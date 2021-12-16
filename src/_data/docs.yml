@@ -160,9 +160,17 @@ sidebar:
       items:
       - title: Overview
         href: api.html
+      - title: Functions
+        href: api.html#functions
+      - title: Types
+        href: api.html#types
+      - title: Data
+        href: api.html#data
+      - title: Extensions
+        href: api.html#extensions
+    # Start Tilt CLI Reference
     - title: Tilt CLI Reference
       items:
-# Start Tilt CLI Reference
       - title: tilt
         href: cli/tilt.html
         info: Manages your microservices in development

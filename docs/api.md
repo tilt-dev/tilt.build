@@ -7,6 +7,66 @@ sidebar: reference
 
 Tiltfiles are written in _Starlark_, a dialect of Python. For more information on Starlark's built-ins, [see the **Starlark Spec**](https://github.com/bazelbuild/starlark/blob/master/spec.md). The rest of this page details Tiltfile-specific functionality.
 
+## Functions
+
+<ul>
+{% for name in site.data.api.functions.functions %}
+
+{% assign anchor = "api." | append: name %}
+{% if name contains "." %}
+  {% assign anchor = "modules." | append: name %}
+{% endif %}
+
+<li><a href="#{{anchor}}">{{ name }}</a></li>
+{% endfor %}
+</ul>
+
+---
+
+{% include api/functions.html %}
+
+---
+
+## Types
+
+<ul>
+{% for name in site.data.api.classes.classes %}
+
+{% assign anchor = "api." | append: name %}
+{% if name contains "." %}
+  {% assign anchor = "modules." | append: name %}
+{% endif %}
+  
+<li><a href="#{{anchor}}">{{ name }}</a></li>
+{% endfor %}
+</ul>
+
+---
+
+{% include api/classes.html %}
+
+---
+
+## Data
+
+<ul>
+{% for name in site.data.api.data.data %}
+
+{% assign anchor = "api." | append: name %}
+{% if name contains "." %}
+  {% assign anchor = "modules." | append: name %}
+{% endif %}
+
+<li><a href="#{{anchor}}">{{ name }}</a></li>
+{% endfor %}
+</ul>
+
+---
+
+{% include api/data.html %}
+
+---
+
 ## Extensions
 
 Can't find what you're looking for in this reference?
@@ -43,61 +103,3 @@ examples of what you can do with a Tiltfile. Load them into your own Tiltfile. I
 - [`snyk`](https://github.com/tilt-dev/tilt-extensions/tree/master/snyk): Use [Snyk](https://snyk.io) to test your containers, configuration files, and open source dependencies.
 - [`syncback`](https://github.com/tilt-dev/tilt-extensions/tree/master/syncback): Sync files/directories from your container back to your local FS.
 - [`wait_for_it`](https://github.com/tilt-dev/tilt-extensions/tree/master/wait_for_it): Wait until command output is equal to given output.
-
-## Data
-
-<ul>
-{% for name in site.data.api.data.data %}
-
-{% assign anchor = "api." | append: name %}
-{% if name contains "." %}
-  {% assign anchor = "modules." | append: name %}
-{% endif %}
-
-<li><a href="#{{anchor}}">{{ name }}</a></li>
-{% endfor %}
-</ul>
-
----
-
-{% include api/data.html %}
-
----
-
-## Functions
-
-<ul>
-{% for name in site.data.api.functions.functions %}
-
-{% assign anchor = "api." | append: name %}
-{% if name contains "." %}
-  {% assign anchor = "modules." | append: name %}
-{% endif %}
-  
-<li><a href="#{{anchor}}">{{ name }}</a></li>
-{% endfor %}
-</ul>
-
----
-
-{% include api/functions.html %}
-
----
-
-## Types
-
-<ul>
-{% for name in site.data.api.classes.classes %}
-
-{% assign anchor = "api." | append: name %}
-{% if name contains "." %}
-  {% assign anchor = "modules." | append: name %}
-{% endif %}
-  
-<li><a href="#{{anchor}}">{{ name }}</a></li>
-{% endfor %}
-</ul>
-
----
-
-{% include api/classes.html %}
