@@ -1,1 +1,263 @@
+top:
+  - title: Getting Started
+    href: /index.html
+    hrefMobile: /docs_nav_gettingstarted.html
+    active: gettingstarted
+  - title: Guides
+    active: guides
+    href: /tiltfile_authoring.html
+    hrefMobile: /docs_nav_guides.html
+  - title: Tiltfile & CLI
+    href: /api.html
+    active: reference
+    hrefMobile: /docs_nav_reference.html
+  - title: Tilt API
+    href: https://api.tilt.dev
+    hrefMobile: https://api.tilt.dev
+    flair: new
 
+
+sidebar:
+  gettingstarted:
+  - title: Learn About Tilt
+    items:
+    - title: Getting Started
+      href: ""
+    - title: The Control Loop
+      href: controlloop.html
+    - title: Choosing a Local Dev Cluster
+      href: choosing_clusters.html
+    - title: Local vs Remote Services
+      href: local_vs_remote.html
+
+  - title: First Look at Tilt
+    inSectionNav: true
+    items:
+      - title: Overview
+        href: tutorial/index.html
+      - title: 1. Preparation (optional)
+        href: tutorial/1-prerequisites.html
+      - title: 2. Launching & Managing Resources
+        href: tutorial/2-tilt-up.html
+      - title: 3. Tilt UI
+        href: tutorial/3-tilt-ui.html
+      - title: 4. Code. Update. Repeat.
+        href: tutorial/4-code-update-repeat.html
+      - title: 5. Smart Rebuilds with Live Update
+        href: tutorial/5-live-update.html
+
+  - title: Quick Links
+    items:
+    - title: Install
+      href: install.html
+    - title: Upgrade
+      href: upgrade.html
+
+  - title:  FAQs
+    items:
+      - title: Is Tilt right for me?
+        href: product_faq.html
+      - title: Frequently Asked Questions
+        href: faq.html
+      - title: Why is Tilt broken?
+        href: debug_faq.html
+      - title: What does Tilt send?
+        href: telemetry_faq.html
+
+
+  guides:
+    - title: Tiltfile
+      items:
+        - title: Writing Your First Tiltfile
+          href: tiltfile_authoring.html
+        - title: Tiltfile Concepts
+          href: tiltfile_concepts.html
+        - title: Per user Config
+          href: tiltfile_config.html
+        - title: Structuring Multiple Repos
+          href: multiple_repos.html
+        - title: Debugging File Changes
+          href: file_changes.html
+        - title: Resource Dependencies
+          href: resource_dependencies.html
+        - title: Manual Update Control
+          href: manual_update_control.html
+
+    - title: Migrating Existing Projects
+      items:
+        - title: Plain Old Static HTML
+          href: example_static_html.html
+        - title: Go
+          href: example_go.html
+        - title: Python
+          href: example_python.html
+        - title: NodeJS
+          href: example_nodejs.html
+        - title: Java
+          href: example_java.html
+        - title: Bazel
+          href: example_bazel.html
+        - title: C#
+          href: example_csharp.html
+
+
+    - title: Building Images
+      items:
+        - title: Overview
+          href: dependent_images.html
+        - title: Setting up any Image Registry
+          href: personal_registry.html
+        - title: Custom Image Builders
+          href: custom_build.html
+        - title: Bazel
+          href: integrating_bazel_with_tilt.html
+        - title: Skaffold
+          href: skaffold.html
+
+    - title: Kubernetes Resources
+      items:
+        - title: With Helm
+          href: helm.html
+        - title: Port Forwards
+          href: accessing_resource_endpoints.html
+        - title: Custom Resource Definitions
+          href: custom_resource.html
+
+    - title: Local Resources
+      items:
+        - title: Setting up Local Commands, Servers, and Tests
+          href: local_resource.html
+
+    - title: Docker Compose
+      items:
+      - title: Setting up Docker Compose
+        href: docker_compose.html
+
+    - title: Live Update
+      items:
+        - title: Technical Specifications
+          href: live_update_reference.html
+
+    - title: Continuous Integration (CI)
+      items:
+        - title: Overview
+          href: ci.html
+
+    - title: Extending Tilt
+      items:
+        - title: Custom Buttons
+          href: buttons.html
+        - title: Tiltfile Extensions
+          href: extensions.html
+        - title: Contribute Extensions
+          href: contribute_extension.html
+
+    - title: Onboarding Your Team
+      items:
+        - title: Onboarding Checklist
+          href: onboarding_checklist.html
+        - title: Guide for Application Developers
+          href: welcome_to_tilt.html
+
+  reference:
+    - title: Tiltfile API Reference
+      items:
+      - title: Overview
+        href: api.html
+      - title: Functions
+        href: api.html#functions
+      - title: Types
+        href: api.html#types
+      - title: Data
+        href: api.html#data
+      - title: Extensions
+        href: api.html#extensions
+    # Start Tilt CLI Reference
+      - title: tilt
+        href: cli/tilt.html
+        info: Manages your microservices in development
+      - title: tilt alpha
+        href: cli/tilt_alpha.html
+        info: 'unstable/advanced commands still in alpha'
+      - title: tilt analytics
+        href: cli/tilt_analytics.html
+        info: 'info and status about tilt-dev analytics'
+      - title: tilt api-resources
+        href: cli/tilt_api-resources.html
+        info: 'Print the supported API resources'
+      - title: tilt apply
+        href: cli/tilt_apply.html
+        info: 'Apply a configuration to a resource by filename or stdin'
+      - title: tilt args
+        href: cli/tilt_args.html
+        info: 'Changes the Tiltfile args in use by a running Tilt'
+      - title: tilt ci
+        href: cli/tilt_ci.html
+        info: 'Start Tilt in CI/batch mode with the given Tiltfile args'
+      - title: tilt completion
+        href: cli/tilt_completion.html
+        info: 'generate the autocompletion script for the specified shell'
+      - title: tilt create
+        href: cli/tilt_create.html
+        info: 'Create a resource from a file or from stdin.'
+      - title: tilt delete
+        href: cli/tilt_delete.html
+        info: 'Delete resources by filenames, stdin, resources and names, or by resources and label selector'
+      - title: tilt demo
+        href: cli/tilt_demo.html
+        info: 'Creates a local, temporary Kubernetes cluster and runs a Tilt sample project'
+      - title: tilt describe
+        href: cli/tilt_describe.html
+        info: 'Show details of a specific resource or group of resources'
+      - title: tilt docker
+        href: cli/tilt_docker.html
+        info: 'Execute Docker commands as Tilt would execute them'
+      - title: tilt docker-prune
+        href: cli/tilt_docker-prune.html
+        info: 'Run docker prune as Tilt does'
+      - title: tilt doctor
+        href: cli/tilt_doctor.html
+        info: 'Print diagnostic information about the Tilt environment, for filing bug reports'
+      - title: tilt down
+        href: cli/tilt_down.html
+        info: "Delete resources created by 'tilt up'"
+      - title: tilt dump
+        href: cli/tilt_dump.html
+        info: 'Dump internal Tilt state'
+      - title: tilt edit
+        href: cli/tilt_edit.html
+        info: 'Edit a resource on the server'
+      - title: tilt explain
+        href: cli/tilt_explain.html
+        info: 'Get documentation for a resource'
+      - title: tilt get
+        href: cli/tilt_get.html
+        info: 'Display one or many resources'
+      - title: tilt logs
+        href: cli/tilt_logs.html
+        info: 'Get logs from a running Tilt instance (optionally filtered for the specified resources)'
+      - title: tilt patch
+        href: cli/tilt_patch.html
+        info: 'Update fields of a resource'
+      - title: tilt trigger
+        href: cli/tilt_trigger.html
+        info: 'Trigger an update for the specified resource'
+      - title: tilt up
+        href: cli/tilt_up.html
+        info: 'Start Tilt with the given Tiltfile args'
+      - title: tilt verify-install
+        href: cli/tilt_verify-install.html
+        info: 'Verifies Tilt Installation'
+      - title: tilt version
+        href: cli/tilt_version.html
+        info: 'Current Tilt version'
+      - title: tilt wait
+        href: cli/tilt_wait.html
+        info: 'Experimental: Wait for a specific condition on one or many resources'
+# End Tilt CLI Reference
+
+
+    # - title: Tiltfile
+    #   items:
+    #     - title: Tiltfile API Reference
+    #       href: api.html
