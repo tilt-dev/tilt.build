@@ -22,13 +22,13 @@ At its core, Kubernetes is more than an API or even a container orchestration pl
 
 In this way, Kubernetes does for computing workloads what cruise control (speed as a setpoint) or autopilot (destination as a setpoint) do for your automobile, except in an open and extensible fashion. (This reminds me of a [vulnerability in Fiat/Chrysler/Jeep automobiles][jeep] years ago that allowed remote attackers complete control of the vehicle. [Secure your clusters][secure-clusters], everyone!)
 
-### From prod to dev
+## From prod to dev
 
 When it comes to the software tools we use to develop our own systems, however, they are usually not so dynamic. They typically operate on some fixed configuration inputs, require us to run them manually after we make changes, and produce relatively static output. They may make assumptions about prerequisites that need to be installed. Errors can be cryptic. Some tools and frameworks have gotten a little more dynamic with auto-reloading development web servers, but that's about it. And then, gaining insight into how the tool operates or what produced the result is a difficult, frustrating task. Finally, getting different tools to work together is a constant tangle of shell scripts and baling wire.
 
 With Tilt, we are working to change the state of development environments from the fragile, static, duct-taped approach to a dynamic open, extensible environment that responds to your changes and immediately takes action, keeping you in a state of flow.
 
-### Dev environments as APIs
+## Dev environments as APIs
 
 It's [no][t8] [secret][t3] [that][t4] [we're][t5] [big][t6] [fans][t7] of [Kubernetes][t1], the [control loop][nicks-kubecon], and the [API][t2]. We like it so much, we spent most of 2021 migrating and adapting Tilt to use the Kubernetes API machinery. It's not an analog, it literally uses the same building blocks as Kubernetes.
 
@@ -66,25 +66,21 @@ image:tilt-avatar-web   2021-12-15T21:10:03Z
 
 (For convenience, `tilt api-resources` and `tilt get` work just like `kubectl` so you don't have to mess around with `KUBECONFIG` like we did here. [Read more in the command-line docs][cli-docs].)
 
-You can even browse Tilt data in [K9s](https://k9scli.io):
-
-```
-k9s --command filewatches
-```
-![K9s](/assets/images/apis-under-control/k9s-describe-filewatch.png)
-
 The only thing Tilt's API server doesn't support as of this writing are Custom Resource Definitions (CRDs). (We'd like to support them eventually but are still gathering use cases -- if you have a use for custom resources inside of Tilt, [let's talk!]({{site.landingurl}}/contact))
 
-### A language for dev environments
+## A language for dev environments
 
-"Kubernetes for prod, Tilt for dev" says the [title bar on the Tilt homepage]({{site.landingurl}}). Indeed, if Kubernetes resources are a way to describe the setpoint of your production environment, then Tilt resources are the same for your development environment. Except that in Tilt, resources are described by the _Tiltfile_, Tilt's main configuration entrypoint. Think of the Tiltfile as a domain-specific language for describing development environments. That's right, the Tiltfile is meant to be thought of as a declarative program. When the Tiltfile executes, it doesn't run any commands, build any images or deploy any workloads to Kubernetes. Instead, it creates or modifies data in the Tilt API server. Tilt runs its own control loop in the background, looking at changes in the API server and reconciling any resources that need to be run, built, or deployed. And as you saw above, the Tiltfile is itself registered in the Tilt API as a filewatch, so Tilt instantly picks up changes to the Tiltfile and applies them to the API.
+"Kubernetes for prod, Tilt for dev" says the [title bar on the Tilt homepage]({{site.landingurl}}). Indeed, if Kubernetes resources are a way to describe the setpoint of your production environment, then Tilt resources are the same for your development environment. Except that in Tilt, resources are described by the _Tiltfile_, Tilt's main configuration entrypoint.
 
-### An API for extending Tilt
+Think of the Tiltfile as a domain-specific language for describing development environments. That's right! The Tiltfile is meant to be thought of as a declarative program. When the Tiltfile executes, it doesn't run any commands, build any images or deploy any workloads to Kubernetes. Instead, it creates or updates data in the Tilt API server. Tilt runs its own control loop in the background, looking at changes in the API server and reconciling any resources that need to be run, built, or deployed. And as you saw above, the Tiltfile is itself registered in the Tilt API as a filewatch, so Tilt instantly picks up changes to the Tiltfile and applies them to the API.
+
+## An API for extending Tilt
 
 We want to make it easy to extend Tilt to do useful things that we never conceived ourselves.
 
-Since the Tiltfile is written in Starlark, a Python-like language, it's often easiest to write extensions to Tilt in Starlark, [like numerous Tilt extensions already do][tilt-extensions].
+Since the Tiltfile is written in Starlark, a Python-subset language, it's often easiest to write extensions to Tilt in Starlark, [like numerous Tilt extensions already do][tilt-extensions].
 
+However, as mentioned above, the Tiltfile is also a client of the Tilt API, so in many cases you can accomplish useful things talking directly to it. Want to be notified when the file watcher notices changes in files? Run `tilt get --watch 'configs:(Tiltfile)'` to get a stream of the same changes that the Tiltfile responds to.
 
 [K8SREST]: https://kubernetes.io/docs/concepts/overview/kubernetes-api/
 [CustomResources]: https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/custom-resources/
