@@ -26,10 +26,16 @@ for command in commands:
   command_lines.append('        href: cli/%s\n' % command[1])
   command_lines.append('        info: %s\n' % repr(command[2]))
 
+def find_index(lines, f):
+  for l in lines:
+    if f(l):
+      return lines.index(l)
+  return -1
+
 with open('src/_data/docs.yml') as f:
   lines = f.readlines()
-  start_line = lines.index('# Start Tilt CLI Reference\n')
-  end_line = lines.index('# End Tilt CLI Reference\n')
+  start_line = find_index(lines, lambda l: '# Start Tilt CLI Reference' in l)
+  end_line = find_index(lines, lambda l: '# End Tilt CLI Reference' in l)
   if start_line == -1 or end_line == -1:
     exit(1)
 
