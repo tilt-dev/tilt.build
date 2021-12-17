@@ -60,7 +60,7 @@ and use its own updating strategy instead of the one in the `docker-compose.yml`
 Let's look at a simple example app that runs Redis and a NodeJS-based server with Docker Compose.
 We'll use the same example as in
 [this blog post](https://codewithhugo.com/setting-up-express-and-redis-with-docker-compose/) with
-[this Git repo](https://github.com/tilt-dev/express-redis-docker).
+[this Git repo](https://github.com/tilt-dev/tilt-example-docker-compose).
 
 First, we create a `Dockerfile` that sets up a NodeJS environment,
 adds the NodeJS dependencies, then adds the source code.
@@ -146,6 +146,21 @@ the list of files to your `docker_compose` function.
 ```python
 docker_compose(["./docker-compose.yml", "./docker-compose.override.yml"])
 ```
+
+`docker_compose` also accepts a `blob` for any of its config items. You can use this feature to provide overrides for your docker compose setup using inline data from the `Tiltfile`, for example to take into account [config flags](tiltfile_config.html):
+
+```python
+# Tell Tilt which services to enable debug by passing DEBUG=true to container environment
+# run as `tilt up -- --debug a`
+config.define_string_list('debug')
+cfg = config.parse()
+# flatten list; allow --debug a,b,c or --debug a --debug b --debug c
+debug_services = [item for sublist in [x.split(',') for x in cfg.get('debug', [])] for item in sublist]
+overrides = dict([(svc,{'environment':{'DEBUG': 'true'}}) for svc in debug_services])
+
+docker_compose(["./docker-compose.yml", encode_yaml({'services': overrides})])
+```
+
 
 ## Debugging
 

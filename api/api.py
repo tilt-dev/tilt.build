@@ -239,13 +239,15 @@ def docker_build(ref: str,
   """
   pass
 
-def docker_compose(configPaths: Union[str, List[str]]) -> None:
+def docker_compose(configPaths: Union[str, Blob, List[Union[str, Blob]]]) -> None:
   """Run containers with Docker Compose.
 
   Tilt will read your Docker Compose YAML and separate out the services.
   We will infer which services defined in your YAML
   correspond to images defined elsewhere in your ``Tiltfile`` (matching based on
   the DockerImage ref).
+
+  You can set up Docker Compose with a path to a file, a Blob containing Compose YAML, or a list of paths and/or Blobs.
 
   Tilt will watch your Docker Compose YAML and reload if it changes.
 
@@ -261,8 +263,16 @@ def docker_compose(configPaths: Union[str, List[str]]) -> None:
     # List of files
     docker_compose(['./docker-compose.yml', './docker-compose.override.yml'])
 
+    # Inline compose definition
+    services = {'redis': {'image': 'redis', 'ports': '6379:6379'}}
+    docker_compose(encode_yaml({'services': services}))
+
+    # File with inline override
+    services = {'app': {'environment': {'DEBUG': 'true'}}}
+    docker_compose(['docker-compose.yml', encode_yaml({'services': services})])
+
   Args:
-    configPaths: Path(s) to Docker Compose yaml files.
+    configPaths: Path(s) and/or Blob(s) to Docker Compose yaml files or content.
   """
 
 
