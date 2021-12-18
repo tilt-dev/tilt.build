@@ -5401,6 +5401,24 @@ status code &gt;= 200 and &lt; 400.
              </span>
             </span>
            </em>
+           ,
+           <em class="sig-param">
+            <span class="n">
+             <span class="pre">
+              image_deps
+             </span>
+            </span>
+            <span class="o">
+             <span class="pre">
+              =
+             </span>
+            </span>
+            <span class="default_value">
+             <span class="pre">
+              []
+             </span>
+            </span>
+           </em>
            <span class="sig-paren">
             )
            </span>
@@ -5887,6 +5905,43 @@ by name.
                 </code>
                 ) &#x2013; container name to determine container for Live Update
                </p>
+              </li>
+              <li>
+               <p>
+                <strong>
+                 image_deps
+                </strong>
+                (
+                <code class="xref py py-class docutils literal notranslate">
+                 <span class="pre">
+                  List
+                 </span>
+                </code>
+                [
+                <code class="xref py py-class docutils literal notranslate">
+                 <span class="pre">
+                  str
+                 </span>
+                </code>
+                ]) &#x2013;
+                </p><p>
+                 a list of image builds that this deploy depends on.
+The tagged image names will be injected into the environment of the
+the apply command in the form:
+                </p>
+                <p>
+                 <cite>
+                  TILT_IMAGE_i
+                 </cite>
+                 - The reference to the image #i from the point of view of the cluster container runtime.
+                </p>
+                <p>
+                 <cite>
+                  TILT_IMAGE_MAP_i
+                 </cite>
+                 - The name of the image map #i with the current status of the image.
+                </p>
+               <p></p>
               </li>
              </ul>
             </dd>

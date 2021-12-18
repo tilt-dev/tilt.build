@@ -323,7 +323,8 @@ def k8s_custom_deploy(name: str,
                       delete_dir: str="",
                       delete_env: Dict[str, str]={},
                       delete_cmd_bat: str="",
-                      container_selector: str="") -> None:
+                      container_selector: str="",
+                      image_deps: List[str]=[]) -> None:
   """Deploy resources to Kubernetes using a custom command.
 
   For deployment tools that cannot output templated YAML for use with :meth:`k8s_yaml`
@@ -366,6 +367,13 @@ def k8s_custom_deploy(name: str,
     delete_env: environment variables for ``delete_cmd``
     delete_cmd_bat: delete command to run, expressed as a Windows batch command
     container_selector: container name to determine container for Live Update
+    image_deps: a list of image builds that this deploy depends on.
+      The tagged image names will be injected into the environment of the
+      the apply command in the form:
+
+      `TILT_IMAGE_i` - The reference to the image #i from the point of view of the cluster container runtime.
+
+      `TILT_IMAGE_MAP_i` - The name of the image map #i with the current status of the image.
   """
   pass
 
