@@ -275,6 +275,11 @@ $sidebar-maximum-width: 400px;
   .Docs-subnav-link {
     font-size: $tilt2-font-size-body-small;
     padding-left: $docs-side-margin * 1.5;
+
+    &.is-active {
+      color: $color-red;
+      font-weight: $tilt2-font-weight-sans-bold;
+    }
   }
 }
 

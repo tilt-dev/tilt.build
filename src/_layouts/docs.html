@@ -62,7 +62,7 @@ layout: docs-header
                       {% assign subpages = page.items %}
                       {% for subpage in subpages %}
                         <li class="Docs-subnav-section-list-item">
-                          <a class="Docs-subnav-link{% if page_href == subpage.href %} is-active{% endif %}" href="/{{subpage.href | escape}}">
+                          <a class="Docs-subnav-link{% if page_href == subpage.href %} is-active{% endif %}" href="/{{subpage.href | escape}}" onclick="highlightSubnav(this.href)">
                             {{ subpage.title | escape }}
                           </a>
                         </li>
@@ -71,7 +71,7 @@ layout: docs-header
                   </li>
                 {% else %}
                   <li class="Docs-subnav-section-list-item">
-                    <a class="Docs-subnav-link{% if page_href == page.href %} is-active{% endif %}" href="/{{page.href | escape}}">
+                    <a class="Docs-subnav-link{% if page_href == page.href %} is-active{% endif %}" href="/{{page.href | escape}}" onclick="highlightSubnav(this.href)">
                       {{ page.title | escape }}
                     </a>
                   </li>
@@ -151,4 +151,5 @@ layout: docs-header
   <script src="{{ '/assets/js/van11y-accessible-accordion-aria.min.js' | relative_url }}" defer></script>
   <script src="{{ '/assets/js/clipboard.min.js' | relative_url }}" defer></script>
   <script src="{{ '/assets/js/copy-code.js' | relative_url }}" defer></script>
+  <script src="{{ '/assets/js/subsection-highlighting.js' | relative_url }}" defer></script>
 </div>
