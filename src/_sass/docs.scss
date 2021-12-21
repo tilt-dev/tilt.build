@@ -267,6 +267,16 @@ $sidebar-maximum-width: 400px;
   }
 }
 
+.Docs-subnav-subsection {
+  .Docs-subnav-accordion__header {
+    font-weight: $tilt2-font-weight-sans-light;
+  }
+
+  .Docs-subnav-link {
+    font-size: $tilt2-font-size-body-small;
+    padding-left: $docs-side-margin * 1.5;
+  }
+}
 
 
 // Typography
