@@ -53,8 +53,8 @@ layout: docs-header
             <ul class="Docs-subnav-section-list">
               {% for page in pages %}
                 {% if page.items %}
-                  <li class="js-accordion Docs-subnav-section-list-item" data-accordion-prefix-classes="Docs-subnav">
-                    <dt class="js-accordion__header Docs-subnav-title Docs-subnav-subsection" data-accordion-opened="false">
+                  <li class="js-accordion Docs-subnav-section-list-item Docs-subnav-subsection" data-accordion-prefix-classes="Docs-subnav">
+                    <dt class="js-accordion__header Docs-subnav-title" data-accordion-opened="false">
                       {{ page.title | escape }}
                       {% svg assets/svg/carrot-down.svg %}
                     </dt>

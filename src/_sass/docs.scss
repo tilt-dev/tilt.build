@@ -227,7 +227,6 @@ $sidebar-maximum-width: 400px;
 }
 
 .Docs-subnav-accordion__panel {
-  max-height: 2000px; // Arbitrary height that hopefully won't clip any content
   transition: max-height $anim-duration ease;
   overflow: hidden;
 }
