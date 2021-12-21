@@ -45,24 +45,42 @@ layout: docs-header
             {% assign current_section_pages = pages %}
           {% endif %}
 
-          {% assign pages = section.items %}
-            <dt class="js-accordion__header Docs-subnav-title" data-accordion-opened="true">
-                {{ section.title | escape }}
-                {% svg assets/svg/carrot-down.svg %}
-            </dt>
-            <dd class="js-accordion__panel Docs-subnav-section">
-              <ul class="Docs-subnav-section-list">
-                {% for page in pages %}
+          <dt class="js-accordion__header Docs-subnav-title" data-accordion-opened="true">
+              {{ section.title | escape }}
+              {% svg assets/svg/carrot-down.svg %}
+          </dt>
+          <dd class="js-accordion__panel Docs-subnav-section">
+            <ul class="Docs-subnav-section-list">
+              {% for page in pages %}
+                {% if page.items %}
+                  <li class="js-accordion Docs-subnav-section-list-item" data-accordion-prefix-classes="Docs-subnav">
+                    <dt class="js-accordion__header Docs-subnav-title" data-accordion-opened="false">
+                      {{ page.title | escape }}
+                      {% svg assets/svg/carrot-down.svg %}
+                    </dt>
+                    <dd class="js-accordion__panel Docs-subnav-section">
+                      {% assign subpages = page.items %}
+                      {% for subpage in subpages %}
+                        <li class="Docs-subnav-section-list-item">
+                          <a class="Docs-subnav-link{% if page_href == subpage.href %} is-active{% endif %}" href="/{{subpage.href | escape}}">
+                            {{ subpage.title | escape }}
+                          </a>
+                        </li>
+                      {% endfor %}
+                    </dd>
+                  </li>
+                {% else %}
                   <li class="Docs-subnav-section-list-item">
                     <a class="Docs-subnav-link{% if page_href == page.href %} is-active{% endif %}" href="/{{page.href | escape}}">
-                      {{page.title | escape}}
+                      {{ page.title | escape }}
                     </a>
                   </li>
-                {% endfor %}
-              </ul>
-              </dd>
-          {% endfor %}
-          </dl>  
+                {% endif %}
+              {% endfor %}
+            </ul>
+          </dd>
+        {% endfor %}
+        </dl>
       </nav>
     </aside>
   
