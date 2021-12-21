@@ -3,8 +3,9 @@ function highlightSubnav(targetUrl) {
         document.querySelectorAll(".Docs-subnav-link").forEach(item => {
           if (item.href == targetUrl) {
             item.classList.add("is-active");
-            sectionHeaderButton = item.parentNode.parentNode.parentNode.firstElementChild.firstChild
-            if (sectionHeaderButton.type == "button") {
+            accordionPanel = item.parentNode.parentNode
+            sectionHeaderButton = accordionPanel.parentNode.firstElementChild.firstChild
+            if (sectionHeaderButton.type == "button" && !!accordionPanel.getAttribute("aria-hidden")) {
                 sectionHeaderButton.click()
             }
           } else {
