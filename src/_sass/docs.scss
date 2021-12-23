@@ -1,16 +1,9 @@
-$docs-side-margin: $spacing-unit;
 // Biggest width for content where text is comfortably readable:
 $docs-content-width:       960px;
 // Bounds for sidebar content text to be readable:
 $sidebar-minimum-width: 280px;
 $sidebar-maximum-width: 400px;
 
-
-.siteHeader-menuText {
-  font-family: $tilt2-font-mono;
-  font-size: 28px;
-  display: inline-block;
-}
 
 .body--docs {
   .page-content {
@@ -38,34 +31,6 @@ $sidebar-maximum-width: 400px;
   }
 }
 
-.Docs-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border-bottom: 1px solid $tilt2-color-gray-lightest;
-}
-
-.Docs-search {  
-  display: flex;
-  align-items: center;
-
-  @include docs-mobile {
-    width: 100%;
-    margin-bottom: $spacing-unit;
-  }
-  
-  @include above-docs-mobile {
-    margin-right: $docs-side-margin;
-  }
-}
-.Docs-search-input {
-  font-size: 16px;
-  padding: $spacing-unit * 0.25;
-  color: $tilt2-color-gray;
-  border: 2px solid $tilt2-color-gray-lighter;
-  border-radius: $tilt2-border-radius-large;
-  width: 100%;
-}
 
 .Docs-content {
   padding-top: $spacing-unit;
@@ -85,79 +50,6 @@ $sidebar-maximum-width: 400px;
   }
 }
 
-// Top-Level Nav - browse docs categories
-// --------------------------------------------------
-.Docs-nav {
-  font-family: $tilt2-font-mono;
-  font-size: 20px;
-  padding-left: $docs-side-margin;
-  padding-right: $docs-side-margin;
-
-  @include docs-mobile {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background-color: $color-white;
-    z-index: $z-docs-sidebar;
-  }
-}
-
-.Docs-nav-list {
-  display: flex;
-  list-style: none;
-}
-
-.Docs-nav-list-item {
-  // To align the "flair":
-  display: flex;
-  align-items: center;
-
-  & + & {
-    margin-left: $spacing-unit;
-  }
-}
-
-.Docs-nav-link {
-  color: $tilt2-color-text;
-  padding-top: $spacing-unit * 0.75;
-  padding-bottom: $spacing-unit * 0.75;
-  text-underline-offset: 6px;
-  display: none;
-
-  &:hover {
-    text-decoration: underline;
-    text-decoration-thickness: 1px;
-    text-decoration-color: $tilt2-color-gray-lighter;
-  }
-  
-  &.is-active {
-    text-decoration: underline;
-    text-decoration-thickness: 3px;
-    text-decoration-color: $color-green;
-  }
-}
-
-.Docs-nav-link--desktop {
-  @include above-docs-mobile {
-    display: block;
-  }
-}
-
-.Docs-nav-link--mobile {
-  @include docs-mobile {
-    display: block;
-  }
-}
-
-.Docs-nav-link-flair {
-  font-size: 12px;
-  background-color: $tilt2-color-gray-lightest;
-  padding-left: $spacing-unit * 0.2;
-  padding-right: $spacing-unit * 0.2;
-  margin-left: $spacing-unit * 0.25;
-  border-radius: $tilt2-border-radius;
-}
 
 
 // Sidebar Nav - browse docs pages

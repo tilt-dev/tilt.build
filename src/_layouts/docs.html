@@ -3,30 +3,6 @@ layout: docs-header
 ---
 {% assign page_href = page.url | slice: 1, page.url.size %}
 <div class="Docs-wrapper">
-  <header class="Docs-header">
-    <nav class="Docs-nav">
-      <ul class="Docs-nav-list">
-        {% for link in site.data.docs.top %}
-          <li class="Docs-nav-list-item">
-            <a class="Docs-nav-link Docs-nav-link--desktop{% if page.sidebar == link.active %} is-active{% endif %}" href="{{link.href | escape}}">
-              {{link.title | escape}} 
-            </a>
-            <!-- On mobile, top-level nav goes to a separate page with subnav links -->
-            <a class="Docs-nav-link Docs-nav-link--mobile{% if page.sidebar == link.active %} is-active{% endif %}" href="{{link.hrefMobile | escape}}">
-              {{link.title | escape}}
-            </a>
-            {% if link.flair %}
-              <div class="Docs-nav-link-flair">{{link.flair | escape}}</div>
-            {% endif %}
-          </li>
-        {% endfor %}
-      </ul>
-    </nav>
-    <form class="Docs-search js-only" action="/search" method="GET">
-      <input class="Docs-search-input" type="search" name="q" id="q" placeholder="Search Docs…" />
-    </form>
-  </header>
-
   <div class="Docs-body">
     <aside class="Docs-sidebar  Docs-sidebar--defaultLayout">
       <nav class="Docs-subnav">

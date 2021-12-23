@@ -1,51 +1,68 @@
 {%- include google-tag-manager-body.html -%}
 
-<header class="siteHeader2 siteHeader--docs">
-  <div class="siteHeader-logoAndMenuButton">
-    {% if page.layout == 'landing' %}
-    <!-- For the "Guide To App Devs" - /welcome_to_tilt.html -->
-    <a class="imageLink imageLink--logo-imagemark" href="{{site.landingurl}}/">
-      {% svg assets/svg/logo-imagemark.svg %}
-    </a>
-    {% elsif page.layout == 'home' %}
-    {% svg assets/svg/Tilt-logo.svg class="siteHeader-logoLink-svg" %}
-    {% else %}
-    <a class="siteHeader-logoLink" href="{{site.landingurl}}/">
-      {% svg assets/svg/Tilt-logo.svg class="siteHeader-logoLink-svg" %}
-    </a>
-    {% endif %}
-    <button class="siteHeader-menuButton" onclick="document.querySelector('.siteHeader2').classList.toggle('has-openMenu')">
-      {% svg assets/svg/ui-menu.svg class="siteHeader-menuButton-menu" %}
-      {% svg assets/svg/ui-close.svg class="siteHeader-menuButton-close" %}
-    </button>
+<header class="Docs-header">
+  <div class="Docs-siteHeader">
+    <div class="Docs-siteHeader-logoAndMenuButton">
+      <a class="Docs-siteHeader-logoLink" href="{{site.landingurl}}/">
+        {% svg assets/svg/Tilt-logo.svg class="Docs-siteHeader-logoLink-svg" %}
+      </a>
+      <button class="Docs-siteHeader-menuButton" onclick="document.querySelector('.Docs-siteHeader').classList.toggle('has-openMenu')">
+        {% svg assets/svg/ui-menu.svg class="Docs-siteHeader-menuButton-menu" %}
+        {% svg assets/svg/ui-close.svg class="Docs-siteHeader-menuButton-close" %}
+      </button>
+    </div>
+  
+    <nav class="siteHeader-nav">
+      <ul class="siteHeader-navList">
+        {% for link in site.data.header_docs %}
+          {% assign href = link.href %}
+          {% if link.landingurl %}
+            {% assign href = (href | prepend: "/" | prepend: site.landingurl) %}
+          {% elsif link.blogurl %}
+            {% assign href = (href | prepend: "/" | prepend: site.blogurl) %}
+          {% endif %}
+  
+          {% if link.github %}
+            <li class="siteHeader-navItem">
+              <a class="siteHeader-navLink siteHeader-navLink--github" href="{{site.data.github.href}}">
+                {{link.name}}
+                <span class="siteHeader-navLink-icon">{% svg assets/svg/github-star.svg%}</span>
+                <span>{{site.data.github.stars}}</span>
+              </a>
+            </li>
+          {% else %}
+            <li class="siteHeader-navItem">
+              <a class="siteHeader-navLink {% if link.primary %}siteHeader-navLink--primary{% endif %}" href="{{href}}">
+                {{ link.name }}
+              </a>
+            </li>
+          {% endif %}
+        {% endfor %}
+      </ul>
+    </nav>
   </div>
 
-  <nav class="siteHeader-nav">
-    <ul class="siteHeader-navList">
-      {% for link in site.data.header_docs %}
-        {% assign href = link.href %}
-        {% if link.landingurl %}
-          {% assign href = (href | prepend: "/" | prepend: site.landingurl) %}
-        {% elsif link.blogurl %}
-          {% assign href = (href | prepend: "/" | prepend: site.blogurl) %}
+  <nav class="Docs-nav">
+    <ul class="Docs-nav-list">
+      {% for link in site.data.docs.top %}
+      <li class="Docs-nav-list-item">
+        <a class="Docs-nav-link Docs-nav-link--desktop{% if page.sidebar == link.active %} is-active{% endif %}"
+          href="{{link.href | escape}}">
+          {{link.title | escape}}
+        </a>
+        <!-- On mobile, top-level nav goes to a separate page with subnav links -->
+        <a class="Docs-nav-link Docs-nav-link--mobile{% if page.sidebar == link.active %} is-active{% endif %}"
+          href="{{link.hrefMobile | escape}}">
+          {{link.title | escape}}
+        </a>
+        {% if link.flair %}
+        <div class="Docs-nav-link-flair">{{link.flair | escape}}</div>
         {% endif %}
-
-        {% if link.github %}
-          <li class="siteHeader-navItem">
-            <a class="siteHeader-navLink siteHeader-navLink--github" href="{{site.data.github.href}}">
-              {{link.name}}
-              <span class="siteHeader-navLink-icon">{% svg assets/svg/github-star.svg%}</span>
-              <span>{{site.data.github.stars}}</span>
-            </a>
-          </li>
-        {% else %}
-          <li class="siteHeader-navItem">
-            <a class="siteHeader-navLink {% if link.primary %}siteHeader-navLink--primary{% endif %}" href="{{href}}">
-              {{ link.name }}
-            </a>
-          </li>
-        {% endif %}
+      </li>
       {% endfor %}
     </ul>
+    <form class="Docs-search js-only" action="/search" method="GET">
+      <input class="Docs-search-input" type="search" name="q" id="q" placeholder="Search Docs…" />
+    </form>
   </nav>
 </header>

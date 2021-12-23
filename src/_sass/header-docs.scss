@@ -1,0 +1,331 @@
+.siteHeader-menuText {
+  font-family: $tilt2-font-mono;
+  font-size: 28px;
+  display: inline-block;
+}
+
+
+.Docs-header {
+  display: flex;
+  flex-direction: column;
+  border-bottom: 1px solid $tilt2-color-gray-lightest;
+}
+
+.Docs-siteHeader-logoLink-svg {
+  width: 100px;
+  height: auto;
+}
+.Docs-siteHeader {
+  display: flex;  
+}
+
+.Docs-search {  
+  display: flex;
+  align-items: center;
+
+  @include docs-mobile {
+    width: 100%;
+    margin-bottom: $spacing-unit;
+  }
+  
+  @include above-docs-mobile {
+    margin-right: $docs-side-margin;
+  }
+}
+.Docs-search-input {
+  font-size: 16px;
+  padding: $spacing-unit * 0.25;
+  color: $tilt2-color-gray;
+  border: 2px solid $tilt2-color-gray-lighter;
+  border-radius: $tilt2-border-radius-large;
+  width: 100%;
+}
+
+
+// Top-Level Nav - browse docs categories
+// --------------------------------------------------
+.Docs-nav {
+  display: flex;
+  justify-content: space-between;
+  font-family: $tilt2-font-mono;
+  font-size: 20px;
+  padding-left: $docs-side-margin;
+  padding-right: $docs-side-margin;
+
+  @include docs-mobile {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: $color-white;
+    z-index: $z-docs-sidebar;
+  }
+}
+
+.Docs-nav-list {
+  display: flex;
+  list-style: none;
+}
+
+.Docs-nav-list-item {
+  // To align the "flair":
+  display: flex;
+  align-items: center;
+
+  & + & {
+    margin-left: $spacing-unit;
+  }
+}
+
+.Docs-nav-link {
+  color: $tilt2-color-text;
+  padding-top: $spacing-unit * 0.75;
+  padding-bottom: $spacing-unit * 0.75;
+  text-underline-offset: 6px;
+  display: none;
+
+  &:hover {
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-decoration-color: $tilt2-color-gray-lighter;
+  }
+  
+  &.is-active {
+    text-decoration: underline;
+    text-decoration-thickness: 3px;
+    text-decoration-color: $color-green;
+  }
+}
+
+.Docs-nav-link--desktop {
+  @include above-docs-mobile {
+    display: block;
+  }
+}
+
+.Docs-nav-link--mobile {
+  @include docs-mobile {
+    display: block;
+  }
+}
+
+.Docs-nav-link-flair {
+  font-size: 12px;
+  background-color: $tilt2-color-gray-lightest;
+  padding-left: $spacing-unit * 0.2;
+  padding-right: $spacing-unit * 0.2;
+  margin-left: $spacing-unit * 0.25;
+  border-radius: $tilt2-border-radius;
+}
+
+
+
+
+// .siteHeader2 {
+//   width: 100%;
+//   display: flex;
+//   margin-right: auto;
+//   margin-left: auto;
+
+//   @include mobileAndAbove {
+//     max-width: $tilt2-header-width;
+//     padding-top: $spacing-unit * 2;
+//     padding-bottom: $spacing-unit;
+//   }
+// }
+
+// .siteHeader-logoLink {
+//   opacity: 1;
+//   transition: opacity $anim-duration-short ease;
+
+//   &:hover {
+//     background-color: transparent;
+//   }
+//   &:active {
+//     opacity: 0.8;
+//   }
+// }
+// .siteHeader-logoLink-svg {
+//     transition: transform $anim-duration ease-in-out;
+
+//   .siteHeader-logoLink:hover & {
+//     transform: scale(1.05);
+//   }
+// }
+
+// .siteHeader-nav {
+//   @include mobileAndAbove {
+//     flex: 1;
+//     display: flex;
+//     align-items: flex-end;
+//     justify-content: flex-end;
+//   }
+// }
+
+// .siteHeader-navList {
+//   list-style-type: none;
+//   margin-bottom: 0; 
+
+//   @include mobileAndAbove {
+//     display: flex;
+//     justify-content: flex-end;
+
+//     li + li {
+//       margin-left: $spacing-unit / 4;
+//     }
+//   }
+// }
+
+// .siteHeader-navLink {
+//   font-family: $tilt2-font-sans;
+//   font-size: $tilt2-button-font-size; 
+//   height: $tilt2-button-height;
+//   line-height: $tilt2-button-height;
+//   padding-left: $spacing-unit / 4;
+//   padding-right: $spacing-unit / 4;
+//   border-radius: $tilt2-border-radius;
+//   color: $tilt2-color-gray;
+//   display: flex;
+//   justify-content: center;
+//   border: 1px solid $tilt2-color-gray;
+  
+//   &:hover {
+//     color: $color-white;
+//     background-color: $tilt2-color-gray;
+//   }
+// }
+
+// .siteHeader-navLink--primary {
+//   color: $color-green;
+//   border-color: $color-green;
+
+//   &:hover {
+//     color: $color-white;
+//     background-color: $color-green;
+//   }
+// }
+
+// .siteHeader-navLink--github {
+//   color: $tilt2-color-gray;
+//   border-color: $tilt2-color-gray-lighter;
+//   margin-left: $spacing-unit / 2;
+//   margin-right: $spacing-unit / 2;
+
+//   &:hover {
+//     color: $color-white;
+//     background-color: $tilt2-color-gray;
+//   }
+// }
+
+
+// .siteHeader-navLink-icon {
+//   border-right: 1px solid $tilt2-color-gray-lighter;
+//   margin-right:  $spacing-unit / 4;
+// }
+
+// .siteHeader-navLink {
+//   padding-left: $spacing-unit / 4;
+//   padding-right: $spacing-unit / 4;
+  
+//   .fillStd {
+//     fill: $color-yellow;
+//   }
+// }
+
+// // --------------------------------------------------
+// // MOBILE LAYOUT
+
+// .siteHeader2 {
+//   @include mobileAndBelow {
+//     height: 100px; // Push initial content below mobile nav
+//   }
+// }
+
+// .siteHeader-navList {
+//   @include mobileAndBelow {
+//     li + li {
+//       margin-top: $spacing-unit * 0.75;
+//     }
+//   }
+// }
+
+// .siteHeader-logoAndMenuButton {
+//   @include mobileAndBelow {
+//     position: fixed;
+//     left: 0;
+//     right: 0;
+//     background-color: $color-white;
+//     padding-left: $spacing-unit / 2;
+//     padding-right: $spacing-unit / 2;
+//     display: flex;
+//     align-items: center;
+//     justify-content: space-between;
+//     z-index: $z-siteHeader--mobile;
+//   }
+// }
+// .siteHeader-logoLink-svg {
+//   @include mobileAndBelow {
+//     width: 85px; // Eyeballed
+//   }
+// }
+
+// .siteHeader-nav {
+//   @include mobileAndBelow {
+//     transform: translateY(-1000px); // Should be taller than any reasonable screen height
+//     transition: transform $anim-duration ease;
+//     opacity: 0;
+
+//     .siteHeader2.has-openMenu & {
+//       background-color: $color-white;
+//       position: fixed;
+//       left: 0;
+//       right: 0;
+//       top: 0;
+//       bottom: 0;
+//       display: flex;
+//       align-items: center;
+//       justify-content: center;
+//       z-index: $z-siteHeader-nav--mobile;
+//       transform: translateY(0);
+//       opacity: 1;
+//     }
+//   }
+// }
+
+
+// .siteHeader-menuButton {
+//   @include reset-button-style;
+//   cursor: pointer;
+  
+//   @include mobileAndAbove {
+//     display: none;
+//   }
+
+//   .fillStd {
+//     fill: $tilt2-color-gray;
+//     transition: fill $anim-duration ease;
+//   }
+
+//   &:hover {
+//     .fillStd {
+//       fill: $color-blue;
+//     }
+//   }
+// }
+
+// .siteHeader-menuButton-close {
+//   display: none;
+//   .siteHeader2.has-openMenu & {
+//     display: inline;  
+//   }
+// }
+
+// .siteHeader-menuButton-menu {
+//   display: inline;
+//   .siteHeader2.has-openMenu & {
+//     display: none;
+//   }
+// }
+
+
+

@@ -21,6 +21,7 @@ $tilt2-page-width: $header-width;
 $tilt2-header-width: $tilt2-page-width;
 $tilt2-footer-width: $tilt2-page-width;
 
+$docs-side-margin: $spacing-unit;
 
 // Z-INDEX
 $z-docs-sidebar: 2000;
@@ -275,6 +276,7 @@ $tilt2-border-radius-large: 4px;
   // Shared page elements
   "layout",
   "header",
+  "header-docs",
   "footer",
   "search",
   // Layouts + Pages
