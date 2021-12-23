@@ -24,4 +24,10 @@ function highlightSubnav(targetUrl) {
     }
 }
 
-highlightSubnav(document.URL)
+(function () {
+  function eventListener () {
+    highlightSubnav(document.URL)
+    document.removeEventListener('readystatechange', eventListener)
+  }
+  document.addEventListener('readystatechange', eventListener);
+})();
