@@ -21,6 +21,7 @@
     links.forEach(el => {
       let href = String(el.href)
       if (href.indexOf('localhost') == -1 &&
+          href.indexOf('deploy-preview') == -1 &&
           href.indexOf('tilt.dev') == -1 &&
           href.indexOf('github.com/tilt-dev/') == -1) {
         el.target = "_blank"
