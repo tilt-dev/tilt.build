@@ -227,7 +227,6 @@ $sidebar-maximum-width: 400px;
 }
 
 .Docs-subnav-accordion__panel {
-  max-height: 2000px; // Arbitrary height that hopefully won't clip any content
   transition: max-height $anim-duration ease;
   overflow: hidden;
 }
@@ -267,6 +266,25 @@ $sidebar-maximum-width: 400px;
   }
 }
 
+.Docs-subnav-subsection {
+  .Docs-subnav-accordion__header {
+    font-weight: $tilt2-font-weight-sans-light;
+    background-color: white;
+    path {
+      fill: $tilt2-color-gray-lighter;
+    }
+  }
+
+  .Docs-subnav-link {
+    font-size: $tilt2-font-size-body-small;
+    padding-left: $docs-side-margin * 1.5;
+
+    &.is-active {
+      color: $color-red;
+      font-weight: $tilt2-font-weight-sans-bold;
+    }
+  }
+}
 
 
 // Typography
