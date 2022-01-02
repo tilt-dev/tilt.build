@@ -21,13 +21,13 @@ $sidebar-maximum-width: 400px;
 .Docs-wrapper {
   display: flex;
   flex-direction: column;
-  margin-top: $spacing-unit;
+  margin-top: 0px;
   margin-bottom: $spacing-unit * 2;
 }
 
 .Docs-body {
   display: grid;
-  grid-template-columns: minmax($sidebar-minimum-width, 25%) 1fr;
+  grid-template-columns: minmax($sidebar-minimum-width, 20%) 1fr;
   column-gap: $spacing-unit;
   // Make the boundary between the sidebar and footer look better:
   border-bottom: 1px solid $tilt2-color-gray-lightest;
@@ -43,6 +43,10 @@ $sidebar-maximum-width: 400px;
   justify-content: space-between;
   align-items: center;
   border-bottom: 1px solid $tilt2-color-gray-lightest;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background-color: $color-white;
 }
 
 .Docs-search {  
@@ -120,8 +124,8 @@ $sidebar-maximum-width: 400px;
 
 .Docs-nav-link {
   color: $tilt2-color-text;
-  padding-top: $spacing-unit * 0.75;
-  padding-bottom: $spacing-unit * 0.75;
+  padding-top: $spacing-unit * 0.5;
+  padding-bottom: $spacing-unit * 0.5;
   text-underline-offset: 6px;
   display: none;
 
@@ -164,6 +168,10 @@ $sidebar-maximum-width: 400px;
 // --------------------------------------------------
 .Docs-sidebar {
   background-color: $color-white;
+  border-right: 2px solid $tilt2-color-gray-lightest;
+  position: sticky;
+  top: 64px;
+  padding-top: $spacing-unit;
 
   @include docs-mobile {
     width: 100%;
@@ -255,8 +263,8 @@ $sidebar-maximum-width: 400px;
 .Docs-subnav-link {
   display: block;
   color: $tilt2-color-text;
-  padding-top: $spacing-unit * 0.5;
-  padding-bottom: $spacing-unit * 0.5;
+  padding-top: $spacing-unit * 0.25;
+  padding-bottom: $spacing-unit * 0.25;
   padding-left: $docs-side-margin;
   padding-right: $docs-side-margin;
 

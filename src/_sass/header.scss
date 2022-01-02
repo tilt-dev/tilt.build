@@ -1,13 +1,11 @@
 .siteHeader2 {
-  width: 100%;
   display: flex;
-  margin-right: auto;
-  margin-left: auto;
+  margin-right: $spacing-unit;
+  margin-left: $spacing-unit;
 
   @include mobileAndAbove {
-    max-width: $tilt2-header-width;
-    padding-top: $spacing-unit * 2;
-    padding-bottom: $spacing-unit;
+    padding-top: $spacing-unit * 1;
+    padding-bottom: 0;
   }
 }
 
@@ -36,6 +34,7 @@
     display: flex;
     align-items: flex-end;
     justify-content: flex-end;
+    margin: auto;
   }
 }
 
