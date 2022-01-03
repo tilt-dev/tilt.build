@@ -323,12 +323,20 @@ The first thing to notice is the `live_update` parameter, which consists of some
 They copy the library and compiled `.class `files from the `./build/jar`
 directory into the container.
 
-After syncing the files, we want to re-execute our updated binary. We accomplish this with the
-[`restart_process` extension](https://github.com/windmilleng/tilt-extensions/tree/master/restart_process),
-which we imported with the `load` call on the first line. (For more on extensions, [see the docs](/extensions.html).)
-We swap out our `docker_build` call for function we imported, `docker_build_with_restart`: it's
+After syncing the files, we want to restart our updated binary. 
+
+In this example, we restart the binary with the
+[`restart_process` extension](https://github.com/tilt-dev/tilt-extensions/tree/master/restart_process),
+which we imported with the `load` call on the first line.
+We swap out our `docker_build` call for the `docker_build_with_restart` function we imported: it's
 almost exactly the same as `docker_build`, only it knows to restart our process at the end
 of a `live_update`. The `entrypoint` parameter specifies what command to re-execute.
+
+The `restart_process` extension is a lowest-common-denominator reload
+tool. Tilt's `live_update` API tries to be flexible enough so that you can use
+native hot reload support if your framework supports it. 
+If you have more examples for specific frameworks, we'd be happy to add them to
+[the example repo](https://github.com/tilt-dev/tilt-example-java).
 
 Lastly, our `local_resource` first unzips the jar to `build/jar-staging`, and
 then uses `rsync --checksum` to copy that to `build/jar`.
