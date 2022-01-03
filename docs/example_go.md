@@ -252,15 +252,15 @@ After syncing the files, we want to restart our updated binary.
 In this example, we restart the binary with the
 [`restart_process` extension](https://github.com/tilt-dev/tilt-extensions/tree/master/restart_process),
 which we imported with the `load` call on the first line.
-We swap out our `docker_build` call for function we imported, `docker_build_with_restart`: it's
+We swap out our `docker_build` call for the `docker_build_with_restart` function we imported: it's
 almost exactly the same as `docker_build`, only it knows to restart our process at the end
 of a `live_update`. The `entrypoint` parameter specifies what command to re-execute.
 
 The `restart_process` extension is a lowest-common-denominator reload
 tool. Tilt's `live_update` API tries to be flexible enough so that you can use
-native hot reload support if your framework supports it. We're always happy
-to accept examples of specific frameworks in [the example
-repo](https://github.com/tilt-dev/tilt-example-go).
+native hot reload support if your framework supports it. 
+If you have more examples for specific frameworks, we'd be happy to add them to
+[the example repo](https://github.com/tilt-dev/tilt-example-go).
 
 Let's see what this new configuration looks like in action:
 
