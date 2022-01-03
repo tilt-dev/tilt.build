@@ -892,7 +892,21 @@ def default_registry(host: str, host_from_cluster: str = None, single_name: str 
   """
   pass
 
-def custom_build(ref: str, command: str, deps: List[str], tag: str = "", disable_push: bool = False, skips_local_docker: bool = False, live_update: List[LiveUpdateStep]=[], match_in_env_vars: bool = False, ignore: Union[str, List[str]] = [], entrypoint: Union[str, List[str]] = [], command_bat_val: str = "", outputs_image_ref_to: str = "", command_bat: str = ""):
+def custom_build(
+    ref: str,
+    command: str,
+    deps: List[str],
+    tag: str = "",
+    disable_push: bool = False,
+    skips_local_docker: bool = False,
+    live_update: List[LiveUpdateStep]=[],
+    match_in_env_vars: bool = False,
+    ignore: Union[str, List[str]] = [],
+    entrypoint: Union[str, List[str]] = [],
+    command_bat_val: str = "",
+    outputs_image_ref_to: str = "",
+    command_bat: str = "",
+    image_deps: List[str] = []):
   """Provide a custom command that will build an image.
 
   Example ::
@@ -930,6 +944,13 @@ def custom_build(ref: str, command: str, deps: List[str], tag: str = "", disable
       and inject that image ref into the YAML. For more on content-based tags, see <custom_build.html#why-tilt-uses-immutable-tags>_
     command_bat: The command to run, expressed as a Windows batch command executed
       with ``cmd /S /C``. Takes precedence over the ``command`` parameter on Windows. Ignored on macOS/Linux.
+    image_deps: a list of image builds that this deploy depends on.
+      The tagged image names will be injected into the environment of the
+      the custom build command in the form:
+
+      `TILT_IMAGE_i` - The reference to the image #i from the point of view of the local host.
+
+      `TILT_IMAGE_MAP_i` - The name of the image map #i with the current status of the image.
 
   """
   pass
