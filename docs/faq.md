@@ -150,6 +150,7 @@ server. Specifically:
 - `DOCKER_API_VERSION`: Set the version of the API.
 - `DOCKER_CERT_PATH`: Set the path to load the TLS certificates from.
 - `DOCKER_TLS_VERIFY`: To enable or disable TLS verification when using `DOCKER_CERT_PATH`, off by default.
+- `DOCKER_DEFAULT_PLATFORM`: To set the architecture of built images.
 
 This is helpful if you have a more powerful machine in the cloud that you want
 to build your images.
