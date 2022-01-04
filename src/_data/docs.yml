@@ -23,6 +23,8 @@ sidebar:
     items:
     - title: Getting Started
       href: ""
+    - title: Is Tilt right for me?
+      href: product_faq.html
 
   - title: First Look at Tilt
     inSectionNav: true
@@ -59,8 +61,6 @@ sidebar:
 
   - title:  FAQs
     items:
-      - title: Is Tilt right for me?
-        href: product_faq.html
       - title: Frequently Asked Questions
         href: faq.html
       - title: Why is Tilt broken?
