@@ -371,9 +371,9 @@ def k8s_custom_deploy(name: str,
       The tagged image names will be injected into the environment of the
       the apply command in the form:
 
-      `TILT_IMAGE_i` - The reference to the image #i from the point of view of the cluster container runtime.
+      `TILT_IMAGE_i` - The reference to the image #i (0-based) from the point of view of the cluster container runtime.
 
-      `TILT_IMAGE_MAP_i` - The name of the image map #i with the current status of the image.
+      `TILT_IMAGE_MAP_i` - The name of the image map #i (0-based) with the current status of the image.
   """
   pass
 
@@ -950,7 +950,7 @@ def custom_build(
 
       `TILT_IMAGE_i` - The reference to the image #i (0-based) from the point of view of the local host.
 
-      `TILT_IMAGE_MAP_i` - The name of the image map #i with the current status of the image.
+      `TILT_IMAGE_MAP_i` - The name of the image map #i (0-based) with the current status of the image.
 
   """
   pass
