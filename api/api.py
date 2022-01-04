@@ -948,7 +948,7 @@ def custom_build(
       The tagged image names will be injected into the environment of the
       the custom build command in the form:
 
-      `TILT_IMAGE_i` - The reference to the image #i from the point of view of the local host.
+      `TILT_IMAGE_i` - The reference to the image #i (0-based) from the point of view of the local host.
 
       `TILT_IMAGE_MAP_i` - The name of the image map #i with the current status of the image.
 
