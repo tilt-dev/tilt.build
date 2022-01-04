@@ -3,9 +3,9 @@ slug: "arm-wrestling-in-dev"
 date: 2022-01-04
 author: nick
 layout: blog
-title: "ARM Wrestling the Right Processor in Dev"
-subtitle: "Ways Tilt can help you set the right platform for your images"
-description: "Ways Tilt can help you set the right platform for your images"
+title: "ARM/M1 + Tilt = ❤"
+subtitle: "Ways to set the right platform for your images"
+description: "Ways to  set the right platform for your images"
 image: "/assets/images/arm-wrestling-in-dev/cover.jpg"
 image_caption: "The M1 high-throughput bus in action. Wah wah. Courtesy of <a href='https://commons.wikimedia.org/wiki/File:MTA_NYC_Bus_M1_bus_at_Broadway_%26_8th_St.jpg'>Mtattrain on Wikimedia.org</a>."
 tags:
@@ -13,8 +13,8 @@ tags:
   - arm
 ---
 
-Maybe you got a fancy new MacOS M1 laptop and now you're getting cryptic errors
-when you build your app.
+Maybe you got a fancy new MacOS M1 laptop and now you're getting [cryptic
+errors](https://github.com/docker/for-mac/issues/5873) when you build your app.
 
 Or maybe you're trying out [EC2
 Graviton](https://aws.amazon.com/ec2/graviton/) machines in your dev cluster,
@@ -22,7 +22,7 @@ but now none of your images work right.
 
 Welcome to the world of ARM processors! The x86 monoculture has been broken!
 
-This is good for the ecosystem in general. But now your dev environment has to
+Better processors is good for the ecosystem in general. But now your dev environment has to
 handle the case where your host CPU is different from the target CPU.
 
 Tilt has shipped a few small tweaks recently that we hope will help build for
@@ -41,7 +41,7 @@ STEP 1/5 — Building Dockerfile: [tilt-site]
 Building Dockerfile for platform linux/amd64:
 ```
 
-We've detected that the cluster is `amd64` and will use this instead of your
+We've detected that the cluster architecture is `amd64` and will use this instead of your
 host architecture.
 
 ## Setting Platform Manually
@@ -50,14 +50,20 @@ Maybe you want to force a particular architecture, or build multi-platform image
 
 You can override the platform manually by:
 
-- Setting the `DOCKER_DEFAULT_PLATFORM` [env var](https://docs.docker.com/engine/reference/commandline/cli/#environment-variables)
+- Setting the `DOCKER_DEFAULT_PLATFORM` [env var](https://docs.docker.com/engine/reference/commandline/cli/#environment-variables) before you run `tilt`.
 
 ```bash
 export DOCKER_DEFAULT_PLATFORM="linux/amd64,linux/arm64"
 tilt up
 ```
 
-- Setting the `platform` argument to `docker_build` in your Tiltfile. 
+- Setting the `DOCKER_DEFAULT_PLATFORM` env var in your Tiltfile:
+
+```python
+os.environ['DOCKER_DEFAULT_PLATFORM'] = 'linux/amd64,linux/arm64'
+```
+
+- Setting the `platform` argument for `docker_build` in your Tiltfile. 
 
 ```python
 docker_build('fe', '.', platform='linux/amd64,linux/arm64')
@@ -66,8 +72,8 @@ docker_build('fe', '.', platform='linux/amd64,linux/arm64')
 ## Wiring it Yourself
 
 One of our goals with Tilt is to expose every part of your dev environment
-as a Kubernetes-style API, so that you can use it in your own scripts
-to make decisions.
+as a Kubernetes-style API, so you can use it in your own scripts
+to make decisions in an automated way.
 
 Our current solution is the [Cluster API](https://api.tilt.dev/kubernetes/cluster-v1alpha1.html).
 
@@ -86,7 +92,7 @@ Status:
 
 In this example, we're using the default Kubernetes cluster connection.
 
-If you want to get the architecture of that cluster only, we can use the CLI:
+If you want to get the architecture of that cluster only, you can use the CLI:
 
 ```
 $ tilt get cluster default -o=jsonpath --template="{.status.arch}"

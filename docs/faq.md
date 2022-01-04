@@ -152,7 +152,7 @@ server. Specifically:
 - `DOCKER_TLS_VERIFY`: To enable or disable TLS verification when using `DOCKER_CERT_PATH`, off by default.
 - `DOCKER_DEFAULT_PLATFORM`: To set the architecture of built images.
 
-This is helpful if you have a more powerful machine in the cloud that you want
+This is helpful if you have a more powerful machine in the cloud which you want to use
 to build your images.
 
 ---
