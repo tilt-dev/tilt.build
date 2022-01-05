@@ -423,6 +423,16 @@ $sidebar-maximum-width: 400px;
   max-width: 100%;
 }
 
+.pill-tag {
+  text-transform: uppercase;
+  font-size: $tilt2-font-size-body-small;
+  padding: 5px;
+  background-color: $color-off-white;
+  border-radius: $tilt2-border-radius-large * 2;
+  color: $tilt2-color-gray-dark;
+  border: 1px solid $tilt2-color-gray-lightest;
+  font-family: $tilt2-font-mono;
+}
 
 // Page Elements
 // --------------------------------------------------
@@ -480,8 +490,6 @@ img.no-shadow {
   color: white;
   background-color: $color-red;
 }
-
-
 
 // PAGE-SPECIFIC
 // --------------------------------------------------
