@@ -23,12 +23,8 @@ sidebar:
     items:
     - title: Getting Started
       href: ""
-    - title: The Control Loop
-      href: controlloop.html
-    - title: Choosing a Local Dev Cluster
-      href: choosing_clusters.html
-    - title: Local vs Remote Services
-      href: local_vs_remote.html
+    - title: Is Tilt right for me?
+      href: product_faq.html
 
   - title: First Look at Tilt
     inSectionNav: true
@@ -53,10 +49,18 @@ sidebar:
     - title: Upgrade
       href: upgrade.html
 
+  - title:  How Does Tilt Work?
+    items:
+    - title: The Control Loop
+      href: controlloop.html
+    - title: Choosing a Local Dev Cluster
+      href: choosing_clusters.html
+    - title: Local vs Remote Services
+      href: local_vs_remote.html
+
+
   - title:  FAQs
     items:
-      - title: Is Tilt right for me?
-        href: product_faq.html
       - title: Frequently Asked Questions
         href: faq.html
       - title: Why is Tilt broken?
