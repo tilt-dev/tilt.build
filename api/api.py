@@ -148,7 +148,7 @@ def sync(local_path: str, remote_path: str) -> LiveUpdateStep:
   """
   pass
 
-def run(cmd: str, trigger: Union[List[str], str] = []) -> LiveUpdateStep:
+def run(cmd: Union[str, List[str]], trigger: Union[List[str], str] = []) -> LiveUpdateStep:
   """Specify that the given `cmd` should be executed when updating an image's container
 
   May not precede any `sync` steps in a `live_update`.
@@ -156,7 +156,9 @@ def run(cmd: str, trigger: Union[List[str], str] = []) -> LiveUpdateStep:
   For more info, see the `Live Update Reference <live_update_reference.html>`_.
 
   Args:
-    cmd: A shell command.
+    cmd: Command to run. If a string, executed with ``sh -c``; if a list, will be passed to the operating system
+      as program name and args.
+
     trigger: If the ``trigger`` argument is specified, the build step is only run when there are changes to the given file(s). Paths relative to Tiltfile. (Note that in addition to matching the trigger, file changes must also match at least one of this Live Update's syncs in order to trigger this run. File changes that do not match any syncs will be ignored.)
   """
   pass
@@ -319,10 +321,10 @@ def k8s_custom_deploy(name: str,
                       live_update: List[LiveUpdateStep]=[],
                       apply_dir: str="",
                       apply_env: Dict[str, str]={},
-                      apply_cmd_bat: str="",
+                      apply_cmd_bat: Union[str, List[str]]="",
                       delete_dir: str="",
                       delete_env: Dict[str, str]={},
-                      delete_cmd_bat: str="",
+                      delete_cmd_bat: Union[str, List[str]]="",
                       container_selector: str="",
                       image_deps: List[str]=[]) -> None:
   """Deploy resources to Kubernetes using a custom command.
@@ -355,17 +357,23 @@ def k8s_custom_deploy(name: str,
 
   Args:
     name: resource name to use in Tilt UI and for further customization via :meth:`k8s_resource`
-    apply_cmd: command that deploys objects to the Kubernetes cluster
-    delete_cmd: command that deletes objects in the Kubernetes cluster
+    apply_cmd: command that deploys objects to the Kubernetes cluster. If a string, executed with ``sh -c``
+      on macOS/Linux, or ``cmd /S /C`` on Windows; if a list, will be passed to the operating system as program name and args.
+    delete_cmd: command that deletes objects in the Kubernetes cluster. If a string, executed with ``sh -c``
+      on macOS/Linux, or ``cmd /S /C`` on Windows; if a list, will be passed to the operating system as program name and args.
     deps: paths to watch and trigger a re-apply on change
     image_selector: image reference to determine containers eligible for Live Update
     live_update: set of steps for updating a running container (see `Live Update documentation <live_update_reference.html>`_).
     apply_dir: working directory for ``apply_cmd``
     apply_env: environment variables for ``apply_cmd``
-    apply_cmd_bat: apply command to run, expressed as a Windows batch command
+    apply_cmd_bat: If non-empty and on Windows, takes precedence over ``apply_cmd``. Ignored on other platforms.
+      If a string, executed as a Windows batch command executed with ``cmd /S /C``; if a list, will be passed to
+      the operating system as program name and args.
     delete_dir: working directory for ``delete_cmd``
     delete_env: environment variables for ``delete_cmd``
-    delete_cmd_bat: delete command to run, expressed as a Windows batch command
+    delete_cmd_bat: If non-empty and on Windows, takes precedence over ``delete_cmd``. Ignored on other platforms.
+      If a string, executed as a Windows batch command executed with ``cmd /S /C``; if a list, will be passed to
+      the operating system as program name and args.
     container_selector: container name to determine container for Live Update
     image_deps: a list of image builds that this deploy depends on.
       The tagged image names will be injected into the environment of the
@@ -648,17 +656,19 @@ def load_dynamic(path: str) -> Dict[str, Any]:
 
 def local(command: Union[str, List[str]],
           quiet: bool = False,
-          command_bat: str = "",
+          command_bat: Union[str, List[str]] = "",
           echo_off: bool = False,
           env: Dict[str, str] = {},
           dir: str = "") -> Blob:
   """Runs a command on the *host* machine, waits for it to finish, and returns its stdout as a ``Blob``
 
   Args:
-    command: Command to run. If a string, executed with ``sh -c`` on macOS/Linux, or ``cmd /S /C`` on Windows; if a list, will be passed to the operating system as program name and args.
+    command: Command to run. If a string, executed with ``sh -c`` on macOS/Linux, or ``cmd /S /C`` on Windows;
+      if a list, will be passed to the operating system as program name and args.
     quiet: If set to True, skips printing output to log.
-    command_bat: The command to run, expressed as a Windows batch command executed
-      with ``cmd /S /C``. Takes precedence over the ``command`` parameter on Windows. Ignored on macOS/Linux.
+    command_bat: If non-empty and on Windows, takes precedence over ``command``. Ignored on other platforms.
+      If a string, executed as a Windows batch command executed with ``cmd /S /C``; if a list, will be passed to
+      the operating system as program name and args.
     echo_off: If set to True, skips printing command to log.
     env: Environment variables to pass to the executed ``command``. Values specified here will override any variables passed to the Tilt parent process.
     dir: Working directory for ``command``. Defaults to the Tiltfile's location.
@@ -894,7 +904,7 @@ def default_registry(host: str, host_from_cluster: str = None, single_name: str 
 
 def custom_build(
     ref: str,
-    command: str,
+    command: Union[str, List[str]],
     deps: List[str],
     tag: str = "",
     disable_push: bool = False,
@@ -905,7 +915,7 @@ def custom_build(
     entrypoint: Union[str, List[str]] = [],
     command_bat_val: str = "",
     outputs_image_ref_to: str = "",
-    command_bat: str = "",
+    command_bat: Union[str, List[str]] = "",
     image_deps: List[str] = []):
   """Provide a custom command that will build an image.
 
@@ -928,7 +938,9 @@ def custom_build(
 
   Args:
     ref: name for this image (e.g. 'myproj/backend' or 'myregistry/myproj/backend'). If this image will be used in a k8s resource(s), this ref must match the ``spec.container.image`` param for that resource(s).
-    command: a command that, when run in the shell, builds an image puts it in the registry as ``ref``. In the default mode, must produce an image named ``$EXPECTED_REF``.  Executed with ``sh -c`` on macOS/Linux, or ``cmd /S /C`` on Windows.
+    command: a command that, when run in the shell, builds an image puts it in the registry as ``ref``. In the
+      default mode, must produce an image named ``$EXPECTED_REF``.  If a string, executed with ``sh -c`` on macOS/Linux,
+      or ``cmd /S /C`` on Windows; if a list, will be passed to the operating system as program name and args.
     deps: a list of files or directories to be added as dependencies to this image. Tilt will watch those files and will rebuild the image when they change. Only accepts real paths, not file globs.
     tag: Some tools can't change the image tag at runtime. They need a pre-specified tag. Tilt will set ``$EXPECTED_REF = image_name:tag``,
        then re-tag it with its own tag before pushing to your cluster.
@@ -942,8 +954,9 @@ def custom_build(
     outputs_image_ref_to: Specifies a file path. When set, the custom build command must write a content-based
       tagged image ref to this file. Tilt will read that file after the cmd runs to get the image ref,
       and inject that image ref into the YAML. For more on content-based tags, see <custom_build.html#why-tilt-uses-immutable-tags>_
-    command_bat: The command to run, expressed as a Windows batch command executed
-      with ``cmd /S /C``. Takes precedence over the ``command`` parameter on Windows. Ignored on macOS/Linux.
+    command_bat: If non-empty and on Windows, takes precedence over ``command``. Ignored on other platforms.
+      If a string, executed as a Windows batch command executed with ``cmd /S /C``; if a list, will be passed to
+      the operating system as program name and args.
     image_deps: a list of image builds that this deploy depends on.
       The tagged image names will be injected into the environment of the
       the custom build command in the form:
@@ -1062,12 +1075,16 @@ def enable_feature(feature_name: str) -> None:
   """
   pass
 
-def local_resource(name: str, cmd: Union[str, List[str]],
+def local_resource(name: str,
+                   cmd: Union[str, List[str]],
                    deps: Union[str, List[str]] = None,
                    trigger_mode: TriggerMode = TRIGGER_MODE_AUTO,
-                   resource_deps: List[str] = [], ignore: Union[str, List[str]] = [],
-                   auto_init: bool=True, serve_cmd: str = "", cmd_bat: str = "",
-                   serve_cmd_bat: str = "",
+                   resource_deps: List[str] = [],
+                   ignore: Union[str, List[str]] = [],
+                   auto_init: bool=True,
+                   serve_cmd: Union[str, List[str]] = "",
+                   cmd_bat: Union[str, List[str]] = "",
+                   serve_cmd_bat: Union[str, List[str]] = "",
                    allow_parallel: bool=False,
                    links: Union[str, Link, List[Union[str, Link]]]=[],
                    tags: List[str] = [],
@@ -1101,12 +1118,15 @@ def local_resource(name: str, cmd: Union[str, List[str]],
     ignore: set of file patterns that will be ignored. Ignored files will not trigger runs. Follows the `dockerignore syntax <https://docs.docker.com/engine/reference/builder/#dockerignore-file>`_. Patterns will be evaluated relative to the Tiltfile.
     auto_init: whether this resource runs on ``tilt up``. Defaults to ``True``. For more info, see the
       `Manual Update Control docs <manual_update_control.html>`_.
-    serve_cmd: Tilt will run this command on update and expect it to not exit.
-      Executed with ``sh -c`` on macOS/Linux, or ``cmd /S /C`` on Windows.
-    cmd_bat: The command to run, expressed as a Windows batch command executed
-      with ``cmd /S /C``. Takes precedence over the ``cmd`` parameter on Windows. Ignored on macOS/Linux.
-    serve_cmd_bat: The command to run, expressed as a Windows batch command executed
-      with ``cmd /S /C``. Takes precedence over the ``serve_cmd`` parameter on Windows. Ignored on macOS/Linux.
+    serve_cmd: Tilt will run this command on update and expect it to not exit. If a string, executed with
+      ``sh -c`` on macOS/Linux, or ``cmd /S /C`` on Windows; if a list, will be passed to the operating
+      system as program name and args.
+    cmd_bat: If non-empty and on Windows, takes precedence over ``cmd``. Ignored on other platforms.
+      If a string, executed as a Windows batch command executed with ``cmd /S /C``; if a list, will be passed to
+      the operating system as program name and args.
+    serve_cmd_bat: If non-empty and on Windows, takes precedence over ``serve_cmd``. Ignored on other platforms.
+      If a string, executed as a Windows batch command executed with ``cmd /S /C``; if a list, will be passed to
+      the operating system as program name and args.
     allow_parallel: By default, all local resources are presumed unsafe to run in parallel, due to race
       conditions around modifying a shared file system. Set to True to allow them to run in parallel.
     links: one or more links to be associated with this resource in the Web UI (e.g. perhaps you have a "reset database" workflow and want to attach a link to the database web console). Provide one or more strings (the URLs to link to) or :class:`~api.Link` objects.
