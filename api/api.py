@@ -1058,7 +1058,7 @@ def allow_k8s_contexts(contexts: Union[str, List[str]]) -> None:
   pass
 
 def enable_feature(feature_name: str) -> None:
-  """Configures Tilt to enable non-default features (e.g.,  or deprecated).
+  """Configures Tilt to enable non-default features (e.g., experimental or deprecated).
 
   The Tilt features controlled by this are generally in an unfinished state, and
   not yet documented.
