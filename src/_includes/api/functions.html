@@ -586,24 +586,43 @@ of each mode. The guide has some examples of common combinations.
                  command
                 </strong>
                 (
+                <code class="xref py py-data docutils literal notranslate">
+                 <span class="pre">
+                  Union
+                 </span>
+                </code>
+                [
                 <code class="xref py py-class docutils literal notranslate">
                  <span class="pre">
                   str
                  </span>
                 </code>
-                ) &#x2013; a command that, when run in the shell, builds an image puts it in the registry as
+                ,
+                <code class="xref py py-class docutils literal notranslate">
+                 <span class="pre">
+                  List
+                 </span>
+                </code>
+                [
+                <code class="xref py py-class docutils literal notranslate">
+                 <span class="pre">
+                  str
+                 </span>
+                </code>
+                ]]) &#x2013; a command that, when run in the shell, builds an image puts it in the registry as
                 <code class="docutils literal notranslate">
                  <span class="pre">
                   ref
                  </span>
                 </code>
-                . In the default mode, must produce an image named
+                . In the
+default mode, must produce an image named
                 <code class="docutils literal notranslate">
                  <span class="pre">
                   $EXPECTED_REF
                  </span>
                 </code>
-                .  Executed with
+                .  If a string, executed with
                 <code class="docutils literal notranslate">
                  <span class="pre">
                   sh
@@ -612,7 +631,8 @@ of each mode. The guide has some examples of common combinations.
                   -c
                  </span>
                 </code>
-                on macOS/Linux, or
+                on macOS/Linux,
+or
                 <code class="docutils literal notranslate">
                  <span class="pre">
                   cmd
@@ -624,7 +644,7 @@ of each mode. The guide has some examples of common combinations.
                   /C
                  </span>
                 </code>
-                on Windows.
+                on Windows; if a list, will be passed to the operating system as program name and args.
                </p>
               </li>
               <li>
@@ -934,13 +954,37 @@ and inject that image ref into the YAML. For more on content-based tags, see &lt
                  command_bat
                 </strong>
                 (
+                <code class="xref py py-data docutils literal notranslate">
+                 <span class="pre">
+                  Union
+                 </span>
+                </code>
+                [
                 <code class="xref py py-class docutils literal notranslate">
                  <span class="pre">
                   str
                  </span>
                 </code>
-                ) &#x2013; The command to run, expressed as a Windows batch command executed
-with
+                ,
+                <code class="xref py py-class docutils literal notranslate">
+                 <span class="pre">
+                  List
+                 </span>
+                </code>
+                [
+                <code class="xref py py-class docutils literal notranslate">
+                 <span class="pre">
+                  str
+                 </span>
+                </code>
+                ]]) &#x2013; If non-empty and on Windows, takes precedence over
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  command
+                 </span>
+                </code>
+                . Ignored on other platforms.
+If a string, executed as a Windows batch command executed with
                 <code class="docutils literal notranslate">
                  <span class="pre">
                   cmd
@@ -952,13 +996,8 @@ with
                   /C
                  </span>
                 </code>
-                . Takes precedence over the
-                <code class="docutils literal notranslate">
-                 <span class="pre">
-                  command
-                 </span>
-                </code>
-                parameter on Windows. Ignored on macOS/Linux.
+                ; if a list, will be passed to
+the operating system as program name and args.
                </p>
               </li>
               <li>
@@ -3546,7 +3585,7 @@ and not in the
           </dt>
           <dd>
            <p>
-            Configures Tilt to enable non-default features (e.g., experimental or deprecated).
+            Configures Tilt to enable non-default features (e.g.,  or deprecated).
            </p>
            <p>
             The Tilt features controlled by this are generally in an unfinished state, and
@@ -5709,7 +5748,28 @@ by name.
                   str
                  </span>
                 </code>
-                ]]) &#x2013; command that deploys objects to the Kubernetes cluster
+                ]]) &#x2013; command that deploys objects to the Kubernetes cluster. If a string, executed with
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  sh
+                 </span>
+                 <span class="pre">
+                  -c
+                 </span>
+                </code>
+                on macOS/Linux, or
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  cmd
+                 </span>
+                 <span class="pre">
+                  /S
+                 </span>
+                 <span class="pre">
+                  /C
+                 </span>
+                </code>
+                on Windows; if a list, will be passed to the operating system as program name and args.
                </p>
               </li>
               <li>
@@ -5741,7 +5801,28 @@ by name.
                   str
                  </span>
                 </code>
-                ]]) &#x2013; command that deletes objects in the Kubernetes cluster
+                ]]) &#x2013; command that deletes objects in the Kubernetes cluster. If a string, executed with
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  sh
+                 </span>
+                 <span class="pre">
+                  -c
+                 </span>
+                </code>
+                on macOS/Linux, or
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  cmd
+                 </span>
+                 <span class="pre">
+                  /S
+                 </span>
+                 <span class="pre">
+                  /C
+                 </span>
+                </code>
+                on Windows; if a list, will be passed to the operating system as program name and args.
                </p>
               </li>
               <li>
@@ -5875,12 +5956,50 @@ by name.
                  apply_cmd_bat
                 </strong>
                 (
+                <code class="xref py py-data docutils literal notranslate">
+                 <span class="pre">
+                  Union
+                 </span>
+                </code>
+                [
                 <code class="xref py py-class docutils literal notranslate">
                  <span class="pre">
                   str
                  </span>
                 </code>
-                ) &#x2013; apply command to run, expressed as a Windows batch command
+                ,
+                <code class="xref py py-class docutils literal notranslate">
+                 <span class="pre">
+                  List
+                 </span>
+                </code>
+                [
+                <code class="xref py py-class docutils literal notranslate">
+                 <span class="pre">
+                  str
+                 </span>
+                </code>
+                ]]) &#x2013; If non-empty and on Windows, takes precedence over
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  apply_cmd
+                 </span>
+                </code>
+                . Ignored on other platforms.
+If a string, executed as a Windows batch command executed with
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  cmd
+                 </span>
+                 <span class="pre">
+                  /S
+                 </span>
+                 <span class="pre">
+                  /C
+                 </span>
+                </code>
+                ; if a list, will be passed to
+the operating system as program name and args.
                </p>
               </li>
               <li>
@@ -5939,12 +6058,50 @@ by name.
                  delete_cmd_bat
                 </strong>
                 (
+                <code class="xref py py-data docutils literal notranslate">
+                 <span class="pre">
+                  Union
+                 </span>
+                </code>
+                [
                 <code class="xref py py-class docutils literal notranslate">
                  <span class="pre">
                   str
                  </span>
                 </code>
-                ) &#x2013; delete command to run, expressed as a Windows batch command
+                ,
+                <code class="xref py py-class docutils literal notranslate">
+                 <span class="pre">
+                  List
+                 </span>
+                </code>
+                [
+                <code class="xref py py-class docutils literal notranslate">
+                 <span class="pre">
+                  str
+                 </span>
+                </code>
+                ]]) &#x2013; If non-empty and on Windows, takes precedence over
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  delete_cmd
+                 </span>
+                </code>
+                . Ignored on other platforms.
+If a string, executed as a Windows batch command executed with
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  cmd
+                 </span>
+                 <span class="pre">
+                  /S
+                 </span>
+                 <span class="pre">
+                  /C
+                 </span>
+                </code>
+                ; if a list, will be passed to
+the operating system as program name and args.
                </p>
               </li>
               <li>
@@ -8122,7 +8279,8 @@ you don&#x2019;t get the nice syntactic sugar of binding local variables.
                   /C
                  </span>
                 </code>
-                on Windows; if a list, will be passed to the operating system as program name and args.
+                on Windows;
+if a list, will be passed to the operating system as program name and args.
                </p>
               </li>
               <li>
@@ -8145,13 +8303,37 @@ you don&#x2019;t get the nice syntactic sugar of binding local variables.
                  command_bat
                 </strong>
                 (
+                <code class="xref py py-data docutils literal notranslate">
+                 <span class="pre">
+                  Union
+                 </span>
+                </code>
+                [
                 <code class="xref py py-class docutils literal notranslate">
                  <span class="pre">
                   str
                  </span>
                 </code>
-                ) &#x2013; The command to run, expressed as a Windows batch command executed
-with
+                ,
+                <code class="xref py py-class docutils literal notranslate">
+                 <span class="pre">
+                  List
+                 </span>
+                </code>
+                [
+                <code class="xref py py-class docutils literal notranslate">
+                 <span class="pre">
+                  str
+                 </span>
+                </code>
+                ]]) &#x2013; If non-empty and on Windows, takes precedence over
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  command
+                 </span>
+                </code>
+                . Ignored on other platforms.
+If a string, executed as a Windows batch command executed with
                 <code class="docutils literal notranslate">
                  <span class="pre">
                   cmd
@@ -8163,13 +8345,8 @@ with
                   /C
                  </span>
                 </code>
-                . Takes precedence over the
-                <code class="docutils literal notranslate">
-                 <span class="pre">
-                  command
-                 </span>
-                </code>
-                parameter on Windows. Ignored on macOS/Linux.
+                ; if a list, will be passed to
+the operating system as program name and args.
                </p>
               </li>
               <li>
@@ -8919,13 +9096,30 @@ See the
                  serve_cmd
                 </strong>
                 (
+                <code class="xref py py-data docutils literal notranslate">
+                 <span class="pre">
+                  Union
+                 </span>
+                </code>
+                [
                 <code class="xref py py-class docutils literal notranslate">
                  <span class="pre">
                   str
                  </span>
                 </code>
-                ) &#x2013; Tilt will run this command on update and expect it to not exit.
-Executed with
+                ,
+                <code class="xref py py-class docutils literal notranslate">
+                 <span class="pre">
+                  List
+                 </span>
+                </code>
+                [
+                <code class="xref py py-class docutils literal notranslate">
+                 <span class="pre">
+                  str
+                 </span>
+                </code>
+                ]]) &#x2013; Tilt will run this command on update and expect it to not exit. If a string, executed with
                 <code class="docutils literal notranslate">
                  <span class="pre">
                   sh
@@ -8946,7 +9140,8 @@ Executed with
                   /C
                  </span>
                 </code>
-                on Windows.
+                on Windows; if a list, will be passed to the operating
+system as program name and args.
                </p>
               </li>
               <li>
@@ -8955,13 +9150,37 @@ Executed with
                  cmd_bat
                 </strong>
                 (
+                <code class="xref py py-data docutils literal notranslate">
+                 <span class="pre">
+                  Union
+                 </span>
+                </code>
+                [
                 <code class="xref py py-class docutils literal notranslate">
                  <span class="pre">
                   str
                  </span>
                 </code>
-                ) &#x2013; The command to run, expressed as a Windows batch command executed
-with
+                ,
+                <code class="xref py py-class docutils literal notranslate">
+                 <span class="pre">
+                  List
+                 </span>
+                </code>
+                [
+                <code class="xref py py-class docutils literal notranslate">
+                 <span class="pre">
+                  str
+                 </span>
+                </code>
+                ]]) &#x2013; If non-empty and on Windows, takes precedence over
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  cmd
+                 </span>
+                </code>
+                . Ignored on other platforms.
+If a string, executed as a Windows batch command executed with
                 <code class="docutils literal notranslate">
                  <span class="pre">
                   cmd
@@ -8973,13 +9192,8 @@ with
                   /C
                  </span>
                 </code>
-                . Takes precedence over the
-                <code class="docutils literal notranslate">
-                 <span class="pre">
-                  cmd
-                 </span>
-                </code>
-                parameter on Windows. Ignored on macOS/Linux.
+                ; if a list, will be passed to
+the operating system as program name and args.
                </p>
               </li>
               <li>
@@ -8988,13 +9202,37 @@ with
                  serve_cmd_bat
                 </strong>
                 (
+                <code class="xref py py-data docutils literal notranslate">
+                 <span class="pre">
+                  Union
+                 </span>
+                </code>
+                [
                 <code class="xref py py-class docutils literal notranslate">
                  <span class="pre">
                   str
                  </span>
                 </code>
-                ) &#x2013; The command to run, expressed as a Windows batch command executed
-with
+                ,
+                <code class="xref py py-class docutils literal notranslate">
+                 <span class="pre">
+                  List
+                 </span>
+                </code>
+                [
+                <code class="xref py py-class docutils literal notranslate">
+                 <span class="pre">
+                  str
+                 </span>
+                </code>
+                ]]) &#x2013; If non-empty and on Windows, takes precedence over
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  serve_cmd
+                 </span>
+                </code>
+                . Ignored on other platforms.
+If a string, executed as a Windows batch command executed with
                 <code class="docutils literal notranslate">
                  <span class="pre">
                   cmd
@@ -9006,13 +9244,8 @@ with
                   /C
                  </span>
                 </code>
-                . Takes precedence over the
-                <code class="docutils literal notranslate">
-                 <span class="pre">
-                  serve_cmd
-                 </span>
-                </code>
-                parameter on Windows. Ignored on macOS/Linux.
+                ; if a list, will be passed to
+the operating system as program name and args.
                </p>
               </li>
               <li>
@@ -10820,12 +11053,40 @@ see the
                  cmd
                 </strong>
                 (
+                <code class="xref py py-data docutils literal notranslate">
+                 <span class="pre">
+                  Union
+                 </span>
+                </code>
+                [
                 <code class="xref py py-class docutils literal notranslate">
                  <span class="pre">
                   str
                  </span>
                 </code>
-                ) &#x2013; A shell command.
+                ,
+                <code class="xref py py-class docutils literal notranslate">
+                 <span class="pre">
+                  List
+                 </span>
+                </code>
+                [
+                <code class="xref py py-class docutils literal notranslate">
+                 <span class="pre">
+                  str
+                 </span>
+                </code>
+                ]]) &#x2013; Command to run. If a string, executed with
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  sh
+                 </span>
+                 <span class="pre">
+                  -c
+                 </span>
+                </code>
+                ; if a list, will be passed to the operating system
+as program name and args.
                </p>
               </li>
               <li>
