@@ -72,9 +72,3 @@ dl:not(.class) > dt {
 dt:hover .headerlink::after {
   opacity: 1;
 }
-
-// Sphinx adds spaces after every literal,
-// so add negative spacing to tighten up the text.
-.docutils.literal {
-  margin-right: -0.33em;
-}

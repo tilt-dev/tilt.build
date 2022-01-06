@@ -358,6 +358,9 @@ $sidebar-maximum-width: 400px;
   border-radius: $tilt2-border-radius-large;
   padding-left: $spacing-unit * 0.2;
   padding-right: $spacing-unit * 0.2;
+  // shrink to size of any children.
+  // without this, we get extra space on the right.
+  display: inline-block;
 }
 
 // Cute callouts!
