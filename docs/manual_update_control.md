@@ -72,7 +72,7 @@ Disabling a resource will stop the running process (if any) and delete any objec
 While in beta, Disabling Resources feature requires opting in. First, make sure you're on [Tilt v0.23.5+](https://github.com/tilt-dev/tilt/releases). Then, add the following line to your Tiltfile:
 
 ```
-enable_feature(“disable_resources”)
+enable_feature("disable_resources")
 ```
 
 Save your Tiltfile and you should see the Disable Resources functionality available in the UI.
@@ -152,10 +152,10 @@ The configmap name will be under the UIResource’s `status.disableStatus.source
 Now that you have the ConfigMap name, edit it with the desired disabled state:
 
 ```shell
-$ tilt patch configmap glitch-disable -p ‘{ “data”: { “isDisabled”: “true” } }’
+$ tilt patch configmap glitch-disable -p '{ "data": { "isDisabled": "true" } }'
 ```
 
-### What can I use this feature for? 
+### What can I use this feature for?
 We saw that for many cases, it’s not practical or feasible to run all your resources all the time. But changing resources can interrupt your flow (e.g., you have to switch between the UI and command line). Improving Tilt's interface can make it more seamless to change the resources you’re running at any given time, and reduce the cognitive load of finding and running the right resources you need to run.
 
 So, we’re planning these future features to make it easier to manage sets of resources, and pick up from where you left off every time you restart Tilt:
