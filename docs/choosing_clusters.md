@@ -128,8 +128,12 @@ For more information on how to use Rancher Desktop with Tilt, you can check out
 [this blogpost](https://blog.tilt.dev/2021/09/07/rancher-desktop.html)
 
 ### Pros
+- Cross platform (macOS/Linux/Windows)
+- Uses [k3s](https://k3s.io), which is very fast to start and light on resources
 
 ### Cons
+- New and quickly evolving, might not be fully supported by all tools (including Tilt!)
+- No local registry out-of-the-box
 
 ---
 
