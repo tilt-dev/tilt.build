@@ -102,10 +102,11 @@ Now that you have the ConfigMap name, edit it with the desired disabled state:
 $ tilt patch configmap glitch-disable -p '{ "data": { "isDisabled": "true" } }'
 ```
 
-## What can I use this feature for? 
+## Why do I want to use this?
 We saw that for many cases, it’s not practical or feasible to run all your resources all the time. But changing resources can interrupt your flow (e.g., you have to switch between the UI and command line). Improving Tilt's interface can make it more seamless to change the resources you’re running at any given time, and reduce the cognitive load of finding and running the right resources you need to run.
 
-So, we’re planning these future features to make it easier to manage sets of resources, and pick up from where you left off every time you restart Tilt:
+### How will I be able to use this in the future?
+We’re planning these future features to make it easier to manage sets of resources and pick up from where you left off every time you restart Tilt:
 - Disabling and enabling multiple resources at once from Table View
 - `tilt args` persistence, so that `tilt up` starts by default with the last used set of resources, similar to how your editor might reopen with the last set of open documents
 - Changing `tilt args` and `config.set_enabled_resources()` to use this new feature, rather than dropping non-enabled resources entirely; the Tilt UI will show all resources with only the specified resources enabled.
@@ -113,7 +114,7 @@ So, we’re planning these future features to make it easier to manage sets of r
 
 But! We might be wrong. Maybe you have another use case that we haven't considered? Please talk to us.
 * Slack us from the [Kubernetes #tilt channel](http://slack.k8s.io)
-* Send an email at [hi@tilt.dev](mailto:hi@tilt.dev)
+* Send an email to [hi@tilt.dev](mailto:hi@tilt.dev)
 * Sign up for an office hours session with [Calendly](https://calendly.com/han-yu/user-research)
 * File an issue on [Github](https://github.com/tilt-dev/tilt/issues)
 
