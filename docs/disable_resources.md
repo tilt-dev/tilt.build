@@ -19,7 +19,7 @@ Depending on your `Tiltfile` setup, it may be important to note:
 While in beta, Disabling Resources feature requires opting in. First, make sure you're on [Tilt v0.23.5+](https://github.com/tilt-dev/tilt/releases). Then, add the following line to your Tiltfile:
 
 ```
-enable_feature(“disable_resources”)
+enable_feature("disable_resources")
 ```
 
 Save your Tiltfile and you should see the Disable Resources functionality available in the UI.
@@ -99,7 +99,7 @@ The configmap name will be under the UIResource’s `status.disableStatus.source
 Now that you have the ConfigMap name, edit it with the desired disabled state:
 
 ```shell
-$ tilt patch configmap glitch-disable -p ‘{ “data”: { “isDisabled”: “true” } }’
+$ tilt patch configmap glitch-disable -p '{ "data": { "isDisabled": "true" } }'
 ```
 
 ## What can I use this feature for? 
