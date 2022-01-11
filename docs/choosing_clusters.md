@@ -125,7 +125,7 @@ Rancher Desktop is still `pre-release` and continuously being updated, so
 be aware that features might change quickly and radically.
 
 For more information on how to use Rancher Desktop with Tilt, you can check out 
-[this blogpost](https://blog.tilt.dev/2021/09/07/rancher-desktop.html)
+the [`kim` Tilt extension](https://github.com/tilt-dev/tilt-extensions/tree/master/kim) and [this blogpost](https://blog.tilt.dev/2021/09/07/rancher-desktop.html).
 
 ### Pros
 - Cross platform (macOS/Linux/Windows)
