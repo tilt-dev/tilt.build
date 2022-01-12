@@ -2465,7 +2465,11 @@ ensures a pretty high bar of intent.
             to be notified of changes to this expectation.)
            </p>
            <p>
-            Finally, Tilt will push the built image to a local image registry if one exists or to docker.io by default. Tilt can detect if you are using Docker for Desktop or Minikube and omit pushing.
+            Finally, Tilt will put the image in a place where the target runtime can access it. Tilt will make a best effort to detect what kind of runtime you&#x2019;re using (Docker Compose, Kind, GKE, etc), and pick the best strategy for getting the image into it fast. See
+            <a class="reference external" href="https://docs.tilt.dev/choosing_clusters.html">
+             https://docs.tilt.dev/choosing_clusters.html
+            </a>
+            for more info.
            </p>
            <dl class="field-list simple">
             <dt class="field-odd">
