@@ -4,6 +4,26 @@ layout: docs
 sidebar: reference
 ---
 
+# Snippets Library
+
+<ul>
+{% for item in site.data.snippets %}
+{% assign name = item[0] %}
+{% assign snippet = item[1] %}
+<li id="snip_{{name}}">
+<div>{{snippet.title}}</div>
+<div>{{snippet.description}}</div>
+<div>stage: {{snippet.release_stage}}</div>
+{% if snippet.docs_link %}<a href="{{snippet.docs_link}}">Reference</a>{% endif %}
+{% highlight python %}
+{{snippet.code}}
+{% endhighlight %}
+</li>
+{% endfor %}
+</ul>
+
+# Outline
+
 ## Tiltfile Concepts snippets
 
 Items from [Tiltfile Concepts](tiltfile_concepts.html) page
