@@ -20,6 +20,7 @@ Intermediate Level:
 
 - [Minikube](#minikube)
 - [k3d](#k3d)
+- [Rancher Desktop](#rancher-desktop)
 
 Advanced Level:
 
@@ -112,6 +113,27 @@ kubectl config use-context microk8s
   [Snap](https://snapcraft.io/) and on MacOS/Windows with
   [Multipass](https://multipass.run/), but it's
   not as stable on those platforms.
+
+---
+
+## Rancher Desktop
+[Rancher Desktop](https://rancherdesktop.io/) is an open source alternative for Docker Desktop. 
+By default it uses `containerd` but since [v0.7.0](https://github.com/rancher-sandbox/rancher-desktop/releases/tag/v0.7.0), 
+users are free to choose a `dockerd` runtime
+
+Rancher Desktop is still `pre-release` and continuously being updated, so
+be aware that features might change quickly and radically.
+
+For more information on how to use Rancher Desktop with Tilt, you can check out 
+the [`kim` Tilt extension](https://github.com/tilt-dev/tilt-extensions/tree/master/kim) and [this blogpost](https://blog.tilt.dev/2021/09/07/rancher-desktop.html).
+
+### Pros
+- Cross platform (macOS/Linux/Windows)
+- Uses [k3s](https://k3s.io), which is very fast to start and light on resources
+
+### Cons
+- New and quickly evolving, might not be fully supported by all tools (including Tilt!)
+- No local registry out-of-the-box
 
 ---
 
