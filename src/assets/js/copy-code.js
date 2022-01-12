@@ -12,7 +12,7 @@
         const copyHTML = copySVG + 'Copy';
         const copyLabel = 'Copy to clipboard';
 
-        const codeBlocks = document.querySelectorAll('div.highlight');
+        const codeBlocks = document.querySelectorAll('.highlight');
         codeBlocks.forEach((wrapperEl, i) => {
             // find the <pre> element and assign it an ID for the button to reference
             const codeEl = wrapperEl.querySelector('pre');
