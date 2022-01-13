@@ -1,0 +1,19 @@
+.siteHeader--docs {
+  box-sizing: border-box;
+  padding-right: $docs-side-margin;
+  padding-left: $docs-side-margin;
+
+  @include mobileAndAbove {
+    max-width: 100%;
+    padding-top: $spacing-unit;
+    padding-bottom: 0;
+  }
+}
+
+.siteHeader-menuText {
+  font-family: $tilt2-font-mono;
+  font-size: 28px;
+  display: inline-block;
+}
+
+

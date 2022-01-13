@@ -1,16 +1,9 @@
-$docs-side-margin: $spacing-unit;
+
 // Biggest width for content where text is comfortably readable:
 $docs-content-width:       960px;
 // Bounds for sidebar content text to be readable:
 $sidebar-minimum-width: 280px;
 $sidebar-maximum-width: 400px;
-
-
-.siteHeader-menuText {
-  font-family: $tilt2-font-mono;
-  font-size: 28px;
-  display: inline-block;
-}
 
 .body--docs {
   .page-content {
@@ -21,13 +14,12 @@ $sidebar-maximum-width: 400px;
 .Docs-wrapper {
   display: flex;
   flex-direction: column;
-  margin-top: $spacing-unit;
   margin-bottom: $spacing-unit * 2;
 }
 
 .Docs-body {
   display: grid;
-  grid-template-columns: minmax($sidebar-minimum-width, 25%) 1fr;
+  grid-template-columns: minmax($sidebar-minimum-width, 20%) 1fr;
   column-gap: $spacing-unit;
   // Make the boundary between the sidebar and footer look better:
   border-bottom: 1px solid $tilt2-color-gray-lightest;
@@ -43,6 +35,11 @@ $sidebar-maximum-width: 400px;
   justify-content: space-between;
   align-items: center;
   border-bottom: 1px solid $tilt2-color-gray-lightest;
+  position: sticky;
+  top: 0;
+  z-index: $z-docs-header;
+  background-color: $color-white;
+  height: $docs-header-height;
 }
 
 .Docs-search {  
@@ -120,8 +117,8 @@ $sidebar-maximum-width: 400px;
 
 .Docs-nav-link {
   color: $tilt2-color-text;
-  padding-top: $spacing-unit * 0.75;
-  padding-bottom: $spacing-unit * 0.75;
+  padding-top: $spacing-unit * 0.5;
+  padding-bottom: $spacing-unit * 0.5;
   text-underline-offset: 6px;
   display: none;
 
@@ -164,6 +161,7 @@ $sidebar-maximum-width: 400px;
 // --------------------------------------------------
 .Docs-sidebar {
   background-color: $color-white;
+  border-right: 2px solid $tilt2-color-gray-lightest;
 
   @include docs-mobile {
     width: 100%;
@@ -171,7 +169,7 @@ $sidebar-maximum-width: 400px;
 
   @include above-docs-mobile {
     position: sticky;
-    top: 0;
+    top: $docs-header-height;
     align-self: flex-start;
     max-height: 100vh;
     overflow-y: auto;
@@ -204,6 +202,8 @@ $sidebar-maximum-width: 400px;
 
 .Docs-subnav-title {
   background-color: $tilt2-color-gray-lightest;
+  border-top: none !important; // Override Sphinx auto-generated rules from api.scss
+  border-bottom: solid 3px $color-white;
 }
 
 .Docs-subnav-section {
@@ -255,8 +255,8 @@ $sidebar-maximum-width: 400px;
 .Docs-subnav-link {
   display: block;
   color: $tilt2-color-text;
-  padding-top: $spacing-unit * 0.5;
-  padding-bottom: $spacing-unit * 0.5;
+  padding-top: $spacing-unit * 0.25;
+  padding-bottom: $spacing-unit * 0.25;
   padding-left: $docs-side-margin;
   padding-right: $docs-side-margin;
 
