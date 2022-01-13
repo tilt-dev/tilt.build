@@ -5,13 +5,6 @@ $docs-content-width:       960px;
 $sidebar-minimum-width: 280px;
 $sidebar-maximum-width: 400px;
 
-
-.siteHeader-menuText {
-  font-family: $tilt2-font-mono;
-  font-size: 28px;
-  display: inline-block;
-}
-
 .body--docs {
   .page-content {
     padding-top: 0; // Undo the generous spacing from default template.
@@ -44,8 +37,9 @@ $sidebar-maximum-width: 400px;
   border-bottom: 1px solid $tilt2-color-gray-lightest;
   position: sticky;
   top: 0;
-  z-index: 1000;
+  z-index: $z-docs-header;
   background-color: $color-white;
+  height: $docs-header-height;
 }
 
 .Docs-search {  
@@ -168,9 +162,6 @@ $sidebar-maximum-width: 400px;
 .Docs-sidebar {
   background-color: $color-white;
   border-right: 2px solid $tilt2-color-gray-lightest;
-  position: sticky;
-  top: 64px;
-  padding-top: $spacing-unit;
 
   @include docs-mobile {
     width: 100%;
@@ -178,7 +169,7 @@ $sidebar-maximum-width: 400px;
 
   @include above-docs-mobile {
     position: sticky;
-    top: 0;
+    top: $docs-header-height;
     align-self: flex-start;
     max-height: 100vh;
     overflow-y: auto;
@@ -211,6 +202,7 @@ $sidebar-maximum-width: 400px;
 
 .Docs-subnav-title {
   background-color: $tilt2-color-gray-lightest;
+  border-bottom: solid 3px $color-white;
 }
 
 .Docs-subnav-section {
