@@ -1,4 +1,4 @@
-$docs-side-margin: $spacing-unit;
+
 // Biggest width for content where text is comfortably readable:
 $docs-content-width:       960px;
 // Bounds for sidebar content text to be readable:
@@ -21,7 +21,6 @@ $sidebar-maximum-width: 400px;
 .Docs-wrapper {
   display: flex;
   flex-direction: column;
-  margin-top: 0px;
   margin-bottom: $spacing-unit * 2;
 }
 
