@@ -22,3 +22,8 @@ plugins:
   - jekyll-feed
   - jekyll-inline-svg
   - jekyll-redirect-from
+
+# Generate json files for some site data using _plugins/json_files.rb
+json_files:
+  # writes data.snippets => snippets.json
+  snippets: snippets.json
