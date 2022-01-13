@@ -136,3 +136,113 @@ k8s_resource_config2:
   - k8s_resource
   release_stage: released
   docs_link: /tiltfile_concepts.html#configuring-kubernetes-resources
+
+k8s_secret:
+  title: Create a K8s secret
+  description: Create a new K8s secret with a Tilt extension
+  code: |
+    # Load the 'secret' extension
+    load('ext://secret', 'secret_create_generic', 'secret_from_dict')
+    # Create a pgpass secret from a local file
+    secret_create_generic('pgpass', from_file='.pgpass=./.pgpass')
+    # Create a secret from a dict
+    k8s_yaml(secret_from_dict("secrets", inputs={'SOME_TOKEN': os.getenv('SOME_TOKEN')}))
+  tags:
+  - k8s
+  - secret
+  - extensions
+  release_stage: released
+  docs_link: https://github.com/tilt-dev/tilt-extensions/tree/master/secret
+
+k8s_configmap:
+  title: Create a K8s configmap
+  description: Create a new configmap with a Tilt extension
+  code: |
+    # Load the 'configmap' extension
+    load('ext://configmap', 'configmap_create')
+    # Create a configmap from a file
+    configmap_create('grafana-config', from_file=['grafana.ini=./grafana.ini'])
+    # Create a configmap from a dict
+    k8s_yaml(configmap_from_dict('app-env', inputs={'HOST': '0.0.0.0', 'PORT': '5000'}))
+  tags:
+  - k8s
+  - configmap
+  - extensions
+  release_stage: released
+  docs_link: https://github.com/tilt-dev/tilt-extensions/tree/master/configmap
+
+docker_compose:
+  title: Use Docker Compose
+  description: Use Tilt to launch services from a Compose file
+  code: |
+    docker_compose('./docker-compose.yml')
+  tags:
+  - docker
+  - docker_compose
+  release_stage: released
+  docs_link: /api.html#api.docker_compose
+
+docker_compose_override:
+  title: Use Docker Compose with overrides
+  description: Use an existing Compose file with custom overrides
+  code: |
+    services = {'app': {'environment': {'DEBUG': 'true'}}}
+    docker_compose(['docker-compose.yml', encode_yaml({'services': services})])
+  tags:
+  - docker
+  - docker_compose
+  release_stage: released
+  docs_link: /api.html#api.docker_compose
+
+local_yarn:
+  title: Run a local Yarn command
+  description: Run Yarn every time dependencies change
+  code: |
+    local_resource('yarn', cmd='yarn install', deps=['package.json', 'yarn.lock'])
+  tags:
+  - yarn
+  - local_resource
+  release_stage: released
+  docs_link: /local_resource.html
+
+local_go_server:
+  title: Build and run a local go server
+  description: Build and run a go server and rebuild/relaunch on changes
+  code: |
+    local_resource('local-myserver',
+                   cmd='go build ./cmd/myserver',
+                   serve_cmd='./myserver --port=8001',
+                   deps=['cmd/myserver'])
+  tags:
+  - go
+  - local_resource
+  release_stage: released
+  docs_link: /local_resource.html#serve_cmd
+
+local_nodejs_server:
+  title: Install and run a local nodejs server
+  description: Install dependencies and start the server
+  code: |
+    local_resource('local-js-server',
+                   cmd='yarn install',
+                   deps=['package.json', 'yarn.lock'],
+                   serve_cmd='yarn start')
+  tags:
+  - nodejs
+  - local_resource
+  release_stage: released
+
+local_kube_logs:
+  title: Show the K8s API server logs
+  description: Follow the K8s API server logs
+  code: |
+    api_pod = 'kube-apiserver-docker-desktop'
+    # api_pod = 'kube-apiserver-kind-control-plane' # for KIND
+    local_resource('kube-logs', serve_cmd='kubectl logs -f -n kube-system {}'.format(api_pod))
+  tags:
+  - k8s
+  - local_resource
+  release_stage: released
+  docs_link: /local_resource.html#serve_cmd
+
+
