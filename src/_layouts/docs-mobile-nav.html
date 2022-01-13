@@ -15,8 +15,8 @@ layout: docs-header
               href="{{link.hrefMobile | escape}}">
               {{link.title | escape}}
             </a>
-            {% if link.flair %}
-              <div class="Docs-nav-link-flair">{{link.flair | escape}}</div>
+            {% if link.pilltag %}
+              <span class="pill-tag pill-tag--small pill-tag--right">{{link.pilltag | escape}}</span>
             {% endif %}
           </li>
         {% endfor %}
@@ -48,6 +48,9 @@ layout: docs-header
           {% assign pages = section.items %}
           <dt class="js-accordion__header Docs-subnav-title" data-accordion-opened="true">
             {{ section.title | escape }}
+            {% if section.pilltag %}
+              <span class="pill-tag pill-tag--small pill-tag--right">{{section.pilltag | escape}}</span>
+            {% endif %}
             {% svg assets/svg/carrot-down.svg %}
           </dt>
           <dd class="js-accordion__panel Docs-subnav-section">
@@ -57,6 +60,9 @@ layout: docs-header
                   <li class="js-accordion Docs-subnav-section-list-item Docs-subnav-subsection" data-accordion-prefix-classes="Docs-subnav">
                     <dt class="js-accordion__header Docs-subnav-title" data-accordion-opened="false">
                       {{ page.title | escape }}
+                      {% if page.pilltag %}
+                        <span class="pill-tag pill-tag--small pill-tag--right">{{page.pilltag | escape}}</span>
+                      {% endif %}
                       {% svg assets/svg/carrot-down.svg %}
                     </dt>
                     <dd class="js-accordion__panel Docs-subnav-section Docs-subnav-subsection">
@@ -65,6 +71,9 @@ layout: docs-header
                         <li class="Docs-subnav-section-list-item">
                           <a class="Docs-subnav-link{% if page_href == subpage.href %} is-active{% endif %}" href="/{{subpage.href | escape}}" onclick="highlightSubnav(this.href)">
                             {{ subpage.title | escape }}
+                            {% if subpage.pilltag %}
+                              <span class="pill-tag pill-tag--small">{{subpage.pilltag | escape}}</span>
+                            {% endif %}
                           </a>
                         </li>
                       {% endfor %}
@@ -74,6 +83,9 @@ layout: docs-header
                   <li class="Docs-subnav-section-list-item">
                     <a class="Docs-subnav-link{% if page_href == page.href %} is-active{% endif %}" href="/{{page.href | escape}}" onclick="highlightSubnav(this.href)">
                       {{ page.title | escape }}
+                      {% if page.pilltag %}
+                        <span class="pill-tag pill-tag--small pill-tag--right">{{page.pilltag | escape}}</span>
+                      {% endif %}
                     </a>
                   </li>
                 {% endif %}

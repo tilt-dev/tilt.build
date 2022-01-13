@@ -106,7 +106,7 @@ $sidebar-maximum-width: 400px;
 }
 
 .Docs-nav-list-item {
-  // To align the "flair":
+  // To align the "pilltag":
   display: flex;
   align-items: center;
 
@@ -146,16 +146,6 @@ $sidebar-maximum-width: 400px;
     display: block;
   }
 }
-
-.Docs-nav-link-flair {
-  font-size: 12px;
-  background-color: $tilt2-color-gray-lightest;
-  padding-left: $spacing-unit * 0.2;
-  padding-right: $spacing-unit * 0.2;
-  margin-left: $spacing-unit * 0.25;
-  border-radius: $tilt2-border-radius;
-}
-
 
 // Sidebar Nav - browse docs pages
 // --------------------------------------------------
@@ -197,6 +187,7 @@ $sidebar-maximum-width: 400px;
   svg {
     // The caret shouldn't "steal" the click that triggers expand/collapse:
     pointer-events: none;
+    margin-left: auto;
   }
 }
 
@@ -296,6 +287,9 @@ $sidebar-maximum-width: 400px;
     font-size: 38px;
     line-height: 1.4;
     color: $color-red;
+    // To center any pill-tags next to headings
+    display: flex;
+    align-items: center;
   } 
   h2 {
     font-weight: $tilt2-font-weight-sans-light;
@@ -427,14 +421,31 @@ $sidebar-maximum-width: 400px;
 }
 
 .pill-tag {
-  text-transform: uppercase;
-  font-size: $tilt2-font-size-body-small;
-  padding: 5px;
   background-color: $color-off-white;
+  border: 1px solid $tilt2-color-gray-lightest;
   border-radius: $tilt2-border-radius-large * 2;
   color: $tilt2-color-gray-dark;
-  border: 1px solid $tilt2-color-gray-lightest;
   font-family: $tilt2-font-mono;
+  font-size: $tilt2-font-size-body-small;
+  font-weight: $body-font-weight;
+  padding: 5px;
+  text-transform: uppercase;
+}
+
+.pill-tag.pill-tag--small {
+  font-size: 12px;
+}
+
+.pill-tag.pill-tag--bold {
+  font-weight: $tilt2-font-weight-mono-bold;
+}
+
+.pill-tag.pill-tag--right {
+  margin-left: $spacing-unit * 0.20;
+}
+
+.pill-tag.pill-tag--left{
+  margin-right: $spacing-unit * 0.20;
 }
 
 // Page Elements
