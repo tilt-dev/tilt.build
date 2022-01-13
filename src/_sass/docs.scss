@@ -202,6 +202,7 @@ $sidebar-maximum-width: 400px;
 
 .Docs-subnav-title {
   background-color: $tilt2-color-gray-lightest;
+  border-top: none !important; // Override Sphinx auto-generated rules from api.scss
   border-bottom: solid 3px $color-white;
 }
 
