@@ -121,7 +121,9 @@ sidebar:
 
     - title: Kubernetes Resources
       items:
-        - title: With Helm
+        - title: Modifying YAML for Dev
+          href: templating.html
+        - title: Installing YAML with Helm
           href: helm.html
         - title: Port Forwards
           href: accessing_resource_endpoints.html
