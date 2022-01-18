@@ -14,7 +14,6 @@ top:
   - title: Tilt API
     href: https://api.tilt.dev
     hrefMobile: https://api.tilt.dev
-    flair: new
 
 
 sidebar:
@@ -88,6 +87,7 @@ sidebar:
           href: manual_update_control.html
         - title: Disabling Resources
           href: disable_resources.html
+          pilltag: beta
 
     - title: Migrating Existing Projects
       items:

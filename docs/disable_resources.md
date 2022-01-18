@@ -3,9 +3,10 @@ title: Disabling Resources Through Tilt
 description: "Use Tilt's new feature to disable and enable resources through the UI. Manage what resources you have up and running more seamlessly."
 layout: docs
 sidebar: guides
+pilltag: beta
 ---
 
-> <span class="pill-tag">Beta</span> This feature is in beta. It's turned off by default, and breaking changes could be introduced while under development.
+> 💡 This feature is in beta. It's turned off by default, and breaking changes could be introduced while under development.
 
 Through Tilt’s UI Dashboard, you can enable and disable resources that are available in your Tilt session.
 
