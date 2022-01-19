@@ -10,8 +10,7 @@ layout: docs
 {% assign ordered = site.data.snippet_order %}
 {% assign nonordered = snippets.keys - ordered %}
 {% assign keys = ordered + nonordered %}
-{% for item in keys %}
-{% assign name = item %}
+{% for name in keys %}
 {% assign snippet = snippets[name] %}
 <li id="snip_{{name}}">
 <div>{{snippet.title}}</div>
