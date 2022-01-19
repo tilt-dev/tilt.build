@@ -7,7 +7,7 @@ layout: docs
 
 <ul>
 {% assign snippets = site.data.snippets %}
-{% assign ordered = site.data.snippet_order
+{% assign ordered = site.data.snippet_order %}
 {% assign nonordered = snippets.keys - ordered %}
 {% assign keys = ordered + nonordered %}
 {% for item in keys %}
