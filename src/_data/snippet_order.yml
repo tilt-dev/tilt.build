@@ -1,0 +1,21 @@
+---
+# Snippets mentioned here will be rendered first in this order in snippets.md;
+# the remainder of snippets will appear at the end. Temporary until we have a
+# flexible tagged/searchable snippets page.
+- docker_build_simple
+- docker_build_inline
+- k8s_yaml_simple
+- k8s_yaml_kustomize
+- k8s_yaml_helm
+- k8s_yaml_custom
+- k8s_resource_port_forward
+- k8s_resource_config1
+- k8s_resource_config2
+- k8s_secret
+- k8s_configmap
+- docker_compose
+- docker_compose_override
+- local_yarn
+- local_go_server
+- local_nodejs_server
+- local_kube_logs

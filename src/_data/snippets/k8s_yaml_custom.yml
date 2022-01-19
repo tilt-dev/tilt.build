@@ -1,0 +1,12 @@
+---
+title: Apply output from custom command
+description: Use output from a custom command to apply to the cluster
+code: |
+  text = local('./foo.py') # runs command foo.py
+  k8s_yaml(text)
+tags:
+- k8s
+- k8s_yaml
+- local
+release_stage: released
+docs_link: "/tiltfile_concepts.html#custom-commands"

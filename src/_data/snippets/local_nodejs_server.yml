@@ -1,0 +1,12 @@
+---
+title: Install and run a local nodejs server
+description: Install dependencies and start the server
+code: |
+  local_resource('local-js-server',
+                 cmd='yarn install',
+                 deps=['package.json', 'yarn.lock'],
+                 serve_cmd='yarn start')
+tags:
+- nodejs
+- local_resource
+release_stage: released

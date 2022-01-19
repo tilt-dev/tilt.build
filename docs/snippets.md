@@ -6,9 +6,13 @@ layout: docs
 # Snippets Library
 
 <ul>
-{% for item in site.data.snippets %}
-{% assign name = item[0] %}
-{% assign snippet = item[1] %}
+{% assign snippets = site.data.snippets %}
+{% assign ordered = site.data.snippet_order
+{% assign nonordered = snippets.keys - ordered %}
+{% assign keys = ordered + nonordered %}
+{% for item in keys %}
+{% assign name = item %}
+{% assign snippet = snippets[name] %}
 <li id="snip_{{name}}">
 <div>{{snippet.title}}</div>
 <div>{{snippet.description}}</div>
@@ -19,6 +23,8 @@ layout: docs
 {% endhighlight %}
 </li>
 {% endfor %}
+
+
 </ul>
 
 # TBD

@@ -1,0 +1,15 @@
+---
+title: Create a port-forward to a container
+description: Set up a port-forward to a resource's default container
+code: |
+  # connect localhost:9000 to container port 9000
+  k8s_resource(
+    workload='frontend',
+    port_forwards=9000
+  )
+tags:
+- k8s
+- k8s_resource
+- port_forward
+release_stage: released
+docs_link: "/tiltfile_concepts.html#configuring-kubernetes-resources"

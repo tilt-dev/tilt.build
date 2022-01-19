@@ -1,0 +1,16 @@
+---
+title: Create a K8s configmap
+description: Create a new configmap with a Tilt extension
+code: |
+  # Load the 'configmap' extension
+  load('ext://configmap', 'configmap_create')
+  # Create a configmap from a file
+  configmap_create('grafana-config', from_file=['grafana.ini=./grafana.ini'])
+  # Create a configmap from a dict
+  k8s_yaml(configmap_from_dict('app-env', inputs={'HOST': '0.0.0.0', 'PORT': '5000'}))
+tags:
+- k8s
+- configmap
+- extensions
+release_stage: released
+docs_link: https://github.com/tilt-dev/tilt-extensions/tree/master/configmap
