@@ -1,9 +1,8 @@
 ---
 title: Run a local Yarn command
 description: Run Yarn every time dependencies change
-code: 'local_resource(''yarn'', cmd=''yarn install'', deps=[''package.json'', ''yarn.lock''])
-
-'
+code: |
+  local_resource('yarn', cmd='yarn install', deps=['package.json', 'yarn.lock'])
 tags:
 - yarn
 - local_resource

@@ -2,10 +2,12 @@
 title: Build and run a local go server
 description: Build and run a go server and rebuild/relaunch on changes
 code: |
-  local_resource('local-myserver',
-                 cmd='go build ./cmd/myserver',
-                 serve_cmd='./myserver --port=8001',
-                 deps=['cmd/myserver'])
+  local_resource(
+    'local-myserver',
+    cmd='go build ./cmd/myserver',
+    serve_cmd='./myserver --port=8001',
+    deps=['cmd/myserver']
+  )
 tags:
 - go
 - local_resource
