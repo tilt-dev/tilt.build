@@ -1,9 +1,8 @@
 ---
 title: Use Docker Compose
 description: Use Tilt to launch services from a Compose file
-code: 'docker_compose(''./docker-compose.yml'')
-
-'
+code: |
+  docker_compose('./docker-compose.yml')
 tags:
 - docker
 - docker_compose

@@ -55,4 +55,4 @@ Take simple examples from the following, and link to the full example.
 ## New snippets
 
 - Run a docker container (*new* `docker_run` extension that uses inline docker_compose?)
-- Deploy an image to k8s (e.g., redis) (*new* deployment/service extensions modeled after configmap, secret)
+
