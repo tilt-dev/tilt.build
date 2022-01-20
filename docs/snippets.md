@@ -17,6 +17,7 @@ layout: docs
 <div>{{snippet.description}}</div>
 <div>stage: {{snippet.release_stage}}</div>
 {% if snippet.docs_link %}<a href="{{snippet.docs_link}}">Reference</a>{% endif %}
+<a href="#snip_{{name}}">Permalink</a>
 {% highlight python %}
 {{snippet.code}}
 {% endhighlight %}
