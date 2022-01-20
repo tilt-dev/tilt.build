@@ -11,6 +11,7 @@
 - k8s_resource_port_forward
 - k8s_resource_config1
 - k8s_resource_config2
+- k8s_deployment
 - k8s_secret
 - k8s_configmap
 - docker_compose
