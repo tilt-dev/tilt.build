@@ -1,0 +1,20 @@
+---
+title: Build and deploy an app to K8s
+description: Use docker_build and deployment_create to build and deploy an app
+code: |
+  load('ext://deployment', 'deployment_create')
+  docker_build(
+    'myapp',
+    './myapp',
+    # For a Dockerfile that has a 'COPY . /app' statement in it
+    live_update=[sync('./myapp', '/app')]
+  )
+  deployment_create('myapp')
+tags:
+  - k8s
+  - docker_build
+  - live_update
+  - deployment
+  - extensions
+release_stage: released
+docs_link: https://github.com/tilt-dev/tilt-extensions/tree/master/deployment
