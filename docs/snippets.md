@@ -29,15 +29,6 @@ layout: docs
 
 # TBD
 
-## Local snippets
-
-Items from [Local Resource](local_resource.html)
-
-- Run a generic local build + server
-- Proxy a remote port to localhost with socat
-- Run an ngrok tunnel
-
-
 ## Language snippets
 
 Take simple examples from the following, and link to the full example.

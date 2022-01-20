@@ -1,0 +1,14 @@
+---
+title: Set up a socat tunnel to a remote server
+description: Use socat to expose a remote database server locally
+code: |
+  local_resource(
+    'socat-tunnel',
+    # Change `brew install` to your preferred way of installing socat
+    cmd='which socat || brew install socat',
+    serve_cmd='socat TCP-LISTEN:{port},reuseaddr,fork TCP:{remote}:{port}'.format(port=3306,remote='remote-mysql')
+  )
+tags:
+- local_resource
+release_stage: released
+docs_link: /api.html#api.local_resource
