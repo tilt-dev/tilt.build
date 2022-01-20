@@ -76,6 +76,7 @@ examples of what you can do with a Tiltfile. Load them into your own Tiltfile. I
 
 - [`api_server_logs`](https://github.com/tilt-dev/tilt-extensions/tree/master/api_server_logs): Print API server logs. Example from [Contribute an Extension](https://docs.tilt.dev/contribute_extension.html).
 - [`cert_manager`](https://github.com/tilt-dev/tilt-extensions/tree/master/cert_manager): Deploys cert-manager.
+- [`color`](https://github.com/tilt-dev/tilt-extensions/tree/master/color): Allows colorful log prints.
 - [`configmap`](https://github.com/tilt-dev/tilt-extensions/tree/master/configmap): Create configmaps from files and auto-deploy them.
 - [`conftest`](https://github.com/tilt-dev/tilt-extensions/tree/master/conftest): Use [Conftest](https://www.conftest.dev/) to test your configuration files.
 - [`coreos_prometheus`](https://github.com/tilt-dev/tilt-extensions/tree/master/coreos_prometheus): Deploys Prometheus to a monitoring namespace, managed by the CoreOS Prometheus Operator and CRDs
