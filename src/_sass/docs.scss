@@ -159,9 +159,9 @@ $sidebar-maximum-width: 400px;
 
   @include above-docs-mobile {
     position: sticky;
-    top: $docs-header-height;
     align-self: flex-start;
-    max-height: 100vh;
+    top: $docs-header-height;
+    max-height: calc(100vh - #{$docs-header-height});
     overflow-y: auto;
   }
 }
