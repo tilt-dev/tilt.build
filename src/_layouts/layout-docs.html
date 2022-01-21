@@ -5,14 +5,11 @@
 
   <body class="body body--{{ page.layout }}">
     <div class="modal-background"></div>
-    {%- include header.html -%}
+    {%- include header-docs.html -%}
 
-    <main class="page-content" aria-label="Content">
-      {{ content }}
-    </main>
+    {{ content }}
 
     {%- include footer.html -%}
-
   </body>
 
 </html>
