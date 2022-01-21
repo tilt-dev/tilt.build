@@ -7,51 +7,74 @@ sidebar: guides
 
 Tilt supports Helm out-of-the-box.
 
-There are two ways you can use Helm charts with Tilt.
+There are two major ways we see teams use Helm charts with Tilt.
 
-- Install a remote Helm chart from the rich library of existing charts.
+- Install a Helm chart from the rich library of existing charts. 
 
-- Iterate on a local Helm chart that you're building.
+- Iterate on a Helm chart that you're building.
 
 Let's dig into each one.
 
-## Remote charts
+## Installing existing charts
 
-The `helm_remote` extension lets you load from a library of existing charts.
+Many off-the-shelf tools have Helm charts. The chart is an easy way to install a
+collection of objects into your Kubernetes cluster.
 
-Here's an example that deploys the `stable/mysql` chart:
+The [`helm_resource`
+extension](https://github.com/tilt-dev/tilt-extensions/tree/master/helm_resource)
+makes this easy.
+
+Here's an example that deploys the [Bitnami `mysql`
+chart](https://artifacthub.io/packages/helm/bitnami/mysql):
 
 ```
 # Tiltfile
 
-load('ext://helm_remote', 'helm_remote')
-helm_remote('mysql',
-            repo_name='stable',
-            repo_url='https://charts.helm.sh/stable')
+load('ext://helm_resource', 'helm_resource', 'helm_repo')
+helm_repo('bitnami', 'https://charts.bitnami.com/bitnami')
+helm_resource('mysql', 'bitnami/mysql')
 ```
 
 Visit [Artifact Hub](https://artifacthub.io/) to find Helm charts for
 many off-the-shelf tools. They each list the repo URL and chart name to
-use with `helm_remote`.
+use with `helm_resource`.
 
-To customize the chart with your own `values.yaml` settings, see the [`helm_remote`
-README](https://github.com/tilt-dev/tilt-extensions/tree/master/helm_remote)
-for additional options to configure the chart.
+### Pros and Cons of `helm_resource()`
 
-## Local charts
+The `helm_resource` function has additional options for adding flags to `helm
+install`, redeploying on file changes, and injecting images built locally.
+
+Under the hood, here's how it works:
+
+- On `tilt up`, `helm_resource` will install your chart with `helm install`.
+
+- When the install is finished, `helm_resource` will tell about the objects it installed.
+
+- Tilt will display any logs, events, or health checks in the Tilt UI.
+
+This is perfect if you're installing a new operator or server into your dev
+environment, but don't need to debug the installation process.
+
+If you're using Helm to organize your own servers, this can be a bit opaque.
+So Tilt also offers a second approach.
+
+## Iterate on chart YAML
 
 The `helm` built-in function lets you load from a chart on your filesystem.
 
 Calling `helm()` runs `helm template` on a chart directory and
-returns a blob of the Kubernetes YAML rendered by Helm:
+returns a blob of the Kubernetes YAML, which you can then
+deploy with `k8s_yaml`.
 
 ```python
 k8s_yaml(helm('./charts/my-chart'))
 ```
 
-When you make edits to the files in the chart directory, Tilt will automatically re-deploy the chart.
+When you make edits to the files in the chart directory, 
+Tilt will automatically re-deploy the chart.
 
-## Helm Options
+
+### `helm()` Options
 
 The `helm` function has a few options for common arguments:
 
@@ -70,7 +93,45 @@ yaml = helm(
 k8s_yaml(yaml)
 ```
 
-## Sub-charts and requirements.txt
+### Pros and Cons of `helm()`
+
+The `helm()` function treats Helm as a YAML templating tool. You then
+register the YAML so that Tilt can deploy it.
+
+Tilt can validate your YAML, split it into individual resources for each server,
+and auto-inject images that you built locally.  This makes it a good fit when
+you're developing your own chart.
+
+But modern Helm charts are more than just YAML. Helm supports 
+[chart hooks](https://helm.sh/docs/topics/charts_hooks/) for modifying the install process.
+Helm can also read settings from your cluster, and make installation decisions based
+on what cluster you're using.
+
+The `helm()` function uses Tilt's deployment engine, so skips the chart hooks.
+It's offline-only. If you want to install a remote chart, you need to use the
+`helm_remote` extension to download the chart locally.
+
+### Remote charts
+
+The [`helm_remote` extension](https://github.com/tilt-dev/tilt-extensions/tree/master/helm_remote)
+downloads remote charts and loads their YAML with `helm()`.
+
+Here's an example that deploys the `bitnami/mysql` chart:
+
+```python
+# Tiltfile
+
+load('ext://helm_remote', 'helm_remote')
+helm_remote('mysql',
+            repo_name='bitnami',
+            repo_url='https://charts.bitnami.com/bitnami')
+```
+
+To customize the chart with your own `values.yaml` settings, see the [`helm_remote`
+README](https://github.com/tilt-dev/tilt-extensions/tree/master/helm_remote)
+for additional options to configure the chart.
+
+### Sub-charts and requirements.txt
 
 If you have chart dependencies, you need to run:
 
@@ -164,10 +225,3 @@ k8s_yaml(helmfile("k8s/staging/helmfile.yaml"))
 
 You can try out this example yourself in [this example repo](https://github.com/tilt-dev/tilt-helmfile-demo).
 
-### Further customization
-
-If you have a Helm use-case that's not covered here, we'd love to hear about it!
-
-You can [file an issue](https://github.com/tilt-dev/tilt/issues) on GitHub.
-
-We're also active on the Kubernetes slack in [the **#tilt** channel](https://kubernetes.slack.com/messages/CESBL84MV/). Get an invite at [slack.k8s.io](http://slack.k8s.io).
