@@ -2,7 +2,7 @@
 layout: layout-docs
 ---
 {% assign page_href = page.url | slice: 1, page.url.size %}
-<div class="Docs-wrapper">
+<main class="Docs-wrapper">
   <header class="Docs-header">
     <nav class="Docs-nav">
       <ul class="Docs-nav-list">
@@ -121,8 +121,8 @@ layout: layout-docs
             {% assign prevIndex = forloop.index0 | minus: 1 %}
             {% assign prevPage = current_section_pages[prevIndex] %}
             <a href="/{{ prevPage.href | escape }}"
-               class="Docs-section-nav-link"
-               aria-label="Previous Section: {{ prevPage.title | escape }}">
+              class="Docs-section-nav-link"
+              aria-label="Previous Section: {{ prevPage.title | escape }}">
               <span class="Docs-section-nav-arrow" aria-hidden="true">←</span>
               {{ prevPage.title | escape }}
             </a>
@@ -131,8 +131,8 @@ layout: layout-docs
             {% assign nextIndex = forloop.index0 | plus: 1 %}
             {% assign nextPage = current_section_pages[nextIndex] %}
             <a href="/{{ nextPage.href | escape }}"
-               class="Docs-section-nav-link"
-               aria-label="Next Section: {{ nextPage.title | escape }}">
+              class="Docs-section-nav-link"
+              aria-label="Next Section: {{ nextPage.title | escape }}">
               {{ nextPage.title | escape }}
               <span class="Docs-section-nav-arrow" aria-hidden="true">→</span>
             </a>
@@ -149,24 +149,19 @@ layout: layout-docs
           </a>
   
           {% if page.hideEditButton != true %}
-          <a class="Docs-editOnGitHub u-hideOnMobile" href="https://github.com/tilt-dev/tilt.build/tree/master/docs/{{page.name}}">
-            {% svg assets/svg/github.svg width=16 height=16 role="presentation" %}
-            <span class="Docs-editOnGitHub-text">
-              Edit on GitHub
-            </span>
-          </a>
+            <a class="Docs-editOnGitHub u-hideOnMobile" href="https://github.com/tilt-dev/tilt.build/tree/master/docs/{{page.name}}">
+              {% svg assets/svg/github.svg width=16 height=16 role="presentation" %}
+              <span class="Docs-editOnGitHub-text">
+                Edit on GitHub
+              </span>
+            </a>
+          {% endif %}
         </div>
-        {% endif %}
 
         {% if page.hideHelpfulForm != true %}
           {% include helpful_form.html %}
         {% endif %}
       </div>
-    </article>
-  </div>
-
-  <script src="{{ '/assets/js/van11y-accessible-accordion-aria.min.js' | relative_url }}" defer></script>
-  <script src="{{ '/assets/js/clipboard.min.js' | relative_url }}" defer></script>
-  <script src="{{ '/assets/js/copy-code.js' | relative_url }}" defer></script>
-  <script src="{{ '/assets/js/subsection-highlighting.js' | relative_url }}" defer></script>
-</div>
+    </article> <!-- /Docs-content -->
+  </div> <!-- /Docs-body -->
+</main> <!-- /Docs-wrapper -->
