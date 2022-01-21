@@ -547,3 +547,54 @@ a.attached-above:before {
 // Guide for Application Developers
 .supportingExampleImage {
 }
+
+// Snippets Library
+.Docs-snippets-list {
+  margin-top: $spacing-unit * 2 !important; // Override .Docs-content > ul
+}
+
+.Docs-snippets-item {
+  list-style: none;
+  margin-left: 0 !important; // Override .Docs-content > ul li
+  border: 2px solid $tilt2-color-gray-lighter;
+  border-radius: $spacing-unit * 0.25;
+
+  pre {
+    border-top: 1px solid $tilt2-color-gray-lighter;
+    border-bottom: 1px solid $tilt2-color-gray-lighter;
+    border-radius: 0;
+  }
+
+  & + & {
+    margin-top: $spacing-unit * 1.5;
+  }
+}
+
+.Docs-snippets-item-header {
+  padding-top: $spacing-unit * 0.5;
+  padding-left: $spacing-unit * 0.75;
+  padding-right: $spacing-unit * 0.75;
+  padding-bottom: 0;
+  display: flex;
+  justify-content: space-between;
+}
+
+.Docs-snippets-item-footer {
+  padding-top: 0;
+  padding-left: $spacing-unit * 0.75;
+  padding-right: $spacing-unit * 0.75;
+  padding-bottom: $spacing-unit * 0.5;
+}
+
+.Docs-snippets-item-title {
+  margin-bottom: 0;
+}
+
+.Docs-snippets-item-description {
+  margin-top: $spacing-unit * 0.25;
+  margin-bottom: 0;
+}
+
+.Docs-snippets-item-permalink {
+  font-size: $tilt2-font-size-body-small;
+}

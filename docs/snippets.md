@@ -1,50 +1,37 @@
 ---
 title: Tilt Snippets
 layout: docs
+sidebar: guides
 ---
 
-# Snippets Library
+<ul class="Docs-snippets-list">
+  {% assign snippets = site.data.snippets %}
+  {% assign keys = snippets | keys %}
+  {% assign ordered = site.data.snippet_order %}
+  {% assign allkeys = ordered | concat: keys | uniq %}
 
-<ul>
-{% assign snippets = site.data.snippets %}
-{% assign keys = snippets | keys %}
-{% assign ordered = site.data.snippet_order %}
-{% assign allkeys = ordered | concat: keys | uniq %}
-{% for name in allkeys %}
-{% assign snippet = snippets[name] %}
-<li id="snip_{{name}}">
-<div>{{snippet.title}}</div>
-<div>{{snippet.description}}</div>
-<div>stage: {{snippet.release_stage}}</div>
-{% if snippet.docs_link %}<a href="{{snippet.docs_link}}">Reference</a>{% endif %}
-<a href="#snip_{{name}}">Permalink</a>
-{% highlight python %}
-{{snippet.code}}
-{% endhighlight %}
-</li>
-{% endfor %}
+  {% for name in allkeys %}
+  {% assign snippet = snippets[name] %}
+  <li id="snip_{{name}}" class="Docs-snippets-item">
+    <header class="Docs-snippets-item-header">
+      <div>
+        <h3 class="Docs-snippets-item-title">{{snippet.title}}</h3>
+        <p class="Docs-snippets-item-description">{{snippet.description}}</p>
+      </div>
+      <a class="Docs-snippets-item-permalink" href="#snip_{{name}}">Permalink</a>
+    </header>
+    
+    <!-- <div>stage: {{snippet.release_stage}}</div> -->
 
+    {% highlight python %}
+      {{snippet.code}}
+    {% endhighlight %}
 
+    <footer class="Docs-snippets-item-footer">
+      {% if snippet.docs_link %}
+        <a href="{{snippet.docs_link}}">Read More…</a>
+      {% endif %}
+    </footer>
+  </li>
+  {% endfor %}
 </ul>
-
-# TBD
-
-## Language snippets
-
-Take simple examples from the following, and link to the full example.
-
-- [Go](example_go.html)
-- [Python](example_python.html)
-- [Nodejs](example_nodejs.html)
-- [Java](example_java.html)
-- [C#](example_csharp.html)
-
-
-## Extensions snippets
-
-- Useful things from [extensions list](api.html#extensions)
-
-## New snippets
-
-- Run a docker container (*new* `docker_run` extension that uses inline docker_compose?)
-
