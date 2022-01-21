@@ -210,11 +210,21 @@ $sidebar-maximum-width: 400px;
   padding-top: $spacing-unit * 0.4;
   padding-bottom: $spacing-unit * 0.4;
   padding-left: $docs-side-margin;
-  padding-right: $docs-side-margin;
+  padding-right: $spacing-unit * 0.75;
   width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+  svg {
+    width: $spacing-unit * 0.5;
+    fill: $tilt2-color-gray;
+    transition: transform $anim-duration-short ease;
+  }
+
+  &[aria-expanded="false"] svg {
+    transform: rotate(-90deg);
+  }
 }
 
 .Docs-subnav-accordion__panel {
@@ -261,7 +271,8 @@ $sidebar-maximum-width: 400px;
   .Docs-subnav-accordion__header {
     font-weight: $tilt2-font-weight-sans-light;
     background-color: white;
-    path {
+    
+    svg {
       fill: $tilt2-color-gray-lighter;
     }
   }

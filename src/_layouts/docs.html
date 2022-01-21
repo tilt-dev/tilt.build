@@ -50,7 +50,7 @@ layout: layout-docs
             {% if section.pilltag %}
               <span class="pill-tag pill-tag--small pill-tag--right">{{section.pilltag | escape}}</span>
             {% endif %}
-              {% svg assets/svg/carrot-down.svg %}
+              {% svg assets/svg/caret.svg %}
           </dt>
           <dd class="js-accordion__panel Docs-subnav-section">
             <ul class="Docs-subnav-section-list">
@@ -62,7 +62,7 @@ layout: layout-docs
                       {% if page.pilltag %}
                         <span class="pill-tag pill-tag--small pill-tag--right">{{page.pilltag | escape}}</span>
                       {% endif %}
-                      {% svg assets/svg/carrot-down.svg %}
+                      {% svg assets/svg/caret.svg %}
                     </dt>
                     <dd class="js-accordion__panel Docs-subnav-section Docs-subnav-subsection">
                       {% assign subpages = page.items %}
