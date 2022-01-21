@@ -51,15 +51,10 @@ might want to consider to ensure the best possible onboarding experience:
   gets frustratingly slow?
 
 - Do you have a README to help your teammates `tilt up` and go?
-  [Here's one that we use](welcome_to_tilt.html) that you're welcome to link to.
 
 - Are there other teams in your org that could benefit from a cloud-native dev
   environment like Tilt?
 
 ---
 
-Once you're ready, add a link to your README to the
-[Welcome to Tilt](welcome_to_tilt.html) guide.
-
-If you want the same guide but with project-specific instructions,
-fork the [tilt-init repo](https://github.com/tilt-dev/tilt-init) and edit away!
+Once you're ready, fork the [tilt-init repo](https://github.com/tilt-dev/tilt-init) and edit away!
