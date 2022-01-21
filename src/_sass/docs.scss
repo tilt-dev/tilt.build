@@ -39,7 +39,10 @@ $sidebar-maximum-width: 400px;
   top: 0;
   z-index: $z-docs-header;
   background-color: $color-white;
-  height: $docs-header-height;
+
+  @include above-docs-mobile {
+    height: $docs-header-height;
+  }
 }
 
 .Docs-search {  
@@ -96,6 +99,7 @@ $sidebar-maximum-width: 400px;
     left: 0;
     right: 0;
     background-color: $color-white;
+    border-top: 1px solid $tilt2-color-gray-lighter;
     z-index: $z-docs-sidebar;
   }
 }
@@ -111,7 +115,12 @@ $sidebar-maximum-width: 400px;
   align-items: center;
 
   & + & {
-    margin-left: $spacing-unit;
+    margin-left: $spacing-unit * 0.5;
+    padding-left: $spacing-unit * 0.5;
+
+    @include mobileAndBelow {
+      border-left: 1px dotted $tilt2-color-gray-lighter;
+    }
   }
 }
 
