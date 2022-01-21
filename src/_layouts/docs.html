@@ -15,8 +15,8 @@ layout: docs-header
             <a class="Docs-nav-link Docs-nav-link--mobile{% if page.sidebar == link.active %} is-active{% endif %}" href="{{link.hrefMobile | escape}}">
               {{link.title | escape}}
             </a>
-            {% if link.flair %}
-              <div class="Docs-nav-link-flair">{{link.flair | escape}}</div>
+            {% if link.pilltag %}
+              <span class="pill-tag pill-tag--small pill-tag--right">{{link.pilltag | escape}}</span>
             {% endif %}
           </li>
         {% endfor %}
@@ -28,7 +28,7 @@ layout: docs-header
   </header>
 
   <div class="Docs-body">
-    <aside class="Docs-sidebar  Docs-sidebar--defaultLayout">
+    <aside class="Docs-sidebar Docs-sidebar--defaultLayout">
       <nav class="Docs-subnav">
         <dl class="js-accordion Docs-subnav-list" data-accordion-prefix-classes="Docs-subnav">
         {% for section in site.data.docs.sidebar[page.sidebar] %}
@@ -46,7 +46,10 @@ layout: docs-header
           {% endif %}
 
           <dt class="js-accordion__header Docs-subnav-title" data-accordion-opened="true">
-              {{ section.title | escape }}
+            {{ section.title | escape }}
+            {% if section.pilltag %}
+              <span class="pill-tag pill-tag--small pill-tag--right">{{section.pilltag | escape}}</span>
+            {% endif %}
               {% svg assets/svg/carrot-down.svg %}
           </dt>
           <dd class="js-accordion__panel Docs-subnav-section">
@@ -56,6 +59,9 @@ layout: docs-header
                   <li class="js-accordion Docs-subnav-section-list-item Docs-subnav-subsection" data-accordion-prefix-classes="Docs-subnav">
                     <dt class="js-accordion__header Docs-subnav-title" data-accordion-opened="false">
                       {{ page.title | escape }}
+                      {% if page.pilltag %}
+                        <span class="pill-tag pill-tag--small pill-tag--right">{{page.pilltag | escape}}</span>
+                      {% endif %}
                       {% svg assets/svg/carrot-down.svg %}
                     </dt>
                     <dd class="js-accordion__panel Docs-subnav-section Docs-subnav-subsection">
@@ -64,6 +70,9 @@ layout: docs-header
                         <li class="Docs-subnav-section-list-item">
                           <a class="Docs-subnav-link{% if page_href == subpage.href %} is-active{% endif %}" href="/{{subpage.href | escape}}" onclick="highlightSubnav(this.href)">
                             {{ subpage.title | escape }}
+                            {% if subpage.pilltag %}
+                              <span class="pill-tag pill-tag--small">{{subpage.pilltag | escape}}</span>
+                            {% endif %}
                           </a>
                         </li>
                       {% endfor %}
@@ -73,6 +82,9 @@ layout: docs-header
                   <li class="Docs-subnav-section-list-item">
                     <a class="Docs-subnav-link{% if page_href == page.href %} is-active{% endif %}" href="/{{page.href | escape}}" onclick="highlightSubnav(this.href)">
                       {{ page.title | escape }}
+                      {% if page.pilltag %}
+                        <span class="pill-tag pill-tag--small pill-tag--right">{{page.pilltag | escape}}</span>
+                      {% endif %}
                     </a>
                   </li>
                 {% endif %}
@@ -86,7 +98,12 @@ layout: docs-header
   
     <article class="Docs-content">
       <div class="Docs-content-title">
-        <h1>{{ page.title | escape }}</h1>
+        <h1>
+          {% if page.pilltag %}
+            <span class="pill-tag pill-tag--left">{{page.pilltag | escape}}</span>
+          {% endif %}
+          <span>{{ page.title | escape }}</span>
+        </h1>
         {% if page.subtitle %}
         <h2>{{ page.subtitle | escape }}</h2>
         {% endif %}
