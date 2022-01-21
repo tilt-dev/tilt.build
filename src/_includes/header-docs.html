@@ -2,18 +2,9 @@
 
 <header class="siteHeader2 siteHeader--docs">
   <div class="siteHeader-logoAndMenuButton">
-    {% if page.layout == 'landing' %}
-    <!-- For the "Guide To App Devs" - /welcome_to_tilt.html -->
-    <a class="imageLink imageLink--logo-imagemark" href="{{site.landingurl}}/">
-      {% svg assets/svg/logo-imagemark.svg %}
-    </a>
-    {% elsif page.layout == 'home' %}
-    {% svg assets/svg/Tilt-logo.svg class="siteHeader-logoLink-svg" %}
-    {% else %}
     <a class="siteHeader-logoLink" href="{{site.landingurl}}/">
       {% svg assets/svg/Tilt-logo.svg class="siteHeader-logoLink-svg" %}
     </a>
-    {% endif %}
     <button class="siteHeader-menuButton" onclick="document.querySelector('.siteHeader2').classList.toggle('has-openMenu')">
       {% svg assets/svg/ui-menu.svg class="siteHeader-menuButton-menu" %}
       {% svg assets/svg/ui-close.svg class="siteHeader-menuButton-close" %}

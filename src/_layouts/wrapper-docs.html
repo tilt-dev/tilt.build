@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="{{ page.lang | default: site.lang | default: "en" }}">
+
+  {%- include head.html -%}
+
+  <body class="body body--{{ page.layout }}">
+    <div class="modal-background"></div>
+    {%- include header-docs.html -%}
+
+    {{ content }}
+
+    {%- include footer.html -%}
+
+    <script src="{{ '/assets/js/van11y-accessible-accordion-aria.min.js' | relative_url }}" defer></script>
+    <script src="{{ '/assets/js/clipboard.min.js' | relative_url }}" defer></script>
+    <script src="{{ '/assets/js/copy-code.js' | relative_url }}" defer></script>
+    <script src="{{ '/assets/js/subsection-highlighting.js' | relative_url }}" defer></script>
+  </body>
+
+</html>
