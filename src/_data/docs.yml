@@ -123,6 +123,7 @@ sidebar:
       items:
         - title: Modifying YAML for Dev
           href: templating.html
+          pilltag: new
         - title: Installing YAML with Helm
           href: helm.html
         - title: Port Forwards
