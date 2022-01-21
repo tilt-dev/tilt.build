@@ -1,0 +1,21 @@
+---
+title: Wait to launch resource until first file change
+description: |
+  Configure a resource to not launch until the first file dependency changes after launching `tilt up`
+  (works with all resource types, e.g. k8s_resource, local_resource, and dc_resource).
+  Suggested use case: linters, unit tests.
+code: |
+  # Kubernetes `my-resource` will wait for a file in the image build context to change before start
+  k8s_resource("my-resource", auto_init=False, trigger_mode=TRIGGER_MODE_AUTO)
+  
+  # Local resource `my-resource` will wait for a file in `./my-resource` to change before start
+  local_resource("my-resource", serve_cmd="./run.sh", auto_init=False, trigger_mode=TRIGGER_MODE_AUTO, deps=['./my-resource'])
+  
+  # Docker Compose `my-resource` will wait for a file in the image build context to change before start
+  dc_resource("my-resouce", auto_init=False, trigger_mode=TRIGGER_MODE_AUTO)
+tags:
+- k8s
+- local_resource
+- docker_compose
+release_stage: released
+docs_link: "/manual_update_control.html"

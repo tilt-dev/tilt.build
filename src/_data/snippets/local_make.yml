@@ -1,0 +1,17 @@
+---
+title: Run a local Makefile task
+description: |
+  Execute a task from a Makefile on-demand.
+code: |
+  local_resource(
+    "mytask",
+    cmd="make mytask",
+    trigger_mode=TRIGGER_MODE_MANUAL,
+    auto_init=False,
+    labels=["makefile"],
+  )
+tags:
+- make
+- local_resource
+release_stage: released
+docs_link: "/local_resource.html"

@@ -1,0 +1,18 @@
+---
+title: Ignore file changes for resource
+description: |
+  Configure a resource to start automatically but only update if triggered manually via web UI
+  (works with all resource types, e.g. k8s_resource, local_resource, and dc_resource).
+  Suggested use case: required services for project that you are not actively making changes to.
+code: |
+  k8s_resource("my-resource", auto_init=True, trigger_mode=TRIGGER_MODE_MANUAL)
+  
+  local_resource("my-resource", serve_cmd="./run.sh", auto_init=True, trigger_mode=TRIGGER_MODE_MANUAL)
+  
+  dc_resource("my-resouce", auto_init=True, trigger_mode=TRIGGER_MODE_MANUAL)
+tags:
+- k8s
+- local_resource
+- docker_compose
+release_stage: released
+docs_link: "/manual_update_control.html"

@@ -1,0 +1,18 @@
+---
+title: Full manual control for resource
+description: |
+  Configure a resource to only start/update when triggered via web UI
+  (works with all resource types, e.g. k8s_resource, local_resource, and dc_resource).
+  Suggested use case: on-demand jobs/tasks.
+code: |
+  k8s_resource("my-resource", auto_init=False, trigger_mode=TRIGGER_MODE_MANUAL)
+  
+  local_resource("my-resource", serve_cmd="./run.sh", auto_init=False, trigger_mode=TRIGGER_MODE_MANUAL)
+  
+  dc_resource("my-resouce", auto_init=False, trigger_mode=TRIGGER_MODE_MANUAL)
+tags:
+- k8s
+- local_resource
+- docker_compose
+release_stage: released
+docs_link: "/manual_update_control.html"
