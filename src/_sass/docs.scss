@@ -228,19 +228,10 @@ $sidebar-maximum-width: 400px;
 }
 
 .Docs-subnav-accordion__panel {
-  transition: max-height $anim-duration ease;
   overflow: hidden;
 }
 .Docs-subnav-accordion__panel[aria-hidden=true] {
   max-height: 0;
-}
-
-.Docs-subnav-accordion__panel[aria-expanded="true"]::after {
-  content: "-";
-}
-
-.Docs-subnav-accordion__panel[aria-expanded="false"]::after {
-  content: "+";
 }
 
 .Docs-subnav-list {
