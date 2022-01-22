@@ -1,5 +1,5 @@
 ---
-title: Tilt Snippets
+title: Tiltfile Snippets
 layout: docs
 sidebar: guides
 ---
