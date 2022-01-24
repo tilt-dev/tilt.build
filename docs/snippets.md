@@ -2,6 +2,7 @@
 title: Tiltfile Snippets
 layout: docs
 sidebar: guides
+hideHelpfulForm: true
 ---
 
 <ul class="Docs-snippets-list">
@@ -12,7 +13,7 @@ sidebar: guides
 
   {% for name in allkeys %}
   {% assign snippet = snippets[name] %}
-  <li id="snip_{{name}}" class="Docs-snippets-item">
+  <li id="snip_{{name}}" class="Docs-snippets-item" data-codeblock="snip_{{name}}">
     <header class="Docs-snippets-item-header">
       <div>
         <h3 class="Docs-snippets-item-title">{{snippet.title}}</h3>
