@@ -40,8 +40,7 @@ the pain is most acute.
 - Are devs [always asking questions in team chat](https://blog.tilt.dev/2019/10/01/solving-the-laggy-human-shell-problem.html) about how to distinguish meaningful error logs from noise?
 - Do you have [a complicated Bash script that sets up all your dev servers](https://blog.tilt.dev/2018/12/05/tilt-is-the-start-sh-script-of-my-dreams.html), but is always breaking?
 
-Once you've set up Tilt, any contributor should be able to run `tilt up` to get
-[a complete dev environment](https://docs.tilt.dev/welcome_to_tilt.html).
+Once you've set up Tilt, any contributor should be able to run `tilt up` to get a complete dev environment.
 
 ---
 

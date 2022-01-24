@@ -164,8 +164,6 @@ sidebar:
       items:
         - title: Onboarding Checklist
           href: onboarding_checklist.html
-        - title: Guide for Application Developers
-          href: welcome_to_tilt.html
 
   reference:
     - title: Tiltfile API Reference
