@@ -23,9 +23,9 @@ sidebar: guides
     
     <!-- <div>stage: {{snippet.release_stage}}</div> -->
 
-    {% highlight python %}
-      {{snippet.code}}
-    {% endhighlight %}
+    {% highlight python -%}
+      {{snippet.code | strip}}
+    {% endhighlight -%}
 
     <footer class="Docs-snippets-item-footer">
       {% if snippet.docs_link %}
