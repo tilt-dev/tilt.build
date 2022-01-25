@@ -73,8 +73,6 @@ sidebar:
       items:
         - title: Writing Your First Tiltfile
           href: tiltfile_authoring.html
-        - title: Tiltfile Snippets
-          href: snippets.html
         - title: Tiltfile Concepts
           href: tiltfile_concepts.html
         - title: Per user Config
