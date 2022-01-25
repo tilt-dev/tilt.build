@@ -1,0 +1,11 @@
+---
+title: Apply K8s Kustomize templates
+description: Apply K8s manifests results from Kustomize
+code: |
+  k8s_yaml(kustomize('kustomize_dir'))
+tags:
+- k8s
+- k8s_yaml
+- kustomize
+release_stage: released
+docs_link: "/tiltfile_concepts.html#deploy"

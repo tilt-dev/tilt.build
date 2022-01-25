@@ -1,0 +1,11 @@
+---
+title: Basic docker_build
+description: Build a docker image
+code: |
+  # docker build -t companyname/frontend ./frontend
+  docker_build("companyname/frontend", "frontend")
+tags:
+- docker
+- docker_build
+release_stage: released
+docs_link: "/tiltfile_concepts.html#build"

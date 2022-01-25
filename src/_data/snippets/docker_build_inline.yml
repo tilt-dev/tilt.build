@@ -1,0 +1,14 @@
+---
+title: Docker build with inline Dockerfile
+description: Build a docker image with an inline Dockerfile that uses nginx and provided
+  static assets
+code: |
+  dockerfile="""
+  FROM nginx:latest
+  COPY . /usr/share/nginx/html
+  """
+  docker_build("companyname/assets", "./assets", dockerfile_contents=dockerfile)
+tags:
+- docker
+- docker_build
+release_stage: released

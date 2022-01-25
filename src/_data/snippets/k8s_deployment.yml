@@ -1,0 +1,18 @@
+---
+title: Create a K8s deployment
+description: Deploy a redis server to K8s with a Tilt extension
+code: |
+  # Load the 'deployment' extension
+  load('ext://deployment', 'deployment_create')
+  # Create a redis deployment and service with a readiness probe
+  deployment_create(
+    'redis',
+    ports='6379',
+    readiness_probe={'exec':{'command':['redis-cli','ping']}}
+  )
+tags:
+- k8s
+- deployment
+- extensions
+release_stage: released
+docs_link: https://github.com/tilt-dev/tilt-extensions/tree/master/deployment

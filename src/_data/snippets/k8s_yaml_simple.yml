@@ -1,0 +1,14 @@
+---
+title: Apply K8s yaml
+description: Apply k8s yaml manifest files
+code: |
+  # one static YAML file
+  k8s_yaml('k8s/app.yaml')
+
+  # multiple YAML files in one call
+  k8s_yaml(['k8s/secrets.yaml', 'k8s/configmaps.yaml', 'k8s/crds.yaml'])
+tags:
+- k8s
+- k8s_yaml
+release_stage: released
+docs_link: "/tiltfile_concepts.html#deploy"

@@ -1,0 +1,28 @@
+---
+title: Ensure a tool is installed locally
+description: |
+  Check that a command exists in `PATH` or fail the Tiltfile load.
+code: |
+  # block Tiltfile execution if missing required tool (e.g. Helm)
+  def require_tool(tool):
+      tool = shlex.quote(tool)
+      local(
+          cmd='command -v {tool} >/dev/null 2>&1 || { echo >&2 "{tool} is required but was not found in PATH"; exit 1; }'.format(
+              tool=tool
+          ),
+          # `cmd_bat`, when present, is used instead of `cmd` on Windows.
+          cmd_bat=[
+              "powershell.exe",
+              "-Noninteractive",
+              "-Command",
+              '& {{if (!(Get-Command {tool} -ErrorAction SilentlyContinue)) {{ Write-Error "{tool} is required but was not found in PATH"; exit 1 }}}}'.format(
+                  tool=tool
+              ),
+          ],
+      )
+
+
+  require_tool("helm")
+tags:
+- tiltfile
+release_stage: released

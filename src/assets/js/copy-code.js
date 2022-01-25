@@ -12,7 +12,7 @@
         const copyHTML = copySVG + 'Copy';
         const copyLabel = 'Copy to clipboard';
 
-        const codeBlocks = document.querySelectorAll('div.highlight');
+        const codeBlocks = document.querySelectorAll('.highlight');
         codeBlocks.forEach((wrapperEl, i) => {
             // find the <pre> element and assign it an ID for the button to reference
             const codeEl = wrapperEl.querySelector('pre');
@@ -28,7 +28,7 @@
             copyBtn.dataset.clipboardTarget = '#' + codeEl.id;
             copyBtn.innerHTML = copyHTML;
             copyBtn.classList.add('copy-to-clipboard');
-            copyBtn.setAttribute('aria-label', copyLabel)
+            copyBtn.setAttribute('aria-label', copyLabel);
             wrapperEl.append(copyBtn);
         });
 
@@ -43,6 +43,18 @@
                 target.innerHTML = copyHTML;
                 target.setAttribute('aria-label', copyLabel);
             }, 3000, e.trigger);
+
+            // send a Google Analytics event if this element is tagged with a
+            // codeblock name; closest() is used to traverse upwards because
+            // with Jekyll {% highlight %} we can't attach attributes/IDs to
+            // the code blocks directly, so this is done via the parent/wrapper
+            // element
+            const analyticsEl = e.trigger.closest('[data-codeblock]')
+            if (gtag && analyticsEl && analyticsEl.dataset.codeblock) {
+                gtag('event', 'copy-to-clipboard', {
+                    'codeblock': analyticsEl.dataset.codeblock
+                });
+            }
         });
 
         document.removeEventListener('readystatechange', eventListener);

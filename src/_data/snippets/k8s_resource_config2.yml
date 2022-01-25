@@ -1,0 +1,14 @@
+---
+title: Create a K8s resource from existing objects
+description: Make a new resource consisting of some objects necessary for cluster
+  setup
+code: |
+  k8s_resource(
+    objects=['my-ns:namespace', 'kafka:crd', 'some-ingress:ingress'],
+    new_name='cluster-setup',
+  )
+tags:
+- k8s
+- k8s_resource
+release_stage: released
+docs_link: "/tiltfile_concepts.html#configuring-kubernetes-resources"

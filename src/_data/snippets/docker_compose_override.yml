@@ -1,0 +1,11 @@
+---
+title: Use Docker Compose with overrides
+description: Use an existing Compose file with custom overrides
+code: |
+  services = {'app': {'environment': {'DEBUG': 'true'}}}
+  docker_compose(['docker-compose.yml', encode_yaml({'services': services})])
+tags:
+- docker
+- docker_compose
+release_stage: released
+docs_link: "/api.html#api.docker_compose"

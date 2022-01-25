@@ -1,0 +1,12 @@
+---
+title: Show the K8s API server logs
+description: Follow the K8s API server logs
+code: |
+  api_pod = 'kube-apiserver-docker-desktop' # For Docker Desktop cluster
+  # api_pod = 'kube-apiserver-kind-control-plane' # for KIND cluster
+  local_resource('kube-logs', serve_cmd='kubectl logs -f -n kube-system {}'.format(api_pod))
+tags:
+- k8s
+- local_resource
+release_stage: released
+docs_link: "/local_resource.html#serve_cmd"

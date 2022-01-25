@@ -1,0 +1,13 @@
+---
+title: Configure a K8s resource
+description: Associate a secret and a volume to a service
+code: |
+  k8s_resource(
+    workload='frontend',
+    objects=['frontend:secret', 'frontend:volume']
+  )
+tags:
+- k8s
+- k8s_resource
+release_stage: released
+docs_link: "/tiltfile_concepts.html#configuring-kubernetes-resources"
