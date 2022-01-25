@@ -11,4 +11,6 @@ code: |
 tags:
 - local_resource
 release_stage: released
-docs_link: /api.html#api.local_resource
+link:
+  title: "Local Resource"
+  href: "/local_resource.html"

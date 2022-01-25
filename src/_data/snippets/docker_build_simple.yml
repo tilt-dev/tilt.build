@@ -8,4 +8,6 @@ tags:
 - docker
 - docker_build
 release_stage: released
-docs_link: "/tiltfile_concepts.html#build"
+link:
+  title: "Tiltfile Concepts: Build Images"
+  href: "/tiltfile_concepts.html#build"

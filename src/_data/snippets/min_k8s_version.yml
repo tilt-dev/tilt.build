@@ -10,4 +10,6 @@ tags:
 - k8s
 - tiltfile
 release_stage: released
-docs_link: "https://github.com/tilt-dev/tilt-extensions/tree/master/min_k8s_version"
+link:
+  title: "Extension: min_k8s_version"
+  href: "https://github.com/tilt-dev/tilt-extensions/tree/master/min_k8s_version"

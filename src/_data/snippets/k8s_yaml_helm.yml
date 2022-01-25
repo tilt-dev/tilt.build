@@ -8,4 +8,6 @@ tags:
 - k8s_yaml
 - helm
 release_stage: released
-docs_link: "/tiltfile_concepts.html#deploy"
+link:
+  title: "Tiltfile Concepts: Deploy"
+  href: "/tiltfile_concepts.html#deploy"

@@ -12,4 +12,6 @@ tags:
 - go
 - local_resource
 release_stage: released
-docs_link: "/local_resource.html#serve_cmd"
+link:
+  title: "Local Resource: serve_cmd"
+  href: "/local_resource.html#serve_cmd"
