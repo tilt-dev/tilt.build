@@ -17,4 +17,6 @@ tags:
   - deployment
   - extensions
 release_stage: released
-docs_link: https://github.com/tilt-dev/tilt-extensions/tree/master/deployment
+link:
+  title: "Extension: deployment"
+  href: https://github.com/tilt-dev/tilt-extensions/tree/master/deployment

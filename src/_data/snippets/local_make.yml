@@ -14,4 +14,6 @@ tags:
 - make
 - local_resource
 release_stage: released
-docs_link: "/local_resource.html"
+link:
+  title: "Local Resource"
+  href: "/local_resource.html"

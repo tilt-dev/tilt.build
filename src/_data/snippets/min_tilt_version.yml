@@ -8,4 +8,6 @@ code: |
 tags:
 - tiltfile
 release_stage: released
-docs_link: "https://github.com/tilt-dev/tilt-extensions/tree/master/min_tilt_version"
+link:
+  title: "Extension: min_tilt_version"
+  href: "https://github.com/tilt-dev/tilt-extensions/tree/master/min_tilt_version"

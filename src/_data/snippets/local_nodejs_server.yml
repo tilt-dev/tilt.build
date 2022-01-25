@@ -12,3 +12,6 @@ tags:
 - nodejs
 - local_resource
 release_stage: released
+link:
+  title: "Local Resource: serve_cmd"
+  href: "/local_resource.html#serve_cmd"

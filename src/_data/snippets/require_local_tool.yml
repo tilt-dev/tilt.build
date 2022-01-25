@@ -26,3 +26,6 @@ code: |
 tags:
 - tiltfile
 release_stage: released
+link:
+  title: "Local Resource"
+  href: "/local_resource.html"

@@ -13,4 +13,6 @@ tags:
 - configmap
 - extensions
 release_stage: released
-docs_link: https://github.com/tilt-dev/tilt-extensions/tree/master/configmap
+link:
+  title: "Extension: configmap"
+  href: https://github.com/tilt-dev/tilt-extensions/tree/master/configmap

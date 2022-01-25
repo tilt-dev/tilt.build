@@ -595,6 +595,11 @@ a.attached-above:before {
   padding-left: $spacing-unit * 0.75;
   padding-right: $spacing-unit * 0.75;
   padding-bottom: $spacing-unit * 0.5;
+
+  h5 {
+    font-variant: small-caps;
+    color: $tilt2-color-gray;
+  }
 }
 
 .Docs-snippets-item-title {

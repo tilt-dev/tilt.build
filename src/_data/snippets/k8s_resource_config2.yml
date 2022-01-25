@@ -11,4 +11,6 @@ tags:
 - k8s
 - k8s_resource
 release_stage: released
-docs_link: "/tiltfile_concepts.html#configuring-kubernetes-resources"
+link:
+  title: "Tiltfile Concepts: Configuring K8s Resources"
+  href: "/tiltfile_concepts.html#configuring-kubernetes-resources"

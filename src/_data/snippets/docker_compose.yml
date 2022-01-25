@@ -7,4 +7,6 @@ tags:
 - docker
 - docker_compose
 release_stage: released
-docs_link: "/api.html#api.docker_compose"
+link:
+  title: "API: docker_compose()"
+  href: "/api.html#api.docker_compose"

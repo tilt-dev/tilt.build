@@ -9,4 +9,6 @@ tags:
 - k8s_yaml
 - local
 release_stage: released
-docs_link: "/tiltfile_concepts.html#custom-commands"
+link:
+  title: "Tiltfile Concepts: Generated K8s YAML"
+  href: "/tiltfile_concepts.html#custom-commands"

@@ -18,4 +18,6 @@ tags:
 - local_resource
 - docker_compose
 release_stage: released
-docs_link: "/manual_update_control.html"
+link:
+  title: "Manual Update Control"
+  href: "/manual_update_control.html"
