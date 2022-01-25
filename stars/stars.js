@@ -1,4 +1,4 @@
-let fetch = require("node-fetch");
+import fetch from 'node-fetch';
 
 function humanizeNumber(count) {
   if (count < 1000) {
