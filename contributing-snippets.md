@@ -1,4 +1,5 @@
-Do you have a suggestion for a Tiltfile snippet?
+# Contributing to Tiltfile Snippets
+Would you like to help improve our Snippet Library?  
 Submitting a snippet is as straightfoward as submitting a Pull Request.
 
 0. Clone this repository
@@ -10,10 +11,11 @@ Submitting a snippet is as straightfoward as submitting a Pull Request.
 title: Descriptive Name of Your Snippet
 description: Explain what your snippet does
 code: |
-  *Your Snippet Goes Here*
+  *Your code goes here*
 contributor: Your Github Handle (optional)
 ```
 
-3. Commit your snippet and [submit a Pull Request](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request)
+3. Commit your changes and submit a Pull Request
 
-4. A member of the Tilt team will review your snippet and modify it if necessary. We might decide to not include it in our library. If that's the case, you will receive an explanation. 
+4. A member of the Tilt team will review your snippet and modify it if necessary.  
+We might decide to not include it in our library. If that's the case, you will receive an explanation.
