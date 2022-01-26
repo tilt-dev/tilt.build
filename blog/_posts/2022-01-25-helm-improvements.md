@@ -1,11 +1,11 @@
 ---
 slug: "helm-improvements"
-date: 2022-01-25
+date: 2022-01-26
 author: nick
 layout: blog
-title: "The More YAML You Have, The More You Should Consider Helm"
-subtitle: "An announcement of improvements to Tilt <> Helm interop, and a discussion on the right time to use Helm."
-description: "An announcement of improvements to Tilt <> Helm interop, and a discussion on the right time to use Helm."
+title: "The More YAML You Have, The More Helm Can Help"
+subtitle: "Announcing improvements to Tilt <> Helm interop, plus a guide on how to use Helm in dev"
+description: "Announcing improvements to Tilt <> Helm interop, plus a guide on how to use Helm in dev."
 image: "/assets/images/helm-improvements/elephant-seals.jpg"
 image_caption: "The <a href='https://elephantseal.org/'>elephant seals of San Simeon</a> are a good demonstration of what it looks like when your YAML gets out of control."
 tags:
@@ -19,10 +19,13 @@ There are two major ways we see teams use Helm charts in dev environments.
 
 - You're iterating on a server that has so much YAML that you need Helm to get your arms around it.
 
+This week the Helm community is celebrating [the release of Helm
+3.8.0](https://github.com/helm/helm/releases/tag/v3.8.0)!
+
 We've made some big improvements to our Helm support recently with the [`helm_resource`
 extension](https://github.com/tilt-dev/tilt-extensions/tree/master/helm_resource).
 
-Let's dig into how you'd use it and why.
+Let's dig into how you'd use Helm with Tilt and why.
 
 ## Why Helm?
 
@@ -39,6 +42,8 @@ But over the past few years, charts can do more and more at runtime, including:
 - Controlling the order that objects are installed in.
 
 - Running checks at different stages of the install process.
+
+- Deleting the objects in the right order with `helm uninstall`.
 
 That's made it the tool-of-choice for installing a package of servers.
 
@@ -57,15 +62,15 @@ helm_repo('bitnami', 'https://charts.bitnami.com/bitnami')
 helm_resource('mysql', 'bitnami/mysql')
 ```
 
-Visit [Artifact Hub](https://artifacthub.io/) to find Helm charts for
+Search on [Artifact Hub](https://artifacthub.io/) to find Helm charts for
 many off-the-shelf tools. They each list the repo URL and chart name to
 use with `helm_resource`.
 
 ## Iterating on the Image
 
 Many Helm charts let you inject your own image. That's why the `helm_resource`
-extension lets you list a dependency on an image, then inject the image into the
-chart automatically when it changes.
+extension has a way to add a dependency on an image. Every time you rebuild the
+image, Tilt will redeploy the chart.
 
 You need to add two arguments to your `helm_resource` declaration:
 
@@ -74,9 +79,9 @@ You need to add two arguments to your `helm_resource` declaration:
 - An `image_keys` that tells Tilt the names of the template keys for those images.
 
 A widespread convention in the Helm ecosystem is to describe image with two
-different keys: a `repository` key (e.g., `my-org/my-image-name` and a `tag` key
-(e.g., `v2`). So `helm_resource` supports a special syntax for describing this
-as a `(respository_key, tag_key)` tuple.
+different keys: an `image.repository` key (e.g., `my-org/my-image-name` and an
+`image.tag` key (e.g., `v2`). So `helm_resource` supports a special syntax for
+describing this as a `(respository_key, tag_key)` tuple.
 
 Here's an example from the `helm_resource` tests:
 
@@ -130,7 +135,8 @@ features for grouping the objects.
 
 We're still adding new features to the `helm_resource` extension! [Mark
 Ingram](https://github.com/markdingram) just submitted an awesome change this
-week.
+week. Also, shout-out to [Bob Jackman](https://github.com/KOGI), who has been
+instrumental in a lot of experiments with Tilt / Helm interop.
 
 For more on how to package up Kubernetes objects in development, see our guides on:
 
@@ -143,12 +149,8 @@ API](https://blog.tilt.dev/2021/12/03/k8s-custom-deploy.html) that Milas wrote
 about last month. 
 
 The ecosystem of Kubernetes deploy tools has come a long way since we started
-Tilt. Now there are frameworks like [Pulumi](https://www.pulumi.com/) and
-[Brigade](https://brigade.sh/) for install scripts. 
+Tilt. Now there are frameworks like [Pulumi](https://www.pulumi.com/) or
+[NAML](https://github.com/kris-nova/naml) for install scripts without YAML.
 
 This API should make it a lot easier to plug those kinds of scripts into your
 dev environment! Stay tuned!
-
-
-
-
