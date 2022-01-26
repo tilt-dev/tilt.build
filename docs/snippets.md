@@ -19,6 +19,9 @@ hideHelpfulForm: true
   <li id="snip_{{name}}" class="Docs-snippets-item" data-codeblock="snip_{{name}}">
     <header class="Docs-snippets-item-header">
       <div>
+        {% if snippet.contributor %}
+        <p class="Docs-snippets-item-contributor">✉️ submitted by <a href="https://github.com/{{snippet.contributor}}">{{snippet.contributor}}</a></p>
+        {% endif %}
         <h3 class="Docs-snippets-item-title">{{snippet.title}}</h3>
         <p class="Docs-snippets-item-description">{{snippet.description}}</p>
       </div>
