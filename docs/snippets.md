@@ -5,6 +5,9 @@ sidebar: guides
 hideHelpfulForm: true
 ---
 
+> **Want to contribute?**  
+> Follow [this guide](https://github.com/tilt-dev/tilt.build#contributing-snippets) to find out how to your own snippets!
+
 <ul class="Docs-snippets-list">
   {% assign snippets = site.data.snippets %}
   {% assign keys = snippets | keys %}
