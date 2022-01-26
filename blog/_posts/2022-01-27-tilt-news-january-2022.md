@@ -35,7 +35,7 @@ If you’re using Tilt, you probably have some kind of deployment manifest for p
 We now have a guide explaining [how to modify your YAML](https://docs.tilt.dev/templating.html) for dev with Tilt.
 
 #### ... With Helm
-If you are already using Helm with Tilt, you might be interested to know that we have enhanced the `helm_resource` function and now recommend its usage over `helm_remote`. Check out the [updated guide](https://docs.tilt.dev/helm.html), and keep your eyes peeled for a blog post on this topic that we’ll release shortly.
+If you are already using Helm with Tilt, you might be interested to know that we have enhanced the `helm_resource` function and now recommend its usage over `helm_remote`. Check out this [in depth blog post](https://blog.tilt.dev/2022/01/26/helm-improvements.html) and our [updated guide](https://docs.tilt.dev/helm.html).
 
 #### ... Without a YAML
 Maybe you’re just at the beginning of your Kubernetes journey and are still experimenting with resources. In that case, you can use the new [`deployment` extension](https://github.com/tilt-dev/tilt-extensions/tree/master/deployment) to deploy Kubernetes resources without the need of an existing YAML.
