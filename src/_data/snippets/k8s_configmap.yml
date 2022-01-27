@@ -1,6 +1,6 @@
 ---
 title: Create a K8s configmap
-description: Create a new configmap with a Tilt extension
+description: Use a Tilt extension to create a configmap
 code: |
   # Load the 'configmap' extension
   load('ext://configmap', 'configmap_create')

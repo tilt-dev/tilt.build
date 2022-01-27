@@ -1,7 +1,6 @@
 ---
 title: Enforce a minimum Tilt version
-description: |
-  Require a minimum version of Tilt to ensure all expected features are available.
+description: Require a minimum version of Tilt for feature availability
 code: |
   load("ext://min_tilt_version", "min_tilt_version")
   min_tilt_version("0.23.7")

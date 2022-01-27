@@ -1,8 +1,8 @@
 ---
 title: Run a local Makefile task
-description: |
-  Execute a task from a Makefile on-demand.
+description: Manually execute a task from a Makefile
 code: |
+  # To run: `tilt trigger mytask` or via trigger button in the UI
   local_resource(
     "mytask",
     cmd="make mytask",

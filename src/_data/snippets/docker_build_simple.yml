@@ -1,6 +1,6 @@
 ---
-title: Basic docker_build
-description: Build a docker image
+title: Build a docker image
+description: Register an image to build with docker_build
 code: |
   # docker build -t companyname/frontend ./frontend
   docker_build("companyname/frontend", "frontend")

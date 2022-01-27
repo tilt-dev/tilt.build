@@ -1,5 +1,5 @@
 ---
-title: Set up a socat tunnel to a remote server
+title: Set up a socat tunnel
 description: Use socat to expose a remote database server locally
 code: |
   local_resource(
