@@ -617,4 +617,7 @@ a.attached-above:before {
 
 .Docs-snippets-item-contributor {
   font-size: $tilt2-font-size-body-small;
+  a, a:visited {
+    color: $color-skyBlue;
+  }
 }
