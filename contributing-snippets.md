@@ -2,7 +2,7 @@
 Would you like to help improve our Snippet Library?  
 Submitting a snippet is as straightfoward as submitting a Pull Request.
 
-0. Clone this repository
+0. Fork this repository on Github and then clone from your forked version of this repository
 
 1. Create a file in src/_data/snippets/*snippet_name*.yml
 
