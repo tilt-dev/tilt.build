@@ -4,7 +4,7 @@ Submitting a snippet is as straightfoward as submitting a Pull Request.
 
 0. Clone this repository
 
-1. Create a file in src/_data/snippets/*snippet-name*.yml
+1. Create a file in src/_data/snippets/*snippet_name*.yml
 
 2. Copy the following content and modify as applicable
 ```
