@@ -586,7 +586,6 @@ a.attached-above:before {
   padding-left: $spacing-unit * 0.75;
   padding-right: $spacing-unit * 0.75;
   padding-bottom: 0;
-  display: flex;
   justify-content: space-between;
 }
 
@@ -613,10 +612,15 @@ a.attached-above:before {
 
 .Docs-snippets-item-permalink {
   font-size: $tilt2-font-size-body-small;
+  float: right;
 }
 
 .Docs-snippets-item-contributor {
+  display: inline-block;
+  padding-bottom: $spacing-unit * 0.25;
+  margin-top: 0;
   font-size: $tilt2-font-size-body-small;
+
   a, a:visited {
     color: $color-skyBlue;
   }
