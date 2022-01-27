@@ -1,6 +1,6 @@
 ---
 title: Create a K8s deployment
-description: Use a Tilt extension to deploy a redis server
+description: Deploy a redis server with the "deployment" extension
 code: |
   # Load the 'deployment' extension
   load('ext://deployment', 'deployment_create')

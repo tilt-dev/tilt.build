@@ -1,6 +1,6 @@
 ---
-title: Use docker_build with k8s_custom_deploy
-description: Build, inject, and live-update an image for a K8s resource not managed by Tilt
+title: Build an image for an existing K8s resource
+description: Configure live-update and inject the image into a deployment not managed by Tilt
 code: |
   docker_build(
     "myappimage",
