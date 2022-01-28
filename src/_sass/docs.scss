@@ -320,8 +320,7 @@ $sidebar-maximum-width: 400px;
 }
 
 .Docs-content h2 {
-  padding-top: $spacing-unit * 2.25;
-  margin-top: -$spacing-unit * 2.25;
+  scroll-margin-top: $spacing-unit * 2.25;
 
   a:hover:before {
     content: "🔗 ";
@@ -336,11 +335,14 @@ $sidebar-maximum-width: 400px;
   margin-top: $spacing-unit * 0.75;
 }
 
-.Docs-content > h3,
-.Docs-content > h3 a {
-  margin-top: $spacing-unit * 1.5;
-  color: $text-color;
-  text-decoration: none;
+.Docs-content > h3 {
+  scroll-margin-top: $spacing-unit * 2.25;
+
+  a {
+    margin-top: $spacing-unit * 1.5;
+    color: $text-color;
+    text-decoration: none;
+  }
 }
 
 
@@ -569,12 +571,9 @@ a.attached-above:before {
 }
 .Docs-snippets-item {
   list-style: none;
-  padding-top: $spacing-unit * 2.5;
-  margin-top: -$spacing-unit !important; // Override .Docs-content > ul
+  scroll-margin-top: $spacing-unit * 2.5;
   margin-left: 0 !important; // Override .Docs-content > ul li
-}
 
-.Docs-snippets-content {
   border: 2px solid $tilt2-color-gray-lighter;
   border-radius: $spacing-unit * 0.25;
 
