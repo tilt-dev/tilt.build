@@ -1,7 +1,7 @@
 ---
 title: Tiltfile Snippets
 layout: docs
-sidebar: guides
+sidebar: gettingstarted
 hideHelpfulForm: true
 ---
 

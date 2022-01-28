@@ -47,6 +47,9 @@ sidebar:
       href: install.html
     - title: Upgrade
       href: upgrade.html
+    - title: Tiltfile Snippets
+      href: snippets.html
+      pilltag: new
 
   - title:  How Does Tilt Work?
     items:
