@@ -1,7 +1,6 @@
 ---
-title: Docker build with inline Dockerfile
-description: Build a docker image with an inline Dockerfile that uses nginx and provided
-  static assets
+title: Build an image with inline Dockerfile
+description: Build an nginx image with provided static assets via an inline Dockerfile
 code: |
   dockerfile="""
   FROM nginx:latest

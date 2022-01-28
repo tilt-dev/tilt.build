@@ -1,0 +1,23 @@
+---
+title: Build an image for an existing K8s resource
+description: Configure live-update and inject the image into a deployment not managed by Tilt
+code: |
+  docker_build(
+    "myappimage",
+    "myapp"
+    live_update=[sync("./myapp", "/app")]
+  )
+  k8s_custom_deploy(
+    "myapp",
+    apply_cmd="""
+      kubectl -v=0 set image deployment/myapp *=$TILT_IMAGE_0 > /dev/null && \
+        kubectl get deployment/myapp -o yaml
+    """
+    delete_cmd="echo Myapp managed outside of Tilt",
+    image_deps=["myappimage"]
+  )
+tags:
+- docker
+- docker_build
+- k8s_custom_deploy
+release_stage: released

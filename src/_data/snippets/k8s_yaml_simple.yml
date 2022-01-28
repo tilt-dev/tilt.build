@@ -1,6 +1,6 @@
 ---
-title: Apply K8s yaml
-description: Apply k8s yaml manifest files
+title: Apply K8s YAML
+description: Apply K8s YAML manifest files
 code: |
   # one static YAML file
   k8s_yaml('k8s/app.yaml')

@@ -1,6 +1,6 @@
 ---
 title: Show the K8s API server logs
-description: Follow the K8s API server logs
+description: Create a resource to follow the K8s API server logs
 code: |
   api_pod = 'kube-apiserver-docker-desktop' # For Docker Desktop cluster
   # api_pod = 'kube-apiserver-kind-control-plane' # for KIND cluster

@@ -1,6 +1,6 @@
 ---
 title: Build and deploy an app to K8s
-description: Use docker_build and deployment_create to build and deploy an app
+description: Build and deploy without YAML using the "deployment" extension
 code: |
   load('ext://deployment', 'deployment_create')
   docker_build(

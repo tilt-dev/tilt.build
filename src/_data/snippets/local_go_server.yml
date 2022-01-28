@@ -1,6 +1,6 @@
 ---
 title: Build and run a local go server
-description: Build and run a go server and rebuild/relaunch on changes
+description: Set up a server that rebuilds/relaunches on changes
 code: |
   local_resource(
     'local-myserver',

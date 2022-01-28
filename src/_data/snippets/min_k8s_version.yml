@@ -1,7 +1,6 @@
 ---
 title: Enforce a Kubernetes version range
-description: |
-  Require a minimum and/or maximum version of Kubernetes to ensure compatibility.
+description: Require a minimum and/or maximum version of Kubernetes for compatibility
 code: |
   load("ext://min_k8s_version", "min_k8s_version", "max_k8s_version")
   min_k8s_version("1.18.3")
