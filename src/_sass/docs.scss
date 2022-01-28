@@ -567,10 +567,14 @@ a.attached-above:before {
 .Docs-snippets-list {
   margin-top: $spacing-unit * 2 !important; // Override .Docs-content > ul
 }
-
 .Docs-snippets-item {
   list-style: none;
+  padding-top: $spacing-unit * 2.5;
+  margin-top: -$spacing-unit * 2.5;
   margin-left: 0 !important; // Override .Docs-content > ul li
+}
+
+.Docs-snippets-content {
   border: 2px solid $tilt2-color-gray-lighter;
   border-radius: $spacing-unit * 0.25;
 

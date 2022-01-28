@@ -17,31 +17,33 @@ hideHelpfulForm: true
   {% for name in allkeys %}
   {% assign snippet = snippets[name] %}
   <li id="snip_{{name}}" class="Docs-snippets-item" data-codeblock="snip_{{name}}">
-    <header class="Docs-snippets-item-header">
-      <div>
-        {% if snippet.contributor %}
-        <div class="Docs-snippets-item-contributor">✉️ submitted by <a href="https://github.com/{{snippet.contributor}}">{{snippet.contributor}}</a></div>
-        {% endif %}
-        <a class="Docs-snippets-item-permalink" href="#snip_{{name}}">Permalink</a>
-      </div>
-      <div>
-        <h3 class="Docs-snippets-item-title">{{snippet.title}}</h3>
-        <p class="Docs-snippets-item-description">{{snippet.description}}</p>
-      </div>
-    </header>
+    <div class="Docs-snippets-content">
+      <header class="Docs-snippets-item-header">
+        <div>
+          {% if snippet.contributor %}
+          <div class="Docs-snippets-item-contributor">✉️ submitted by <a href="https://github.com/{{snippet.contributor}}">{{snippet.contributor}}</a></div>
+          {% endif %}
+          <a class="Docs-snippets-item-permalink" href="#snip_{{name}}">Permalink</a>
+        </div>
+        <div>
+          <h3 class="Docs-snippets-item-title">{{snippet.title}}</h3>
+          <p class="Docs-snippets-item-description">{{snippet.description}}</p>
+        </div>
+      </header>
 
-    {%- highlight python -%}
-      {{snippet.code | strip}}
-    {%- endhighlight -%}
+      {%- highlight python -%}
+        {{snippet.code | strip}}
+      {%- endhighlight -%}
 
-    {% if snippet.link %}
-      <footer class="Docs-snippets-item-footer">
-        <h5>Reference</h5>
-        <a href="{{snippet.link.href}}">
-          {{ snippet.link.title }}
-        </a>
-      </footer>
-    {% endif %}
+      {% if snippet.link %}
+        <footer class="Docs-snippets-item-footer">
+          <h5>Reference</h5>
+          <a href="{{snippet.link.href}}">
+            {{ snippet.link.title }}
+          </a>
+        </footer>
+      {% endif %}
+    </div>
   </li>
   {% endfor %}
 </ul>
