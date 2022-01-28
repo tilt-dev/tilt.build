@@ -570,7 +570,7 @@ a.attached-above:before {
 .Docs-snippets-item {
   list-style: none;
   padding-top: $spacing-unit * 2.5;
-  margin-top: -$spacing-unit * 2.5;
+  margin-top: -$spacing-unit !important; // Override .Docs-content > ul
   margin-left: 0 !important; // Override .Docs-content > ul li
 }
 
