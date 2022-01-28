@@ -9,7 +9,10 @@ code: |
   )
   k8s_custom_deploy(
     "myapp",
-    apply_cmd="kubectl set image deployment/myapp *=$TILT_IMAGE_0",
+    apply_cmd="""
+      kubectl -v=0 set image deployment/myapp *=$TILT_IMAGE_0 > /dev/null && \
+        kubectl get deployment/myapp -o yaml
+    """
     delete_cmd="echo Myapp managed outside of Tilt",
     image_deps=["myappimage"]
   )
