@@ -2,11 +2,10 @@
 title: Enforce a minimum Tilt version
 description: Require a minimum version of Tilt for feature availability
 code: |
-  load("ext://min_tilt_version", "min_tilt_version")
-  min_tilt_version("0.23.7")
+  version_settings(check_updates=True, constraint='>=0.23.7')
 tags:
 - tiltfile
 release_stage: released
 link:
-  title: "Extension: min_tilt_version"
-  href: "https://github.com/tilt-dev/tilt-extensions/tree/master/min_tilt_version"
+  title: "API: version_settings()"
+  href: "/api.html#api.version_settings"
