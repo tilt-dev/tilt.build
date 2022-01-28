@@ -315,17 +315,21 @@ $sidebar-maximum-width: 400px;
 .Docs-content > h2 a {
   font-weight: $tilt2-font-weight-sans-bold;
   font-size: 28px;
-  margin-top: $spacing-unit * 1.75;
   color: $color-blue;
   text-decoration: none;
 }
 
-.Docs-content h2 a:hover:before {
-  content: "🔗 ";
-  position: absolute;
-  margin-left: -$spacing-unit;
-  margin-top: 4px; // Visually center
-  font-size: 80%;
+.Docs-content h2 {
+  padding-top: $spacing-unit * 2.25;
+  margin-top: -$spacing-unit * 2.25;
+
+  a:hover:before {
+    content: "🔗 ";
+    position: absolute;
+    margin-left: -$spacing-unit;
+    margin-top: 4px; // Visually center
+    font-size: 80%;
+  }
 }
 
 .Docs-content > h2 + h3 {
