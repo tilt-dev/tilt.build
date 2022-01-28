@@ -1,5 +1,5 @@
 ---
-title: Build a docker image
+title: Build a Docker image
 description: Register an image to build with docker_build
 code: |
   # docker build -t companyname/frontend ./frontend
