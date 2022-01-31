@@ -15,7 +15,8 @@ code: |
 contributor: Your Github Handle (optional)
 ```
 
-3. Commit your changes and submit a Pull Request
+3. Commit your changes and [submit a Pull Request to the upstream repository of your fork (this one)](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request-from-a-fork)
 
 4. A member of the Tilt team will review your snippet and modify it if necessary.  
-If there's a reason that we don't think it's right for our Snippets Library, we'll let you know why. We appreciate you taking the time to contribute!
+If we think it's currently not right for our Snippets Library, we'll let you know why.  
+We appreciate you taking the time to contribute!
