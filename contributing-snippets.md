@@ -18,4 +18,4 @@ contributor: Your Github Handle (optional)
 3. Commit your changes and submit a Pull Request
 
 4. A member of the Tilt team will review your snippet and modify it if necessary.  
-We might decide to not include it in our library. If that's the case, you will receive an explanation.
+If there's a reason that we don't think it's right for our Snippets Library, we'll let you know why. We appreciate you taking the time to contribute!
