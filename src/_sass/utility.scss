@@ -283,6 +283,7 @@
 .copy-to-clipboard {
   display: block;
   margin: -($spacing-unit / 2) 0 ($spacing-unit / 8) auto;
+  margin-right: $spacing-unit * 0.5;
 
   font-family: $chrome-font-family;
   color: $color-red;

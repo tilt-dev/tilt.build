@@ -315,28 +315,34 @@ $sidebar-maximum-width: 400px;
 .Docs-content > h2 a {
   font-weight: $tilt2-font-weight-sans-bold;
   font-size: 28px;
-  margin-top: $spacing-unit * 1.75;
   color: $color-blue;
   text-decoration: none;
 }
 
-.Docs-content h2 a:hover:before {
-  content: "🔗 ";
-  position: absolute;
-  margin-left: -$spacing-unit;
-  margin-top: 4px; // Visually center
-  font-size: 80%;
+.Docs-content h2 {
+  scroll-margin-top: $spacing-unit * 2.25;
+
+  a:hover:before {
+    content: "🔗 ";
+    position: absolute;
+    margin-left: -$spacing-unit;
+    margin-top: 4px; // Visually center
+    font-size: 80%;
+  }
 }
 
 .Docs-content > h2 + h3 {
   margin-top: $spacing-unit * 0.75;
 }
 
-.Docs-content > h3,
-.Docs-content > h3 a {
-  margin-top: $spacing-unit * 1.5;
-  color: $text-color;
-  text-decoration: none;
+.Docs-content > h3 {
+  scroll-margin-top: $spacing-unit * 2.25;
+
+  a {
+    margin-top: $spacing-unit * 1.5;
+    color: $text-color;
+    text-decoration: none;
+  }
 }
 
 
@@ -563,10 +569,11 @@ a.attached-above:before {
 .Docs-snippets-list {
   margin-top: $spacing-unit * 2 !important; // Override .Docs-content > ul
 }
-
 .Docs-snippets-item {
   list-style: none;
+  scroll-margin-top: $spacing-unit * 2.5;
   margin-left: 0 !important; // Override .Docs-content > ul li
+
   border: 2px solid $tilt2-color-gray-lighter;
   border-radius: $spacing-unit * 0.25;
 
@@ -586,7 +593,6 @@ a.attached-above:before {
   padding-left: $spacing-unit * 0.75;
   padding-right: $spacing-unit * 0.75;
   padding-bottom: 0;
-  display: flex;
   justify-content: space-between;
 }
 
@@ -613,4 +619,16 @@ a.attached-above:before {
 
 .Docs-snippets-item-permalink {
   font-size: $tilt2-font-size-body-small;
+  float: right;
+}
+
+.Docs-snippets-item-contributor {
+  display: inline-block;
+  padding-bottom: $spacing-unit * 0.25;
+  margin-top: 0;
+  font-size: $tilt2-font-size-body-small;
+
+  a, a:visited {
+    color: $color-skyBlue;
+  }
 }
