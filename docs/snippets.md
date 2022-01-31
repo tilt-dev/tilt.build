@@ -6,7 +6,7 @@ hideHelpfulForm: true
 ---
 
 > **Want to contribute?**  
-> Follow [this guide](https://github.com/tilt-dev/tilt.build/blob/master/contributing-snippets.md) to find out how to your own snippets!
+> Follow [this guide](https://github.com/tilt-dev/tilt.build/blob/master/contributing-snippets.md) to find out how to submit your own snippets!
 
 <ul class="Docs-snippets-list">
   {% assign snippets = site.data.snippets %}
