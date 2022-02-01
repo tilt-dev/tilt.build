@@ -69,7 +69,7 @@ check out our [custom resource guide](custom_resource.html).
 When you start adding multiple services to your app, it's easiest
 to just copy a new Dockerfile for each service and tweak a few parameters.
 
-Once you have a few services, you may that duplication can start to feel messy.
+Once you have a few services, you may find that duplication can start to feel messy.
 Sometimes you update one Dockerfile but forget to update the others.
 Building all the services is slow.
 
