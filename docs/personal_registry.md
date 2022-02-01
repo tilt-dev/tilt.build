@@ -66,6 +66,25 @@ Some managed Kubernetes services have their own credential helpers:
 These will ensure that your login credentials for kubectl and your login
 credentials for the registry stay in-sync.
 
+### What to Put in `docker_build`
+
+The first argument to `docker_build` is an image _selector_.
+
+```
+docker_build('my-image', '.)
+```
+
+`my-image` will match against any images in your deploy YAML (e.g., your Kubernetes Deployment).
+
+If you're using a local cluster, don't worry what the host of the image name is!
+The main rule is that it needs to match the image name in the YAML. Tilt will
+automatically inject the fully-qualified image name for the local registry into
+your deploy YAML.
+
+If you're using a remote cluster, you should use the registry name in both the
+`docker_build` and in your YAML.  For example, GKE registries look like
+`gcr.io/my-project/my-image-name'.
+
 ## The Medium-Easy Way (for 4% of users)
 
 If you're using a cluster that doesn't have a registry,
@@ -88,6 +107,9 @@ the ephemeral registry, and pull it into your cluster.
 `ttl.sh` is encrypted over HTTPS but not authenticated. It will delete your
 image after an hour. So it's a good option if you're trying out a sample
 project (like one of the Tilt examples).
+
+If you use `default_registry`, there's no need to have the registry host in
+`docker_build()` or in your deploy YAML.
 
 ## The Medium Way (for 1% of users)
 
