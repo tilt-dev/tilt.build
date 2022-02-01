@@ -111,7 +111,7 @@ sidebar:
 
     - title: Building Images
       items:
-        - title: Overview
+        - title: Getting Started with Image Builds
           href: dependent_images.html
         - title: Setting up any Image Registry
           href: personal_registry.html
