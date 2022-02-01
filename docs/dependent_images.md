@@ -28,7 +28,7 @@ docker_build('my-image', '.')
 
 `.` is still the directory of files you're including. Tilt will automatically watch them for changes.
 
-`my-image` is an image selector. Tilt will scan all your deployment YAML for
+`my-image` is an image selector. Tilt will scan all your workload manifests for
 images, and match any object that contains the image name `my-image` (regardless
 of tag).
 
