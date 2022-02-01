@@ -32,7 +32,7 @@ docker_build('my-image', '.')
 images, and match any object that contains the image name `my-image` (regardless
 of tag).
 
-This creates a dependency between your deploy YAML and `my-image`. Every time 
+This creates a dependency between your workload and `my-image`. Every time 
 the image rebuilds, Tilt knows it may need to restart your containers.
 
 - If the image hasn't changed, the containers won't restart.
