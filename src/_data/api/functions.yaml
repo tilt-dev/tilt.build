@@ -67,6 +67,7 @@ functions:
 - os.path.join
 - os.path.realpath
 - os.path.relpath
+- config.clear_enabled_resources
 - config.define_bool
 - config.define_string
 - config.define_string_list
