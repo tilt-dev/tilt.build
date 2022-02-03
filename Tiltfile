@@ -15,6 +15,7 @@ analytics_settings(enable=True)
 # Generate the API docs.
 local_resource('make-api', 'make api', ['deploy/api.dockerfile', 'Makefile', 'api'])
 local_resource('make-stars', 'make stars', ['Makefile', 'stars'])
+local_resource('make cli-toc', 'make cli-toc', ['src', 'docs', 'api', 'hack'])
 
 k8s_yaml('deploy/serve.yaml')
 
