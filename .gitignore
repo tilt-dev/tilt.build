@@ -54,3 +54,7 @@ build-iPhoneSimulator/
 tilt_modules
 
 .DS_Store
+
+# Ignore api-py tarball for now since is always regenerated and we don't
+# need to version control it
+/src/_data/api/api-py.tgz

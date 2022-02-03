@@ -10,7 +10,7 @@ Extensions (available starting in v0.12.11, see [releases](https://github.com/ti
 We've seen the Tilt community actively share code snippets of Tiltfile functionality in [Slack #tilt](https://kubernetes.slack.com/messages/CESBL84MV/), including ideas such as forcing resources into different namespaces, injecting sidecars, and even running tests. We've created the Extensions platform to streamline this effort, especially helping Tilt newcomers leverage ideas from existing users. Consider [contributing an extension](contribute_extension.html).
 
 ## Published extensions
-The [tilt-extensions repo](https://github.com/tilt-dev/tilt-extensions) lists all published extensions.
+The [tilt-extensions repo](https://github.com/tilt-dev/tilt-extensions) lists all published extensions. You can also [browse API documentation](api.html#extensions) for extensions that have documentation.
 
 ## Use an extension
 Suppose we want to use the [`hello_world` extension](https://github.com/tilt-dev/tilt-extensions/tree/master/hello_world), which prints "Hello world!". First, [`load()`](api.html#api.load) the extension with a special `ext://` syntax, referring to both the extension name `hello_world`, and function name `hi`,  in your Tiltfile:

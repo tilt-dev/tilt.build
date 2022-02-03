@@ -1,0 +1,57 @@
+extensions:
+  configmap:
+  - configmap_create
+  - configmap_from_dict
+  - configmap_yaml
+  conftest:
+  - conftest
+  deployment:
+  - deployment_create
+  - deployment_yaml
+  - job_create
+  - job_yaml
+  - service_yaml
+  docker_build_sub:
+  - docker_build_sub
+  helm_resource:
+  - helm_repo
+  - helm_resource
+  k8s_attach:
+  - k8s_attach
+  kim:
+  - kim_build
+  knative:
+  - knative_install
+  - knative_yaml
+  ko:
+  - ko_build
+  kubectl_build:
+  - image_build
+  - kubectl_build_enable
+  - kubectl_build_registry_secret
+  - to_bool
+  namespace:
+  - namespace_create
+  - namespace_inject
+  - namespace_yaml
+  pack:
+  - pack
+  podman:
+  - podman_build
+  procfile:
+  - procfile_resources
+  restart_process:
+  - custom_build_with_restart
+  - docker_build_with_restart
+  secret:
+  - secret_create_generic
+  - secret_from_dict
+  - secret_yaml_generic
+  snyk:
+  - snyk
+  syncback:
+  - syncback
+  - syncback_command
+  - syncback_command_args
+  tarfetch:
+  - tarfetch

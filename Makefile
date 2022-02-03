@@ -11,6 +11,9 @@ api:
 	docker cp tilt.api:/src/classes.html src/_includes/api/classes.html
 	docker cp tilt.api:/src/data.yaml src/_data/api/data.yaml
 	docker cp tilt.api:/src/data.html src/_includes/api/data.html
+	docker cp tilt.api:/src/api-py.tgz src/_data/api/api-py.tgz
+	docker cp tilt.api:/src/extensions.yaml src/_data/api/extensions.yaml
+	docker cp tilt.api:/src/extensions.html src/_includes/api/extensions.html
 	docker rm tilt.api
 
 stars:

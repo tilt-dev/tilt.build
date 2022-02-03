@@ -124,3 +124,5 @@ examples of what you can do with a Tiltfile. Load them into your own Tiltfile. I
 - [`tilt_inspector`](https://github.com/tilt-dev/tilt-extensions/tree/master/tilt_inspector): Debugging server for exploring internal Tilt state.
 - [`uibutton`](https://github.com/tilt-dev/tilt-extensions/tree/master/uibutton): Customize your Tilt dashboard with [buttons to run a command](https://blog.tilt.dev/2021/06/21/uibutton.html).
 - [`wait_for_it`](https://github.com/tilt-dev/tilt-extensions/tree/master/wait_for_it): Wait until command output is equal to given output.
+
+{% include api/extensions.html %}
