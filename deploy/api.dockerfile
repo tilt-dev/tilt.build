@@ -42,7 +42,7 @@ RUN cat index_without_prefixes.html | hgrep -a id "dl.data > dt" | \
   sed -e 's/^modules./- /' | sed -e 's/^api./- /'  \
   >> data.yaml
 
-RUN cat extensions_without_prefixes.html | hgrep "section[id], dl.function" > extensions.html
+RUN cat extensions_without_prefixes.html | hgrep "section[id]" > extensions.html
 RUN echo "extensions:" > extensions.yaml
 RUN cat extensions_without_prefixes.html | hgrep -a id "section[id], dl.function > dt" | \
   egrep "^(module-)?extensions" | \
