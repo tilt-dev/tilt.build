@@ -51,8 +51,8 @@
             // element
             const analyticsEl = e.trigger.closest('[data-codeblock]')
             if (gtag && analyticsEl && analyticsEl.dataset.codeblock) {
-                gtag('event', 'copy-to-clipboard', {
-                    'codeblock': analyticsEl.dataset.codeblock
+                gtag('event', analyticsEl.dataset.codeblock, {
+                    'event_category': 'copy-to-clipboard'
                 });
             }
         });
