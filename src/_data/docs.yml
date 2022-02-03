@@ -318,6 +318,8 @@ sidebar:
           href: api.html#modules.os.path.realpath
         - title: os.path.relpath
           href: api.html#modules.os.path.relpath
+        - title: config.clear_enabled_resources
+          href: api.html#modules.config.clear_enabled_resources
         - title: config.define_bool
           href: api.html#modules.config.define_bool
         - title: config.define_string
