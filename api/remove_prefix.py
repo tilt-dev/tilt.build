@@ -6,6 +6,7 @@
 # there doesn't appear to be a simple way to fix this via sphinx / autodoc, so this script strips those out after the fact.
 
 import sys
+import re
 from bs4 import BeautifulSoup
 
 def print_without_module_prefixes(filename):
@@ -15,6 +16,7 @@ def print_without_module_prefixes(filename):
   for t in soup.find_all('span', class_='descclassname'):
     s = t.string
     s = s.replace('api.', '').replace('modules.', '')
+    s = re.sub(r'extensions\.[^.]+.', '', s)
     t.string.replace_with(s)
 
   print(soup.prettify())

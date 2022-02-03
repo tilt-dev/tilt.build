@@ -10,9 +10,16 @@ WORKDIR /src
 
 ADD api .
 ADD healthcheck.sh .
-RUN make html
+
+RUN git clone https://github.com/tilt-dev/tilt-extensions.git
+RUN ./parse_extensions.py
+RUN tar zcf api-py.tgz api.py extensions/ modules/
+
+# Setting SPHINXOPTS= empty for now due to extension docstring issues
+RUN make html SPHINXOPTS=
 
 RUN ./remove_prefix.py /src/_build/html/index.html > index_without_prefixes.html
+RUN ./remove_prefix.py /src/_build/html/extensions.html > extensions_without_prefixes.html
 
 # Correctly handle module variables (__var_name__)
 RUN sed -i 's/file__/__file__/g' index_without_prefixes.html
@@ -34,5 +41,13 @@ RUN echo "data:" > data.yaml
 RUN cat index_without_prefixes.html | hgrep -a id "dl.data > dt" | \
   sed -e 's/^modules./- /' | sed -e 's/^api./- /'  \
   >> data.yaml
+
+RUN cat extensions_without_prefixes.html | hgrep "section[id], dl.function" > extensions.html
+RUN echo "extensions:" > extensions.yaml
+RUN cat extensions_without_prefixes.html | hgrep -a id "section[id], dl.function > dt" | \
+  egrep "^(module-)?extensions" | \
+  sed -e 's/module-extensions\.\(.*\)/  \1:/' \
+      -e 's/extensions\.[^.]*\./  - /' \
+  >> extensions.yaml
 
 ENTRYPOINT echo "~done~"
