@@ -127,3 +127,8 @@ def set_enabled_resources(resources: List[str]) -> None:
       resources: The names of the resources to run, or an empty list to run them
                  all.
     """
+
+def clear_enabled_resources() -> None:
+    """
+    Tells Tilt that all resources should be disabled. This allows the user to manually enable only the resources they want once Tilt is running.
+    """
