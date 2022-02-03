@@ -111,3 +111,35 @@ spec:
   ports:
   - port: 4000
     targetPort: 4000
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sphinx-hacking
+spec:
+  selector:
+    matchLabels:
+      app: sphinx-hacking
+  template:
+    metadata:
+      labels:
+        app: sphinx-hacking
+    spec:
+      containers:
+      - name: sphinx-hacking
+        image: tilt-api
+        command:
+        - python3
+        - -m
+        - http.server
+        - "4000"
+        ports:
+        - containerPort: 4000
+          name: http
+        readinessProbe:
+          initialDelaySeconds: 2
+          periodSeconds: 5
+          timeoutSeconds: 2
+          exec:
+            command:
+              - ./healthcheck.sh

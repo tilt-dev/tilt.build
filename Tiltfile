@@ -5,6 +5,14 @@ if os.environ.get('HONEYCOMB_API_KEY', '') and os.environ.get('HONEYCOMB_DATASET
   honeycomb_collector()
 
 enable_feature('disable_resources')
+config.set_enabled_resources([
+    'make-api',
+    'make-stars',
+    'tilt-site',
+    'docs-site',
+    'blog-site',
+    'gem-update',
+])
 
 default_registry('gcr.io/windmill-public-containers')
 set_team('0584d8f6-05a2-49f5-923b-657afef098fe')
@@ -17,6 +25,12 @@ local_resource('make-api', 'make api', ['deploy/api.dockerfile', 'Makefile', 'ap
 local_resource('make-stars', 'make stars', ['Makefile', 'stars'])
 
 k8s_yaml('deploy/serve.yaml')
+
+docker_build('tilt-api', '.', dockerfile='deploy/api.dockerfile',
+             only=['api', './healthcheck.sh'],
+             live_update=[
+                 sync('./api', '/src/')
+             ])
 
 docker_build('tilt-site-base', '.', dockerfile='deploy/base.dockerfile',
              build_args = {'BUILDKIT_INLINE_CACHE': '1'},
@@ -51,6 +65,7 @@ docker_build('blog-site', '.', dockerfile='deploy/blog.dockerfile',
 k8s_resource('tilt-site', port_forwards=[port_forward(4000, name='tilt-site')])
 k8s_resource('docs-site', port_forwards=[port_forward(4001, name='docs-site')], resource_deps=['make-api'])
 k8s_resource('blog-site', port_forwards=[port_forward(4002, name='blog-site')])
+k8s_resource('sphinx-hacking', port_forwards=[port_forward(4003, name='sphinx')])
 
 local_resource(
   name='gem-update',

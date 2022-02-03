@@ -9,6 +9,7 @@ RUN mkdir -p /src
 WORKDIR /src
 
 ADD api .
+ADD healthcheck.sh .
 RUN make html
 
 RUN ./remove_prefix.py /src/_build/html/index.html > index_without_prefixes.html
