@@ -21,7 +21,7 @@
     Object.keys(tagIds).sort().forEach((tag, i) => {
       const button = document.createElement('button')
       button.setAttribute('type', 'button')
-      button.classList.add('Docs-snippet-tag-button')
+      button.classList.add('Docs-snippets-tag-button')
       setButtonSelected(button, false)
       button.innerHTML = tag
       button.onclick = button.onKeyDown = (e) => {
@@ -69,7 +69,7 @@
 
       clear.hidden = selectedTags.length === 0
 
-      console.log("updateVisibleSnippets: " + selectedTags.join(" "))
+      console.log("selected tags: " + selectedTags.join(" "))
       allSnippets.forEach(el => {
         if (selectedTags.length === 0) {
           el.hidden = false
@@ -94,13 +94,15 @@
         setButtonSelected(b, selectedTags.indexOf(b.innerHTML) >= 0)
       })
     }
+
     function refreshState() {
       setSelectedTags()
       updateVisibleSnippets()
     }
+
     // set up button state on initial page load
     refreshState()
-    window.onpopstate = () => { console.log("popstate"); refreshState() }
+    window.onpopstate = refreshState
   }
 
   document.addEventListener('readystatechange', tagInitializer)
