@@ -5,70 +5,74 @@ layout: docs
 sidebar: guides
 ---
 
-This page explains how to contribute an open source extension. If you're interested in only using extensions, visit [Extensions](extensions.html).
+Tilt has many built-in APIs for defining local tasks, image builds, and
+containerized servers.
 
-## Create and test a function in your Tiltfile
-Tiltfiles are written in a Python dialect called [Starlark](https://github.com/bazelbuild/starlark/blob/master/spec.mdl). And so for the purpose of writing a new extension, it is no different from writing your Tiltfile, namely following typical Python syntax.
+Extensions let you package up a tool and plug it into any Tilt dev environment.
 
-Create a new function, following the `def func_name(args):` syntax and add it to your Tiltfile. (Refer to any [existing extension](https://github.com/tilt-dev/tilt-extensions) as an example.) Invoke the function later in your Tiltfile. Run Tilt as normal, and verify that the function works as expected.
+For common tools, like image builders and YAML template engines, our users often
+share their extensions with the Tilt community by putting them in the common
+[tilt-extensions repo](https://github.com/tilt-dev/tilt-extensions).
 
-You can load an existing extension and use it, in the new extension you are creating. Follow the same syntax as explained in [Extensions](extensions.html). 
+This page explains how to contribute a new extension to the shared repo.
 
-## Package your function and submit a pull request
-Clone the [tilt-extensions repo](https://github.com/tilt-dev/tilt-extensions), and create a new extension, following the directory structure of other existing extensions. Namely, there should be a root-level directory with the name of your extension, a Tiltfile, and a README.md inside that directory. Copy the function you previously tested into that Titfile. Also update [README.md](https://github.com/tilt-dev/tilt-extensions/blob/master/README.md), explaining your extension. I.e. you should have these changes:
+If you're interested in how to use an existing extension, or how to share code
+within a single team, start with our [extensions guide](extensions.html).
+
+## Create the extension locally
+
+First, fork the `tilt-extensions` repo. Clone it locally.
+
+Create a new file where your extension code will live:
 
 ```
 extension_name/Tiltfile
-extension_name/README.md
-README.md
 ```
 
-Create and submit a pull request to the repo for review by the Tilt team.
-Your pull request should be prefixed with the name of your extension, e.g.: `min_tilt_version: fix bug foobar`.
+Create a new function in the Tiltfile you just created:
 
-Currently there's no way to directly test the end-to-end workflow of using an extension. The Tilt team will ensure that the extension is working correctly before publishing it.
+```
+def hi():
+  print("Hello world!")
+```
+
+Now, in your main project, point your default extension repo at the absolute path where you cloned `tilt-extensions`:
+
+```python
+v1alpha1.extension_repo(name='default', url='file:///usr/nick/src/tilt-extensions')
+load('ext://extension_name', 'hi')
+hi()
+```
+
+Hooray! The extension works! Now you're ready to send it out.
+
+## Package your function and submit a pull request
+
+First, update the root
+[README.md](https://github.com/tilt-dev/tilt-extensions/blob/master/README.md),
+explaining your extension.
+
+Then, add `extension_name/README.md` with detailed information about your extension. Your README should include:
+
+- The extension name
+
+- The author name (you!)
+
+- A brief description of the functions defined in the extension
+
+- How to use the extension in practice
+
+May of our extensions also have an `extension_name/test` directory with a working example project.
+The `tilt-extensions` CI will run that project to make sure all the servers come up successfully.
+
+Create and submit a pull request to the repo for review by the Tilt team.  Your
+pull request should be prefixed with the name of your extension, e.g.:
+`min_tilt_version: fix bug foobar`.
 
 ## Next steps
 
-If you run into any problems, [contact us](https://tilt.dev/contact). If you have an extension idea (but aren't interested in contributing), [request it](https://github.com/tilt-dev/tilt/issues).
-
-
-## Example extension: API Server Logs
-Depending on the kind of Kubernetes work you're doing it can be valuable to see the Kubernetes API Server logs. For example, if you were iterating on a Kubernetes controller that interacts heavily with the Kubernetes API. By default Tilt doesn't display those logs because they don't come from a resource that Tilt deployed. However, it's pretty easy to get tilt to display them using a `local_resource`:
-
-```python
-local_resource('API Server Logs', '', serve_cmd='kubectl logs -f -n kube-system kube-apiserver-docker-desktop')
-```
-
-This only works for Docker for Desktop on macOS, since it's hard coded to that pod name. But it would be easy to write a query to get the API server pod for any arbitrary Kubernetes cluster:
-
-```python
-api_server_pod_name = str(local('kubectl get pods --namespace kube-system -o=jsonpath="{.items..metadata.name}" -l component=kube-apiserver')).rstrip('\n')
-```
-
-Then you could compose them together in a function:
-
-```python
-def api_server_logs():
-  api_server_pod_name = str(local('kubectl get pods --namespace kube-system -o=jsonpath="{.items..metadata.name}" -l component=kube-apiserver')).rstrip('\n')
-  local_resource('API Server Logs', '', serve_cmd='kubectl logs -f -n kube-system %s' % api_server_pod_name )
-```
-
-## Example extension: Jest Test Runner
-
-Tilt is great at building your code and running your services, and with extensions it's easy to make Tilt great at running your tests. Let's use the [Jest](https://jestjs.io/) JavaScript test runner as an example.
-
-To run Jest you simply do `yarn run jest`. Unlike a lot of test runners Jest runs in the foreground, watches your filesystem for changes and runs the correspond tests. So to translate `yarn run jest` in to a `local_resource` we'll actually set it as the _serve_ cmd:
-
-```python
-local_resource("jest", "", serve_cmd="yarn run jest")
-```
-
-This works well except there's no indication in the Tilt UI when your tests fail. That's because Tilt only considers a `local_resource` as failing if the process exits, which Jest never does. Fortunately you can tell Jest to exit by passing the `--bail` flag. Let's just wrap it in a function that takes a path to run Jest from and we have ourselves a Jest extension:
-
-```python
-def jest(path):
-  local_resource("jest", "", serve_cmd="cd %s && yarn run jest --bail" % path)
-```
-
-Now Tilt is running your tests, how cool is that?
+If you have an idea for an extension but aren't sure where to start, the [Tilt
+community](https://docs.tilt.dev/#community) loves batting around extension
+ideas. If you have an idea but aren't interested in writing it yourself, you can
+also file a feature request in the [issue
+tracker](https://github.com/tilt-dev/tilt-extensions/issues).
