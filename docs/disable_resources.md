@@ -6,7 +6,7 @@ sidebar: guides
 pilltag: new
 ---
 
-> 💡 This feature is available in [Tilt v0.23.10+](https://github.com/tilt-dev/tilt/releases).
+> 💡 This feature is available in [Tilt v0.24.0+](https://github.com/tilt-dev/tilt/releases).
 
 For many developers, it's not practical or feasible to run all your resources all the time. It shouldn't interrupt your flow to change what resources you're running, or disable a troublesome resource on the fly.
 
