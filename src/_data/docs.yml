@@ -539,6 +539,9 @@ sidebar:
       - title: tilt describe
         href: cli/tilt_describe.html
         info: 'Show details of a specific resource or group of resources'
+      - title: tilt disable
+        href: cli/tilt_disable.html
+        info: 'Disables resources'
       - title: tilt docker
         href: cli/tilt_docker.html
         info: 'Execute Docker commands as Tilt would execute them'
@@ -557,6 +560,9 @@ sidebar:
       - title: tilt edit
         href: cli/tilt_edit.html
         info: 'Edit a resource on the server'
+      - title: tilt enable
+        href: cli/tilt_enable.html
+        info: 'Enables resources'
       - title: tilt explain
         href: cli/tilt_explain.html
         info: 'Get documentation for a resource'
