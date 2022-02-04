@@ -8,6 +8,10 @@ hideHelpfulForm: true
 > **Want to contribute?**  
 > Follow [this guide](https://github.com/tilt-dev/tilt.build/blob/master/contributing-snippets.md) to find out how to submit your own snippets!
 
+<h3>Filter by tags</h3>
+<div class="Docs-snippets-tag-cloud">
+</div>
+
 <ul class="Docs-snippets-list">
   {% assign snippets = site.data.snippets %}
   {% assign keys = snippets | keys %}
@@ -16,7 +20,7 @@ hideHelpfulForm: true
 
   {% for name in allkeys %}
   {% assign snippet = snippets[name] %}
-  <li id="snip_{{name}}" class="Docs-snippets-item" data-codeblock="snip_{{name}}">
+  <li id="snip_{{name}}" class="Docs-snippets-item" data-codeblock="snip_{{name}}" data-tags="{{ snippet.tags | sort | join: ' '}}">
     <div class="Docs-snippets-content">
       <header class="Docs-snippets-item-header">
         <div>
@@ -47,3 +51,5 @@ hideHelpfulForm: true
   </li>
   {% endfor %}
 </ul>
+
+<script src="{{ '/assets/js/snippets.js' | relative_url }}" defer></script>
