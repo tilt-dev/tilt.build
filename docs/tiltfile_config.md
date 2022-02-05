@@ -112,6 +112,24 @@ if 'd' in to_edit:
     docker_build('d', './d')
 ```
 
+### Run no resources by default and selectively enable
+You have many services that your users want to pick and choose from to run. This list of services varies a lot from developer to developer, so it may not be possible to define preset groups of services to run.
+
+Starting Tilt with all services disabled by default allows your users to selectively enable what services they want when Tilt is running. Disabled resources are displayed and can be enabled from the UI or the CLI.
+
+#### Command-Lines
+* `tilt up`: start Tilt with all services disabled
+* `tilt enable a b`: enable 'a' and 'b'
+* `tilt enable --only a b`: enable 'a' and 'b', and disables all others
+* `tilt enable --all`: enable all services
+* `tilt disable a b`: disable 'a' and 'b'
+* `tilt disable --all`: disable all services
+#### Tiltfile
+```python
+# start Tilt with no enabled resources
+config.clear_enabled_resources()
+```
+
 ### Grouping services in web UI
 
 Your app has many different services and you want to group similar services together to
