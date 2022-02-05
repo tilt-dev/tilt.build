@@ -58,6 +58,29 @@ docker run --rm hello-world
 You should see some output from Docker as it downloads the `hello-world` image followed by a greeting message with some information about Docker.
 If you are having trouble, Docker provides troubleshooting guides for [macOS][troubleshoot-docker-mac] and [Windows][troubleshoot-docker-windows].
 
+## Install Node / Yarn
+
+While not required for tilt, the demo application leverages [Node][node] and [Yarn][yarn].
+
+* [Install Node 16][node-install]
+
+> 💡 In order to manage different versions of Node/Yarn, we recommend using [nvm][nvm].
+
+If using nvm, install node with:
+```bash
+nvm install 16
+```
+or if previously installed:
+```bash
+nvm use 16
+```
+
+With node installed, the quickest way to install yarn is:
+
+```bash
+npm install -g yarn
+```
+
 [brew]: https://brew.sh
 [docker-kubernetes]: https://docs.docker.com/desktop/kubernetes/#enable-kubernetes
 [docker-non-root]: https://docs.docker.com/engine/install/linux-postinstall/#manage-docker-as-a-non-root-user
@@ -71,7 +94,11 @@ If you are having trouble, Docker provides troubleshooting guides for [macOS][tr
 [install-docker-mac]: https://docs.docker.com/desktop/mac/install/
 [install-docker-windows]: https://docs.docker.com/desktop/windows/install/
 [install-tilt-alternate]: /install.html#alternative-installations
+[node]: https://nodejs.org/
+[node-install]: https://nodejs.org/en/download/package-manager/
+[nvm]: https://github.com/nvm-sh/nvm#installing-and-updating
 [scoop]: https://scoop.sh/
 [troubleshoot-docker-mac]: https://docs.docker.com/desktop/mac/troubleshoot/
 [troubleshoot-docker-windows]: https://docs.docker.com/desktop/windows/troubleshoot/
 [tutorial-tilt-up]: ./2-tilt-up.html
+[yarn]: https://yarnpkg.com/
