@@ -7,16 +7,19 @@
     const tagIds = {}
     const allSnippets = document.querySelectorAll('.Docs-snippets-item')
     allSnippets.forEach(el => {
-      el.getAttribute('data-tags').split(' ').forEach((tag) => {
-        var ids = tagIds[tag]
-        if (ids === undefined) {
-          ids = tagIds[tag] = []
-        }
-        ids.push(el.id)
-      })
+      const tags = el.getAttribute('data-tags')
+      if (tags) {
+        tags.split(' ').forEach(tag => {
+          var ids = tagIds[tag]
+          if (ids === undefined) {
+            ids = tagIds[tag] = []
+          }
+          ids.push(el.id)
+        })
+      }
     })
 
-    const buttonsEl = document.querySelector('.Docs-snippets-tag-cloud')
+    const tagCloud = document.querySelector('.Docs-snippets-tag-cloud')
     const tagButtons = []
     Object.keys(tagIds).sort().forEach((tag, i) => {
       const button = document.createElement('button')
@@ -33,10 +36,12 @@
         } else {
           if (tags.indexOf(tag) >= 0) tags.splice(tags.indexOf(tag), 1)
         }
-        history.pushState('', document.title, window.location.pathname + '?' + encodeURIComponent(tags.join(' ')))
+        var location = window.location.pathname
+        if (tags.length > 0) location = location + '?' + encodeURIComponent(tags.join(' '))
+        history.pushState('', document.title, location)
         updateVisibleSnippets()
       }
-      buttonsEl.append(button)
+      tagCloud.append(button)
       tagButtons.push(button)
     })
 
@@ -50,7 +55,7 @@
       history.pushState('', document.title, window.location.pathname)
       updateVisibleSnippets()
     }
-    buttonsEl.append(clear)
+    tagCloud.append(clear)
 
     function setButtonSelected(button, selected) {
       button.setAttribute('data-selected', selected ? 'true' : '')
@@ -69,12 +74,11 @@
 
       clear.hidden = selectedTags.length === 0
 
-      console.log("selected tags: " + selectedTags.join(" "))
       allSnippets.forEach(el => {
         if (selectedTags.length === 0) {
           el.hidden = false
         } else {
-          if (el.getAttribute('data-tags').split(' ').filter(t => selectedTags.indexOf(t) !== -1).length > 0) {
+          if (selectedTags.find(t => tagIds[t].indexOf(el.id) >= 0)) {
             el.hidden = false
           } else {
             el.hidden = true
