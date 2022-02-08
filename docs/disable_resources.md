@@ -88,6 +88,16 @@ To disable all resources by default, you can call [`config.clear_enabled_resourc
 # from your Tiltfile
 config.clear_enabled_resources()
 ```
+
+### Opt out of seeing disabled resources
+
+To hide disabled resources, as well as buttons to disable resources, from the Tilt UI, you can turn off the `"disable_resources"` feature by adding the following line to your `Tiltfile`:
+```python
+# from your Tiltfile
+disable_feature("disable_resources")
+```
+With the feature off, you can still use the CLI to enable and disable resources, but disabled resources won't be visible in the UI.
+
 ### Feedback
 Does this feature work for you? We want to reduce the cognitive load of finding and running the right resources. Please reach out:
 * Slack us from the [Kubernetes #tilt channel](http://slack.k8s.io)
