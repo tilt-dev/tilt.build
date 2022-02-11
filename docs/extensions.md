@@ -159,7 +159,7 @@ Notice that in the above, we define `hello_world` to pull its source from
 
 ## Debugging Extension Loading with the CLI
 
-A Tilt sessions publishes the names of all repos and extensions it's using and where they live on disk.
+A Tilt session publishes the names of all repos and extensions it's using and where they live on disk.
 
 You can read this info with the CLI. Here are some common commands you might use
 to explore the status. (We use `jq` to prettify the JSON.)
