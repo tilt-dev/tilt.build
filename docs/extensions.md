@@ -17,7 +17,7 @@ But we also see dev rules that are particular to a team like:
 
 - Custom buttons for operations like resetting a dev database or upgrading a dependency.
 
-And you want to share those snippets across repos or even between across companies!
+And you want to share those snippets across repos or even across companies!
 
 That's why Tilt has an extension system for writing and sharing snippets of
 Tiltfile functionality!
