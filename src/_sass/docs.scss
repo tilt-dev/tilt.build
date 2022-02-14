@@ -632,3 +632,20 @@ a.attached-above:before {
     color: $color-skyBlue;
   }
 }
+
+.Docs-snippets-tag-cloud {
+  padding: $spacing-unit $spacing-unit;
+}
+
+.Docs-snippets-tag-cloud * {
+  margin: $spacing-unit*0.1 $spacing-unit*0.1;
+}
+
+.Docs-snippets-tag-button {
+  background-color: $color-white;
+  border-radius: 8px;
+}
+
+.Docs-snippets-tag-button.tag-selected {
+  border: 2px solid $color-green;
+}
