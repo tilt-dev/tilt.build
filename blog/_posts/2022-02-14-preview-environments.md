@@ -242,7 +242,7 @@ A more mature preview env platform would destroy or scale down envs that aren't
   being used [to save on
   cost](https://ephemeralenvironments.io/features/cost-control/).
   
-The ephmerator is very native: every env has a 15 minute expiry. Then it's destroyed.
+The ephmerator is very naïve: every env has a 15 minute expiry. Then it's destroyed.
 
 I briefly considered using a framework like [`knative`
 serving](https://knative.dev/docs/serving/). `knative` monitors the traffic to
