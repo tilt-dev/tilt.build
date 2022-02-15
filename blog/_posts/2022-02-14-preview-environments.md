@@ -1,11 +1,11 @@
 ---
 slug: "preview-environments"
-date: 2022-02-14
+date: 2022-02-17
 author: nick
 layout: blog
-title: "How I Built a Toy Preview Environment Platform and What Happened Next"
-subtitle: "Or: Some Stuff I Learned about How to Create Toy Environments and Write Kubernetes Operators."
-description: "Or: Some Stuff I Learned about How to Create Toy Environments and Write Kubernetes Operators."
+title: "Let's Create a Toy Preview Environment Platform Using Kubernetes-in-Kubernetes!"
+subtitle: "Or: How to Make Security Professionals Alarmed at Your Remote Code Execution SAAS"
+description: "Or: How to Make Security Professionals Alarmed at Your Remote Code Execution SAAS"
 image: "/assets/images/preview-environments/jade.jpg"
 image_caption: "Sometimes an <a href='https://en.wikipedia.org/wiki/Jadeite_Cabbage'>imitation</a> can be even harder to create than the real thing."
 tags:
@@ -20,16 +20,17 @@ environments.  We had the the "real" app (prod). We had the "preview" or
 the "dev" app for iterating on locally.
 
 The preview and dev environments grew organically. People hacked in little
-quality of life improvements to make devs' lives better. Or to make designers' lives
-better. They ended up diverging a lot, even though they were both "fake"
+quality of life improvements to make devs' lives better. Or to make designers'
+lives better. Or to make the QA teams' lives better. "Preview" and "dev" ended
+up diverging a lot from each other, even though they were both "fake"
 environments.
 
 At Tilt, we help teams define dev environments, whereas our friends at
 [Shipyard](https://shipyard.build/) help teams define preview environments.
 
 Sometimes, Shipyard's CEO Benjie and I argue about why dev envs and preview envs
-always seem to diverge so much. And if there are ways we could bring them back into alignment.
-We have different takes on this:
+always seem to diverge so much. And if there are ways we could bring them back
+into alignment.  We have different takes on this:
 
 - Benjie thinks that it should be easier to attach dev env tools to a preview env!
 
@@ -40,8 +41,10 @@ here. If you don't know much about a field, you think all its problems are
 easily fixable.
 
 But there's an easy way to fix this problem! I should build a toy preview env
-platform and see what happens. In this post, I'm going to show you what I tried
-to build, what I ended up building, and what I learned about it.
+platform and see what happens. Benjie pointed me at this
+[ephemeralenvironments.io](https://ephemeralenvironments.io/) site they put up
+on how to do it. In this post, I'm going to show you what it inspired me to
+build, what I ended up building, and what I learned about it.
 
 You should read this post if:
 
@@ -52,7 +55,7 @@ You should read this post if:
   a great toy project for learning about operators).
 
 - You're an infra nerd who wants to run throwaway Kubernetes clusters inside an
-  existing Kubernetes cluster.
+  existing Kubernetes cluster as a thinly veiled excuse to call it `kink`.
 
 - You're a normal non-infra engineer who needs a way to test SSL subdomains locally.
 
@@ -253,7 +256,7 @@ primitives.
 
 ### Scaling to Multiple Nodes
 
-The ephemerator users Docker in Docker on a single node. So all the servers in
+The ephemerator user Docker in Docker on a single node. So all the servers in
 your dev environment must fit on a single machine.
 
 A more secure architecture could use a dedicated VM per environment, or multiple
@@ -307,11 +310,10 @@ instructions](https://github.com/tilt-dev/ephemerator/blob/main/CONTRIBUTING.md)
 on how to run it locally.
 
 It's _probably_ safe for a small- to medium-sized team to run it on their own
-Kubernetes cluster. Use it at your own risk. But I highly recommend you restrict
-it to a whitelist of users and a whitelist of repos. The repo contains helm
-charts for deploying it. Because it's experimental, it's probably not ready
-for a place like [`artifacthub`](https://artifacthub.io/) for distributable Helm
-charts.
+Kubernetes cluster. Use it at your own risk. I highly recommend you restrict it
+to a whitelist of users and a whitelist of repos. The repo contains helm charts
+for deploying it. Because it's experimental, it's probably not ready for a place
+like [`artifacthub`](https://artifacthub.io/) for distributable Helm charts.
 
 If you don't want to build your own preview env service, check out
 [Shipyard](https://shipyard.build)! You can give them money to think about the
