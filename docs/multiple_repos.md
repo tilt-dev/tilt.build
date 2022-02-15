@@ -114,7 +114,7 @@ The simplest way to handle multi-repository projects is to ask the user to check
 out other repos as a sibling directory.
 
 ```python
-if os.path.exists('../backend'):
+if not os.path.exists('../backend'):
   fail('Please "git clone" the backend repo in ../backend!')
   
 include('../backend/Tiltfile')
