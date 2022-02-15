@@ -243,7 +243,7 @@ def docker_build(ref: str,
   """
   pass
 
-def docker_compose(configPaths: Union[str, Blob, List[Union[str, Blob]]]) -> None:
+def docker_compose(configPaths: Union[str, Blob, List[Union[str, Blob]]], env_file: str = None) -> None:
   """Run containers with Docker Compose.
 
   Tilt will read your Docker Compose YAML and separate out the services.
@@ -277,6 +277,7 @@ def docker_compose(configPaths: Union[str, Blob, List[Union[str, Blob]]]) -> Non
 
   Args:
     configPaths: Path(s) and/or Blob(s) to Docker Compose yaml files or content.
+    env_file: Path to env file to use; defaults to ``.env`` in current directory.
   """
 
 
@@ -698,13 +699,14 @@ def watch_file(file_path: str) -> None:
     file_path: Path to the file locally (absolute, or relative to the location of the Tiltfile)."""
 
 
-def kustomize(pathToDir: str) -> Blob:
+def kustomize(pathToDir: str, kustomize_bin: str = None) -> Blob:
   """Run `kustomize <https://github.com/kubernetes-sigs/kustomize>`_ on a given directory and return the resulting YAML as a Blob
   Directory is watched (see ``watch_file``). Checks for and uses separately installed kustomize first, if it exists. Otherwise,
   uses kubectl's kustomize. See `blog post <https://blog.tilt.dev/2020/02/04/are-you-my-kustomize.html>`_.
 
   Args:
-    pathToDir: Path to the directory locally (absolute, or relative to the location of the Tiltfile)."""
+    pathToDir: Path to the directory locally (absolute, or relative to the location of the Tiltfile).
+    kustomize_bin: Custom path to the ``kustomize`` binary executable. Defaults to searching $PATH for kustomize."""
   pass
 
 def helm(pathToChartDir: str, name: str = "", namespace: str = "", values: Union[str, List[str]]=[], set: Union[str, List[str]]=[]) -> Blob:

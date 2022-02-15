@@ -3131,6 +3131,24 @@ ensures a pretty high bar of intent.
              </span>
             </span>
            </em>
+           ,
+           <em class="sig-param">
+            <span class="n">
+             <span class="pre">
+              env_file
+             </span>
+            </span>
+            <span class="o">
+             <span class="pre">
+              =
+             </span>
+            </span>
+            <span class="default_value">
+             <span class="pre">
+              None
+             </span>
+            </span>
+           </em>
            <span class="sig-paren">
             )
            </span>
@@ -3193,58 +3211,88 @@ the DockerImage ref).
              Parameters
             </dt>
             <dd class="field-odd">
-             <p>
-              <strong>
-               configPaths
-              </strong>
-              (
-              <code class="xref py py-data docutils literal notranslate">
-               <span class="pre">
-                Union
-               </span>
-              </code>
-              [
-              <code class="xref py py-class docutils literal notranslate">
-               <span class="pre">
-                str
-               </span>
-              </code>
-              ,
-              <a class="reference internal" href="#api.Blob" title="api.Blob">
-               <code class="xref py py-class docutils literal notranslate">
-                <span class="pre">
-                 Blob
-                </span>
-               </code>
-              </a>
-              ,
-              <code class="xref py py-class docutils literal notranslate">
-               <span class="pre">
-                List
-               </span>
-              </code>
-              [
-              <code class="xref py py-data docutils literal notranslate">
-               <span class="pre">
-                Union
-               </span>
-              </code>
-              [
-              <code class="xref py py-class docutils literal notranslate">
-               <span class="pre">
-                str
-               </span>
-              </code>
-              ,
-              <a class="reference internal" href="#api.Blob" title="api.Blob">
-               <code class="xref py py-class docutils literal notranslate">
-                <span class="pre">
-                 Blob
-                </span>
-               </code>
-              </a>
-              ]]]) &#x2013; Path(s) and/or Blob(s) to Docker Compose yaml files or content.
-             </p>
+             <ul class="simple">
+              <li>
+               <p>
+                <strong>
+                 configPaths
+                </strong>
+                (
+                <code class="xref py py-data docutils literal notranslate">
+                 <span class="pre">
+                  Union
+                 </span>
+                </code>
+                [
+                <code class="xref py py-class docutils literal notranslate">
+                 <span class="pre">
+                  str
+                 </span>
+                </code>
+                ,
+                <a class="reference internal" href="#api.Blob" title="api.Blob">
+                 <code class="xref py py-class docutils literal notranslate">
+                  <span class="pre">
+                   Blob
+                  </span>
+                 </code>
+                </a>
+                ,
+                <code class="xref py py-class docutils literal notranslate">
+                 <span class="pre">
+                  List
+                 </span>
+                </code>
+                [
+                <code class="xref py py-data docutils literal notranslate">
+                 <span class="pre">
+                  Union
+                 </span>
+                </code>
+                [
+                <code class="xref py py-class docutils literal notranslate">
+                 <span class="pre">
+                  str
+                 </span>
+                </code>
+                ,
+                <a class="reference internal" href="#api.Blob" title="api.Blob">
+                 <code class="xref py py-class docutils literal notranslate">
+                  <span class="pre">
+                   Blob
+                  </span>
+                 </code>
+                </a>
+                ]]]) &#x2013; Path(s) and/or Blob(s) to Docker Compose yaml files or content.
+               </p>
+              </li>
+              <li>
+               <p>
+                <strong>
+                 env_file
+                </strong>
+                (
+                <code class="xref py py-data docutils literal notranslate">
+                 <span class="pre">
+                  Optional
+                 </span>
+                </code>
+                [
+                <code class="xref py py-class docutils literal notranslate">
+                 <span class="pre">
+                  str
+                 </span>
+                </code>
+                ]) &#x2013; Path to env file to use; defaults to
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  .env
+                 </span>
+                </code>
+                in current directory.
+               </p>
+              </li>
+             </ul>
             </dd>
             <dt class="field-even">
              Return type
@@ -7588,6 +7636,24 @@ that have duplicate resources for esoteric reasons.
              </span>
             </span>
            </em>
+           ,
+           <em class="sig-param">
+            <span class="n">
+             <span class="pre">
+              kustomize_bin
+             </span>
+            </span>
+            <span class="o">
+             <span class="pre">
+              =
+             </span>
+            </span>
+            <span class="default_value">
+             <span class="pre">
+              None
+             </span>
+            </span>
+           </em>
            <span class="sig-paren">
             )
            </span>
@@ -7620,18 +7686,48 @@ uses kubectl&#x2019;s kustomize. See
              Parameters
             </dt>
             <dd class="field-odd">
-             <p>
-              <strong>
-               pathToDir
-              </strong>
-              (
-              <code class="xref py py-class docutils literal notranslate">
-               <span class="pre">
-                str
-               </span>
-              </code>
-              ) &#x2013; Path to the directory locally (absolute, or relative to the location of the Tiltfile).
-             </p>
+             <ul class="simple">
+              <li>
+               <p>
+                <strong>
+                 pathToDir
+                </strong>
+                (
+                <code class="xref py py-class docutils literal notranslate">
+                 <span class="pre">
+                  str
+                 </span>
+                </code>
+                ) &#x2013; Path to the directory locally (absolute, or relative to the location of the Tiltfile).
+               </p>
+              </li>
+              <li>
+               <p>
+                <strong>
+                 kustomize_bin
+                </strong>
+                (
+                <code class="xref py py-data docutils literal notranslate">
+                 <span class="pre">
+                  Optional
+                 </span>
+                </code>
+                [
+                <code class="xref py py-class docutils literal notranslate">
+                 <span class="pre">
+                  str
+                 </span>
+                </code>
+                ]) &#x2013; Custom path to the
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  kustomize
+                 </span>
+                </code>
+                binary executable. Defaults to searching $PATH for kustomize.
+               </p>
+              </li>
+             </ul>
             </dd>
             <dt class="field-even">
              Return type
