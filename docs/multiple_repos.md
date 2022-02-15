@@ -124,7 +124,7 @@ You can also supply the repository as an environment variable.
 
 ```python
 backend_dir = os.environ.get('BACKEND_REPO_DIR', '../backend')
-if os.path.exists(backend_dir):
+if not os.path.exists(backend_dir):
   fail('Please "git clone" the backend repo in %s!' % backend_dir)
   
 include(os.path.join(backend_dir, 'Tiltfile'))
