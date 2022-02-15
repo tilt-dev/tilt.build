@@ -24,7 +24,7 @@ quality of life improvements to make devs' lives better. Or to make designers' l
 better. They ended up diverging a lot, even though they were both "fake"
 environments.
 
-At Tilt, we help teams define dev environments. Our friends at
+At Tilt, we help teams define dev environments, whereas our friends at
 [Shipyard](https://shipyard.build/) help teams define preview environments.
 
 Sometimes, Shipyard's CEO Benjie and I argue about why dev envs and preview envs
