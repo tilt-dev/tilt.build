@@ -409,6 +409,9 @@ $sidebar-maximum-width: 400px;
   }
 }
 
+.Docs-content > .function > .sig-object {
+  scroll-margin-top: $spacing-unit * 2.25;
+}
 
 .Docs-footer {
   margin-top: $spacing-unit * 3;
