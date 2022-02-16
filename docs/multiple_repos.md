@@ -15,8 +15,7 @@ Tilt does not require a particular project structure. We try to provide
 APIs to help you pull the services you need into your dev environment, no matter
 where they're defined.
 
-Do NOT restructure your project for Tilt. Instead, restructure your Tiltfiles
-to match your project structure!
+>> Do NOT restructure your project for Tilt. Instead, restructure your Tiltfiles to match your project structure!
 
 We've seen many patterns, including:
 
