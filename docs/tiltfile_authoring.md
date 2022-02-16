@@ -30,7 +30,7 @@ k8s_resource('frontend', port_forwards=8080)
 But don't create it yet; we'll be exploring how it works in the following sections.
 
 ## Hello World
-In your terminal, run `tilt up`. Hit `space` and a browser tab will open showing Tilt. Instead of writing your Tilt configuration all at once, we'll use Tilt interactively. Each time you save your configuration, Tilt will reexecute it.
+In your terminal, run `tilt up`. Tilt will offer to create a starter `Tiltfile` for you, which we will decline by entering `n` for the sake of this tutorial. Hit `space` and a browser tab will open showing Tilt. Instead of writing your Tilt configuration all at once, we'll use Tilt interactively. Each time you save your configuration, Tilt will reexecute it.
 
 Open the Tilt UI from the URL shown in your terminal.
 
