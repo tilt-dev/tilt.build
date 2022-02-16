@@ -80,7 +80,7 @@ sidebar:
           href: tiltfile_concepts.html
         - title: Per user Config
           href: tiltfile_config.html
-        - title: Structuring Multiple Repos
+        - title: Many Tiltfiles and Many Repos
           href: multiple_repos.html
         - title: Debugging File Changes
           href: file_changes.html
