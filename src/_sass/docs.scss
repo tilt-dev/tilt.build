@@ -313,6 +313,7 @@ $sidebar-maximum-width: 400px;
 
 .Docs-content > h2,
 .Docs-content > h2 a {
+  scroll-margin-top: $spacing-unit * 2.25;
   font-weight: $tilt2-font-weight-sans-bold;
   font-size: 28px;
   color: $color-blue;
@@ -320,8 +321,6 @@ $sidebar-maximum-width: 400px;
 }
 
 .Docs-content h2 {
-  scroll-margin-top: $spacing-unit * 2.25;
-
   a:hover:before {
     content: "🔗 ";
     position: absolute;
@@ -409,6 +408,9 @@ $sidebar-maximum-width: 400px;
   }
 }
 
+.Docs-content > .function > .sig-object {
+  scroll-margin-top: $spacing-unit * 2.25;
+}
 
 .Docs-footer {
   margin-top: $spacing-unit * 3;
