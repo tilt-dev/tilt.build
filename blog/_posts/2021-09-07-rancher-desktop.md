@@ -6,7 +6,7 @@ layout: blog
 title: "Switch from Docker Desktop to Rancher Desktop in 5 Minutes"
 image: "/assets/images/rancher-desktop/title.jpg"
 image_caption: 'Photo by <a rel="noopener noreferrer" target="_blank" href="https://unsplash.com/@timwilson7">Tim Wilson</a>'
-description: "Configure Tilt to build images with kim for use with Rancher Desktop"
+description: "Tilt + Rancher Desktop = 🤘"
 tags:
 - docker
 - rancher
@@ -14,12 +14,12 @@ tags:
 ---
 
 ---
+### 📣 Update (February 2022)
+We've revamped this blog post to reflect recent changes to both Tilt and [Rancher Desktop][rancher-desktop].
 
-## **UPDATE**: There is a [`kim` Tilt extension][tilt-ext-kim] available!
+The good news? It's easier than ever to use Tilt and [Rancher Desktop][rancher-desktop] together!
 
-If you want to get building using `kim` as fast as possible, check out the [usage instructions][tilt-ext-kim] for how to add it to your `Tiltfile`.
-
-If you're interested in how Tilt extensions for non-Docker container builders work, read on!
+(There is no bad news.)
 
 ---
 
@@ -27,102 +27,45 @@ If you're interested in how Tilt extensions for non-Docker container builders wo
 
 ![Rancher Desktop interface on macOS](/assets/images/rancher-desktop/rancher-desktop.png)
 
-While there are some similarities with Docker Desktop due to using a transparent VM, Rancher Desktop does not include the Docker Engine.
+As a user, there are many similarities with Docker Desktop: Rancher Desktop manages a transparent VM with a container runtime and a single-node development Kubernetes cluster.
 
-Instead, images are built with [`kim`][kim] (**K**ubernetes **I**mage **M**anager), which uses a BuildKit daemon bound to the containerd socket on a Kubernetes node.
-If your eyes glazed over during the second half of that sentence: images are built directly _within_ the Kubernetes cluster using the same underlying technology (BuildKit) as Docker.
+However, behind the scenes, there's a couple notable differences:
+ * By default, Rancher Desktop uses [containerd][] instead of Docker
+ * Rancher Desktop uses [k3s][] as the Kubernetes cluster ([k3s][] is a a lightweight, certified Kubernetes distribution also maintained by Rancher)
 
-You'll need to activate the [`kim`][kim] symlink from the Rancher Desktop settings for Tilt to be able to use it:
-![Rancher Desktop open to the "Kubernetes Settings" section highlighting the checkbox for /usr/local/bin/kim](/assets/images/rancher-desktop/rancher-desktop-kim.png)
+As a Docker Desktop moving to Rancher Desktop, the quickest way (I did promise you could do this in 5 minutes after all!) is to configure Rancher Desktop to use Docker as the container runtime. 
 
-**⚠️ [kim][] is still considered experimental!**
+---
+#### ⚠️ Watch Out!
+You cannot run both Docker Desktop and Rancher Desktop (in `dockerd` mode) simultaneously!
+See [rancher-desktop#1081][rd-issues-1081] for details.
 
-Since Tilt's built-in [`docker_build`][tiltfile-docker-build] function does not natively support kim, we can use [`custom_build`][tiltfile-custom-build] instead.
+---
 
-To start, if you're using Tilt < v0.22.7, you'll need to approve the Rancher Desktop Kubernetes context:
-```python
-allow_k8s_contexts('rancher-desktop')
-```
-Place this as early as possible in your `Tiltfile`.
-(By default, Tilt will only run against a built-in set of known context names corresponding to local K8s cluster tools such as minikube or KIND to prevent an accidental deploy to prod! 😰)
+Go ahead and open the Rancher Desktop preferences and choose `dockerd (moby)` as the Container Runtime in the "Kubernetes Settings" section:
+![Rancher Desktop open to the "Kubernetes Settings" section highlighting Container Runtime section](/assets/images/rancher-desktop/rancher-desktop-runtime.png)
 
-Let's create a `kim_build` function that uses [`custom_build`][tiltfile-custom-build]:
-```python
-def kim_build(ref, context, deps=None, **kwargs):
-    custom_build(
-        ref,
-        command='kim build -t $EXPECTED_REF ' + shlex.quote(context),
-        command_bat='kim build -t %EXPECTED_REF% ' + shlex.quote(context),
-        deps=deps or [context],
-        disable_push=True,
-        skips_local_docker=True,
-        **kwargs
-    )
-```
+Once selected, Rancher Desktop will prompt you to confirm before resetting the cluster.
 
-Now, we can replace our [`docker_build`][tiltfile-docker-build] calls with `kim_build` calls:
-```python
-# docker_build(
-#     'my-static-site',
-#     '.',
-#     only=['web/'],
-#     live_update=[
-#         sync('web/', '/usr/share/nginx/html/')
-#     ])
-# ⬇️ ⬇️ ⬇️ ⬇️ ⬇️ ⬇️ ⬇️
+After it's started back up...you're done!
 
-kim_build(
-    'my-static-site',
-    '.',
-    deps=['web/', 'Dockerfile'],
-    live_update=[
-        sync('web/', '/usr/share/nginx/html/')
-    ])
-```
+Tilt (as of v0.25.1+) will automatically detect your Rancher Desktop with `dockerd` configuration and use it for any [`docker_build`][tiltfile-docker-build] calls.
 
-And that's it!
+Similar to using Docker Desktop with its built-in Kubernetes support, no local registry or image pushes are required.
+This is possible because Tilt is building _directly_ to the container runtime (`dockerd`) used by the cluster node, so building the image also makes it available for use by Pods.
+If this sounds a bit complex - we agree!
+Hopefully, you never have to think about it because Tilt takes care of finding the optimal strategy based on your configuration **automatically**.
 
-When we `tilt up`, we'll see:
-```
-STEP 1/3 — Building Custom Build: [my-static-site]
-    Custom Build: Injecting Environment Variables
-        EXPECTED_REF=my-static-site:tilt-build-1630528500
-    Running custom build cmd "kim build -t $EXPECTED_REF ."
+> ℹ️ If you use `docker` via the CLI, you might notice a bunch of running containers, including Kubernetes cluster components as well as any Pods you have deployed.
+> You should avoid manipulating these directly via Docker to avoid conflicting with Rancher Desktop.
 
-    ...
-
-STEP 2/3 — Pushing my-static-site:tilt-build-1630528500
-     Skipping push: custom_build() configured to handle push itself
-
-STEP 3/3 — Deploying
-     Injecting images into Kubernetes YAML
-     Applying via kubectl:
-     → my-static-site:deployment
-
-    ...
-```
-
-What just happened?
-1. Tilt invoked our [`custom_build`][tiltfile-custom-build] command to run [`kim`][kim]
-2. No registry push was performed because [`kim`][kim] builds directly on the cluster node and we passed `disable_push=True` and `skips_local_docker=True`
-3. Deployment was applied to our Rancher Desktop cluster!
-
-You might have noticed that we also passed Live Update steps, yet didn't add any custom logic within `kim_build` to handle it.
-Because [`custom_build`][tiltfile-custom-build] supports Live Update regardless of _how_ you build your images, we passed through the `live_update` and any other non-`kim` specific arguments via `**kwargs`.
-
-And of course, you still get all the other Tilt goodies like triggering rebuild on changes and [immutable tags][immutable-tags].
-
-A full `kim_build` implementation might take more arguments, e.g. custom path to `Dockerfile`, build args, and more.
-There is a [`kim_build` extension][tilt-ext-kim] available and we're always open to PRs to improve it!
-
-Both [Rancher Desktop][rancher-desktop] and [`kim`][kim] are new and evolving fast!
+[Rancher Desktop][rancher-desktop] is still very new and evolving fast!
 We're always excited to see new tools in the local Kubernetes space - if you're using Rancher Desktop with Tilt, [let us know][tilt-contact] ❤️
 
-[immutable-tags]: https://docs.tilt.dev/custom_build.html#why-tilt-uses-immutable-tags
-[kim]: https://github.com/rancher/kim
+[containerd]: https://containerd.io/
+[k3s]: https://k3s.io/
 [rancher-desktop]: https://rancherdesktop.io/
+[rd-issues-1081]: https://github.com/rancher-sandbox/rancher-desktop/issues/1081
 [tilt-contact]: https://tilt.dev/contact
-[tilt-ext-kim]: https://github.com/tilt-dev/tilt-extensions/tree/master/kim
-[tilt-extensions]: https://docs.tilt.dev/contribute_extension.html
 [tiltfile-custom-build]: https://docs.tilt.dev/api.html#api.custom_build
 [tiltfile-docker-build]: https://docs.tilt.dev/api.html#api.docker_build
