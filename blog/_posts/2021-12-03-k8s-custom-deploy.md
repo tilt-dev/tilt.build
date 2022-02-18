@@ -108,7 +108,7 @@ Be sure to check it out if you're looking to use [Knative serving][knative] with
 
 [api-docker_build]: https://docs.tilt.dev/api.html#api.docker_build
 [api-helm]: https://docs.tilt.dev/api.html#api.helm
-[api-k8s_custom_deploy]: https://docs.tilt.dev/api.html#api.k8s_custom_depliy
+[api-k8s_custom_deploy]: https://docs.tilt.dev/api.html#api.k8s_custom_deploy
 [api-k8s_yaml]: https://docs.tilt.dev/api.html#api.k8s_yaml
 [api-k8s_resource]: https://docs.tilt.dev/api.html#api.k8s_resource
 [api-local_resource]: https://docs.tilt.dev/api.html#api.local_resource
