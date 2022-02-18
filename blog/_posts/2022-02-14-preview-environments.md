@@ -136,7 +136,7 @@ ConfigMap expires, the controller tears down the one-time-use K3D cluster.
 ## What I Learned
 
 OK! So this works. You can try it yourself. I hit a lot of gotchas. Some of them
-surprised me but some of them are probebly obvious. There's one that all the
+surprised me. There's one that all the
 security nerds are probably screaming at me as they read this:
 
 ### Kubernetes In Kubernetes is not secure at all!!!
