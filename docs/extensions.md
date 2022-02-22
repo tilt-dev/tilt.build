@@ -113,7 +113,7 @@ load('ext://hello_world', 'hi')
 This is a shorthand with nice defaults. You could write it like this:
 
 ```python
-v1alpha1.extension_repo(name='default', url='https://github.com/tilt-dev/tilt-extensions', ref='HEAD')
+v1alpha1.extension_repo(name='default', url='https://github.com/tilt-dev/tilt-extensions')
 v1alpha1.extension(name='hello_world', repo_name='default', repo_path='hello_world')
 load('ext://hello_world', 'hi')
 ```
@@ -142,20 +142,30 @@ For example, you can fork the shared `tilt-extensions` repo, use a `stable` tag
 to denote the version that most people should use, then add some code to your Tiltfile to pin it:
 
 ```python
-v1alpha1.extension_repo(name='default', url='https://github.com/my-org/tilt-extensions', ref='stable')
+v1alpha1.extension_repo(name='default', url='https://github.com/my-org/tilt-extensions', ref='v0.25.0')
 load('ext://hello_world', 'hi')
 ```
 
 Alternatively, you can add new extension repos alongside the default one.
 
 ```python
-v1alpha1.extension_repo(name='my-repo', url='https://github.com/my-org/tilt-extensions', ref='HEAD')
+v1alpha1.extension_repo(name='my-repo', url='https://github.com/my-org/tilt-extensions')
 v1alpha1.extension(name='hello_world', repo_name='my-repo', repo_path='hello_world')
 load('ext://hello_world', 'hi')
 ```
 
 Notice that in the above, we define `hello_world` to pull its source from
 `my-repo` rather than `default`.
+
+If your extension repo is private, you'll need to configure git to authenticate
+against the private repo in the background. A common pattern (borrowed from [the
+Go FAQ](https://go.dev/doc/faq#git_https)) is to setup your Git repo for SSH and
+add these lines to your `~/.gitconfig`:
+
+```
+[url "ssh://git@github.com/"]
+	insteadOf = https://github.com/
+```
 
 ## Debugging Extension Loading with the CLI
 
