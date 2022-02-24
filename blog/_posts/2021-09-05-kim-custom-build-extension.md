@@ -14,7 +14,7 @@ tags:
 
 ---
 
-## **UPDATE**: The `kim` project is not currently active
+## **UPDATE February 2022**: The `kim` project is not currently active
 
 If you're using Rancher Desktop, don't fret!
 
