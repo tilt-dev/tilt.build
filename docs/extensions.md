@@ -138,7 +138,7 @@ shared functions from a relative path.
 
 The `extension_repo` API lets you replace the default repo with your own fork.
 
-For example, you can fork the shared `tilt-extensions` repo, use a `stable` tag 
+For example, you can fork the shared `tilt-extensions` repo, use a `v0.25.0` tag 
 to denote the version that most people should use, then add some code to your Tiltfile to pin it:
 
 ```python
