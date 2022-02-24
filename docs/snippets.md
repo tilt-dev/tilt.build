@@ -20,7 +20,11 @@ hideHelpfulForm: true
 
   {% for name in allkeys %}
   {% assign snippet = snippets[name] %}
-  <li id="snip_{{name}}" class="Docs-snippets-item" data-codeblock="snip_{{name}}" data-tags="{{ snippet.tags | sort | join: ' '}}">
+  {% assign tags = "" %}
+  {% if snippet.tags %}
+    {% assign tags = snippet.tags | sort | join: ' ' %}
+  {% endif %}
+  <li id="snip_{{name}}" class="Docs-snippets-item" data-codeblock="snip_{{name}}" data-tags="{{tags}}">
     <div class="Docs-snippets-content">
       <header class="Docs-snippets-item-header">
         <div>
