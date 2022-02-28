@@ -1,6 +1,6 @@
 ---
 slug: "tilt-news-february-2022"
-date: 2022-02-25
+date: 2022-02-28
 author: lian
 layout: blog
 title: "Tilt News, February 2022"
@@ -31,7 +31,8 @@ More and more we are seeing Tilt integrated in a bigger framework of tools and p
 Nick has spent some time to make it easy to spin up short-lived dev environments to showcase Tilt. In his [latest blog post](https://blog.tilt.dev/2022/02/17/preview-environments.html), he explains what he learned working on this, and how that all relates to `kink` 🤭.
 
 
-One of our most popular blog posts got a revamp! A lot has changed, since Milas first wrote about how to [switch from Docker to Rancher Desktop](https://blog.tilt.dev/2021/09/07/rancher-desktop.html), so we felt it necessary to bring it up to date. A new blog post detailing the pros and cons of each technology is soon to follow. Stay tuned.
+One of our most popular blog posts got a revamp!  
+A lot has changed, since Milas first wrote about how to [switch from Docker to Rancher Desktop](https://blog.tilt.dev/2021/09/07/rancher-desktop.html), so we felt it necessary to bring it up to date. A new blog post detailing the pros and cons of each technology is soon to follow. Stay tuned.
 
 
 ## Using Tilt got even better. Whether you're...
