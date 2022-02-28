@@ -3,7 +3,7 @@ slug: "dev-env-libraries"
 date: 2022-02-24
 author: nick
 layout: blog
-title: "Defining Your Own Library of Dev Env Patterns"
+title: "Defining Your Own Pattern Library"
 subtitle: "Announcing Updates to the Tilt Extensions API"
 description: "Announcing Updates to the Tilt Extensions API"
 image: "/assets/images/dev-env-libraries/cover.jpg"
