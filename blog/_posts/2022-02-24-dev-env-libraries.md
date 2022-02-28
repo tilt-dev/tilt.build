@@ -1,6 +1,6 @@
 ---
 slug: "dev-env-libraries"
-date: 2022-02-24
+date: 2022-03-01
 author: nick
 layout: blog
 title: "Defining Your Own Pattern Library"
