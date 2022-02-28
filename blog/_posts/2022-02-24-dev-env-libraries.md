@@ -124,7 +124,7 @@ add these lines to your `~/.gitconfig`:
 ## Sharing Extensions with the Community
 
 If you have an extension that you think would be generally useful, we love to
-see people contribute them back to the main repo!
+see people contribute them back to the [main repo](https://github.com/tilt-dev/tilt-extensions)!
 
 For more detail on the new extension system, check out:
 
