@@ -3,11 +3,11 @@ slug: "resource-catalog"
 date: 2022-03-03
 author: lizz
 layout: blog
-title: "Running just a few of your many services should be easier"
-subtitle: "Learn how you can use Tilt to build a flexible, browsable resource catalog for your team"
-description: "Learn how you can use Tilt to build a flexible, browsable resource catalog for your team"
-image: ""
-image_caption: ""
+title: "Running just a few of your many services should be easy"
+subtitle: "Use Tilt to build a flexible, browsable resource catalog for your team"
+description: "Use Tilt to build a flexible, browsable resource catalog for your team"
+image: "/assets/images/disable-resources/pen-catalog.jpg"
+image_caption: "Photo by <a href='https://unsplash.com/@amseaman?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText'>Andrew Seaman</a> on <a href='https://unsplash.com/?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText'>Unsplash</a>"
 tags:
   - tilt
   - api
@@ -80,10 +80,10 @@ You can define sensible defaults for engineers, like grouping services based on 
 $ tilt up data_team
 
 # Bring up an additional resource outside of the data_team group
-$ tilt enable service_m
+$ tilt enable service_a
 
 # Bring down resources from the data_team that are no longer needed
-$ tilt disable service_a service_b
+$ tilt disable service_b service_d
 ```
 
 Organizing your resources with labels is particularly useful so engineers can quickly enable and disable all resources in a group using the UI.
