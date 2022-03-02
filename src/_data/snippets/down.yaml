@@ -1,0 +1,10 @@
+---
+title: Handle tilt down
+description: "Do a custom action on 'tilt down'"
+code: |
+  if config.tilt_subcommand == 'down':
+    print('Goodbye world!')
+tags:
+- tiltfile
+- local
+contributor: nicks
