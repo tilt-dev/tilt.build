@@ -204,3 +204,24 @@ see people contribute them!
 Check out our [contributing extensions](contribute_extension.html) guide
 for more detail on the pull request and review process.
 
+## A Note on Upgrading from Old Versions
+
+Before `v0.25.0`, Tilt would download your extension code in `tilt_modules`
+directory next to your Tiltfile.
+
+We found this led to a lot of grief for both extension authors and for teams
+setting up dev environments, in particular:
+
+- How vendoring should work in a monorepo.
+
+- How vendoring should work when there are multiple independent Tiltfiles.
+
+- Where extensions should store files that they download.
+
+- How to exclude extension code from Docker builds and file watching.
+
+With `v0.25.0`, Tilt stores your extension code in your XDG data directory, a
+standard for storing application data. The specific location of the downloaded
+extension will depend on your OS. You can use the XDG environment variables to
+customize where the extension code is stored. See the [XDG Base Directory
+guide](https://wiki.archlinux.org/title/XDG_Base_Directory) for more details.
