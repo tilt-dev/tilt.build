@@ -101,7 +101,7 @@ docker_build(
     context='.',
 )
 ```
-💁‍♀️ Take a look at our [Switch to Docker Desktop in 5 Minutes][blog-rancher-desktop-switch] post for a more detailed walkthrough.
+💁‍♀️ Take a look at our [Switch to Rancher Desktop in 5 Minutes][blog-rancher-desktop-switch] post for a more detailed walkthrough.
 
 If containerd is already used under the hood by Docker, why might you use Rancher Desktop with the Docker runtime?
 
