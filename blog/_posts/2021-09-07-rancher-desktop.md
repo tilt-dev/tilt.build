@@ -35,6 +35,9 @@ However, behind the scenes, there's a couple notable differences:
 
 As a Docker Desktop moving to Rancher Desktop, the quickest way (I did promise you could do this in 5 minutes after all!) is to configure Rancher Desktop to use Docker as the container runtime. 
 
+Pssst...interested in using Rancher Desktop + **containerd** with Tilt? 👀
+Take a look at another of our blog posts in the Rancher Desktop series: [Rancher Desktop: Should You Use containerd Or dockerd?][blog-rancher-desktop-runtimes].
+
 ---
 #### ⚠️ Watch Out!
 You cannot run both Docker Desktop and Rancher Desktop (in `dockerd` mode) simultaneously!
@@ -62,6 +65,7 @@ Hopefully, you never have to think about it because Tilt takes care of finding t
 [Rancher Desktop][rancher-desktop] is still very new and evolving fast!
 We're always excited to see new tools in the local Kubernetes space - if you're using Rancher Desktop with Tilt, [let us know][tilt-contact] ❤️
 
+[blog-rancher-desktop-runtimes]: /2022/02/24/rancher-desktop-container-runtimes.html
 [containerd]: https://containerd.io/
 [k3s]: https://k3s.io/
 [rancher-desktop]: https://rancherdesktop.io/
