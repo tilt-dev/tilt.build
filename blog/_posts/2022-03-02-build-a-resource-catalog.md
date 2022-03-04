@@ -7,7 +7,7 @@ title: "Running just a few of your many services should be easy"
 subtitle: "Use Tilt to build a flexible, browsable resource catalog for your team"
 description: "Use Tilt to build a flexible, browsable resource catalog for your team"
 image: "/assets/images/disable-resources/pen-catalog.jpg"
-image_caption: "Photo by <a href='https://unsplash.com/@amseaman?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText'>Andrew Seaman</a> on <a href='https://unsplash.com/?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText'>Unsplash</a>"
+image_caption: "Photo by <a href='https://unsplash.com/@amseaman?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText' target='_blank'>Andrew Seaman</a> on <a href='https://unsplash.com/?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText' target='_blank'>Unsplash</a>"
 tags:
   - tilt
   - api
