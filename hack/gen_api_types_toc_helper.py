@@ -14,7 +14,7 @@ with open('docs/_data/api/classes.yaml') as f:
   file.pop(0)
   for line in file:
     name = line[2:]
-    href = "modules." if "." in name else "api."
+    href = "api."
     href += name
     typeCmds.append('        - title: %s' % name)
     typeCmds.append('          href: api.html#%s' % href)

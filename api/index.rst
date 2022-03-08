@@ -4,20 +4,20 @@ Tiltfile API Reference
 .. automodule:: api
    :members:
 
-.. automodule:: modules.os
+.. automodule:: api.os
    :members:
 
-.. automodule:: modules.os.path
+.. automodule:: api.os.path
    :members:
 
-.. automodule:: modules.config
+.. automodule:: api.config
    :members:
 
-.. automodule:: modules.shlex
+.. automodule:: api.shlex
    :members:
 
-.. automodule:: modules.sys
+.. automodule:: api.sys
    :members:
       
-.. automodule:: modules.v1alpha1
+.. automodule:: api.v1alpha1
    :members:
