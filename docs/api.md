@@ -16,9 +16,6 @@ Tiltfiles are written in _Starlark_, a dialect of Python. For more information o
 {% for name in site.data.api.functions.functions %}
 
 {% assign anchor = "api." | append: name %}
-{% if name contains "." %}
-  {% assign anchor = "modules." | append: name %}
-{% endif %}
 
 <li><a href="#{{anchor}}">{{ name }}</a></li>
 {% endfor %}
@@ -36,9 +33,6 @@ Tiltfiles are written in _Starlark_, a dialect of Python. For more information o
 {% for name in site.data.api.classes.classes %}
 
 {% assign anchor = "api." | append: name %}
-{% if name contains "." %}
-  {% assign anchor = "modules." | append: name %}
-{% endif %}
   
 <li><a href="#{{anchor}}">{{ name }}</a></li>
 {% endfor %}
@@ -56,9 +50,6 @@ Tiltfiles are written in _Starlark_, a dialect of Python. For more information o
 {% for name in site.data.api.data.data %}
 
 {% assign anchor = "api." | append: name %}
-{% if name contains "." %}
-  {% assign anchor = "modules." | append: name %}
-{% endif %}
 
 <li><a href="#{{anchor}}">{{ name }}</a></li>
 {% endfor %}

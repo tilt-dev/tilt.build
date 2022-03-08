@@ -82,7 +82,7 @@ $ tilt disable --all
 
 To define a default or programmatic list of enabled resources, you can use the config built-ins from your Tiltfile. The [Tiltfile config guide](tiltfile_config.html#examples) walks through detailed examples of enabling and configuring groups of resources.
 
-To disable all resources by default, you can call [`config.clear_enabled_resources()`](api.html#modules.config.clear_enabled_resources) in your Tiltfile. This starts Tilt with all resources disabled and visible in the UI, where you can selectively enable what you need.
+To disable all resources by default, you can call [`config.clear_enabled_resources()`](api.html#api.config.clear_enabled_resources) in your Tiltfile. This starts Tilt with all resources disabled and visible in the UI, where you can selectively enable what you need.
 
 ```python
 # from your Tiltfile
