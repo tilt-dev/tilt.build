@@ -4,24 +4,26 @@ layout: docs
 sidebar: reference
 hideEditButton: true
 ---
-## tilt dump openapi
+## tilt dump api-docs
 
-Print the openapi spec of the current tilt binary
+dump the Tiltfile api documentation stub files
+
+### Synopsis
+
+Dumps the api documentation stub files to the provided directory.
+
+The api stub files define the builtin functions, modules, and types used in Tiltfiles.
+
 
 ```
-tilt dump openapi [flags]
-```
-
-### Examples
-
-```
-tilt dump openapi > swagger.json
+tilt dump api-docs [flags]
 ```
 
 ### Options
 
 ```
-  -h, --help   help for openapi
+      --dir string   The directory to dump to (default ".")
+  -h, --help         help for api-docs
 ```
 
 ### Options inherited from parent commands

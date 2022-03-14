@@ -526,7 +526,7 @@ sidebar:
         info: 'Start Tilt in CI/batch mode with the given Tiltfile args'
       - title: tilt completion
         href: cli/tilt_completion.html
-        info: 'generate the autocompletion script for the specified shell'
+        info: 'Generate the autocompletion script for the specified shell'
       - title: tilt create
         href: cli/tilt_create.html
         info: 'Create a resource from a file or from stdin.'
@@ -572,6 +572,9 @@ sidebar:
       - title: tilt logs
         href: cli/tilt_logs.html
         info: 'Get logs from a running Tilt instance (optionally filtered for the specified resources)'
+      - title: tilt lsp
+        href: cli/tilt_lsp.html
+        info: 'Language server for Starlark'
       - title: tilt patch
         href: cli/tilt_patch.html
         info: 'Update fields of a resource'
