@@ -4,7 +4,7 @@ date: 2022-03-30
 author: lian
 layout: blog
 title: "Tilt News, March 2022"
-image: "/assets/images/tilt-news-march-2022/pexels-helena-jankovičová-kováčová-6470648.jpg"
+image: "/assets/images/tilt-news-march-2022/pexels-green-windmills.jpg"
 image_caption: "A dutch windmill and house all in green. Photo by Helena Jankovičová Kováčová from <a href='https://www.pexels.com/photo/a-green-windmill-near-the-house-6470648/'>Pexels</a>"
 description: "Updated posts and cool new stuff we found during spring-cleaning 🌼"
 tags:
