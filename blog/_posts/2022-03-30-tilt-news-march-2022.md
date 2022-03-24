@@ -47,7 +47,6 @@ Highlights below:
 
 ![](/assets/images/tilt-news-march-2022/album_2022-03-03_19-43-27.gif)
 
----
 
 If you have any questions, comments, or ideas, please join our channel in the [Kubernetes Slack](https://slack.k8s.io/) or message us on [Twitter](https://twitter.com/tilt_dev) or [email](mailto:news@tilt.dev?subject=Tilt%20News%20March%202022) 👋
 
