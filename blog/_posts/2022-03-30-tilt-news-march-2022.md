@@ -39,7 +39,7 @@ But also, more seasoned Tilters should not have to remember or constantly look u
 
 ## Behind the scenes
 
-Once in a while, we get together virtually to share some laughs and play some games. This time we tried a [remote version of the telephone game](https://garticphone.com/) in which each player has to either paint from a written prompt or describe the image they’re given.  
+Once in a while, we get together virtually to share some laughs and play some games. This time we tried a [remote version of the telephone game](https://garticphone.com/) in which each player has to either paint from a written prompt or describe the image they’re given or recreate an image from memory.  
 Highlights below:
 
 ![](/assets/images/tilt-news-march-2022/album_2022-03-03_13-21-39.gif)
