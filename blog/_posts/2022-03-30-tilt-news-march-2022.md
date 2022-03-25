@@ -35,7 +35,11 @@ One of the reasons why we think Tilt is great, is because it easily integrates w
 
 ### ...and writing Tiltfiles
 Working with your Tiltfile should be fun, not tiresome. To that end, we recently released the [Snippet Library](https://docs.tilt.dev/snippets.html) to get you started in no time.  
-But also, more seasoned Tilters should not have to remember or constantly look up function signatures and the likes. Therefore, we are proud to present our [official VS Code extension for Tiltfiles](https://marketplace.visualstudio.com/items?itemName=tilt-dev.Tiltfile).  The extension is currently still in alpha stage, so you might encounter some issues here and there. We appreciate all bug reports and feature requests to our [GitHub repo](https://github.com/tilt-dev/vscode-tilt).
+But also, more seasoned Tilters should not have to remember or constantly look up function signatures and the likes. Therefore, we are proud to present our [official VS Code extension for Tiltfiles](https://marketplace.visualstudio.com/items?itemName=tilt-dev.Tiltfile).  
+
+![](/assets/images/tilt-news-march-2022/vscode-extension.gif)
+
+The extension is currently still in alpha stage, so you might encounter some issues here and there. We appreciate all bug reports and feature requests to our [GitHub repo](https://github.com/tilt-dev/vscode-tilt).
 
 ## Behind the scenes
 
