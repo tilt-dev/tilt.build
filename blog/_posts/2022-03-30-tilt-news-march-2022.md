@@ -16,10 +16,10 @@ tags:
 This month, vacation season started at Tilt, so we’re going to have a very brief update.
 
 ## Updates from the ecosystem
-Developer tooling is gaining more and more attention from engineers and investors alike. While that means tougher competition, in our opinion, this will also improve the quality of the overall ecosystem.  
+The developer experience on Kubernetes needs attention. More and more engineers are pitching in. VCs are taking notice. While that means tougher competition, in our opinion, this will also improve the quality of the overall ecosystem.  
 So, we’re excited to congratulate [Okteto on their Series A](https://www.okteto.com/blog/a-15m-series-a-to-disrupt-modern-development/) and [Signadot](https://www.prnewswire.com/news-releases/y-combinator-alum-signadot-raises-4m-led-by-redpoint-ventures-to-reimagine-microservices-testing-on-kubernetes-301488164.html) on their Seed funding!
 
-## Optimize your Tilt experience
+## If you upgraded Tilt this month, you’ll have more fun
 
 ### ...running containers locally
 Many of our users have been experimenting with all kinds of local container orchestration tools to suit their individual needs. Since we last wrote about Rancher Desktop, a lot has changed. In this blog post, Milas gives us a [rundown of different container runtimes with Rancher Desktop](https://blog.tilt.dev/2022/03/04/rancher-desktop-container-runtimes.html).
@@ -30,8 +30,8 @@ Our vision for Tilt is to make developers’ lives easier. But we don’t stop a
 ### ...running subsets of resources
 Just a couple of weeks ago, we released the [Disable Resources Feature](https://docs.tilt.dev/disable_resources.html). With that in place, teams and individual devs can now [create a catalog of resources](https://blog.tilt.dev/2022/03/03/resource-catalog.html), tailored to their specific requirements and workflows. Spinning up only the resources you need, while still being able to bring up disabled resources with just one click is now a breeze.
 
-### ...managing Pulumi resources
-One of the reasons why we think Tilt is great, is because it easily integrates with other tools. With the new Pulumi extension, it’s no big deal to [manage Pulumi resources from your Tiltfile](https://blog.tilt.dev/2022/03/23/pulumi.html)!
+### ...defining dev environments with Pulumi scripts
+One of the reasons why we think Tilt is great, is because it easily integrates with other tools. With the new Pulumi extension, you can [speed up dev cycles on your Pulumi apps](https://blog.tilt.dev/2022/03/23/pulumi.html) with little effort.
 
 ### ...and writing Tiltfiles
 Working with your Tiltfile should be fun, not tiresome. To that end, we recently released the [Snippet Library](https://docs.tilt.dev/snippets.html) to get you started in no time.  
@@ -39,7 +39,7 @@ But also, more seasoned Tilters should not have to remember or constantly look u
 
 ## Behind the scenes
 
-Once in a while, we get together virtually to share some laughs and play some games. This time we tried a remote version of the telephone game in which each player has to either paint from a written prompt or describe the image they’re given.  
+Once in a while, we get together virtually to share some laughs and play some games. This time we tried a [remote version of the telephone game](https://garticphone.com/) in which each player has to either paint from a written prompt or describe the image they’re given.  
 Highlights below:
 
 ![](/assets/images/tilt-news-march-2022/album_2022-03-03_13-21-39.gif)
@@ -47,6 +47,9 @@ Highlights below:
 
 ![](/assets/images/tilt-news-march-2022/album_2022-03-03_19-43-27.gif)
 
+We had an absolute blast playing this and can highly recommend it to other remote teams.
+
+---
 
 If you have any questions, comments, or ideas, please join our channel in the [Kubernetes Slack](https://slack.k8s.io/) or message us on [Twitter](https://twitter.com/tilt_dev) or [email](mailto:news@tilt.dev?subject=Tilt%20News%20March%202022) 👋
 
