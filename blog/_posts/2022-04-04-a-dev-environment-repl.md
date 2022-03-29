@@ -23,13 +23,13 @@ REPLs encourage experimentation and learning by efficiently providing a tight fe
 
 Some languages use REPLs as the focal point for writing code (see Smalltalk, and to an extent, any member of the Lisp family), while others (C/C++ and many compiled languages) don't come with any built-in REPL at all. More recently, online services let you try a language or share runnable snippets without having to download any software at all (see [Ruby][tryruby], [Go][goplay], and [JavaScript][repljs]).
 
-Tilt, as a tool for assembling development environments, is all about tight [feedback loops][controlloop]. Tilt responds to changes in your environment in the same way that the REPL snaps to action when you hit ENTER. One of the changes Tilt responds to is changes to the `Tiltfile`, Tilt's own [Starlark][starlark]-based configuration file. With a little creativity and flexibility, we can run Tilt in a terminal inside or next to our editor (`tilt up --stream`) and mimic the feedback and responsiveness of a REPL:
+Tilt, as a tool for assembling development environments, is all about tight [feedback loops][controlloop]. Tilt responds to changes in your environment in the same way that the REPL snaps to action when you hit ENTER. One of the events Tilt responds to is changes to the `Tiltfile`, Tilt's own [Starlark][starlark]-based configuration file. With a little creativity and flexibility, we can run Tilt in a terminal inside or next to our editor (`tilt up --stream`) and mimic the feedback and responsiveness of a REPL:
 
 ![Tilt Fibonacci example](/assets/images/a-dev-environment-repl/tilt-fib.gif)
 
-The result is a loop that feels surprisingly responsive: write a bit of code, hit `Ctrl-S` or `⌘-S`, and see the result! If you're exploring Tilt and haven't used Python or Starlark much, this can be a great way to fool around and get your bearings with tiltfile syntax or builtins.
+The result is a loop that feels surprisingly responsive: write a bit of code, hit `Ctrl-S` or `⌘-S`, and see the result! If you're exploring Tilt and haven't used Starlark (or Python, Starlark's parent language), this can be a great way to fool around and get your bearings with tiltfile syntax or builtins.
 
-You may have noticed Tilt complaining at the end of the loop about "No resources found". We implemented and ran a Fibonacci function in Starlark, but didn't give Tilt anything else to do. Tilt is that eager puppy that will keep fetching the ball, finding it unsatisfying and wishing it was a bone to chew on instead. Tilt primarily wants to build and run things for you; Starlark is the flexible medium through which you describe what to run and build.
+You may have noticed Tilt complaining at the end of the loop about "No resources found". We implemented and ran a Fibonacci function in Starlark, but didn't give Tilt anything else to do. Tilt primarily wants to build and run things for you; Starlark is the flexible medium through which you describe what to run and build. Tilt is that eager puppy that will keep fetching the ball, though finding it unsatisfying and wishing it was a bone to chew on instead. 
 
 It's at this point in the experimentation phase where it helps to view Tilt as a [replacement for Bash](/2018/12/05/tilt-is-the-start-sh-script-of-my-dreams.html) or your command-line shell of choice. Think about activities you normally would type into your shell and see if you can wire them into your tiltfile and have Tilt run them for you. For example, maybe you're sitting down at the keyboard at the beginning of your work day and would normally use `git` to pull new changes to your code. Instead, create a `local_resource` to do it for you:
 
@@ -73,8 +73,8 @@ Successfully loaded Tiltfile (1.407958ms)
   update-code │
   update-code │ 1 File Changed: [Tiltfile]
   update-code │ Running cmd: sh -c "if [ \"$(git status -s)\" ]; then\n\techo \"You have local changes:\"\n\tgit status -s\nelse\n    echo \"Pulling latest code:\"\n\tgit pull\nfi"
-  update-code │ Pulling latest code:
-  update-code │ Already up to date.
+  update-code │ You have local changes:
+  update-code │ ?? Tiltfile
 ```
 
 Moving on, let's say you're working on a JavaScript project, and the next thing you tend to do is check if `package.json` had any updates, then you remind yourself that you need to run `yarn install` to pick up any new updates. Let's create a resource for that too:
@@ -88,6 +88,8 @@ However, Tilt is designed to be responsive to changes in your environment. For a
 ```python
 local_resource("dependencies", "yarn install", deps=["package.json", "yarn.lock"])
 ```
+
+With this change, the next time you pull or make changes to `package.json` while Tilt is running, Tilt will run `yarn install` for you.
 
 Of course, if your app runs as a Node.JS server as well, that can be added to the resource with a `serve_cmd`. Now the resource is handling more than dependencies: it's [building and running the app][snip].
 
