@@ -1,6 +1,6 @@
 ---
 slug: "a-dev-environment-repl"
-date: 2022-03-25
+date: 2022-04-04
 author: siegs
 layout: blog
 title: A REPL for your dev environment
