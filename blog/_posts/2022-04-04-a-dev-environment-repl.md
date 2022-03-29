@@ -4,8 +4,8 @@ date: 2022-04-04
 author: siegs
 layout: blog
 title: A REPL for your dev environment
-image:
-image_caption:
+image: /assets/images/a-dev-environment-repl/curly.jpg
+image_caption: '"Curly" by <a href="https://www.flickr.com/photos/gammaman/6212822745/">Eli Christman</a>'
 description: How Tilt can power experimentation and a fast feedback loop
 tags:
 - repl
