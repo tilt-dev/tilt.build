@@ -1,10 +1,14 @@
 ---
-title: Python Debuggers in Tilt
+title: Connecting Debuggers
 description: "Debuggers are an invaluable part of many development workflows. This guide contains examples of how to make them work again in Kubernetes."
 layout: docs
+sidebar: guides
 ---
 
 Debuggers are an invaluable part of many development workflows. When you're running your app(s) in Kubernetes, using debuggers suddenly gets much harder, but Tilt's port forwarding functionality makes it easy again.
+
+In this guide, we'll walk you through an example of how to connect a Python
+debugger to a container in a Tilt env. Debuggers in most languages use these patterns.
 
 [This repository](https://github.com/tilt-dev/tilt-example-python/tree/master/debugger-examples) contains some examples of how to use various remote debuggers against Tilt. We'll examine the `remote-pdb` case in detail below (see [this directory](https://github.com/tilt-dev/tilt-example-python/tree/master/debugger-examples/remote-pdb)), but the bulk of these steps apply when setting up Tilt with _any_ remote debugger, and only the very end of this guide varies based on your choice of tool. 
 
@@ -74,3 +78,9 @@ Use [`local_resource`](/local_resource.html) to spin it up.
 
 Once you've got it running, consider packaging it up as [a Tilt
 extension](/extensions.md) for others to use.
+
+## Sample Code
+
+- [Python Remote PDB](https://github.com/tilt-dev/tilt-example-python/tree/master/debugger-examples/remote-pdb)
+- [Python Web PDB](https://github.com/tilt-dev/tilt-example-python/tree/master/debugger-examples/web-pdb)
+- [NodeJS](https://github.com/tilt-dev/tilt-example-nodejs/blob/master/101-debugger/Tiltfile)
