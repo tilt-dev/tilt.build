@@ -577,6 +577,9 @@ sidebar:
       - title: tilt patch
         href: cli/tilt_patch.html
         info: 'Update fields of a resource'
+      - title: tilt snapshot
+        href: cli/tilt_snapshot.html
+        info: ''
       - title: tilt trigger
         href: cli/tilt_trigger.html
         info: 'Trigger an update for the specified resource'
