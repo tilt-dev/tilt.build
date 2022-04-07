@@ -12,7 +12,7 @@ All code is public and open source. We appreciate contributions of all kinds.
 
 ## VS Code
 The [official `Tiltfile` extension](https://marketplace.visualstudio.com/items?itemName=tilt-dev.Tiltfile) is available at the VS Code marketplace.  
-It provides syntax highlighting, autocomplete and signature support for `Tilfile` functions.
+It provides syntax highlighting, autocomplete and signature support for `Tiltfile` functions.
 
 ![](assets/img/vscode-extension.gif)
 
