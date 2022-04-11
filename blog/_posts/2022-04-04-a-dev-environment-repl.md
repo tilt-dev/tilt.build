@@ -110,6 +110,13 @@ Again, all of these changes can be applied while Tilt is running, and you can se
 
 While Tilt is great at managing your dev environment when the `Tiltfile` is fully baked, don't sleep on the idea of using Tilt and the `Tiltfile` in a more dynamic way to experiment with your project. In addition to building and running servers, Tilt can also run tests, linters, debuggers, and other tools alongside your development servers. Using the [recently-released][catalog] [disable resources feature][disable], you can add resources for these features such that you can enable them when needed, and they won't get in the way of existing workflows.
 
+If you and your team already have a `Tiltfile` in source control and you want to encourage more customization and experimentation, consider adding some code to check for and include a `local.tiltfile` to allow individual developers to experiment with Tilt:
+
+```python
+if os.path.exists('local.tiltfile'):
+    load_dynamic('local.tiltfile')
+```
+
 Looking for ideas on where to go from here?
 
 - Read more on options to [manage multiple applications/repositories with Tilt][repos].
