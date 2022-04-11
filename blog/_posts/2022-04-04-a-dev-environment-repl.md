@@ -27,11 +27,11 @@ Tilt, as a tool for assembling development environments, is all about tight [fee
 
 ![Tilt Fibonacci example](/assets/images/a-dev-environment-repl/tilt-fib.gif)
 
-The result is a loop that feels surprisingly responsive: write a bit of code, hit `Ctrl-S` or `⌘-S`, and see the result! If you're exploring Tilt and haven't used Starlark (or Python, Starlark's parent language), this can be a great way to fool around and get your bearings with tiltfile syntax or builtins.
+The result is a loop that feels surprisingly responsive: write a bit of code, hit `Ctrl-S` or `⌘-S`, and see the result! If you're exploring Tilt and haven't used Starlark (or Python, Starlark's parent language), this can be a great way to fool around and get your bearings with `Tiltfile` syntax or builtins.
 
 You may have noticed Tilt complaining at the end of the loop about "No resources found". We implemented and ran a Fibonacci function in Starlark, but didn't give Tilt anything else to do. Tilt primarily wants to build and run things for you; Starlark is the flexible medium through which you describe what to run and build. Tilt is that eager puppy that will keep fetching the ball, though finding it unsatisfying and wishing it was a bone to chew on instead. 
 
-It's at this point in the experimentation phase where it helps to view Tilt as a [replacement for Bash](/2018/12/05/tilt-is-the-start-sh-script-of-my-dreams.html) or your command-line shell of choice. Think about activities you normally would type into your shell and see if you can wire them into your tiltfile and have Tilt run them for you. For example, maybe you're sitting down at the keyboard at the beginning of your work day and would normally use `git` to pull new changes to your code. Instead, create a `local_resource` to do it for you:
+It's at this point in the experimentation phase where it helps to view Tilt as a [replacement for Bash](/2018/12/05/tilt-is-the-start-sh-script-of-my-dreams.html) or your command-line shell of choice. Think about activities you normally would type into your shell and see if you can wire them into your `Tiltfile` and have Tilt run them for you. For example, maybe you're sitting down at the keyboard at the beginning of your work day and would normally use `git` to pull new changes to your code. Instead, create a `local_resource` to do it for you:
 
 ```python
 local_resource("update-code", "git pull")
@@ -49,7 +49,7 @@ Successfully loaded Tiltfile (413.333µs)
   update-code │ Already up to date.
 ```
 
-Now Tilt will pull code for you when you `tilt up`. [Resources][resources] are Tilt's unit of work; in the case of a `local_resource`, it's a command to run on your local machine. Resources are stateful in that Tilt looks for changes to them every time the tiltfile is executed. So you can also experiment and iterate on resources; if Tilt detects relevant differences, it will re-execute the resource. Say that you find that `git pull` is not quite what you want Tilt to do; instead, you want some conditional logic to check if you have a clean working copy and only pull new changes then. You can change the `update-code` resource, all while Tilt is running:
+Now Tilt will pull code for you when you `tilt up`. [Resources][resources] are Tilt's unit of work; in the case of a `local_resource`, it's a command to run on your local machine. Resources are stateful in that Tilt looks for changes to them every time the `Tiltfile` is executed. So you can also experiment and iterate on resources; if Tilt detects relevant differences, it will re-execute the resource. Say that you find that `git pull` is not quite what you want Tilt to do; instead, you want some conditional logic to check if you have a clean working copy and only pull new changes then. You can change the `update-code` resource, all while Tilt is running:
 
 ```python
 script = """
@@ -108,13 +108,13 @@ Again, all of these changes can be applied while Tilt is running, and you can se
 
 ### Summary
 
-While Tilt is great at managing your dev environment when the tiltfile is fully baked, don't sleep on the idea of using Tilt and the tiltfile in a more dynamic way to experiment with your project. In addition to building and running servers, Tilt can also run tests, linters, debuggers, and other tools alongside your development servers. Using the [recently-released][catalog] [disable resources feature][disable], you can add resources for these features such that you can enable them when needed, and they won't get in the way of existing workflows.
+While Tilt is great at managing your dev environment when the `Tiltfile` is fully baked, don't sleep on the idea of using Tilt and the `Tiltfile` in a more dynamic way to experiment with your project. In addition to building and running servers, Tilt can also run tests, linters, debuggers, and other tools alongside your development servers. Using the [recently-released][catalog] [disable resources feature][disable], you can add resources for these features such that you can enable them when needed, and they won't get in the way of existing workflows.
 
 Looking for ideas on where to go from here?
 
 - Read more on options to [manage multiple applications/repositories with Tilt][repos].
-- Browse [our library of snippets][snippets] for more things you can do in your tiltfile.
-- Use our [hot-off-the-presses][extweet] [VS Code extension][vscode] (featured in the gif videos above) to help you write tiltfiles!
+- Browse [our library of snippets][snippets] for more things you can do in your `Tiltfile`.
+- Use our [hot-off-the-presses][extweet] [VS Code extension][vscode] (featured in the gif videos above) to help you write `Tiltfile`s!
 
 [lisp-pdp1]: http://s3data.computerhistory.org/pdp-1/DEC.pdp_1.1964.102650371.pdf
 [tryruby]: https://try.ruby-lang.org/
