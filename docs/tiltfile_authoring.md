@@ -4,6 +4,10 @@ description: "This tutorial walks you through setting up Tilt for your project."
 layout: docs
 sidebar: guides
 ---
+
+> 🖊️ **Need more direct guidance?**  
+> Check out our new [Editor Support page](./editor.html)
+
 This tutorial walks you through setting up Tilt for your project. 
 
 It should take 15 minutes, and assumes you've already [installed Tilt](install.html). Before you begin, you may want to join the `#tilt` channel in [Kubernetes Slack](http://slack.k8s.io) for technical and moral support.
