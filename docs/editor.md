@@ -4,8 +4,8 @@ layout: docs
 sidebar: gettingstarted
 ---
 
-Whether you're just starting or are a seasoned Tilter, writing `Tiltfile`s should be fun, not tedious.  
-Our goal with Tilt is to keep users in their development flow with minimal interruptions, that includes switching context to look up `Tiltfile` documentation.
+Whether you're just starting or are a seasoned Tilter, writing `Tiltfile`s should not be tedious.  
+We want to make it easy to experiment with your Tiltfile, so you can experience the magic of Tilt's responsiveness with minimal interruptions to your development flow, that includes switching context to look up `Tiltfile` documentation.
 
 We're offering Tiltfile support for [VS Code](https://code.visualstudio.com/) and select IDEs of the [JetBrains suite](https://www.jetbrains.com/products/#type=ide).  
 All code is public and open source. We appreciate contributions of all kinds.
