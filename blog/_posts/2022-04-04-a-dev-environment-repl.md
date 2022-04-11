@@ -13,17 +13,17 @@ tags:
 - dev environments
 - devtools
 ---
-Let's spend a moment pondering the foundation of software tools: the humble, trusty REPL. Call it by whatever name you like: console, terminal, shell, sandbox, debugger, scratch pad. The concept is almost as old as computing itself: dating back to an [early LISP implementation on the PDP-1 computer][lisp-pdp1], a Read-Eval-Print-Loop program is the essence of interactive computing.
+Many of us started programming with a REPL (Read-Eval-Print-Loop), whether we knew it at the time or not. (My own introduction came via Logo and Basic on the Apple II.) The thrill of entering obscure abbreviations and commands into the computer and receiving instant feedback can be a big dopamine hit. It can feel like playing a game with infinite lives, where you always have another chance to slay the boss 🐉. 
 
-Many of us started programming with a REPL, whether we knew it at the time or not. (My own introduction came via Logo and Basic on the Apple II.) The thrill of entering obscure abbreviations and commands into the computer and receiving instant feedback can be a big dopamine hit. It can feel like playing a game with infinite lives, where you always have another chance to slay the boss 🐉.
+REPLs encourage experimentation and learning by efficiently providing a tight feedback loop (almost literally; the PL in REPL being "Print Loop", where "print" serves as the feedback mechanism). Tilt, as a tool for scripting and assembling development environments, is all about tight [feedback loops][controlloop]. What do REPLs and Tilt have in common, and can we use Tilt like a REPL?
 
-REPLs encourage experimentation and learning by efficiently providing a tight feedback loop (almost literally; the PL in REPL being "Print Loop", where "print" serves as the feedback mechanism). Good REPLs help with exploration by providing completion and context awareness. Here's a simple example in Ruby:
+Good REPLs help with exploration by providing completion and context awareness, and always reflecting the result back to you. Here's a simple example in Ruby:
 
 ![Ruby IRB Fibonacci example](/assets/images/a-dev-environment-repl/irb-fib.gif)
 
 Some languages use REPLs as the focal point for writing code (see Smalltalk, and to an extent, any member of the Lisp family), while others (C/C++ and many compiled languages) don't come with any built-in REPL at all. More recently, online services let you try a language or share runnable snippets without having to download any software at all (see [Ruby][tryruby], [Go][goplay], and [JavaScript][repljs]).
 
-Tilt, as a tool for assembling development environments, is all about tight [feedback loops][controlloop]. Tilt responds to changes in your environment in the same way that the REPL snaps to action when you hit ENTER. One of the events Tilt responds to is changes to the `Tiltfile`, Tilt's own [Starlark][starlark]-based configuration file. With a little creativity and flexibility, we can run Tilt in a terminal inside or next to our editor (`tilt up --stream`) and mimic the feedback and responsiveness of a REPL:
+Tilt responds to changes in your environment when you modify your files in the same way that the REPL snaps to action when you hit ENTER. One of the events Tilt responds to is changes to the `Tiltfile`, Tilt's own [Starlark][starlark]-based configuration file. With a little creativity and flexibility, we can run Tilt in a terminal inside or next to our editor (`tilt up --stream`) and mimic the feedback and responsiveness of a REPL:
 
 ![Tilt Fibonacci example](/assets/images/a-dev-environment-repl/tilt-fib.gif)
 
@@ -123,7 +123,6 @@ Looking for ideas on where to go from here?
 - Browse [our library of snippets][snippets] for more things you can do in your `Tiltfile`.
 - Use our [hot-off-the-presses][extweet] [VS Code extension][vscode] (featured in the gif videos above) to help you write `Tiltfile`s!
 
-[lisp-pdp1]: http://s3data.computerhistory.org/pdp-1/DEC.pdp_1.1964.102650371.pdf
 [tryruby]: https://try.ruby-lang.org/
 [goplay]: https://go.dev/play/
 [repljs]: https://repljs.com
