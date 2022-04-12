@@ -1,0 +1,14 @@
+---
+title: Enable per-developer customizations
+description: Conditionally load a local.tiltfile for additional functionality
+code: |
+  # Remember to add `local.tiltfile` to .gitignore
+  if os.path.exists('local.tiltfile'):
+    load_dynamic('local.tiltfile')
+tags:
+- load_dynamic
+- tiltfile
+release_stage: released
+link:
+  title: "Load Dynamic"
+  href: "/api.html#api.load_dynamic"
