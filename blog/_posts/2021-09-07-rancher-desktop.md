@@ -65,7 +65,7 @@ Hopefully, you never have to think about it because Tilt takes care of finding t
 [Rancher Desktop][rancher-desktop] is still very new and evolving fast!
 We're always excited to see new tools in the local Kubernetes space - if you're using Rancher Desktop with Tilt, [let us know][tilt-contact] ❤️
 
-[blog-rancher-desktop-runtimes]: /2022/02/24/rancher-desktop-container-runtimes.html
+[blog-rancher-desktop-runtimes]: /2022/03/04/rancher-desktop-container-runtimes.html
 [containerd]: https://containerd.io/
 [k3s]: https://k3s.io/
 [rancher-desktop]: https://rancherdesktop.io/
