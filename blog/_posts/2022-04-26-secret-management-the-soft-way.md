@@ -199,7 +199,7 @@ Of course the big plus in this scenario is the full control over the entire life
 To summarize: There are a multitude of ways to get secrets inside Kubernetes, but keep in mind that you need to manage and secure them outside the cluster. Safeguarding your secrets relies on every single employee. Inconvenient or convoluted processes will compromise security efforts, as people will look for the path of the least resistance and grow less alert over time.
 When choosing the best security practice for your organization, start by understanding how your team works right now and try to find the tools and architecture that fits best to existing structures rather than reinventing the wheel.
 
-_You can find a somewhat functioning prototype of the solutions explained in this [repository][secret-mgmt-repo]_
+_You can find a prototype of the solutions explained in this [repository][secret-mgmt-repo]._
 
 [GitOps]: https://www.gitops.tech/
 [sealedsecrets]: https://github.com/bitnami-labs/sealed-secrets
