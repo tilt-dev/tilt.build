@@ -79,6 +79,7 @@ To access a secret in Google Cloud, we first need to provide the right credentia
 - Download the Serivce Account private key
 - Attach the private key to a secret
 - Pass the name of the secret into a Secret Store
+
 ```yaml
 apiVersion: v1
 kind: Secret
@@ -213,7 +214,10 @@ Of course the big plus in this scenario is the full control over the entire life
 To summarize: There are a multitude of ways to get secrets inside Kubernetes, but keep in mind that you need to manage and secure them outside the cluster, as well as securing the cluster itself. Safeguarding your secrets relies on every single employee. Inconvenient or convoluted processes will compromise security efforts, as people will look for the path of the least resistance and grow less alert over time.
 When choosing the best security practice for your organization, start by understanding how your team works right now and try to find the tools and architecture that fits best to existing structures rather than reinventing the wheel.
 
-_You can find a prototype of the solutions explained in this [repository][secret-mgmt-repo]._
+
+You can find a prototype of the solutions explained in this [repository][secret-mgmt-repo].  
+And if you'd like to see a live demo, come visit my talk at [Cloud Native Rejekts][rejekts] in Valencia!
+
 
 [GitOps]: https://www.gitops.tech/
 [sealedsecrets]: https://github.com/bitnami-labs/sealed-secrets
@@ -226,3 +230,4 @@ _You can find a prototype of the solutions explained in this [repository][secret
 [secret-mgmt-repo]: https://github.com/lianmakesthings/secrets-management-talk
 [day-1]: https://codilime.com/blog/day-0-day-1-day-2-the-software-lifecycle-in-the-cloud-age/
 [k8s-secrets]: https://kubernetes.io/docs/concepts/configuration/secret/
+[rejekts]: https://cloud-native.rejekts.io/
