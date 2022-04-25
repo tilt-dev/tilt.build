@@ -5,6 +5,8 @@ author: lian
 layout: blog
 title: Secret Management - The Soft Way
 description: Three ways to manage secrets for Kubernetes
+image: "/assets/images/secret-management/pexels-gotta-be-worth-it-1160845.jpg"
+image_caption: "Many differently colored padlocks. Photo by Gotta Be Worth It from <a href='https://www.pexels.com/photo/assorted-color-metal-keys-1160845/'>Pexels</a>"
 tags:
 - secrets
 - development
