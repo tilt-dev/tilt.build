@@ -41,7 +41,9 @@ With the help of some excellent open source projects, it's possible to build som
 
 ## Sealed Secrets
 [Bitnami Sealed Secrets][sealedsecrets] allow you to properly encrypt secrets and store them with the rest of the deployment manifests.
-The central piece is the Sealed Secrets controller, which lives on the target Kubernetes cluster as an operator. With the companion kubeseal tool, any person who has access to the operator’s public key can encrypt a k8s secret and get a k8s custom resource of type Sealed Secret.
+The Sealed Secrets controller is an operator that lives on your Kubernetes cluster.
+
+The kubeseal CLI is its client-side companion. With kubeseal, any person who has access to the operator’s public key can encrypt a k8s secret and get a k8s custom resource of type Sealed Secret.
 
 ```bash
 $ kubeseal --cert=pub-cert.pem --format=yaml < k8s-secret.yaml > sealed-secret.yaml
