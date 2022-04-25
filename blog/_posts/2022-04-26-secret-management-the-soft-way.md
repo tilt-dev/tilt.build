@@ -15,7 +15,7 @@ tags:
 Secrets. Security best-practices mandate that they stay away from the code—or else! And that’s what we did for a long time.
 
 But since the emergence of [GitOps] as the hot new flavour of CI/CD, we have decided that we want to ship everything together, and I mean everything: the applications, their configs and environment - all in one conveniently accessible lump.
-The idea of GitOps is straightforward: Let’s presuppose you have a system like Kubernetes that manages an environment, whom you can feed a desired state and let it take care of the minute details of provisioning and configuring to bring your current into the desired state. To see which is the currently desired state, retrace the last state and consolidating multiple distributed application changes into one consistent state, we can use an old friend: Git. It already comes with convenient features like persistent history and access control. Devs and Ops teams can collaborate on the same repository to make sure the applications and environments themselves are correctly configured before deployment even starts.
+The idea of GitOps is straightforward: Let’s presuppose you have a system like Kubernetes that manages an environment, whom you can feed a desired state and let it take care of the minute details of provisioning and configuring to bring your current into the desired state. To see the desired state, retrace the previous state, and gather multiple distributed changes into one consistent state, we can use an old friend: Git. It already comes with convenient features like persistent history and access control. Devs and Ops teams can collaborate on the same repository to make sure the applications and environments themselves are correctly configured before deployment even starts.
 
 So what does that mean for Secrets?
 Well, let’s be clear first: Kubernetes secrets are not secret. They are at best obfuscated, but everyone who has access to a namespace or cluster, can read and decode all the secrets they contain.
@@ -43,7 +43,9 @@ With the help of some excellent open source projects, it's possible to build som
 
 ## Sealed Secrets
 [Bitnami Sealed Secrets][sealedsecrets] allow you to properly encrypt secrets and store them with the rest of the deployment manifests.
-The central piece is the Sealed Secrets controller, which lives on the target Kubernetes cluster as an operator. With the companion kubeseal tool, any person who has access to the operator’s public key can encrypt a k8s secret and get a k8s custom resource of type Sealed Secret.
+The Sealed Secrets controller is an operator that lives on your Kubernetes cluster.
+
+The kubeseal CLI is its client-side companion. With kubeseal, any person who has access to the operator’s public key can encrypt a k8s secret and get a k8s custom resource of type Sealed Secret.
 
 ```bash
 $ kubeseal --cert=pub-cert.pem --format=yaml < k8s-secret.yaml > sealed-secret.yaml
@@ -202,7 +204,7 @@ Of course the big plus in this scenario is the full control over the entire life
 To summarize: There are a multitude of ways to get secrets inside Kubernetes, but keep in mind that you need to manage and secure them outside the cluster, as well as securing the cluster itself. Safeguarding your secrets relies on every single employee. Inconvenient or convoluted processes will compromise security efforts, as people will look for the path of the least resistance and grow less alert over time.
 When choosing the best security practice for your organization, start by understanding how your team works right now and try to find the tools and architecture that fits best to existing structures rather than reinventing the wheel.
 
-_You can find a somewhat functioning prototype of the solutions explained in this [repository][secret-mgmt-repo]_
+_You can find a prototype of the solutions explained in this [repository][secret-mgmt-repo]._
 
 [GitOps]: https://www.gitops.tech/
 [sealedsecrets]: https://github.com/bitnami-labs/sealed-secrets
