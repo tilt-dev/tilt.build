@@ -25,7 +25,9 @@ Once I helped set up this architecture for a client, but I found this approach q
 This solution only focused on keeping ops components secure, but neglected developer experience causing lots of unnecessary friction between dev and ops teams. 
 
 Instead, I’ll discuss three approaches which aim to make dealing with secrets less painful.  
-In the end, we want to end up with the same Kubernetes Secret
+_Note: I am only dealing with delivering secrets to the cluster; the cluster itself still needs to be secured._
+
+In the end, we want to end up with the same Kubernetes Secret.
 ```yaml
 apiVersion: v1
 kind: Secret
@@ -108,8 +110,9 @@ spec:
               name: gcpsm-secret              # secret name containing SA key
               key: secret-access-credentials  # key name containing SA key
               namespace: eso
-        projectID: secret-management-talk                  # name of Google Cloud project
+        projectID: secret-management-talk     # name of Google Cloud project
 ```
+_Note: Since this secret includes the GCP SA private key, this should not be storing it in Git. Instead this should be done once during [day 1 operations][day-1]._
 
 Now we can tell the operator which data to retrieve and how to provide it to the k8s cluster by defining the target secret in an External Secret resource.
 ```yaml
@@ -122,14 +125,14 @@ spec:
   refreshInterval: 1h           # rate SecretManager pulls GCPSM
   secretStoreRef:
     kind: ClusterSecretStore
-    name: gcp-backend               # name of the SecretStore (or kind specified)
+    name: gcp-backend           # name of the SecretStore (or kind specified)
   target:
-    name: k8s-secret  # name of the k8s Secret to be created
+    name: k8s-secret            # name of the k8s Secret to be created
   data:
-  - secretKey: FOO  # name of the GCPSM secret key
+  - secretKey: FOO              # name of the GCPSM secret key
     remoteRef:
       key: FOO
-  - secretKey: BAR  # name of the GCPSM secret key
+  - secretKey: BAR              # name of the GCPSM secret key
     remoteRef:
       key: BAR
 ```
@@ -196,7 +199,7 @@ Of course the big plus in this scenario is the full control over the entire life
 
 ---
 
-To summarize: There are a multitude of ways to get secrets inside Kubernetes, but keep in mind that you need to manage and secure them outside the cluster. Safeguarding your secrets relies on every single employee. Inconvenient or convoluted processes will compromise security efforts, as people will look for the path of the least resistance and grow less alert over time.
+To summarize: There are a multitude of ways to get secrets inside Kubernetes, but keep in mind that you need to manage and secure them outside the cluster, as well as securing the cluster itself. Safeguarding your secrets relies on every single employee. Inconvenient or convoluted processes will compromise security efforts, as people will look for the path of the least resistance and grow less alert over time.
 When choosing the best security practice for your organization, start by understanding how your team works right now and try to find the tools and architecture that fits best to existing structures rather than reinventing the wheel.
 
 _You can find a somewhat functioning prototype of the solutions explained in this [repository][secret-mgmt-repo]_
@@ -210,3 +213,4 @@ _You can find a somewhat functioning prototype of the solutions explained in thi
 [vault]: https://www.hashicorp.com/products/vault
 [eso-vault]: https://blog.container-solutions.com/tutorialexternal-secrets-with-hashicorp-vault
 [secret-mgmt-repo]: https://github.com/lianmakesthings/secrets-management-talk
+[day-1]: https://codilime.com/blog/day-0-day-1-day-2-the-software-lifecycle-in-the-cloud-age/
