@@ -232,4 +232,4 @@ And if you'd like to see a live demo, come visit my talk at [Cloud Native Rejekt
 [secret-mgmt-repo]: https://github.com/lianmakesthings/secrets-management-talk
 [day-1]: https://codilime.com/blog/day-0-day-1-day-2-the-software-lifecycle-in-the-cloud-age/
 [k8s-secrets]: https://kubernetes.io/docs/concepts/configuration/secret/
-[rejekts]: https://cloud-native.rejekts.io/
+[rejekts]: https://cfp.cloud-native.rejekts.io/cloud-native-rejekts-eu-valencia-2022/talk/QLZHSD/
