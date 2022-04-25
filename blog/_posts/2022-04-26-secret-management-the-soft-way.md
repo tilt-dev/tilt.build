@@ -15,12 +15,12 @@ tags:
 Secrets. Security best-practices mandate that they stay away from the code—or else! And that’s what we did for a long time.
 
 But since the emergence of [GitOps] as the hot new flavour of CI/CD, we have decided that we want to ship everything together, and I mean everything: the applications, their configs and environment - all in one conveniently accessible lump.
-The idea of GitOps is straightforward: Let’s presuppose you have a system like Kubernetes that manages an environment, whom you can feed a desired state and let it take care of the minute details of provisioning and configuring to bring your current into the desired state. To see the desired state, retrace the previous state, and gather multiple distributed changes into one consistent state, we can use an old friend: Git. It already comes with convenient features like persistent history and access control. Devs and Ops teams can collaborate on the same repository to make sure the applications and environments themselves are correctly configured before deployment even starts.
+The idea of GitOps is straightforward: Let’s presuppose you have a system like Kubernetes that manages an environment, whom you can feed a desired state and let it take care of the minute details of provisioning and configuring to bring your current into the desired state. We can then store all the state definitions we have requested in Git, so we can retrace our steps at a later time. Since Git already comes with convenient features like a persistent history and access control, devs and ops teams can collaborate on the same repository to make sure the applications and environments themselves are correctly configured before deployment even starts.
 
 So what does that mean for Secrets?
-Well, let’s be clear first: Kubernetes secrets are not secret. They are at best obfuscated, but everyone who has access to a namespace or cluster, can read and decode all the secrets they contain.
-The solution seems simple: Just don’t give devs access to the cluster. They can manipulate the state of the cluster by adding things to the GitOps repository. But that doesn't really solve the problem. If everything that lives on the cluster also lives in the repository, everyone who has access to it also has access to the secrets.
-One way could be to even further remove the devs, by not even giving them direct access, instead have an automated pipeline picup their relevant manifests from another repo and move them into the GitOps repo.
+Well, let’s be clear first: [Kubernetes secrets][k8s-secrets] are not secret. They are at best obfuscated, but everyone who has access to a namespace or cluster, can read and decode all the secrets it contains.
+The solution seems simple: Just don’t give devs access to the cluster. They can manipulate the state of the cluster by adding things to the GitOps repository. But that doesn't really solve the problem. If everything that lives on the cluster also lives in the repository, everyone who has access to it, also has access to the secrets.
+One way could be to even further remove the devs, by not even giving them direct access, instead have an automated pipeline pick up their relevant manifests from another repo and move them into the GitOps repo.
 Once I helped set up this architecture for a client, but I found this approach quite unwieldy. It also scaled poorly.
 This solution only focused on keeping ops components secure, but neglected developer experience causing lots of unnecessary friction between dev and ops teams. 
 
@@ -114,7 +114,7 @@ spec:
               namespace: eso
         projectID: secret-management-talk     # name of Google Cloud project
 ```
-_Note: Since this secret includes the GCP SA private key, this should not be storing it in Git. Instead this should be done once during [day 1 operations][day-1]._
+_Note: Since this secret includes the GCP SA private key, this should not be stored it in Git. Instead this should be done once during [day 1 operations][day-1]._
 
 Now we can tell the operator which data to retrieve and how to provide it to the k8s cluster by defining the target secret in an External Secret resource.
 ```yaml
@@ -141,9 +141,14 @@ spec:
 
 
 ## HashiCorp Vault & External Secrets Operator
-The External Secrets Operator does not only connect to secret management products provided by the big cloud vendors. If you have bigger security concerns than the mere storing of secrets, you might be using something like [Hashicorp Vault][vault] to control not only your secrets, but also they way they are created and managed.
-If you’re using ESO already, all you have to do is allow kubernetes to access your vault by creating a role for it. You can make this role as granular as you like, for example, only allowing access to specific secrets or paths.
-In the secret store we then point to the kubernetes authentication secret stored in Vault.
+When your team is small, it's OK to throw all your secrets in one bucket. As your team grows, you'll need tools to manage how your secrets are created and who can access them.
+
+[Hashicorp Vault][vault] can help!
+
+And the external secrets operator in the last section can connect to Vault too. For this example I've installed a vault instance directly on the kubernetes cluster, but in theory it could live anywhere.  
+All you have to do is allow kubernetes to access your vault by creating a role for it. You can make this role as granular as you like, for example, only allowing access to specific secrets or paths.
+
+In the Secret Store we then point to the kubernetes authentication secret stored in Vault.
 ```bash
 $ vault policy write eso-policy -<<EOF     
 path "kv/data/vault-secret"                                                  
@@ -216,3 +221,4 @@ _You can find a prototype of the solutions explained in this [repository][secret
 [eso-vault]: https://blog.container-solutions.com/tutorialexternal-secrets-with-hashicorp-vault
 [secret-mgmt-repo]: https://github.com/lianmakesthings/secrets-management-talk
 [day-1]: https://codilime.com/blog/day-0-day-1-day-2-the-software-lifecycle-in-the-cloud-age/
+[k8s-secrets]: https://kubernetes.io/docs/concepts/configuration/secret/
