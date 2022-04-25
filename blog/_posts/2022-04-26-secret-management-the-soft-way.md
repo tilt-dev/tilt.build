@@ -74,7 +74,11 @@ For small, early stage organizations this seems to be a good way to start introd
 ## Google Secret Manager & External Secrets Operator
 If you’re using one of the popular cloud vendors, you probably already have access to a secret management product. Maybe you are already managing access credentials in there. 
 The [External Secrets Operator][eso] can connect to a multitude of common secret providers like [Google Secret Manager][gcpsm], [AWS Secrets Manager][awscm] or [Azure Key Vault][azurekv], and provide that data as k8s Secrets.
-To access a secret in Google Cloud, we first need to provide the right credentials. In this case we have created a Service Account in GCP and have downloaded the respective key, which we attached to a Secret that we are passing into a Secret Store.
+To access a secret in Google Cloud, we first need to provide the right credentials. There are a few operational steps:
+- Create a Service Account in GCP
+- Download the Serivce Account private key
+- Attach the private key to a secret
+- Pass the name of the secret into a Secret Store
 ```yaml
 apiVersion: v1
 kind: Secret
