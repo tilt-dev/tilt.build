@@ -14,7 +14,7 @@ tags:
 - devtools
 - open source
 ---
-Secrets. Security best-practices mandate that they stay away from the code—or else! And that’s what we did for a long time.
+Secrets. Security best-practices mandate that they stay away from the code—or else! And for a long time that's exactly what we did. Sensitive data like database credentials would be injected into an application's environment from elsewhere in a process separate from software delivery.
 
 But since the emergence of [GitOps] as the hot new flavour of CI/CD, we have decided that we want to ship everything together, and I mean everything: the applications, their configs and environment - all in one conveniently accessible lump.
 The idea of GitOps is straightforward: Let’s presuppose you have a system like Kubernetes that manages an environment, whom you can feed a desired state and let it take care of the minute details of provisioning and configuring to bring your current into the desired state. We can then store all the state definitions we have requested in Git, so we can retrace our steps at a later time. Since Git already comes with convenient features like a persistent history and access control, devs and ops teams can collaborate on the same repository to make sure the applications and environments themselves are correctly configured before deployment even starts.
