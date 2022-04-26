@@ -46,7 +46,7 @@ With the help of some excellent open source projects, it's possible to build som
 ## Sealed Secrets
 [Bitnami Sealed Secrets][sealedsecrets] allow you to properly encrypt secrets and store them with the rest of the deployment manifests.
 The Sealed Secrets controller is an operator that lives on your Kubernetes cluster.  
-The kubeseal CLI is its client-side companion. With kubeseal, any person who has access to the operator’s public key can encrypt a k8s secret and get a k8s custom resource of type Sealed Secret.
+The kubeseal CLI is its client-side companion. With kubeseal, any person who has access to the operator’s public key can encrypt a k8s secret and get a k8s custom resource of type `SealedSecret`.
 
 ```bash
 $ kubeseal --cert=pub-cert.pem --format=yaml < k8s-secret.yaml > sealed-secret.yaml
@@ -66,19 +66,18 @@ spec:
       name: k8s-secret
     type: Opaque
 ```
-This sealed secret can only be decrypted by the controller, so it can be safely distributed with all the other k8s resources.  
+This `SealedSecret` can only be decrypted by the controller, so it can be safely distributed with all the other k8s resources.  
 What’s great about this approach is that it has a comparatively small overhead. Secrets don’t need to be managed in a separate tool or platform, they just live where everything else lives. On the downside, there’s no separate tool or platform to manage secrets, so they need to be managed “by hand”.  
 For small, early stage organizations this seems to be a good way to start introducing good practices around secret management.
-
 
 ## Google Secret Manager & External Secrets Operator
 If you’re using one of the popular cloud vendors, you probably already have access to a secret management product. Maybe you are already managing access credentials in there.  
 The [External Secrets Operator][eso] can connect to a multitude of common secret providers like [Google Secret Manager][gcpsm], [AWS Secrets Manager][awscm] or [Azure Key Vault][azurekv], and provide that data as k8s Secrets.  
 To access a secret in Google Cloud, we first need to provide the right credentials. There are a few operational steps:
 - Create a Service Account in GCP
-- Download the Serivce Account private key
+- Download the Service Account private key
 - Attach the private key to a secret
-- Pass the name of the secret into a Secret Store
+- Pass the name of the secret into a `SecretStore`, a custom resource provided by the External Secret Operator installation
 
 ```yaml
 apiVersion: v1
@@ -121,7 +120,7 @@ spec:
 ```
 _Note: Since this secret includes the GCP SA private key, this should not be stored it in Git. Instead this should be done once during [day 1 operations][day-1]._
 
-Now we can tell the operator which data to retrieve and how to provide it to the k8s cluster by defining the target secret in an External Secret resource.
+Now we can tell the operator which data to retrieve and how to provide it to the k8s cluster by defining the target secret via a custom Kubernetes resource of type `ExternalSecret`.
 ```yaml
 apiVersion: external-secrets.io/v1alpha1
 kind: ExternalSecret
@@ -146,14 +145,13 @@ spec:
 
 
 ## HashiCorp Vault & External Secrets Operator
-When your team is small, it's OK to throw all your secrets in one bucket. As your team grows, you'll need tools to manage how your secrets are created and who can access them.
+When your team is small, it's OK to throw all your secrets in one bucket. As your team grows, you'll likely want tighter control over the tool(s) managing creation and access of your secrets.
 
-[Hashicorp Vault][vault] can help!
+[Hashicorp Vault][vault] can help!  
+And the External Secrets Operator in the last section can connect to Vault too. For this example I've installed a Vault instance directly on the Kubernetes cluster, but generally speaking it could live anywhere.  
+All you have to do is allow Kubernetes to access your Vault by creating a role for it. You can make this role as granular as you like, for example, only allowing access to specific secrets or paths.
 
-And the external secrets operator in the last section can connect to Vault too. For this example I've installed a vault instance directly on the kubernetes cluster, but in theory it could live anywhere.  
-All you have to do is allow kubernetes to access your vault by creating a role for it. You can make this role as granular as you like, for example, only allowing access to specific secrets or paths.
-
-In the Secret Store we then point to the kubernetes authentication secret stored in Vault.
+In the `SecretStore` we then point to the Kubernetes authentication secret stored in Vault.
 ```bash
 $ vault policy write eso-policy -<<EOF     
 path "kv/data/vault-secret"                                                  
@@ -185,7 +183,7 @@ spec:
 ```
 (There's a bit more to it than shown here. For a full guide check out [this tutorial][eso-vault].)
 
-The External Resource will look almost exactly the same as in the example above.
+The `ExternalSecret` resource will look almost exactly the same as in the example above.
 ```yaml
 apiVersion: external-secrets.io/v1alpha1
 kind: ExternalSecret
@@ -207,7 +205,7 @@ spec:
       key: vault-secret
       property: SOURCE
 ```
-Of course the big plus in this scenario is the full control over the entire lifecycle of a secret, however it comes with its own challenges. Managing a tool like vault does not only require pure operational effort, but also intentionally creating proper security procedures to fully leverage its usefulness.
+Of course the big plus in this scenario is the full control over the entire lifecycle of a secret, however it comes with its own challenges. Managing a tool like Vault does not only require pure operational effort, but also intentionally creating proper security procedures to fully leverage its usefulness.
 
 ---
 
