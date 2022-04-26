@@ -14,17 +14,17 @@ tags:
 - devtools
 - open source
 ---
-Secrets. Security best-practices mandate that they stay away from the code—or else! And for a long time that's exactly what we did. Sensitive data like database credentials would be injected into an application's environment from elsewhere in a process separate from software delivery.
+Secrets. Security best-practices mandate that they stay away from the code—or else! And for a long time that's exactly what we did. Sensitive data like database credentials would be injected into an application's environment from elsewhere in a process separate from how the software itself was delivered.
 
-But since the emergence of [GitOps] as the hot new flavour of CI/CD, we have decided that we want to ship everything together, and I mean everything: the applications, their configs and environment - all in one conveniently accessible lump.
+But since the emergence of [GitOps] as the hot new flavour of CI/CD, we have decided that we want to ship everything together, and I mean everything: the applications, their configs and environment - all in one conveniently accessible lump.  
 The idea of GitOps is straightforward: Let’s presuppose you have a system like Kubernetes that manages an environment, whom you can feed a desired state and let it take care of the minute details of provisioning and configuring to bring your current into the desired state. We can then store all the state definitions we have requested in Git, so we can retrace our steps at a later time. Since Git already comes with convenient features like a persistent history and access control, devs and ops teams can collaborate on the same repository to make sure the applications and environments themselves are correctly configured before deployment even starts.
 
-So what does that mean for Secrets?
+So what does that mean for Secrets?  
 Well, let’s be clear first: [Kubernetes secrets][k8s-secrets] are not secret. They are at best obfuscated, but everyone who has access to a namespace or cluster, can read and decode all the secrets it contains.
-The solution seems simple: Just don’t give devs access to the cluster. They can manipulate the state of the cluster by adding things to the GitOps repository. But that doesn't really solve the problem. If everything that lives on the cluster also lives in the repository, everyone who has access to it, also has access to the secrets, as they would also be stored in said repo.
-One way could be to even further remove the devs, by not even giving them direct access, instead have an automated pipeline pick up their relevant manifests from another place and move them into the GitOps repo.
-Once I helped set up this architecture for a client, but I found this approach quite unwieldy. It also scaled poorly.
-This solution only focused on keeping ops components secure, but neglected developer experience causing lots of unnecessary friction between dev and ops teams. 
+The solution seems simple: Just don’t give devs access to the cluster. They can manipulate the state of the cluster by adding things to the GitOps repository. But that doesn't really solve the problem. If everything that lives on the cluster also lives in the repository, everyone who has access to it, also has access to the secrets, as they would also be stored in said repo.  
+One way could be to even further remove the devs, by not even giving them direct access, instead have an automated pipeline pick up their relevant manifests from another place and move them into the GitOps repo.  
+Once I helped set up this architecture for a client, but I found this approach quite unwieldy. It also scaled poorly.  
+This solution only focused on keeping ops components secure, but neglected developer experience causing lots of unnecessary friction between dev and ops teams.
 
 Instead, I’ll discuss three approaches which aim to make dealing with secrets less painful as developers.  
 _Note: I am only dealing with delivering secrets to the cluster; the cluster itself still needs to be secured._
@@ -45,8 +45,7 @@ With the help of some excellent open source projects, it's possible to build som
 
 ## Sealed Secrets
 [Bitnami Sealed Secrets][sealedsecrets] allow you to properly encrypt secrets and store them with the rest of the deployment manifests.
-The Sealed Secrets controller is an operator that lives on your Kubernetes cluster.
-
+The Sealed Secrets controller is an operator that lives on your Kubernetes cluster.  
 The kubeseal CLI is its client-side companion. With kubeseal, any person who has access to the operator’s public key can encrypt a k8s secret and get a k8s custom resource of type Sealed Secret.
 
 ```bash
@@ -67,15 +66,14 @@ spec:
       name: k8s-secret
     type: Opaque
 ```
-This sealed secret can only be decrypted by the controller, so it can be safely distributed with all the other k8s resources.
-What’s great about this approach is that it has a comparatively small overhead. Secrets don’t need to be managed in a separate tool or platform, they just live where everything else lives.
-On the downside, there’s no separate tool or platform to manage secrets, so they need to be managed “by hand”.
+This sealed secret can only be decrypted by the controller, so it can be safely distributed with all the other k8s resources.  
+What’s great about this approach is that it has a comparatively small overhead. Secrets don’t need to be managed in a separate tool or platform, they just live where everything else lives. On the downside, there’s no separate tool or platform to manage secrets, so they need to be managed “by hand”.  
 For small, early stage organizations this seems to be a good way to start introducing good practices around secret management.
 
 
 ## Google Secret Manager & External Secrets Operator
-If you’re using one of the popular cloud vendors, you probably already have access to a secret management product. Maybe you are already managing access credentials in there. 
-The [External Secrets Operator][eso] can connect to a multitude of common secret providers like [Google Secret Manager][gcpsm], [AWS Secrets Manager][awscm] or [Azure Key Vault][azurekv], and provide that data as k8s Secrets.
+If you’re using one of the popular cloud vendors, you probably already have access to a secret management product. Maybe you are already managing access credentials in there.  
+The [External Secrets Operator][eso] can connect to a multitude of common secret providers like [Google Secret Manager][gcpsm], [AWS Secrets Manager][awscm] or [Azure Key Vault][azurekv], and provide that data as k8s Secrets.  
 To access a secret in Google Cloud, we first need to provide the right credentials. There are a few operational steps:
 - Create a Service Account in GCP
 - Download the Serivce Account private key
@@ -213,7 +211,7 @@ Of course the big plus in this scenario is the full control over the entire life
 
 ---
 
-To summarize: There are a multitude of ways to get secrets inside Kubernetes, but keep in mind that you need to manage and secure them outside the cluster, as well as securing the cluster itself. Safeguarding your secrets relies on every single employee. Inconvenient or convoluted processes will compromise security efforts, as people will look for the path of the least resistance and grow less alert over time.
+To summarize: There are a multitude of ways to get secrets inside Kubernetes, but keep in mind that you need to manage and secure them outside the cluster, as well as securing the cluster itself. Safeguarding your secrets relies on every single employee. Inconvenient or convoluted processes will compromise security efforts, as people will look for the path of the least resistance and grow less alert over time.  
 When choosing the best security practice for your organization, start by understanding how your team works right now and try to find the tools and architecture that fits best to existing structures rather than reinventing the wheel.
 
 
