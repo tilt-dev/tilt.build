@@ -21,12 +21,12 @@ The idea of GitOps is straightforward: Let’s presuppose you have a system like
 
 So what does that mean for Secrets?
 Well, let’s be clear first: [Kubernetes secrets][k8s-secrets] are not secret. They are at best obfuscated, but everyone who has access to a namespace or cluster, can read and decode all the secrets it contains.
-The solution seems simple: Just don’t give devs access to the cluster. They can manipulate the state of the cluster by adding things to the GitOps repository. But that doesn't really solve the problem. If everything that lives on the cluster also lives in the repository, everyone who has access to it, also has access to the secrets.
-One way could be to even further remove the devs, by not even giving them direct access, instead have an automated pipeline pick up their relevant manifests from another repo and move them into the GitOps repo.
+The solution seems simple: Just don’t give devs access to the cluster. They can manipulate the state of the cluster by adding things to the GitOps repository. But that doesn't really solve the problem. If everything that lives on the cluster also lives in the repository, everyone who has access to it, also has access to the secrets, as they would also be stored in said repo.
+One way could be to even further remove the devs, by not even giving them direct access, instead have an automated pipeline pick up their relevant manifests from another place and move them into the GitOps repo.
 Once I helped set up this architecture for a client, but I found this approach quite unwieldy. It also scaled poorly.
 This solution only focused on keeping ops components secure, but neglected developer experience causing lots of unnecessary friction between dev and ops teams. 
 
-Instead, I’ll discuss three approaches which aim to make dealing with secrets less painful.  
+Instead, I’ll discuss three approaches which aim to make dealing with secrets less painful as developers.  
 _Note: I am only dealing with delivering secrets to the cluster; the cluster itself still needs to be secured._
 
 In the end, we want to end up with the same Kubernetes Secret.
