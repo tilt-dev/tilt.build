@@ -213,12 +213,19 @@ tend to be specific to the programming language and framework you're using. Some
 frameworks even handle it automatically. This example uses an entrypoint with
 `nodemon`, but the reload step for your project will probably look
 different. For more examples, see the language-specific example projects or [the
-live update refrence](live_update_reference.html).
+live update reference](live_update_reference.html).
 
 Note that live update steps should always be attached to the deployed image,
 never the base image. Tilt's live update system matches the image in the container,
 so needs to be attached to the deployed image to figure out which container
 to update.
+
+## Troubleshooting
+
+If you're confused about an image's build context or seeing rebuilds you don't expect,
+the [debugging file changes guide](file_changes.html) gives a thorough breakdown of 
+how Tilt watches and ignores files, and the [live update reference](live_update_reference.html)
+will walk you through the relationship between an image's build context and `live_update` rules.
 
 ## Example Code
 
