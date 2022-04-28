@@ -14,7 +14,7 @@ tags:
 हैलो टिल्टर्स,
 
 Hope you are all getting excited already for next month’s KubeCon EU in sunny Valencia 🍊!
-This time we’ll unfortunately not have a direct Tilt presence. Keen observers might spot a cameo in a talk at Cloud Native Rejekts, the weekend before KubeCon. Read on to find out more!
+This time we sadly won't have a booth, but keen observers might spot a cameo in a talk at Cloud Native Rejekts, the weekend before KubeCon. Read on to find out more!
 
 ## Tilt in 17 minutes
 Victor Farcic, creator of the DevOps Toolkit made a [fantastic video about Tilt](https://www.youtube.com/watch?v=fkODRlobR9I), explaining what it does and how to use it in only 17 minutes! If you need some help convincing your coworkers or bosses to give Tilt a try, this is an excellent independent resource!
