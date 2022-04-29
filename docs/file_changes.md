@@ -64,10 +64,14 @@ Whenever a file under that path changes, Tilt will re-run the specified scripts.
 
 ### .git
 
-Tilt will always ignore changes under the `.git` directory.
+Tilt will always ignore changes under the `.git` directory, since watching the
+directory may trigger unintended builds and impact performance.
 
 When you use `docker_build()` in your `Tiltfile`, Tilt will remove `.git` from
 the Docker context.
+
+If you need to include the `.git` directory in a build, you can use
+[`custom_build`](custom_build.html) instead of `docker_build`.
 
 ### Editor temp files
 
