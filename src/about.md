@@ -82,13 +82,6 @@ but also have teammates in the Netherlands and other parts of the US.
     </div>
   </div>
   <div class="bio col-1of3 u-marginBottom1_25">
-    <img class="bio-image" src="/assets/img/lian.jpg">
-    <h4>Lian Li</h4>
-    <div>
-      Over a decade working in tech as an engineer doing fullstack, devops and data. Tried consulting and management for a while. Loves DIY and board games. She/Her.
-    </div>
-  </div>
-  <div class="bio col-1of3 u-marginBottom1_25">
     <img class="bio-image" src="/assets/img/siegs.jpg">
     <h4>Nick Sieger</h4>
     <div>
