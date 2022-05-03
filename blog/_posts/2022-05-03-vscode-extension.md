@@ -53,7 +53,7 @@ load statements:
 
 ## Live Errors
 
-The extension detects when you have Tilt running, checks for any runtime errors in your Tiltfile, and underlines them:
+The extension detects when you have Tilt running, checks for any runtime errors in your Tiltfile, and underlines them. Since Tilt automatically re-runs your Tiltfile on change, this means you can edit your Tiltfile, hit save, and see errors right away, without leaving VS Code:
 
 ![Live errors][imgerrors]
 
