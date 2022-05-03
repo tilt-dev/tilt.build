@@ -2669,7 +2669,17 @@ ensures a pretty high bar of intent.
                 </code>
                 ]]) &#x2013;
                 </p><p>
-                 set of file patterns that will be ignored. Ignored files will not trigger builds and will not be included in images. Follows the
+                 set of file patterns that will be ignored, in addition to
+                 <code class="docutils literal notranslate">
+                  <span class="pre">
+                   .git
+                  </span>
+                 </code>
+                 directory that&#x2019;s
+                 <a class="reference external" href="file_changes.html#where-ignores-come-from">
+                  ignored by default
+                 </a>
+                 . Ignored files will not trigger builds and will not be included in images. Follows the
                  <a class="reference external" href="https://docs.docker.com/engine/reference/builder/#dockerignore-file">
                   dockerignore syntax
                  </a>
@@ -4843,6 +4853,24 @@ labels as well: see the
              </span>
             </span>
            </em>
+           ,
+           <em class="sig-param">
+            <span class="n">
+             <span class="pre">
+              kube_version
+             </span>
+            </span>
+            <span class="o">
+             <span class="pre">
+              =
+             </span>
+            </span>
+            <span class="default_value">
+             <span class="pre">
+              &apos;&apos;
+             </span>
+            </span>
+           </em>
            <span class="sig-paren">
             )
            </span>
@@ -5013,6 +5041,26 @@ Chart directory is watched (See
                 <code class="docutils literal notranslate">
                  <span class="pre">
                   --set
+                 </span>
+                </code>
+                flag.
+               </p>
+              </li>
+              <li>
+               <p>
+                <strong>
+                 kube_version
+                </strong>
+                (
+                <code class="xref py py-class docutils literal notranslate">
+                 <span class="pre">
+                  str
+                 </span>
+                </code>
+                ) &#x2013; Specify for which kubernetes version template will be generated. Equivalent to the Helm
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  --kube-version
                  </span>
                 </code>
                 flag.
@@ -8544,13 +8592,27 @@ the operating system as program name and args.
                 (
                 <code class="xref py py-data docutils literal notranslate">
                  <span class="pre">
-                  Optional
+                  Union
                  </span>
                 </code>
                 [
                 <code class="xref py py-class docutils literal notranslate">
                  <span class="pre">
                   str
+                 </span>
+                </code>
+                ,
+                <a class="reference internal" href="#api.Blob" title="api.Blob">
+                 <code class="xref py py-class docutils literal notranslate">
+                  <span class="pre">
+                   Blob
+                  </span>
+                 </code>
+                </a>
+                ,
+                <code class="xref py py-obj docutils literal notranslate">
+                 <span class="pre">
+                  None
                  </span>
                 </code>
                 ]) &#x2013; If not
@@ -13570,39 +13632,15 @@ To set a value to
              </span>
             </code>
             , or use a default value, e.g.:
-            <code class="docutils literal notranslate">
-             <span class="pre">
-              `python
-             </span>
-             <span class="pre">
-              config.define_bool(&apos;foo&apos;)
-             </span>
-             <span class="pre">
-              cfg
-             </span>
-             <span class="pre">
-              =
-             </span>
-             <span class="pre">
-              config.parse()
-             </span>
-             <span class="pre">
-              do_stuff
-             </span>
-             <span class="pre">
-              =
-             </span>
-             <span class="pre">
-              cfg.get(&apos;foo&apos;,
-             </span>
-             <span class="pre">
-              False)
-             </span>
-             <span class="pre">
-              `
-             </span>
-            </code>
            </p>
+           <div class="highlight-default notranslate">
+            <div class="highlight">
+             <pre><span></span><span class="n">config</span><span class="o">.</span><span class="n">define_bool</span><span class="p">(</span><span class="s1">&apos;foo&apos;</span><span class="p">)</span>
+<span class="n">cfg</span> <span class="o">=</span> <span class="n">config</span><span class="o">.</span><span class="n">parse</span><span class="p">()</span>
+<span class="n">do_stuff</span> <span class="o">=</span> <span class="n">cfg</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&apos;foo&apos;</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>
+</pre>
+            </div>
+           </div>
            <p>
             See the
             <a class="reference external" href="tiltfile_config.html">
