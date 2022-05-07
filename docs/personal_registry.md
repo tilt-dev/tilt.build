@@ -71,7 +71,7 @@ credentials for the registry stay in-sync.
 The first argument to `docker_build` is an image _selector_.
 
 ```
-docker_build('my-image', '.)
+docker_build('my-image', '.')
 ```
 
 `my-image` will match against any images in your deploy YAML (e.g., your Kubernetes Deployment).
