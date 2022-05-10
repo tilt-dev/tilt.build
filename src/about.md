@@ -10,20 +10,7 @@ for cloud-based collaboration. We want to do that for developer tools.
 <div class="u-marginBottom1_5">
 {% assign total = site.data.people | where: "active","true" | size %}
 We’re small ({{total}} people, VC-backed). We’re based in NYC, 
-but also have teammates in the Netherlands and other parts of the US.
-</div>
-
-<div class="brandBox u-marginBottom2">	
-  {% include brandBoxBg.html %}	
-  <h3 class="section u-marginBottom0_5">And we're currently hiring!</h3>	
-
-  <div class="u-marginBottom0_5">	
-    We're actively searching for people with these backgrounds:
-  </div>
-  
-  <ul>
-    <li><a href="devtools_eng.html">Senior Developer Tools Engineer</a></li>
-  </ul>	
+but also have teammates in other parts of the US.
 </div>
 
 <div class="row">
