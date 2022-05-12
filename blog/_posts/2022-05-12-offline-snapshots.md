@@ -19,12 +19,12 @@ If you haven't used [Snapshots][docs-snapshots] in Tilt before, it's a great way
 
 So, what's changing?
 
-We've decided to make taking and viewing Snapshots a purely offline experience and will be shutting off the Tilt Cloud connection in the coming weeks.
+We've decided to make capturing and viewing Snapshots a purely offline experience and will be shutting off the Tilt Cloud connection in the coming weeks.
 
 Let's check out the revised experience and then touch on what the Tilt Cloud deprecation means for you.
 
 ### Take a Snapshot
-Taking a Snapshot from the Tilt UI is as easy as clicking "Save Snapshot": 
+Taking a Snapshot from the Tilt UI is as easy as clicking "Save Snapshot" in the upper right menu: 
 
 ![Screenshot of the Snapshot dialog in the Tilt UI](/assets/images/offline-snapshots/dialog.png)
 
