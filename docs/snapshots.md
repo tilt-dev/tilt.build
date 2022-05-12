@@ -7,7 +7,7 @@ sidebar: guides
 
 Snapshots save your Tilt state to a file, so you (or another Tilt user) can later load that file, and interactively explore logs and error status for that moment in time. This can help with async debugging, and add context to bug reports. 
 
-Snapshots were once part of the since-deprecated [Tilt Cloud](tilt_cloud.html), but are now offline-only.
+Snapshots were once part of the since-deprecated Tilt Cloud, but are now offline-only.
 
 ## Via Command Line
 
