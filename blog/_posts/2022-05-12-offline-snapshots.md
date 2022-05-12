@@ -13,7 +13,7 @@ tags:
 - snapshot
 ---
 
-Starting with Tilt v0.30.0, Snapshots will work a little differently!
+Starting with [Tilt v0.30.0][github-releases], Snapshots will work a little differently!
 
 If you haven't used [Snapshots][docs-snapshots] in Tilt before, it's a great way to share the state of your local development environment with someone else for troubleshooting or debugging a failed CI run.
 
@@ -60,5 +60,6 @@ Snapshots downloaded from Tilt Cloud can then be viewed with `tilt snapshot view
 We know Snapshots help save teams time every day, and Tilt Cloud has been a key part of this experience to date.
 Now we're excited for you to try out this next phase! 📷  
 
+[github-releases]: https://github.com/tilt-dev/tilt/releases/latest
 [docs-snapshots]: https://docs.tilt.dev/snapshots.html
 [cloud-snapshot-list]: https://cloud.tilt.dev/snapshots
