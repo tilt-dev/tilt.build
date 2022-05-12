@@ -164,10 +164,13 @@ sidebar:
         - title: Contribute Extensions
           href: contribute_extension.html
 
-    - title: Onboarding Your Team
+    - title: Tilt with Your Team
       items:
         - title: Onboarding Checklist
           href: onboarding_checklist.html
+        - title: Sharing Snapshots
+          href: snapshots.html
+
 
   reference:
     - title: Tiltfile API Reference

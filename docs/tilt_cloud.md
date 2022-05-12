@@ -2,6 +2,7 @@
 title: Tilt Cloud
 description: "Tilt Cloud is a SaaS backend for Tilt that provides additional functionality for your team."
 layout: docs
+sidebar: guides
 ---
 
 Tilt Cloud is now deprecated. It was a SaaS backend for Tilt that provided additional functionality for your team. The main feature, [Snapshots](snapshots.html), is now offline-only.
