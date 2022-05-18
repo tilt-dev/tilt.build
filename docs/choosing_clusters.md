@@ -73,7 +73,6 @@ In the Docker For Mac preferences, click
 - If Kubernetes breaks, it's easier to reset the whole thing than debug it.
 - Much more resource-intensive because it uses docker-shim as the container runtime.
 - Different defaults than a prod cluster and difficult to customize.
-- Not available on Linux.
 
 ---
 
