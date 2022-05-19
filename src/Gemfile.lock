@@ -63,7 +63,7 @@ GEM
       jekyll (>= 3.5, < 5.0)
       jekyll-feed (~> 0.9)
       jekyll-seo-tag (~> 2.1)
-    nokogiri (1.13.4-x86_64-linux)
+    nokogiri (1.13.6-x86_64-linux)
       racc (~> 1.4)
     nuggets (1.6.0)
     pathutil (0.16.2)
