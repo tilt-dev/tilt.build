@@ -128,9 +128,7 @@ well for their team, including:
   the same files over and over
 
 If you're interested in setting this up, or chatting about potential native
-solutions in Tilt to auto-configure this, please reach out to us.
-
-[**Schedule a Meeting**](https://calendly.com/nick-at-tilt/remote-builds)
+solutions in Tilt to auto-configure this, [please reach out to us](/#community).
 
 ## Local/Remote Networking
 

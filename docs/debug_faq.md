@@ -179,4 +179,3 @@ Here are some example scripts that report these spans as:
 - [A statsd reporter](https://github.com/jazzdan/statsd_example/blob/master/main.rb)
 
 This is an experimental feature designed for larger companies.
-If this sounds interesting to you, [**please reach out**](https://calendly.com/nick-at-tilt/30min).

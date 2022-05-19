@@ -4,8 +4,6 @@ load('ext://honeycomb', 'honeycomb_collector')
 if os.environ.get('HONEYCOMB_API_KEY', '') and os.environ.get('HONEYCOMB_DATASET', ''):
   honeycomb_collector()
 
-enable_feature('disable_resources')
-
 default_registry('gcr.io/windmill-public-containers')
 set_team('0584d8f6-05a2-49f5-923b-657afef098fe')
 username = str(local('whoami')).rstrip('\n')
@@ -48,9 +46,9 @@ docker_build('blog-site', '.', dockerfile='deploy/blog.dockerfile',
                                               'blog/Gemfile', 'blog/Gemfile.lock'])
              ])
 
-k8s_resource('tilt-site', port_forwards=[port_forward(4000, name='tilt-site')])
-k8s_resource('docs-site', port_forwards=[port_forward(4001, name='docs-site')], resource_deps=['make-api'])
-k8s_resource('blog-site', port_forwards=[port_forward(4002, name='blog-site')])
+k8s_resource('tilt-site', port_forwards=[port_forward(4000, 4000, name='tilt-site')])
+k8s_resource('docs-site', port_forwards=[port_forward(4001, 4000, name='docs-site')], resource_deps=['make-api'])
+k8s_resource('blog-site', port_forwards=[port_forward(4002, 4000, name='blog-site')])
 
 local_resource(
   name='gem-update',

@@ -2,8 +2,6 @@
 title: Install
 layout: docs
 description: "Tilt is available for macOS, Linux, and Windows"
-has_calendly: true
-has_calendly_popup: true
 sidebar: gettingstarted
 ---
 
