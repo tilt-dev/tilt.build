@@ -40,12 +40,12 @@ has_calendly: true
       <p>k8s_yaml(<span class="tiltfile-arg">'app.yaml'</span>)</p>
       <p></p>
       <p class="tiltfile-comment"># Build: tell Tilt what images to build from which directories</p>
-      <p>docker_build(<span class="tiltfile-arg">'companyname/frontend'</span>, <span class="tiltfile-arg">'frontend'</span>)</p>
-      <p>docker_build(<span class="tiltfile-arg">'companyname/backend'</span>, <span class="tiltfile-arg">'backend'</span>)</p>
+      <p>docker_build(<span class="tiltfile-arg">'companyname/api'</span>, <span class="tiltfile-arg">'api'</span>)</p>
+      <p>docker_build(<span class="tiltfile-arg">'companyname/web'</span>, <span class="tiltfile-arg">'web'</span>)</p>
       <p class="tiltfile-comment"># ...</p>
       <p></p>
       <p class="tiltfile-comment"># Watch: tell Tilt how to connect locally (optional)</p>
-      <p>k8s_resource(<span class="tiltfile-arg">'frontend'</span>, port_forwards=<span class="tiltfile-arg-value">8080</span>)</p>
+      <p>k8s_resource(<span class="tiltfile-arg">'api'</span>, port_forwards=<span class="tiltfile-arg-value">"5734:5000"</span>, labels=[<span class="tiltfile-arg-value">"backend"</span>])</p>
     </code>
   </div>
   <p class="Home-product-caption">Tilt understands your entire system, and makes it understandable to you.</p>
