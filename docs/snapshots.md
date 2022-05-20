@@ -7,8 +7,6 @@ sidebar: guides
 
 Snapshots save your Tilt state to a file, so you (or another Tilt user) can later load that file, and interactively explore logs and error status for that moment in time. This can help with async debugging, and add context to bug reports. 
 
-Snapshots were once part of the since-deprecated Tilt Cloud, but are now offline-only.
-
 ## Via Command Line
 
 With a Tilt session running, run `tilt snapshot create <file>` to create a JSON file.
@@ -31,3 +29,13 @@ To view the downloaded Snapshot, run `tilt snapshot view <file>` in your Termina
 <figure>
   <img src="/assets/docimg/snapshots-menu.png" style="width:500px; height: auto;" title="Snapshots Menu">
 </figure>
+
+## Deprecated: Tilt Cloud
+
+Snapshots were once part of the Tilt Cloud, a hosted service for storing
+snapshots.
+
+We've found that the new file-based flow is more flexible and easier to understand.
+
+If you previously used Tilt Cloud and want to learn more about the deprecation,
+[read this blog post](https://blog.tilt.dev/2022/05/12/offline-snapshots.html).
