@@ -1,7 +1,6 @@
 ---
 title: Tilt
 layout: home
-has_calendly: true
 ---
 
 <section class="Home-hero">

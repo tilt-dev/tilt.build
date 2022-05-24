@@ -94,4 +94,3 @@ Does this feature work for you? We want to reduce the cognitive load of finding 
 * Slack us from the [Kubernetes #tilt channel](http://slack.k8s.io)
 * Send an email to [hi@tilt.dev](mailto:hi@tilt.dev)
 * File an issue on [Github](https://github.com/tilt-dev/tilt/issues)
-* Sign up for an office hours session with [Calendly](https://calendly.com/han-yu/user-research)

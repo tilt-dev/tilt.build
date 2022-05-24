@@ -1,7 +1,3 @@
-- name: Schedule a Guide
-  href: liftoff
-  primary: true
-  landingurl: true
 - name: Docs
   href:
   docsurl: true
