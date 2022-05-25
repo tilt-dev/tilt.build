@@ -1,44 +1,68 @@
 
 .newsHeader {
+  display: flex;
+  justify-content: center;  
   border-bottom: 2px dotted $tilt2-color-gray;
+  // Hack to make the banner full width:
   margin-left: $spacing-unit * -1;
   margin-right: $spacing-unit * -1;
+
+  @include mobileAndBelow {
+    margin-top: 100px; // Push so it's visible below .siteHeader-logoAndMenuButton
+    border-top: 2px dotted $tilt2-color-gray;
+  }
   
   .body--docs & {
+    justify-content: start;
     margin: 0;
   }
 }
 
 .newsHeader-inner {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  text-decoration: none;
-  transition: 300ms background-color ease;
-  font: inherit;
-  color: inherit;
-  font-size: 24px;
-  padding-top: $spacing-unit * 1.5;
-  padding-bottom: $spacing-unit * 1.5;
+  align-items: center;  
+  font-size: 18px;
+  padding-top: $spacing-unit;
+  padding-bottom: $spacing-unit;
+  @include reset-link-style;  
+
+  
+  @include mobileAndAbove {
+    font-size: 24px;
+    padding-top: $spacing-unit * 1.5;
+    padding-bottom: $spacing-unit * 1.5;
+  }
 
   .body--docs & {
-    justify-content: start;
     font-size: 18px;
     padding-top: $spacing-unit * 0.25;
     padding-bottom: $spacing-unit * 0.25;
     padding-left: $spacing-unit;
   }
+
+  strong {
+    transition: 300ms color ease;
+  }
 }
 
 .newsHeader-inner:hover {
-  background-color: $tilt2-color-gray-lightest;
+  strong {
+    color: $color-green;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
 }
 
 .newsHeader-icon {
-  height: 48px;
+  height: 36px;
+  margin-left: $spacing-unit * 0.25;
+
+  @include mobileAndAbove {
+    height: 45px;
+  }
   
   .body--docs & {
-    height: 44px;
+    height: 36px;
   }
 }
 
@@ -158,7 +182,7 @@
 
 .siteHeader2 {
   @include mobileAndBelow {
-    height: 100px; // Push initial content below mobile nav
+    height: 0; // This helps adjust space between newsHeader and content below
   }
 }
 
@@ -175,6 +199,7 @@
     position: fixed;
     left: 0;
     right: 0;
+    top: 0;
     background-color: $color-white;
     padding-left: $spacing-unit / 2;
     padding-right: $spacing-unit / 2;
