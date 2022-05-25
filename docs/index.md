@@ -59,10 +59,6 @@ Search for the function you need in our
  find us in the [#tilt](https://kubernetes.slack.com/messages/CESBL84MV/)
  channel. Or [file an issue](https://github.com/tilt-dev/tilt/issues). For code snippets of Tiltfile functionality shared by the Tilt community, check out [Tilt Extensions](https://github.com/tilt-dev/tilt-extensions). 
 
-**Roadmap:** Help us figure out what to prioritize. Sign up for [Tilt office
-hours](https://calendly.com/han-yu/user-research). We'll discuss your experience
-with Tilt and ask for reactions on visuals or prototypes we're working on.
-
 **Contribute:** Check out our [guidelines](https://github.com/tilt-dev/tilt/blob/master/CONTRIBUTING.md) to contribute to Tilt's source code. To extend the capabilities of Tilt via new Tiltfile functionality, read more about [Extensions](extensions.html).
 
 **Follow along:** [@tilt_dev](https://twitter.com/tilt_dev) on Twitter. For updates
