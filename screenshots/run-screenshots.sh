@@ -11,5 +11,4 @@ if [ "${docker_host#tcp://localhost:}" != "${docker_host}" ]; then
     args=( -e "DOCKER_HOST=tcp://host.docker.internal:${docker_host#tcp://localhost:}" )
 fi
 docker rm -f screenshots
-docker run "${args[@]}" --name screenshots screenshots:latest
-docker cp screenshots:/app/screenshots screenshots/
+docker run "${args[@]}" -v $PWD/docs/assets/docimg:/app/screenshots --name screenshots screenshots:latest

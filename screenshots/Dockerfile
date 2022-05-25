@@ -1,7 +1,7 @@
 FROM tiltdev/tilt:latest
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
-  curl less firefox-esr python3 python3-pip unzip
+  curl less firefox-esr python3 python3-pip python-is-python3 unzip
 
 ENV GECKODRIVER_VERSION 0.31.0
 
