@@ -84,9 +84,8 @@ bottom pane will display "Serving files on port 8000."
 
 {% include example_guide_image.html
     img="example-static-html-image-1.png"
-    url="https://cloud.tilt.dev/snapshot/AejkyuULr2AjWu50Eck="
     title="The server is up!"
-    caption="The server is up! (Click the screenshot to see an interactive view.)"
+    caption="The server is up!"
 %}
 
 ## Step 1: Let's Add Benchmark Trickery
@@ -120,9 +119,8 @@ Let's click the button on the `deploy` resource and see what happens!
 
 {% include example_guide_image.html
     img="example-static-html-image-2.png"
-    url="https://cloud.tilt.dev/snapshot/AcD7yuUL6_d3neimWHk="
     title="Result of clicking the button on the 'deploy' resource."
-    caption="Clicking the button triggers the 'deploy' local_resource, which in turn kicks off an update to the server. (Click the screenshot to see an interactive view.)"
+    caption="Clicking the button triggers the 'deploy' local_resource, which in turn kicks off an update to the server."
 %}
 
 | Approach | Deploy Time[^1] |
@@ -172,9 +170,8 @@ Let's see what this new configuration looks like in action:
 
 {% include example_guide_image.html
     img="example-static-html-image-3.png"
-    url="https://cloud.tilt.dev/snapshot/AZik6-ULEyDHLV-ILmY="
     title="Tilt state after a live_update"
-    caption="The result of a live_update. (Click the screenshot to see an interactive view.)"
+    caption="The result of a live_update."
 %}
 
 Tilt was able to update the container in less than a second!

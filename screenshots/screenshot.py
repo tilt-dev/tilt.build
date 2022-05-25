@@ -13,11 +13,15 @@ default_wait_timeout = 5
 css_selector = "div.Pane2"
 
 class Screenshot(object):
-    def __init__(self, filename="", url=tiltfile_overview_url, git_repo=None, tiltfile=None):
+    def __init__(self, filename="", url=tiltfile_overview_url,
+                 git_repo=None, tiltfile=None, wait_for=[]):
         self.filename = filename
         self.url = url
         self.git_repo = git_repo
         self.tiltfile = tiltfile
+        self.wait_for = wait_for
+        if type(wait_for) is not list:
+            self.wait_for = [wait_for]
 
 
 class Screenshotter(object):
