@@ -249,6 +249,11 @@ $tilt2-border-radius-large: 4px;
 
 // RESETS
 // --------------------------------------------------
+@mixin reset-link-style {
+  text-decoration: none;
+  color: inherit;
+}
+
 @mixin reset-button-style {
   font-family: inherit;
   font-size: inherit;
