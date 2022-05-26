@@ -1,0 +1,32 @@
+#!/usr/bin/env bash
+#
+# KIND wrapper to fix up cluster config server after creation
+
+set -ex
+
+# Find real kind executable
+paths=( ${PATH//:/ } )
+kind=
+while [ "${#paths[@]}" -gt 0 ]; do
+    p=${paths[0]}
+    if [  -x "$p/kind" -a "$p" != "." ]; then
+        kind="$p/kind"
+        break
+    fi
+    paths=( ${paths[@]:1} )
+done
+
+if [ -z "$kind" ]; then
+    echo error: could not find kind
+    exit 1
+fi
+
+args=( "$@" )
+$kind "$@"
+
+if [ "${args[0]}" = create -a "${args[1]}" = cluster ]; then
+    name=$(kubectl config view --minify -o jsonpath='{.clusters[0].name}')
+    docker network connect kind $(hostname)
+    kubectl config set clusters.$name.server https://${name#kind-}-control-plane:6443
+fi
+

@@ -11,8 +11,8 @@ experimental_analytics_report({'user.name': username})
 analytics_settings(enable=True)
 
 # Generate the API docs.
-local_resource('make-api', 'make api', ['deploy/api.dockerfile', 'Makefile', 'api'])
-local_resource('make-stars', 'make stars', ['Makefile', 'stars'])
+local_resource('make-api', 'make api', ['deploy/api.dockerfile', 'Makefile', 'api'], labels=['utils'])
+local_resource('make-stars', 'make stars', ['Makefile', 'stars'], labels=['utils'])
 
 k8s_yaml('deploy/serve.yaml')
 
@@ -46,19 +46,29 @@ docker_build('blog-site', '.', dockerfile='deploy/blog.dockerfile',
                                               'blog/Gemfile', 'blog/Gemfile.lock'])
              ])
 
-k8s_resource('tilt-site', port_forwards=[port_forward(4000, 4000, name='tilt-site')])
-k8s_resource('docs-site', port_forwards=[port_forward(4001, 4000, name='docs-site')], resource_deps=['make-api'])
-k8s_resource('blog-site', port_forwards=[port_forward(4002, 4000, name='blog-site')])
+k8s_resource('tilt-site', port_forwards=[port_forward(4000, 4000, name='tilt-site')], labels=['sites'])
+k8s_resource('docs-site', port_forwards=[port_forward(4001, 4000, name='docs-site')], resource_deps=['make-api'], labels=['sites'])
+k8s_resource('blog-site', port_forwards=[port_forward(4002, 4000, name='blog-site')], labels=['sites'])
 
 local_resource(
-  name='gem-update',
-  resource_deps=['tilt-site'],
-  cmd=['sh', '-c', """
+    name='gem-update',
+    resource_deps=['tilt-site'],
+    cmd=['sh', '-c', """
 set -ex
 kubectl exec deployment/docs-site -- bundle update
 POD=$(kubectl get pod -l app=docs-site -o jsonpath --template '{.items[].metadata.name}')
 kubectl cp $POD:/src/Gemfile src/Gemfile
 kubectl cp $POD:/src/Gemfile.lock src/Gemfile.lock
 """],
-  auto_init=False,
-  trigger_mode=TRIGGER_MODE_MANUAL)
+    auto_init=False,
+    trigger_mode=TRIGGER_MODE_MANUAL,
+    labels=['utils'],
+)
+
+local_resource(
+    name='screenshots',
+    cmd='screenshots/run-screenshots.sh',
+    auto_init=False,
+    trigger_mode=TRIGGER_MODE_MANUAL,
+    labels=['utils'],
+)
