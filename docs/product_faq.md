@@ -76,26 +76,11 @@ making your team’s data available to you.
 
 ### Who Develops Tilt?
 
-We're a start-up! "The Tilt Team" or "Tilt.dev" is fine. Nice to e-meet you.
+We were originally a start-up! "The Tilt Team" or "Tilt.dev" is fine. Nice to e-meet you.
 
-Our mission is to build a platform for cloud-native development.
+As of May 2022, [we've been acquired by Docker](https://www.docker.com/blog/welcome-tilt-fixing-the-pains-of-microservice-development-for-kubernetes/). 
 
-{% assign total = site.data.people | where: "active","true" | size %}
-We’re a small team of {{total}} people. We’re based in New York City, 
-but also have teammates in other parts of the US.
-
-We used to call ourselves "Windmill Engineering." 
-You may hear us use that name sometimes when we slip up.
-
----
-
-### If you're a startup, does that mean you will collapse?
-
-We have funding from top-tier VCs we love, and have plans. Talk to us if you're nervous.
-
-Tilt (the local dev environment) will always be free and open-source. If we
-can't turn this into a business, the community should be able to continue using
-it.
+Our mission is to build great cloud-native development tools for every developer.
 
 ---
 
@@ -126,11 +111,6 @@ please email [help@tilt.dev](mailto:help@tilt.dev).
 ### How do new features get added to the roadmap?
 
 Filing a GitHub issue helps a lot, even if it's not always obvious from the outside.
-
-We also have a number of partnerships with teams that we meet with
-semi-regularly to get feedback and help prioritize things that are affecting
-many people. If you're interested in [partnering](partner_program.html) with us,
-please email our CEO [Dan](mailto:dan@tilt.dev?subject=Tilt partner program).
 
 ---
 
