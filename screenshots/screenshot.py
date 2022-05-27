@@ -14,12 +14,13 @@ css_selector = "div.Pane2"
 
 class Screenshot(object):
     def __init__(self, filename="", url=tiltfile_overview_url,
-                 git_repo=None, tiltfile=None, wait_for=[]):
+                 git_repo=None, tiltfile=None, wait_for=[], restart=False):
         self.filename = filename
         self.url = url
         self.git_repo = git_repo
         self.tiltfile = tiltfile
         self.wait_for = wait_for
+        self.restart  = restart
         if type(wait_for) is not list:
             self.wait_for = [wait_for]
 

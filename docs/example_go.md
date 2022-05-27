@@ -88,9 +88,8 @@ bottom pane will display "Serving files on port 8000."
 
 {% include example_guide_image.html
     img="example-go-image-1.png"
-    url="https://cloud.tilt.dev/snapshot/AZzpx-YL_-WxDmRFwlk="
     title="The server is up!"
-    caption="The server is up! (Click the screenshot to see an interactive view.)"
+    caption="The server is up!"
 %}
 
 ## Step 1: Let's Add Benchmark Trickery
@@ -128,14 +127,13 @@ Let's click the button on the `deploy` resource and see what happens!
 
 {% include example_guide_image.html
     img="example-go-image-2.png"
-    url="https://cloud.tilt.dev/snapshot/Ady3yOYL5yQatiGjVL0="
     title="Result of clicking the button on the 'deploy' resource."
-    caption="Clicking the button triggers the 'deploy' local_resource, which in turn kicks off an update to the server. (Click the screenshot to see an interactive view.)"
+    caption="Clicking the button triggers the 'deploy' local_resource, which in turn kicks off an update to the server."
 %}
 
 | Approach | Deploy Time[^1] |
 |---|---|
-| Naive | 4.2s |
+| Naive | 4-8s |
 {:.benchmark-report}
 
 If you look closely, the elapsed time displayed in the Tilt sidebar is different
@@ -201,16 +199,15 @@ Let's see what this looks like!
 
 {% include example_guide_image.html
     img="example-go-image-3.png"
-    url="https://cloud.tilt.dev/snapshot/AcK4yOYLQObve-87cQ4="
     title="Step 2 complete."
-    caption="Step 2 complete. (Click the screenshot to see an interactive snapshot.)"
+    caption="Step 2 complete."
 %}
 
 
 | Approach | Deploy Time |
 |---|---|
-| Naive | 4.2s |
-| Local Compile | 3.5s |
+| Naive | 4-8s |
+| Local Compile | 3-5s |
 {:.benchmark-report}
 
 
@@ -266,9 +263,8 @@ Let's see what this new configuration looks like in action:
 
 {% include example_guide_image.html
     img="example-go-image-4.png"
-    url="https://cloud.tilt.dev/snapshot/AbC5yOYLwib41yocobg="
     title="Tilt state after a live_update."
-    caption="The result of a live_update. (Click the screenshot to see an interactive view.)"
+    caption="The result of a live_update."
 %}
 
 Tilt was able to update the container in less than 2 seconds!
@@ -279,8 +275,8 @@ Tilt was able to update the container in less than 2 seconds!
 
 | Approach | Deploy Time |
 |---|---|
-| Naive | 4.2s |
-| Local Compile | 3.5s |
+| Naive | 4-8s |
+| Local Compile | 3-5s |
 | With live_update | 1.5s |
 {:.benchmark-report}
 
