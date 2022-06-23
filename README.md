@@ -41,6 +41,6 @@ how to edit the source content.
 
 ## License
 
-Copyright 2019 Windmill Engineering
+Copyright 2022 Docker, Inc.
 
 Licensed under [the Apache License, Version 2.0](LICENSE)
