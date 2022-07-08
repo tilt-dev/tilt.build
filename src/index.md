@@ -234,6 +234,8 @@ layout: home
         <a href="https://www.youtube.com/watch?v=MhYIsTwwPC8" rel="noopener noreferrer" target="_blank" class="Home-resources-link">Setting up Tilt <span class="Home-resources-link-meta">15.5m</span></a>
       </div>
     </li>
+  </ul>
+  <ul class="Home-resources-list Home-resources-list-2">
     <li class="Home-resources-listItem">
       <div class="Home-resources-listItem-text">
         <h4 class="Home-subsectionHeading Home-subsectionHeading--resources">
@@ -253,37 +255,6 @@ layout: home
         <p>Have questions or feature requests for Tilt? Want to use it for your company? Just want to say hi? We love hearing from you!</p>
       </div>
       <a href="mailto:hi@tilt.dev" class="Home-resources-link">hi@tilt.dev</a>
-    </li>
-    <li class="Home-resources-listItem">
-      <div class="Home-resources-listItem-text">
-        <h4 class="Home-subsectionHeading Home-subsectionHeading--resources">
-          {% svg assets/svg/resources-mailing-list.svg class="Home-resources-svg" %}
-          Our Mailing List
-        </h4>
-        <p>Keep up with Multi-Service Development and all things Tilt.</p>
-      </div>
-      <div class="Home-resources-listItem-cta">
-        <form action="https://dev.us10.list-manage.com/subscribe/post?u=b72263e6c9ab9d4f6d6d6564d&amp;id=8ca8b2c971" 
-             method="post" 
-             id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" 
-             target="_blank"
-             novalidate>
-	      <label for="mce-EMAIL" class="Home-resources-label">Your Email</label>
-	      <input type="email" value="" name="EMAIL" class="Home-resources-input required email" id="mce-EMAIL" 
-                 placeholder="me@company.com">
-                  
-	      <div id="mce-responses" class="clear">
-		    <div class="response" id="mce-error-response" style="display:none"></div>
-		    <div class="response" id="mce-success-response" style="display:none"></div>
-	      </div>    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
-          
-          <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_b72263e6c9ab9d4f6d6d6564d_8ca8b2c971" tabindex="-1" value=""></div>
-          
-          <button type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="Home-resources-button button">
-            Subscribe
-          </button>
-        </form>
-      </div>
     </li>
   </ul>
 </section>
