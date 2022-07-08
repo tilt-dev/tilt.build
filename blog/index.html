@@ -39,8 +39,6 @@ layout: blog-list
 {% if paginator.posts.size > 2 %}
 {% assign post = paginator.posts[2] %}
 {% include preview.html post=post previewType="normal" %}
-
-{% include cta_subscribe_blog_list.html %}
 {% endif %}
 
 {% for post in paginator.posts offset:3 %}

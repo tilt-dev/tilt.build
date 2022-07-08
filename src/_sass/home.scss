@@ -764,8 +764,16 @@ $Home-feature-navList-width: 35%;
   @include mobileAndAbove {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    column-gap: $spacing-unit;
     row-gap: $spacing-unit;
+  }
+}
+.Home-resources-list-2 {
+  margin-top: $spacing-unit;
+  
+  @include mobileAndAbove {
+    grid-template-columns: repeat(2, 1fr);
+    margin-left: 160px;
+    margin-right: 160px;
   }
 }
 
