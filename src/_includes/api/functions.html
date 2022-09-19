@@ -6612,6 +6612,56 @@ by the
            </dl>
           </dd>
          </dl><dl class="py function">
+          <dt class="sig sig-object py" id="api.k8s_namespace">
+           <span class="sig-prename descclassname">
+            <span class="pre">
+            </span>
+           </span>
+           <span class="sig-name descname">
+            <span class="pre">
+             k8s_namespace
+            </span>
+           </span>
+           <span class="sig-paren">
+            (
+           </span>
+           <span class="sig-paren">
+            )
+           </span>
+           <a class="headerlink" href="#api.k8s_namespace" title="Permalink to this definition">
+            &#xF0C1;
+           </a>
+          </dt>
+          <dd>
+           <p>
+            Returns the name of the Kubernetes namespace Tilt is connecting to.
+           </p>
+           <p>
+            Example
+           </p>
+           <div class="highlight-default notranslate">
+            <div class="highlight">
+             <pre><span></span><span class="k">if</span> <span class="n">k8s_namespace</span><span class="p">()</span> <span class="o">==</span> <span class="s1">&apos;default&apos;</span><span class="p">:</span>
+  <span class="n">fail</span><span class="p">(</span><span class="s2">&quot;failing early to avoid deploying to &apos;default&apos; namespace&quot;</span><span class="p">)</span>
+</pre>
+            </div>
+           </div>
+           <dl class="field-list simple">
+            <dt class="field-odd">
+             Return type
+            </dt>
+            <dd class="field-odd">
+             <p>
+              <code class="xref py py-class docutils literal notranslate">
+               <span class="pre">
+                str
+               </span>
+              </code>
+             </p>
+            </dd>
+           </dl>
+          </dd>
+         </dl><dl class="py function">
           <dt class="sig sig-object py" id="api.k8s_resource">
            <span class="sig-prename descclassname">
             <span class="pre">

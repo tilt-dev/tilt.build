@@ -27,6 +27,7 @@ functions:
 - k8s_context
 - k8s_custom_deploy
 - k8s_kind
+- k8s_namespace
 - k8s_resource
 - k8s_yaml
 - kustomize
