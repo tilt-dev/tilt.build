@@ -239,6 +239,8 @@ sidebar:
           href: api.html#api.k8s_custom_deploy
         - title: k8s_kind
           href: api.html#api.k8s_kind
+        - title: k8s_namespace
+          href: api.html#api.k8s_namespace
         - title: k8s_resource
           href: api.html#api.k8s_resource
         - title: k8s_yaml
