@@ -1152,6 +1152,42 @@ the custom build command in the form:
              </span>
             </span>
            </em>
+           ,
+           <em class="sig-param">
+            <span class="n">
+             <span class="pre">
+              project_name
+             </span>
+            </span>
+            <span class="o">
+             <span class="pre">
+              =
+             </span>
+            </span>
+            <span class="default_value">
+             <span class="pre">
+              &apos;&apos;
+             </span>
+            </span>
+           </em>
+           ,
+           <em class="sig-param">
+            <span class="n">
+             <span class="pre">
+              new_name
+             </span>
+            </span>
+            <span class="o">
+             <span class="pre">
+              =
+             </span>
+            </span>
+            <span class="default_value">
+             <span class="pre">
+              &apos;&apos;
+             </span>
+            </span>
+           </em>
            <span class="sig-paren">
             )
            </span>
@@ -1393,6 +1429,40 @@ See the
                  .
                 </p>
                <p></p>
+              </li>
+              <li>
+               <p>
+                <strong>
+                 project_name
+                </strong>
+                (
+                <code class="xref py py-class docutils literal notranslate">
+                 <span class="pre">
+                  str
+                 </span>
+                </code>
+                ) &#x2013; The Docker Compose project name to match the corresponding project loaded by
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  docker_compose
+                 </span>
+                </code>
+                , if necessary for disambiguation.
+               </p>
+              </li>
+              <li>
+               <p>
+                <strong>
+                 new_name
+                </strong>
+                (
+                <code class="xref py py-class docutils literal notranslate">
+                 <span class="pre">
+                  str
+                 </span>
+                </code>
+                ) &#x2013; If non-empty, will be used as the new name for this resource.
+               </p>
               </li>
              </ul>
             </dd>
@@ -3331,7 +3401,9 @@ the DockerImage ref).
                   str
                  </span>
                 </code>
-                ) &#x2013; The Docker Compose project name. If unspecified, the main Tiltfile&#x2019;s directory name is used.
+                ) &#x2013; The Docker Compose project name. If unspecified, uses either the
+name of the directory containing the first compose file, or, in the case of
+inline YAML, the current Tiltfile&#x2019;s directory name.
                </p>
               </li>
              </ul>
@@ -7784,6 +7856,24 @@ that have duplicate resources for esoteric reasons.
              </span>
             </span>
            </em>
+           ,
+           <em class="sig-param">
+            <span class="n">
+             <span class="pre">
+              flags
+             </span>
+            </span>
+            <span class="o">
+             <span class="pre">
+              =
+             </span>
+            </span>
+            <span class="default_value">
+             <span class="pre">
+              []
+             </span>
+            </span>
+           </em>
            <span class="sig-paren">
             )
            </span>
@@ -7855,6 +7945,34 @@ uses kubectl&#x2019;s kustomize. See
                  </span>
                 </code>
                 binary executable. Defaults to searching $PATH for kustomize.
+               </p>
+              </li>
+              <li>
+               <p>
+                <strong>
+                 flags
+                </strong>
+                (
+                <code class="xref py py-class docutils literal notranslate">
+                 <span class="pre">
+                  List
+                 </span>
+                </code>
+                [
+                <code class="xref py py-class docutils literal notranslate">
+                 <span class="pre">
+                  str
+                 </span>
+                </code>
+                ]) &#x2013; Additional flags to pass to
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  kustomize
+                 </span>
+                 <span class="pre">
+                  build
+                 </span>
+                </code>
                </p>
               </li>
              </ul>
