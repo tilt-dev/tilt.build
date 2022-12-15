@@ -120,7 +120,7 @@ But once it's set up: it's fast, robust, and easy to upgrade dependencies.
 
 Hacking together this with Bash was the hard part.
 
-Tilt-team maintains [`ctlptl`](https://ctlptl.dev/), a CLI 
+Tilt-team maintains [`ctlptl`](https://github.com/tilt-dev/ctlptl), a CLI 
 for declaratively setting up local Kubernetes clusters.
 
 I eventually folded all the logic in the Bash script into `ctlptl`. As of

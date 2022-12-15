@@ -58,7 +58,7 @@ Most of our example projects use CircleCI to run `tilt ci`:
   {% endfor %}
 </ul>
 
-Each example invokes [`ctlptl`](https://ctlptl.dev/) to set up a single-use
+Each example invokes [`ctlptl`](https://github.com/tilt-dev/ctlptl) to set up a single-use
 cluster. But the `ctlptl` tool has many options for setting up clusters,
 depending on what you need.
 
@@ -155,7 +155,7 @@ Set up a CI pipeline that:
 
 The `socat` element makes this a bit tricky.
 
-Tilt-team maintains [`ctlptl`](https://ctlptl.dev/), a CLI for declaratively
+Tilt-team maintains [`ctlptl`](https://github.com/tilt-dev/ctlptl), a CLI for declaratively
 setting up local Kubernetes clusters. If you're using `ctlptl`, it will try to
 detect when you have a remote docker environment and set up the `socat`
 forwarding automatically.
