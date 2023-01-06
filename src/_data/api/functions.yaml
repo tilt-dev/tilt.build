@@ -2,6 +2,7 @@ functions:
 - allow_k8s_contexts
 - analytics_settings
 - blob
+- ci_settings
 - custom_build
 - dc_resource
 - decode_json

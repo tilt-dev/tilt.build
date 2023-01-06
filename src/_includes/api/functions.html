@@ -275,6 +275,116 @@ that always want telemetry enabled or disabled.
            </dl>
           </dd>
          </dl><dl class="py function">
+          <dt class="sig sig-object py" id="api.ci_settings">
+           <span class="sig-prename descclassname">
+            <span class="pre">
+            </span>
+           </span>
+           <span class="sig-name descname">
+            <span class="pre">
+             ci_settings
+            </span>
+           </span>
+           <span class="sig-paren">
+            (
+           </span>
+           <em class="sig-param">
+            <span class="n">
+             <span class="pre">
+              k8s_grace_period
+             </span>
+            </span>
+            <span class="o">
+             <span class="pre">
+              =
+             </span>
+            </span>
+            <span class="default_value">
+             <span class="pre">
+              &apos;&apos;
+             </span>
+            </span>
+           </em>
+           ,
+           <em class="sig-param">
+            <span class="n">
+             <span class="pre">
+              timeout
+             </span>
+            </span>
+            <span class="o">
+             <span class="pre">
+              =
+             </span>
+            </span>
+            <span class="default_value">
+             <span class="pre">
+              &apos;&apos;
+             </span>
+            </span>
+           </em>
+           <span class="sig-paren">
+            )
+           </span>
+           <a class="headerlink" href="#api.ci_settings" title="Permalink to this definition">
+            &#xF0C1;
+           </a>
+          </dt>
+          <dd>
+           <p>
+            Configures &#x2018;tilt ci&#x2019; mode.
+           </p>
+           <dl class="field-list simple">
+            <dt class="field-odd">
+             Parameters
+            </dt>
+            <dd class="field-odd">
+             <ul class="simple">
+              <li>
+               <p>
+                <strong>
+                 k8s_grace_period
+                </strong>
+                (
+                <code class="xref py py-class docutils literal notranslate">
+                 <span class="pre">
+                  str
+                 </span>
+                </code>
+                ) &#x2013; Grace period given for Kubernetes resources to recover after they start failing. A duration string.
+               </p>
+              </li>
+              <li>
+               <p>
+                <strong>
+                 timeout
+                </strong>
+                (
+                <code class="xref py py-class docutils literal notranslate">
+                 <span class="pre">
+                  str
+                 </span>
+                </code>
+                ) &#x2013; Timeout for the whole CI pipeline. A duration string. Defaults to &#x2018;30m&#x2019;.
+               </p>
+              </li>
+             </ul>
+            </dd>
+            <dt class="field-even">
+             Return type
+            </dt>
+            <dd class="field-even">
+             <p>
+              <code class="xref py py-obj docutils literal notranslate">
+               <span class="pre">
+                None
+               </span>
+              </code>
+             </p>
+            </dd>
+           </dl>
+          </dd>
+         </dl><dl class="py function">
           <dt class="sig sig-object py" id="api.custom_build">
            <span class="sig-prename descclassname">
             <span class="pre">
@@ -2478,7 +2588,7 @@ ensures a pretty high bar of intent.
            </p>
            <div class="highlight-bash notranslate">
             <div class="highlight">
-             <pre><span></span>docker build /path/to/code -t myregistry/myproj/backend
+             <pre><span></span>docker<span class="w"> </span>build<span class="w"> </span>/path/to/code<span class="w"> </span>-t<span class="w"> </span>myregistry/myproj/backend
 </pre>
             </div>
            </div>
