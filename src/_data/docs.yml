@@ -189,6 +189,8 @@ sidebar:
           href: api.html#api.analytics_settings
         - title: blob
           href: api.html#api.blob
+        - title: ci_settings
+          href: api.html#api.ci_settings
         - title: custom_build
           href: api.html#api.custom_build
         - title: dc_resource
