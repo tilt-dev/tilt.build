@@ -23,7 +23,7 @@ Time to try it out:
  3. Uncomment it (remove the leading `#`)
  4. Save the file
  5. Watch magic happen for the `api` resource in the Tilt UI
- 6. Open the Tilt Avatars web app ([http://localhost:5735/]())
+ 6. Open the Tilt Avatars web app <http://localhost:5735/>
  7. Dress the character with some stylish glasses (this is important!!! 😎) 
 
 ![Tilt Live Updating a container after a code change](/assets/docimg/tutorial/tilt-code-change-live-update.gif)
