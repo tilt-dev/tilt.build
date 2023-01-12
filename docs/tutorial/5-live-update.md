@@ -9,9 +9,9 @@ Tilt's deep understanding of your resources means the right things get rebuilt a
 Even with Docker layer caching, rebuilding a container image can be slow.
 For unoptimized Kubernetes-based development, every code change requires:
  1. Rebuilding the container image (`docker build ...`)
- 2. Pushed the built image to a registry (`docker push ...`)
- 3. Update the tag in YAML and apply the the Deployment to the cluster (`kubectl apply -f ...`)
- 4. Wait for roll out of new Pods using the updated image (open Reddit, 😴, etc.)
+ 2. Pushing the built image to a registry (`docker push ...`)
+ 3. Updating the tag in YAML and applying the the Deployment to the cluster (`kubectl apply -f ...`)
+ 4. Waiting for the roll out of new Pods using the updated image (open Reddit, 😴, etc.)
 
 Live Update solves these challenges by performing an **in-place update of the containers in your cluster**.
 
