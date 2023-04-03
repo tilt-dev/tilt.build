@@ -38,14 +38,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"node-fetch@npm:^3.2.0":
-  version: 3.2.0
-  resolution: "node-fetch@npm:3.2.0"
+"node-fetch@npm:^3.2.10":
+  version: 3.3.1
+  resolution: "node-fetch@npm:3.3.1"
   dependencies:
     data-uri-to-buffer: ^4.0.0
     fetch-blob: ^3.1.4
     formdata-polyfill: ^4.0.10
-  checksum: 1c809a0f64dd11cc18b49f990440e22c471da47da2a6d6b3388a83beba9d23ba7eaca1b9bf706a792bd283b824cf1a76777910859b9c28ad33a59f2ae4e44f8e
+  checksum: 62145fd3ba4770a76110bc31fdc0054ab2f5442b5ce96e9c4b39fc9e94a3d305560eec76e1165d9259eab866e02a8eecf9301062bb5dfc9f08a4d08b69d223dd
   languageName: node
   linkType: hard
 
@@ -53,7 +53,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "stars@workspace:."
   dependencies:
-    node-fetch: ^3.2.0
+    node-fetch: ^3.2.10
   languageName: unknown
   linkType: soft
 
