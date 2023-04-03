@@ -30,7 +30,7 @@ layout: wrapper-default
       <div class="u-marginBottom0_75">
         <img class="blogCredit-img" src="/assets/img/{{ page.author }}.jpg">
         <div>Published on <span class="blogCredit-date">{{ page.date | date_to_long_string }}</span></div>
-        <div><a href="{{ site.landingurl }}/about">{{ author.name }}</a></div>
+        <div>{{ author.name }}</div>
       </div>
       <div>
         {% if author.twitter %}
@@ -62,7 +62,7 @@ layout: wrapper-default
       <aside class="blogCredit blogCredit--mobile u-showOnlyOnDocsMobile u-marginBottom1">
         <img class="blogCredit-img" src="/assets/img/{{ page.author }}.jpg">
         <div>Published on <span class="blogCredit-date">{{ page.date | date_to_long_string }}</span></div>
-        <div><a href="{{ site.landingurl }}/about">{{ author.name }}</a></div>
+        <div>{{ author.name }}</div>
       </aside>
       
       {{ content }}
