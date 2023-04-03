@@ -50,6 +50,7 @@ build-iPhoneSimulator/
 # unless supporting rvm < 1.11.0 or doing something fancy, ignore this:
 .rvmrc
 
+/stars/.yarn
 /stars/node_modules
 tilt_modules
 
