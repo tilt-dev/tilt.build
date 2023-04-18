@@ -97,7 +97,7 @@ Docker images and writes them to the local Docker image store.
 See the tutorial on how to use `custom_build` to [build images with
 Bazel](integrating_bazel_with_tilt.html).
 
-### Buildah (or any image builder indepdendent of Docker)
+### Buildah (or any image builder independent of Docker)
 
 [Buildah](https://buildah.io/) is an independent Docker image builder.
 
