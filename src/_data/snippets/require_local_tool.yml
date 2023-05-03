@@ -4,27 +4,25 @@ description: |
   Check that a command exists in `PATH` or fail the Tiltfile load.
 code: |
   # block Tiltfile execution if missing required tool (e.g. Helm)
-  def require_tool(tool):
+  def require_tool(tool, msg=None):
       tool = shlex.quote(tool)
+      if not msg:
+          msg = '%s is required but was not found in PATH' % tool
       local(
-          cmd='command -v {tool} >/dev/null 2>&1 || { echo >&2 "{tool} is required but was not found in PATH"; exit 1; }'.format(
-              tool=tool
-          ),
-          # `cmd_bat`, when present, is used instead of `cmd` on Windows.
-          cmd_bat=[
+          command='command -v %s >/dev/null 2>&1 || { echo >&2 "%s"; exit 1; }' % (tool, msg),
+          command_bat=[
               "powershell.exe",
               "-Noninteractive",
               "-Command",
-              '& {{if (!(Get-Command {tool} -ErrorAction SilentlyContinue)) {{ Write-Error "{tool} is required but was not found in PATH"; exit 1 }}}}'.format(
-                  tool=tool
-              ),
+              '& {{if (!(Get-Command %s -ErrorAction SilentlyContinue)) {{ Write-Error "%s"; exit 1 }}}}' % (tool, msg),
           ],
+          quiet=True,
       )
-
 
   require_tool("helm")
 tags:
 - tiltfile
+- local
 release_stage: released
 link:
   title: "Local Resource"
