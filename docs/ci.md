@@ -48,6 +48,8 @@ takes too long to schedule), Tilt will also exit with an error code.
 
 Once all services are healthy, it will exit with status code 0.
 
+Any portforwards will not be active after `tilt ci` has exited.
+
 ### Examples
 
 Most of our example projects use CircleCI to run `tilt ci`:
