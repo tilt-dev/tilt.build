@@ -62,16 +62,6 @@ systems is mostly about
 
 ---
 
-### What's Next?
-
-Tilt is just the first step towards blurring the line between your laptop and the cloud.
-
-The next step -- [Tilt Cloud](snapshots.html) -- is a platform for
-making all kinds of data from your tilt instance available to your team. And
-making your team’s data available to you.
-
----
-
 ## Governance
 
 ### Who Develops Tilt?
@@ -81,6 +71,19 @@ We were originally a start-up! "The Tilt Team" or "Tilt.dev" is fine. Nice to e-
 As of May 2022, [we've been acquired by Docker](https://www.docker.com/blog/welcome-tilt-fixing-the-pains-of-microservice-development-for-kubernetes/). 
 
 Our mission is to build great cloud-native development tools for every developer.
+
+---
+
+### Does that mean Tilt will become part of Docker Desktop?
+
+Our current plan is to continue to maintain Tilt as an open-source project.
+
+The Tilt team now works across multiple Docker projects, including Docker
+Compose and Docker Desktop. We make sure these projects work great
+together. We're taking many of the ideas from Tilt and bringing them to everyone
+who works with containers.
+
+We're also working on new projects to complement Tilt. Stay tuned!
 
 ---
 
