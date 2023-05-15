@@ -41,7 +41,11 @@ gem "jekyll-inline-svg"
 gem "rouge"
 
 # Related posts
+gem "jekyll-tagging"
 gem "jekyll-tagging-related_posts"
 
 # markdown
 gem "kramdown", ">= 2.3.1"
+
+# https://github.com/jekyll/jekyll/issues/8523
+gem "webrick"

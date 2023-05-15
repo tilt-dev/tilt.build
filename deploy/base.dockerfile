@@ -1,4 +1,4 @@
-FROM ruby:2.7
+FROM ruby:3.1
 
 # jekyll has weird behavior where it will force things if in the default (development) environment
 # so explicitly set a custom one
