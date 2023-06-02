@@ -975,9 +975,7 @@ def custom_build(
     ignore: set of file patterns that will be ignored. Ignored files will not trigger builds and will not be included in images. Follows the `dockerignore syntax <https://docs.docker.com/engine/reference/builder/#dockerignore-file>`_. Patterns/filepaths will be evaluated relative to each ``dep`` (e.g. if you specify ``deps=['dep1', 'dep2']`` and ``ignores=['foobar']``, Tilt will ignore both ``deps1/foobar`` and ``dep2/foobar``).
     entrypoint: command to run when this container starts. Takes precedence over the container's ``CMD`` or ``ENTRYPOINT``, and over a `container command specified in k8s YAML <https://kubernetes.io/docs/tasks/inject-data-application/define-command-argument-container/>`_. If specified as a string, will be evaluated in a shell context (e.g. ``entrypoint="foo.sh bar"`` will be executed in the container as ``/bin/sh -c 'foo.sh bar'``); if specifed as a list, will be passed to the operating system as program name and args. Kubernetes-only.
     command_bat_val: Deprecated, use command_bat.
-    outputs_image_ref_to: Specifies a file path. When set, the custom build command must write a content-based
-      tagged image ref to this file. Tilt will read that file after the cmd runs to get the image ref,
-      and inject that image ref into the YAML. For more on content-based tags, see <custom_build.html#why-tilt-uses-immutable-tags>_
+    outputs_image_ref_to: Specifies a file path. When set, the custom build command must write a content-based tagged image ref to this file. Tilt will read that file after the cmd runs to get the image ref, and inject that image ref into the YAML. For more on content-based tags, see `Why tilt uses immutable tags <custom_build.html#why-tilt-uses-immutable-tags>`_
     command_bat: If non-empty and on Windows, takes precedence over ``command``. Ignored on other platforms.
       If a string, executed as a Windows batch command executed with ``cmd /S /C``; if a list, will be passed to
       the operating system as program name and args.
