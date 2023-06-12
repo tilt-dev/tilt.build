@@ -31,8 +31,23 @@ chart](https://artifacthub.io/packages/helm/bitnami/mysql):
 # Tiltfile
 
 load('ext://helm_resource', 'helm_resource', 'helm_repo')
-helm_repo('bitnami', 'https://charts.bitnami.com/bitnami')
-helm_resource('mysql', 'bitnami/mysql', resource_deps=['bitnami'])
+helm_repo('csi-secrets-store-provider-azure', 'https://azure.github.io/secrets-store-csi-driver-provider-azure/charts')
+helm_resource(
+  'csi',
+  'csi-secrets-store-provider-azure/csi-secrets-store-provider-azure',
+  flags=[
+    '--set', 'secrets-store-csi-driver.syncSecret.enabled=true',
+    '--set', 'secrets-store-csi-driver.enableSecretRotation=true'
+  ], 
+  namespace='kube-system',
+  resource_deps=['csi-secrets-store-provider-azure']
+)
+
+k8s_resource(
+  objects=['ingestion-secretproviderclass:secretproviderclass'],
+  new_name='ingestion-secret-provider-class',
+  resource_deps=['csi'] # k8s will fail to apply resources on a cluster where csi has just been provisioned (e.g. a brand new one). This tells it to wait until csi has finished.
+)
 ```
 
 Visit [Artifact Hub](https://artifacthub.io/) to find Helm charts for
