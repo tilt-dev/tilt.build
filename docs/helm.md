@@ -32,7 +32,7 @@ chart](https://artifacthub.io/packages/helm/bitnami/mysql):
 
 load('ext://helm_resource', 'helm_resource', 'helm_repo')
 helm_repo('bitnami', 'https://charts.bitnami.com/bitnami')
-helm_resource('mysql', 'bitnami/mysql')
+helm_resource('mysql', 'bitnami/mysql', resource_deps=['bitnami'])
 ```
 
 Visit [Artifact Hub](https://artifacthub.io/) to find Helm charts for
