@@ -32,16 +32,7 @@ chart](https://artifacthub.io/packages/helm/bitnami/mysql):
 
 load('ext://helm_resource', 'helm_resource', 'helm_repo')
 helm_repo('csi-secrets-store-provider-azure', 'https://azure.github.io/secrets-store-csi-driver-provider-azure/charts')
-helm_resource(
-  'csi',
-  'csi-secrets-store-provider-azure/csi-secrets-store-provider-azure',
-  flags=[
-    '--set', 'secrets-store-csi-driver.syncSecret.enabled=true',
-    '--set', 'secrets-store-csi-driver.enableSecretRotation=true'
-  ], 
-  namespace='kube-system',
-  resource_deps=['csi-secrets-store-provider-azure']
-)
+helm_resource('csi', 'csi-secrets-store-provider-azure/csi-secrets-store-provider-azure', resource_deps=['csi-secrets-store-provider-azure'])
 
 k8s_resource(
   objects=['ingestion-secretproviderclass:secretproviderclass'],
