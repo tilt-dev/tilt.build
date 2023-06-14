@@ -30,14 +30,26 @@ chart](https://artifacthub.io/packages/helm/bitnami/mysql):
 ```
 # Tiltfile
 
+helm_repo('bitnami', 'https://charts.bitnami.com/bitnami')
+helm_resource('mysql', 'bitnami/mysql', resource_deps=['bitnami'])
+```
+
+And one that deploys the [secrets-store-csi-driver-provider-azure `csi` chart](https://azure.github.io/secrets-store-csi-driver-provider-azure/docs/getting-started/installation/) on which a `SecretProviderClass` CRD relies:
+
+```
+# Tiltfile
+
 load('ext://helm_resource', 'helm_resource', 'helm_repo')
 helm_repo('csi-secrets-store-provider-azure', 'https://azure.github.io/secrets-store-csi-driver-provider-azure/charts')
-helm_resource('csi', 'csi-secrets-store-provider-azure/csi-secrets-store-provider-azure', resource_deps=['csi-secrets-store-provider-azure'])
+helm_resource(
+  'csi',
+  'csi-secrets-store-provider-azure/csi-secrets-store-provider-azure',
+  resource_deps=['csi-secrets-store-provider-azure'])
 
 k8s_resource(
-  objects=['ingestion-secretproviderclass:secretproviderclass'],
-  new_name='ingestion-secret-provider-class',
-  resource_deps=['csi'] # k8s will fail to apply resources on a cluster where csi has just been provisioned (e.g. a brand new one). This tells it to wait until csi has finished.
+  objects=['my-secretproviderclass:secretproviderclass'],
+  new_name='my-secret-provider-class',
+  resource_deps=['csi'] # Wait until helm has finished to apply the 'my-secretproviderclass' SecretProviderClass CRD
 )
 ```
 
