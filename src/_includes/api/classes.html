@@ -1,1125 +1,1156 @@
 <dl class="py class">
-          <dt class="sig sig-object py" id="api.Blob">
-           <em class="property">
-            <span class="pre">
-             class
-            </span>
-           </em>
-           <span class="sig-prename descclassname">
-            <span class="pre">
-            </span>
-           </span>
-           <span class="sig-name descname">
-            <span class="pre">
-             Blob
-            </span>
-           </span>
-           <a class="headerlink" href="#api.Blob" title="Permalink to this definition">
-            &#xF0C1;
-           </a>
-          </dt>
-          <dd>
-           <p>
-            The result of executing a command on your local system.
-           </p>
-           <p>
-            Under the hood, a
-            <cite>
-             Blob
-            </cite>
-            is just a string, but we wrap it this way so Tilt knows the difference between a string meant to convey content and a string indicating, say, a filepath.
-           </p>
-           <p>
-            To wrap a string as a blob, call
-            <code class="docutils literal notranslate">
-             <span class="pre">
-              blob(my_str)
-             </span>
-            </code>
-           </p>
-          </dd>
-         </dl><dl class="py class">
-          <dt class="sig sig-object py" id="api.ExecAction">
-           <em class="property">
-            <span class="pre">
-             class
-            </span>
-           </em>
-           <span class="sig-prename descclassname">
-            <span class="pre">
-            </span>
-           </span>
-           <span class="sig-name descname">
-            <span class="pre">
-             ExecAction
-            </span>
-           </span>
-           <a class="headerlink" href="#api.ExecAction" title="Permalink to this definition">
-            &#xF0C1;
-           </a>
-          </dt>
-          <dd>
-           <p>
-            Specification for a command to execute that determines resource readiness.
-           </p>
-           <p>
-            For details, see the
-            <a class="reference internal" href="#api.probe" title="api.probe">
-             <code class="xref py py-func docutils literal notranslate">
-              <span class="pre">
-               probe()
-              </span>
-             </code>
-            </a>
-            and
-            <a class="reference internal" href="#api.exec_action" title="api.exec_action">
-             <code class="xref py py-func docutils literal notranslate">
-              <span class="pre">
-               exec_action()
-              </span>
-             </code>
-            </a>
-            functions.
-           </p>
-          </dd>
-         </dl><dl class="py class">
-          <dt class="sig sig-object py" id="api.HTTPGetAction">
-           <em class="property">
-            <span class="pre">
-             class
-            </span>
-           </em>
-           <span class="sig-prename descclassname">
-            <span class="pre">
-            </span>
-           </span>
-           <span class="sig-name descname">
-            <span class="pre">
-             HTTPGetAction
-            </span>
-           </span>
-           <a class="headerlink" href="#api.HTTPGetAction" title="Permalink to this definition">
-            &#xF0C1;
-           </a>
-          </dt>
-          <dd>
-           <p>
-            Specification for a HTTP GET request to perform that determines resource readiness.
-           </p>
-           <p>
-            For details, see the
-            <a class="reference internal" href="#api.probe" title="api.probe">
-             <code class="xref py py-func docutils literal notranslate">
-              <span class="pre">
-               probe()
-              </span>
-             </code>
-            </a>
-            and
-            <a class="reference internal" href="#api.http_get_action" title="api.http_get_action">
-             <code class="xref py py-func docutils literal notranslate">
-              <span class="pre">
-               http_get_action()
-              </span>
-             </code>
-            </a>
-            functions.
-           </p>
-          </dd>
-         </dl><dl class="py class">
-          <dt class="sig sig-object py" id="api.K8sObjectID">
-           <em class="property">
-            <span class="pre">
-             class
-            </span>
-           </em>
-           <span class="sig-prename descclassname">
-            <span class="pre">
-            </span>
-           </span>
-           <span class="sig-name descname">
-            <span class="pre">
-             K8sObjectID
-            </span>
-           </span>
-           <a class="headerlink" href="#api.K8sObjectID" title="Permalink to this definition">
-            &#xF0C1;
-           </a>
-          </dt>
-          <dd>
-           <dl class="py attribute">
-            <dt class="sig sig-object py" id="api.K8sObjectID.name">
-             <span class="sig-name descname">
-              <span class="pre">
-               name
-              </span>
-             </span>
-             <a class="headerlink" href="#api.K8sObjectID.name" title="Permalink to this definition">
-              &#xF0C1;
-             </a>
-            </dt>
-            <dd>
-             <p>
-              The object&#x2019;s name (e.g.,
-              <cite>
-               &#x201C;my-service&#x201D;
-              </cite>
-              )
-             </p>
-             <dl class="field-list simple">
-              <dt class="field-odd">
-               Type
-              </dt>
-              <dd class="field-odd">
-               <p>
-                str
-               </p>
-              </dd>
-             </dl>
-            </dd>
-           </dl>
-           <dl class="py attribute">
-            <dt class="sig sig-object py" id="api.K8sObjectID.kind">
-             <span class="sig-name descname">
-              <span class="pre">
-               kind
-              </span>
-             </span>
-             <a class="headerlink" href="#api.K8sObjectID.kind" title="Permalink to this definition">
-              &#xF0C1;
-             </a>
-            </dt>
-            <dd>
-             <p>
-              The object&#x2019;s kind (e.g.,
-              <cite>
-               &#x201C;deployment&#x201D;
-              </cite>
-              )
-             </p>
-             <dl class="field-list simple">
-              <dt class="field-odd">
-               Type
-              </dt>
-              <dd class="field-odd">
-               <p>
-                str
-               </p>
-              </dd>
-             </dl>
-            </dd>
-           </dl>
-           <dl class="py attribute">
-            <dt class="sig sig-object py" id="api.K8sObjectID.namespace">
-             <span class="sig-name descname">
-              <span class="pre">
-               namespace
-              </span>
-             </span>
-             <a class="headerlink" href="#api.K8sObjectID.namespace" title="Permalink to this definition">
-              &#xF0C1;
-             </a>
-            </dt>
-            <dd>
-             <p>
-              The object&#x2019;s namespace (e.g.,
-              <cite>
-               &#x201C;default&#x201D;
-              </cite>
-              )
-             </p>
-             <dl class="field-list simple">
-              <dt class="field-odd">
-               Type
-              </dt>
-              <dd class="field-odd">
-               <p>
-                str
-               </p>
-              </dd>
-             </dl>
-            </dd>
-           </dl>
-           <dl class="py attribute">
-            <dt class="sig sig-object py" id="api.K8sObjectID.group">
-             <span class="sig-name descname">
-              <span class="pre">
-               group
-              </span>
-             </span>
-             <a class="headerlink" href="#api.K8sObjectID.group" title="Permalink to this definition">
-              &#xF0C1;
-             </a>
-            </dt>
-            <dd>
-             <p>
-              The object&#x2019;s group (e.g.,
-              <cite>
-               &#x201C;apps&#x201D;
-              </cite>
-              )
-             </p>
-             <dl class="field-list simple">
-              <dt class="field-odd">
-               Type
-              </dt>
-              <dd class="field-odd">
-               <p>
-                str
-               </p>
-              </dd>
-             </dl>
-            </dd>
-           </dl>
-          </dd>
-         </dl><dl class="py class">
-          <dt class="sig sig-object py" id="api.Link">
-           <em class="property">
-            <span class="pre">
-             class
-            </span>
-           </em>
-           <span class="sig-prename descclassname">
-            <span class="pre">
-            </span>
-           </span>
-           <span class="sig-name descname">
-            <span class="pre">
-             Link
-            </span>
-           </span>
-           <a class="headerlink" href="#api.Link" title="Permalink to this definition">
-            &#xF0C1;
-           </a>
-          </dt>
-          <dd>
-           <p>
-            Specifications for a link associated with a resource in the Web UI.
-           </p>
-           <p>
-            For details, see the
-            <a class="reference internal" href="#api.link" title="api.link">
-             <code class="xref py py-meth docutils literal notranslate">
-              <span class="pre">
-               link()
-              </span>
-             </code>
-            </a>
-            method.
-           </p>
-          </dd>
-         </dl><dl class="py class">
-          <dt class="sig sig-object py" id="api.LiveUpdateStep">
-           <em class="property">
-            <span class="pre">
-             class
-            </span>
-           </em>
-           <span class="sig-prename descclassname">
-            <span class="pre">
-            </span>
-           </span>
-           <span class="sig-name descname">
-            <span class="pre">
-             LiveUpdateStep
-            </span>
-           </span>
-           <a class="headerlink" href="#api.LiveUpdateStep" title="Permalink to this definition">
-            &#xF0C1;
-           </a>
-          </dt>
-          <dd>
-           <p>
-            A step in the process of performing a LiveUpdate on an image&#x2019;s container.
-           </p>
-           <p>
-            For details, see the
-            <a class="reference external" href="live_update_reference.html">
-             Live Update documentation
-            </a>
-            .
-           </p>
-          </dd>
-         </dl><dl class="py class">
-          <dt class="sig sig-object py" id="api.PortForward">
-           <em class="property">
-            <span class="pre">
-             class
-            </span>
-           </em>
-           <span class="sig-prename descclassname">
-            <span class="pre">
-            </span>
-           </span>
-           <span class="sig-name descname">
-            <span class="pre">
-             PortForward
-            </span>
-           </span>
-           <a class="headerlink" href="#api.PortForward" title="Permalink to this definition">
-            &#xF0C1;
-           </a>
-          </dt>
-          <dd>
-           <p>
-            Specifications for setting up and displaying a Kubernetes port-forward.
-           </p>
-           <p>
-            For details, see the
-            <a class="reference internal" href="#api.port_forward" title="api.port_forward">
-             <code class="xref py py-meth docutils literal notranslate">
-              <span class="pre">
-               port_forward()
-              </span>
-             </code>
-            </a>
-            method.
-           </p>
-          </dd>
-         </dl><dl class="py class">
-          <dt class="sig sig-object py" id="api.Probe">
-           <em class="property">
-            <span class="pre">
-             class
-            </span>
-           </em>
-           <span class="sig-prename descclassname">
-            <span class="pre">
-            </span>
-           </span>
-           <span class="sig-name descname">
-            <span class="pre">
-             Probe
-            </span>
-           </span>
-           <a class="headerlink" href="#api.Probe" title="Permalink to this definition">
-            &#xF0C1;
-           </a>
-          </dt>
-          <dd>
-           <p>
-            Specification for a resource readiness check.
-           </p>
-           <p>
-            For details, see the
-            <a class="reference internal" href="#api.probe" title="api.probe">
-             <code class="xref py py-meth docutils literal notranslate">
-              <span class="pre">
-               probe()
-              </span>
-             </code>
-            </a>
-            function.
-           </p>
-          </dd>
-         </dl><dl class="py class">
-          <dt class="sig sig-object py" id="api.TCPSocketAction">
-           <em class="property">
-            <span class="pre">
-             class
-            </span>
-           </em>
-           <span class="sig-prename descclassname">
-            <span class="pre">
-            </span>
-           </span>
-           <span class="sig-name descname">
-            <span class="pre">
-             TCPSocketAction
-            </span>
-           </span>
-           <a class="headerlink" href="#api.TCPSocketAction" title="Permalink to this definition">
-            &#xF0C1;
-           </a>
-          </dt>
-          <dd>
-           <p>
-            Specification for a TCP socket connection to perform that determines resource readiness.
-           </p>
-           <p>
-            For details, see the
-            <a class="reference internal" href="#api.probe" title="api.probe">
-             <code class="xref py py-func docutils literal notranslate">
-              <span class="pre">
-               probe()
-              </span>
-             </code>
-            </a>
-            and
-            <a class="reference internal" href="#api.tcp_socket_action" title="api.tcp_socket_action">
-             <code class="xref py py-func docutils literal notranslate">
-              <span class="pre">
-               tcp_socket_action()
-              </span>
-             </code>
-            </a>
-            functions.
-           </p>
-          </dd>
-         </dl><dl class="py class">
-          <dt class="sig sig-object py" id="api.TriggerMode">
-           <em class="property">
-            <span class="pre">
-             class
-            </span>
-           </em>
-           <span class="sig-prename descclassname">
-            <span class="pre">
-            </span>
-           </span>
-           <span class="sig-name descname">
-            <span class="pre">
-             TriggerMode
-            </span>
-           </span>
-           <a class="headerlink" href="#api.TriggerMode" title="Permalink to this definition">
-            &#xF0C1;
-           </a>
-          </dt>
-          <dd>
-           <p>
-            A set of constants that describe how Tilt triggers an update for a resource.
+ <dt class="sig sig-object py" id="api.Blob">
+  <em class="property">
+   <span class="pre">
+    class
+   </span>
+  </em>
+  <span class="sig-prename descclassname">
+   <span class="pre">
+   </span>
+  </span>
+  <span class="sig-name descname">
+   <span class="pre">
+    Blob
+   </span>
+  </span>
+  <a class="headerlink" href="#api.Blob" title="Permalink to this definition">
+   
+  </a>
+ </dt>
+ <dd>
+  <p>
+   The result of executing a command on your local system.
+  </p>
+  <p>
+   Under the hood, a
+   <cite>
+    Blob
+   </cite>
+   is just a string, but we wrap it this way so Tilt knows the difference between a string meant to convey content and a string indicating, say, a filepath.
+  </p>
+  <p>
+   To wrap a string as a blob, call
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     blob(my_str)
+    </span>
+   </code>
+  </p>
+ </dd>
+</dl>
+<dl class="py class">
+ <dt class="sig sig-object py" id="api.ExecAction">
+  <em class="property">
+   <span class="pre">
+    class
+   </span>
+  </em>
+  <span class="sig-prename descclassname">
+   <span class="pre">
+   </span>
+  </span>
+  <span class="sig-name descname">
+   <span class="pre">
+    ExecAction
+   </span>
+  </span>
+  <a class="headerlink" href="#api.ExecAction" title="Permalink to this definition">
+   
+  </a>
+ </dt>
+ <dd>
+  <p>
+   Specification for a command to execute that determines resource readiness.
+  </p>
+  <p>
+   For details, see the
+   <a class="reference internal" href="#api.probe" title="api.probe">
+    <code class="xref py py-func docutils literal notranslate">
+     <span class="pre">
+      probe()
+     </span>
+    </code>
+   </a>
+   and
+   <a class="reference internal" href="#api.exec_action" title="api.exec_action">
+    <code class="xref py py-func docutils literal notranslate">
+     <span class="pre">
+      exec_action()
+     </span>
+    </code>
+   </a>
+   functions.
+  </p>
+ </dd>
+</dl>
+<dl class="py class">
+ <dt class="sig sig-object py" id="api.HTTPGetAction">
+  <em class="property">
+   <span class="pre">
+    class
+   </span>
+  </em>
+  <span class="sig-prename descclassname">
+   <span class="pre">
+   </span>
+  </span>
+  <span class="sig-name descname">
+   <span class="pre">
+    HTTPGetAction
+   </span>
+  </span>
+  <a class="headerlink" href="#api.HTTPGetAction" title="Permalink to this definition">
+   
+  </a>
+ </dt>
+ <dd>
+  <p>
+   Specification for a HTTP GET request to perform that determines resource readiness.
+  </p>
+  <p>
+   For details, see the
+   <a class="reference internal" href="#api.probe" title="api.probe">
+    <code class="xref py py-func docutils literal notranslate">
+     <span class="pre">
+      probe()
+     </span>
+    </code>
+   </a>
+   and
+   <a class="reference internal" href="#api.http_get_action" title="api.http_get_action">
+    <code class="xref py py-func docutils literal notranslate">
+     <span class="pre">
+      http_get_action()
+     </span>
+    </code>
+   </a>
+   functions.
+  </p>
+ </dd>
+</dl>
+<dl class="py class">
+ <dt class="sig sig-object py" id="api.K8sObjectID">
+  <em class="property">
+   <span class="pre">
+    class
+   </span>
+  </em>
+  <span class="sig-prename descclassname">
+   <span class="pre">
+   </span>
+  </span>
+  <span class="sig-name descname">
+   <span class="pre">
+    K8sObjectID
+   </span>
+  </span>
+  <a class="headerlink" href="#api.K8sObjectID" title="Permalink to this definition">
+   
+  </a>
+ </dt>
+ <dd>
+  <dl class="py attribute">
+   <dt class="sig sig-object py" id="api.K8sObjectID.name">
+    <span class="sig-name descname">
+     <span class="pre">
+      name
+     </span>
+    </span>
+    <a class="headerlink" href="#api.K8sObjectID.name" title="Permalink to this definition">
+     
+    </a>
+   </dt>
+   <dd>
+    <p>
+     The object’s name (e.g.,
+     <cite>
+      “my-service”
+     </cite>
+     )
+    </p>
+    <dl class="field-list simple">
+     <dt class="field-odd">
+      Type
+     </dt>
+     <dd class="field-odd">
+      <p>
+       str
+      </p>
+     </dd>
+    </dl>
+   </dd>
+  </dl>
+  <dl class="py attribute">
+   <dt class="sig sig-object py" id="api.K8sObjectID.kind">
+    <span class="sig-name descname">
+     <span class="pre">
+      kind
+     </span>
+    </span>
+    <a class="headerlink" href="#api.K8sObjectID.kind" title="Permalink to this definition">
+     
+    </a>
+   </dt>
+   <dd>
+    <p>
+     The object’s kind (e.g.,
+     <cite>
+      “deployment”
+     </cite>
+     )
+    </p>
+    <dl class="field-list simple">
+     <dt class="field-odd">
+      Type
+     </dt>
+     <dd class="field-odd">
+      <p>
+       str
+      </p>
+     </dd>
+    </dl>
+   </dd>
+  </dl>
+  <dl class="py attribute">
+   <dt class="sig sig-object py" id="api.K8sObjectID.namespace">
+    <span class="sig-name descname">
+     <span class="pre">
+      namespace
+     </span>
+    </span>
+    <a class="headerlink" href="#api.K8sObjectID.namespace" title="Permalink to this definition">
+     
+    </a>
+   </dt>
+   <dd>
+    <p>
+     The object’s namespace (e.g.,
+     <cite>
+      “default”
+     </cite>
+     )
+    </p>
+    <dl class="field-list simple">
+     <dt class="field-odd">
+      Type
+     </dt>
+     <dd class="field-odd">
+      <p>
+       str
+      </p>
+     </dd>
+    </dl>
+   </dd>
+  </dl>
+  <dl class="py attribute">
+   <dt class="sig sig-object py" id="api.K8sObjectID.group">
+    <span class="sig-name descname">
+     <span class="pre">
+      group
+     </span>
+    </span>
+    <a class="headerlink" href="#api.K8sObjectID.group" title="Permalink to this definition">
+     
+    </a>
+   </dt>
+   <dd>
+    <p>
+     The object’s group (e.g.,
+     <cite>
+      “apps”
+     </cite>
+     )
+    </p>
+    <dl class="field-list simple">
+     <dt class="field-odd">
+      Type
+     </dt>
+     <dd class="field-odd">
+      <p>
+       str
+      </p>
+     </dd>
+    </dl>
+   </dd>
+  </dl>
+ </dd>
+</dl>
+<dl class="py class">
+ <dt class="sig sig-object py" id="api.Link">
+  <em class="property">
+   <span class="pre">
+    class
+   </span>
+  </em>
+  <span class="sig-prename descclassname">
+   <span class="pre">
+   </span>
+  </span>
+  <span class="sig-name descname">
+   <span class="pre">
+    Link
+   </span>
+  </span>
+  <a class="headerlink" href="#api.Link" title="Permalink to this definition">
+   
+  </a>
+ </dt>
+ <dd>
+  <p>
+   Specifications for a link associated with a resource in the Web UI.
+  </p>
+  <p>
+   For details, see the
+   <a class="reference internal" href="#api.link" title="api.link">
+    <code class="xref py py-meth docutils literal notranslate">
+     <span class="pre">
+      link()
+     </span>
+    </code>
+   </a>
+   method.
+  </p>
+ </dd>
+</dl>
+<dl class="py class">
+ <dt class="sig sig-object py" id="api.LiveUpdateStep">
+  <em class="property">
+   <span class="pre">
+    class
+   </span>
+  </em>
+  <span class="sig-prename descclassname">
+   <span class="pre">
+   </span>
+  </span>
+  <span class="sig-name descname">
+   <span class="pre">
+    LiveUpdateStep
+   </span>
+  </span>
+  <a class="headerlink" href="#api.LiveUpdateStep" title="Permalink to this definition">
+   
+  </a>
+ </dt>
+ <dd>
+  <p>
+   A step in the process of performing a LiveUpdate on an image’s container.
+  </p>
+  <p>
+   For details, see the
+   <a class="reference external" href="live_update_reference.html">
+    Live Update documentation
+   </a>
+   .
+  </p>
+ </dd>
+</dl>
+<dl class="py class">
+ <dt class="sig sig-object py" id="api.PortForward">
+  <em class="property">
+   <span class="pre">
+    class
+   </span>
+  </em>
+  <span class="sig-prename descclassname">
+   <span class="pre">
+   </span>
+  </span>
+  <span class="sig-name descname">
+   <span class="pre">
+    PortForward
+   </span>
+  </span>
+  <a class="headerlink" href="#api.PortForward" title="Permalink to this definition">
+   
+  </a>
+ </dt>
+ <dd>
+  <p>
+   Specifications for setting up and displaying a Kubernetes port-forward.
+  </p>
+  <p>
+   For details, see the
+   <a class="reference internal" href="#api.port_forward" title="api.port_forward">
+    <code class="xref py py-meth docutils literal notranslate">
+     <span class="pre">
+      port_forward()
+     </span>
+    </code>
+   </a>
+   method.
+  </p>
+ </dd>
+</dl>
+<dl class="py class">
+ <dt class="sig sig-object py" id="api.Probe">
+  <em class="property">
+   <span class="pre">
+    class
+   </span>
+  </em>
+  <span class="sig-prename descclassname">
+   <span class="pre">
+   </span>
+  </span>
+  <span class="sig-name descname">
+   <span class="pre">
+    Probe
+   </span>
+  </span>
+  <a class="headerlink" href="#api.Probe" title="Permalink to this definition">
+   
+  </a>
+ </dt>
+ <dd>
+  <p>
+   Specification for a resource readiness check.
+  </p>
+  <p>
+   For details, see the
+   <a class="reference internal" href="#api.probe" title="api.probe">
+    <code class="xref py py-meth docutils literal notranslate">
+     <span class="pre">
+      probe()
+     </span>
+    </code>
+   </a>
+   function.
+  </p>
+ </dd>
+</dl>
+<dl class="py class">
+ <dt class="sig sig-object py" id="api.TCPSocketAction">
+  <em class="property">
+   <span class="pre">
+    class
+   </span>
+  </em>
+  <span class="sig-prename descclassname">
+   <span class="pre">
+   </span>
+  </span>
+  <span class="sig-name descname">
+   <span class="pre">
+    TCPSocketAction
+   </span>
+  </span>
+  <a class="headerlink" href="#api.TCPSocketAction" title="Permalink to this definition">
+   
+  </a>
+ </dt>
+ <dd>
+  <p>
+   Specification for a TCP socket connection to perform that determines resource readiness.
+  </p>
+  <p>
+   For details, see the
+   <a class="reference internal" href="#api.probe" title="api.probe">
+    <code class="xref py py-func docutils literal notranslate">
+     <span class="pre">
+      probe()
+     </span>
+    </code>
+   </a>
+   and
+   <a class="reference internal" href="#api.tcp_socket_action" title="api.tcp_socket_action">
+    <code class="xref py py-func docutils literal notranslate">
+     <span class="pre">
+      tcp_socket_action()
+     </span>
+    </code>
+   </a>
+   functions.
+  </p>
+ </dd>
+</dl>
+<dl class="py class">
+ <dt class="sig sig-object py" id="api.TriggerMode">
+  <em class="property">
+   <span class="pre">
+    class
+   </span>
+  </em>
+  <span class="sig-prename descclassname">
+   <span class="pre">
+   </span>
+  </span>
+  <span class="sig-name descname">
+   <span class="pre">
+    TriggerMode
+   </span>
+  </span>
+  <a class="headerlink" href="#api.TriggerMode" title="Permalink to this definition">
+   
+  </a>
+ </dt>
+ <dd>
+  <p>
+   A set of constants that describe how Tilt triggers an update for a resource.
 Possible values are:
-           </p>
-           <ul class="simple">
-            <li>
-             <p>
-              <code class="docutils literal notranslate">
-               <span class="pre">
-                TRIGGER_MODE_AUTO
-               </span>
-              </code>
-              : the default. When Tilt detects a change to files or config files associated with this resource, it triggers an update.
-             </p>
-            </li>
-            <li>
-             <p>
-              <code class="docutils literal notranslate">
-               <span class="pre">
-                TRIGGER_MODE_MANUAL
-               </span>
-              </code>
-              : user manually triggers update for dirty resources (i.e. resources with pending changes) via a button in the UI. (Note that the initial build always occurs automatically.)
-             </p>
-            </li>
-           </ul>
-           <p>
-            The default trigger mode for all manifests may be set with the top-level function
-            <a class="reference internal" href="#api.trigger_mode" title="api.trigger_mode">
-             <code class="xref py py-meth docutils literal notranslate">
-              <span class="pre">
-               trigger_mode()
-              </span>
-             </code>
-            </a>
-            (if not set, defaults to
-            <code class="docutils literal notranslate">
-             <span class="pre">
-              TRIGGER_MODE_AUTO
-             </span>
-            </code>
-            ), and per-resource with
-            <a class="reference internal" href="#api.k8s_resource" title="api.k8s_resource">
-             <code class="xref py py-meth docutils literal notranslate">
-              <span class="pre">
-               k8s_resource()
-              </span>
-             </code>
-            </a>
-            /
-            <a class="reference internal" href="#api.dc_resource" title="api.dc_resource">
-             <code class="xref py py-meth docutils literal notranslate">
-              <span class="pre">
-               dc_resource()
-              </span>
-             </code>
-            </a>
-            .
-           </p>
-           <p>
-            See also:
-            <a class="reference external" href="manual_update_control.html">
-             Manual Update Control documentation
-            </a>
-           </p>
-          </dd>
-         </dl><dl class="py class">
-          <dt class="sig sig-object py" id="api.v1alpha1.ConfigMapDisableSource">
-           <em class="property">
-            <span class="pre">
-             class
-            </span>
-           </em>
-           <span class="sig-prename descclassname">
-            <span class="pre">
-             v1alpha1.
-            </span>
-           </span>
-           <span class="sig-name descname">
-            <span class="pre">
-             ConfigMapDisableSource
-            </span>
-           </span>
-           <a class="headerlink" href="#api.v1alpha1.ConfigMapDisableSource" title="Permalink to this definition">
-            &#xF0C1;
-           </a>
-          </dt>
-          <dd>
-           <p>
-            Specifies a ConfigMap to control a DisableSource
-           </p>
-          </dd>
-         </dl><dl class="py class">
-          <dt class="sig sig-object py" id="api.v1alpha1.DisableSource">
-           <em class="property">
-            <span class="pre">
-             class
-            </span>
-           </em>
-           <span class="sig-prename descclassname">
-            <span class="pre">
-             v1alpha1.
-            </span>
-           </span>
-           <span class="sig-name descname">
-            <span class="pre">
-             DisableSource
-            </span>
-           </span>
-           <a class="headerlink" href="#api.v1alpha1.DisableSource" title="Permalink to this definition">
-            &#xF0C1;
-           </a>
-          </dt>
-          <dd>
-           <p>
-            Points at a thing that can control whether something is disabled
-           </p>
-          </dd>
-         </dl><dl class="py class">
-          <dt class="sig sig-object py" id="api.v1alpha1.ExecAction">
-           <em class="property">
-            <span class="pre">
-             class
-            </span>
-           </em>
-           <span class="sig-prename descclassname">
-            <span class="pre">
-             v1alpha1.
-            </span>
-           </span>
-           <span class="sig-name descname">
-            <span class="pre">
-             ExecAction
-            </span>
-           </span>
-           <a class="headerlink" href="#api.v1alpha1.ExecAction" title="Permalink to this definition">
-            &#xF0C1;
-           </a>
-          </dt>
-          <dd>
-           <p>
-            ExecAction describes a &#x201C;run in container&#x201D; action.
-           </p>
-          </dd>
-         </dl><dl class="py class">
-          <dt class="sig sig-object py" id="api.v1alpha1.Forward">
-           <em class="property">
-            <span class="pre">
-             class
-            </span>
-           </em>
-           <span class="sig-prename descclassname">
-            <span class="pre">
-             v1alpha1.
-            </span>
-           </span>
-           <span class="sig-name descname">
-            <span class="pre">
-             Forward
-            </span>
-           </span>
-           <a class="headerlink" href="#api.v1alpha1.Forward" title="Permalink to this definition">
-            &#xF0C1;
-           </a>
-          </dt>
-          <dd>
-           <p>
-            Forward defines a port forward to execute on a given pod.
-           </p>
-          </dd>
-         </dl><dl class="py class">
-          <dt class="sig sig-object py" id="api.v1alpha1.HTTPGetAction">
-           <em class="property">
-            <span class="pre">
-             class
-            </span>
-           </em>
-           <span class="sig-prename descclassname">
-            <span class="pre">
-             v1alpha1.
-            </span>
-           </span>
-           <span class="sig-name descname">
-            <span class="pre">
-             HTTPGetAction
-            </span>
-           </span>
-           <a class="headerlink" href="#api.v1alpha1.HTTPGetAction" title="Permalink to this definition">
-            &#xF0C1;
-           </a>
-          </dt>
-          <dd>
-           <p>
-            HTTPGetAction describes an action based on HTTP Get requests.
-           </p>
-          </dd>
-         </dl><dl class="py class">
-          <dt class="sig sig-object py" id="api.v1alpha1.HTTPHeader">
-           <em class="property">
-            <span class="pre">
-             class
-            </span>
-           </em>
-           <span class="sig-prename descclassname">
-            <span class="pre">
-             v1alpha1.
-            </span>
-           </span>
-           <span class="sig-name descname">
-            <span class="pre">
-             HTTPHeader
-            </span>
-           </span>
-           <a class="headerlink" href="#api.v1alpha1.HTTPHeader" title="Permalink to this definition">
-            &#xF0C1;
-           </a>
-          </dt>
-          <dd>
-           <p>
-            HTTPHeader describes a custom header to be used in HTTP probes
-           </p>
-          </dd>
-         </dl><dl class="py class">
-          <dt class="sig sig-object py" id="api.v1alpha1.Handler">
-           <em class="property">
-            <span class="pre">
-             class
-            </span>
-           </em>
-           <span class="sig-prename descclassname">
-            <span class="pre">
-             v1alpha1.
-            </span>
-           </span>
-           <span class="sig-name descname">
-            <span class="pre">
-             Handler
-            </span>
-           </span>
-           <a class="headerlink" href="#api.v1alpha1.Handler" title="Permalink to this definition">
-            &#xF0C1;
-           </a>
-          </dt>
-          <dd>
-           <p>
-            Handler defines a specific action that should be taken in a probe.
-           </p>
-          </dd>
-         </dl><dl class="py class">
-          <dt class="sig sig-object py" id="api.v1alpha1.IgnoreDef">
-           <em class="property">
-            <span class="pre">
-             class
-            </span>
-           </em>
-           <span class="sig-prename descclassname">
-            <span class="pre">
-             v1alpha1.
-            </span>
-           </span>
-           <span class="sig-name descname">
-            <span class="pre">
-             IgnoreDef
-            </span>
-           </span>
-           <a class="headerlink" href="#api.v1alpha1.IgnoreDef" title="Permalink to this definition">
-            &#xF0C1;
-           </a>
-          </dt>
-          <dd>
-           <p>
-            Describes sets of file paths that the FileWatch should ignore.
-           </p>
-          </dd>
-         </dl><dl class="py class">
-          <dt class="sig sig-object py" id="api.v1alpha1.KubernetesImageLocator">
-           <em class="property">
-            <span class="pre">
-             class
-            </span>
-           </em>
-           <span class="sig-prename descclassname">
-            <span class="pre">
-             v1alpha1.
-            </span>
-           </span>
-           <span class="sig-name descname">
-            <span class="pre">
-             KubernetesImageLocator
-            </span>
-           </span>
-           <a class="headerlink" href="#api.v1alpha1.KubernetesImageLocator" title="Permalink to this definition">
-            &#xF0C1;
-           </a>
-          </dt>
-          <dd>
-           <p>
-            Finds image references in Kubernetes YAML.
-           </p>
-          </dd>
-         </dl><dl class="py class">
-          <dt class="sig sig-object py" id="api.v1alpha1.KubernetesWatchRef">
-           <em class="property">
-            <span class="pre">
-             class
-            </span>
-           </em>
-           <span class="sig-prename descclassname">
-            <span class="pre">
-             v1alpha1.
-            </span>
-           </span>
-           <span class="sig-name descname">
-            <span class="pre">
-             KubernetesWatchRef
-            </span>
-           </span>
-           <a class="headerlink" href="#api.v1alpha1.KubernetesWatchRef" title="Permalink to this definition">
-            &#xF0C1;
-           </a>
-          </dt>
-          <dd>
-           <p>
-            KubernetesWatchRef is similar to v1.ObjectReference from the Kubernetes API and is used to determine
+  </p>
+  <ul class="simple">
+   <li>
+    <p>
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       TRIGGER_MODE_AUTO
+      </span>
+     </code>
+     : the default. When Tilt detects a change to files or config files associated with this resource, it triggers an update.
+    </p>
+   </li>
+   <li>
+    <p>
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       TRIGGER_MODE_MANUAL
+      </span>
+     </code>
+     : user manually triggers update for dirty resources (i.e. resources with pending changes) via a button in the UI. (Note that the initial build always occurs automatically.)
+    </p>
+   </li>
+  </ul>
+  <p>
+   The default trigger mode for all manifests may be set with the top-level function
+   <a class="reference internal" href="#api.trigger_mode" title="api.trigger_mode">
+    <code class="xref py py-meth docutils literal notranslate">
+     <span class="pre">
+      trigger_mode()
+     </span>
+    </code>
+   </a>
+   (if not set, defaults to
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     TRIGGER_MODE_AUTO
+    </span>
+   </code>
+   ), and per-resource with
+   <a class="reference internal" href="#api.k8s_resource" title="api.k8s_resource">
+    <code class="xref py py-meth docutils literal notranslate">
+     <span class="pre">
+      k8s_resource()
+     </span>
+    </code>
+   </a>
+   /
+   <a class="reference internal" href="#api.dc_resource" title="api.dc_resource">
+    <code class="xref py py-meth docutils literal notranslate">
+     <span class="pre">
+      dc_resource()
+     </span>
+    </code>
+   </a>
+   .
+  </p>
+  <p>
+   See also:
+   <a class="reference external" href="manual_update_control.html">
+    Manual Update Control documentation
+   </a>
+  </p>
+ </dd>
+</dl>
+<dl class="py class">
+ <dt class="sig sig-object py" id="api.v1alpha1.ConfigMapDisableSource">
+  <em class="property">
+   <span class="pre">
+    class
+   </span>
+  </em>
+  <span class="sig-prename descclassname">
+   <span class="pre">
+    v1alpha1.
+   </span>
+  </span>
+  <span class="sig-name descname">
+   <span class="pre">
+    ConfigMapDisableSource
+   </span>
+  </span>
+  <a class="headerlink" href="#api.v1alpha1.ConfigMapDisableSource" title="Permalink to this definition">
+   
+  </a>
+ </dt>
+ <dd>
+  <p>
+   Specifies a ConfigMap to control a DisableSource
+  </p>
+ </dd>
+</dl>
+<dl class="py class">
+ <dt class="sig sig-object py" id="api.v1alpha1.DisableSource">
+  <em class="property">
+   <span class="pre">
+    class
+   </span>
+  </em>
+  <span class="sig-prename descclassname">
+   <span class="pre">
+    v1alpha1.
+   </span>
+  </span>
+  <span class="sig-name descname">
+   <span class="pre">
+    DisableSource
+   </span>
+  </span>
+  <a class="headerlink" href="#api.v1alpha1.DisableSource" title="Permalink to this definition">
+   
+  </a>
+ </dt>
+ <dd>
+  <p>
+   Points at a thing that can control whether something is disabled
+  </p>
+ </dd>
+</dl>
+<dl class="py class">
+ <dt class="sig sig-object py" id="api.v1alpha1.ExecAction">
+  <em class="property">
+   <span class="pre">
+    class
+   </span>
+  </em>
+  <span class="sig-prename descclassname">
+   <span class="pre">
+    v1alpha1.
+   </span>
+  </span>
+  <span class="sig-name descname">
+   <span class="pre">
+    ExecAction
+   </span>
+  </span>
+  <a class="headerlink" href="#api.v1alpha1.ExecAction" title="Permalink to this definition">
+   
+  </a>
+ </dt>
+ <dd>
+  <p>
+   ExecAction describes a “run in container” action.
+  </p>
+ </dd>
+</dl>
+<dl class="py class">
+ <dt class="sig sig-object py" id="api.v1alpha1.Forward">
+  <em class="property">
+   <span class="pre">
+    class
+   </span>
+  </em>
+  <span class="sig-prename descclassname">
+   <span class="pre">
+    v1alpha1.
+   </span>
+  </span>
+  <span class="sig-name descname">
+   <span class="pre">
+    Forward
+   </span>
+  </span>
+  <a class="headerlink" href="#api.v1alpha1.Forward" title="Permalink to this definition">
+   
+  </a>
+ </dt>
+ <dd>
+  <p>
+   Forward defines a port forward to execute on a given pod.
+  </p>
+ </dd>
+</dl>
+<dl class="py class">
+ <dt class="sig sig-object py" id="api.v1alpha1.HTTPGetAction">
+  <em class="property">
+   <span class="pre">
+    class
+   </span>
+  </em>
+  <span class="sig-prename descclassname">
+   <span class="pre">
+    v1alpha1.
+   </span>
+  </span>
+  <span class="sig-name descname">
+   <span class="pre">
+    HTTPGetAction
+   </span>
+  </span>
+  <a class="headerlink" href="#api.v1alpha1.HTTPGetAction" title="Permalink to this definition">
+   
+  </a>
+ </dt>
+ <dd>
+  <p>
+   HTTPGetAction describes an action based on HTTP Get requests.
+  </p>
+ </dd>
+</dl>
+<dl class="py class">
+ <dt class="sig sig-object py" id="api.v1alpha1.HTTPHeader">
+  <em class="property">
+   <span class="pre">
+    class
+   </span>
+  </em>
+  <span class="sig-prename descclassname">
+   <span class="pre">
+    v1alpha1.
+   </span>
+  </span>
+  <span class="sig-name descname">
+   <span class="pre">
+    HTTPHeader
+   </span>
+  </span>
+  <a class="headerlink" href="#api.v1alpha1.HTTPHeader" title="Permalink to this definition">
+   
+  </a>
+ </dt>
+ <dd>
+  <p>
+   HTTPHeader describes a custom header to be used in HTTP probes
+  </p>
+ </dd>
+</dl>
+<dl class="py class">
+ <dt class="sig sig-object py" id="api.v1alpha1.Handler">
+  <em class="property">
+   <span class="pre">
+    class
+   </span>
+  </em>
+  <span class="sig-prename descclassname">
+   <span class="pre">
+    v1alpha1.
+   </span>
+  </span>
+  <span class="sig-name descname">
+   <span class="pre">
+    Handler
+   </span>
+  </span>
+  <a class="headerlink" href="#api.v1alpha1.Handler" title="Permalink to this definition">
+   
+  </a>
+ </dt>
+ <dd>
+  <p>
+   Handler defines a specific action that should be taken in a probe.
+  </p>
+ </dd>
+</dl>
+<dl class="py class">
+ <dt class="sig sig-object py" id="api.v1alpha1.IgnoreDef">
+  <em class="property">
+   <span class="pre">
+    class
+   </span>
+  </em>
+  <span class="sig-prename descclassname">
+   <span class="pre">
+    v1alpha1.
+   </span>
+  </span>
+  <span class="sig-name descname">
+   <span class="pre">
+    IgnoreDef
+   </span>
+  </span>
+  <a class="headerlink" href="#api.v1alpha1.IgnoreDef" title="Permalink to this definition">
+   
+  </a>
+ </dt>
+ <dd>
+  <p>
+   Describes sets of file paths that the FileWatch should ignore.
+  </p>
+ </dd>
+</dl>
+<dl class="py class">
+ <dt class="sig sig-object py" id="api.v1alpha1.KubernetesImageLocator">
+  <em class="property">
+   <span class="pre">
+    class
+   </span>
+  </em>
+  <span class="sig-prename descclassname">
+   <span class="pre">
+    v1alpha1.
+   </span>
+  </span>
+  <span class="sig-name descname">
+   <span class="pre">
+    KubernetesImageLocator
+   </span>
+  </span>
+  <a class="headerlink" href="#api.v1alpha1.KubernetesImageLocator" title="Permalink to this definition">
+   
+  </a>
+ </dt>
+ <dd>
+  <p>
+   Finds image references in Kubernetes YAML.
+  </p>
+ </dd>
+</dl>
+<dl class="py class">
+ <dt class="sig sig-object py" id="api.v1alpha1.KubernetesWatchRef">
+  <em class="property">
+   <span class="pre">
+    class
+   </span>
+  </em>
+  <span class="sig-prename descclassname">
+   <span class="pre">
+    v1alpha1.
+   </span>
+  </span>
+  <span class="sig-name descname">
+   <span class="pre">
+    KubernetesWatchRef
+   </span>
+  </span>
+  <a class="headerlink" href="#api.v1alpha1.KubernetesWatchRef" title="Permalink to this definition">
+   
+  </a>
+ </dt>
+ <dd>
+  <p>
+   KubernetesWatchRef is similar to v1.ObjectReference from the Kubernetes API and is used to determine
 what objects should be reported on based on discovery.
-           </p>
-          </dd>
-         </dl><dl class="py class">
-          <dt class="sig sig-object py" id="api.v1alpha1.ObjectSelector">
-           <em class="property">
-            <span class="pre">
-             class
-            </span>
-           </em>
-           <span class="sig-prename descclassname">
-            <span class="pre">
-             v1alpha1.
-            </span>
-           </span>
-           <span class="sig-name descname">
-            <span class="pre">
-             ObjectSelector
-            </span>
-           </span>
-           <a class="headerlink" href="#api.v1alpha1.ObjectSelector" title="Permalink to this definition">
-            &#xF0C1;
-           </a>
-          </dt>
-          <dd>
-           <p>
-            Selector for any Kubernetes-style API.
-           </p>
-          </dd>
-         </dl><dl class="py class">
-          <dt class="sig sig-object py" id="api.v1alpha1.PodLogStreamTemplateSpec">
-           <em class="property">
-            <span class="pre">
-             class
-            </span>
-           </em>
-           <span class="sig-prename descclassname">
-            <span class="pre">
-             v1alpha1.
-            </span>
-           </span>
-           <span class="sig-name descname">
-            <span class="pre">
-             PodLogStreamTemplateSpec
-            </span>
-           </span>
-           <a class="headerlink" href="#api.v1alpha1.PodLogStreamTemplateSpec" title="Permalink to this definition">
-            &#xF0C1;
-           </a>
-          </dt>
-          <dd>
-           <p>
-            PodLogStreamTemplateSpec describes common attributes for PodLogStreams
+  </p>
+ </dd>
+</dl>
+<dl class="py class">
+ <dt class="sig sig-object py" id="api.v1alpha1.ObjectSelector">
+  <em class="property">
+   <span class="pre">
+    class
+   </span>
+  </em>
+  <span class="sig-prename descclassname">
+   <span class="pre">
+    v1alpha1.
+   </span>
+  </span>
+  <span class="sig-name descname">
+   <span class="pre">
+    ObjectSelector
+   </span>
+  </span>
+  <a class="headerlink" href="#api.v1alpha1.ObjectSelector" title="Permalink to this definition">
+   
+  </a>
+ </dt>
+ <dd>
+  <p>
+   Selector for any Kubernetes-style API.
+  </p>
+ </dd>
+</dl>
+<dl class="py class">
+ <dt class="sig sig-object py" id="api.v1alpha1.PodLogStreamTemplateSpec">
+  <em class="property">
+   <span class="pre">
+    class
+   </span>
+  </em>
+  <span class="sig-prename descclassname">
+   <span class="pre">
+    v1alpha1.
+   </span>
+  </span>
+  <span class="sig-name descname">
+   <span class="pre">
+    PodLogStreamTemplateSpec
+   </span>
+  </span>
+  <a class="headerlink" href="#api.v1alpha1.PodLogStreamTemplateSpec" title="Permalink to this definition">
+   
+  </a>
+ </dt>
+ <dd>
+  <p>
+   PodLogStreamTemplateSpec describes common attributes for PodLogStreams
 that can be shared across pods.
-           </p>
-          </dd>
-         </dl><dl class="py class">
-          <dt class="sig sig-object py" id="api.v1alpha1.PortForwardTemplateSpec">
-           <em class="property">
-            <span class="pre">
-             class
-            </span>
-           </em>
-           <span class="sig-prename descclassname">
-            <span class="pre">
-             v1alpha1.
-            </span>
-           </span>
-           <span class="sig-name descname">
-            <span class="pre">
-             PortForwardTemplateSpec
-            </span>
-           </span>
-           <a class="headerlink" href="#api.v1alpha1.PortForwardTemplateSpec" title="Permalink to this definition">
-            &#xF0C1;
-           </a>
-          </dt>
-          <dd>
-           <p>
-            PortForwardTemplateSpec describes common attributes for PortForwards
+  </p>
+ </dd>
+</dl>
+<dl class="py class">
+ <dt class="sig sig-object py" id="api.v1alpha1.PortForwardTemplateSpec">
+  <em class="property">
+   <span class="pre">
+    class
+   </span>
+  </em>
+  <span class="sig-prename descclassname">
+   <span class="pre">
+    v1alpha1.
+   </span>
+  </span>
+  <span class="sig-name descname">
+   <span class="pre">
+    PortForwardTemplateSpec
+   </span>
+  </span>
+  <a class="headerlink" href="#api.v1alpha1.PortForwardTemplateSpec" title="Permalink to this definition">
+   
+  </a>
+ </dt>
+ <dd>
+  <p>
+   PortForwardTemplateSpec describes common attributes for PortForwards
 that can be shared across pods.
-           </p>
-          </dd>
-         </dl><dl class="py class">
-          <dt class="sig sig-object py" id="api.v1alpha1.Probe">
-           <em class="property">
-            <span class="pre">
-             class
-            </span>
-           </em>
-           <span class="sig-prename descclassname">
-            <span class="pre">
-             v1alpha1.
-            </span>
-           </span>
-           <span class="sig-name descname">
-            <span class="pre">
-             Probe
-            </span>
-           </span>
-           <a class="headerlink" href="#api.v1alpha1.Probe" title="Permalink to this definition">
-            &#xF0C1;
-           </a>
-          </dt>
-          <dd>
-           <p>
-            Probe describes a health check to be performed to determine whether it is
+  </p>
+ </dd>
+</dl>
+<dl class="py class">
+ <dt class="sig sig-object py" id="api.v1alpha1.Probe">
+  <em class="property">
+   <span class="pre">
+    class
+   </span>
+  </em>
+  <span class="sig-prename descclassname">
+   <span class="pre">
+    v1alpha1.
+   </span>
+  </span>
+  <span class="sig-name descname">
+   <span class="pre">
+    Probe
+   </span>
+  </span>
+  <a class="headerlink" href="#api.v1alpha1.Probe" title="Permalink to this definition">
+   
+  </a>
+ </dt>
+ <dd>
+  <p>
+   Probe describes a health check to be performed to determine whether it is
 alive or ready to receive traffic.
-           </p>
-          </dd>
-         </dl><dl class="py class">
-          <dt class="sig sig-object py" id="api.v1alpha1.RestartOnSpec">
-           <em class="property">
-            <span class="pre">
-             class
-            </span>
-           </em>
-           <span class="sig-prename descclassname">
-            <span class="pre">
-             v1alpha1.
-            </span>
-           </span>
-           <span class="sig-name descname">
-            <span class="pre">
-             RestartOnSpec
-            </span>
-           </span>
-           <a class="headerlink" href="#api.v1alpha1.RestartOnSpec" title="Permalink to this definition">
-            &#xF0C1;
-           </a>
-          </dt>
-          <dd>
-           <p>
-            RestartOnSpec indicates the set of objects that can trigger a restart of this object.
-           </p>
-          </dd>
-         </dl><dl class="py class">
-          <dt class="sig sig-object py" id="api.v1alpha1.StartOnSpec">
-           <em class="property">
-            <span class="pre">
-             class
-            </span>
-           </em>
-           <span class="sig-prename descclassname">
-            <span class="pre">
-             v1alpha1.
-            </span>
-           </span>
-           <span class="sig-name descname">
-            <span class="pre">
-             StartOnSpec
-            </span>
-           </span>
-           <a class="headerlink" href="#api.v1alpha1.StartOnSpec" title="Permalink to this definition">
-            &#xF0C1;
-           </a>
-          </dt>
-          <dd>
-           <p>
-            StartOnSpec indicates the set of objects that can trigger a start/restart of this object.
-           </p>
-          </dd>
-         </dl><dl class="py class">
-          <dt class="sig sig-object py" id="api.v1alpha1.TCPSocketAction">
-           <em class="property">
-            <span class="pre">
-             class
-            </span>
-           </em>
-           <span class="sig-prename descclassname">
-            <span class="pre">
-             v1alpha1.
-            </span>
-           </span>
-           <span class="sig-name descname">
-            <span class="pre">
-             TCPSocketAction
-            </span>
-           </span>
-           <a class="headerlink" href="#api.v1alpha1.TCPSocketAction" title="Permalink to this definition">
-            &#xF0C1;
-           </a>
-          </dt>
-          <dd>
-           <p>
-            TCPSocketAction describes an action based on opening a socket
-           </p>
-          </dd>
-         </dl><dl class="py class">
-          <dt class="sig sig-object py" id="api.v1alpha1.UIBoolInputSpec">
-           <em class="property">
-            <span class="pre">
-             class
-            </span>
-           </em>
-           <span class="sig-prename descclassname">
-            <span class="pre">
-             v1alpha1.
-            </span>
-           </span>
-           <span class="sig-name descname">
-            <span class="pre">
-             UIBoolInputSpec
-            </span>
-           </span>
-           <a class="headerlink" href="#api.v1alpha1.UIBoolInputSpec" title="Permalink to this definition">
-            &#xF0C1;
-           </a>
-          </dt>
-          <dd>
-           <p>
-            Describes a boolean checkbox input field attached to a button.
-           </p>
-          </dd>
-         </dl><dl class="py class">
-          <dt class="sig sig-object py" id="api.v1alpha1.UIComponentLocation">
-           <em class="property">
-            <span class="pre">
-             class
-            </span>
-           </em>
-           <span class="sig-prename descclassname">
-            <span class="pre">
-             v1alpha1.
-            </span>
-           </span>
-           <span class="sig-name descname">
-            <span class="pre">
-             UIComponentLocation
-            </span>
-           </span>
-           <a class="headerlink" href="#api.v1alpha1.UIComponentLocation" title="Permalink to this definition">
-            &#xF0C1;
-           </a>
-          </dt>
-          <dd>
-           <p>
-            UIComponentLocation specifies where to put a UI component.
-           </p>
-          </dd>
-         </dl><dl class="py class">
-          <dt class="sig sig-object py" id="api.v1alpha1.UIHiddenInputSpec">
-           <em class="property">
-            <span class="pre">
-             class
-            </span>
-           </em>
-           <span class="sig-prename descclassname">
-            <span class="pre">
-             v1alpha1.
-            </span>
-           </span>
-           <span class="sig-name descname">
-            <span class="pre">
-             UIHiddenInputSpec
-            </span>
-           </span>
-           <a class="headerlink" href="#api.v1alpha1.UIHiddenInputSpec" title="Permalink to this definition">
-            &#xF0C1;
-           </a>
-          </dt>
-          <dd>
-           <p>
-            Describes a hidden input field attached to a button,
+  </p>
+ </dd>
+</dl>
+<dl class="py class">
+ <dt class="sig sig-object py" id="api.v1alpha1.RestartOnSpec">
+  <em class="property">
+   <span class="pre">
+    class
+   </span>
+  </em>
+  <span class="sig-prename descclassname">
+   <span class="pre">
+    v1alpha1.
+   </span>
+  </span>
+  <span class="sig-name descname">
+   <span class="pre">
+    RestartOnSpec
+   </span>
+  </span>
+  <a class="headerlink" href="#api.v1alpha1.RestartOnSpec" title="Permalink to this definition">
+   
+  </a>
+ </dt>
+ <dd>
+  <p>
+   RestartOnSpec indicates the set of objects that can trigger a restart of this object.
+  </p>
+ </dd>
+</dl>
+<dl class="py class">
+ <dt class="sig sig-object py" id="api.v1alpha1.StartOnSpec">
+  <em class="property">
+   <span class="pre">
+    class
+   </span>
+  </em>
+  <span class="sig-prename descclassname">
+   <span class="pre">
+    v1alpha1.
+   </span>
+  </span>
+  <span class="sig-name descname">
+   <span class="pre">
+    StartOnSpec
+   </span>
+  </span>
+  <a class="headerlink" href="#api.v1alpha1.StartOnSpec" title="Permalink to this definition">
+   
+  </a>
+ </dt>
+ <dd>
+  <p>
+   StartOnSpec indicates the set of objects that can trigger a start/restart of this object.
+  </p>
+ </dd>
+</dl>
+<dl class="py class">
+ <dt class="sig sig-object py" id="api.v1alpha1.TCPSocketAction">
+  <em class="property">
+   <span class="pre">
+    class
+   </span>
+  </em>
+  <span class="sig-prename descclassname">
+   <span class="pre">
+    v1alpha1.
+   </span>
+  </span>
+  <span class="sig-name descname">
+   <span class="pre">
+    TCPSocketAction
+   </span>
+  </span>
+  <a class="headerlink" href="#api.v1alpha1.TCPSocketAction" title="Permalink to this definition">
+   
+  </a>
+ </dt>
+ <dd>
+  <p>
+   TCPSocketAction describes an action based on opening a socket
+  </p>
+ </dd>
+</dl>
+<dl class="py class">
+ <dt class="sig sig-object py" id="api.v1alpha1.UIBoolInputSpec">
+  <em class="property">
+   <span class="pre">
+    class
+   </span>
+  </em>
+  <span class="sig-prename descclassname">
+   <span class="pre">
+    v1alpha1.
+   </span>
+  </span>
+  <span class="sig-name descname">
+   <span class="pre">
+    UIBoolInputSpec
+   </span>
+  </span>
+  <a class="headerlink" href="#api.v1alpha1.UIBoolInputSpec" title="Permalink to this definition">
+   
+  </a>
+ </dt>
+ <dd>
+  <p>
+   Describes a boolean checkbox input field attached to a button.
+  </p>
+ </dd>
+</dl>
+<dl class="py class">
+ <dt class="sig sig-object py" id="api.v1alpha1.UIComponentLocation">
+  <em class="property">
+   <span class="pre">
+    class
+   </span>
+  </em>
+  <span class="sig-prename descclassname">
+   <span class="pre">
+    v1alpha1.
+   </span>
+  </span>
+  <span class="sig-name descname">
+   <span class="pre">
+    UIComponentLocation
+   </span>
+  </span>
+  <a class="headerlink" href="#api.v1alpha1.UIComponentLocation" title="Permalink to this definition">
+   
+  </a>
+ </dt>
+ <dd>
+  <p>
+   UIComponentLocation specifies where to put a UI component.
+  </p>
+ </dd>
+</dl>
+<dl class="py class">
+ <dt class="sig sig-object py" id="api.v1alpha1.UIHiddenInputSpec">
+  <em class="property">
+   <span class="pre">
+    class
+   </span>
+  </em>
+  <span class="sig-prename descclassname">
+   <span class="pre">
+    v1alpha1.
+   </span>
+  </span>
+  <span class="sig-name descname">
+   <span class="pre">
+    UIHiddenInputSpec
+   </span>
+  </span>
+  <a class="headerlink" href="#api.v1alpha1.UIHiddenInputSpec" title="Permalink to this definition">
+   
+  </a>
+ </dt>
+ <dd>
+  <p>
+   Describes a hidden input field attached to a button,
 with a value to pass on any submit.
-           </p>
-          </dd>
-         </dl><dl class="py class">
-          <dt class="sig sig-object py" id="api.v1alpha1.UIInputSpec">
-           <em class="property">
-            <span class="pre">
-             class
-            </span>
-           </em>
-           <span class="sig-prename descclassname">
-            <span class="pre">
-             v1alpha1.
-            </span>
-           </span>
-           <span class="sig-name descname">
-            <span class="pre">
-             UIInputSpec
-            </span>
-           </span>
-           <a class="headerlink" href="#api.v1alpha1.UIInputSpec" title="Permalink to this definition">
-            &#xF0C1;
-           </a>
-          </dt>
-          <dd>
-           <p>
-            Defines an Input to render in the UI.
+  </p>
+ </dd>
+</dl>
+<dl class="py class">
+ <dt class="sig sig-object py" id="api.v1alpha1.UIInputSpec">
+  <em class="property">
+   <span class="pre">
+    class
+   </span>
+  </em>
+  <span class="sig-prename descclassname">
+   <span class="pre">
+    v1alpha1.
+   </span>
+  </span>
+  <span class="sig-name descname">
+   <span class="pre">
+    UIInputSpec
+   </span>
+  </span>
+  <a class="headerlink" href="#api.v1alpha1.UIInputSpec" title="Permalink to this definition">
+   
+  </a>
+ </dt>
+ <dd>
+  <p>
+   Defines an Input to render in the UI.
 If UIButton is analogous to an HTML &lt;form&gt;,
 UIInput is analogous to an HTML &lt;input&gt;.
-           </p>
-          </dd>
-         </dl><dl class="py class">
-          <dt class="sig sig-object py" id="api.v1alpha1.UITextInputSpec">
-           <em class="property">
-            <span class="pre">
-             class
-            </span>
-           </em>
-           <span class="sig-prename descclassname">
-            <span class="pre">
-             v1alpha1.
-            </span>
-           </span>
-           <span class="sig-name descname">
-            <span class="pre">
-             UITextInputSpec
-            </span>
-           </span>
-           <a class="headerlink" href="#api.v1alpha1.UITextInputSpec" title="Permalink to this definition">
-            &#xF0C1;
-           </a>
-          </dt>
-          <dd>
-           <p>
-            Describes a text input field attached to a button.
-           </p>
-          </dd>
-         </dl>
+  </p>
+ </dd>
+</dl>
+<dl class="py class">
+ <dt class="sig sig-object py" id="api.v1alpha1.UITextInputSpec">
+  <em class="property">
+   <span class="pre">
+    class
+   </span>
+  </em>
+  <span class="sig-prename descclassname">
+   <span class="pre">
+    v1alpha1.
+   </span>
+  </span>
+  <span class="sig-name descname">
+   <span class="pre">
+    UITextInputSpec
+   </span>
+  </span>
+  <a class="headerlink" href="#api.v1alpha1.UITextInputSpec" title="Permalink to this definition">
+   
+  </a>
+ </dt>
+ <dd>
+  <p>
+   Describes a text input field attached to a button.
+  </p>
+ </dd>
+</dl>
