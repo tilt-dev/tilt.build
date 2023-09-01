@@ -623,6 +623,42 @@ that always want telemetry enabled or disabled.
     </span>
    </span>
   </em>
+  ,
+  <em class="sig-param">
+   <span class="n">
+    <span class="pre">
+     env
+    </span>
+   </span>
+   <span class="o">
+    <span class="pre">
+     =
+    </span>
+   </span>
+   <span class="default_value">
+    <span class="pre">
+     {}
+    </span>
+   </span>
+  </em>
+  ,
+  <em class="sig-param">
+   <span class="n">
+    <span class="pre">
+     dir
+    </span>
+   </span>
+   <span class="o">
+    <span class="pre">
+     =
+    </span>
+   </span>
+   <span class="default_value">
+    <span class="pre">
+     &#39;&#39;
+    </span>
+   </span>
+  </em>
   <span class="sig-paren">
    )
   </span>
@@ -1156,6 +1192,58 @@ the custom build command in the form:
        - The name of the image map #i (0-based) with the current status of the image.
       </p>
       <p>
+      </p>
+     </li>
+     <li>
+      <p>
+       <strong>
+        env
+       </strong>
+       (
+       <code class="xref py py-class docutils literal notranslate">
+        <span class="pre">
+         Dict
+        </span>
+       </code>
+       [
+       <code class="xref py py-class docutils literal notranslate">
+        <span class="pre">
+         str
+        </span>
+       </code>
+       ,
+       <code class="xref py py-class docutils literal notranslate">
+        <span class="pre">
+         str
+        </span>
+       </code>
+       ]) – Environment variables to pass to the executed
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         command
+        </span>
+       </code>
+       . Values specified here will override any variables passed to the Tilt parent process.
+      </p>
+     </li>
+     <li>
+      <p>
+       <strong>
+        dir
+       </strong>
+       (
+       <code class="xref py py-class docutils literal notranslate">
+        <span class="pre">
+         str
+        </span>
+       </code>
+       ) – Working directory of the executed
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         command
+        </span>
+       </code>
+       . Defaults to the Tiltfile directory.
       </p>
      </li>
     </ul>
@@ -2583,6 +2671,24 @@ ensures a pretty high bar of intent.
     </span>
    </span>
   </em>
+  ,
+  <em class="sig-param">
+   <span class="n">
+    <span class="pre">
+     extra_hosts
+    </span>
+   </span>
+   <span class="o">
+    <span class="pre">
+     =
+    </span>
+   </span>
+   <span class="default_value">
+    <span class="pre">
+     []
+    </span>
+   </span>
+  </em>
   <span class="sig-paren">
    )
   </span>
@@ -3305,6 +3411,50 @@ ensures a pretty high bar of intent.
         </span>
         <span class="pre">
          --platform
+        </span>
+       </code>
+       flag.
+      </p>
+     </li>
+     <li>
+      <p>
+       <strong>
+        extra_hosts
+       </strong>
+       (
+       <code class="xref py py-data docutils literal notranslate">
+        <span class="pre">
+         Union
+        </span>
+       </code>
+       [
+       <code class="xref py py-class docutils literal notranslate">
+        <span class="pre">
+         str
+        </span>
+       </code>
+       ,
+       <code class="xref py py-class docutils literal notranslate">
+        <span class="pre">
+         List
+        </span>
+       </code>
+       [
+       <code class="xref py py-class docutils literal notranslate">
+        <span class="pre">
+         str
+        </span>
+       </code>
+       ]]) – Add a custom host-to-IP mapping (host:ip). Equivalent to the
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         docker
+        </span>
+        <span class="pre">
+         build
+        </span>
+        <span class="pre">
+         --add-host
         </span>
        </code>
        flag.
