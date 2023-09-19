@@ -19,7 +19,7 @@ macOS
 [Docker for Mac](https://docs.docker.com/docker-for-mac/install/) contains Docker, kubectl, and a Kubernetes cluster.
 
 - Install [Docker for Mac](https://docs.docker.com/docker-for-mac/install/)
-- In the preferences, click [Enable Kubernetes](https://docs.docker.com/docker-for-mac/#kubernetes)
+- In the preferences, click [Enable Kubernetes](https://docs.docker.com/desktop/kubernetes/)
 - Make Docker for Mac your local Kubernetes cluster:
 ```bash
 kubectl config use-context docker-desktop
