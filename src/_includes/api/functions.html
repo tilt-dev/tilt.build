@@ -3534,6 +3534,24 @@ ensures a pretty high bar of intent.
     </span>
    </span>
   </em>
+  ,
+  <em class="sig-param">
+   <span class="n">
+    <span class="pre">
+     profiles
+    </span>
+   </span>
+   <span class="o">
+    <span class="pre">
+     =
+    </span>
+   </span>
+   <span class="default_value">
+    <span class="pre">
+     []
+    </span>
+   </span>
+  </em>
   <span class="sig-paren">
    )
   </span>
@@ -3691,6 +3709,38 @@ the DockerImage ref).
        ) – The Docker Compose project name. If unspecified, uses either the
 name of the directory containing the first compose file, or, in the case of
 inline YAML, the current Tiltfile’s directory name.
+      </p>
+     </li>
+     <li>
+      <p>
+       <strong>
+        profiles
+       </strong>
+       (
+       <code class="xref py py-data docutils literal notranslate">
+        <span class="pre">
+         Union
+        </span>
+       </code>
+       [
+       <code class="xref py py-class docutils literal notranslate">
+        <span class="pre">
+         str
+        </span>
+       </code>
+       ,
+       <code class="xref py py-class docutils literal notranslate">
+        <span class="pre">
+         List
+        </span>
+       </code>
+       [
+       <code class="xref py py-class docutils literal notranslate">
+        <span class="pre">
+         str
+        </span>
+       </code>
+       ]]) – List of Docker Compose profiles to use.
       </p>
      </li>
     </ul>
