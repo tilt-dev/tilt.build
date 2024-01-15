@@ -214,7 +214,7 @@ With Tilt, we can skip all of these steps, and instead
 ```python
 # Add a live_update rule to our docker_build
 congrats = "🎉 Congrats, you ran a live_update! 🎉"
-docker_build('example-python-image', '.', build_args={'flask_env': 'development'},
+docker_build('example-python-image', '.', build_args={'flask_debug': 'True'},
     live_update=[
         sync('.', '/app'),
         run('cd /app && pip install -r requirements.txt',
@@ -238,12 +238,12 @@ When a `live_update` is triggered, Tilt will, in order:
 3. Poke `app.py` if necessary to make sure that Flask reloads the server
 4. Congratulate you on finishing this guide!
 
-The second additional parameter, `build_args={'flask_env': 'development'}`, corresponds to this Dockerfile change:
+The second additional parameter, `build_args={'flask_debug': 'True'}`, corresponds to this Dockerfile change:
 ```
 # Default value; will be overridden by build-args, if passed
-ARG flask_env=production
+ARG flask_debug=False
 
-ENV FLASK_ENV $flask_env
+ENV FLASK_DEBUG $flask_debug
 ```
 Together, these changes mean that when we build this Dockerfile via this Tiltfile, our Flask app will run in development mode.  When in development mode, Flask watches for file changes and reloads the server when necessary.
 
