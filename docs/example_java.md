@@ -242,7 +242,7 @@ local_resource(
 We've also updated our [Dockerfile](https://github.com/tilt-dev/tilt-example-java/blob/master/3-unpacked/Dockerfile):
 
 ```
-FROM openjdk:8-jre-alpine
+FROM eclipse-temurin:17-jre-alpine
 
 WORKDIR /app
 ADD BOOT-INF/lib /app/lib
