@@ -11936,6 +11936,24 @@ see the
     </span>
    </span>
   </em>
+  ,
+  <em class="sig-param">
+   <span class="n">
+    <span class="pre">
+     echo_off
+    </span>
+   </span>
+   <span class="o">
+    <span class="pre">
+     =
+    </span>
+   </span>
+   <span class="default_value">
+    <span class="pre">
+     False
+    </span>
+   </span>
+  </em>
   <span class="sig-paren">
    )
   </span>
@@ -12053,6 +12071,26 @@ as program name and args.
         </span>
        </code>
        argument is specified, the build step is only run when there are changes to the given file(s). Paths relative to Tiltfile. (Note that in addition to matching the trigger, file changes must also match at least one of this Live Update’s syncs in order to trigger this run. File changes that do not match any syncs will be ignored.)
+      </p>
+     </li>
+     <li>
+      <p>
+       <strong>
+        bool
+       </strong>
+       – If
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         echo_off
+        </span>
+       </code>
+       is set to
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         True
+        </span>
+       </code>
+       , the command’s output will not be echoed to the Tilt UI.
       </p>
      </li>
     </ul>
