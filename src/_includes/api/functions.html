@@ -9556,7 +9556,7 @@ the operating system as program name and args.
   <em class="sig-param">
    <span class="n">
     <span class="pre">
-     tags
+     labels
     </span>
    </span>
    <span class="o">
@@ -9657,24 +9657,6 @@ the operating system as program name and args.
    <span class="default_value">
     <span class="pre">
      &#39;&#39;
-    </span>
-   </span>
-  </em>
-  ,
-  <em class="sig-param">
-   <span class="n">
-    <span class="pre">
-     labels
-    </span>
-   </span>
-   <span class="o">
-    <span class="pre">
-     =
-    </span>
-   </span>
-   <span class="default_value">
-    <span class="pre">
-     []
     </span>
    </span>
   </em>
@@ -10246,6 +10228,53 @@ conditions around modifying a shared file system. Set to True to allow them to r
      <li>
       <p>
        <strong>
+        labels
+       </strong>
+       (
+       <code class="xref py py-class docutils literal notranslate">
+        <span class="pre">
+         List
+        </span>
+       </code>
+       [
+       <code class="xref py py-class docutils literal notranslate">
+        <span class="pre">
+         str
+        </span>
+       </code>
+       ]) –
+      </p>
+      <p>
+       used to group resources in the Web UI, (e.g. you want all frontend services displayed together, while test and backend services are displayed separately). A label must start and end with an alphanumeric character, can include
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         _
+        </span>
+       </code>
+       ,
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         -
+        </span>
+       </code>
+       , and
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         .
+        </span>
+       </code>
+       , and must be 63 characters or less. For an example, see
+       <a class="reference external" href="tiltfile_concepts.html#resource-groups">
+        Resource Grouping
+       </a>
+       .
+      </p>
+      <p>
+      </p>
+     </li>
+     <li>
+      <p>
+       <strong>
         env
        </strong>
        (
@@ -10381,53 +10410,6 @@ conditions around modifying a shared file system. Set to True to allow them to r
         </span>
        </code>
        . Defaults to the Tiltfile directory.
-      </p>
-     </li>
-     <li>
-      <p>
-       <strong>
-        labels
-       </strong>
-       (
-       <code class="xref py py-class docutils literal notranslate">
-        <span class="pre">
-         List
-        </span>
-       </code>
-       [
-       <code class="xref py py-class docutils literal notranslate">
-        <span class="pre">
-         str
-        </span>
-       </code>
-       ]) –
-      </p>
-      <p>
-       used to group resources in the Web UI, (e.g. you want all frontend services displayed together, while test and backend services are displayed separately). A label must start and end with an alphanumeric character, can include
-       <code class="docutils literal notranslate">
-        <span class="pre">
-         _
-        </span>
-       </code>
-       ,
-       <code class="docutils literal notranslate">
-        <span class="pre">
-         -
-        </span>
-       </code>
-       , and
-       <code class="docutils literal notranslate">
-        <span class="pre">
-         .
-        </span>
-       </code>
-       , and must be 63 characters or less. For an example, see
-       <a class="reference external" href="tiltfile_concepts.html#resource-groups">
-        Resource Grouping
-       </a>
-       .
-      </p>
-      <p>
       </p>
      </li>
     </ul>
