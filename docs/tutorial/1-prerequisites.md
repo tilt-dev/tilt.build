@@ -38,7 +38,7 @@ If you'd rather install manually or via another method, refer to the guide on [A
 ## Install Docker
 Docker provides comprehensive [install instructions][install-docker] for all supported OSes and Linux distributions:
  * [Docker Desktop for Mac][install-docker-mac]
- * [Desktop Desktop for Windows][install-docker-windows] (including WSL)
+ * [Docker Desktop for Windows][install-docker-windows] (including WSL)
  * Docker for Linux
    * [Ubuntu][install-docker-linux-ubuntu]
    * [Direct from binary][install-docker-linux-manual]
