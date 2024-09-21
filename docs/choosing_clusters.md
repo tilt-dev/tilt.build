@@ -230,10 +230,12 @@ Or if you need to debug something that only reproduces in a complete cluster.
 
 ---
 
-## Custom Clusters
+## Custom Local Clusters
 
-If you're rolling your own Kubernetes dev cluster, and
-want it to work with Tilt, there are two things you need to do.
+You can use Tilt to develop on a home lab with a locally-installed cluster like
+[K3s](https://k3s.io/) or [K0s](https://k0sproject.io/).
+
+To make a custom local cluster work, there are two things you need to do:
 
 - Tilt needs to recognize the cluster as a dev cluster.
 - Tilt needs to be able to discover any in-cluster registry.
