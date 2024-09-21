@@ -198,7 +198,9 @@ Here's what it looks like when we build with our new Dockerfile:
     caption="Dependency installation now uses the cache instead of actually running a long, slow command. (Click the screenshot to see an interactive view.)"
 %}
 
-Hooray, we're now using the cache instead of running `yarn install` for every single build. (For more on the principles at work here, [check out this guide](https://nodejs.org/en/docs/guides/nodejs-docker-webapp/#creating-a-dockerfile).)
+Hooray, we're now using the cache instead of running `yarn install` for every single build. 
+
+For more on how to write Dockerfiles for NodeJS apps, [check out this guide](https://docs.docker.com/guides/language/nodejs/containerize/).
 
 Here's what our timing looks like now:
 
