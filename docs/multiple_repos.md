@@ -65,7 +65,7 @@ include('./backend/Tiltfile')
 ## Loading Services Conditionally
 
 We have an example project with an auth service. Sometimes we want to run it
-with fake user data.  Sometimes we want to run it with real Github OAuth
+with fake user data.  Sometimes we want to run it with real GitHub OAuth
 login. Sometimes we want to run it with HTTPS instead of HTTP.
 
 The [`load_dynamic()`](api.html#api.load_dynamic) function doesn't have the nice
@@ -75,7 +75,7 @@ load services.
 Here's [an
 example](https://github.com/tilt-dev/ephemerator/blob/3f4c3c7d045f1f012ad70afe3907c83b5645d565/ephconfig/Tiltfile)
 that uses `os.path.exists` to see if you have OAuth client secrets or localhost
-HTTPS certificates. If you do, it uses the real Github OAuth login
+HTTPS certificates. If you do, it uses the real GitHub OAuth login
 server. Otherwise, it uses fake user data.
 
 ```python
