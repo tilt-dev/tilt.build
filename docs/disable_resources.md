@@ -35,7 +35,7 @@ To edit the args, you can run `tilt args` with a new set of arguments that will 
 $ tilt args bounding-box muxer max-object-detector
 ```
 
-> 💡 Note: if your args don't change between edits, Tilt will consider that a no-opt, even if you've enabled or disabled a different set of resources through the UI.
+> 💡 Note: if your args don't change between edits, Tilt will consider that a no-op, even if you've enabled or disabled a different set of resources through the UI.
 
 ### With the Tilt UI
 
