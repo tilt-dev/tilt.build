@@ -93,4 +93,4 @@ config.clear_enabled_resources()
 Does this feature work for you? We want to reduce the cognitive load of finding and running the right resources. Please reach out:
 * Slack us from the [Kubernetes #tilt channel](http://slack.k8s.io)
 * Send an email to [hi@tilt.dev](mailto:hi@tilt.dev)
-* File an issue on [Github](https://github.com/tilt-dev/tilt/issues)
+* File an issue on [GitHub](https://github.com/tilt-dev/tilt/issues)

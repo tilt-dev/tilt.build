@@ -2,7 +2,7 @@
 Would you like to help improve our Snippet Library?  
 Submitting a snippet is as straightfoward as submitting a Pull Request.
 
-0. Fork this repository on Github and then clone from your forked version of this repository
+0. Fork this repository on GitHub and then clone from your forked version of this repository
 
 1. Create a file in src/_data/snippets/*snippet_name*.yml
 
@@ -12,7 +12,7 @@ title: Descriptive Name of Your Snippet
 description: Explain what your snippet does
 code: |
   *Your code goes here*
-contributor: Your Github Handle (optional)
+contributor: Your GitHub Handle (optional)
 ```
 
 3. Commit your changes and [submit a Pull Request to the upstream repository of your fork (this one)](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request-from-a-fork)
