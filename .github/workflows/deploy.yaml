@@ -41,10 +41,10 @@ jobs:
           aws-region: us-east-1
       - name: Create website blog.tilt.dev
         run: |
-          JEKYLL_ENV=production jekyll build -s blog -d blog/_site
+          JEKYLL_ENV=production bundle exec jekyll build -s blog -d blog/_site
       - name: Deploy website blog.tilt.dev
         run: |
-          aws s3 cp --content-type="application/json" --acl=public-read blog/_site s3://prod-collaboration-blog.tilt.dev/
+          aws s3 sync blog/_site s3://prod-collaboration-blog.tilt.dev/ --region us-east-1 --delete
       - name: Invalidate CloudFront cache for blog.tilt.dev
         run: |
           aws cloudfront create-invalidation --distribution-id E3N3T1RV0AK16L --paths "/*"
@@ -57,10 +57,10 @@ jobs:
           aws-region: us-east-1
       - name: Create website docs.tilt.dev
         run: |
-          JEKYLL_ENV=production jekyll build -s docs -d docs/_site
+          JEKYLL_ENV=production bundle exec jekyll build -s docs -d docs/_site
       - name: Deploy website docs.tilt.dev
         run: |
-          aws s3 cp --content-type="application/json" --acl=public-read docs/_site s3://prod-collaboration-docs.tilt.dev/
+          aws s3 sync docs/_site s3://prod-collaboration-docs.tilt.dev/ --region us-east-1 --delete
       - name: Invalidate CloudFront cache for docs.tilt.dev
         run: |
           aws cloudfront create-invalidation --distribution-id E1EL5SJ56F1K8Q --paths "/*"
@@ -73,10 +73,10 @@ jobs:
           aws-region: us-east-1
       - name: Create website www.tilt.dev
         run: |
-          JEKYLL_ENV=production jekyll build -s src -d src/_site
+          JEKYLL_ENV=production bundle exec jekyll build -s src -d src/_site
       - name: Deploy website www.tilt.dev
         run: |
-          aws s3 cp --content-type="application/json" --acl=public-read www/_site s3://prod-collaboration-www.tilt.dev/
+          aws s3 sync src/_site s3://prod-collaboration-tilt.dev/ --region us-east-1 --delete
       - name: Invalidate CloudFront cache for www.tilt.dev
         run: |
           aws cloudfront create-invalidation --distribution-id E34ACMVUMLXEP6 --paths "/*"
