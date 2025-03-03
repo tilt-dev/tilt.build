@@ -1,0 +1,82 @@
+name: Deploy
+
+on:
+  push:
+    branches:
+      - master
+  workflow_dispatch:
+
+  pull_request:
+    branches:
+      - master
+
+permissions:
+  id-token: write
+  contents: read
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    if: github.repository_owner == 'tilt-dev'
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 3.2.0
+          bundler-cache: true
+      - name: Install dependencies
+        run: |
+          bundle install
+
+      # Deploy blog.tilt.dev
+      - name: Configure AWS credentials to access blog.tilt.dev
+        uses: aws-actions/configure-aws-credentials@v3
+        with:
+          role-to-assume: arn:aws:iam::710015040892:role/prod-collaboration-blog.tilt.dev-20250228142654978300000003
+          aws-region: us-east-1
+      - name: Create website blog.tilt.dev
+        run: |
+          JEKYLL_ENV=production jekyll build -s blog -d blog/_site
+      - name: Deploy website blog.tilt.dev
+        run: |
+          aws s3 cp --content-type="application/json" --acl=public-read blog/_site s3://prod-collaboration-blog.tilt.dev/
+      - name: Invalidate CloudFront cache for blog.tilt.dev
+        run: |
+          aws cloudfront create-invalidation --distribution-id E3N3T1RV0AK16L --paths "/*"
+
+      # Deploy docs.tilt.dev
+      - name: Configure AWS credentials to access docs.tilt.dev
+        uses: aws-actions/configure-aws-credentials@v3
+        with:
+          role-to-assume: arn:aws:iam::710015040892:role/prod-collaboration-docs.tilt.dev-20250228142654979400000004
+          aws-region: us-east-1
+      - name: Create website docs.tilt.dev
+        run: |
+          JEKYLL_ENV=production jekyll build -s docs -d docs/_site
+      - name: Deploy website docs.tilt.dev
+        run: |
+          aws s3 cp --content-type="application/json" --acl=public-read docs/_site s3://prod-collaboration-docs.tilt.dev/
+      - name: Invalidate CloudFront cache for docs.tilt.dev
+        run: |
+          aws cloudfront create-invalidation --distribution-id E1EL5SJ56F1K8Q --paths "/*"
+
+      # Deploy www.tilt.dev
+      - name: Configure AWS credentials to access www.tilt.dev
+        uses: aws-actions/configure-aws-credentials@v3
+        with:
+          role-to-assume: arn:aws:iam::710015040892:role/prod-collaboration-tilt.dev-20250228142654974200000002
+          aws-region: us-east-1
+      - name: Create website www.tilt.dev
+        run: |
+          JEKYLL_ENV=production jekyll build -s src -d src/_site
+      - name: Deploy website www.tilt.dev
+        run: |
+          aws s3 cp --content-type="application/json" --acl=public-read www/_site s3://prod-collaboration-www.tilt.dev/
+      - name: Invalidate CloudFront cache for www.tilt.dev
+        run: |
+          aws cloudfront create-invalidation --distribution-id E34ACMVUMLXEP6 --paths "/*"
