@@ -27,7 +27,7 @@ Advanced Level:
 - [Amazon Elastic Kubernetes Service](#remote)
 - [Azure Kubernetes Service](#remote)
 - [Google Kubernetes Engine](#remote)
-- [Custom Clusters](#custom-clusters)
+- [Custom Local Clusters](#custom-local-clusters)
 
 ---
 
