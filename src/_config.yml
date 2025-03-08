@@ -16,6 +16,7 @@ include:
 # Build settings
 markdown: kramdown
 highlighter: rouge
+permalink: pretty
 plugins:
   - jekyll-feed
   - jekyll-inline-svg
