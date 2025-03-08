@@ -16,7 +16,6 @@ include:
 
 # Build settings
 markdown: kramdown
-permalink: pretty
 highlighter: rouge
 kramdown:
   syntax_highlighter: rouge
