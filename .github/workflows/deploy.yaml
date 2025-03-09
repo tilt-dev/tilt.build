@@ -18,15 +18,6 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Setup Ruby
-        uses: ruby/setup-ruby@v1
-        with:
-          ruby-version: 3.2.0
-          bundler-cache: true
-      - name: Install dependencies
-        run: |
-          bundle install
-
       - name: Check for changes
         id: paths
         uses: dorny/paths-filter@v2
@@ -53,14 +44,14 @@ jobs:
           role-to-assume: arn:aws:iam::710015040892:role/prod-collaboration-blog.tilt.dev-20250228142654978300000003
           aws-region: us-east-1
 
-      - name: Create website blog.tilt.dev
+      - name: Build blog static site
         if: steps.paths.outputs.blog == 'true'
         run: |
-          JEKYLL_ENV=production bundle exec jekyll build -s blog -d blog/_site
+          make build-blog
       - name: Deploy website blog.tilt.dev
         if: steps.paths.outputs.blog == 'true'
         run: |
-          aws s3 sync blog/_site s3://prod-collaboration-blog.tilt.dev/ --region us-east-1 --delete
+          aws s3 sync build/blog s3://prod-collaboration-blog.tilt.dev/ --region us-east-1 --delete
       - name: Invalidate CloudFront cache for blog.tilt.dev
         if: steps.paths.outputs.blog == 'true'
         run: |
@@ -73,14 +64,14 @@ jobs:
         with:
           role-to-assume: arn:aws:iam::710015040892:role/prod-collaboration-docs.tilt.dev-20250228142654979400000004
           aws-region: us-east-1
-      - name: Create website docs.tilt.dev
+      - name: Build docs static site
         if: steps.paths.outputs.docs == 'true'
         run: |
-          JEKYLL_ENV=production bundle exec jekyll build -s docs -d docs/_site
+          make build-docs
       - name: Deploy website docs.tilt.dev
         if: steps.paths.outputs.docs == 'true'
         run: |
-          aws s3 sync docs/_site s3://prod-collaboration-docs.tilt.dev/ --region us-east-1 --delete
+          aws s3 sync build/docs s3://prod-collaboration-docs.tilt.dev/ --region us-east-1 --delete
       - name: Invalidate CloudFront cache for docs.tilt.dev
         if: steps.paths.outputs.docs == 'true'
         run: |
@@ -93,14 +84,14 @@ jobs:
         with:
           role-to-assume: arn:aws:iam::710015040892:role/prod-collaboration-tilt.dev-20250228142654974200000002
           aws-region: us-east-1
-      - name: Create website www.tilt.dev
+      - name: Build site static site
         if: steps.paths.outputs.site == 'true'
         run: |
-          JEKYLL_ENV=production bundle exec jekyll build -s src -d src/_site
+          make build-site
       - name: Deploy website www.tilt.dev
         if: steps.paths.outputs.site == 'true'
         run: |
-          aws s3 sync src/_site s3://prod-collaboration-tilt.dev/ --region us-east-1 --delete
+          aws s3 sync build/site s3://prod-collaboration-tilt.dev/ --region us-east-1 --delete
       - name: Invalidate CloudFront cache for www.tilt.dev
         if: steps.paths.outputs.site == 'true'
         run: |
