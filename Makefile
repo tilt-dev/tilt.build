@@ -1,4 +1,4 @@
-.PHONY: api stars cli-toc
+.PHONY: api stars cli-toc build-blog build-docs build-site
 
 api:
 	docker rm tilt.api || exit 0
@@ -18,3 +18,18 @@ stars:
 
 cli-toc:
 	./hack/inject_cli_toc.sh
+
+build-blog:
+	rm -fR build/blog
+	docker build -t tilt-site-base -f deploy/base.dockerfile .
+	docker buildx build --target static --output type=local,dest=build/blog -f deploy/blog.dockerfile .
+
+build-docs:
+	rm -fR build/docs
+	docker build -t tilt-site-base -f deploy/base.dockerfile .
+	docker buildx build --target static --output type=local,dest=build/docs -f deploy/docs.dockerfile .
+
+build-site:
+	rm -fR build/site
+	docker build -t tilt-site-base -f deploy/base.dockerfile .
+	docker buildx build --target static --output type=local,dest=build/site -f deploy/site.dockerfile .

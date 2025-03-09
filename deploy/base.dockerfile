@@ -14,3 +14,5 @@ WORKDIR /src
 ADD ./src/Gemfile /src/
 ADD ./src/Gemfile.lock /src/
 RUN bundle install
+
+ENTRYPOINT ["jekyll"]
