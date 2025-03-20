@@ -12,5 +12,5 @@
   "dependencies": {
     "node-fetch": "^3.2.10"
   },
-  "packageManager": "yarn@3.5.1"
+  "packageManager": "yarn@4.7.0"
 }
