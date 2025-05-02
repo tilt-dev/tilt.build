@@ -1,12 +1,12 @@
-// These are styles for the initial design from 2018, by Sascha Mombartz
+ // These are styles for the initial design from 2018, by Sascha Mombartz
 // Since the Landing page and Docs were more recently revamped,
 // most of these variables apply to the blog.
 
 
 // Typography
 // --------------------------------------------------
-$header-font-family: attribute-text, sans-serif;
-$mono-font-family: attribute-mono, monospace;
+$header-font-family: 'Open Sans', sans-serif; // Updated to Open Sans
+$mono-font-family: 'Roboto Mono', monospace; // Updated to Roboto Mono
 
 $mono-font-size: 16px;
 $mono-font-weight: 400;
