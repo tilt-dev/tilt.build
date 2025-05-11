@@ -5,33 +5,32 @@ layout: docs
 sidebar: gettingstarted
 hideHelpfulForm: true
 hideEditButton: true
+hasSearch: true
 ---
 
+<div id="pagefind-search"></div>
 <script>
-(function() {
-  const searchEl = document.getElementById('q');
-  if (!searchEl) {
-    return;
-  }
-  try {
-    const urlParams = new URLSearchParams(window.location.search);
-    searchEl.value = urlParams.get('q');
-  } catch {
-    // just ignore, search box won't be pre-populated but it's ok
-  }
-})();
-
- (function() {
-     var cx = '017353557192452135467:flbjzvynczi';
-     var gcse = document.createElement('script');
-     gcse.type = 'text/javascript';
-     gcse.async = true;
-     gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
-     var s = document.getElementsByTagName('script')[0];
-     s.parentNode.insertBefore(gcse, s);
- })();
+  window.addEventListener('DOMContentLoaded', (event) => {
+      const searchEl = document.getElementById('q');
+      let searchVal = '';
+      if (searchEl) {
+        try {
+          const urlParams = new URLSearchParams(window.location.search);
+          searchVal = urlParams.get('q');  
+          searchEl.value = urlParams.get('q');
+        } catch {
+          // just ignore, search box won't be pre-populated but it's ok
+        }
+      }
+      let ui = new PagefindUI({
+          element: "#pagefind-search",
+          showSubResults: false,
+          showImages: false,
+      });
+      ui.triggerSearch(searchVal);
+  });
 </script>
-<div class="gcse-searchresults-only" data-linkTarget="" />
+
 <noscript>
-Javscript is required for search functionality.
+JavaScript is required for search functionality.
 </noscript>
