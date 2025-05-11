@@ -25,10 +25,12 @@ jobs:
           filters: |
             blog:
               - 'blog/**'
+              - 'src/**'
               - '.github/**'
               - 'base/**'
             docs:
               - 'docs/**'
+              - 'src/**'
               - '.github/**'
               - 'base/**'
             site:
