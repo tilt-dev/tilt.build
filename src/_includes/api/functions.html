@@ -322,7 +322,25 @@ that always want telemetry enabled or disabled.
    </span>
    <span class="default_value">
     <span class="pre">
-     &#39;&#39;
+     &#39;30m&#39;
+    </span>
+   </span>
+  </em>
+  ,
+  <em class="sig-param">
+   <span class="n">
+    <span class="pre">
+     readiness_timeout
+    </span>
+   </span>
+   <span class="o">
+    <span class="pre">
+     =
+    </span>
+   </span>
+   <span class="default_value">
+    <span class="pre">
+     &#39;5m&#39;
     </span>
    </span>
   </em>
@@ -369,6 +387,20 @@ that always want telemetry enabled or disabled.
         </span>
        </code>
        ) – Timeout for the whole CI pipeline. A duration string. Defaults to ‘30m’.
+      </p>
+     </li>
+     <li>
+      <p>
+       <strong>
+        readiness_timeout
+       </strong>
+       (
+       <code class="xref py py-class docutils literal notranslate">
+        <span class="pre">
+         str
+        </span>
+       </code>
+       ) – Timeout for a resource to become ready before the CI pipeline fails. Measured from the time the resource is started. Defaults to ‘5m’.
       </p>
      </li>
     </ul>
@@ -5435,7 +5467,7 @@ labels as well: see the
  <dd>
   <p>
    Run
-   <a class="reference external" href="https://docs.helm.sh/helm/#helm-template">
+   <a class="reference external" href="https://helm.sh/docs/helm/helm_template/">
     helm template
    </a>
    on a given directory that contains a chart and return the fully rendered YAML as a Blob
@@ -5487,9 +5519,9 @@ Chart directory is watched (See
        </code>
        ) – The release name. Equivalent to the helm
        <cite>
-        –name
+        [NAME]
        </cite>
-       flag
+       argument.
       </p>
      </li>
      <li>
@@ -5556,7 +5588,7 @@ Chart directory is watched (See
         </span>
        </code>
        flags (
-       <a class="reference external" href="https://helm.sh/docs/chart_template_guide/#values-files">
+       <a class="reference external" href="https://helm.sh/docs/chart_template_guide/values_files">
         see docs
        </a>
        ).
