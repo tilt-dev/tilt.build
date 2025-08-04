@@ -123,7 +123,7 @@ Tilt will ignore the file `foo/bar`.
 Both `custom_build()` and `local_resource()` also support the `ignore=`
 parameter.
 
-They handle it a a little differently than `docker_build` does. See our [Custom
+They handle it a little differently than `docker_build` does. See our [Custom
 Build Guide](custom_build.html#adjust-file-watching-with-ignore).
 
 ### docker_build and only=
