@@ -108,7 +108,7 @@ You can also use these installers directly.
 ### Homebrew (macOS or Linux)
 
 ```bash
-brew install tilt-dev/tap/tilt
+brew install tilt
 ```
 
 ### Scoop (Windows)
