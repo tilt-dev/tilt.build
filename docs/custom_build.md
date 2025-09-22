@@ -202,6 +202,8 @@ deploy tag at build-time, and plumb it through to their runtime pods. There's a
 better way to do this. Use [this
 guide](custom_resource.html#advanced-pod-creation) instead.
 
+**Note:** `%EXPECTED_REF%` should be used in place of `$EXPECTED_REF` on Windows based systems.
+
 ## Live Update and Other Features
 Tilt's `docker_build` supports other options. The most impactful is `live_update`, which lets you update code in Kubernetes without doing a full image build.  `custom_build` supports this as well, using the same syntax.
 
