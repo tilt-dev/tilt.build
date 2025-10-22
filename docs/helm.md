@@ -209,7 +209,7 @@ watch_file('values.yaml')
 
 ### Other Helm tools
 
-There are other helm tools like [helmfile](https://github.com/roboll/helmfile) for working with Helm charts.
+There are other helm tools like [helmfile](https://github.com/helmfile/helmfile) for working with Helm charts.
 
 We can use the same plugin commands to implement those as well. In this example, we factor out `helmfile` into a helper function.
 
