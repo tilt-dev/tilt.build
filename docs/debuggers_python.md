@@ -77,7 +77,7 @@ Do you use a debugger that's not listed here?
 Use [`local_resource`](/local_resource.html) to spin it up. 
 
 Once you've got it running, consider packaging it up as [a Tilt
-extension](/extensions.md) for others to use.
+extension](/extensions.html) for others to use.
 
 ## Sample Code
 
