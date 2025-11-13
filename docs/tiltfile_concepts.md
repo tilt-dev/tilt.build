@@ -5,7 +5,7 @@ layout: docs
 sidebar: guides
 ---
 
-This doc describes concepts in the Tiltfile, expanding on the [Getting Started Tutorial](/tutorial) and [Write a Tiltfile Guide](tiltfile_authoring.html).
+This doc describes concepts in the Tiltfile, expanding on the [Getting Started Tutorial](/tutorial/index.html) and [Write a Tiltfile Guide](tiltfile_authoring.html).
 Unlike the [API Reference](api.html), it groups functions by themes and explains why you'd choose to use a function.
 
 ## Execution Model
