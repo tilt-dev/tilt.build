@@ -31,7 +31,7 @@ iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.co
 ## Finding the right manual
 **Completely new to Tilt?**  
 Watch our two minute [explanation video](#watch-tilt-in-two-minutes) and browse through [FAQs about Tilt](/faq.html).  
-Then head over to our [tutorial](/tutorial) to run Tilt yourself for the very first time!
+Then head over to our [tutorial](/tutorial/index.html) to run Tilt yourself for the very first time!
 
 **Setting up Tilt for existing services?**  
 We have best practice guides for:
