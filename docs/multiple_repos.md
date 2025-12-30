@@ -130,7 +130,7 @@ include(os.path.join(backend_dir, 'Tiltfile'))
 ```
 
 Many sophisticated projects use this approach, including [the ClusterAPI
-project](https://cluster-api.sigs.k8s.io/developer/tilt.html) for loading
+project](https://cluster-api.sigs.k8s.io/developer/core/tilt.html) for loading
 servers for each host they deploy to!
 
 Other teams in the Tilt community handle multi-repo projects directly from their
