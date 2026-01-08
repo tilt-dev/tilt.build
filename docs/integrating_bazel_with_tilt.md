@@ -75,7 +75,7 @@ Let's follow the same strategy and figure out the Bazel command that will just b
 
 "rules_k8s" uses "rules_docker" under the hood for building images.
 
-To build an image and load it into Docker, the [rules_docker documentation](https://github.com/bazelbuild/rules_docker#using-with-docker-locally)) tells us to run:
+To build an image and load it into Docker, the [rules_docker documentation](https://github.com/bazelbuild/rules_docker#using-with-docker-locally) tells us to run:
 
 ```
 bazel run //path/to/my-command:image -- --norun
@@ -107,8 +107,8 @@ Hence for us: "bazel/snack:image".
 
 The second argument uses bazel to create the image. The `--platforms` flag is a
 Bazel-specific gotcha: it tells Bazel to build Go binaries for Linux, because
-we're using a Linux container. You may need use something like this specific to
-your programming language.
+we're using a Linux container. You may need to use something like this specific
+to your programming language.
 
 The third argument is a list of dependencies. It tells Tilt which files to watch
 for changes.
