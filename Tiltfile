@@ -1,15 +1,5 @@
 # -*- mode: Python -*-
 
-load('ext://honeycomb', 'honeycomb_collector')
-if os.environ.get('HONEYCOMB_API_KEY', '') and os.environ.get('HONEYCOMB_DATASET', ''):
-  honeycomb_collector()
-
-default_registry('gcr.io/windmill-public-containers')
-set_team('0584d8f6-05a2-49f5-923b-657afef098fe')
-username = str(local('whoami')).rstrip('\n')
-experimental_analytics_report({'user.name': username})
-analytics_settings(enable=True)
-
 # Generate the API docs.
 local_resource('make-api', 'make api', ['deploy/api.dockerfile', 'Makefile', 'api'])
 local_resource('make-stars', 'make stars', ['Makefile', 'stars'])
@@ -17,8 +7,6 @@ local_resource('make-stars', 'make stars', ['Makefile', 'stars'])
 k8s_yaml('deploy/serve.yaml')
 
 docker_build('tilt-site-base', '.', dockerfile='deploy/base.dockerfile',
-             build_args = {'BUILDKIT_INLINE_CACHE': '1'},
-             cache_from = ['gcr.io/windmill-public-containers/tilt-site-base:2021-02-12'],
              only=['./src/Gemfile', './src/Gemfile.lock'])
 
 docker_build('tilt-site', '.', dockerfile='deploy/site.dockerfile',

@@ -614,12 +614,6 @@ $Home-feature-navList-width: 35%;
 }
 .Home-resources-list-2 {
   margin-top: $spacing-unit;
-  
-  @include mobileAndAbove {
-    grid-template-columns: repeat(2, 1fr);
-    margin-left: 160px;
-    margin-right: 160px;
-  }
 }
 
 .Home-resources-listItem {
@@ -636,6 +630,12 @@ $Home-feature-navList-width: 35%;
       margin-top: $spacing-unit;
     }
   }
+}
+.Home-resources-listItem--spacer {
+  visibility: hidden;
+  @include mobileAndBelow {
+    display: none;
+  }  
 }
 .Home-resources-listItem-text {
   margin-bottom: $spacing-unit / 4;

@@ -106,9 +106,6 @@ On normal work days (Monday through Friday), a developer should acknowledge your
 issue to confirm we saw it. If you don't hear anything after a day or two, it's
 OK to ping the thread or ask in Slack. We probably just missed it.
 
-For help with private issues (like security vulnerabilities or just concerning non-public code),
-please email [help@tilt.dev](mailto:help@tilt.dev).
-
 ---
 
 ### How do new features get added to the roadmap?

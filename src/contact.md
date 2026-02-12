@@ -13,8 +13,5 @@ Curious about what we're doing? Got a problem with Tilt? Have a feature request?
         <li>
             Look through <a href="https://github.com/tilt-dev/tilt/issues" target="_blank">our GitHub issues</a> (or file your own)
         </li>
-        <li>
-            <a href="mailto:hi@tilt.dev">Email us directly</a>
-        </li>
     </ul>
 </div>
