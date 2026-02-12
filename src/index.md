@@ -143,6 +143,7 @@ layout: home
     </li>
   </ul>
   <ul class="Home-resources-list Home-resources-list-2">
+    <li class="Home-resources-listItem Home-resources-listItem--spacer"></li>
     <li class="Home-resources-listItem">
       <div class="Home-resources-listItem-text">
         <h4 class="Home-subsectionHeading Home-subsectionHeading--resources">
@@ -153,15 +154,6 @@ layout: home
       </div>
       <a href="https://github.com/{{site.github_username}}/tilt" rel="noopener noreferrer" target="_blank" class="Home-resources-link">Tilt GitHub</a>
     </li>
-    <li class="Home-resources-listItem">
-      <div class="Home-resources-listItem-text">
-        <h4 class="Home-subsectionHeading Home-subsectionHeading--resources">
-          {% svg assets/svg/resources-contact.svg class="Home-resources-svg" %}
-          Email us
-        </h4>
-        <p>Have questions or feature requests for Tilt? Want to use it for your company? Just want to say hi? We love hearing from you!</p>
-      </div>
-      <a href="mailto:hi@tilt.dev" class="Home-resources-link">hi@tilt.dev</a>
-    </li>
+    <li class="Home-resources-listItem Home-resources-listItem--spacer"></li>
   </ul>
 </section>

@@ -61,10 +61,6 @@ Search for the function you need in our
 
 **Contribute:** Check out our [guidelines](https://github.com/tilt-dev/tilt/blob/master/CONTRIBUTING.md) to contribute to Tilt's source code. To extend the capabilities of Tilt via new Tiltfile functionality, read more about [Extensions](extensions.html).
 
-**Follow along:** [@tilt_dev](https://twitter.com/tilt_dev) on Twitter. For updates
-and announcements, follow [the blog](https://blog.tilt.dev) or subscribe to 
-[the newsletter](https://tilt.dev/subscribe).
-
 **Help us make Tilt even better:** Tilt sends anonymized usage data, so we can
 improve Tilt on every platform. Details in ["What does Tilt
 send?"](http://docs.tilt.dev/telemetry_faq.html). If you find a security issue

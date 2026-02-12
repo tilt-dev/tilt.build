@@ -12,9 +12,6 @@ us in [the **#tilt** channel](https://kubernetes.slack.com/messages/CESBL84MV/).
 
 You can also file an issue in [our GitHub repo](https://github.com/tilt-dev/tilt/issues/new).
 
-For help with private issues (like security vulnerabilities or just concerning non-public code),
-please email [help@tilt.dev](mailto:help@tilt.dev).
-
 ---
 
 Common Error Messages
