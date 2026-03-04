@@ -12736,6 +12736,24 @@ sent or read from the socket.
     </span>
    </span>
   </em>
+  ,
+  <em class="sig-param">
+   <span class="n">
+    <span class="pre">
+     k8s_server_side_apply
+    </span>
+   </span>
+   <span class="o">
+    <span class="pre">
+     =
+    </span>
+   </span>
+   <span class="default_value">
+    <span class="pre">
+     &#39;auto&#39;
+    </span>
+   </span>
+  </em>
   <span class="sig-paren">
    )
   </span>
@@ -12833,6 +12851,45 @@ a local resource command).
        </code>
        ]) – suppresses warnings about images that aren’t deployed.
 Accepts a list of image names, or ‘*’ to suppress warnings for all images.
+      </p>
+     </li>
+     <li>
+      <p>
+       <strong>
+        k8s_server_side_apply
+       </strong>
+       (
+       <code class="xref py py-class docutils literal notranslate">
+        <span class="pre">
+         str
+        </span>
+       </code>
+       ) – controls whether Kubernetes applies use server-side apply.
+Accepts values
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         true
+        </span>
+       </code>
+       ,
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         false
+        </span>
+       </code>
+       and
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         auto
+        </span>
+       </code>
+       . Default is
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         auto
+        </span>
+       </code>
+       .
       </p>
      </li>
     </ul>
