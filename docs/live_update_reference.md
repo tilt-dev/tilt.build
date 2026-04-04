@@ -25,6 +25,7 @@ When specifying how to build an image (via `docker_build()` or `custom_build()`)
 `live_update` takes a list of `LiveUpdateSteps` that tell Tilt how to update a running container in place (instead of paying the cost of building a new image and redeploying).
 
 The list of `LiveUpdateSteps` must be, in order:
+- 0 or 1 [`initial_sync`](api.html#api.initial_sync) steps
 - 0 or more [`fall_back_on`](api.html#api.fall_back_on) steps
 - 0 or more [`sync`](api.html#api.sync) steps
 - 0 or more [`run`](api.html#api.run) steps
@@ -48,6 +49,35 @@ docker_build('my-img', '.', live_update=[sync_src, sync_static])
 ```
 
 As part of Tiltfile validation, we check that all of the `LiveUpdateSteps` you've created have been used in at least one Live Update call. If not, we throw an error.
+
+### [initial_sync(ignore=None, dockerignore=None)](api.html#api.initial_sync)
+
+This step is optional. If provided, it must be the first step in the `live_update` list. When present, Tilt will perform a **full file sync** to the container whenever it starts or restarts (including manual triggers), uploading all files from the `sync` paths before any incremental file-watching kicks in.
+
+This is useful when deploying pre-built images where the container already has a working copy of the code, but you want your local changes synced immediately on startup without waiting for file changes.
+
+```python
+k8s_custom_deploy('my-app', ..., live_update=[
+    initial_sync(ignore=['node_modules', '.git', '**/test']),
+    sync('./src', '/app/src'),
+    run('npm install', trigger=['./src/package.json']),
+])
+```
+
+The `ignore` argument accepts a list of paths to exclude from the initial sync. Patterns use [dockerignore syntax](https://docs.docker.com/engine/reference/builder/#dockerignore-file), so globs like `**/test` and `*.log` are supported.
+
+The `dockerignore` argument specifies a path to a directory containing a `.dockerignore` file whose patterns will be applied during initial sync. This is useful when the sync path is a subdirectory but the `.dockerignore` is at the repo root:
+
+```python
+k8s_custom_deploy('my-app', ..., live_update=[
+    initial_sync(dockerignore='.'),
+    sync('./client', '/app'),
+])
+```
+
+After the initial sync completes, `run` steps execute using the same trigger logic as incremental updates: steps without triggers always run, and steps with triggers only run if the synced files match their trigger paths.
+
+On subsequent file changes (while the container is still running), Live Update behaves normally: only changed files are synced, and `run` steps only execute if their triggers match.
 
 ### [sync(local_path: str, remote_path: str)](api.html#api.sync)
 `sync` steps are the backbone of a Live Update. (For this reason, we'll discuss them first, even though they may be preceeded by one or more `fall_back_on` steps in a Tiltfile.) 
