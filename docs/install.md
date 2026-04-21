@@ -29,6 +29,12 @@ kubectl config use-context docker-desktop
 curl -fsSL https://raw.githubusercontent.com/tilt-dev/tilt/master/scripts/install.sh | bash
 ```
 
+You can also install Tilt with Homebrew:
+
+```bash
+brew install tile
+```
+
 Linux
 --------
 
