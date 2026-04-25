@@ -5945,6 +5945,70 @@ status code &gt;= 200 and &lt; 400.
  </dd>
 </dl>
 <dl class="py function">
+ <dt class="sig sig-object py" id="api.initial_sync">
+  <span class="sig-prename descclassname">
+   <span class="pre">
+   </span>
+  </span>
+  <span class="sig-name descname">
+   <span class="pre">
+    initial_sync
+   </span>
+  </span>
+  <span class="sig-paren">
+   (
+  </span>
+  <span class="sig-paren">
+   )
+  </span>
+  <a class="headerlink" href="#api.initial_sync" title="Permalink to this definition">
+   
+  </a>
+ </dt>
+ <dd>
+  <p>
+   Perform a full file sync to the container when it starts or restarts.
+  </p>
+  <p>
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     initial_sync
+    </span>
+   </code>
+   may appear at most once, and only as the first step in a
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     live_update
+    </span>
+   </code>
+   list.
+  </p>
+  <p>
+   For more info, see the
+   <a class="reference external" href="live_update_reference.html">
+    Live Update Reference
+   </a>
+   .
+  </p>
+  <dl class="field-list simple">
+   <dt class="field-odd">
+    Return type
+   </dt>
+   <dd class="field-odd">
+    <p>
+     <a class="reference internal" href="#api.LiveUpdateStep" title="api.LiveUpdateStep">
+      <code class="xref py py-class docutils literal notranslate">
+       <span class="pre">
+        LiveUpdateStep
+       </span>
+      </code>
+     </a>
+    </p>
+   </dd>
+  </dl>
+ </dd>
+</dl>
+<dl class="py function">
  <dt class="sig sig-object py" id="api.k8s_context">
   <span class="sig-prename descclassname">
    <span class="pre">

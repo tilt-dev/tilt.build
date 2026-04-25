@@ -25,6 +25,7 @@ functions:
 - helm
 - http_get_action
 - include
+- initial_sync
 - k8s_context
 - k8s_custom_deploy
 - k8s_kind

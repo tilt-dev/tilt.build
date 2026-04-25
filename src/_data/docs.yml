@@ -235,6 +235,8 @@ sidebar:
           href: api.html#api.http_get_action
         - title: include
           href: api.html#api.include
+        - title: initial_sync
+          href: api.html#api.initial_sync
         - title: k8s_context
           href: api.html#api.k8s_context
         - title: k8s_custom_deploy

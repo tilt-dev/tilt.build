@@ -20,7 +20,7 @@ for sample projects and examples for your project, see:
 
 ## Tiltfile API
 
-When specifying how to build an image (via `docker_build()` or `custom_build()`), you may optionally pass the `live_update` argument.
+When specifying how to build or deploy an image (via `docker_build()`, `custom_build()`, or `k8s_custom_deploy()`), you may optionally pass the `live_update` argument.
 
 `live_update` takes a list of `LiveUpdateSteps` that tell Tilt how to update a running container in place (instead of paying the cost of building a new image and redeploying).
 
@@ -50,30 +50,30 @@ docker_build('my-img', '.', live_update=[sync_src, sync_static])
 
 As part of Tiltfile validation, we check that all of the `LiveUpdateSteps` you've created have been used in at least one Live Update call. If not, we throw an error.
 
-### [initial_sync(ignore=None, dockerignore=None)](api.html#api.initial_sync)
+### [initial_sync()](api.html#api.initial_sync)
 
-This step is optional. If provided, it must be the first step in the `live_update` list. When present, Tilt will perform a **full file sync** to the container whenever it starts or restarts (including manual triggers), uploading all files from the `sync` paths before any incremental file-watching kicks in.
+This step is optional. If provided, it must be the first step in the `live_update` list. When present, Tilt will perform a **full file sync** to the container when Tilt first observes a running container and whenever that container restarts. It uploads all files from the `sync` paths before waiting for incremental file changes.
 
 This is useful when deploying pre-built images where the container already has a working copy of the code, but you want your local changes synced immediately on startup without waiting for file changes.
 
 ```python
 k8s_custom_deploy('my-app', ..., live_update=[
-    initial_sync(ignore=['node_modules', '.git', '**/test']),
+    initial_sync(),
     sync('./src', '/app/src'),
     run('npm install', trigger=['./src/package.json']),
 ])
 ```
 
-The `ignore` argument accepts a list of paths to exclude from the initial sync. Patterns use [dockerignore syntax](https://docs.docker.com/engine/reference/builder/#dockerignore-file), so globs like `**/test` and `*.log` are supported.
-
-The `dockerignore` argument specifies a path to a directory containing a `.dockerignore` file whose patterns will be applied during initial sync. This is useful when the sync path is a subdirectory but the `.dockerignore` is at the repo root:
+`initial_sync()` doesn't take any arguments. To exclude files from the initial sync, use the same file-watching controls you use for the image or custom deploy. Files ignored for that image or resource are skipped by the initial sync too. For example, `docker_build()` sources respect `.dockerignore`, `ignore=`, and `only=`, and `custom_build()` sources respect `ignore=` rules on their watched dependencies.
 
 ```python
 k8s_custom_deploy('my-app', ..., live_update=[
-    initial_sync(dockerignore='.'),
-    sync('./client', '/app'),
+    initial_sync(),
+    sync('./src', '/app/src'),
 ])
 ```
+
+During initial sync, Tilt only uploads files. It does not delete files from the container.
 
 After the initial sync completes, `run` steps execute using the same trigger logic as incremental updates: steps without triggers always run, and steps with triggers only run if the synced files match their trigger paths.
 
@@ -205,4 +205,4 @@ language, all our major example projects use Live Update:
 
 ---
 
-[^1]: The initial build is always a full build because Live Update needs a running container to modify. Thus, your base build (Docker/Custom Build) should be sufficient to create your dev image, and should not rely on any `sync`'d files or `run` commands.
+[^1]: Live Update needs a running container to modify. Thus, your base build, custom deploy, or pre-built image should be sufficient to start the container, and should not rely on any `sync`'d files or `run` commands.
