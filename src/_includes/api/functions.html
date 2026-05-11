@@ -5967,7 +5967,26 @@ status code &gt;= 200 and &lt; 400.
  </dt>
  <dd>
   <p>
-   Perform a full file sync to the container when it starts or restarts.
+   Sync all files to the container when it starts or restarts.
+  </p>
+  <p>
+   When included in a
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     live_update
+    </span>
+   </code>
+   , Tilt performs a full sync of all files
+matching the live update’s
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     sync
+    </span>
+   </code>
+   rules the first time a container starts
+(or whenever it restarts), without waiting for file-change events. This is
+useful when using pre-built images that may not contain the latest local
+source files.
   </p>
   <p>
    <code class="docutils literal notranslate">
@@ -5975,13 +5994,32 @@ status code &gt;= 200 and &lt; 400.
      initial_sync
     </span>
    </code>
-   may appear at most once, and only as the first step in a
+   must appear at most once, and only at the start of the
+step list (before any
    <code class="docutils literal notranslate">
     <span class="pre">
-     live_update
+     fall_back_on
     </span>
    </code>
-   list.
+   ,
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     sync
+    </span>
+   </code>
+   ,
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     run
+    </span>
+   </code>
+   , or
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     restart_container
+    </span>
+   </code>
+   steps).
   </p>
   <p>
    For more info, see the
