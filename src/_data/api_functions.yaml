@@ -21,6 +21,7 @@ functions:
 - filter_yaml
 - helm
 - include
+- initial_sync
 - k8s_context
 - k8s_kind
 - k8s_resource
