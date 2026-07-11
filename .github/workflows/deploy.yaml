@@ -54,8 +54,6 @@ jobs:
         if: steps.paths.outputs.blog == 'true'
         run: |
           aws s3 sync build/blog s3://prod-collaboration-blog.tilt.dev/ --region us-east-1 --delete
-          # Extensionless page copies sync as octet-stream; retag them as HTML so browsers render them.
-          aws s3 cp s3://prod-collaboration-blog.tilt.dev/ s3://prod-collaboration-blog.tilt.dev/ --recursive --exclude "*.*" --content-type text/html --metadata-directive REPLACE --region us-east-1
       - name: Invalidate CloudFront cache for blog.tilt.dev
         if: steps.paths.outputs.blog == 'true'
         run: |
@@ -76,8 +74,6 @@ jobs:
         if: steps.paths.outputs.docs == 'true'
         run: |
           aws s3 sync build/docs s3://prod-collaboration-docs.tilt.dev/ --region us-east-1 --delete
-          # Extensionless page copies sync as octet-stream; retag them as HTML so browsers render them.
-          aws s3 cp s3://prod-collaboration-docs.tilt.dev/ s3://prod-collaboration-docs.tilt.dev/ --recursive --exclude "*.*" --content-type text/html --metadata-directive REPLACE --region us-east-1
       - name: Invalidate CloudFront cache for docs.tilt.dev
         if: steps.paths.outputs.docs == 'true'
         run: |
@@ -98,8 +94,6 @@ jobs:
         if: steps.paths.outputs.site == 'true'
         run: |
           aws s3 sync build/site s3://prod-collaboration-tilt.dev/ --region us-east-1 --delete
-          # Extensionless page copies sync as octet-stream; retag them as HTML so browsers render them.
-          aws s3 cp s3://prod-collaboration-tilt.dev/ s3://prod-collaboration-tilt.dev/ --recursive --exclude "*.*" --content-type text/html --metadata-directive REPLACE --region us-east-1
       - name: Invalidate CloudFront cache for www.tilt.dev
         if: steps.paths.outputs.site == 'true'
         run: |

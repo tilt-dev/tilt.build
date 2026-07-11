@@ -15,10 +15,11 @@ RUN npm install -g pagefind
 WORKDIR /build
 COPY --from=static-builder /docs/_site /build
 RUN pagefind --site .
-# Create extensionless copies of every page (foo.html -> foo) so URLs work both
-# with and without the ".html" suffix once synced to S3. Done after pagefind so
-# the copies aren't indexed as duplicate search results.
-RUN find . -type f -name '*.html' ! -name 'index.html' -exec sh -c 'cp "$1" "${1%.html}"' _ {} \;
+# Also emit each page as <name>/index.html so extensionless URLs work: CloudFront
+# rewrites /foo to /foo/index.html, and keeping the .html extension means the S3
+# sync tags it text/html automatically. Done after pagefind so the copies aren't
+# indexed as duplicate search results.
+RUN find . -type f -name '*.html' ! -name 'index.html' -exec sh -c 'd="${1%.html}"; mkdir -p "$d"; cp "$1" "$d/index.html"' _ {} \;
 
 FROM scratch AS static
 COPY --from=search-builder /build /
