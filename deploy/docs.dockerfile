@@ -15,6 +15,10 @@ RUN npm install -g pagefind
 WORKDIR /build
 COPY --from=static-builder /docs/_site /build
 RUN pagefind --site .
+# Create extensionless copies of every page (foo.html -> foo) so URLs work both
+# with and without the ".html" suffix once synced to S3. Done after pagefind so
+# the copies aren't indexed as duplicate search results.
+RUN find . -type f -name '*.html' ! -name 'index.html' -exec sh -c 'cp "$1" "${1%.html}"' _ {} \;
 
 FROM scratch AS static
 COPY --from=search-builder /build /
