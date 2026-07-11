@@ -133,16 +133,6 @@ def fall_back_on(files: Union[str, List[str]]) -> LiveUpdateStep:
   """
   pass
 
-def initial_sync() -> LiveUpdateStep:
-  """Perform a full file sync to the container when it starts or restarts.
-
-  ``initial_sync`` may appear at most once, and only as the first step in a
-  ``live_update`` list.
-
-  For more info, see the `Live Update Reference <live_update_reference.html>`_.
-  """
-  pass
-
 
 def set_team(team_id: str) -> None:
   """Associates this Tiltfile with the `team <teams.html>`_ identified by `team_id`.
