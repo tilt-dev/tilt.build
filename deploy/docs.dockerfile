@@ -19,7 +19,7 @@ RUN pagefind --site .
 # rewrites /foo to /foo/index.html, and keeping the .html extension means the S3
 # sync tags it text/html automatically. Done after pagefind so the copies aren't
 # indexed as duplicate search results.
-RUN find . -type f -name '*.html' ! -name 'index.html' -exec sh -c 'd="${1%.html}"; mkdir -p "$d"; cp "$1" "$d/index.html"' _ {} \;
+RUN find . -type f -name '*.html' ! -name 'index.html' -exec sh -c 'd="${1%.html}"; mkdir -p "$d"; cp -n "$1" "$d/index.html"' _ {} \;
 
 FROM scratch AS static
 COPY --from=search-builder /build /
