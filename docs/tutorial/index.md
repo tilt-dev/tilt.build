@@ -2,7 +2,7 @@
 title: First Look at Tilt
 layout: docs
 sidebar: gettingstarted
-permalink: /tutorial/index.html
+permalink: /tutorial/
 redirect_from:
  - /tutorial.html
 ---
