@@ -77,6 +77,8 @@ During initial sync, Tilt only uploads files. It does not delete files from the 
 
 After the initial sync completes, `run` steps execute using the same trigger logic as incremental updates: steps without triggers always run, and steps with triggers only run if the synced files match their trigger paths.
 
+Files listed in `fall_back_on()` are included in the initial sync if they also match a `sync()` step. Tilt does not fall back to a rebuild merely because those files are present during initial sync: the container has just started, so Tilt copies them along with the other synced files. They still count as synced files for `run()` trigger matching.
+
 On subsequent file changes (while the container is still running), Live Update behaves normally: only changed files are synced, and `run` steps only execute if their triggers match.
 
 ### [sync(local_path: str, remote_path: str)](api.html#api.sync)
@@ -129,6 +131,8 @@ docker_build('my-img', './server', live_update=[
 
 ### [fall_back_on(files: str || List[str])](api.html#api.fall_back_on)
 This step is optional, though if provided, it must come at the beginning of the `live_update` call. The argument is a filepath (string) or multiple filepaths (list of strings) on your local machine, either absolute or relative to the Tiltfile. Whenever Tilt detects a change to your local filesystem that would otherwise trigger a LiveUpdate, it first checks if it matches any `fall_back_on` files; if yes, instead of doing a LiveUpdate, Tilt _falls back_ to a full rebuild + deploy.
+
+When `initial_sync()` is configured, `fall_back_on()` applies only to changes detected after the initial sync. A fallback file that also matches a `sync()` step is copied during initial sync and does not cause a rebuild. Later edits to that file still cause Tilt to fall back as usual.
 
 
 ### [run(cmd: str, trigger=None: str || List[str])](api.html#api.run)
