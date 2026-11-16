@@ -16,6 +16,9 @@ It provides syntax highlighting, autocomplete and signature support for `Tiltfil
 
 ![](assets/img/vscode-extension.gif)
 
+## JetBrains IDEs
+[Loopfile](https://plugins.jetbrains.com/plugin/36122-loopfile) is a free third-party plugin for IntelliJ-based IDEs (GoLand, PyCharm, WebStorm and others). It adds `Tiltfile` highlighting, a structure view, completion with short documentation for Tilt built-ins, and navigation for `load()` and `include()` paths. It works offline and does not use the Tilt language server.
+
 ## TextMate bundles
 The [tiltfile.tmbundle](https://github.com/tilt-dev/tiltfile.tmbundle) offers syntax highlighting for any IDEs supporting TextMate bundles, like IntelliJ GoLand, PyCharm or WebStorm.
 
